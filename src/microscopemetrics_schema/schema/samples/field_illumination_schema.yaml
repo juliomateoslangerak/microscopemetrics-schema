@@ -7,7 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - ../core_schema  # TODO: change to metrics:core_schema
+  - core_schema  # TODO: change to metrics:core_schema
 
 default_range: string
 

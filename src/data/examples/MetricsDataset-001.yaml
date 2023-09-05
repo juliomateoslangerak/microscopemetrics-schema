@@ -1,7 +1,5 @@
 # Example data object
 ---
-entries:
-  - id: example:MetricsDataset001
-    name: foo bar
-    primary_email: foo.bar@example.com
-    age_in_years: 33
+id: example:001
+name: foo bar
+description: This is a test object

@@ -9,14 +9,14 @@ see_also:
   - https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 
 prefixes:
-#  microscopemetrics_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/
+  microscopemetrics_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/
   linkml: https://w3id.org/linkml/
 #  biolink: https://w3id.org/biolink/
 #  schema: http://schema.org/
-#  example: https://example.org/
-#default_prefix: microscopemetrics_schema
-#default_range: string
-#
+  example: https://example.org/
+default_prefix: microscopemetrics_schema
+default_range: string
+
 imports:
   - linkml:types
   - core_schema

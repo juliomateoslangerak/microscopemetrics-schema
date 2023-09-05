@@ -7,7 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - ../core_schema  # TODO: change to metrics:core_schema
+  - core_schema  # TODO: change to metrics:core_schema
 
 default_range: string
 
@@ -101,10 +101,10 @@ classes:
     slots:
       - channel
       - nr_of_spots
-      - max_intensity
-      - max_intensity_roi
-      - min_intensity
-      - min_intensity_roi
+      - intensity_max_spot
+      - intensity_max_spot_roi
+      - intensity_min_spot
+      - intensity_min_spot_roi
       - mean_intensity
       - median_intensity
       - std_mean_intensity
@@ -269,22 +269,22 @@ slots:
     description: >-
       Number of argolight spots detected for each channel
     multivalued: true
-  max_intensity:
+  intensity_max_spot:
     range: float
     description: >-
       Integrated intensity of the most intense spot for each channel
     multivalued: true
-  max_intensity_roi:
+  intensity_max_spot_roi:
     range: integer
     description: >-
       ROI number of the most intense spot for each channel
     multivalued: true
-  min_intensity:
+  intensity_min_spot:
     range: float
     description: >-
       Integrated intensity of the least intense spot for each channel
     multivalued: true
-  min_intensity_roi:
+  intensity_min_spot_roi:
     range: integer
     description: >-
       ROI number of the least intense spot for each channel
