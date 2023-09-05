@@ -1,0 +1,27 @@
+{
+  "template": "https://github.com/linkml/linkml-project-cookiecutter",
+  "commit": "ef7ff16925321a2abdbaa5a2ba5db8aa83ebf24f",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "microscopemetrics-schema",
+      "__project_slug": "microscopemetrics_schema",
+      "github_org": "MontpellierRessourcesImagerie",
+      "__source_path": "src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml",
+      "project_description": "A schema for microscope-metrics, a python package for microscope QC",
+      "full_name": "Julio Mateos Langerak",
+      "email": "julio.mateos-langerak@igh.cnrs.fr",
+      "__author": "Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>",
+      "license": "GNU GPL v3.0",
+      "main_schema_class": "MetricsDataset",
+      "create_python_classes": "Yes",
+      "use_schemasheets": "No",
+      "google_sheet_id": "1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ",
+      "google_sheet_tabs": "personinfo enums",
+      "__google_sheet_module": "personinfo_enums",
+      "github_token_for_pypi_deployment": "PYPI_PASSWORD",
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+    }
+  },
+  "directory": null
+}
