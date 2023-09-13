@@ -2,7 +2,7 @@
 ---
 generator_args:
   excel:
-    mergeimports: true
+    mergeimports: false
   owl:
     mergeimports: true
     metaclasses: true
