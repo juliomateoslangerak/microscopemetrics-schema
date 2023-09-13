@@ -3,5 +3,5 @@ name: microscopemetrics_schema
 author: Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>
 description: A schema for microscope-metrics, a python package for microscope QC
 source_schema_path: src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml
-google_sheet_id: 1wVoaiFg47aT9YWNeRfTZ8tYHN8s8PAuDx5i2HUcDpvQ
-google_sheet_tabs: personinfo enums
+google_sheet_id:
+google_sheet_tabs:
