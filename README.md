@@ -1,6 +1,6 @@
 # microscopemetrics-schema
 
-A schema for microscope-metrics, a python package for microscope QC
+A schema for [microscope-metrics](https://github.com/MontpellierRessourcesImagerie/microscope-metrics), a python package for microscope QC
 
 ## Website
 
