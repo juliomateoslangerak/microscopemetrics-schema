@@ -127,6 +127,14 @@ classes:
     slots:
       - image_url
       - source_image_url
+      - voxel_size_x_micron
+      - voxel_size_y_micron
+      - voxel_size_z_micron
+      - shape_x
+      - shape_y
+      - shape_z
+      - shape_c
+      - shape_t
 
   ImageAsNumpy:
     is_a: Image
@@ -144,16 +152,6 @@ classes:
     is_a: ImageInline
     description: A base object for all microscope-metrics masks
     attributes:
-      y:
-        range: PixelSeries
-        implements:
-          - linkml:axis1
-        required: true
-      x:
-        range: PixelSeries
-        implements:
-          - linkml:axis0
-        required: true
       data:
         implements:
           - linkml:elements
@@ -168,16 +166,6 @@ classes:
       - linkml:TwoDimensionalArray
       - linkml:RowOrderedArray
     attributes:
-      y:
-        range: PixelSeries
-        implements:
-          - linkml:axis0
-        required: true
-      x:
-        range: PixelSeries
-        implements:
-          - linkml:axis1
-        required: true
       data:
         implements:
           - linkml:elements
@@ -192,31 +180,16 @@ classes:
       - linkml:FiveDimensionalArray
       - linkml:RowOrderedArray
     attributes:
-      t:
+      time_series:
         range: TimeSeries
         implements:
           - linkml:axis0
-        required: true
-      z:
-        range: PixelSeries
-        implements:
-          - linkml:axis1
-        required: true
-      y:
-        range: PixelSeries
-        implements:
-          - linkml:axis2
-        required: true
-      x:
-        range: PixelSeries
-        implements:
-          - linkml:axis3
-        required: true
-      c:
+        required: false
+      channel_series:
         range: ChannelSeries
         implements:
           - linkml:axis4
-        required: true
+        required: false
       data:
         implements:
           - linkml:elements
@@ -224,30 +197,37 @@ classes:
         multivalued: true
         required: true
 
-  PixelSeries:
-    description: >-
-      A series whose values represent pixels or voxels or a single integer defining the shape of the dimension
-    implements:
-      - linkml:OneDimensionalSeries
-    attributes:
-      values:
-        range: integer
-        multivalued: true
-        implements:
-          - linkml:elements
-        required: true
-
+#  PixelSeries:
+#    description: >-
+#      A series whose values represent pixels or voxels or a single integer defining the shape of the dimension
+#    implements:
+#      - linkml:OneDimensionalSeries
+#    attributes:
+#      values:
+#        range: integer
+#        multivalued: true
+#        implements:
+#          - linkml:elements
+#        required: true
+#
   ChannelSeries:
     description: A series whose values represent channel
     implements:
       - linkml:OneDimensionalSeries
     attributes:
       values:
-        range: integer
+        range: Channel
         multivalued: true
         implements:
           - linkml:elements
         required: true
+
+  Channel:
+    is_a: NamedObject
+    description: A image channel
+    slots:
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
 
   TimeSeries:
     description: A series whose values represent time
@@ -587,6 +567,59 @@ slots:
     description: A list of URLs linking to the images that were used as a source
     required: false
     multivalued: true
+  shape_x:
+    range: integer
+    description: The shape of the image in the x dimension
+    required: true
+    multivalued: false
+  shape_y:
+    range: integer
+    description: The shape of the image in the y dimension
+    required: true
+    multivalued: false
+  shape_z:
+    range: integer
+    description: The shape of the image in the z dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  shape_c:
+    range: integer
+    description: The shape of the image in the c dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  shape_t:
+    range: integer
+    description: The shape of the image in the t dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  voxel_size_x_micron:
+    range: float
+    description: The physical size in the voxel in the x dimension in microns
+    required: false
+    multivalued: false
+  voxel_size_y_micron:
+    range: float
+    description: The physical size in the voxel in the y dimension in microns
+    required: false
+    multivalued: false
+  voxel_size_z_micron:
+    range: float
+    description: The physical size in the voxel in the z dimension in microns
+    required: false
+    multivalued: false
+  excitation_wavelength_nm:
+    range: float
+    description: The excitation wavelength in nm
+    required: false
+    multivalued: false
+  emission_wavelength_nm:
+    range: float
+    description: The emission wavelength in nm
+    required: false
+    multivalued: false
   id:
     range: string
     description: The unique identifier for an entity
