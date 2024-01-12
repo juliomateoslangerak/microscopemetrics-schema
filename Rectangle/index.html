@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Rectangle/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.2, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Rectangle - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -401,9 +401,6 @@ attributes:
     alias: x
     owner: Rectangle
     domain_of:
-    - ImageMask
-    - Image2D
-    - Image5D
     - Point
     - Rectangle
     - Ellipse
@@ -419,9 +416,6 @@ attributes:
     alias: y
     owner: Rectangle
     domain_of:
-    - ImageMask
-    - Image2D
-    - Image5D
     - Point
     - Rectangle
     - Ellipse
@@ -468,10 +462,10 @@ attributes:
     name: z
     description: The z coordinate of the shape
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
     alias: z
     owner: Rectangle
     domain_of:
-    - Image5D
     - Shape
     range: float
     required: false
@@ -479,10 +473,10 @@ attributes:
     name: c
     description: The c coordinate of the shape
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
     alias: c
     owner: Rectangle
     domain_of:
-    - Image5D
     - Shape
     range: integer
     required: false
@@ -490,10 +484,10 @@ attributes:
     name: t
     description: The t coordinate of the shape
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
     alias: t
     owner: Rectangle
     domain_of:
-    - Image5D
     - Shape
     range: integer
     required: false
