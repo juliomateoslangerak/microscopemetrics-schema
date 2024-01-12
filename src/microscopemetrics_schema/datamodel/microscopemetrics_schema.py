@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2023-09-07T16:24:19
+# Generation date: 2024-01-12T10:21:24
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -299,7 +299,15 @@ class Image(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image
 
     image_url: Union[str, ImageImageUrl] = None
+    shape_x: int = None
+    shape_y: int = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
     source_image_url: Optional[Union[str, List[str]]] = empty_list()
+    voxel_size_x_micron: Optional[float] = None
+    voxel_size_y_micron: Optional[float] = None
+    voxel_size_z_micron: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.image_url):
@@ -307,9 +315,43 @@ class Image(MetricsObject):
         if not isinstance(self.image_url, ImageImageUrl):
             self.image_url = ImageImageUrl(self.image_url)
 
+        if self._is_empty(self.shape_x):
+            self.MissingRequiredField("shape_x")
+        if not isinstance(self.shape_x, int):
+            self.shape_x = int(self.shape_x)
+
+        if self._is_empty(self.shape_y):
+            self.MissingRequiredField("shape_y")
+        if not isinstance(self.shape_y, int):
+            self.shape_y = int(self.shape_y)
+
+        if self._is_empty(self.shape_z):
+            self.MissingRequiredField("shape_z")
+        if not isinstance(self.shape_z, int):
+            self.shape_z = int(self.shape_z)
+
+        if self._is_empty(self.shape_c):
+            self.MissingRequiredField("shape_c")
+        if not isinstance(self.shape_c, int):
+            self.shape_c = int(self.shape_c)
+
+        if self._is_empty(self.shape_t):
+            self.MissingRequiredField("shape_t")
+        if not isinstance(self.shape_t, int):
+            self.shape_t = int(self.shape_t)
+
         if not isinstance(self.source_image_url, list):
             self.source_image_url = [self.source_image_url] if self.source_image_url is not None else []
         self.source_image_url = [v if isinstance(v, str) else str(v) for v in self.source_image_url]
+
+        if self.voxel_size_x_micron is not None and not isinstance(self.voxel_size_x_micron, float):
+            self.voxel_size_x_micron = float(self.voxel_size_x_micron)
+
+        if self.voxel_size_y_micron is not None and not isinstance(self.voxel_size_y_micron, float):
+            self.voxel_size_y_micron = float(self.voxel_size_y_micron)
+
+        if self.voxel_size_z_micron is not None and not isinstance(self.voxel_size_z_micron, float):
+            self.voxel_size_z_micron = float(self.voxel_size_z_micron)
 
         super().__post_init__(**kwargs)
 
@@ -327,6 +369,11 @@ class ImageAsNumpy(Image):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageAsNumpy
 
     image_url: Union[str, ImageAsNumpyImageUrl] = None
+    shape_x: int = None
+    shape_y: int = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
     data: Optional[Union[dict, MetaObject]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -351,6 +398,11 @@ class ImageInline(Image):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageInline
 
     image_url: Union[str, ImageInlineImageUrl] = None
+    shape_x: int = None
+    shape_y: int = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
 
 @dataclass
 class ImageMask(ImageInline):
@@ -365,25 +417,18 @@ class ImageMask(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageMask
 
     image_url: Union[str, ImageMaskImageUrl] = None
-    y: Union[dict, "PixelSeries"] = None
-    x: Union[dict, "PixelSeries"] = None
+    shape_x: int = None
+    shape_y: int = None
     data: Union[Union[bool, Bool], List[Union[bool, Bool]]] = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.image_url):
             self.MissingRequiredField("image_url")
         if not isinstance(self.image_url, ImageMaskImageUrl):
             self.image_url = ImageMaskImageUrl(self.image_url)
-
-        if self._is_empty(self.y):
-            self.MissingRequiredField("y")
-        if not isinstance(self.y, PixelSeries):
-            self.y = PixelSeries(**as_dict(self.y))
-
-        if self._is_empty(self.x):
-            self.MissingRequiredField("x")
-        if not isinstance(self.x, PixelSeries):
-            self.x = PixelSeries(**as_dict(self.x))
 
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
@@ -407,25 +452,18 @@ class Image2D(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image2D
 
     image_url: Union[str, Image2DImageUrl] = None
-    y: Union[dict, "PixelSeries"] = None
-    x: Union[dict, "PixelSeries"] = None
+    shape_x: int = None
+    shape_y: int = None
     data: Union[float, List[float]] = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.image_url):
             self.MissingRequiredField("image_url")
         if not isinstance(self.image_url, Image2DImageUrl):
             self.image_url = Image2DImageUrl(self.image_url)
-
-        if self._is_empty(self.y):
-            self.MissingRequiredField("y")
-        if not isinstance(self.y, PixelSeries):
-            self.y = PixelSeries(**as_dict(self.y))
-
-        if self._is_empty(self.x):
-            self.MissingRequiredField("x")
-        if not isinstance(self.x, PixelSeries):
-            self.x = PixelSeries(**as_dict(self.x))
 
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
@@ -449,12 +487,14 @@ class Image5D(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image5D
 
     image_url: Union[str, Image5DImageUrl] = None
-    t: Union[dict, "TimeSeries"] = None
-    z: Union[dict, "PixelSeries"] = None
-    y: Union[dict, "PixelSeries"] = None
-    x: Union[dict, "PixelSeries"] = None
-    c: Union[dict, "ChannelSeries"] = None
+    shape_x: int = None
+    shape_y: int = None
     data: Union[float, List[float]] = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
+    time_series: Optional[Union[dict, "TimeSeries"]] = None
+    channel_series: Optional[Union[dict, "ChannelSeries"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.image_url):
@@ -462,60 +502,17 @@ class Image5D(ImageInline):
         if not isinstance(self.image_url, Image5DImageUrl):
             self.image_url = Image5DImageUrl(self.image_url)
 
-        if self._is_empty(self.t):
-            self.MissingRequiredField("t")
-        if not isinstance(self.t, TimeSeries):
-            self.t = TimeSeries(**as_dict(self.t))
-
-        if self._is_empty(self.z):
-            self.MissingRequiredField("z")
-        if not isinstance(self.z, PixelSeries):
-            self.z = PixelSeries(**as_dict(self.z))
-
-        if self._is_empty(self.y):
-            self.MissingRequiredField("y")
-        if not isinstance(self.y, PixelSeries):
-            self.y = PixelSeries(**as_dict(self.y))
-
-        if self._is_empty(self.x):
-            self.MissingRequiredField("x")
-        if not isinstance(self.x, PixelSeries):
-            self.x = PixelSeries(**as_dict(self.x))
-
-        if self._is_empty(self.c):
-            self.MissingRequiredField("c")
-        if not isinstance(self.c, ChannelSeries):
-            self.c = ChannelSeries(**as_dict(self.c))
-
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
         if not isinstance(self.data, list):
             self.data = [self.data] if self.data is not None else []
         self.data = [v if isinstance(v, float) else float(v) for v in self.data]
 
-        super().__post_init__(**kwargs)
+        if self.time_series is not None and not isinstance(self.time_series, TimeSeries):
+            self.time_series = TimeSeries(**as_dict(self.time_series))
 
-
-@dataclass
-class PixelSeries(YAMLRoot):
-    """
-    A series whose values represent pixels or voxels or a single integer defining the shape of the dimension
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/PixelSeries"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/PixelSeries"
-    class_name: ClassVar[str] = "PixelSeries"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PixelSeries
-
-    values: Union[int, List[int]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.values):
-            self.MissingRequiredField("values")
-        if not isinstance(self.values, list):
-            self.values = [self.values] if self.values is not None else []
-        self.values = [v if isinstance(v, int) else int(v) for v in self.values]
+        if self.channel_series is not None and not isinstance(self.channel_series, ChannelSeries):
+            self.channel_series = ChannelSeries(**as_dict(self.channel_series))
 
         super().__post_init__(**kwargs)
 
@@ -532,14 +529,39 @@ class ChannelSeries(YAMLRoot):
     class_name: ClassVar[str] = "ChannelSeries"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChannelSeries
 
-    values: Union[int, List[int]] = None
+    values: Union[Union[dict, "Channel"], List[Union[dict, "Channel"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.values):
             self.MissingRequiredField("values")
         if not isinstance(self.values, list):
             self.values = [self.values] if self.values is not None else []
-        self.values = [v if isinstance(v, int) else int(v) for v in self.values]
+        self.values = [v if isinstance(v, Channel) else Channel(**as_dict(v)) for v in self.values]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class Channel(NamedObject):
+    """
+    A image channel
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Channel"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Channel"
+    class_name: ClassVar[str] = "Channel"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Channel
+
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
 
         super().__post_init__(**kwargs)
 
@@ -1832,6 +1854,36 @@ slots.image_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image_url'], na
 slots.source_image_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image_url'], name="source_image_url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image_url'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.source_image_url, domain=None, range=Optional[Union[str, List[str]]])
 
+slots.shape_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_x'], name="shape_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_x, domain=None, range=int)
+
+slots.shape_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_y'], name="shape_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_y, domain=None, range=int)
+
+slots.shape_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_z'], name="shape_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_z, domain=None, range=int)
+
+slots.shape_c = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_c'], name="shape_c", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_c'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_c, domain=None, range=int)
+
+slots.shape_t = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_t'], name="shape_t", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_t'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_t, domain=None, range=int)
+
+slots.voxel_size_x_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_x_micron'], name="voxel_size_x_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_x_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_x_micron, domain=None, range=Optional[float])
+
+slots.voxel_size_y_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_y_micron'], name="voxel_size_y_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_y_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_y_micron, domain=None, range=Optional[float])
+
+slots.voxel_size_z_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_z_micron'], name="voxel_size_z_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_z_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_z_micron, domain=None, range=Optional[float])
+
+slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/excitation_wavelength_nm'], name="excitation_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/excitation_wavelength_nm'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.excitation_wavelength_nm, domain=None, range=Optional[float])
+
+slots.emission_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/emission_wavelength_nm'], name="emission_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/emission_wavelength_nm'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.emission_wavelength_nm, domain=None, range=Optional[float])
+
 slots.id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/id'], name="id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/id'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.id, domain=None, range=URIRef)
 
@@ -2132,47 +2184,23 @@ slots.metricsDataset__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/c
 slots.imageAsNumpy__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="imageAsNumpy__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.imageAsNumpy__data, domain=None, range=Optional[Union[dict, MetaObject]])
 
-slots.imageMask__y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/y'], name="imageMask__y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.imageMask__y, domain=None, range=Union[dict, PixelSeries])
-
-slots.imageMask__x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/x'], name="imageMask__x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.imageMask__x, domain=None, range=Union[dict, PixelSeries])
-
 slots.imageMask__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="imageMask__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.imageMask__data, domain=None, range=Union[Union[bool, Bool], List[Union[bool, Bool]]])
-
-slots.image2D__y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/y'], name="image2D__y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image2D__y, domain=None, range=Union[dict, PixelSeries])
-
-slots.image2D__x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/x'], name="image2D__x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image2D__x, domain=None, range=Union[dict, PixelSeries])
 
 slots.image2D__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="image2D__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image2D__data, domain=None, range=Union[float, List[float]])
 
-slots.image5D__t = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/t'], name="image5D__t", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/t'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__t, domain=None, range=Union[dict, TimeSeries])
+slots.image5D__time_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/time_series'], name="image5D__time_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/time_series'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__time_series, domain=None, range=Optional[Union[dict, TimeSeries]])
 
-slots.image5D__z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/z'], name="image5D__z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__z, domain=None, range=Union[dict, PixelSeries])
-
-slots.image5D__y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/y'], name="image5D__y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__y, domain=None, range=Union[dict, PixelSeries])
-
-slots.image5D__x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/x'], name="image5D__x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__x, domain=None, range=Union[dict, PixelSeries])
-
-slots.image5D__c = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/c'], name="image5D__c", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/c'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__c, domain=None, range=Union[dict, ChannelSeries])
+slots.image5D__channel_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_series'], name="image5D__channel_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_series'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__channel_series, domain=None, range=Optional[Union[dict, ChannelSeries]])
 
 slots.image5D__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="image5D__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image5D__data, domain=None, range=Union[float, List[float]])
 
-slots.pixelSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="pixelSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pixelSeries__values, domain=None, range=Union[int, List[int]])
-
 slots.channelSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="channelSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__values, domain=None, range=Union[int, List[int]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__values, domain=None, range=Union[Union[dict, Channel], List[Union[dict, Channel]]])
 
 slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="timeSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.timeSeries__values, domain=None, range=Union[float, List[float]])

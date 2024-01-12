@@ -49,8 +49,16 @@ CREATE TABLE "ArgolightEOutput" (
 	PRIMARY KEY (peaks_rois, key_measurements, intensity_profiles)
 );
 
+CREATE TABLE "Channel" (
+	name TEXT, 
+	description TEXT, 
+	excitation_wavelength_nm FLOAT, 
+	emission_wavelength_nm FLOAT, 
+	PRIMARY KEY (name, description, excitation_wavelength_nm, emission_wavelength_nm)
+);
+
 CREATE TABLE "ChannelSeries" (
-	"values" INTEGER NOT NULL, 
+	"values" TEXT NOT NULL, 
 	PRIMARY KEY ("values")
 );
 
@@ -136,8 +144,14 @@ CREATE TABLE "Image2D" (
 	name TEXT, 
 	description TEXT, 
 	image_url TEXT NOT NULL, 
-	y TEXT NOT NULL, 
-	x TEXT NOT NULL, 
+	voxel_size_x_micron FLOAT, 
+	voxel_size_y_micron FLOAT, 
+	voxel_size_z_micron FLOAT, 
+	shape_x INTEGER NOT NULL, 
+	shape_y INTEGER NOT NULL, 
+	shape_z INTEGER NOT NULL, 
+	shape_c INTEGER NOT NULL, 
+	shape_t INTEGER NOT NULL, 
 	PRIMARY KEY (image_url)
 );
 
@@ -145,11 +159,16 @@ CREATE TABLE "Image5D" (
 	name TEXT, 
 	description TEXT, 
 	image_url TEXT NOT NULL, 
-	t TEXT NOT NULL, 
-	z TEXT NOT NULL, 
-	y TEXT NOT NULL, 
-	x TEXT NOT NULL, 
-	c TEXT NOT NULL, 
+	voxel_size_x_micron FLOAT, 
+	voxel_size_y_micron FLOAT, 
+	voxel_size_z_micron FLOAT, 
+	shape_x INTEGER NOT NULL, 
+	shape_y INTEGER NOT NULL, 
+	shape_z INTEGER NOT NULL, 
+	shape_c INTEGER NOT NULL, 
+	shape_t INTEGER NOT NULL, 
+	time_series TEXT, 
+	channel_series TEXT, 
 	PRIMARY KEY (image_url)
 );
 
@@ -157,6 +176,14 @@ CREATE TABLE "ImageAsNumpy" (
 	name TEXT, 
 	description TEXT, 
 	image_url TEXT NOT NULL, 
+	voxel_size_x_micron FLOAT, 
+	voxel_size_y_micron FLOAT, 
+	voxel_size_z_micron FLOAT, 
+	shape_x INTEGER NOT NULL, 
+	shape_y INTEGER NOT NULL, 
+	shape_z INTEGER NOT NULL, 
+	shape_c INTEGER NOT NULL, 
+	shape_t INTEGER NOT NULL, 
 	data TEXT, 
 	PRIMARY KEY (image_url)
 );
@@ -165,8 +192,14 @@ CREATE TABLE "ImageMask" (
 	name TEXT, 
 	description TEXT, 
 	image_url TEXT NOT NULL, 
-	y TEXT NOT NULL, 
-	x TEXT NOT NULL, 
+	voxel_size_x_micron FLOAT, 
+	voxel_size_y_micron FLOAT, 
+	voxel_size_z_micron FLOAT, 
+	shape_x INTEGER NOT NULL, 
+	shape_y INTEGER NOT NULL, 
+	shape_z INTEGER NOT NULL, 
+	shape_c INTEGER NOT NULL, 
+	shape_t INTEGER NOT NULL, 
 	PRIMARY KEY (image_url)
 );
 
@@ -183,11 +216,6 @@ CREATE TABLE "Line" (
 	x2 FLOAT NOT NULL, 
 	y2 FLOAT NOT NULL, 
 	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, x1, y1, x2, y2)
-);
-
-CREATE TABLE "PixelSeries" (
-	"values" INTEGER NOT NULL, 
-	PRIMARY KEY ("values")
 );
 
 CREATE TABLE "Point" (

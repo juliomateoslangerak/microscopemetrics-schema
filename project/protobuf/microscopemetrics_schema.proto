@@ -107,10 +107,18 @@ message ArgolightEOutput
   argolightEKeyValues keyMeasurements = 0
   tableAsDict intensityProfiles = 0
  }
+// A image channel
+message Channel
+ {
+  string name = 0
+  string description = 0
+  float excitationWavelengthNm = 0
+  float emissionWavelengthNm = 0
+ }
 // A series whose values represent channel
 message ChannelSeries
  {
- repeated  integer values = 0
+ repeated  channel values = 0
  }
 // A color as defined by RGB values and an optional alpha value
 message Color
@@ -231,8 +239,14 @@ message Image2D
   string description = 0
   string imageUrl = 0
  repeated  string sourceImageUrl = 0
-  pixelSeries y = 0
-  pixelSeries x = 0
+  float voxelSizeXMicron = 0
+  float voxelSizeYMicron = 0
+  float voxelSizeZMicron = 0
+  integer shapeX = 0
+  integer shapeY = 0
+  integer shapeZ = 0
+  integer shapeC = 0
+  integer shapeT = 0
  repeated  float data = 0
  }
 // A 5D image in TZYXC order
@@ -242,11 +256,16 @@ message Image5D
   string description = 0
   string imageUrl = 0
  repeated  string sourceImageUrl = 0
-  timeSeries t = 0
-  pixelSeries z = 0
-  pixelSeries y = 0
-  pixelSeries x = 0
-  channelSeries c = 0
+  float voxelSizeXMicron = 0
+  float voxelSizeYMicron = 0
+  float voxelSizeZMicron = 0
+  integer shapeX = 0
+  integer shapeY = 0
+  integer shapeZ = 0
+  integer shapeC = 0
+  integer shapeT = 0
+  timeSeries timeSeries = 0
+  channelSeries channelSeries = 0
  repeated  float data = 0
  }
 // An image as a numpy array in TZYXC order
@@ -256,6 +275,14 @@ message ImageAsNumpy
   string description = 0
   string imageUrl = 0
  repeated  string sourceImageUrl = 0
+  float voxelSizeXMicron = 0
+  float voxelSizeYMicron = 0
+  float voxelSizeZMicron = 0
+  integer shapeX = 0
+  integer shapeY = 0
+  integer shapeZ = 0
+  integer shapeC = 0
+  integer shapeT = 0
   metaObject data = 0
  }
 // A base object for all microscope-metrics masks
@@ -265,8 +292,14 @@ message ImageMask
   string description = 0
   string imageUrl = 0
  repeated  string sourceImageUrl = 0
-  pixelSeries y = 0
-  pixelSeries x = 0
+  float voxelSizeXMicron = 0
+  float voxelSizeYMicron = 0
+  float voxelSizeZMicron = 0
+  integer shapeX = 0
+  integer shapeY = 0
+  integer shapeZ = 0
+  integer shapeC = 0
+  integer shapeT = 0
  repeated  boolean data = 0
  }
 // A line as defined by x1, y1, x2, y2 coordinates
@@ -310,11 +343,6 @@ message MetricsDataset
   date processingDate = 0
   string processingLog = 0
  repeated  comment comment = 0
- }
-// A series whose values represent pixels or voxels or a single integer defining the shape of the dimension
-message PixelSeries
- {
- repeated  integer values = 0
  }
 // A point as defined by x and y coordinates
 message Point

@@ -578,13 +578,37 @@
             "title": "ArgolightEOutput",
             "type": "object"
         },
+        "Channel": {
+            "additionalProperties": false,
+            "description": "A image channel",
+            "properties": {
+                "description": {
+                    "description": "A description of an entity",
+                    "type": "string"
+                },
+                "emission_wavelength_nm": {
+                    "description": "The emission wavelength in nm",
+                    "type": "number"
+                },
+                "excitation_wavelength_nm": {
+                    "description": "The excitation wavelength in nm",
+                    "type": "number"
+                },
+                "name": {
+                    "description": "The name of an entity",
+                    "type": "string"
+                }
+            },
+            "title": "Channel",
+            "type": "object"
+        },
         "ChannelSeries": {
             "additionalProperties": false,
             "description": "A series whose values represent channel",
             "properties": {
                 "values": {
                     "items": {
-                        "type": "integer"
+                        "$ref": "#/$defs/Channel"
                     },
                     "type": "array"
                 }
@@ -1191,6 +1215,26 @@
                     "description": "The name of an entity",
                     "type": "string"
                 },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
                 "source_image_url": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
@@ -1198,18 +1242,27 @@
                     },
                     "type": "array"
                 },
-                "x": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
                 },
-                "y": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
                 }
             },
             "required": [
-                "y",
-                "x",
                 "data",
-                "image_url"
+                "image_url",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
             ],
             "title": "Image2D",
             "type": "object"
@@ -1218,7 +1271,7 @@
             "additionalProperties": false,
             "description": "A 5D image in TZYXC order",
             "properties": {
-                "c": {
+                "channel_series": {
                     "$ref": "#/$defs/ChannelSeries"
                 },
                 "data": {
@@ -1239,6 +1292,26 @@
                     "description": "The name of an entity",
                     "type": "string"
                 },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
                 "source_image_url": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
@@ -1246,27 +1319,30 @@
                     },
                     "type": "array"
                 },
-                "t": {
+                "time_series": {
                     "$ref": "#/$defs/TimeSeries"
                 },
-                "x": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
                 },
-                "y": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
                 },
-                "z": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
                 }
             },
             "required": [
-                "t",
-                "z",
-                "y",
-                "x",
-                "c",
                 "data",
-                "image_url"
+                "image_url",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
             ],
             "title": "Image5D",
             "type": "object"
@@ -1290,16 +1366,53 @@
                     "description": "The name of an entity",
                     "type": "string"
                 },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
                 "source_image_url": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
                 }
             },
             "required": [
-                "image_url"
+                "image_url",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
             ],
             "title": "ImageAsNumpy",
             "type": "object"
@@ -1326,6 +1439,26 @@
                     "description": "The name of an entity",
                     "type": "string"
                 },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
                 "source_image_url": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
@@ -1333,18 +1466,27 @@
                     },
                     "type": "array"
                 },
-                "x": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
                 },
-                "y": {
-                    "$ref": "#/$defs/PixelSeries"
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
                 }
             },
             "required": [
-                "y",
-                "x",
                 "data",
-                "image_url"
+                "image_url",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
             ],
             "title": "ImageMask",
             "type": "object"
@@ -1463,7 +1605,13 @@
             "additionalProperties": true,
             "description": "",
             "title": "MetaObject",
-            "type": "object"
+            "type": [
+                "null",
+                "boolean",
+                "object",
+                "number",
+                "string"
+            ]
         },
         "MetricsDataset": {
             "additionalProperties": false,
@@ -1518,23 +1666,6 @@
                 "processed"
             ],
             "title": "MetricsDataset",
-            "type": "object"
-        },
-        "PixelSeries": {
-            "additionalProperties": false,
-            "description": "A series whose values represent pixels or voxels or a single integer defining the shape of the dimension",
-            "properties": {
-                "values": {
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "values"
-            ],
-            "title": "PixelSeries",
             "type": "object"
         },
         "Point": {
@@ -1848,7 +1979,7 @@
         }
     },
     "$id": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema",
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A base object on which microscope-metrics runs the analysis",
     "metamodel_version": "1.7.0",

@@ -111,9 +111,17 @@ type ArgolightEOutput
     intensityProfiles: TableAsDict
   }
 
+type Channel
+  {
+    name: String
+    description: String
+    excitationWavelengthNm: Float
+    emissionWavelengthNm: Float
+  }
+
 type ChannelSeries
   {
-    values: [Integer]!
+    values: [Channel]!
   }
 
 type Color
@@ -237,6 +245,14 @@ interface Image
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
   }
 
 type Image2D
@@ -245,8 +261,14 @@ type Image2D
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
-    y: PixelSeries!
-    x: PixelSeries!
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
     data: [Float]!
   }
 
@@ -256,11 +278,16 @@ type Image5D
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
-    t: TimeSeries!
-    z: PixelSeries!
-    y: PixelSeries!
-    x: PixelSeries!
-    c: ChannelSeries!
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
+    timeSeries: TimeSeries
+    channelSeries: ChannelSeries
     data: [Float]!
   }
 
@@ -270,6 +297,14 @@ type ImageAsNumpy
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
     data: MetaObject
   }
 
@@ -279,6 +314,14 @@ interface ImageInline
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
   }
 
 type ImageMask
@@ -287,8 +330,14 @@ type ImageMask
     description: String
     imageUrl: String!
     sourceImageUrl: [String]
-    y: PixelSeries!
-    x: PixelSeries!
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
     data: [Boolean]!
   }
 
@@ -360,11 +409,6 @@ interface NamedObject
   {
     name: String
     description: String
-  }
-
-type PixelSeries
-  {
-    values: [Integer]!
   }
 
 type Point
