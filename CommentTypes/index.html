@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/comment/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/CommentTypes/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: comment - microscopemetrics-schema</title>
+        <title>Enum: CommentTypes - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-comment" class="md-skip">
+        <a href="#enum-commenttypes" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: comment
+              Enum: CommentTypes
             
           </span>
         </div>
@@ -256,15 +256,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
+  <a href="#permissible-values" class="md-nav__link">
+    Permissible Values
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
+  <a href="#slots" class="md-nav__link">
+    Slots
   </a>
   
 </li>
@@ -310,58 +310,62 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/comment.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/CommentTypes.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-comment">Slot: comment</h1>
-<p><em>A human readable comment about the dataset</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/comment">microscopemetrics_schema:comment</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
+<h1 id="enum-commenttypes">Enum: CommentTypes</h1>
+<p><em>The type of the comment</em></p>
+<p>URI: <a href="./">CommentTypes</a></p>
+<h2 id="permissible-values">Permissible Values</h2>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACQUISITION</td>
+<td>None</td>
+<td>The comment is referring to the acquisition</td>
+</tr>
+<tr>
+<td>PROCESSING</td>
+<td>None</td>
+<td>The comment is referring to the processing</td>
+</tr>
+<tr>
+<td>OTHER</td>
+<td>None</td>
+<td>The comment is referring to something else</td>
+</tr>
+<tr>
+<td>UNKNOWN</td>
+<td>None</td>
+<td>The type of the comment is unknown or was not defined</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slots">Slots</h2>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Modifies Slot</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td>An Argolight sample pattern B dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
-<td>An Argolight sample pattern E dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
-<td>A base object on which microscope-metrics runs the analysis</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
-<td>A field illumination dataset</td>
-<td>no</td>
+<td><a href="../comment_type/">comment_type</a></td>
+<td>The type of the comment</td>
 </tr>
 </tbody>
 </table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>
-<p>Range: <a href="../Comment/">Comment</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
-</ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -370,18 +374,23 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: comment
-description: A human readable comment about the dataset
+<pre><code class="language-yaml">name: CommentTypes
+description: The type of the comment
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-multivalued: true
-alias: comment
-owner: MetricsDataset
-domain_of:
-- MetricsDataset
-range: Comment
-required: false
-inlined: true
+permissible_values:
+  ACQUISITION:
+    text: ACQUISITION
+    description: The comment is referring to the acquisition
+  PROCESSING:
+    text: PROCESSING
+    description: The comment is referring to the processing
+  OTHER:
+    text: OTHER
+    description: The comment is referring to something else
+  UNKNOWN:
+    text: UNKNOWN
+    description: The type of the comment is unknown or was not defined
 
 </code></pre>
 

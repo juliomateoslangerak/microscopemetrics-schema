@@ -275,7 +275,7 @@
 </tr>
 <tr>
 <td><a href="../acquisition_date/">acquisition_date</a></td>
-<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>0..1 <br/> <a href="../date/">date</a></td>
 <td>The date of the acquisition</td>
 <td>direct</td>
 </tr>
@@ -287,7 +287,7 @@
 </tr>
 <tr>
 <td><a href="../processing_date/">processing_date</a></td>
-<td>0..1 <br/> <a href="../Date/">Date</a></td>
+<td>0..1 <br/> <a href="../date/">date</a></td>
 <td>The date of the processing by microscope-metrics</td>
 <td>direct</td>
 </tr>
@@ -365,6 +365,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: Experimenter
+    inlined: false
   acquisition_date:
     name: acquisition_date
     description: The date of the acquisition
@@ -403,6 +404,7 @@ attributes:
     multivalued: true
     range: Comment
     required: false
+    inlined: true
 tree_root: true
 
 </code></pre>
@@ -437,6 +439,7 @@ attributes:
     domain_of:
     - MetricsDataset
     range: Experimenter
+    inlined: false
   acquisition_date:
     name: acquisition_date
     description: The date of the acquisition
@@ -495,6 +498,7 @@ attributes:
     - MetricsDataset
     range: Comment
     required: false
+    inlined: true
   name:
     name: name
     description: The name of an entity
