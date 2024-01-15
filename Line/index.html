@@ -217,8 +217,6 @@
 
           Line --|&gt; Color : fill_color
 
-      Line : label
-
       Line : stroke_color
 
           Line --|&gt; Color : stroke_color
@@ -282,12 +280,6 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../label/">label</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The label of the shape</td>
-<td><a href="../Shape/">Shape</a></td>
-</tr>
-<tr>
 <td><a href="../z/">z</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
 <td>The z coordinate of the shape</td>
@@ -338,7 +330,25 @@
 <tbody>
 <tr>
 <td><a href="../RoiProfiles/">RoiProfiles</a></td>
-<td><a href="../shapes/">shapes</a></td>
+<td><a href="../leftTop_to_rightBottom/">leftTop_to_rightBottom</a></td>
+<td>range</td>
+<td><a href="./">Line</a></td>
+</tr>
+<tr>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td><a href="../leftBottom_to_rightTop/">leftBottom_to_rightTop</a></td>
+<td>range</td>
+<td><a href="./">Line</a></td>
+</tr>
+<tr>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td><a href="../left_to_right/">left_to_right</a></td>
+<td>range</td>
+<td><a href="./">Line</a></td>
+</tr>
+<tr>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td><a href="../top_to_bottom/">top_to_bottom</a></td>
 <td>range</td>
 <td><a href="./">Line</a></td>
 </tr>
@@ -467,17 +477,6 @@ attributes:
     - Line
     range: float
     required: true
-  label:
-    name: label
-    description: The label of the shape
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    alias: label
-    owner: Line
-    domain_of:
-    - Roi
-    - Shape
-    range: string
-    required: false
   z:
     name: z
     description: The z coordinate of the shape
