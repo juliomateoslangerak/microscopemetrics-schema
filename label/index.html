@@ -274,19 +274,6 @@
     Identifier and Mapping Information
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -317,7 +304,6 @@
 
 
 <h1 id="slot-label">Slot: label</h1>
-<p><em>The label of the ROI</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/label">microscopemetrics_schema:label</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -337,6 +323,41 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../Shape/">Shape</a></td>
+<td>A shape</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Point/">Point</a></td>
+<td>A point as defined by x and y coordinates</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Line/">Line</a></td>
+<td>A line as defined by x1, y1, x2, y2 coordinates</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Rectangle/">Rectangle</a></td>
+<td>A rectangle as defined by x, y coordinates and width, height</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Ellipse/">Ellipse</a></td>
+<td>An ellipse as defined by x, y coordinates and x and y radii</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Polygon/">Polygon</a></td>
+<td>A polygon as defined by a series of vertexes and a boolean to indicate if clo...</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../Mask/">Mask</a></td>
+<td>A mask as defined by a boolean image</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../RoiProfiles/">RoiProfiles</a></td>
 <td>line ROIs used to compute the intensity profiles</td>
 <td>no</td>
@@ -346,6 +367,11 @@
 <td>Rectangular ROIs used to compute the corner intensities</td>
 <td>no</td>
 </tr>
+<tr>
+<td><a href="../RoiCenter/">RoiCenter</a></td>
+<td>Point ROIs marking the center of illumination</td>
+<td>no</td>
+</tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
@@ -353,24 +379,15 @@
 <li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
-</ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: label
-description: The label of the ROI
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-rank: 1000
-multivalued: false
 alias: label
-owner: Roi
 domain_of:
 - Roi
+- Shape
 range: string
-required: false
 
 </code></pre>
 

@@ -211,6 +211,7 @@
     class Roi
       Roi &lt;|-- RoiProfiles
       Roi &lt;|-- RoiCorners
+      Roi &lt;|-- RoiCenter
 
       Roi : description
 
@@ -227,6 +228,7 @@
 <li><strong>Roi</strong><ul>
 <li><a href="../RoiProfiles/">RoiProfiles</a></li>
 <li><a href="../RoiCorners/">RoiCorners</a></li>
+<li><a href="../RoiCenter/">RoiCenter</a></li>
 </ul>
 </li>
 </ul>
@@ -281,12 +283,6 @@
 <tr>
 <td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
 <td><a href="../peaks_rois/">peaks_rois</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../center_of_illumination/">center_of_illumination</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -367,6 +363,7 @@ attributes:
     owner: Roi
     domain_of:
     - Roi
+    - Shape
     range: string
     required: false
   description:

@@ -214,6 +214,8 @@
 
       Polygon : is_open
 
+      Polygon : label
+
       Polygon : stroke_color
 
           Polygon --|&gt; Color : stroke_color
@@ -259,6 +261,12 @@
 <td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Is the polygon open</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../label/">label</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The label of the shape</td>
+<td><a href="../Shape/">Shape</a></td>
 </tr>
 <tr>
 <td><a href="../z/">z</a></td>
@@ -388,6 +396,18 @@ attributes:
     domain_of:
     - Polygon
     range: boolean
+    required: true
+  label:
+    name: label
+    description: The label of the shape
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    identifier: true
+    alias: label
+    owner: Polygon
+    domain_of:
+    - Roi
+    - Shape
+    range: string
     required: true
   z:
     name: z

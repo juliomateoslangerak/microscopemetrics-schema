@@ -220,6 +220,8 @@
 
           Shape --|&gt; Color : fill_color
 
+      Shape : label
+
       Shape : stroke_color
 
           Shape --|&gt; Color : stroke_color
@@ -255,6 +257,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../label/">label</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The label of the shape</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../z/">z</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
@@ -326,6 +334,13 @@ description: A shape
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 abstract: true
 attributes:
+  label:
+    name: label
+    description: The label of the shape
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    identifier: true
+    range: string
+    required: true
   z:
     name: z
     description: The z coordinate of the shape
@@ -379,6 +394,18 @@ description: A shape
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 abstract: true
 attributes:
+  label:
+    name: label
+    description: The label of the shape
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    identifier: true
+    alias: label
+    owner: Shape
+    domain_of:
+    - Roi
+    - Shape
+    range: string
+    required: true
   z:
     name: z
     description: The z coordinate of the shape

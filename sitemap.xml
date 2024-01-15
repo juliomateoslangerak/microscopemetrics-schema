@@ -301,6 +301,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCenter/</loc>
+         <lastmod>2024-01-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCorners/</loc>
          <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
@@ -492,6 +497,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_of_mass_y/</loc>
+         <lastmod>2024-01-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_points/</loc>
          <lastmod>2024-01-15</lastmod>
          <changefreq>daily</changefreq>
     </url>
