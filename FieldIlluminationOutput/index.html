@@ -216,7 +216,7 @@
 
       FieldIlluminationOutput : corner_rois
 
-          FieldIlluminationOutput --|&gt; Roi : corner_rois
+          FieldIlluminationOutput --|&gt; RoiCorners : corner_rois
 
       FieldIlluminationOutput : intensity_map
 
@@ -280,7 +280,7 @@
 </tr>
 <tr>
 <td><a href="../corner_rois/">corner_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
+<td>0..1 <br/> <a href="../RoiCorners/">RoiCorners</a></td>
 <td>ROIs used to compute the corner intensities</td>
 <td>direct</td>
 </tr>
@@ -376,7 +376,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: Roi
+    range: RoiCorners
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of illumination
@@ -447,7 +447,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: Roi
+    range: RoiCorners
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of illumination

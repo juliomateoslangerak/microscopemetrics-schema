@@ -219,21 +219,21 @@
 
       RoiProfiles : label
 
-      RoiProfiles : left_to_right
+      RoiProfiles : left_to_right_profile
 
-          RoiProfiles --|&gt; Line : left_to_right
+          RoiProfiles --|&gt; Line : left_to_right_profile
 
-      RoiProfiles : leftBottom_to_rightTop
+      RoiProfiles : leftBottom_to_rightTop_profile
 
-          RoiProfiles --|&gt; Line : leftBottom_to_rightTop
+          RoiProfiles --|&gt; Line : leftBottom_to_rightTop_profile
 
-      RoiProfiles : leftTop_to_rightBottom
+      RoiProfiles : leftTop_to_rightBottom_profile
 
-          RoiProfiles --|&gt; Line : leftTop_to_rightBottom
+          RoiProfiles --|&gt; Line : leftTop_to_rightBottom_profile
 
-      RoiProfiles : top_to_bottom
+      RoiProfiles : top_to_bottom_profile
 
-          RoiProfiles --|&gt; Line : top_to_bottom
+          RoiProfiles --|&gt; Line : top_to_bottom_profile
 
 
 </div>
@@ -256,25 +256,25 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../leftTop_to_rightBottom/">leftTop_to_rightBottom</a></td>
+<td><a href="../leftTop_to_rightBottom_profile/">leftTop_to_rightBottom_profile</a></td>
 <td>0..1 <br/> <a href="../Line/">Line</a></td>
 <td>The line from the top-left to the bottom-right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../leftBottom_to_rightTop/">leftBottom_to_rightTop</a></td>
+<td><a href="../leftBottom_to_rightTop_profile/">leftBottom_to_rightTop_profile</a></td>
 <td>0..1 <br/> <a href="../Line/">Line</a></td>
 <td>The line from the bottom-left to the top-right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../left_to_right/">left_to_right</a></td>
+<td><a href="../left_to_right_profile/">left_to_right_profile</a></td>
 <td>0..1 <br/> <a href="../Line/">Line</a></td>
 <td>The line from the left to the right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../top_to_bottom/">top_to_bottom</a></td>
+<td><a href="../top_to_bottom_profile/">top_to_bottom_profile</a></td>
 <td>0..1 <br/> <a href="../Line/">Line</a></td>
 <td>The line from the top to the bottom of the image</td>
 <td>direct</td>
@@ -351,10 +351,10 @@ description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 slots:
-- leftTop_to_rightBottom
-- leftBottom_to_rightTop
-- left_to_right
-- top_to_bottom
+- leftTop_to_rightBottom_profile
+- leftBottom_to_rightTop_profile
+- left_to_right_profile
+- top_to_bottom_profile
 
 </code></pre>
 </details>
@@ -365,46 +365,46 @@ description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
-  leftTop_to_rightBottom:
-    name: leftTop_to_rightBottom
+  leftTop_to_rightBottom_profile:
+    name: leftTop_to_rightBottom_profile
     description: The line from the top-left to the bottom-right of the image
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    alias: leftTop_to_rightBottom
+    alias: leftTop_to_rightBottom_profile
     owner: RoiProfiles
     domain_of:
     - RoiProfiles
     range: Line
-  leftBottom_to_rightTop:
-    name: leftBottom_to_rightTop
+  leftBottom_to_rightTop_profile:
+    name: leftBottom_to_rightTop_profile
     description: The line from the bottom-left to the top-right of the image
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    alias: leftBottom_to_rightTop
+    alias: leftBottom_to_rightTop_profile
     owner: RoiProfiles
     domain_of:
     - RoiProfiles
     range: Line
-  left_to_right:
-    name: left_to_right
+  left_to_right_profile:
+    name: left_to_right_profile
     description: The line from the left to the right of the image
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    alias: left_to_right
+    alias: left_to_right_profile
     owner: RoiProfiles
     domain_of:
     - RoiProfiles
     range: Line
-  top_to_bottom:
-    name: top_to_bottom
+  top_to_bottom_profile:
+    name: top_to_bottom_profile
     description: The line from the top to the bottom of the image
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    alias: top_to_bottom
+    alias: top_to_bottom_profile
     owner: RoiProfiles
     domain_of:
     - RoiProfiles
