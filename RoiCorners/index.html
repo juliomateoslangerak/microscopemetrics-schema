@@ -331,7 +331,7 @@
 </tr>
 <tr>
 <td><a href="../label/">label</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The label of the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
@@ -525,13 +525,14 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    identifier: true
     alias: label
     owner: RoiCorners
     domain_of:
     - Roi
     - Shape
     range: string
-    required: false
+    required: true
   description:
     name: description
     description: A description of the ROI
