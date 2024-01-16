@@ -107,6 +107,7 @@ classes:
         range: Experimenter
         description: The experimenter that performed the imaging experiment
         multivalued: true
+        inlined: false
       acquisition_date:
         range: date
         description: The date of the acquisition
