@@ -2,8 +2,9 @@
 /project/docs/
 /tmp/
 
-# PyCharm directory
-.idea
+# IDE directories
+.idea/
+.vscode/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
