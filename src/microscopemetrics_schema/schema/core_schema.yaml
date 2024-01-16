@@ -74,6 +74,25 @@ classes:
         description: The ORCID of the experimenter
         identifier: true
 
+  Comment:
+    description: A comment
+    attributes:
+      date:
+        range: date
+        description: The date to which the comment is referring
+        required: true
+        multivalued: false
+      comment_type:
+        range: CommentTypes
+        description: The type of the comment
+        required: false
+        multivalued: false
+      text:
+        range: string
+        description: The text of the comment
+        required: true
+        multivalued: false
+
   MetricsDataset:
     is_a: NamedObject
     description: A base object on which microscope-metrics runs the analysis
@@ -504,15 +523,6 @@ classes:
         required: false
         multivalued: false
 
-  Comment:
-    description: A comment
-    attributes:
-      text:
-        range: string
-        description: The text of the comment
-        required: true
-        multivalued: false
-
   Table:
     is_a: MetricsObject
     description: A table
@@ -659,3 +669,12 @@ slots:
 
 
 enums:
+  CommentTypes:
+    description: The type of the comment
+    permissible_values:
+      ACQUISITION:
+        description: The comment is referring to the acquisition
+      PROCESSING:
+        description: The comment is referring to the processing
+      OTHER:
+        description: The comment is referring to something else
