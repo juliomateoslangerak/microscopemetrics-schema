@@ -284,6 +284,29 @@ classes:
         required: false
         multivalued: true
         inlined: false
+
+  LinesRoi:
+    is_a: Roi
+    description: >-
+      ROI representing a set of lines in a single channel
+    attributes:
+      lines:
+        range: Line
+        description: >-
+          A set of lines
+        multivalued: true
+
+  PointsRoi:
+    is_a: Roi
+    description: >-
+      ROI representing a set of points in a single channel
+    attributes:
+      centroids:
+        range: Point
+        description: >-
+          A set of points
+        multivalued: true
+
 #      shapes:
 #        range: Shape
 #        inlined: true
