@@ -284,9 +284,10 @@ classes:
         required: false
         multivalued: true
         inlined: false
-      shapes:
-        range: Shape
-        multivalued: true
+#      shapes:
+#        range: Shape
+#        inlined: true
+#        multivalued: true
 
   Shape:
     description: A shape
