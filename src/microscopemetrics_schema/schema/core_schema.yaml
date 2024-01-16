@@ -269,8 +269,9 @@ classes:
     attributes:
       label:
         range: string
+        identifier: true
         description: The label of the ROI
-        required: false
+        required: true
         multivalued: false
       description:
         range: string
@@ -293,8 +294,9 @@ classes:
     attributes:
       label:
         range: string
+        identifier: true
         description: The label of the shape
-        required: false
+        required: true
       z:
         range: float
         description: The z coordinate of the shape
