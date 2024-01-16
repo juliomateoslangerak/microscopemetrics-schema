@@ -59,7 +59,7 @@ type ArgolightBIntensityKeyValues
 type ArgolightBOutput
   {
     spotsLabelsImage: ImageAsNumpy
-    spotsCentroids: [Roi]
+    spotsCentroids: [PointsRoi]
     intensityMeasurements: ArgolightBIntensityKeyValues
     distanceMeasurements: ArgolightBDistanceKeyValues
     spotsProperties: TableAsDict
@@ -106,7 +106,7 @@ type ArgolightEKeyValues
 
 type ArgolightEOutput
   {
-    peaksRois: [Roi]
+    peaksRois: [LinesRoi]
     keyMeasurements: ArgolightEKeyValues
     intensityProfiles: TableAsDict
   }
@@ -362,6 +362,14 @@ type Line
     y2: Float!
   }
 
+type LinesRoi
+  {
+    label: String!
+    description: String
+    image: [Image]
+    lines: [Line]
+  }
+
 type Mask
   {
     label: String!
@@ -426,6 +434,14 @@ type Point
     x: Float!
   }
 
+type PointsRoi
+  {
+    label: String!
+    description: String
+    image: [Image]
+    centroids: [Point]
+  }
+
 type Polygon
   {
     label: String!
@@ -465,14 +481,14 @@ type Rectangle
 
 type Roi
   {
-    label: String
+    label: String!
     description: String
     image: [Image]
   }
 
 type RoiCenter
   {
-    label: String
+    label: String!
     description: String
     image: [Image]
     centerPoints: [Point]
@@ -480,7 +496,7 @@ type RoiCenter
 
 type RoiCorners
   {
-    label: String
+    label: String!
     description: String
     image: [Image]
     topLeftRegion: Rectangle
@@ -496,7 +512,7 @@ type RoiCorners
 
 type RoiProfiles
   {
-    label: String
+    label: String!
     description: String
     image: [Image]
     leftTopToRightBottomProfile: Line

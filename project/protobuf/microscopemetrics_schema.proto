@@ -56,7 +56,7 @@ message ArgolightBIntensityKeyValues
 message ArgolightBOutput
  {
   imageAsNumpy spotsLabelsImage = 0
- repeated  roi spotsCentroids = 0
+ repeated  pointsRoi spotsCentroids = 0
   argolightBIntensityKeyValues intensityMeasurements = 0
   argolightBDistanceKeyValues distanceMeasurements = 0
   tableAsDict spotsProperties = 0
@@ -103,7 +103,7 @@ message ArgolightEKeyValues
  }
 message ArgolightEOutput
  {
- repeated  roi peaksRois = 0
+ repeated  linesRoi peaksRois = 0
   argolightEKeyValues keyMeasurements = 0
   tableAsDict intensityProfiles = 0
  }
@@ -319,6 +319,14 @@ message Line
   float x2 = 0
   float y2 = 0
  }
+// ROI representing a set of lines in a single channel
+message LinesRoi
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  line lines = 0
+ }
 // A mask as defined by a boolean image
 message Mask
  {
@@ -358,6 +366,14 @@ message Point
   integer strokeWidth = 0
   float y = 0
   float x = 0
+ }
+// ROI representing a set of points in a single channel
+message PointsRoi
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  point centroids = 0
  }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon

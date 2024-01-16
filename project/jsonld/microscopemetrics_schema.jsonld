@@ -357,10 +357,6 @@
         {
           "text": "OTHER",
           "description": "The comment is referring to something else"
-        },
-        {
-          "text": "UNKNOWN",
-          "description": "The type of the comment is unknown or was not defined"
         }
       ]
     }
@@ -2324,12 +2320,14 @@
       "description": "The label of the ROI",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/label",
+      "identifier": true,
       "alias": "label",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2357,6 +2355,34 @@
         "Roi"
       ],
       "range": "Image",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "linesRoi__lines",
+      "description": "A set of lines",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/lines",
+      "multivalued": true,
+      "alias": "lines",
+      "owner": "LinesRoi",
+      "domain_of": [
+        "LinesRoi"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pointsRoi__centroids",
+      "description": "A set of points",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/centroids",
+      "multivalued": true,
+      "alias": "centroids",
+      "owner": "PointsRoi",
+      "domain_of": [
+        "PointsRoi"
+      ],
+      "range": "Point",
       "@type": "SlotDefinition"
     },
     {
@@ -3003,7 +3029,6 @@
         "FieldIlluminationOutput"
       ],
       "range": "RoiProfiles",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3016,7 +3041,6 @@
         "FieldIlluminationOutput"
       ],
       "range": "RoiCorners",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3029,7 +3053,6 @@
         "FieldIlluminationOutput"
       ],
       "range": "RoiCenter",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3085,8 +3108,7 @@
       "domain_of": [
         "ArgolightBOutput"
       ],
-      "range": "Roi",
-      "inlined": true,
+      "range": "PointsRoi",
       "@type": "SlotDefinition"
     },
     {
@@ -3185,8 +3207,7 @@
       "domain_of": [
         "ArgolightEOutput"
       ],
-      "range": "Roi",
-      "inlined": true,
+      "range": "LinesRoi",
       "@type": "SlotDefinition"
     },
     {
@@ -3863,7 +3884,9 @@
         {
           "name": "label",
           "description": "The label of the ROI",
+          "identifier": true,
           "range": "string",
+          "required": true,
           "@type": "SlotDefinition"
         },
         {
@@ -3881,6 +3904,56 @@
         }
       ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "LinesRoi",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/LinesRoi",
+      "description": "ROI representing a set of lines in a single channel",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "linesRoi__lines"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "lines",
+          "description": "A set of lines",
+          "multivalued": true,
+          "range": "Line",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/LinesRoi",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PointsRoi",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/PointsRoi",
+      "description": "ROI representing a set of points in a single channel",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "pointsRoi__centroids"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "centroids",
+          "description": "A set of points",
+          "multivalued": true,
+          "range": "Point",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/PointsRoi",
       "@type": "ClassDefinition"
     },
     {
@@ -4808,7 +4881,7 @@
           "name": "spots_centroids",
           "description": "Centroids of the argolight spots provided as a list of ROIs, one per channel",
           "multivalued": true,
-          "range": "Roi",
+          "range": "PointsRoi",
           "@type": "SlotDefinition"
         },
         {
@@ -4978,7 +5051,7 @@
           "name": "peaks_rois",
           "description": "ROIs of the peaks found in the argolight images",
           "multivalued": true,
-          "range": "Roi",
+          "range": "LinesRoi",
           "@type": "SlotDefinition"
         },
         {
@@ -5022,7 +5095,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-15T17:28:29",
+  "generation_date": "2024-01-16T17:17:32",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

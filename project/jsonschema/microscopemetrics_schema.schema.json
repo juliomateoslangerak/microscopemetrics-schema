@@ -332,7 +332,7 @@
                 "spots_centroids": {
                     "description": "Centroids of the argolight spots provided as a list of ROIs, one per channel",
                     "items": {
-                        "$ref": "#/$defs/Roi"
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -570,7 +570,7 @@
                 "peaks_rois": {
                     "description": "ROIs of the peaks found in the argolight images",
                     "items": {
-                        "$ref": "#/$defs/Roi"
+                        "type": "string"
                     },
                     "type": "array"
                 }
@@ -709,8 +709,7 @@
             "enum": [
                 "ACQUISITION",
                 "PROCESSING",
-                "OTHER",
-                "UNKNOWN"
+                "OTHER"
             ],
             "title": "CommentTypes",
             "type": "string"
@@ -1188,10 +1187,10 @@
             "description": "",
             "properties": {
                 "center_of_illumination": {
-                    "$ref": "#/$defs/RoiCenter"
+                    "type": "string"
                 },
                 "corner_rois": {
-                    "$ref": "#/$defs/RoiCorners"
+                    "type": "string"
                 },
                 "intensity_map": {
                     "description": "Intensity map of the field illumination",
@@ -1206,7 +1205,7 @@
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "profile_rois": {
-                    "$ref": "#/$defs/RoiProfiles"
+                    "type": "string"
                 }
             },
             "title": "FieldIlluminationOutput",
@@ -1569,6 +1568,39 @@
             "title": "Line",
             "type": "object"
         },
+        "LinesRoi": {
+            "additionalProperties": false,
+            "description": "ROI representing a set of lines in a single channel",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "lines": {
+                    "description": "A set of lines",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "LinesRoi",
+            "type": "object"
+        },
         "Mask": {
             "additionalProperties": false,
             "description": "A mask as defined by a boolean image",
@@ -1786,6 +1818,39 @@
             "title": "Point",
             "type": "object"
         },
+        "PointsRoi": {
+            "additionalProperties": false,
+            "description": "ROI representing a set of points in a single channel",
+            "properties": {
+                "centroids": {
+                    "description": "A set of points",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "PointsRoi",
+            "type": "object"
+        },
         "Polygon": {
             "additionalProperties": false,
             "description": "A polygon as defined by a series of vertexes and a boolean to indicate if closed or not",
@@ -1952,6 +2017,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "label"
+            ],
             "title": "Roi",
             "type": "object"
         },
@@ -1982,6 +2050,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "label"
+            ],
             "title": "RoiCenter",
             "type": "object"
         },
@@ -2041,6 +2112,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "label"
+            ],
             "title": "RoiCorners",
             "type": "object"
         },
@@ -2080,6 +2154,9 @@
                     "type": "string"
                 }
             },
+            "required": [
+                "label"
+            ],
             "title": "RoiProfiles",
             "type": "object"
         },
