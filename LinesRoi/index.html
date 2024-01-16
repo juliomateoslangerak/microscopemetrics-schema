@@ -219,9 +219,9 @@
 
       LinesRoi : label
 
-      LinesRoi : lines
+      LinesRoi : shapes
 
-          LinesRoi --|&gt; Line : lines
+          LinesRoi --|&gt; Line : shapes
 
 
 </div>
@@ -244,7 +244,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../lines/">lines</a></td>
+<td><a href="../shapes/">shapes</a></td>
 <td>0..* <br/> <a href="../Line/">Line</a></td>
 <td>A set of lines</td>
 <td>direct</td>
@@ -321,8 +321,8 @@ description: ROI representing a set of lines in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
-  lines:
-    name: lines
+  shapes:
+    name: shapes
     description: A set of lines
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
@@ -339,16 +339,17 @@ description: ROI representing a set of lines in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
-  lines:
-    name: lines
+  shapes:
+    name: shapes
     description: A set of lines
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    alias: lines
+    alias: shapes
     owner: LinesRoi
     domain_of:
     - LinesRoi
+    - PointsRoi
     range: Line
     inlined: true
   label:

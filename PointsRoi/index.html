@@ -211,10 +211,6 @@
     class PointsRoi
       Roi &lt;|-- PointsRoi
 
-      PointsRoi : centroids
-
-          PointsRoi --|&gt; Point : centroids
-
       PointsRoi : description
 
       PointsRoi : image
@@ -222,6 +218,10 @@
           PointsRoi --|&gt; Image : image
 
       PointsRoi : label
+
+      PointsRoi : shapes
+
+          PointsRoi --|&gt; Point : shapes
 
 
 </div>
@@ -244,7 +244,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../centroids/">centroids</a></td>
+<td><a href="../shapes/">shapes</a></td>
 <td>0..* <br/> <a href="../Point/">Point</a></td>
 <td>A set of points</td>
 <td>direct</td>
@@ -321,11 +321,10 @@ description: ROI representing a set of points in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
-  centroids:
-    name: centroids
+  shapes:
+    name: shapes
     description: A set of points
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
     multivalued: true
     range: Point
     inlined: true
@@ -339,15 +338,15 @@ description: ROI representing a set of points in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
-  centroids:
-    name: centroids
+  shapes:
+    name: shapes
     description: A set of points
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
     multivalued: true
-    alias: centroids
+    alias: shapes
     owner: PointsRoi
     domain_of:
+    - LinesRoi
     - PointsRoi
     range: Point
     inlined: true
