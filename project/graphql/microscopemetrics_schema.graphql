@@ -367,7 +367,7 @@ type LinesRoi
     label: String!
     description: String
     image: [Image]
-    lines: [Line]
+    shapes: [Line]
   }
 
 type Mask
@@ -439,7 +439,7 @@ type PointsRoi
     label: String!
     description: String
     image: [Image]
-    centroids: [Point]
+    shapes: [Point]
   }
 
 type Polygon

@@ -290,7 +290,7 @@ classes:
     description: >-
       ROI representing a set of lines in a single channel
     attributes:
-      lines:
+      shapes:
         range: Line
         description: >-
           A set of lines
@@ -302,7 +302,7 @@ classes:
     description: >-
       ROI representing a set of points in a single channel
     attributes:
-      centroids:
+      shapes:
         range: Point
         description: >-
           A set of points

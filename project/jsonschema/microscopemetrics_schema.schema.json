@@ -1645,7 +1645,7 @@
                     "description": "The label of the ROI",
                     "type": "string"
                 },
-                "lines": {
+                "shapes": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Line__identifier_optional"
                     },
@@ -1880,13 +1880,6 @@
             "additionalProperties": false,
             "description": "ROI representing a set of points in a single channel",
             "properties": {
-                "centroids": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Point__identifier_optional"
-                    },
-                    "description": "A set of points",
-                    "type": "object"
-                },
                 "description": {
                     "description": "A description of the ROI",
                     "type": "string"
@@ -1901,6 +1894,13 @@
                 "label": {
                     "description": "The label of the ROI",
                     "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A set of points",
+                    "type": "object"
                 }
             },
             "required": [

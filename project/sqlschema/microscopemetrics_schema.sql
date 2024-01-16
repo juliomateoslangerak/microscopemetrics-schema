@@ -223,7 +223,7 @@ CREATE TABLE "Line" (
 CREATE TABLE "LinesRoi" (
 	label TEXT NOT NULL, 
 	description TEXT, 
-	lines TEXT, 
+	shapes TEXT, 
 	PRIMARY KEY (label)
 );
 
@@ -243,7 +243,7 @@ CREATE TABLE "Point" (
 CREATE TABLE "PointsRoi" (
 	label TEXT NOT NULL, 
 	description TEXT, 
-	centroids TEXT, 
+	shapes TEXT, 
 	PRIMARY KEY (label)
 );
 

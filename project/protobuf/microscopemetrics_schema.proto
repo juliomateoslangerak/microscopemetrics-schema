@@ -325,7 +325,7 @@ message LinesRoi
   string label = 0
   string description = 0
  repeated  image image = 0
- repeated  line lines = 0
+ repeated  line shapes = 0
  }
 // A mask as defined by a boolean image
 message Mask
@@ -373,7 +373,7 @@ message PointsRoi
   string label = 0
   string description = 0
  repeated  image image = 0
- repeated  point centroids = 0
+ repeated  point shapes = 0
  }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
