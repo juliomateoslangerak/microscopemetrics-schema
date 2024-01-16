@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-16T17:17:38
+# Generation date: 2024-01-16T17:28:14
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -720,7 +720,7 @@ class LinesRoi(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LinesRoi
 
     label: Union[str, LinesRoiLabel] = None
-    lines: Optional[Union[Union[str, LineLabel], List[Union[str, LineLabel]]]] = empty_list()
+    lines: Optional[Union[Dict[Union[str, LineLabel], Union[dict, "Line"]], List[Union[dict, "Line"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.label):
@@ -728,9 +728,7 @@ class LinesRoi(Roi):
         if not isinstance(self.label, LinesRoiLabel):
             self.label = LinesRoiLabel(self.label)
 
-        if not isinstance(self.lines, list):
-            self.lines = [self.lines] if self.lines is not None else []
-        self.lines = [v if isinstance(v, LineLabel) else LineLabel(v) for v in self.lines]
+        self._normalize_inlined_as_dict(slot_name="lines", slot_type=Line, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -748,7 +746,7 @@ class PointsRoi(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PointsRoi
 
     label: Union[str, PointsRoiLabel] = None
-    centroids: Optional[Union[Union[str, PointLabel], List[Union[str, PointLabel]]]] = empty_list()
+    centroids: Optional[Union[Dict[Union[str, PointLabel], Union[dict, "Point"]], List[Union[dict, "Point"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.label):
@@ -756,9 +754,7 @@ class PointsRoi(Roi):
         if not isinstance(self.label, PointsRoiLabel):
             self.label = PointsRoiLabel(self.label)
 
-        if not isinstance(self.centroids, list):
-            self.centroids = [self.centroids] if self.centroids is not None else []
-        self.centroids = [v if isinstance(v, PointLabel) else PointLabel(v) for v in self.centroids]
+        self._normalize_inlined_as_dict(slot_name="centroids", slot_type=Point, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -2560,10 +2556,10 @@ slots.roi__image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image'], name=
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Optional[Union[Union[str, ImageImageUrl], List[Union[str, ImageImageUrl]]]])
 
 slots.linesRoi__lines = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/lines'], name="linesRoi__lines", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/lines'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.linesRoi__lines, domain=None, range=Optional[Union[Union[str, LineLabel], List[Union[str, LineLabel]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.linesRoi__lines, domain=None, range=Optional[Union[Dict[Union[str, LineLabel], Union[dict, Line]], List[Union[dict, Line]]]])
 
 slots.pointsRoi__centroids = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/centroids'], name="pointsRoi__centroids", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/centroids'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pointsRoi__centroids, domain=None, range=Optional[Union[Union[str, PointLabel], List[Union[str, PointLabel]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pointsRoi__centroids, domain=None, range=Optional[Union[Dict[Union[str, PointLabel], Union[dict, Point]], List[Union[dict, Point]]]])
 
 slots.shape__label = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/label'], name="shape__label", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/label'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape__label, domain=None, range=URIRef)

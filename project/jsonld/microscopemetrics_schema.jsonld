@@ -2369,6 +2369,7 @@
         "LinesRoi"
       ],
       "range": "Line",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2383,6 +2384,7 @@
         "PointsRoi"
       ],
       "range": "Point",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3099,7 +3101,7 @@
     },
     {
       "name": "argolightBOutput__spots_centroids",
-      "description": "Centroids of the argolight spots provided as a list of ROIs, one per channel",
+      "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/spots_centroids",
       "multivalued": true,
@@ -3198,7 +3200,7 @@
     },
     {
       "name": "argolightEOutput__peaks_rois",
-      "description": "ROIs of the peaks found in the argolight images",
+      "description": "ROIs of the peaks found in the argolight images. One per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peaks_rois",
       "multivalued": true,
@@ -3925,6 +3927,7 @@
           "description": "A set of lines",
           "multivalued": true,
           "range": "Line",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -3950,6 +3953,7 @@
           "description": "A set of points",
           "multivalued": true,
           "range": "Point",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4879,7 +4883,7 @@
         },
         {
           "name": "spots_centroids",
-          "description": "Centroids of the argolight spots provided as a list of ROIs, one per channel",
+          "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
           "multivalued": true,
           "range": "PointsRoi",
           "@type": "SlotDefinition"
@@ -5049,7 +5053,7 @@
       "attributes": [
         {
           "name": "peaks_rois",
-          "description": "ROIs of the peaks found in the argolight images",
+          "description": "ROIs of the peaks found in the argolight images. One per channel",
           "multivalued": true,
           "range": "LinesRoi",
           "@type": "SlotDefinition"
@@ -5095,7 +5099,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-16T17:17:32",
+  "generation_date": "2024-01-16T17:28:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

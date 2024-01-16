@@ -330,7 +330,7 @@
                     "description": "Key Intensity Measurements on Argolight spots"
                 },
                 "spots_centroids": {
-                    "description": "Centroids of the argolight spots provided as a list of ROIs, one per channel",
+                    "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
                     "items": {
                         "type": "string"
                     },
@@ -568,7 +568,7 @@
                     "description": "Key Measurements on Argolight E images"
                 },
                 "peaks_rois": {
-                    "description": "ROIs of the peaks found in the argolight images",
+                    "description": "ROIs of the peaks found in the argolight images. One per channel",
                     "items": {
                         "type": "string"
                     },
@@ -1568,6 +1568,64 @@
             "title": "Line",
             "type": "object"
         },
+        "Line__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A line as defined by x1, y1, x2, y2 coordinates",
+            "properties": {
+                "c": {
+                    "description": "The c coordinate of the shape",
+                    "type": "integer"
+                },
+                "fill_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The fill color of the shape"
+                },
+                "label": {
+                    "description": "The label of the shape",
+                    "type": "string"
+                },
+                "stroke_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The stroke color of the shape"
+                },
+                "stroke_width": {
+                    "description": "The stroke width of the shape",
+                    "type": "integer"
+                },
+                "t": {
+                    "description": "The t coordinate of the shape",
+                    "type": "integer"
+                },
+                "x1": {
+                    "description": "The x coordinate of the first point of the line",
+                    "type": "number"
+                },
+                "x2": {
+                    "description": "The x coordinate of the second point of the line",
+                    "type": "number"
+                },
+                "y1": {
+                    "description": "The y coordinate of the first point of the line",
+                    "type": "number"
+                },
+                "y2": {
+                    "description": "The y coordinate of the second point of the line",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z coordinate of the shape",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x1",
+                "y1",
+                "x2",
+                "y2"
+            ],
+            "title": "Line",
+            "type": "object"
+        },
         "LinesRoi": {
             "additionalProperties": false,
             "description": "ROI representing a set of lines in a single channel",
@@ -1588,11 +1646,11 @@
                     "type": "string"
                 },
                 "lines": {
-                    "description": "A set of lines",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
                     },
-                    "type": "array"
+                    "description": "A set of lines",
+                    "type": "object"
                 }
             },
             "required": [
@@ -1823,11 +1881,11 @@
             "description": "ROI representing a set of points in a single channel",
             "properties": {
                 "centroids": {
-                    "description": "A set of points",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
                     },
-                    "type": "array"
+                    "description": "A set of points",
+                    "type": "object"
                 },
                 "description": {
                     "description": "A description of the ROI",
