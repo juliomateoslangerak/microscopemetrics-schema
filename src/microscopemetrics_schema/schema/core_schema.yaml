@@ -295,6 +295,7 @@ classes:
         description: >-
           A set of lines
         multivalued: true
+        inlined: true
 
   PointsRoi:
     is_a: Roi
@@ -306,6 +307,7 @@ classes:
         description: >-
           A set of points
         multivalued: true
+        inlined: true
 
 #      shapes:
 #        range: Shape
