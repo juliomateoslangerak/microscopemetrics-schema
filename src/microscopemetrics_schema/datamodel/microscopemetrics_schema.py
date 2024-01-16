@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-12T10:21:24
+# Generation date: 2024-01-15T17:28:35
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -73,6 +73,34 @@ class Image2DImageUrl(ImageInlineImageUrl):
 
 
 class Image5DImageUrl(ImageInlineImageUrl):
+    pass
+
+
+class ShapeLabel(extended_str):
+    pass
+
+
+class PointLabel(ShapeLabel):
+    pass
+
+
+class LineLabel(ShapeLabel):
+    pass
+
+
+class RectangleLabel(ShapeLabel):
+    pass
+
+
+class EllipseLabel(ShapeLabel):
+    pass
+
+
+class PolygonLabel(ShapeLabel):
+    pass
+
+
+class MaskLabel(ShapeLabel):
     pass
 
 
@@ -216,6 +244,39 @@ class Experimenter(YAMLRoot):
 
 
 @dataclass
+class Comment(YAMLRoot):
+    """
+    A comment
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Comment"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Comment"
+    class_name: ClassVar[str] = "Comment"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
+
+    date: Union[str, XSDDate] = None
+    text: str = None
+    comment_type: Optional[Union[str, "CommentTypes"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.date):
+            self.MissingRequiredField("date")
+        if not isinstance(self.date, XSDDate):
+            self.date = XSDDate(self.date)
+
+        if self._is_empty(self.text):
+            self.MissingRequiredField("text")
+        if not isinstance(self.text, str):
+            self.text = str(self.text)
+
+        if self.comment_type is not None and not isinstance(self.comment_type, CommentTypes):
+            self.comment_type = CommentTypes(self.comment_type)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class MetricsDataset(NamedObject):
     """
     A base object on which microscope-metrics runs the analysis
@@ -233,7 +294,7 @@ class MetricsDataset(NamedObject):
     acquisition_date: Optional[Union[str, XSDDate]] = None
     processing_date: Optional[Union[str, XSDDate]] = None
     processing_log: Optional[str] = None
-    comment: Optional[Union[Union[dict, "Comment"], List[Union[dict, "Comment"]]]] = empty_list()
+    comment: Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.processed):
@@ -257,7 +318,7 @@ class MetricsDataset(NamedObject):
         if self.processing_log is not None and not isinstance(self.processing_log, str):
             self.processing_log = str(self.processing_log)
 
-        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="text", keyed=False)
+        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="date", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -605,7 +666,6 @@ class Roi(YAMLRoot):
     label: Optional[str] = None
     description: Optional[str] = None
     image: Optional[Union[Union[str, ImageImageUrl], List[Union[str, ImageImageUrl]]]] = empty_list()
-    shapes: Optional[Union[Union[dict, "Shape"], List[Union[dict, "Shape"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.label is not None and not isinstance(self.label, str):
@@ -617,10 +677,6 @@ class Roi(YAMLRoot):
         if not isinstance(self.image, list):
             self.image = [self.image] if self.image is not None else []
         self.image = [v if isinstance(v, ImageImageUrl) else ImageImageUrl(v) for v in self.image]
-
-        if not isinstance(self.shapes, list):
-            self.shapes = [self.shapes] if self.shapes is not None else []
-        self.shapes = [v if isinstance(v, Shape) else Shape(**as_dict(v)) for v in self.shapes]
 
         super().__post_init__(**kwargs)
 
@@ -637,7 +693,7 @@ class Shape(YAMLRoot):
     class_name: ClassVar[str] = "Shape"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Shape
 
-    label: Optional[str] = None
+    label: Union[str, ShapeLabel] = None
     z: Optional[float] = None
     c: Optional[int] = None
     t: Optional[int] = None
@@ -646,8 +702,10 @@ class Shape(YAMLRoot):
     stroke_width: Optional[int] = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.label is not None and not isinstance(self.label, str):
-            self.label = str(self.label)
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, ShapeLabel):
+            self.label = ShapeLabel(self.label)
 
         if self.z is not None and not isinstance(self.z, float):
             self.z = float(self.z)
@@ -682,10 +740,16 @@ class Point(Shape):
     class_name: ClassVar[str] = "Point"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Point
 
+    label: Union[str, PointLabel] = None
     y: float = None
     x: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, PointLabel):
+            self.label = PointLabel(self.label)
+
         if self._is_empty(self.y):
             self.MissingRequiredField("y")
         if not isinstance(self.y, float):
@@ -711,12 +775,18 @@ class Line(Shape):
     class_name: ClassVar[str] = "Line"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Line
 
+    label: Union[str, LineLabel] = None
     x1: float = None
     y1: float = None
     x2: float = None
     y2: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, LineLabel):
+            self.label = LineLabel(self.label)
+
         if self._is_empty(self.x1):
             self.MissingRequiredField("x1")
         if not isinstance(self.x1, float):
@@ -752,12 +822,18 @@ class Rectangle(Shape):
     class_name: ClassVar[str] = "Rectangle"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Rectangle
 
+    label: Union[str, RectangleLabel] = None
     x: float = None
     y: float = None
     w: float = None
     h: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, RectangleLabel):
+            self.label = RectangleLabel(self.label)
+
         if self._is_empty(self.x):
             self.MissingRequiredField("x")
         if not isinstance(self.x, float):
@@ -793,12 +869,18 @@ class Ellipse(Shape):
     class_name: ClassVar[str] = "Ellipse"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Ellipse
 
+    label: Union[str, EllipseLabel] = None
     x: float = None
     y: float = None
     x_rad: float = None
     y_rad: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, EllipseLabel):
+            self.label = EllipseLabel(self.label)
+
         if self._is_empty(self.x):
             self.MissingRequiredField("x")
         if not isinstance(self.x, float):
@@ -834,10 +916,16 @@ class Polygon(Shape):
     class_name: ClassVar[str] = "Polygon"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Polygon
 
+    label: Union[str, PolygonLabel] = None
     vertexes: Union[Union[dict, "Vertex"], List[Union[dict, "Vertex"]]] = None
     is_open: Union[bool, Bool] = False
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, PolygonLabel):
+            self.label = PolygonLabel(self.label)
+
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
         if not isinstance(self.vertexes, list):
@@ -893,11 +981,17 @@ class Mask(Shape):
     class_name: ClassVar[str] = "Mask"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Mask
 
+    label: Union[str, MaskLabel] = None
     y: int = 0
     x: int = 0
     mask: Optional[Union[dict, ImageMask]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, MaskLabel):
+            self.label = MaskLabel(self.label)
+
         if self._is_empty(self.y):
             self.MissingRequiredField("y")
         if not isinstance(self.y, int):
@@ -994,29 +1088,6 @@ class Tag(YAMLRoot):
 
         if self.description is not None and not isinstance(self.description, str):
             self.description = str(self.description)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class Comment(YAMLRoot):
-    """
-    A comment
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Comment"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Comment"
-    class_name: ClassVar[str] = "Comment"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
-
-    text: str = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.text):
-            self.MissingRequiredField("text")
-        if not isinstance(self.text, str):
-            self.text = str(self.text)
 
         super().__post_init__(**kwargs)
 
@@ -1193,9 +1264,9 @@ class FieldIlluminationOutput(MetricsOutput):
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[dict, TableAsDict]] = None
     intensity_map: Optional[Union[str, Image5DImageUrl]] = None
-    profile_rois: Optional[Union[dict, Roi]] = None
-    corner_rois: Optional[Union[dict, Roi]] = None
-    center_of_illumination: Optional[Union[dict, Roi]] = None
+    profile_rois: Optional[Union[dict, "RoiProfiles"]] = None
+    corner_rois: Optional[Union[dict, "RoiCorners"]] = None
+    center_of_illumination: Optional[Union[dict, "RoiCenter"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
@@ -1207,14 +1278,14 @@ class FieldIlluminationOutput(MetricsOutput):
         if self.intensity_map is not None and not isinstance(self.intensity_map, Image5DImageUrl):
             self.intensity_map = Image5DImageUrl(self.intensity_map)
 
-        if self.profile_rois is not None and not isinstance(self.profile_rois, Roi):
-            self.profile_rois = Roi(**as_dict(self.profile_rois))
+        if self.profile_rois is not None and not isinstance(self.profile_rois, RoiProfiles):
+            self.profile_rois = RoiProfiles(**as_dict(self.profile_rois))
 
-        if self.corner_rois is not None and not isinstance(self.corner_rois, Roi):
-            self.corner_rois = Roi(**as_dict(self.corner_rois))
+        if self.corner_rois is not None and not isinstance(self.corner_rois, RoiCorners):
+            self.corner_rois = RoiCorners(**as_dict(self.corner_rois))
 
-        if self.center_of_illumination is not None and not isinstance(self.center_of_illumination, Roi):
-            self.center_of_illumination = Roi(**as_dict(self.center_of_illumination))
+        if self.center_of_illumination is not None and not isinstance(self.center_of_illumination, RoiCenter):
+            self.center_of_illumination = RoiCenter(**as_dict(self.center_of_illumination))
 
         super().__post_init__(**kwargs)
 
@@ -1404,6 +1475,112 @@ class FieldIlluminationKeyValues(KeyValues):
         if not isinstance(self.decile_9, list):
             self.decile_9 = [self.decile_9] if self.decile_9 is not None else []
         self.decile_9 = [v if isinstance(v, float) else float(v) for v in self.decile_9]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiProfiles(Roi):
+    """
+    line ROIs used to compute the intensity profiles
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiProfiles"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiProfiles"
+    class_name: ClassVar[str] = "RoiProfiles"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiProfiles
+
+    leftTop_to_rightBottom_profile: Optional[Union[str, LineLabel]] = None
+    leftBottom_to_rightTop_profile: Optional[Union[str, LineLabel]] = None
+    left_to_right_profile: Optional[Union[str, LineLabel]] = None
+    top_to_bottom_profile: Optional[Union[str, LineLabel]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.leftTop_to_rightBottom_profile is not None and not isinstance(self.leftTop_to_rightBottom_profile, LineLabel):
+            self.leftTop_to_rightBottom_profile = LineLabel(self.leftTop_to_rightBottom_profile)
+
+        if self.leftBottom_to_rightTop_profile is not None and not isinstance(self.leftBottom_to_rightTop_profile, LineLabel):
+            self.leftBottom_to_rightTop_profile = LineLabel(self.leftBottom_to_rightTop_profile)
+
+        if self.left_to_right_profile is not None and not isinstance(self.left_to_right_profile, LineLabel):
+            self.left_to_right_profile = LineLabel(self.left_to_right_profile)
+
+        if self.top_to_bottom_profile is not None and not isinstance(self.top_to_bottom_profile, LineLabel):
+            self.top_to_bottom_profile = LineLabel(self.top_to_bottom_profile)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiCorners(Roi):
+    """
+    Rectangular ROIs used to compute the corner intensities
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiCorners"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiCorners"
+    class_name: ClassVar[str] = "RoiCorners"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiCorners
+
+    top_left_region: Optional[Union[str, RectangleLabel]] = None
+    top_center_region: Optional[Union[str, RectangleLabel]] = None
+    top_right_region: Optional[Union[str, RectangleLabel]] = None
+    middle_left_region: Optional[Union[str, RectangleLabel]] = None
+    middle_center_region: Optional[Union[str, RectangleLabel]] = None
+    middle_right_region: Optional[Union[str, RectangleLabel]] = None
+    bottom_left_region: Optional[Union[str, RectangleLabel]] = None
+    bottom_center_region: Optional[Union[str, RectangleLabel]] = None
+    bottom_right_region: Optional[Union[str, RectangleLabel]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.top_left_region is not None and not isinstance(self.top_left_region, RectangleLabel):
+            self.top_left_region = RectangleLabel(self.top_left_region)
+
+        if self.top_center_region is not None and not isinstance(self.top_center_region, RectangleLabel):
+            self.top_center_region = RectangleLabel(self.top_center_region)
+
+        if self.top_right_region is not None and not isinstance(self.top_right_region, RectangleLabel):
+            self.top_right_region = RectangleLabel(self.top_right_region)
+
+        if self.middle_left_region is not None and not isinstance(self.middle_left_region, RectangleLabel):
+            self.middle_left_region = RectangleLabel(self.middle_left_region)
+
+        if self.middle_center_region is not None and not isinstance(self.middle_center_region, RectangleLabel):
+            self.middle_center_region = RectangleLabel(self.middle_center_region)
+
+        if self.middle_right_region is not None and not isinstance(self.middle_right_region, RectangleLabel):
+            self.middle_right_region = RectangleLabel(self.middle_right_region)
+
+        if self.bottom_left_region is not None and not isinstance(self.bottom_left_region, RectangleLabel):
+            self.bottom_left_region = RectangleLabel(self.bottom_left_region)
+
+        if self.bottom_center_region is not None and not isinstance(self.bottom_center_region, RectangleLabel):
+            self.bottom_center_region = RectangleLabel(self.bottom_center_region)
+
+        if self.bottom_right_region is not None and not isinstance(self.bottom_right_region, RectangleLabel):
+            self.bottom_right_region = RectangleLabel(self.bottom_right_region)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiCenter(Roi):
+    """
+    Point ROIs marking the center of illumination
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiCenter"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiCenter"
+    class_name: ClassVar[str] = "RoiCenter"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiCenter
+
+    center_points: Optional[Union[Dict[Union[str, PointLabel], Union[dict, Point]], List[Union[dict, Point]]]] = empty_dict()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="center_points", slot_type=Point, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1842,7 +2019,27 @@ class ArgolightEKeyValues(KeyValues):
 
 
 # Enumerations
+class CommentTypes(EnumDefinitionImpl):
+    """
+    The type of the comment
+    """
+    ACQUISITION = PermissibleValue(
+        text="ACQUISITION",
+        description="The comment is referring to the acquisition")
+    PROCESSING = PermissibleValue(
+        text="PROCESSING",
+        description="The comment is referring to the processing")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="The comment is referring to something else")
+    UNKNOWN = PermissibleValue(
+        text="UNKNOWN",
+        description="The type of the comment is unknown or was not defined")
 
+    _defn = EnumDefinition(
+        name="CommentTypes",
+        description="The type of the comment",
+    )
 
 # Slots
 class slots:
@@ -2019,6 +2216,48 @@ slots.decile_8 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_s
 slots.decile_9 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_9'], name="decile_9", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_9'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.decile_9, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.leftTop_to_rightBottom_profile = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/leftTop_to_rightBottom_profile'], name="leftTop_to_rightBottom_profile", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/leftTop_to_rightBottom_profile'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.leftTop_to_rightBottom_profile, domain=None, range=Optional[Union[str, LineLabel]])
+
+slots.leftBottom_to_rightTop_profile = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/leftBottom_to_rightTop_profile'], name="leftBottom_to_rightTop_profile", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/leftBottom_to_rightTop_profile'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.leftBottom_to_rightTop_profile, domain=None, range=Optional[Union[str, LineLabel]])
+
+slots.left_to_right_profile = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/left_to_right_profile'], name="left_to_right_profile", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/left_to_right_profile'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.left_to_right_profile, domain=None, range=Optional[Union[str, LineLabel]])
+
+slots.top_to_bottom_profile = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/top_to_bottom_profile'], name="top_to_bottom_profile", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/top_to_bottom_profile'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.top_to_bottom_profile, domain=None, range=Optional[Union[str, LineLabel]])
+
+slots.top_left_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/top_left_region'], name="top_left_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/top_left_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.top_left_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.top_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/top_center_region'], name="top_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/top_center_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.top_center_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.top_right_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/top_right_region'], name="top_right_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/top_right_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.top_right_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.middle_left_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/middle_left_region'], name="middle_left_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/middle_left_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.middle_left_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.middle_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/middle_center_region'], name="middle_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/middle_center_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.middle_center_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.middle_right_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/middle_right_region'], name="middle_right_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/middle_right_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.middle_right_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.bottom_left_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/bottom_left_region'], name="bottom_left_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/bottom_left_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_left_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.bottom_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/bottom_center_region'], name="bottom_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/bottom_center_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_center_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.bottom_right_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/bottom_right_region'], name="bottom_right_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/bottom_right_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_region, domain=None, range=Optional[Union[str, RectangleLabel]])
+
+slots.center_points = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_points'], name="center_points", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_points'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_points, domain=None, range=Optional[Union[Dict[Union[str, PointLabel], Union[dict, Point]], List[Union[dict, Point]]]])
+
 slots.argolight_b_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_b_image'], name="argolight_b_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_b_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[dict, ImageAsNumpy])
 
@@ -2160,6 +2399,15 @@ slots.experimenter__name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name']
 slots.experimenter__orcid = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/orcid'], name="experimenter__orcid", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/orcid'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.experimenter__orcid, domain=None, range=URIRef)
 
+slots.comment__date = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/date'], name="comment__date", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/date'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__date, domain=None, range=Union[str, XSDDate])
+
+slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment_type'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Optional[Union[str, "CommentTypes"]])
+
+slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="comment__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
+
 slots.metricsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="metricsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__sample, domain=None, range=Optional[Union[str, SampleType]])
 
@@ -2214,11 +2462,8 @@ slots.roi__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/descript
 slots.roi__image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image'], name="roi__image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Optional[Union[Union[str, ImageImageUrl], List[Union[str, ImageImageUrl]]]])
 
-slots.roi__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shapes'], name="roi__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shapes'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__shapes, domain=None, range=Optional[Union[Union[dict, Shape], List[Union[dict, Shape]]]])
-
 slots.shape__label = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/label'], name="shape__label", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/label'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape__label, domain=None, range=Optional[str])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape__label, domain=None, range=URIRef)
 
 slots.shape__z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/z'], name="shape__z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape__z, domain=None, range=Optional[float])
@@ -2322,9 +2567,6 @@ slots.tag__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="t
 slots.tag__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="tag__description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tag__description, domain=None, range=Optional[str])
 
-slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="comment__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
-
 slots.tableAsPandasDF__df = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/df'], name="tableAsPandasDF__df", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/df'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tableAsPandasDF__df, domain=None, range=Union[dict, MetaObject])
 
@@ -2353,13 +2595,13 @@ slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[str, Image5DImageUrl]])
 
 slots.fieldIlluminationOutput__profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/profile_rois'], name="fieldIlluminationOutput__profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[dict, RoiProfiles]])
 
 slots.fieldIlluminationOutput__corner_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/corner_rois'], name="fieldIlluminationOutput__corner_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/corner_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__corner_rois, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__corner_rois, domain=None, range=Optional[Union[dict, RoiCorners]])
 
 slots.fieldIlluminationOutput__center_of_illumination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_illumination'], name="fieldIlluminationOutput__center_of_illumination", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_illumination'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[dict, RoiCenter]])
 
 slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Union[dict, ArgolightBInput])

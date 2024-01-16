@@ -140,12 +140,14 @@ type Column
 
 type Comment
   {
+    date: Date!
+    commentType: CommentTypes
     text: String!
   }
 
 type Ellipse
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -234,9 +236,9 @@ type FieldIlluminationOutput
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: TableAsDict
     intensityMap: Image5D
-    profileRois: Roi
-    cornerRois: Roi
-    centerOfIllumination: Roi
+    profileRois: RoiProfiles
+    cornerRois: RoiCorners
+    centerOfIllumination: RoiCenter
   }
 
 interface Image
@@ -347,7 +349,7 @@ interface KeyValues
 
 type Line
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -362,7 +364,7 @@ type Line
 
 type Mask
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -413,7 +415,7 @@ interface NamedObject
 
 type Point
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -426,7 +428,7 @@ type Point
 
 type Polygon
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -448,7 +450,7 @@ type Protocol
 
 type Rectangle
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer
@@ -466,7 +468,41 @@ type Roi
     label: String
     description: String
     image: [Image]
-    shapes: [Shape]
+  }
+
+type RoiCenter
+  {
+    label: String
+    description: String
+    image: [Image]
+    centerPoints: [Point]
+  }
+
+type RoiCorners
+  {
+    label: String
+    description: String
+    image: [Image]
+    topLeftRegion: Rectangle
+    topCenterRegion: Rectangle
+    topRightRegion: Rectangle
+    middleLeftRegion: Rectangle
+    middleCenterRegion: Rectangle
+    middleRightRegion: Rectangle
+    bottomLeftRegion: Rectangle
+    bottomCenterRegion: Rectangle
+    bottomRightRegion: Rectangle
+  }
+
+type RoiProfiles
+  {
+    label: String
+    description: String
+    image: [Image]
+    leftTopToRightBottomProfile: Line
+    leftBottomToRightTopProfile: Line
+    leftToRightProfile: Line
+    topToBottomProfile: Line
   }
 
 type Sample
@@ -479,7 +515,7 @@ type Sample
 
 interface Shape
   {
-    label: String
+    label: String!
     z: Float
     c: Integer
     t: Integer

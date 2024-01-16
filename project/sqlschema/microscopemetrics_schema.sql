@@ -76,12 +76,14 @@ CREATE TABLE "Column" (
 );
 
 CREATE TABLE "Comment" (
+	date DATE NOT NULL, 
+	comment_type VARCHAR(11), 
 	text TEXT NOT NULL, 
-	PRIMARY KEY (text)
+	PRIMARY KEY (date, comment_type, text)
 );
 
 CREATE TABLE "Ellipse" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -92,7 +94,7 @@ CREATE TABLE "Ellipse" (
 	y FLOAT NOT NULL, 
 	x_rad FLOAT NOT NULL, 
 	y_rad FLOAT NOT NULL, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, x, y, x_rad, y_rad)
+	PRIMARY KEY (label)
 );
 
 CREATE TABLE "Experimenter" (
@@ -204,7 +206,7 @@ CREATE TABLE "ImageMask" (
 );
 
 CREATE TABLE "Line" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -215,11 +217,11 @@ CREATE TABLE "Line" (
 	y1 FLOAT NOT NULL, 
 	x2 FLOAT NOT NULL, 
 	y2 FLOAT NOT NULL, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, x1, y1, x2, y2)
+	PRIMARY KEY (label)
 );
 
 CREATE TABLE "Point" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -228,20 +230,19 @@ CREATE TABLE "Point" (
 	stroke_width INTEGER, 
 	y FLOAT NOT NULL, 
 	x FLOAT NOT NULL, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, y, x)
+	PRIMARY KEY (label)
 );
 
 CREATE TABLE "Polygon" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
 	fill_color TEXT, 
 	stroke_color TEXT, 
 	stroke_width INTEGER, 
-	vertexes TEXT NOT NULL, 
 	is_open BOOLEAN NOT NULL, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, vertexes, is_open)
+	PRIMARY KEY (label)
 );
 
 CREATE TABLE "Protocol" (
@@ -254,7 +255,7 @@ CREATE TABLE "Protocol" (
 );
 
 CREATE TABLE "Rectangle" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -265,15 +266,22 @@ CREATE TABLE "Rectangle" (
 	y FLOAT NOT NULL, 
 	w FLOAT NOT NULL, 
 	h FLOAT NOT NULL, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, x, y, w, h)
+	PRIMARY KEY (label)
 );
 
 CREATE TABLE "Roi" (
 	label TEXT, 
 	description TEXT, 
 	image TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (label, description, image, shapes)
+	PRIMARY KEY (label, description, image)
+);
+
+CREATE TABLE "RoiCenter" (
+	label TEXT, 
+	description TEXT, 
+	image TEXT, 
+	center_points TEXT, 
+	PRIMARY KEY (label, description, image, center_points)
 );
 
 CREATE TABLE "TableAsPandasDF" (
@@ -286,12 +294,6 @@ CREATE TABLE "TableAsPandasDF" (
 CREATE TABLE "TimeSeries" (
 	"values" FLOAT NOT NULL, 
 	PRIMARY KEY ("values")
-);
-
-CREATE TABLE "Vertex" (
-	x FLOAT NOT NULL, 
-	y FLOAT NOT NULL, 
-	PRIMARY KEY (x, y)
 );
 
 CREATE TABLE "ArgolightBInput" (
@@ -355,7 +357,7 @@ CREATE TABLE "FieldIlluminationOutput" (
 );
 
 CREATE TABLE "Mask" (
-	label TEXT, 
+	label TEXT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -365,8 +367,48 @@ CREATE TABLE "Mask" (
 	y INTEGER NOT NULL, 
 	x INTEGER NOT NULL, 
 	mask TEXT, 
-	PRIMARY KEY (label, z, c, t, fill_color, stroke_color, stroke_width, y, x, mask), 
+	PRIMARY KEY (label), 
 	FOREIGN KEY(mask) REFERENCES "ImageMask" (image_url)
+);
+
+CREATE TABLE "RoiCorners" (
+	label TEXT, 
+	description TEXT, 
+	image TEXT, 
+	top_left_region TEXT, 
+	top_center_region TEXT, 
+	top_right_region TEXT, 
+	middle_left_region TEXT, 
+	middle_center_region TEXT, 
+	middle_right_region TEXT, 
+	bottom_left_region TEXT, 
+	bottom_center_region TEXT, 
+	bottom_right_region TEXT, 
+	PRIMARY KEY (label, description, image, top_left_region, top_center_region, top_right_region, middle_left_region, middle_center_region, middle_right_region, bottom_left_region, bottom_center_region, bottom_right_region), 
+	FOREIGN KEY(top_left_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(top_center_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(top_right_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(middle_left_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(middle_center_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(middle_right_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(bottom_left_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(bottom_center_region) REFERENCES "Rectangle" (label), 
+	FOREIGN KEY(bottom_right_region) REFERENCES "Rectangle" (label)
+);
+
+CREATE TABLE "RoiProfiles" (
+	label TEXT, 
+	description TEXT, 
+	image TEXT, 
+	"leftTop_to_rightBottom_profile" TEXT, 
+	"leftBottom_to_rightTop_profile" TEXT, 
+	left_to_right_profile TEXT, 
+	top_to_bottom_profile TEXT, 
+	PRIMARY KEY (label, description, image, "leftTop_to_rightBottom_profile", "leftBottom_to_rightTop_profile", left_to_right_profile, top_to_bottom_profile), 
+	FOREIGN KEY("leftTop_to_rightBottom_profile") REFERENCES "Line" (label), 
+	FOREIGN KEY("leftBottom_to_rightTop_profile") REFERENCES "Line" (label), 
+	FOREIGN KEY(left_to_right_profile) REFERENCES "Line" (label), 
+	FOREIGN KEY(top_to_bottom_profile) REFERENCES "Line" (label)
 );
 
 CREATE TABLE "Sample" (
@@ -376,6 +418,14 @@ CREATE TABLE "Sample" (
 	protocol TEXT NOT NULL, 
 	PRIMARY KEY (type), 
 	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+
+CREATE TABLE "Vertex" (
+	x FLOAT NOT NULL, 
+	y FLOAT NOT NULL, 
+	"Polygon_label" TEXT, 
+	PRIMARY KEY (x, y, "Polygon_label"), 
+	FOREIGN KEY("Polygon_label") REFERENCES "Polygon" (label)
 );
 
 CREATE TABLE "Column_values" (

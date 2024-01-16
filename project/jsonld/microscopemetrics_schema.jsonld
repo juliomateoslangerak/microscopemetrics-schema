@@ -339,6 +339,32 @@
       "@type": "TypeDefinition"
     }
   ],
+  "enums": [
+    {
+      "name": "CommentTypes",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CommentTypes",
+      "description": "The type of the comment",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "permissible_values": [
+        {
+          "text": "ACQUISITION",
+          "description": "The comment is referring to the acquisition"
+        },
+        {
+          "text": "PROCESSING",
+          "description": "The comment is referring to the processing"
+        },
+        {
+          "text": "OTHER",
+          "description": "The comment is referring to something else"
+        },
+        {
+          "text": "UNKNOWN",
+          "description": "The type of the comment is unknown or was not defined"
+        }
+      ]
+    }
+  ],
   "slots": [
     {
       "name": "image_url",
@@ -1155,6 +1181,190 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "leftTop_to_rightBottom_profile",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/leftTop_to_rightBottom_profile",
+      "description": "The line from the top-left to the bottom-right of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/leftTop_to_rightBottom_profile",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "leftBottom_to_rightTop_profile",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/leftBottom_to_rightTop_profile",
+      "description": "The line from the bottom-left to the top-right of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/leftBottom_to_rightTop_profile",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "left_to_right_profile",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/left_to_right_profile",
+      "description": "The line from the left to the right of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/left_to_right_profile",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "top_to_bottom_profile",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_to_bottom_profile",
+      "description": "The line from the top to the bottom of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_to_bottom_profile",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "top_left_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_left_region",
+      "description": "The top-left corner of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_left_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "top_center_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_center_region",
+      "description": "The top-center of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_center_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "top_right_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_right_region",
+      "description": "The top-right corner of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/top_right_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "middle_left_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_left_region",
+      "description": "The middle-left of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_left_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "middle_center_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_center_region",
+      "description": "The middle-center of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_center_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "middle_right_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_right_region",
+      "description": "The middle-right of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/middle_right_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bottom_left_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_left_region",
+      "description": "The bottom-left corner of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_left_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bottom_center_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_center_region",
+      "description": "The bottom-center of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_center_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "bottom_right_region",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_right_region",
+      "description": "The bottom-right corner of the image",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/bottom_right_region",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "center_points",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_points",
+      "description": "The center of illumination",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_points",
+      "multivalued": true,
+      "owner": "RoiCenter",
+      "domain_of": [
+        "RoiCenter"
+      ],
+      "range": "Point",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "argolight_b_image",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/argolight_b_image",
       "description": "Input parameter: image of the argolight b pattern provided as a 5D numpy array in the order TZYXC",
@@ -1838,6 +2048,47 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "comment__date",
+      "description": "The date to which the comment is referring",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/date",
+      "alias": "date",
+      "owner": "Comment",
+      "domain_of": [
+        "Comment"
+      ],
+      "range": "date",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comment__comment_type",
+      "description": "The type of the comment",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comment_type",
+      "alias": "comment_type",
+      "owner": "Comment",
+      "domain_of": [
+        "Comment"
+      ],
+      "range": "CommentTypes",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comment__text",
+      "description": "The text of the comment",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/text",
+      "alias": "text",
+      "owner": "Comment",
+      "domain_of": [
+        "Comment"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "metricsDataset__sample",
       "description": "The sample that was imaged",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -2109,30 +2360,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "roi__shapes",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
-      "multivalued": true,
-      "alias": "shapes",
-      "owner": "Roi",
-      "domain_of": [
-        "Roi"
-      ],
-      "range": "Shape",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "shape__label",
       "description": "The label of the shape",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/label",
+      "identifier": true,
       "alias": "label",
       "owner": "Shape",
       "domain_of": [
         "Shape"
       ],
       "range": "string",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2626,20 +2865,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "comment__text",
-      "description": "The text of the comment",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/text",
-      "alias": "text",
-      "owner": "Comment",
-      "domain_of": [
-        "Comment"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "tableAsPandasDF__df",
       "description": "A Pandas DataFrame object",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -2770,7 +2995,6 @@
     },
     {
       "name": "fieldIlluminationOutput__profile_rois",
-      "description": "ROIs used to compute the intensity profiles",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/profile_rois",
       "alias": "profile_rois",
@@ -2778,13 +3002,12 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiProfiles",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "fieldIlluminationOutput__corner_rois",
-      "description": "ROIs used to compute the corner intensities",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/corner_rois",
       "alias": "corner_rois",
@@ -2792,13 +3015,12 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiCorners",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "fieldIlluminationOutput__center_of_illumination",
-      "description": "Point ROIs marking the center of illumination",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_illumination",
       "alias": "center_of_illumination",
@@ -2806,7 +3028,7 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiCenter",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3207,6 +3429,42 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Comment",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment",
+      "description": "A comment",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slots": [
+        "comment__date",
+        "comment__comment_type",
+        "comment__text"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "date",
+          "description": "The date to which the comment is referring",
+          "range": "date",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "comment_type",
+          "description": "The type of the comment",
+          "range": "CommentTypes",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "text",
+          "description": "The text of the comment",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "MetricsDataset",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset",
       "description": "A base object on which microscope-metrics runs the analysis",
@@ -3269,6 +3527,7 @@
           "description": "A human readable comment about the dataset",
           "multivalued": true,
           "range": "Comment",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -3597,8 +3856,7 @@
       "slots": [
         "roi__label",
         "roi__description",
-        "roi__image",
-        "roi__shapes"
+        "roi__image"
       ],
       "slot_usage": {},
       "attributes": [
@@ -3619,12 +3877,6 @@
           "description": "The image to which the ROI is applied",
           "multivalued": true,
           "range": "Image",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shapes",
-          "multivalued": true,
-          "range": "Shape",
           "@type": "SlotDefinition"
         }
       ],
@@ -3651,7 +3903,9 @@
         {
           "name": "label",
           "description": "The label of the shape",
+          "identifier": true,
           "range": "string",
+          "required": true,
           "@type": "SlotDefinition"
         },
         {
@@ -4113,27 +4367,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Comment",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment",
-      "description": "A comment",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slots": [
-        "comment__text"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "text",
-          "description": "The text of the comment",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "Table",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table",
       "description": "A table",
@@ -4344,20 +4577,17 @@
         },
         {
           "name": "profile_rois",
-          "description": "ROIs used to compute the intensity profiles",
-          "range": "Roi",
+          "range": "RoiProfiles",
           "@type": "SlotDefinition"
         },
         {
           "name": "corner_rois",
-          "description": "ROIs used to compute the corner intensities",
-          "range": "Roi",
+          "range": "RoiCorners",
           "@type": "SlotDefinition"
         },
         {
           "name": "center_of_illumination",
-          "description": "Point ROIs marking the center of illumination",
-          "range": "Roi",
+          "range": "RoiCenter",
           "@type": "SlotDefinition"
         }
       ],
@@ -4408,6 +4638,65 @@
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiProfiles",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
+      "description": "line ROIs used to compute the intensity profiles",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "leftTop_to_rightBottom_profile",
+        "leftBottom_to_rightTop_profile",
+        "left_to_right_profile",
+        "top_to_bottom_profile"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiCorners",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
+      "description": "Rectangular ROIs used to compute the corner intensities",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "top_left_region",
+        "top_center_region",
+        "top_right_region",
+        "middle_left_region",
+        "middle_center_region",
+        "middle_right_region",
+        "bottom_left_region",
+        "bottom_center_region",
+        "bottom_right_region"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiCenter",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenter",
+      "description": "Point ROIs marking the center of illumination",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "center_points"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenter",
       "@type": "ClassDefinition"
     },
     {
@@ -4733,7 +5022,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-12T10:21:18",
+  "generation_date": "2024-01-15T17:28:29",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

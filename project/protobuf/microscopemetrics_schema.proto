@@ -137,6 +137,8 @@ message Column
 // A comment
 message Comment
  {
+  date date = 0
+  commentTypes commentType = 0
   string text = 0
  }
 // An ellipse as defined by x, y coordinates and x and y radii
@@ -228,9 +230,9 @@ message FieldIlluminationOutput
   fieldIlluminationKeyValues keyValues = 0
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
-  roi profileRois = 0
-  roi cornerRois = 0
-  roi centerOfIllumination = 0
+  roiProfiles profileRois = 0
+  roiCorners cornerRois = 0
+  roiCenter centerOfIllumination = 0
  }
 // A 2D image in YX order
 message Image2D
@@ -400,7 +402,41 @@ message Roi
   string label = 0
   string description = 0
  repeated  image image = 0
- repeated  shape shapes = 0
+ }
+// Point ROIs marking the center of illumination
+message RoiCenter
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  point centerPoints = 0
+ }
+// Rectangular ROIs used to compute the corner intensities
+message RoiCorners
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+  rectangle topLeftRegion = 0
+  rectangle topCenterRegion = 0
+  rectangle topRightRegion = 0
+  rectangle middleLeftRegion = 0
+  rectangle middleCenterRegion = 0
+  rectangle middleRightRegion = 0
+  rectangle bottomLeftRegion = 0
+  rectangle bottomCenterRegion = 0
+  rectangle bottomRightRegion = 0
+ }
+// line ROIs used to compute the intensity profiles
+message RoiProfiles
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+  line leftTopToRightBottomProfile = 0
+  line leftBottomToRightTopProfile = 0
+  line leftToRightProfile = 0
+  line topToBottomProfile = 0
  }
 // A sample is a standard physical object that is imaged by a microscope
 message Sample

@@ -683,16 +683,37 @@
             "additionalProperties": false,
             "description": "A comment",
             "properties": {
+                "comment_type": {
+                    "$ref": "#/$defs/CommentTypes",
+                    "description": "The type of the comment"
+                },
+                "date": {
+                    "description": "The date to which the comment is referring",
+                    "format": "date",
+                    "type": "string"
+                },
                 "text": {
                     "description": "The text of the comment",
                     "type": "string"
                 }
             },
             "required": [
+                "date",
                 "text"
             ],
             "title": "Comment",
             "type": "object"
+        },
+        "CommentTypes": {
+            "description": "The type of the comment",
+            "enum": [
+                "ACQUISITION",
+                "PROCESSING",
+                "OTHER",
+                "UNKNOWN"
+            ],
+            "title": "CommentTypes",
+            "type": "string"
         },
         "Ellipse": {
             "additionalProperties": false,
@@ -747,7 +768,8 @@
                 "x",
                 "y",
                 "x_rad",
-                "y_rad"
+                "y_rad",
+                "label"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -1166,12 +1188,10 @@
             "description": "",
             "properties": {
                 "center_of_illumination": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "Point ROIs marking the center of illumination"
+                    "$ref": "#/$defs/RoiCenter"
                 },
                 "corner_rois": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "ROIs used to compute the corner intensities"
+                    "$ref": "#/$defs/RoiCorners"
                 },
                 "intensity_map": {
                     "description": "Intensity map of the field illumination",
@@ -1186,8 +1206,7 @@
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "profile_rois": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "ROIs used to compute the intensity profiles"
+                    "$ref": "#/$defs/RoiProfiles"
                 }
             },
             "title": "FieldIlluminationOutput",
@@ -1544,7 +1563,8 @@
                 "x1",
                 "y1",
                 "x2",
-                "y2"
+                "y2",
+                "label"
             ],
             "title": "Line",
             "type": "object"
@@ -1596,7 +1616,8 @@
             },
             "required": [
                 "y",
-                "x"
+                "x",
+                "label"
             ],
             "title": "Mask",
             "type": "object"
@@ -1711,6 +1732,55 @@
             },
             "required": [
                 "y",
+                "x",
+                "label"
+            ],
+            "title": "Point",
+            "type": "object"
+        },
+        "Point__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A point as defined by x and y coordinates",
+            "properties": {
+                "c": {
+                    "description": "The c coordinate of the shape",
+                    "type": "integer"
+                },
+                "fill_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The fill color of the shape"
+                },
+                "label": {
+                    "description": "The label of the shape",
+                    "type": "string"
+                },
+                "stroke_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The stroke color of the shape"
+                },
+                "stroke_width": {
+                    "description": "The stroke width of the shape",
+                    "type": "integer"
+                },
+                "t": {
+                    "description": "The t coordinate of the shape",
+                    "type": "integer"
+                },
+                "x": {
+                    "description": "The x coordinate of the point",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y coordinate of the point",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z coordinate of the shape",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "y",
                 "x"
             ],
             "title": "Point",
@@ -1762,7 +1832,8 @@
             },
             "required": [
                 "vertexes",
-                "is_open"
+                "is_open",
+                "label"
             ],
             "title": "Polygon",
             "type": "object"
@@ -1855,7 +1926,8 @@
                 "x",
                 "y",
                 "w",
-                "h"
+                "h",
+                "label"
             ],
             "title": "Rectangle",
             "type": "object"
@@ -1878,15 +1950,137 @@
                 "label": {
                     "description": "The label of the ROI",
                     "type": "string"
-                },
-                "shapes": {
-                    "items": {
-                        "$ref": "#/$defs/Shape"
-                    },
-                    "type": "array"
                 }
             },
             "title": "Roi",
+            "type": "object"
+        },
+        "RoiCenter": {
+            "additionalProperties": false,
+            "description": "Point ROIs marking the center of illumination",
+            "properties": {
+                "center_points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "The center of illumination",
+                    "type": "object"
+                },
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                }
+            },
+            "title": "RoiCenter",
+            "type": "object"
+        },
+        "RoiCorners": {
+            "additionalProperties": false,
+            "description": "Rectangular ROIs used to compute the corner intensities",
+            "properties": {
+                "bottom_center_region": {
+                    "description": "The bottom-center of the image",
+                    "type": "string"
+                },
+                "bottom_left_region": {
+                    "description": "The bottom-left corner of the image",
+                    "type": "string"
+                },
+                "bottom_right_region": {
+                    "description": "The bottom-right corner of the image",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "middle_center_region": {
+                    "description": "The middle-center of the image",
+                    "type": "string"
+                },
+                "middle_left_region": {
+                    "description": "The middle-left of the image",
+                    "type": "string"
+                },
+                "middle_right_region": {
+                    "description": "The middle-right of the image",
+                    "type": "string"
+                },
+                "top_center_region": {
+                    "description": "The top-center of the image",
+                    "type": "string"
+                },
+                "top_left_region": {
+                    "description": "The top-left corner of the image",
+                    "type": "string"
+                },
+                "top_right_region": {
+                    "description": "The top-right corner of the image",
+                    "type": "string"
+                }
+            },
+            "title": "RoiCorners",
+            "type": "object"
+        },
+        "RoiProfiles": {
+            "additionalProperties": false,
+            "description": "line ROIs used to compute the intensity profiles",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "leftBottom_to_rightTop_profile": {
+                    "description": "The line from the bottom-left to the top-right of the image",
+                    "type": "string"
+                },
+                "leftTop_to_rightBottom_profile": {
+                    "description": "The line from the top-left to the bottom-right of the image",
+                    "type": "string"
+                },
+                "left_to_right_profile": {
+                    "description": "The line from the left to the right of the image",
+                    "type": "string"
+                },
+                "top_to_bottom_profile": {
+                    "description": "The line from the top to the bottom of the image",
+                    "type": "string"
+                }
+            },
+            "title": "RoiProfiles",
             "type": "object"
         },
         "Sample": {
