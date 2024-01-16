@@ -130,6 +130,7 @@ classes:
         range: Comment
         description: A human readable comment about the dataset
         required: false
+        inlined: true
         multivalued: true
 
   MetricsInput:
