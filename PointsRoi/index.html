@@ -245,7 +245,7 @@
 <tbody>
 <tr>
 <td><a href="../shapes/">shapes</a></td>
-<td>0..1 <br/> <a href="../Point/">Point</a></td>
+<td>0..* <br/> <a href="../Point/">Point</a></td>
 <td>A ROI of points</td>
 <td>direct</td>
 </tr>
@@ -331,7 +331,9 @@ attributes:
     name: shapes
     description: A ROI of points
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    multivalued: true
     range: Point
+    inlined: true
 
 </code></pre>
 </details>
@@ -346,6 +348,7 @@ attributes:
     name: shapes
     description: A ROI of points
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    multivalued: true
     alias: shapes
     owner: PointsRoi
     domain_of:
@@ -354,6 +357,7 @@ attributes:
     - PointsRoi
     - RectanglesRoi
     range: Point
+    inlined: true
   label:
     name: label
     description: The label of the ROI
