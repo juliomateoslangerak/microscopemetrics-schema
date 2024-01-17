@@ -209,7 +209,7 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RoiProfiles">microscopemetrics_schema:RoiProfiles</a></p>
 <div class="mermaid"> classDiagram
     class RoiProfiles
-      Roi &lt;|-- RoiProfiles
+      LinesRoi &lt;|-- RoiProfiles
 
       RoiProfiles : description
 
@@ -231,6 +231,10 @@
 
           RoiProfiles --|&gt; Line : leftTop_to_rightBottom_profile
 
+      RoiProfiles : shapes
+
+          RoiProfiles --|&gt; Line : shapes
+
       RoiProfiles : top_to_bottom_profile
 
           RoiProfiles --|&gt; Line : top_to_bottom_profile
@@ -240,7 +244,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Roi/">Roi</a><ul>
+<li><a href="../LinesRoi/">LinesRoi</a><ul>
 <li><strong>RoiProfiles</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -280,6 +287,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../shapes/">shapes</a></td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>A ROI of lines</td>
+<td><a href="../LinesRoi/">LinesRoi</a>, <a href="../Roi/">Roi</a></td>
+</tr>
+<tr>
 <td><a href="../label/">label</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The label of the ROI</td>
@@ -294,7 +307,7 @@
 <tr>
 <td><a href="../image/">image</a></td>
 <td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>The image to which the ROI is applied</td>
+<td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 </tbody>
@@ -349,7 +362,7 @@
 <pre><code class="language-yaml">name: RoiProfiles
 description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Roi
+is_a: LinesRoi
 slots:
 - leftTop_to_rightBottom_profile
 - leftBottom_to_rightTop_profile
@@ -363,7 +376,7 @@ slots:
 <pre><code class="language-yaml">name: RoiProfiles
 description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Roi
+is_a: LinesRoi
 attributes:
   leftTop_to_rightBottom_profile:
     name: leftTop_to_rightBottom_profile
@@ -409,6 +422,18 @@ attributes:
     domain_of:
     - RoiProfiles
     range: Line
+  shapes:
+    name: shapes
+    description: A ROI of lines
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    alias: shapes
+    owner: RoiProfiles
+    domain_of:
+    - Roi
+    - LinesRoi
+    - PointsRoi
+    - RectanglesRoi
+    range: Line
   label:
     name: label
     description: The label of the ROI
@@ -438,7 +463,7 @@ attributes:
     required: false
   image:
     name: image
-    description: The image to which the ROI is applied
+    description: The image or images to which the ROI is applied
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true

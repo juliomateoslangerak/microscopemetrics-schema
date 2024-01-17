@@ -318,6 +318,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../Roi/">Roi</a></td>
+<td>A ROI (Region Of Interest)</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../LinesRoi/">LinesRoi</a></td>
 <td>ROI representing a set of lines in a single channel</td>
 <td>no</td>
@@ -325,6 +330,26 @@
 <tr>
 <td><a href="../PointsRoi/">PointsRoi</a></td>
 <td>ROI representing a set of points in a single channel</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RectanglesRoi/">RectanglesRoi</a></td>
+<td>ROI representing a set of rectangles in a single channel</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td>line ROIs used to compute the intensity profiles</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RoiCorners/">RoiCorners</a></td>
+<td>Rectangular ROIs used to compute the corner intensities</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../RoiCenter/">RoiCenter</a></td>
+<td>Point ROIs marking the center of illumination</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -340,8 +365,10 @@
 <pre><code class="language-yaml">name: shapes
 alias: shapes
 domain_of:
+- Roi
 - LinesRoi
 - PointsRoi
+- RectanglesRoi
 range: string
 
 </code></pre>

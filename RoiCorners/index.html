@@ -209,7 +209,7 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RoiCorners">microscopemetrics_schema:RoiCorners</a></p>
 <div class="mermaid"> classDiagram
     class RoiCorners
-      Roi &lt;|-- RoiCorners
+      RectanglesRoi &lt;|-- RoiCorners
 
       RoiCorners : bottom_center_region
 
@@ -243,6 +243,10 @@
 
           RoiCorners --|&gt; Rectangle : middle_right_region
 
+      RoiCorners : shapes
+
+          RoiCorners --|&gt; Rectangle : shapes
+
       RoiCorners : top_center_region
 
           RoiCorners --|&gt; Rectangle : top_center_region
@@ -260,7 +264,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Roi/">Roi</a><ul>
+<li><a href="../RectanglesRoi/">RectanglesRoi</a><ul>
 <li><strong>RoiCorners</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -330,6 +337,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../shapes/">shapes</a></td>
+<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>A ROI of rectangles</td>
+<td><a href="../Roi/">Roi</a>, <a href="../RectanglesRoi/">RectanglesRoi</a></td>
+</tr>
+<tr>
 <td><a href="../label/">label</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The label of the ROI</td>
@@ -344,7 +357,7 @@
 <tr>
 <td><a href="../image/">image</a></td>
 <td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>The image to which the ROI is applied</td>
+<td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 </tbody>
@@ -399,7 +412,7 @@
 <pre><code class="language-yaml">name: RoiCorners
 description: Rectangular ROIs used to compute the corner intensities
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Roi
+is_a: RectanglesRoi
 slots:
 - top_left_region
 - top_center_region
@@ -418,7 +431,7 @@ slots:
 <pre><code class="language-yaml">name: RoiCorners
 description: Rectangular ROIs used to compute the corner intensities
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Roi
+is_a: RectanglesRoi
 attributes:
   top_left_region:
     name: top_left_region
@@ -519,6 +532,18 @@ attributes:
     domain_of:
     - RoiCorners
     range: Rectangle
+  shapes:
+    name: shapes
+    description: A ROI of rectangles
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    alias: shapes
+    owner: RoiCorners
+    domain_of:
+    - Roi
+    - LinesRoi
+    - PointsRoi
+    - RectanglesRoi
+    range: Rectangle
   label:
     name: label
     description: The label of the ROI
@@ -548,7 +573,7 @@ attributes:
     required: false
   image:
     name: image
-    description: The image to which the ROI is applied
+    description: The image or images to which the ROI is applied
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true

@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PointsRoi/" rel="canonical"/>
+<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RectanglesRoi/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: PointsRoi - microscopemetrics-schema</title>
+<title>Class: RectanglesRoi - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-pointsroi">
+<a class="md-skip" href="#class-rectanglesroi">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: PointsRoi
+              Class: RectanglesRoi
             
           </span>
 </div>
@@ -152,11 +152,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -201,34 +196,41 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/PointsRoi.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/RectanglesRoi.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-pointsroi">Class: PointsRoi</h1>
-<p><em>ROI representing a set of points in a single channel</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/PointsRoi">microscopemetrics_schema:PointsRoi</a></p>
+<h1 id="class-rectanglesroi">Class: RectanglesRoi</h1>
+<p><em>ROI representing a set of rectangles in a single channel</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RectanglesRoi">microscopemetrics_schema:RectanglesRoi</a></p>
 <div class="mermaid"> classDiagram
-    class PointsRoi
-      Roi &lt;|-- PointsRoi
+    class RectanglesRoi
+      Roi &lt;|-- RectanglesRoi
 
-      PointsRoi : description
 
-      PointsRoi : image
+      RectanglesRoi &lt;|-- RoiCorners
 
-          PointsRoi --|&gt; Image : image
 
-      PointsRoi : label
+      RectanglesRoi : description
 
-      PointsRoi : shapes
+      RectanglesRoi : image
 
-          PointsRoi --|&gt; Point : shapes
+          RectanglesRoi --|&gt; Image : image
+
+      RectanglesRoi : label
+
+      RectanglesRoi : shapes
+
+          RectanglesRoi --|&gt; Rectangle : shapes
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Roi/">Roi</a><ul>
-<li><strong>PointsRoi</strong></li>
+<li><strong>RectanglesRoi</strong><ul>
+<li><a href="../RoiCorners/">RoiCorners</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -245,8 +247,8 @@
 <tbody>
 <tr>
 <td><a href="../shapes/">shapes</a></td>
-<td>0..1 <br/> <a href="../Point/">Point</a></td>
-<td>A ROI of points</td>
+<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>A ROI of rectangles</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -269,25 +271,6 @@
 </tr>
 </tbody>
 </table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_centroids/">spots_centroids</a></td>
-<td>range</td>
-<td><a href="./">PointsRoi</a></td>
-</tr>
-</tbody>
-</table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
@@ -304,11 +287,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>microscopemetrics_schema:PointsRoi</td>
+<td>microscopemetrics_schema:RectanglesRoi</td>
 </tr>
 <tr>
 <td>native</td>
-<td>microscopemetrics_schema:PointsRoi</td>
+<td>microscopemetrics_schema:RectanglesRoi</td>
 </tr>
 </tbody>
 </table>
@@ -316,38 +299,38 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: PointsRoi
-description: ROI representing a set of points in a single channel
+<pre><code class="language-yaml">name: RectanglesRoi
+description: ROI representing a set of rectangles in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
   shapes:
     name: shapes
-    description: A ROI of points
+    description: A ROI of rectangles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    range: Point
+    range: Rectangle
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: PointsRoi
-description: ROI representing a set of points in a single channel
+<pre><code class="language-yaml">name: RectanglesRoi
+description: ROI representing a set of rectangles in a single channel
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Roi
 attributes:
   shapes:
     name: shapes
-    description: A ROI of points
+    description: A ROI of rectangles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     alias: shapes
-    owner: PointsRoi
+    owner: RectanglesRoi
     domain_of:
     - Roi
     - LinesRoi
     - PointsRoi
     - RectanglesRoi
-    range: Point
+    range: Rectangle
   label:
     name: label
     description: The label of the ROI
@@ -356,7 +339,7 @@ attributes:
     multivalued: false
     identifier: true
     alias: label
-    owner: PointsRoi
+    owner: RectanglesRoi
     domain_of:
     - Roi
     - Shape
@@ -368,7 +351,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: false
     alias: description
-    owner: PointsRoi
+    owner: RectanglesRoi
     domain_of:
     - NamedObject
     - Roi
@@ -382,7 +365,7 @@ attributes:
     rank: 1000
     multivalued: true
     alias: image
-    owner: PointsRoi
+    owner: RectanglesRoi
     domain_of:
     - Roi
     range: Image

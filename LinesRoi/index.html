@@ -211,6 +211,10 @@
     class LinesRoi
       Roi &lt;|-- LinesRoi
 
+
+      LinesRoi &lt;|-- RoiProfiles
+
+
       LinesRoi : description
 
       LinesRoi : image
@@ -228,7 +232,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Roi/">Roi</a><ul>
-<li><strong>LinesRoi</strong></li>
+<li><strong>LinesRoi</strong><ul>
+<li><a href="../RoiProfiles/">RoiProfiles</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -245,8 +252,8 @@
 <tbody>
 <tr>
 <td><a href="../shapes/">shapes</a></td>
-<td>0..* <br/> <a href="../Line/">Line</a></td>
-<td>A set of lines</td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>A ROI of lines</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -264,7 +271,7 @@
 <tr>
 <td><a href="../image/">image</a></td>
 <td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>The image to which the ROI is applied</td>
+<td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 </tbody>
@@ -323,12 +330,9 @@ is_a: Roi
 attributes:
   shapes:
     name: shapes
-    description: A set of lines
+    description: A ROI of lines
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
     range: Line
-    inlined: true
 
 </code></pre>
 </details>
@@ -341,17 +345,16 @@ is_a: Roi
 attributes:
   shapes:
     name: shapes
-    description: A set of lines
+    description: A ROI of lines
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
     alias: shapes
     owner: LinesRoi
     domain_of:
+    - Roi
     - LinesRoi
     - PointsRoi
+    - RectanglesRoi
     range: Line
-    inlined: true
   label:
     name: label
     description: The label of the ROI
@@ -381,7 +384,7 @@ attributes:
     required: false
   image:
     name: image
-    description: The image to which the ROI is applied
+    description: The image or images to which the ROI is applied
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
