@@ -212,11 +212,11 @@
 
       FieldIlluminationOutput : center_of_illumination
 
-          FieldIlluminationOutput --|&gt; RoiCenter : center_of_illumination
+          FieldIlluminationOutput --|&gt; PointsRoi : center_of_illumination
 
       FieldIlluminationOutput : corner_rois
 
-          FieldIlluminationOutput --|&gt; RoiCorners : corner_rois
+          FieldIlluminationOutput --|&gt; RectanglesRoi : corner_rois
 
       FieldIlluminationOutput : intensity_map
 
@@ -232,7 +232,7 @@
 
       FieldIlluminationOutput : profile_rois
 
-          FieldIlluminationOutput --|&gt; RoiProfiles : profile_rois
+          FieldIlluminationOutput --|&gt; LinesRoi : profile_rois
 
 
 </div>
@@ -274,20 +274,20 @@
 </tr>
 <tr>
 <td><a href="../profile_rois/">profile_rois</a></td>
-<td>0..1 <br/> <a href="../RoiProfiles/">RoiProfiles</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../LinesRoi/">LinesRoi</a></td>
+<td>line ROIs used to compute the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../corner_rois/">corner_rois</a></td>
-<td>0..1 <br/> <a href="../RoiCorners/">RoiCorners</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../RectanglesRoi/">RectanglesRoi</a></td>
+<td>Rectangular ROIs used to compute the corner intensities</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_illumination/">center_of_illumination</a></td>
-<td>0..1 <br/> <a href="../RoiCenter/">RoiCenter</a></td>
-<td></td>
+<td>0..1 <br/> <a href="../PointsRoi/">PointsRoi</a></td>
+<td>Point ROIs marking the center of illumination</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -366,22 +366,25 @@ attributes:
     range: Image5D
   profile_rois:
     name: profile_rois
+    description: line ROIs used to compute the intensity profiles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: RoiProfiles
+    range: LinesRoi
   corner_rois:
     name: corner_rois
+    description: Rectangular ROIs used to compute the corner intensities
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: RoiCorners
+    range: RectanglesRoi
   center_of_illumination:
     name: center_of_illumination
+    description: Point ROIs marking the center of illumination
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: RoiCenter
+    range: PointsRoi
 
 </code></pre>
 </details>
@@ -427,6 +430,7 @@ attributes:
     range: Image5D
   profile_rois:
     name: profile_rois
+    description: line ROIs used to compute the intensity profiles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
@@ -434,9 +438,10 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: RoiProfiles
+    range: LinesRoi
   corner_rois:
     name: corner_rois
+    description: Rectangular ROIs used to compute the corner intensities
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
@@ -444,9 +449,10 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: RoiCorners
+    range: RectanglesRoi
   center_of_illumination:
     name: center_of_illumination
+    description: Point ROIs marking the center of illumination
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
@@ -454,7 +460,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: RoiCenter
+    range: PointsRoi
 
 </code></pre>
 </details>
