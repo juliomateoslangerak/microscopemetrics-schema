@@ -230,9 +230,9 @@ message FieldIlluminationOutput
   fieldIlluminationKeyValues keyValues = 0
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
-  roiProfiles profileRois = 0
-  roiCorners cornerRois = 0
-  roiCenter centerOfIllumination = 0
+  linesRoi profileRois = 0
+  rectanglesRoi cornerRois = 0
+  pointsRoi centerOfIllumination = 0
  }
 // A 2D image in YX order
 message Image2D
@@ -373,7 +373,7 @@ message PointsRoi
   string label = 0
   string description = 0
  repeated  image image = 0
- repeated  point shapes = 0
+  point shapes = 0
  }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
@@ -412,12 +412,21 @@ message Rectangle
   float w = 0
   float h = 0
  }
-// A ROI. Collection of shapes and an image to which they are applied
+// ROI representing a set of rectangles in a single channel
+message RectanglesRoi
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+  rectangle shapes = 0
+ }
+// A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
 message Roi
  {
   string label = 0
   string description = 0
  repeated  image image = 0
+ repeated  shape shapes = 0
  }
 // Point ROIs marking the center of illumination
 message RoiCenter
@@ -425,6 +434,7 @@ message RoiCenter
   string label = 0
   string description = 0
  repeated  image image = 0
+ repeated  shape shapes = 0
  repeated  point centerPoints = 0
  }
 // Rectangular ROIs used to compute the corner intensities
@@ -433,6 +443,7 @@ message RoiCorners
   string label = 0
   string description = 0
  repeated  image image = 0
+  rectangle shapes = 0
   rectangle topLeftRegion = 0
   rectangle topCenterRegion = 0
   rectangle topRightRegion = 0
@@ -449,6 +460,7 @@ message RoiProfiles
   string label = 0
   string description = 0
  repeated  image image = 0
+ repeated  line shapes = 0
   line leftTopToRightBottomProfile = 0
   line leftBottomToRightTopProfile = 0
   line leftToRightProfile = 0

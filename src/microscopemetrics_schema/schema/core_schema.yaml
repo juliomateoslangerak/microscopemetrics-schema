@@ -265,7 +265,7 @@ classes:
           ucum_code: s
 
   Roi:
-    description: A ROI. Collection of shapes and an image to which they are applied
+    description: A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
     attributes:
       label:
         range: string
@@ -280,10 +280,14 @@ classes:
         multivalued: false
       image:
         range: Image
-        description: The image to which the ROI is applied
+        description: The image or images to which the ROI is applied
         required: false
         multivalued: true
         inlined: false
+      shapes:
+        range: Shape
+        multivalued: true
+        inlined: true
 
   LinesRoi:
     is_a: Roi
@@ -293,7 +297,7 @@ classes:
       shapes:
         range: Line
         description: >-
-          A set of lines
+          A ROI of lines
         multivalued: true
         inlined: true
 
@@ -305,9 +309,17 @@ classes:
       shapes:
         range: Point
         description: >-
-          A set of points
-        multivalued: true
-        inlined: true
+          A ROI of points
+
+  RectanglesRoi:
+    is_a: Roi
+    description: >-
+      ROI representing a set of rectangles in a single channel
+    attributes:
+      shapes:
+        range: Rectangle
+        description: >-
+          A ROI of rectangles
 
 #      shapes:
 #        range: Shape

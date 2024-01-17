@@ -68,13 +68,18 @@ classes:
           Intensity map of the field illumination
         multivalued: false
       profile_rois:  # TODO: rename to roi_profiles
-        range: RoiProfiles
+        range: LinesRoi
+        description: line ROIs used to compute the intensity profiles
         multivalued: false
       corner_rois:  # TODO: rename to roi_corners
-        range: RoiCorners
+        range: RectanglesRoi
+        description: >-
+          Rectangular ROIs used to compute the corner intensities
         multivalued: false
       center_of_illumination:
-        range: RoiCenter
+        range: PointsRoi
+        description: >-
+          Point ROIs marking the center of illumination
         multivalued: false
 
   FieldIlluminationKeyValues:
@@ -117,7 +122,7 @@ classes:
       - decile_9
 
   RoiProfiles:
-    is_a: Roi
+    is_a: LinesRoi
     description: >-
       line ROIs used to compute the intensity profiles
     slots:
@@ -127,7 +132,7 @@ classes:
       - top_to_bottom_profile
 
   RoiCorners:
-    is_a: Roi
+    is_a: RectanglesRoi
     description: >-
       Rectangular ROIs used to compute the corner intensities
     slots:

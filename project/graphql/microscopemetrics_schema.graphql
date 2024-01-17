@@ -236,9 +236,9 @@ type FieldIlluminationOutput
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: TableAsDict
     intensityMap: Image5D
-    profileRois: RoiProfiles
-    cornerRois: RoiCorners
-    centerOfIllumination: RoiCenter
+    profileRois: LinesRoi
+    cornerRois: RectanglesRoi
+    centerOfIllumination: PointsRoi
   }
 
 interface Image
@@ -439,7 +439,7 @@ type PointsRoi
     label: String!
     description: String
     image: [Image]
-    shapes: [Point]
+    shapes: Point
   }
 
 type Polygon
@@ -479,11 +479,20 @@ type Rectangle
     h: Float!
   }
 
+type RectanglesRoi
+  {
+    label: String!
+    description: String
+    image: [Image]
+    shapes: Rectangle
+  }
+
 type Roi
   {
     label: String!
     description: String
     image: [Image]
+    shapes: [Shape]
   }
 
 type RoiCenter
@@ -491,6 +500,7 @@ type RoiCenter
     label: String!
     description: String
     image: [Image]
+    shapes: [Shape]
     centerPoints: [Point]
   }
 
@@ -499,6 +509,7 @@ type RoiCorners
     label: String!
     description: String
     image: [Image]
+    shapes: Rectangle
     topLeftRegion: Rectangle
     topCenterRegion: Rectangle
     topRightRegion: Rectangle
@@ -515,6 +526,7 @@ type RoiProfiles
     label: String!
     description: String
     image: [Image]
+    shapes: [Line]
     leftTopToRightBottomProfile: Line
     leftBottomToRightTopProfile: Line
     leftToRightProfile: Line

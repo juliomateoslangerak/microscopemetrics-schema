@@ -1187,9 +1187,11 @@
             "description": "",
             "properties": {
                 "center_of_illumination": {
+                    "description": "Point ROIs marking the center of illumination",
                     "type": "string"
                 },
                 "corner_rois": {
+                    "description": "Rectangular ROIs used to compute the corner intensities",
                     "type": "string"
                 },
                 "intensity_map": {
@@ -1205,6 +1207,7 @@
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "profile_rois": {
+                    "description": "line ROIs used to compute the intensity profiles",
                     "type": "string"
                 }
             },
@@ -1635,7 +1638,7 @@
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -1649,7 +1652,7 @@
                     "additionalProperties": {
                         "$ref": "#/$defs/Line__identifier_optional"
                     },
-                    "description": "A set of lines",
+                    "description": "A ROI of lines",
                     "type": "object"
                 }
             },
@@ -1885,7 +1888,7 @@
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -1896,11 +1899,8 @@
                     "type": "string"
                 },
                 "shapes": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Point__identifier_optional"
-                    },
-                    "description": "A set of points",
-                    "type": "object"
+                    "description": "A ROI of points",
+                    "type": "string"
                 }
             },
             "required": [
@@ -2055,16 +2055,16 @@
             "title": "Rectangle",
             "type": "object"
         },
-        "Roi": {
+        "RectanglesRoi": {
             "additionalProperties": false,
-            "description": "A ROI. Collection of shapes and an image to which they are applied",
+            "description": "ROI representing a set of rectangles in a single channel",
             "properties": {
                 "description": {
                     "description": "A description of the ROI",
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -2073,6 +2073,49 @@
                 "label": {
                     "description": "The label of the ROI",
                     "type": "string"
+                },
+                "shapes": {
+                    "description": "A ROI of rectangles",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "RectanglesRoi",
+            "type": "object"
+        },
+        "Roi": {
+            "additionalProperties": false,
+            "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Shape__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
                 }
             },
             "required": [
@@ -2097,7 +2140,7 @@
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -2106,6 +2149,19 @@
                 "label": {
                     "description": "The label of the ROI",
                     "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Shape__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
                 }
             },
             "required": [
@@ -2135,7 +2191,7 @@
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -2155,6 +2211,10 @@
                 },
                 "middle_right_region": {
                     "description": "The middle-right of the image",
+                    "type": "string"
+                },
+                "shapes": {
+                    "description": "A ROI of rectangles",
                     "type": "string"
                 },
                 "top_center_region": {
@@ -2185,7 +2245,7 @@
                     "type": "string"
                 },
                 "image": {
-                    "description": "The image to which the ROI is applied",
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
                         "type": "string"
                     },
@@ -2206,6 +2266,13 @@
                 "left_to_right_profile": {
                     "description": "The line from the left to the right of the image",
                     "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A ROI of lines",
+                    "type": "object"
                 },
                 "top_to_bottom_profile": {
                     "description": "The line from the top to the bottom of the image",
