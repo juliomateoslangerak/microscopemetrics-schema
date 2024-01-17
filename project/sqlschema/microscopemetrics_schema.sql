@@ -240,6 +240,13 @@ CREATE TABLE "Point" (
 	PRIMARY KEY (label)
 );
 
+CREATE TABLE "PointsRoi" (
+	label TEXT NOT NULL, 
+	description TEXT, 
+	shapes TEXT, 
+	PRIMARY KEY (label)
+);
+
 CREATE TABLE "Polygon" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -273,6 +280,13 @@ CREATE TABLE "Rectangle" (
 	y FLOAT NOT NULL, 
 	w FLOAT NOT NULL, 
 	h FLOAT NOT NULL, 
+	PRIMARY KEY (label)
+);
+
+CREATE TABLE "RectanglesRoi" (
+	label TEXT NOT NULL, 
+	description TEXT, 
+	shapes TEXT, 
 	PRIMARY KEY (label)
 );
 
@@ -350,6 +364,20 @@ CREATE TABLE "FieldIlluminationInput" (
 	FOREIGN KEY(field_illumination_image) REFERENCES "ImageAsNumpy" (image_url)
 );
 
+CREATE TABLE "FieldIlluminationOutput" (
+	key_values TEXT, 
+	intensity_profiles TEXT, 
+	intensity_map TEXT, 
+	profile_rois TEXT, 
+	corner_rois TEXT, 
+	center_of_illumination TEXT, 
+	PRIMARY KEY (key_values, intensity_profiles, intensity_map, profile_rois, corner_rois, center_of_illumination), 
+	FOREIGN KEY(intensity_map) REFERENCES "Image5D" (image_url), 
+	FOREIGN KEY(profile_rois) REFERENCES "LinesRoi" (label), 
+	FOREIGN KEY(corner_rois) REFERENCES "RectanglesRoi" (label), 
+	FOREIGN KEY(center_of_illumination) REFERENCES "PointsRoi" (label)
+);
+
 CREATE TABLE "Mask" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -363,22 +391,6 @@ CREATE TABLE "Mask" (
 	mask TEXT, 
 	PRIMARY KEY (label), 
 	FOREIGN KEY(mask) REFERENCES "ImageMask" (image_url)
-);
-
-CREATE TABLE "PointsRoi" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (label), 
-	FOREIGN KEY(shapes) REFERENCES "Point" (label)
-);
-
-CREATE TABLE "RectanglesRoi" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (label), 
-	FOREIGN KEY(shapes) REFERENCES "Rectangle" (label)
 );
 
 CREATE TABLE "RoiCorners" (
@@ -395,7 +407,6 @@ CREATE TABLE "RoiCorners" (
 	bottom_center_region TEXT, 
 	bottom_right_region TEXT, 
 	PRIMARY KEY (label), 
-	FOREIGN KEY(shapes) REFERENCES "Rectangle" (label), 
 	FOREIGN KEY(top_left_region) REFERENCES "Rectangle" (label), 
 	FOREIGN KEY(top_center_region) REFERENCES "Rectangle" (label), 
 	FOREIGN KEY(top_right_region) REFERENCES "Rectangle" (label), 
@@ -502,6 +513,20 @@ CREATE TABLE "LinesRoi_image" (
 	FOREIGN KEY(backref_id) REFERENCES "LinesRoi" (label)
 );
 
+CREATE TABLE "PointsRoi_image" (
+	backref_id TEXT, 
+	image TEXT, 
+	PRIMARY KEY (backref_id, image), 
+	FOREIGN KEY(backref_id) REFERENCES "PointsRoi" (label)
+);
+
+CREATE TABLE "RectanglesRoi_image" (
+	backref_id TEXT, 
+	image TEXT, 
+	PRIMARY KEY (backref_id, image), 
+	FOREIGN KEY(backref_id) REFERENCES "RectanglesRoi" (label)
+);
+
 CREATE TABLE "Roi_image" (
 	backref_id TEXT, 
 	image TEXT, 
@@ -578,20 +603,6 @@ CREATE TABLE "FieldIlluminationDataset" (
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
 
-CREATE TABLE "FieldIlluminationOutput" (
-	key_values TEXT, 
-	intensity_profiles TEXT, 
-	intensity_map TEXT, 
-	profile_rois TEXT, 
-	corner_rois TEXT, 
-	center_of_illumination TEXT, 
-	PRIMARY KEY (key_values, intensity_profiles, intensity_map, profile_rois, corner_rois, center_of_illumination), 
-	FOREIGN KEY(intensity_map) REFERENCES "Image5D" (image_url), 
-	FOREIGN KEY(profile_rois) REFERENCES "LinesRoi" (label), 
-	FOREIGN KEY(corner_rois) REFERENCES "RectanglesRoi" (label), 
-	FOREIGN KEY(center_of_illumination) REFERENCES "PointsRoi" (label)
-);
-
 CREATE TABLE "MetricsDataset" (
 	name TEXT, 
 	description TEXT, 
@@ -604,20 +615,6 @@ CREATE TABLE "MetricsDataset" (
 	comment TEXT, 
 	PRIMARY KEY (name, description, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
-);
-
-CREATE TABLE "PointsRoi_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "PointsRoi" (label)
-);
-
-CREATE TABLE "RectanglesRoi_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RectanglesRoi" (label)
 );
 
 CREATE TABLE "RoiCorners_image" (

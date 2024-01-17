@@ -2391,12 +2391,14 @@
       "description": "A ROI of points",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
       "alias": "shapes",
       "owner": "PointsRoi",
       "domain_of": [
         "PointsRoi"
       ],
       "range": "Point",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2404,12 +2406,14 @@
       "description": "A ROI of rectangles",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
       "alias": "shapes",
       "owner": "RectanglesRoi",
       "domain_of": [
         "RectanglesRoi"
       ],
       "range": "Rectangle",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3987,7 +3991,9 @@
         {
           "name": "shapes",
           "description": "A ROI of points",
+          "multivalued": true,
           "range": "Point",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4011,7 +4017,9 @@
         {
           "name": "shapes",
           "description": "A ROI of rectangles",
+          "multivalued": true,
           "range": "Rectangle",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -5163,7 +5171,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-17T16:12:35",
+  "generation_date": "2024-01-17T16:17:18",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -439,7 +439,7 @@ type PointsRoi
     label: String!
     description: String
     image: [Image]
-    shapes: Point
+    shapes: [Point]
   }
 
 type Polygon
@@ -484,7 +484,7 @@ type RectanglesRoi
     label: String!
     description: String
     image: [Image]
-    shapes: Rectangle
+    shapes: [Rectangle]
   }
 
 type Roi
@@ -509,7 +509,7 @@ type RoiCorners
     label: String!
     description: String
     image: [Image]
-    shapes: Rectangle
+    shapes: [Rectangle]
     topLeftRegion: Rectangle
     topCenterRegion: Rectangle
     topRightRegion: Rectangle

@@ -1899,8 +1899,11 @@
                     "type": "string"
                 },
                 "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
                     "description": "A ROI of points",
-                    "type": "string"
+                    "type": "object"
                 }
             },
             "required": [
@@ -2055,6 +2058,64 @@
             "title": "Rectangle",
             "type": "object"
         },
+        "Rectangle__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A rectangle as defined by x, y coordinates and width, height",
+            "properties": {
+                "c": {
+                    "description": "The c coordinate of the shape",
+                    "type": "integer"
+                },
+                "fill_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The fill color of the shape"
+                },
+                "h": {
+                    "description": "The height of the rectangle",
+                    "type": "number"
+                },
+                "label": {
+                    "description": "The label of the shape",
+                    "type": "string"
+                },
+                "stroke_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The stroke color of the shape"
+                },
+                "stroke_width": {
+                    "description": "The stroke width of the shape",
+                    "type": "integer"
+                },
+                "t": {
+                    "description": "The t coordinate of the shape",
+                    "type": "integer"
+                },
+                "w": {
+                    "description": "The width of the rectangle",
+                    "type": "number"
+                },
+                "x": {
+                    "description": "The x coordinate of the top left corner of the rectangle",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y coordinate of the top left corner of the rectangle",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z coordinate of the shape",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "w",
+                "h"
+            ],
+            "title": "Rectangle",
+            "type": "object"
+        },
         "RectanglesRoi": {
             "additionalProperties": false,
             "description": "ROI representing a set of rectangles in a single channel",
@@ -2075,8 +2136,11 @@
                     "type": "string"
                 },
                 "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
                     "description": "A ROI of rectangles",
-                    "type": "string"
+                    "type": "object"
                 }
             },
             "required": [
@@ -2214,8 +2278,11 @@
                     "type": "string"
                 },
                 "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
                     "description": "A ROI of rectangles",
-                    "type": "string"
+                    "type": "object"
                 },
                 "top_center_region": {
                     "description": "The top-center of the image",

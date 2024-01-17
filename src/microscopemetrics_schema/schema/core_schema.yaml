@@ -310,6 +310,8 @@ classes:
         range: Point
         description: >-
           A ROI of points
+        multivalued: true
+        inlined: true
 
   RectanglesRoi:
     is_a: Roi
@@ -320,6 +322,8 @@ classes:
         range: Rectangle
         description: >-
           A ROI of rectangles
+        multivalued: true
+        inlined: true
 
 #      shapes:
 #        range: Shape

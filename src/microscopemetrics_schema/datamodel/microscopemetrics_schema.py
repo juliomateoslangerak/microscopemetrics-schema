@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-17T16:12:41
+# Generation date: 2024-01-17T16:17:24
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -753,7 +753,7 @@ class PointsRoi(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PointsRoi
 
     label: Union[str, PointsRoiLabel] = None
-    shapes: Optional[Union[str, PointLabel]] = None
+    shapes: Optional[Union[Dict[Union[str, PointLabel], Union[dict, "Point"]], List[Union[dict, "Point"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.label):
@@ -761,8 +761,7 @@ class PointsRoi(Roi):
         if not isinstance(self.label, PointsRoiLabel):
             self.label = PointsRoiLabel(self.label)
 
-        if self.shapes is not None and not isinstance(self.shapes, PointLabel):
-            self.shapes = PointLabel(self.shapes)
+        self._normalize_inlined_as_dict(slot_name="shapes", slot_type=Point, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -780,7 +779,7 @@ class RectanglesRoi(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RectanglesRoi
 
     label: Union[str, RectanglesRoiLabel] = None
-    shapes: Optional[Union[str, RectangleLabel]] = None
+    shapes: Optional[Union[Dict[Union[str, RectangleLabel], Union[dict, "Rectangle"]], List[Union[dict, "Rectangle"]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.label):
@@ -788,8 +787,7 @@ class RectanglesRoi(Roi):
         if not isinstance(self.label, RectanglesRoiLabel):
             self.label = RectanglesRoiLabel(self.label)
 
-        if self.shapes is not None and not isinstance(self.shapes, RectangleLabel):
-            self.shapes = RectangleLabel(self.shapes)
+        self._normalize_inlined_as_dict(slot_name="shapes", slot_type=Rectangle, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -2597,10 +2595,10 @@ slots.linesRoi__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shapes']
                    model_uri=MICROSCOPEMETRICS_SCHEMA.linesRoi__shapes, domain=None, range=Optional[Union[Dict[Union[str, LineLabel], Union[dict, Line]], List[Union[dict, Line]]]])
 
 slots.pointsRoi__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shapes'], name="pointsRoi__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shapes'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pointsRoi__shapes, domain=None, range=Optional[Union[str, PointLabel]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pointsRoi__shapes, domain=None, range=Optional[Union[Dict[Union[str, PointLabel], Union[dict, Point]], List[Union[dict, Point]]]])
 
 slots.rectanglesRoi__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shapes'], name="rectanglesRoi__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shapes'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.rectanglesRoi__shapes, domain=None, range=Optional[Union[str, RectangleLabel]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.rectanglesRoi__shapes, domain=None, range=Optional[Union[Dict[Union[str, RectangleLabel], Union[dict, Rectangle]], List[Union[dict, Rectangle]]]])
 
 slots.shape__label = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/label'], name="shape__label", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/label'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape__label, domain=None, range=URIRef)

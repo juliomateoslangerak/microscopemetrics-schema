@@ -373,7 +373,7 @@ message PointsRoi
   string label = 0
   string description = 0
  repeated  image image = 0
-  point shapes = 0
+ repeated  point shapes = 0
  }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
@@ -418,7 +418,7 @@ message RectanglesRoi
   string label = 0
   string description = 0
  repeated  image image = 0
-  rectangle shapes = 0
+ repeated  rectangle shapes = 0
  }
 // A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
 message Roi
@@ -443,7 +443,7 @@ message RoiCorners
   string label = 0
   string description = 0
  repeated  image image = 0
-  rectangle shapes = 0
+ repeated  rectangle shapes = 0
   rectangle topLeftRegion = 0
   rectangle topCenterRegion = 0
   rectangle topRightRegion = 0
