@@ -4,7 +4,11 @@ import glob
 import unittest
 
 from linkml_runtime.loaders import yaml_loader
-from microscopemetrics_schema.datamodel.microscopemetrics_schema import MetricsDataset, FieldIlluminationDataset
+from microscopemetrics_schema.datamodel.microscopemetrics_schema import (
+    MetricsDataset,
+    FieldIlluminationDataset,
+    ArgolightBDataset,
+)
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
 DATA_DIR = os.path.join(ROOT, "src", "data", "examples")
@@ -27,4 +31,11 @@ class TestData(unittest.TestCase):
         for path in EXAMPLE_FILES:
             if "FieldIlluminationDataset" in path:
                 obj = yaml_loader.load(path, target_class=FieldIlluminationDataset)
+                assert obj
+
+    def test_ArgolightBDataset(self):
+        """Data test."""
+        for path in EXAMPLE_FILES:
+            if "ArgolightBDataset" in path:
+                obj = yaml_loader.load(path, target_class=ArgolightBDataset)
                 assert obj
