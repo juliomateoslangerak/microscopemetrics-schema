@@ -41,6 +41,10 @@
                     "$ref": "#/$defs/ArgolightBInput",
                     "description": "An input element for the analysis"
                 },
+                "microscope": {
+                    "description": "The microscope that was used to acquire the dataset",
+                    "type": "string"
+                },
                 "name": {
                     "description": "The name of an entity",
                     "type": "string"
@@ -69,6 +73,7 @@
             },
             "required": [
                 "input",
+                "microscope",
                 "processed"
             ],
             "then": {
@@ -393,6 +398,10 @@
                     "$ref": "#/$defs/ArgolightEInput",
                     "description": "An input element for the analysis"
                 },
+                "microscope": {
+                    "description": "The microscope that was used to acquire the dataset",
+                    "type": "string"
+                },
                 "name": {
                     "description": "The name of an entity",
                     "type": "string"
@@ -421,6 +430,7 @@
             },
             "required": [
                 "input",
+                "microscope",
                 "processed"
             ],
             "then": {
@@ -833,6 +843,10 @@
                 "input": {
                     "$ref": "#/$defs/FieldIlluminationInput"
                 },
+                "microscope": {
+                    "description": "The microscope that was used to acquire the dataset",
+                    "type": "string"
+                },
                 "name": {
                     "description": "The name of an entity",
                     "type": "string"
@@ -860,6 +874,7 @@
             },
             "required": [
                 "input",
+                "microscope",
                 "processed"
             ],
             "then": {
@@ -1754,6 +1769,10 @@
                     },
                     "type": "array"
                 },
+                "microscope": {
+                    "description": "The microscope that was used to acquire the dataset",
+                    "type": "string"
+                },
                 "name": {
                     "description": "The name of an entity",
                     "type": "string"
@@ -1777,10 +1796,73 @@
                 }
             },
             "required": [
+                "microscope",
                 "processed"
             ],
             "title": "MetricsDataset",
             "type": "object"
+        },
+        "Microscope": {
+            "additionalProperties": false,
+            "description": "A microscope",
+            "properties": {
+                "comment": {
+                    "description": "A human readable comment about the microscope",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A description of an entity",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The unique identifier for an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the microscope",
+                    "type": "string"
+                },
+                "model": {
+                    "description": "The model of the microscope",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of an entity",
+                    "type": "string"
+                },
+                "serial_number": {
+                    "description": "The serial number of the microscope",
+                    "type": "string"
+                },
+                "type": {
+                    "$ref": "#/$defs/MicroscopeType",
+                    "description": "The type of the microscope"
+                },
+                "url": {
+                    "description": "The URL where the microscope can be found",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Microscope",
+            "type": "object"
+        },
+        "MicroscopeType": {
+            "description": "The type of the microscope",
+            "enum": [
+                "WIDE-FIELD",
+                "CONFOCAL",
+                "STED",
+                "3D-SIM",
+                "OTHER"
+            ],
+            "title": "MicroscopeType",
+            "type": "string"
         },
         "Point": {
             "additionalProperties": false,
@@ -2470,6 +2552,10 @@
             },
             "type": "array"
         },
+        "microscope": {
+            "description": "The microscope that was used to acquire the dataset",
+            "type": "string"
+        },
         "name": {
             "description": "The name of an entity",
             "type": "string"
@@ -2493,6 +2579,7 @@
         }
     },
     "required": [
+        "microscope",
         "processed"
     ],
     "title": "microscopemetrics-schema",

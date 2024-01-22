@@ -3,6 +3,7 @@ message ArgolightBDataset
  {
   string name = 0
   string description = 0
+  microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   date acquisitionDate = 0
@@ -70,6 +71,7 @@ message ArgolightEDataset
  {
   string name = 0
   string description = 0
+  microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   date acquisitionDate = 0
@@ -167,6 +169,7 @@ message FieldIlluminationDataset
  {
   string name = 0
   string description = 0
+  microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   date acquisitionDate = 0
@@ -346,12 +349,26 @@ message MetricsDataset
  {
   string name = 0
   string description = 0
+  microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   date acquisitionDate = 0
   boolean processed = 0
   date processingDate = 0
   string processingLog = 0
+ repeated  comment comment = 0
+ }
+// A microscope
+message Microscope
+ {
+  string name = 0
+  string description = 0
+  string id = 0
+  microscopeType type = 0
+  string manufacturer = 0
+  string model = 0
+  string serialNumber = 0
+  string url = 0
  repeated  comment comment = 0
  }
 // A point as defined by x and y coordinates

@@ -359,9 +359,78 @@
           "description": "The comment is referring to something else"
         }
       ]
+    },
+    {
+      "name": "MicroscopeType",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeType",
+      "description": "The type of the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "permissible_values": [
+        {
+          "text": "WIDE-FIELD",
+          "description": "A wide-field microscope"
+        },
+        {
+          "text": "CONFOCAL",
+          "description": "A confocal microscope"
+        },
+        {
+          "text": "STED",
+          "description": "A STED microscope"
+        },
+        {
+          "text": "3D-SIM",
+          "description": "A 3D-SIM microscope"
+        },
+        {
+          "text": "OTHER",
+          "description": "Another type of microscope"
+        }
+      ]
     }
   ],
   "slots": [
+    {
+      "name": "id",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/id",
+      "description": "The unique identifier for an entity",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/id",
+      "identifier": true,
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/name",
+      "description": "The name of an entity",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/name",
+      "owner": "NamedObject",
+      "domain_of": [
+        "NamedObject"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description",
+      "description": "A description of an entity",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description",
+      "owner": "NamedObject",
+      "domain_of": [
+        "NamedObject"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
     {
       "name": "image_url",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/image_url",
@@ -527,43 +596,6 @@
         "Channel"
       ],
       "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "id",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/id",
-      "description": "The unique identifier for an entity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/id",
-      "identifier": true,
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "name",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/name",
-      "description": "The name of an entity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/name",
-      "owner": "NamedObject",
-      "domain_of": [
-        "NamedObject"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "description",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description",
-      "description": "A description of an entity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description",
-      "owner": "NamedObject",
-      "domain_of": [
-        "NamedObject"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -1943,6 +1975,86 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "microscope__type",
+      "description": "The type of the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/type",
+      "alias": "type",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "MicroscopeType",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope__manufacturer",
+      "description": "The manufacturer of the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/manufacturer",
+      "alias": "manufacturer",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope__model",
+      "description": "The model of the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/model",
+      "alias": "model",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope__serial_number",
+      "description": "The serial number of the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/serial_number",
+      "alias": "serial_number",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope__url",
+      "description": "The URL where the microscope can be found",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/url",
+      "alias": "url",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope__comment",
+      "description": "A human readable comment about the microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comment",
+      "multivalued": true,
+      "alias": "comment",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "Comment",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "sample__type",
       "description": "The type of the sample",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -2081,6 +2193,20 @@
         "Comment"
       ],
       "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "metricsDataset__microscope",
+      "description": "The microscope that was used to acquire the dataset",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/microscope",
+      "alias": "microscope",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "Microscope",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -3381,6 +3507,82 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "Device",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device",
+      "description": "A base object for all microscope-metrics devices",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "MetricsObject",
+      "abstract": true,
+      "slots": [
+        "name",
+        "description"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Microscope",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope",
+      "description": "A microscope",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Device",
+      "slots": [
+        "name",
+        "description",
+        "id",
+        "microscope__type",
+        "microscope__manufacturer",
+        "microscope__model",
+        "microscope__serial_number",
+        "microscope__url",
+        "microscope__comment"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "type",
+          "description": "The type of the microscope",
+          "range": "MicroscopeType",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "manufacturer",
+          "description": "The manufacturer of the microscope",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "model",
+          "description": "The model of the microscope",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "serial_number",
+          "description": "The serial number of the microscope",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "url",
+          "description": "The URL where the microscope can be found",
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "comment",
+          "description": "A human readable comment about the microscope",
+          "multivalued": true,
+          "range": "Comment",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "Sample",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Sample",
       "description": "A sample is a standard physical object that is imaged by a microscope",
@@ -3528,6 +3730,7 @@
       "slots": [
         "name",
         "description",
+        "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_date",
@@ -3538,6 +3741,13 @@
       ],
       "slot_usage": {},
       "attributes": [
+        {
+          "name": "microscope",
+          "description": "The microscope that was used to acquire the dataset",
+          "range": "Microscope",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
         {
           "name": "sample",
           "description": "The sample that was imaged",
@@ -4615,6 +4825,7 @@
       "slots": [
         "name",
         "description",
+        "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_date",
@@ -4857,6 +5068,7 @@
       "slots": [
         "name",
         "description",
+        "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_date",
@@ -5040,6 +5252,7 @@
       "slots": [
         "name",
         "description",
+        "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_date",
@@ -5171,7 +5384,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-17T16:17:18",
+  "generation_date": "2024-01-22T16:41:37",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

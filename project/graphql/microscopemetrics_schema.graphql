@@ -2,6 +2,7 @@ type ArgolightBDataset
   {
     name: String
     description: String
+    microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDate: Date
@@ -70,6 +71,7 @@ type ArgolightEDataset
   {
     name: String
     description: String
+    microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDate: Date
@@ -145,6 +147,12 @@ type Comment
     text: String!
   }
 
+interface Device
+  {
+    name: String
+    description: String
+  }
+
 type Ellipse
   {
     label: String!
@@ -170,6 +178,7 @@ type FieldIlluminationDataset
   {
     name: String
     description: String
+    microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDate: Date
@@ -392,6 +401,7 @@ type MetricsDataset
   {
     name: String
     description: String
+    microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDate: Date
@@ -413,6 +423,19 @@ interface MetricsObject
 
 interface MetricsOutput
   {
+  }
+
+type Microscope
+  {
+    name: String
+    description: String
+    id: String!
+    type: MicroscopeType
+    manufacturer: String
+    model: String
+    serialNumber: String
+    url: String
+    comment: [Comment]
   }
 
 interface NamedObject

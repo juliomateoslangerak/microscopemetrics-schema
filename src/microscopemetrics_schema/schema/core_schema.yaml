@@ -27,6 +27,45 @@ classes:
     abstract: true
     description: A base object for all microscope-metrics objects
 
+  Device:
+    is_a: MetricsObject
+    abstract: true
+    description: A base object for all microscope-metrics devices
+
+  Microscope:
+    is_a: Device
+    description: A microscope
+    slots:
+      - id
+    attributes:
+      type:
+        range: MicroscopeType
+        description: The type of the microscope
+        required: false
+      manufacturer:
+        range: string
+        description: The manufacturer of the microscope
+        required: false
+      model:
+        range: string
+        description: The model of the microscope
+        required: false
+      serial_number:
+        range: string
+        description: The serial number of the microscope
+        required: false
+      url:
+        range: string
+        description: The URL where the microscope can be found
+        required: false
+        multivalued: false
+      comment:
+        range: Comment
+        description: A human readable comment about the microscope
+        required: false
+        inlined: true
+        multivalued: true
+
   Sample:
     is_a: NamedObject
     description: A sample is a standard physical object that is imaged by a microscope
@@ -98,6 +137,12 @@ classes:
     description: A base object on which microscope-metrics runs the analysis
     tree_root: true
     attributes:
+      microscope:
+        range: Microscope
+        description: The microscope that was used to acquire the dataset
+        required: true
+        multivalued: false
+        inlined: false
       sample:
         range: Sample
         description: The sample that was imaged
@@ -613,6 +658,22 @@ classes:
 
 
 slots:
+  id:
+    range: string
+    description: The unique identifier for an entity
+    identifier: true
+    required: true
+    multivalued: false
+  name:
+    range: string
+    description: The name of an entity
+    required: false
+    multivalued: false
+  description:
+    range: string
+    description: A description of an entity
+    required: false
+    multivalued: false
   image_url:
     range: string
     identifier: true
@@ -676,21 +737,6 @@ slots:
     description: The emission wavelength in nm
     required: false
     multivalued: false
-  id:
-    range: string
-    description: The unique identifier for an entity
-    identifier: true
-    required: true
-    multivalued: false
-  name:
-    range: string
-    description: The name of an entity
-    required: false
-    multivalued: false
-  description:
-    range: string
-    description: A description of an entity
-    multivalued: false
   channel:
     range: integer
     description: >-
@@ -724,3 +770,17 @@ enums:
         description: The comment is referring to the processing
       OTHER:
         description: The comment is referring to something else
+
+  MicroscopeType:
+    description: The type of the microscope
+    permissible_values:
+      WIDE-FIELD:
+        description: A wide-field microscope
+      CONFOCAL:
+        description: A confocal microscope
+      STED:
+        description: A STED microscope
+      3D-SIM:
+        description: A 3D-SIM microscope
+      OTHER:
+        description: Another type of microscope

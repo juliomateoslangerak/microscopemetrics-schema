@@ -227,6 +227,19 @@ CREATE TABLE "LinesRoi" (
 	PRIMARY KEY (label)
 );
 
+CREATE TABLE "Microscope" (
+	name TEXT, 
+	description TEXT, 
+	id TEXT NOT NULL, 
+	type VARCHAR(10), 
+	manufacturer TEXT, 
+	model TEXT, 
+	serial_number TEXT, 
+	url TEXT, 
+	comment TEXT, 
+	PRIMARY KEY (id)
+);
+
 CREATE TABLE "Point" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -558,6 +571,7 @@ CREATE TABLE "RoiCenter_shapes" (
 CREATE TABLE "ArgolightBDataset" (
 	name TEXT, 
 	description TEXT, 
+	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
 	acquisition_date DATE, 
@@ -567,13 +581,15 @@ CREATE TABLE "ArgolightBDataset" (
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
 
 CREATE TABLE "ArgolightEDataset" (
 	name TEXT, 
 	description TEXT, 
+	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
 	acquisition_date DATE, 
@@ -583,13 +599,15 @@ CREATE TABLE "ArgolightEDataset" (
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
 
 CREATE TABLE "FieldIlluminationDataset" (
 	name TEXT, 
 	description TEXT, 
+	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
 	acquisition_date DATE, 
@@ -599,13 +617,15 @@ CREATE TABLE "FieldIlluminationDataset" (
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
 
 CREATE TABLE "MetricsDataset" (
 	name TEXT, 
 	description TEXT, 
+	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
 	acquisition_date DATE, 
@@ -613,7 +633,8 @@ CREATE TABLE "MetricsDataset" (
 	processing_date DATE, 
 	processing_log TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (name, description, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment), 
+	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
 

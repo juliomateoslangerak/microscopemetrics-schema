@@ -1,5 +1,6 @@
 name: "ExampleFieldIlluminationDataset"
 description: "Description of the example dataset."
+microscope: "an id for the microscope"
 sample:
   id: "https://example.org/sample/1"
   name: "ExampleSample"

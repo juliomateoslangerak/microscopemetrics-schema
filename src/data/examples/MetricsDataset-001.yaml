@@ -1,4 +1,6 @@
 name: "ExampleMetricsDataset"
+description: "This is an example MetricsDataset."
+microscope: "an id for the microscope"
 sample:
   id: "https://example.org/sample/1"
   name: "ExampleSample"

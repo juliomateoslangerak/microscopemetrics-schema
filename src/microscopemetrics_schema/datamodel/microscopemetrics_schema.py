@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-17T16:17:24
+# Generation date: 2024-01-22T16:41:43
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -40,6 +40,10 @@ DEFAULT_ = MICROSCOPEMETRICS_SCHEMA
 # Types
 
 # Class references
+class MicroscopeId(extended_str):
+    pass
+
+
 class SampleType(extended_str):
     pass
 
@@ -179,6 +183,64 @@ class MetricsObject(NamedObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsObject
 
 
+class Device(MetricsObject):
+    """
+    A base object for all microscope-metrics devices
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Device"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Device"
+    class_name: ClassVar[str] = "Device"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Device
+
+
+@dataclass
+class Microscope(Device):
+    """
+    A microscope
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Microscope"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Microscope"
+    class_name: ClassVar[str] = "Microscope"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Microscope
+
+    id: Union[str, MicroscopeId] = None
+    type: Optional[Union[str, "MicroscopeType"]] = None
+    manufacturer: Optional[str] = None
+    model: Optional[str] = None
+    serial_number: Optional[str] = None
+    url: Optional[str] = None
+    comment: Optional[Union[Union[dict, "Comment"], List[Union[dict, "Comment"]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.id):
+            self.MissingRequiredField("id")
+        if not isinstance(self.id, MicroscopeId):
+            self.id = MicroscopeId(self.id)
+
+        if self.type is not None and not isinstance(self.type, MicroscopeType):
+            self.type = MicroscopeType(self.type)
+
+        if self.manufacturer is not None and not isinstance(self.manufacturer, str):
+            self.manufacturer = str(self.manufacturer)
+
+        if self.model is not None and not isinstance(self.model, str):
+            self.model = str(self.model)
+
+        if self.serial_number is not None and not isinstance(self.serial_number, str):
+            self.serial_number = str(self.serial_number)
+
+        if self.url is not None and not isinstance(self.url, str):
+            self.url = str(self.url)
+
+        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="date", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
 @dataclass
 class Sample(NamedObject):
     """
@@ -316,6 +378,7 @@ class MetricsDataset(NamedObject):
     class_name: ClassVar[str] = "MetricsDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDataset
 
+    microscope: Union[str, MicroscopeId] = None
     processed: Union[bool, Bool] = False
     sample: Optional[Union[str, SampleType]] = None
     experimenter: Optional[Union[Union[str, ExperimenterOrcid], List[Union[str, ExperimenterOrcid]]]] = empty_list()
@@ -325,6 +388,11 @@ class MetricsDataset(NamedObject):
     comment: Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.microscope):
+            self.MissingRequiredField("microscope")
+        if not isinstance(self.microscope, MicroscopeId):
+            self.microscope = MicroscopeId(self.microscope)
+
         if self._is_empty(self.processed):
             self.MissingRequiredField("processed")
         if not isinstance(self.processed, Bool):
@@ -1293,6 +1361,7 @@ class FieldIlluminationDataset(MetricsDataset):
     class_name: ClassVar[str] = "FieldIlluminationDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset
 
+    microscope: Union[str, MicroscopeId] = None
     input: Union[dict, "FieldIlluminationInput"] = None
     processed: Union[bool, Bool] = False
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
@@ -1726,6 +1795,7 @@ class ArgolightBDataset(MetricsDataset):
     class_name: ClassVar[str] = "ArgolightBDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDataset
 
+    microscope: Union[str, MicroscopeId] = None
     input: Union[dict, "ArgolightBInput"] = None
     processed: Union[bool, Bool] = False
     output: Optional[Union[dict, "ArgolightBOutput"]] = None
@@ -1997,6 +2067,7 @@ class ArgolightEDataset(MetricsDataset):
     class_name: ClassVar[str] = "ArgolightEDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEDataset
 
+    microscope: Union[str, MicroscopeId] = None
     input: Union[dict, "ArgolightEInput"] = None
     processed: Union[bool, Bool] = False
     output: Optional[Union[dict, "ArgolightEOutput"]] = None
@@ -2167,9 +2238,48 @@ class CommentTypes(EnumDefinitionImpl):
         description="The type of the comment",
     )
 
+class MicroscopeType(EnumDefinitionImpl):
+    """
+    The type of the microscope
+    """
+    CONFOCAL = PermissibleValue(
+        text="CONFOCAL",
+        description="A confocal microscope")
+    STED = PermissibleValue(
+        text="STED",
+        description="A STED microscope")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Another type of microscope")
+
+    _defn = EnumDefinition(
+        name="MicroscopeType",
+        description="The type of the microscope",
+    )
+
+    @classmethod
+    def _addvals(cls):
+        setattr(cls, "WIDE-FIELD",
+            PermissibleValue(
+                text="WIDE-FIELD",
+                description="A wide-field microscope"))
+        setattr(cls, "3D-SIM",
+            PermissibleValue(
+                text="3D-SIM",
+                description="A 3D-SIM microscope"))
+
 # Slots
 class slots:
     pass
+
+slots.id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/id'], name="id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/id'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.id, domain=None, range=URIRef)
+
+slots.name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.name, domain=None, range=Optional[str])
+
+slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
 slots.image_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image_url'], name="image_url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image_url'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image_url, domain=None, range=URIRef)
@@ -2206,15 +2316,6 @@ slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/
 
 slots.emission_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/emission_wavelength_nm'], name="emission_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/emission_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.emission_wavelength_nm, domain=None, range=Optional[float])
-
-slots.id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/id'], name="id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/id'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.id, domain=None, range=URIRef)
-
-slots.name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.name, domain=None, range=Optional[str])
-
-slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
 slots.channel = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel'], name="channel", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel, domain=None, range=Optional[Union[int, List[int]]])
@@ -2504,6 +2605,24 @@ slots.peak_prominence_A = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_s
 slots.peak_prominence_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_prominence_B'], name="peak_prominence_B", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_prominence_B'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.peak_prominence_B, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.microscope__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="microscope__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__type, domain=None, range=Optional[Union[str, "MicroscopeType"]])
+
+slots.microscope__manufacturer = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/manufacturer'], name="microscope__manufacturer", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/manufacturer'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__manufacturer, domain=None, range=Optional[str])
+
+slots.microscope__model = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/model'], name="microscope__model", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/model'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__model, domain=None, range=Optional[str])
+
+slots.microscope__serial_number = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/serial_number'], name="microscope__serial_number", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/serial_number'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__serial_number, domain=None, range=Optional[str])
+
+slots.microscope__url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/url'], name="microscope__url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/url'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__url, domain=None, range=Optional[str])
+
+slots.microscope__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="microscope__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__comment, domain=None, range=Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]])
+
 slots.sample__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="sample__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sample__type, domain=None, range=URIRef)
 
@@ -2533,6 +2652,9 @@ slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/com
 
 slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="comment__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
+
+slots.metricsDataset__microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscope'], name="metricsDataset__microscope", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscope'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[str, MicroscopeId])
 
 slots.metricsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="metricsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__sample, domain=None, range=Optional[Union[str, SampleType]])
