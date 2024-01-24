@@ -266,7 +266,7 @@
 
       FieldIlluminationKeyValues : middle_right_intensity_ratio
 
-      FieldIlluminationKeyValues : nb_pixels
+      FieldIlluminationKeyValues : nb_pixels_center
 
       FieldIlluminationKeyValues : top_center_intensity_mean
 
@@ -307,7 +307,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nb_pixels/">nb_pixels</a></td>
+<td><a href="../nb_pixels_center/">nb_pixels_center</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The area occupied by the center of illumination region</td>
 <td>direct</td>
@@ -564,7 +564,7 @@ from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-sc
 is_a: KeyValues
 slots:
 - channel
-- nb_pixels
+- nb_pixels_center
 - center_of_mass_x
 - center_of_mass_y
 - max_intensity
@@ -620,13 +620,13 @@ attributes:
     - ArgolightEKeyValues
     - FieldIlluminationKeyValues
     range: integer
-  nb_pixels:
-    name: nb_pixels
+  nb_pixels_center:
+    name: nb_pixels_center
     description: The area occupied by the center of illumination region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nb_pixels
+    alias: nb_pixels_center
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues

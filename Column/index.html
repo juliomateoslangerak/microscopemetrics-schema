@@ -206,6 +206,8 @@
     class Column
       Column : name
 
+      Column : source_uri
+
       Column : values
 
 
@@ -226,6 +228,12 @@
 <td><a href="../name/">name</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The name of the column</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../source_uri/">source_uri</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the source of the column</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -294,6 +302,13 @@ attributes:
     identifier: true
     range: string
     required: true
+  source_uri:
+    name: source_uri
+    description: The URI of the source of the column
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    range: string
+    required: false
   values:
     name: values
     description: The values of the column
@@ -323,6 +338,17 @@ attributes:
     - Column
     range: string
     required: true
+  source_uri:
+    name: source_uri
+    description: The URI of the source of the column
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: source_uri
+    owner: Column
+    domain_of:
+    - Column
+    range: string
+    required: false
   values:
     name: values
     description: The values of the column

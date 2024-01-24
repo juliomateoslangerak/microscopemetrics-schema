@@ -249,7 +249,7 @@
 <tr>
 <td><a href="../field_illumination_image/">field_illumination_image</a></td>
 <td>1..1 <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>Input parameter: homogeneity image provided as a numpy array in the order</td>
+<td>Input parameter: homogeneity image provided as a numpy array in the order TZY...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -376,7 +376,7 @@ attributes:
   field_illumination_image:
     name: field_illumination_image
     description: 'Input parameter: homogeneity image provided as a numpy array in
-      the order. While the analysis accepts multiple channels, the T and Z dimensions
+      the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions
       are expected to be 1.'
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
@@ -461,7 +461,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    ifabsent: float(2.0)
+    ifabsent: float(5.0)
     alias: sigma
     owner: FieldIlluminationInput
     domain_of:

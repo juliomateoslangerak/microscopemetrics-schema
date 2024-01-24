@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/FieldIlluminationOutput/" rel="canonical"/>
+<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NamedThing/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: FieldIlluminationOutput - microscopemetrics-schema</title>
+<title>Class: NamedThing - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-fieldilluminationoutput">
+<a class="md-skip" href="#class-namedthing">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: FieldIlluminationOutput
+              Class: NamedThing
             
           </span>
 </div>
@@ -152,11 +152,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -201,45 +196,28 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/FieldIlluminationOutput.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/NamedThing.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-fieldilluminationoutput">Class: FieldIlluminationOutput</h1>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/FieldIlluminationOutput">microscopemetrics_schema:FieldIlluminationOutput</a></p>
+<h1 id="class-namedthing">Class: NamedThing</h1>
+<p><em>A generic grouping for any identifiable entity</em></p>
+<p>URI: <a href="http://schema.org/Thing">schema:Thing</a></p>
 <div class="mermaid"> classDiagram
-    class FieldIlluminationOutput
-      MetricsOutput &lt;|-- FieldIlluminationOutput
+    class NamedThing
+      NamedThing &lt;|-- MetricsDataset
 
-      FieldIlluminationOutput : center_of_illumination
+      NamedThing : description
 
-          FieldIlluminationOutput --|&gt; Roi : center_of_illumination
+      NamedThing : id
 
-      FieldIlluminationOutput : corner_rois
-
-          FieldIlluminationOutput --|&gt; Roi : corner_rois
-
-      FieldIlluminationOutput : intensity_map
-
-          FieldIlluminationOutput --|&gt; Image5D : intensity_map
-
-      FieldIlluminationOutput : intensity_profiles
-
-          FieldIlluminationOutput --|&gt; TableAsDict : intensity_profiles
-
-      FieldIlluminationOutput : key_values
-
-          FieldIlluminationOutput --|&gt; FieldIlluminationKeyValues : key_values
-
-      FieldIlluminationOutput : profile_rois
-
-          FieldIlluminationOutput --|&gt; Roi : profile_rois
+      NamedThing : name
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../MetricsOutput/">MetricsOutput</a><ul>
-<li><strong>FieldIlluminationOutput</strong></li>
+<li><strong>NamedThing</strong><ul>
+<li><a href="../MetricsDataset/">MetricsDataset</a></li>
 </ul>
 </li>
 </ul>
@@ -255,59 +233,22 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../key_values/">key_values</a></td>
-<td>0..1 <br/> <a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
-<td>Key-Value pairs containing the Key measurements for the field illumination an...</td>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="../Uriorcurie/">Uriorcurie</a></td>
+<td>A unique identifier for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
-<td>Intensity profiles for the field illumination analysis in the different direc...</td>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable name for a thing</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../intensity_map/">intensity_map</a></td>
-<td>0..1 <br/> <a href="../Image5D/">Image5D</a></td>
-<td>Intensity map of the field illumination</td>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human-readable description for a thing</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../profile_rois/">profile_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
-<td>line ROIs used to compute the intensity profiles</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../corner_rois/">corner_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
-<td>Rectangular ROIs used to compute the corner intensities</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../center_of_illumination/">center_of_illumination</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
-<td>Point ROIs marking the center of illumination</td>
-<td>direct</td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
-<td><a href="../output/">output</a></td>
-<td>range</td>
-<td><a href="./">FieldIlluminationOutput</a></td>
 </tr>
 </tbody>
 </table>
@@ -327,11 +268,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>microscopemetrics_schema:FieldIlluminationOutput</td>
+<td>schema:Thing</td>
 </tr>
 <tr>
 <td>native</td>
-<td>microscopemetrics_schema:FieldIlluminationOutput</td>
+<td>microscopemetrics_schema:NamedThing</td>
 </tr>
 </tbody>
 </table>
@@ -339,128 +280,58 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: FieldIlluminationOutput
+<pre><code class="language-yaml">name: NamedThing
+description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsOutput
-attributes:
-  key_values:
-    name: key_values
-    description: Key-Value pairs containing the Key measurements for the field illumination
-      analysis
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    range: FieldIlluminationKeyValues
-  intensity_profiles:
-    name: intensity_profiles
-    description: Intensity profiles for the field illumination analysis in the different
-      directions
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    range: TableAsDict
-  intensity_map:
-    name: intensity_map
-    description: Intensity map of the field illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    range: Image5D
-  profile_rois:
-    name: profile_rois
-    description: line ROIs used to compute the intensity profiles
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    range: Roi
-  corner_rois:
-    name: corner_rois
-    description: Rectangular ROIs used to compute the corner intensities
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    range: Roi
-  center_of_illumination:
-    name: center_of_illumination
-    description: Point ROIs marking the center of illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    range: Roi
+slots:
+- id
+- name
+- description
+class_uri: schema:Thing
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: FieldIlluminationOutput
+<pre><code class="language-yaml">name: NamedThing
+description: A generic grouping for any identifiable entity
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsOutput
 attributes:
-  key_values:
-    name: key_values
-    description: Key-Value pairs containing the Key measurements for the field illumination
-      analysis
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+  id:
+    name: id
+    description: A unique identifier for a thing
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
-    multivalued: false
-    alias: key_values
-    owner: FieldIlluminationOutput
+    slot_uri: schema:identifier
+    identifier: true
+    alias: id
+    owner: NamedThing
     domain_of:
-    - FieldIlluminationOutput
-    range: FieldIlluminationKeyValues
-  intensity_profiles:
-    name: intensity_profiles
-    description: Intensity profiles for the field illumination analysis in the different
-      directions
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    alias: intensity_profiles
-    owner: FieldIlluminationOutput
-    domain_of:
-    - ArgolightEOutput
-    - FieldIlluminationOutput
-    range: TableAsDict
-  intensity_map:
-    name: intensity_map
-    description: Intensity map of the field illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    - NamedThing
+    range: uriorcurie
+  name:
+    name: name
+    description: A human-readable name for a thing
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
-    multivalued: false
-    alias: intensity_map
-    owner: FieldIlluminationOutput
+    slot_uri: schema:name
+    alias: name
+    owner: NamedThing
     domain_of:
-    - FieldIlluminationOutput
-    range: Image5D
-  profile_rois:
-    name: profile_rois
-    description: line ROIs used to compute the intensity profiles
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    - NamedThing
+    range: string
+  description:
+    name: description
+    description: A human-readable description for a thing
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
-    multivalued: false
-    alias: profile_rois
-    owner: FieldIlluminationOutput
+    slot_uri: schema:description
+    alias: description
+    owner: NamedThing
     domain_of:
-    - FieldIlluminationOutput
-    range: Roi
-  corner_rois:
-    name: corner_rois
-    description: Rectangular ROIs used to compute the corner intensities
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    alias: corner_rois
-    owner: FieldIlluminationOutput
-    domain_of:
-    - FieldIlluminationOutput
-    range: Roi
-  center_of_illumination:
-    name: center_of_illumination
-    description: Point ROIs marking the center of illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: false
-    alias: center_of_illumination
-    owner: FieldIlluminationOutput
-    domain_of:
-    - FieldIlluminationOutput
-    range: Roi
+    - NamedThing
+    range: string
+class_uri: schema:Thing
 
 </code></pre>
 </details>
