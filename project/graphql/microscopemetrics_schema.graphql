@@ -60,7 +60,7 @@ type ArgolightBIntensityKeyValues
 type ArgolightBOutput
   {
     spotsLabelsImage: ImageAsNumpy
-    spotsCentroids: [PointsRoi]
+    spotsCentroids: [Roi]
     intensityMeasurements: ArgolightBIntensityKeyValues
     distanceMeasurements: ArgolightBDistanceKeyValues
     spotsProperties: TableAsDict
@@ -108,7 +108,7 @@ type ArgolightEKeyValues
 
 type ArgolightEOutput
   {
-    peaksRois: [LinesRoi]
+    peaksRois: [Roi]
     keyMeasurements: ArgolightEKeyValues
     intensityProfiles: TableAsDict
   }
@@ -137,6 +137,7 @@ type Color
 type Column
   {
     name: String!
+    sourceUri: String
     values: [String]!
   }
 
@@ -204,7 +205,7 @@ type FieldIlluminationInput
 type FieldIlluminationKeyValues
   {
     channel: [Integer]
-    nbPixels: [Integer]
+    nbPixelsCenter: [Integer]
     centerOfMassX: [Float]
     centerOfMassY: [Float]
     maxIntensity: [Float]
@@ -245,9 +246,9 @@ type FieldIlluminationOutput
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: TableAsDict
     intensityMap: Image5D
-    profileRois: LinesRoi
-    cornerRois: RectanglesRoi
-    centerOfIllumination: PointsRoi
+    profileRois: Roi
+    cornerRois: Roi
+    centerOfIllumination: Roi
   }
 
 interface Image
@@ -371,14 +372,6 @@ type Line
     y2: Float!
   }
 
-type LinesRoi
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Line]
-  }
-
 type Mask
   {
     label: String!
@@ -457,14 +450,6 @@ type Point
     x: Float!
   }
 
-type PointsRoi
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Point]
-  }
-
 type Polygon
   {
     label: String!
@@ -502,58 +487,12 @@ type Rectangle
     h: Float!
   }
 
-type RectanglesRoi
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Rectangle]
-  }
-
 type Roi
   {
     label: String!
     description: String
     image: [Image]
     shapes: [Shape]
-  }
-
-type RoiCenter
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Shape]
-    centerPoints: [Point]
-  }
-
-type RoiCorners
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Rectangle]
-    topLeftRegion: Rectangle
-    topCenterRegion: Rectangle
-    topRightRegion: Rectangle
-    middleLeftRegion: Rectangle
-    middleCenterRegion: Rectangle
-    middleRightRegion: Rectangle
-    bottomLeftRegion: Rectangle
-    bottomCenterRegion: Rectangle
-    bottomRightRegion: Rectangle
-  }
-
-type RoiProfiles
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Line]
-    leftTopToRightBottomProfile: Line
-    leftBottomToRightTopProfile: Line
-    leftToRightProfile: Line
-    topToBottomProfile: Line
   }
 
 type Sample

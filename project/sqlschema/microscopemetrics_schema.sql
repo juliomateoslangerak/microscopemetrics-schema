@@ -72,6 +72,7 @@ CREATE TABLE "Color" (
 
 CREATE TABLE "Column" (
 	name TEXT NOT NULL, 
+	source_uri TEXT, 
 	PRIMARY KEY (name)
 );
 
@@ -105,7 +106,7 @@ CREATE TABLE "Experimenter" (
 
 CREATE TABLE "FieldIlluminationKeyValues" (
 	channel INTEGER, 
-	nb_pixels INTEGER, 
+	nb_pixels_center INTEGER, 
 	center_of_mass_x FLOAT, 
 	center_of_mass_y FLOAT, 
 	max_intensity FLOAT, 
@@ -139,7 +140,7 @@ CREATE TABLE "FieldIlluminationKeyValues" (
 	decile_7 FLOAT, 
 	decile_8 FLOAT, 
 	decile_9 FLOAT, 
-	PRIMARY KEY (channel, nb_pixels, center_of_mass_x, center_of_mass_y, max_intensity, max_intensity_pos_x, max_intensity_pos_y, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
+	PRIMARY KEY (channel, nb_pixels_center, center_of_mass_x, center_of_mass_y, max_intensity, max_intensity_pos_x, max_intensity_pos_y, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
 );
 
 CREATE TABLE "Image2D" (
@@ -220,13 +221,6 @@ CREATE TABLE "Line" (
 	PRIMARY KEY (label)
 );
 
-CREATE TABLE "LinesRoi" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (label)
-);
-
 CREATE TABLE "Microscope" (
 	name TEXT, 
 	description TEXT, 
@@ -250,13 +244,6 @@ CREATE TABLE "Point" (
 	stroke_width INTEGER, 
 	y FLOAT NOT NULL, 
 	x FLOAT NOT NULL, 
-	PRIMARY KEY (label)
-);
-
-CREATE TABLE "PointsRoi" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
 	PRIMARY KEY (label)
 );
 
@@ -296,23 +283,9 @@ CREATE TABLE "Rectangle" (
 	PRIMARY KEY (label)
 );
 
-CREATE TABLE "RectanglesRoi" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (label)
-);
-
 CREATE TABLE "Roi" (
 	label TEXT NOT NULL, 
 	description TEXT, 
-	PRIMARY KEY (label)
-);
-
-CREATE TABLE "RoiCenter" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	center_points TEXT, 
 	PRIMARY KEY (label)
 );
 
@@ -386,9 +359,9 @@ CREATE TABLE "FieldIlluminationOutput" (
 	center_of_illumination TEXT, 
 	PRIMARY KEY (key_values, intensity_profiles, intensity_map, profile_rois, corner_rois, center_of_illumination), 
 	FOREIGN KEY(intensity_map) REFERENCES "Image5D" (image_url), 
-	FOREIGN KEY(profile_rois) REFERENCES "LinesRoi" (label), 
-	FOREIGN KEY(corner_rois) REFERENCES "RectanglesRoi" (label), 
-	FOREIGN KEY(center_of_illumination) REFERENCES "PointsRoi" (label)
+	FOREIGN KEY(profile_rois) REFERENCES "Roi" (label), 
+	FOREIGN KEY(corner_rois) REFERENCES "Roi" (label), 
+	FOREIGN KEY(center_of_illumination) REFERENCES "Roi" (label)
 );
 
 CREATE TABLE "Mask" (
@@ -404,46 +377,6 @@ CREATE TABLE "Mask" (
 	mask TEXT, 
 	PRIMARY KEY (label), 
 	FOREIGN KEY(mask) REFERENCES "ImageMask" (image_url)
-);
-
-CREATE TABLE "RoiCorners" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	top_left_region TEXT, 
-	top_center_region TEXT, 
-	top_right_region TEXT, 
-	middle_left_region TEXT, 
-	middle_center_region TEXT, 
-	middle_right_region TEXT, 
-	bottom_left_region TEXT, 
-	bottom_center_region TEXT, 
-	bottom_right_region TEXT, 
-	PRIMARY KEY (label), 
-	FOREIGN KEY(top_left_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(top_center_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(top_right_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(middle_left_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(middle_center_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(middle_right_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(bottom_left_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(bottom_center_region) REFERENCES "Rectangle" (label), 
-	FOREIGN KEY(bottom_right_region) REFERENCES "Rectangle" (label)
-);
-
-CREATE TABLE "RoiProfiles" (
-	label TEXT NOT NULL, 
-	description TEXT, 
-	shapes TEXT, 
-	"leftTop_to_rightBottom_profile" TEXT, 
-	"leftBottom_to_rightTop_profile" TEXT, 
-	left_to_right_profile TEXT, 
-	top_to_bottom_profile TEXT, 
-	PRIMARY KEY (label), 
-	FOREIGN KEY("leftTop_to_rightBottom_profile") REFERENCES "Line" (label), 
-	FOREIGN KEY("leftBottom_to_rightTop_profile") REFERENCES "Line" (label), 
-	FOREIGN KEY(left_to_right_profile) REFERENCES "Line" (label), 
-	FOREIGN KEY(top_to_bottom_profile) REFERENCES "Line" (label)
 );
 
 CREATE TABLE "Sample" (
@@ -519,27 +452,6 @@ CREATE TABLE "ImageMask_data" (
 	FOREIGN KEY(backref_id) REFERENCES "ImageMask" (image_url)
 );
 
-CREATE TABLE "LinesRoi_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "LinesRoi" (label)
-);
-
-CREATE TABLE "PointsRoi_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "PointsRoi" (label)
-);
-
-CREATE TABLE "RectanglesRoi_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RectanglesRoi" (label)
-);
-
 CREATE TABLE "Roi_image" (
 	backref_id TEXT, 
 	image TEXT, 
@@ -552,20 +464,6 @@ CREATE TABLE "Roi_shapes" (
 	shapes TEXT, 
 	PRIMARY KEY (backref_id, shapes), 
 	FOREIGN KEY(backref_id) REFERENCES "Roi" (label)
-);
-
-CREATE TABLE "RoiCenter_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiCenter" (label)
-);
-
-CREATE TABLE "RoiCenter_shapes" (
-	backref_id TEXT, 
-	shapes TEXT, 
-	PRIMARY KEY (backref_id, shapes), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiCenter" (label)
 );
 
 CREATE TABLE "ArgolightBDataset" (
@@ -636,18 +534,4 @@ CREATE TABLE "MetricsDataset" (
 	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
-);
-
-CREATE TABLE "RoiCorners_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiCorners" (label)
-);
-
-CREATE TABLE "RoiProfiles_image" (
-	backref_id TEXT, 
-	image TEXT, 
-	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiProfiles" (label)
 );

@@ -66,7 +66,7 @@ classes:
         required: false
         multivalued: false
       spots_centroids:
-        range: PointsRoi
+        range: Roi
         description: >-
           Centroids of the argolight spots provided as a list of ROIs. One per channel
         required: false
@@ -170,7 +170,7 @@ classes:
     is_a: MetricsOutput
     attributes:
       peaks_rois:
-        range: LinesRoi
+        range: Roi
         description: >-
           ROIs of the peaks found in the argolight images. One per channel
         multivalued: true

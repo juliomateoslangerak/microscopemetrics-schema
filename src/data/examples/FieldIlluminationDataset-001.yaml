@@ -18,7 +18,7 @@ experimenter:
   - name: "Jane Smith"
     orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_date: "2024-01-15"
-processed: false
+processed: true
 processing_date: "2024-01-16"
 processing_log: "Processed using microscope-metrics v2.0"
 comment:

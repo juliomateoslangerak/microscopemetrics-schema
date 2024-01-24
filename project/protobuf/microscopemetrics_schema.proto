@@ -57,7 +57,7 @@ message ArgolightBIntensityKeyValues
 message ArgolightBOutput
  {
   imageAsNumpy spotsLabelsImage = 0
- repeated  pointsRoi spotsCentroids = 0
+ repeated  roi spotsCentroids = 0
   argolightBIntensityKeyValues intensityMeasurements = 0
   argolightBDistanceKeyValues distanceMeasurements = 0
   tableAsDict spotsProperties = 0
@@ -105,7 +105,7 @@ message ArgolightEKeyValues
  }
 message ArgolightEOutput
  {
- repeated  linesRoi peaksRois = 0
+ repeated  roi peaksRois = 0
   argolightEKeyValues keyMeasurements = 0
   tableAsDict intensityProfiles = 0
  }
@@ -134,6 +134,7 @@ message Color
 message Column
  {
   string name = 0
+  string sourceUri = 0
  repeated  string values = 0
  }
 // A comment
@@ -193,7 +194,7 @@ message FieldIlluminationInput
 message FieldIlluminationKeyValues
  {
  repeated  integer channel = 0
- repeated  integer nbPixels = 0
+ repeated  integer nbPixelsCenter = 0
  repeated  float centerOfMassX = 0
  repeated  float centerOfMassY = 0
  repeated  float maxIntensity = 0
@@ -233,9 +234,9 @@ message FieldIlluminationOutput
   fieldIlluminationKeyValues keyValues = 0
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
-  linesRoi profileRois = 0
-  rectanglesRoi cornerRois = 0
-  pointsRoi centerOfIllumination = 0
+  roi profileRois = 0
+  roi cornerRois = 0
+  roi centerOfIllumination = 0
  }
 // A 2D image in YX order
 message Image2D
@@ -322,14 +323,6 @@ message Line
   float x2 = 0
   float y2 = 0
  }
-// ROI representing a set of lines in a single channel
-message LinesRoi
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  line shapes = 0
- }
 // A mask as defined by a boolean image
 message Mask
  {
@@ -384,14 +377,6 @@ message Point
   float y = 0
   float x = 0
  }
-// ROI representing a set of points in a single channel
-message PointsRoi
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  point shapes = 0
- }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
  {
@@ -429,14 +414,6 @@ message Rectangle
   float w = 0
   float h = 0
  }
-// ROI representing a set of rectangles in a single channel
-message RectanglesRoi
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  rectangle shapes = 0
- }
 // A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
 message Roi
  {
@@ -444,44 +421,6 @@ message Roi
   string description = 0
  repeated  image image = 0
  repeated  shape shapes = 0
- }
-// Point ROIs marking the center of illumination
-message RoiCenter
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  shape shapes = 0
- repeated  point centerPoints = 0
- }
-// Rectangular ROIs used to compute the corner intensities
-message RoiCorners
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  rectangle shapes = 0
-  rectangle topLeftRegion = 0
-  rectangle topCenterRegion = 0
-  rectangle topRightRegion = 0
-  rectangle middleLeftRegion = 0
-  rectangle middleCenterRegion = 0
-  rectangle middleRightRegion = 0
-  rectangle bottomLeftRegion = 0
-  rectangle bottomCenterRegion = 0
-  rectangle bottomRightRegion = 0
- }
-// line ROIs used to compute the intensity profiles
-message RoiProfiles
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  line shapes = 0
-  line leftTopToRightBottomProfile = 0
-  line leftBottomToRightTopProfile = 0
-  line leftToRightProfile = 0
-  line topToBottomProfile = 0
  }
 // A sample is a standard physical object that is imaged by a microscope
 message Sample

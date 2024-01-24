@@ -334,41 +334,41 @@ classes:
         multivalued: true
         inlined: true
 
-  LinesRoi:
-    is_a: Roi
-    description: >-
-      ROI representing a set of lines in a single channel
-    attributes:
-      shapes:
-        range: Line
-        description: >-
-          A ROI of lines
-        multivalued: true
-        inlined: true
-
-  PointsRoi:
-    is_a: Roi
-    description: >-
-      ROI representing a set of points in a single channel
-    attributes:
-      shapes:
-        range: Point
-        description: >-
-          A ROI of points
-        multivalued: true
-        inlined: true
-
-  RectanglesRoi:
-    is_a: Roi
-    description: >-
-      ROI representing a set of rectangles in a single channel
-    attributes:
-      shapes:
-        range: Rectangle
-        description: >-
-          A ROI of rectangles
-        multivalued: true
-        inlined: true
+#  LinesRoi:
+#    is_a: Roi
+#    description: >-
+#      ROI representing a set of lines in a single channel
+#    attributes:
+#      shapes:
+#        range: Line
+#        description: >-
+#          A ROI of lines
+#        multivalued: true
+#        inlined: true
+#
+#  PointsRoi:
+#    is_a: Roi
+#    description: >-
+#      ROI representing a set of points in a single channel
+#    attributes:
+#      shapes:
+#        range: Point
+#        description: >-
+#          A ROI of points
+#        multivalued: true
+#        inlined: true
+#
+#  RectanglesRoi:
+#    is_a: Roi
+#    description: >-
+#      ROI representing a set of rectangles in a single channel
+#    attributes:
+#      shapes:
+#        range: Rectangle
+#        description: >-
+#          A ROI of rectangles
+#        multivalued: true
+#        inlined: true
 
 #      shapes:
 #        range: Shape
@@ -650,6 +650,10 @@ classes:
         description: The name of the column
         required: true
         identifier: true
+      source_uri:
+        range: string
+        description: The URI of the source of the column
+        required: false
       values:
         range: string
         description: The values of the column
