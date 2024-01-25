@@ -212,27 +212,27 @@
 
       ArgolightBOutput : distance_measurements
 
-          ArgolightBOutput --|&gt; ArgolightBDistanceKeyValues : distance_measurements
+          ArgolightBOutput --&gt; ArgolightBDistanceKeyValues : distance_measurements
 
       ArgolightBOutput : intensity_measurements
 
-          ArgolightBOutput --|&gt; ArgolightBIntensityKeyValues : intensity_measurements
+          ArgolightBOutput --&gt; ArgolightBIntensityKeyValues : intensity_measurements
 
       ArgolightBOutput : spots_centroids
 
-          ArgolightBOutput --|&gt; Roi : spots_centroids
+          ArgolightBOutput --&gt; Roi : spots_centroids
 
       ArgolightBOutput : spots_distances
 
-          ArgolightBOutput --|&gt; TableAsDict : spots_distances
+          ArgolightBOutput --&gt; TableAsDict : spots_distances
 
       ArgolightBOutput : spots_labels_image
 
-          ArgolightBOutput --|&gt; ImageAsNumpy : spots_labels_image
+          ArgolightBOutput --&gt; ImageAsNumpy : spots_labels_image
 
       ArgolightBOutput : spots_properties
 
-          ArgolightBOutput --|&gt; TableAsDict : spots_properties
+          ArgolightBOutput --&gt; TableAsDict : spots_properties
 
 
 </div>

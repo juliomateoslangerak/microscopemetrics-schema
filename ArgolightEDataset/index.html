@@ -209,41 +209,41 @@
     class ArgolightEDataset
       MetricsDataset &lt;|-- ArgolightEDataset
 
-      ArgolightEDataset : acquisition_date
+      ArgolightEDataset : acquisition_datetime
 
       ArgolightEDataset : comment
 
-          ArgolightEDataset --|&gt; Comment : comment
+          ArgolightEDataset --&gt; Comment : comment
 
       ArgolightEDataset : description
 
       ArgolightEDataset : experimenter
 
-          ArgolightEDataset --|&gt; Experimenter : experimenter
+          ArgolightEDataset --&gt; Experimenter : experimenter
 
       ArgolightEDataset : input
 
-          ArgolightEDataset --|&gt; ArgolightEInput : input
+          ArgolightEDataset --&gt; ArgolightEInput : input
 
       ArgolightEDataset : microscope
 
-          ArgolightEDataset --|&gt; Microscope : microscope
+          ArgolightEDataset --&gt; Microscope : microscope
 
       ArgolightEDataset : name
 
       ArgolightEDataset : output
 
-          ArgolightEDataset --|&gt; ArgolightEOutput : output
+          ArgolightEDataset --&gt; ArgolightEOutput : output
 
       ArgolightEDataset : processed
 
-      ArgolightEDataset : processing_date
+      ArgolightEDataset : processing_datetime
 
       ArgolightEDataset : processing_log
 
       ArgolightEDataset : sample
 
-          ArgolightEDataset --|&gt; Sample : sample
+          ArgolightEDataset --&gt; Sample : sample
 
 
 </div>
@@ -281,27 +281,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../microscope/">microscope</a></td>
+<td><a href="microscope.md">microscope</a></td>
 <td>1..1 <br/> <a href="../Microscope/">Microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../sample/">sample</a></td>
+<td><a href="sample.md">sample</a></td>
 <td>0..1 <br/> <a href="../Sample/">Sample</a></td>
 <td>The sample that was imaged</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../experimenter/">experimenter</a></td>
+<td><a href="experimenter.md">experimenter</a></td>
 <td>0..* <br/> <a href="../Experimenter/">Experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../acquisition_date/">acquisition_date</a></td>
-<td>0..1 <br/> <a href="../date/">date</a></td>
-<td>The date of the acquisition</td>
+<td><a href="../acquisition_datetime/">acquisition_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the acquisition</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
@@ -311,9 +311,9 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../processing_date/">processing_date</a></td>
-<td>0..1 <br/> <a href="../date/">date</a></td>
-<td>The date of the processing by microscope-metrics</td>
+<td><a href="../processing_datetime/">processing_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the processing by microscope-metrics</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
@@ -323,7 +323,7 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
@@ -485,17 +485,17 @@ attributes:
     - MetricsDataset
     range: Experimenter
     inlined: false
-  acquisition_date:
-    name: acquisition_date
-    description: The date of the acquisition
+  acquisition_datetime:
+    name: acquisition_datetime
+    description: The datetime of the acquisition
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    alias: acquisition_date
+    alias: acquisition_datetime
     owner: ArgolightEDataset
     domain_of:
     - MetricsDataset
-    range: date
+    range: datetime
   processed:
     name: processed
     description: Has the dataset been processed by microscope-metrics
@@ -509,17 +509,17 @@ attributes:
     - MetricsDataset
     range: boolean
     required: true
-  processing_date:
-    name: processing_date
-    description: The date of the processing by microscope-metrics
+  processing_datetime:
+    name: processing_datetime
+    description: The datetime of the processing by microscope-metrics
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    alias: processing_date
+    alias: processing_datetime
     owner: ArgolightEDataset
     domain_of:
     - MetricsDataset
-    range: date
+    range: datetime
   processing_log:
     name: processing_log
     description: The log of the processing by microscope-metrics

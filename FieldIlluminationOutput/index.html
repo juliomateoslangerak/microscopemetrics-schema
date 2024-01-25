@@ -212,27 +212,27 @@
 
       FieldIlluminationOutput : center_of_illumination
 
-          FieldIlluminationOutput --|&gt; Roi : center_of_illumination
+          FieldIlluminationOutput --&gt; Roi : center_of_illumination
 
       FieldIlluminationOutput : corner_rois
 
-          FieldIlluminationOutput --|&gt; Roi : corner_rois
+          FieldIlluminationOutput --&gt; Roi : corner_rois
 
       FieldIlluminationOutput : intensity_map
 
-          FieldIlluminationOutput --|&gt; Image5D : intensity_map
+          FieldIlluminationOutput --&gt; Image5D : intensity_map
 
       FieldIlluminationOutput : intensity_profiles
 
-          FieldIlluminationOutput --|&gt; TableAsDict : intensity_profiles
+          FieldIlluminationOutput --&gt; TableAsDict : intensity_profiles
 
       FieldIlluminationOutput : key_values
 
-          FieldIlluminationOutput --|&gt; FieldIlluminationKeyValues : key_values
+          FieldIlluminationOutput --&gt; FieldIlluminationKeyValues : key_values
 
       FieldIlluminationOutput : profile_rois
 
-          FieldIlluminationOutput --|&gt; Roi : profile_rois
+          FieldIlluminationOutput --&gt; Roi : profile_rois
 
 
 </div>
