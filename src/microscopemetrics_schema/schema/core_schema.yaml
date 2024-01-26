@@ -179,6 +179,16 @@ classes:
         required: false
         inlined: true
         multivalued: true
+      input:
+        range: MetricsInput
+        description: The input of the analysis
+        required: false
+        multivalued: false
+      output:
+        range: MetricsOutput
+        description: The output of the analysis
+        required: false
+        multivalued: false
 
   MetricsInput:
     description: An abstract class for analysis inputs
