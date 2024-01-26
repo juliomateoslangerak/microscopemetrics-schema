@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/shapes/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_to_bottom_profile/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: shapes - microscopemetrics-schema</title>
+        <title>Slot: top_to_bottom_profile - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-shapes" class="md-skip">
+        <a href="#slot-top_to_bottom_profile" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: shapes
+              Slot: top_to_bottom_profile
             
           </span>
         </div>
@@ -310,14 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/shapes.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/top_to_bottom_profile.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-shapes">Slot: shapes</h1>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/shapes">microscopemetrics_schema:shapes</a></p>
+<h1 id="slot-top_to_bottom_profile">Slot: top_to_bottom_profile</h1>
+<p><em>The line from the top to the bottom of the image</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/top_to_bottom_profile">microscopemetrics_schema:top_to_bottom_profile</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -331,20 +332,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
-<td>A ROI (Region Of Interest)</td>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td>line ROIs used to compute the intensity profiles</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Shape/">Shape</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../Line/">Line</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -354,17 +350,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: shapes
+<pre><code class="language-yaml">name: top_to_bottom_profile
+description: The line from the top to the bottom of the image
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-multivalued: true
-alias: shapes
-owner: Roi
+multivalued: false
+alias: top_to_bottom_profile
 domain_of:
-- Roi
-range: Shape
-inlined: true
-inlined_as_list: false
+- RoiProfiles
+range: Line
 
 </code></pre>
 
