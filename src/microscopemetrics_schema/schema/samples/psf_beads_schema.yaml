@@ -90,6 +90,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
+      # TODO: add to close to z edge
       key_measurements:
         range: PSFBeadsKeyMeasurements
         description: >-
@@ -101,6 +102,7 @@ classes:
           Properties associated with the analysis of the beads.
           One table per channel.
         multivalued: true
+      # TODO: add description fpr fitting values in the tables
       psf_z_profiles:
         range: TableAsDict
         description: >-
@@ -120,11 +122,12 @@ classes:
           One table per channel.
         multivalued: true
 
+
   PSFBeadsKeyMeasurements:
     is_a: KeyValues
     slots:
       - nr_of_beads_analyzed
-      - nr_of_beads_discarded
+      - nr_of_beads_discarded  # TODO: per codition
       - resolution_mean_fwhm_z_pixels
       - resolution_median_fwhm_z_pixels
       - resolution_stdev_fwhm_z_pixels
