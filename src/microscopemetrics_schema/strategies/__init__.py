@@ -1,5 +1,6 @@
 from typing import Callable
 from hypothesis import strategies as st
+from hypothesis import assume
 
 from ..datamodel import microscopemetrics_schema as mm_schema
 
@@ -7,105 +8,85 @@ from ..datamodel import microscopemetrics_schema as mm_schema
 @st.composite
 def st_mm_microscope(
     draw: Callable[[st.SearchStrategy[str]], mm_schema.Sample],
-    name: str = "My Microscope A",
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    id: str = st.uuids(),
+    type: str = st.sampled_from(["WIDE-FIELD", "CONFOCAL", "STED", "3D-SIM", "OTHER"]),
+    manufacturer: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    model: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    serial_number: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    url: str = st.uuids(),
 ) -> mm_schema.Microscope:
     return mm_schema.Microscope(
-        name=name,
-        description=draw(st.text()),
-        id=draw(st.integers()),
-        type=draw(
-            st.sampled_from(["WIDE-FIELD", "CONFOCAL", "STED", "3D-SIM", "OTHER"])
-        ),
-        manufacturer=draw(st.text()),
-        model=draw(st.text()),
-        serial_number=draw(st.text()),
-        url=draw(st.uuids()),
-    )
-
-
-@st.composite
-def st_mm_sample(
-    draw: Callable[[st.SearchStrategy[str]], mm_schema.Sample],
-    name: str = "My sample name",
-) -> mm_schema.Sample:
-    return mm_schema.Sample(
-        name=name,
-        description=draw(st.text()),
-        type=draw(st.text()),
-        protocol=draw(st_mm_protocol()),
-    )
-
-
-@st.composite
-def st_mm_protocol(
-    draw: Callable[[st.SearchStrategy[str]], mm_schema.Protocol],
-    name: str = "My protocol name",
-) -> mm_schema.Protocol:
-    return mm_schema.Protocol(
-        name=name,
-        description=draw(st.text()),
-        version=draw(st.text()),
-        authors=draw(st.lists(st_mm_experimenter(), min_size=1, max_size=5)),
-        url=draw(st.uuids()),
+        name=draw(name),
+        description=draw(description),
+        id=draw(id),
+        type=draw(type),
+        manufacturer=draw(manufacturer),
+        model=draw(model),
+        serial_number=draw(serial_number),
+        url=draw(url),
     )
 
 
 @st.composite
 def st_mm_experimenter(
     draw: Callable[[st.SearchStrategy[str]], mm_schema.Experimenter],
-    name: str = "John Doe",
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    orcid: str = st.from_regex(r"[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}", fullmatch=True)
 ) -> mm_schema.Experimenter:
     return mm_schema.Experimenter(
+        name=draw(name),
+        orcid=draw(orcid),
+    )
+
+
+@st.composite
+def st_mm_protocol(
+    draw: Callable[[st.SearchStrategy[str]], mm_schema.Protocol],
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    version: str = st.from_regex(r"[0-9]\.[0-9]\.[0-9]{3}", fullmatch=True),
+    authors: list[mm_schema.Experimenter] = st.lists(
+        st_mm_experimenter(), min_size=1, max_size=5),
+    url: str = st.uuids(),
+) -> mm_schema.Protocol:
+    return mm_schema.Protocol(
         name=name,
-        orcid=draw(
-            st.from_regex(r"[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}", fullmatch=True)
-        ),
+        description=draw(description),
+        version=draw(version),
+        authors=draw(authors),
+        url=draw(url),
+    )
+
+
+@st.composite
+def st_mm_sample(
+    draw: Callable[[st.SearchStrategy[str]], mm_schema.Sample],
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    type: str = st.text(),
+    protocol: mm_schema.Protocol = st_mm_protocol()
+) -> mm_schema.Sample:
+    return mm_schema.Sample(
+        name=draw(name),
+        description=draw(description),
+        type=draw(type),
+        protocol=draw(protocol),
     )
 
 
 @st.composite
 def st_mm_comment(
     draw: Callable[[st.SearchStrategy[str]], mm_schema.Comment],
-    text: str = "A useful comment",
+    datetime: str = st.datetimes(),
+    text: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    comment_type: str = st.sampled_from(["ACQUISITION", "PROCESSING", "OTHER"]),
 ) -> mm_schema.Comment:
     return mm_schema.Comment(
-        datetime=draw(st.datetimes()),
-        comment_type=draw(st.sampled_from(["ACQUISITION", "PROCESSING", "OTHER"])),
-        text=text,
-    )
-
-
-@st.composite
-def st_mm_dataset(
-    draw: Callable[[st.SearchStrategy[str]], mm_schema.MetricsDataset],
-    name: str = "AnalysisX",
-    processed: bool = False,
-    processing_datetime: str = None,
-    processing_log: str = None,
-    comment: mm_schema.Comment = None,
-    input: mm_schema.MetricsInput = None,
-    output: mm_schema.MetricsOutput = None,
-) -> mm_schema.MetricsDataset:
-    if processed:
-        processing_datetime = draw(st.datetimes())
-        processing_log = draw(st.text())
-        comment = draw(st.lists(st_mm_comment(), min_size=1, max_size=2))
-        input = draw(st_mm_input())
-        output = draw(st_mm_output())
-
-    return mm_schema.MetricsDataset(
-        name=name,
-        description=draw(st.text()),
-        microscope=draw(st_mm_microscope()),
-        sample=draw(st_mm_sample()),
-        experimenter=draw(st_mm_experimenter()),
-        acquisition_datetime=draw(st.datetimes()),
-        processed=processed,
-        processing_datetime=processing_datetime,
-        processing_log=processing_log,
-        comment=comment,
-        input=input,
-        output=output,
+        datetime=draw(datetime),
+        comment_type=draw(comment_type),
+        text=draw(text),
     )
 
 
@@ -123,12 +104,51 @@ def st_mm_output(
     return mm_schema.MetricsOutput()
 
 
+@st.composite
+def st_mm_dataset(
+    draw: Callable[[st.SearchStrategy[str]], mm_schema.MetricsDataset],
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    microscope: mm_schema.Microscope = st_mm_microscope(),
+    sample: mm_schema.Sample = st_mm_sample(),
+    experimenter: mm_schema.Experimenter = st_mm_experimenter(),
+    acquisition_datetime: str = st.datetimes(),
+    processed: bool = st.booleans(),
+    processing_datetime: str = st.just(None),
+    processing_log: str = st.just(None),
+    comment: mm_schema.Comment = st.just(None),
+    input: mm_schema.MetricsInput = st_mm_input(),
+    output: mm_schema.MetricsOutput = st.just(None),
+) -> mm_schema.MetricsDataset:
+    processed = draw(processed)
+    if processed:
+        processing_datetime = st.datetimes()
+        processing_log = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256)
+        comment = st.lists(st_mm_comment(), min_size=1, max_size=2)
+        output = st_mm_output()
+
+    return mm_schema.MetricsDataset(
+        name=draw(name),
+        description=draw(description),
+        microscope=draw(microscope),
+        sample=draw(sample),
+        experimenter=draw(experimenter),
+        acquisition_datetime=draw(acquisition_datetime),
+        processed=processed,
+        processing_datetime=draw(processing_datetime),
+        processing_log=draw(processing_log),
+        comment=draw(comment),
+        input=draw(input),
+        output=draw(output),
+    )
+
+
 # Data sources
 @st.composite
 def st_mm_image_as_numpy(
     draw: Callable[[st.SearchStrategy], mm_schema.ImageAsNumpy],
-    name: str = st.text(min_size=1, max_size=20),
-    description: str = st.text(min_size=1, max_size=200),
+    name: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     image_url: str = st.uuids(),
     voxel_size_xy_micron: float = st.floats(min_value=0.1, max_value=1.0),
     voxel_size_z_micron: float = st.floats(min_value=0.3, max_value=3.0),
@@ -173,61 +193,9 @@ def st_mm_color(
 
 
 @st.composite
-def st_mm_shape(
-    draw: Callable[[st.SearchStrategy], mm_schema.Shape],
-    label: str = st.text(min_size=1, max_size=20),
-    z: float = st.floats(min_value=0.0, max_value=30.0),
-    c: int = st.integers(min_value=0, max_value=5),
-    t: int = st.integers(min_value=0, max_value=5),
-    fill_color: mm_schema.Color = st_mm_color(),
-    stroke_color: mm_schema.Color = st_mm_color(),
-    stroke_width: int = st.integers(min_value=1, max_value=5),
-) -> mm_schema.Shape:
-    params = {
-        "label": draw(label),
-        "z": draw(z),
-        "c": draw(c),
-        "t": draw(t),
-        "fill_color": draw(fill_color),
-        "stroke_color": draw(stroke_color),
-        "stroke_width": draw(stroke_width),
-    }
-
-    return draw(
-        st.sampled_from(
-            [
-                st_mm_point(**params),
-                st_mm_line(**params),
-                st_mm_rectangle(**params),
-                st_mm_polygon(**params),
-                st_mm_ellipse(**params),
-            ]
-        )
-    )
-
-
-@st.composite
-def st_mm_roi(
-    draw: Callable[[st.SearchStrategy], mm_schema.Roi],
-    label: str = st.text(min_size=1, max_size=20),
-    description: str = st.text(min_size=1, max_size=200),
-    image: list[str] = st.lists(st.uuids(), min_size=1, max_size=5),
-    shapes: list[mm_schema.Shape] = st.lists(st_mm_shape(), min_size=1, max_size=5),
-) -> mm_schema.Roi:
-    shapes = draw(shapes)
-    labels = [shape.label for shape in shapes]
-    return mm_schema.Roi(
-        label=draw(label),
-        description=draw(description),
-        image=draw(image),
-        # shapes=draw(shapes),
-    )
-
-
-@st.composite
 def st_mm_point(
     draw: Callable[[st.SearchStrategy], mm_schema.Point],
-    label: str = st.text(min_size=1, max_size=20),
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
     z: float = st.floats(min_value=0.0, max_value=30.0),
     c: int = st.integers(min_value=0, max_value=5),
     t: int = st.integers(min_value=0, max_value=5),
@@ -253,7 +221,7 @@ def st_mm_point(
 @st.composite
 def st_mm_line(
     draw: Callable[[st.SearchStrategy], mm_schema.Line],
-    label: str = st.text(min_size=1, max_size=20),
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
     z: float = st.floats(min_value=0.0, max_value=30.0),
     c: int = st.integers(min_value=0, max_value=5),
     t: int = st.integers(min_value=0, max_value=5),
@@ -283,7 +251,7 @@ def st_mm_line(
 @st.composite
 def st_mm_rectangle(
     draw: Callable[[st.SearchStrategy], mm_schema.Rectangle],
-    label: str = st.text(min_size=1, max_size=20),
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
     z: float = st.floats(min_value=0.0, max_value=30.0),
     c: int = st.integers(min_value=0, max_value=5),
     t: int = st.integers(min_value=0, max_value=5),
@@ -313,7 +281,7 @@ def st_mm_rectangle(
 @st.composite
 def st_mm_ellipse(
     draw: Callable[[st.SearchStrategy], mm_schema.Ellipse],
-    label: str = st.text(min_size=1, max_size=20),
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
     z: float = st.floats(min_value=0.0, max_value=30.0),
     c: int = st.integers(min_value=0, max_value=5),
     t: int = st.integers(min_value=0, max_value=5),
@@ -352,7 +320,7 @@ def st_mm_vertex(
 @st.composite
 def st_mm_polygon(
     draw: Callable[[st.SearchStrategy], mm_schema.Polygon],
-    label: str = st.text(min_size=1, max_size=20),
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
     z: float = st.floats(min_value=0.0, max_value=30.0),
     c: int = st.integers(min_value=0, max_value=5),
     t: int = st.integers(min_value=0, max_value=5),
@@ -374,6 +342,56 @@ def st_mm_polygon(
         stroke_width=draw(stroke_width),
         vertexes=draw(vertexes),
         is_open=draw(is_open),
+    )
+
+
+@st.composite
+def st_mm_shape(
+    draw: Callable[[st.SearchStrategy], mm_schema.Shape],
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    z: float = st.floats(min_value=0.0, max_value=30.0),
+    c: int = st.integers(min_value=0, max_value=5),
+    t: int = st.integers(min_value=0, max_value=5),
+    fill_color: mm_schema.Color = st_mm_color(),
+    stroke_color: mm_schema.Color = st_mm_color(),
+    stroke_width: int = st.integers(min_value=1, max_value=5),
+) -> mm_schema.Shape:
+    params = {
+        "label": draw(label),
+        "z": draw(z),
+        "c": draw(c),
+        "t": draw(t),
+        "fill_color": draw(fill_color),
+        "stroke_color": draw(stroke_color),
+        "stroke_width": draw(stroke_width),
+    }
+
+    return draw(
+        st.sampled_from(
+            [
+                st_mm_point(**params),
+                st_mm_line(**params),
+                st_mm_rectangle(**params),
+                st_mm_polygon(**params),
+                st_mm_ellipse(**params),
+            ]
+        )
+    )
+
+
+@st.composite
+def st_mm_roi(
+    draw: Callable[[st.SearchStrategy], mm_schema.Roi],
+    label: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32),
+    description: str = st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
+    image: list[str] = st.lists(st.uuids(), min_size=1, max_size=5),
+    shapes: list[mm_schema.Shape] = st.lists(st_mm_shape(), min_size=1, max_size=5),
+) -> mm_schema.Roi:
+    return mm_schema.Roi(
+        label=draw(label),
+        description=draw(description),
+        image=draw(image),
+        shapes=draw(shapes),
     )
 
 
