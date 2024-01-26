@@ -138,6 +138,7 @@ classes:
       shapes:
         range: Line
         multivalued: true
+        inlined: true
         inlined_as_list: false
 
   RoiCorners:
@@ -148,6 +149,7 @@ classes:
       shapes:
         range: Rectangle
         multivalued: true
+        inlined: true
         inlined_as_list: false
 
   RoiCenters:
@@ -158,6 +160,7 @@ classes:
       shapes:
         range: Point
         multivalued: true
+        inlined: true
         inlined_as_list: false
 
 slots:
