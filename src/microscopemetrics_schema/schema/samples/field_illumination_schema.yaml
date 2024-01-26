@@ -62,11 +62,14 @@ classes:
         range: TableAsDict
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
+        multivalued: false
+        inlined: true
       intensity_map:
         range: Image5D
         description: >-
           Intensity map of the field illumination
         multivalued: false
+        inlined: true
       profile_rois:  # TODO: rename to roi_profiles
         range: Roi
         description: line ROIs used to compute the intensity profiles

@@ -1214,8 +1214,8 @@
                     "type": "string"
                 },
                 "intensity_map": {
-                    "description": "Intensity map of the field illumination",
-                    "type": "string"
+                    "$ref": "#/$defs/Image5D",
+                    "description": "Intensity map of the field illumination"
                 },
                 "intensity_profiles": {
                     "$ref": "#/$defs/TableAsDict",
@@ -2054,6 +2054,10 @@
                 },
                 "name": {
                     "description": "The name of an entity",
+                    "type": "string"
+                },
+                "table_url": {
+                    "description": "An URL linking to the table",
                     "type": "string"
                 }
             },

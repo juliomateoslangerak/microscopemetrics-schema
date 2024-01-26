@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-26T03:20:03
+# Generation date: 2024-01-26T14:39:13
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1177,6 +1177,7 @@ class Tag(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class Table(MetricsObject):
     """
     A table
@@ -1187,6 +1188,14 @@ class Table(MetricsObject):
     class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Table"
     class_name: ClassVar[str] = "Table"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Table
+
+    table_url: Optional[str] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.table_url is not None and not isinstance(self.table_url, str):
+            self.table_url = str(self.table_url)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass
@@ -1353,7 +1362,7 @@ class FieldIlluminationOutput(MetricsOutput):
 
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[dict, TableAsDict]] = None
-    intensity_map: Optional[Union[str, Image5DImageUrl]] = None
+    intensity_map: Optional[Union[dict, Image5D]] = None
     profile_rois: Optional[Union[str, RoiLabel]] = None
     corner_rois: Optional[Union[str, RoiLabel]] = None
     center_of_illumination: Optional[Union[str, RoiLabel]] = None
@@ -1365,8 +1374,8 @@ class FieldIlluminationOutput(MetricsOutput):
         if self.intensity_profiles is not None and not isinstance(self.intensity_profiles, TableAsDict):
             self.intensity_profiles = TableAsDict(**as_dict(self.intensity_profiles))
 
-        if self.intensity_map is not None and not isinstance(self.intensity_map, Image5DImageUrl):
-            self.intensity_map = Image5DImageUrl(self.intensity_map)
+        if self.intensity_map is not None and not isinstance(self.intensity_map, Image5D):
+            self.intensity_map = Image5D(**as_dict(self.intensity_map))
 
         if self.profile_rois is not None and not isinstance(self.profile_rois, RoiLabel):
             self.profile_rois = RoiLabel(self.profile_rois)
@@ -2073,6 +2082,9 @@ slots.image_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image_url'], na
 slots.source_image_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image_url'], name="source_image_url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image_url'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.source_image_url, domain=None, range=Optional[Union[str, List[str]]])
 
+slots.table_url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_url'], name="table_url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_url'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.table_url, domain=None, range=Optional[str])
+
 slots.shape_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_x'], name="shape_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape_x, domain=None, range=int)
 
@@ -2596,7 +2608,7 @@ slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_S
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map'], name="fieldIlluminationOutput__intensity_map", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[str, Image5DImageUrl]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[dict, Image5D]])
 
 slots.fieldIlluminationOutput__profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/profile_rois'], name="fieldIlluminationOutput__profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/profile_rois'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[str, RoiLabel]])

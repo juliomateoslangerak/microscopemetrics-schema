@@ -437,6 +437,7 @@ message TableAsPandasDF
  {
   string name = 0
   string description = 0
+  string tableUrl = 0
   metaObject df = 0
  }
 // A series whose values represent time

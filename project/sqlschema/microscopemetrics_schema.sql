@@ -292,8 +292,9 @@ CREATE TABLE "Roi" (
 CREATE TABLE "TableAsPandasDF" (
 	name TEXT, 
 	description TEXT, 
+	table_url TEXT, 
 	df TEXT NOT NULL, 
-	PRIMARY KEY (name, description, df)
+	PRIMARY KEY (name, description, table_url, df)
 );
 
 CREATE TABLE "TimeSeries" (

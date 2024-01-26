@@ -520,12 +520,14 @@ interface Table
   {
     name: String
     description: String
+    tableUrl: String
   }
 
 interface TableAsDict
   {
     name: String
     description: String
+    tableUrl: String
     columns: [Column]!
   }
 
@@ -533,6 +535,7 @@ type TableAsPandasDF
   {
     name: String
     description: String
+    tableUrl: String
     df: MetaObject!
   }
 

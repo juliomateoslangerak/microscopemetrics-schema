@@ -461,6 +461,19 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "table_url",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_url",
+      "description": "An URL linking to the table",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_url",
+      "owner": "Table",
+      "domain_of": [
+        "Table"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "shape_x",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_x",
       "description": "The shape of the image in the x dimension",
@@ -2987,6 +3000,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "Image5D",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4478,7 +4492,8 @@
       "abstract": true,
       "slots": [
         "name",
-        "description"
+        "description",
+        "table_url"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table",
@@ -4493,6 +4508,7 @@
       "slots": [
         "name",
         "description",
+        "table_url",
         "tableAsPandasDF__df"
       ],
       "slot_usage": {},
@@ -4518,6 +4534,7 @@
       "slots": [
         "name",
         "description",
+        "table_url",
         "tableAsDict__columns"
       ],
       "slot_usage": {},
@@ -4678,12 +4695,14 @@
           "name": "intensity_profiles",
           "description": "Intensity profiles for the field illumination analysis in the different directions",
           "range": "TableAsDict",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "intensity_map",
           "description": "Intensity map of the field illumination",
           "range": "Image5D",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
@@ -5077,9 +5096,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2023-09-07T00:19:05",
+  "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-26T03:19:59",
+  "generation_date": "2024-01-26T14:39:08",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
