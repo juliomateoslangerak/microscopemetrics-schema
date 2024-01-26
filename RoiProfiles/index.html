@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/TableAsDict/" rel="canonical"/>
+<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiProfiles/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: TableAsDict - microscopemetrics-schema</title>
+<title>Class: RoiProfiles - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-tableasdict">
+<a class="md-skip" href="#class-roiprofiles">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: TableAsDict
+              Class: RoiProfiles
             
           </span>
 </div>
@@ -152,11 +152,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -201,39 +196,51 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/TableAsDict.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/RoiProfiles.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-tableasdict">Class: TableAsDict</h1>
-<p><em>A table inlined in a metrics dataset</em></p>
-<ul>
-<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
-</ul>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/TableAsDict">microscopemetrics_schema:TableAsDict</a></p>
+<h1 id="class-roiprofiles">Class: RoiProfiles</h1>
+<p><em>line ROIs used to compute the intensity profiles</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RoiProfiles">microscopemetrics_schema:RoiProfiles</a></p>
 <div class="mermaid"> classDiagram
-    class TableAsDict
-      Table &lt;|-- TableAsDict
+    class RoiProfiles
+      LinesRoi &lt;|-- RoiProfiles
 
-      TableAsDict : columns
+      RoiProfiles : description
 
-          TableAsDict --&gt; Column : columns
+      RoiProfiles : image
 
-      TableAsDict : description
+          RoiProfiles --|&gt; Image : image
 
-      TableAsDict : name
+      RoiProfiles : label
 
-      TableAsDict : table_url
+      RoiProfiles : left_to_right_profile
+
+          RoiProfiles --|&gt; Line : left_to_right_profile
+
+      RoiProfiles : leftBottom_to_rightTop_profile
+
+          RoiProfiles --|&gt; Line : leftBottom_to_rightTop_profile
+
+      RoiProfiles : leftTop_to_rightBottom_profile
+
+          RoiProfiles --|&gt; Line : leftTop_to_rightBottom_profile
+
+      RoiProfiles : shapes
+
+          RoiProfiles --|&gt; Line : shapes
+
+      RoiProfiles : top_to_bottom_profile
+
+          RoiProfiles --|&gt; Line : top_to_bottom_profile
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
-<li><a href="../Table/">Table</a><ul>
-<li><strong>TableAsDict</strong></li>
-</ul>
-</li>
+<li><a href="../Roi/">Roi</a><ul>
+<li><a href="../LinesRoi/">LinesRoi</a><ul>
+<li><strong>RoiProfiles</strong></li>
 </ul>
 </li>
 </ul>
@@ -251,65 +258,52 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../columns/">columns</a></td>
-<td>1..* <br/> <a href="../Column/">Column</a></td>
-<td>A list of the columns of the table</td>
+<td><a href="../leftTop_to_rightBottom_profile/">leftTop_to_rightBottom_profile</a></td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>The line from the top-left to the bottom-right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../table_url/">table_url</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>An URL linking to the table</td>
-<td><a href="../Table/">Table</a></td>
+<td><a href="../leftBottom_to_rightTop_profile/">leftBottom_to_rightTop_profile</a></td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>The line from the bottom-left to the top-right of the image</td>
+<td>direct</td>
 </tr>
 <tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
+<td><a href="../left_to_right_profile/">left_to_right_profile</a></td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>The line from the left to the right of the image</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../top_to_bottom_profile/">top_to_bottom_profile</a></td>
+<td>0..1 <br/> <a href="../Line/">Line</a></td>
+<td>The line from the top to the bottom of the image</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../shapes/">shapes</a></td>
+<td>0..* <br/> <a href="../Line/">Line</a></td>
+<td>A ROI of lines</td>
+<td><a href="../Roi/">Roi</a>, <a href="../LinesRoi/">LinesRoi</a></td>
+</tr>
+<tr>
+<td><a href="../label/">label</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The label of the ROI</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_properties/">spots_properties</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
+<td>A description of the ROI</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_distances/">spots_distances</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
+<td><a href="../image/">image</a></td>
+<td>0..* <br/> <a href="../Image/">Image</a></td>
+<td>The image or images to which the ROI is applied</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 </tbody>
 </table>
@@ -329,11 +323,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>microscopemetrics_schema:TableAsDict</td>
+<td>microscopemetrics_schema:RoiProfiles</td>
 </tr>
 <tr>
 <td>native</td>
-<td>microscopemetrics_schema:TableAsDict</td>
+<td>microscopemetrics_schema:RoiProfiles</td>
 </tr>
 </tbody>
 </table>
@@ -341,88 +335,123 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: TableAsDict
-description: A table inlined in a metrics dataset
+<pre><code class="language-yaml">name: RoiProfiles
+description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Table
-abstract: true
-attributes:
-  columns:
-    name: columns
-    description: A list of the columns of the table
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    range: Column
-    required: true
-    inlined: true
-    inlined_as_list: false
+is_a: LinesRoi
+slots:
+- leftTop_to_rightBottom_profile
+- leftBottom_to_rightTop_profile
+- left_to_right_profile
+- top_to_bottom_profile
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: TableAsDict
-description: A table inlined in a metrics dataset
+<pre><code class="language-yaml">name: RoiProfiles
+description: line ROIs used to compute the intensity profiles
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Table
-abstract: true
+is_a: LinesRoi
 attributes:
-  columns:
-    name: columns
-    description: A list of the columns of the table
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: columns
-    owner: TableAsDict
-    domain_of:
-    - TableAsDict
-    range: Column
-    required: true
-    inlined: true
-    inlined_as_list: false
-  table_url:
-    name: table_url
-    description: An URL linking to the table
+  leftTop_to_rightBottom_profile:
+    name: leftTop_to_rightBottom_profile
+    description: The line from the top-left to the bottom-right of the image
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: leftTop_to_rightBottom_profile
+    owner: RoiProfiles
+    domain_of:
+    - RoiProfiles
+    range: Line
+  leftBottom_to_rightTop_profile:
+    name: leftBottom_to_rightTop_profile
+    description: The line from the bottom-left to the top-right of the image
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: leftBottom_to_rightTop_profile
+    owner: RoiProfiles
+    domain_of:
+    - RoiProfiles
+    range: Line
+  left_to_right_profile:
+    name: left_to_right_profile
+    description: The line from the left to the right of the image
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: left_to_right_profile
+    owner: RoiProfiles
+    domain_of:
+    - RoiProfiles
+    range: Line
+  top_to_bottom_profile:
+    name: top_to_bottom_profile
+    description: The line from the top to the bottom of the image
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: top_to_bottom_profile
+    owner: RoiProfiles
+    domain_of:
+    - RoiProfiles
+    range: Line
+  shapes:
+    name: shapes
+    description: A ROI of lines
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    multivalued: true
+    alias: shapes
+    owner: RoiProfiles
+    domain_of:
+    - Roi
+    - LinesRoi
+    - PointsRoi
+    - RectanglesRoi
+    range: Line
+    inlined: true
+  label:
+    name: label
+    description: The label of the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
     identifier: true
-    alias: table_url
-    owner: TableAsDict
+    alias: label
+    owner: RoiProfiles
     domain_of:
-    - Table
+    - Roi
+    - Shape
     range: string
     required: true
-  name:
-    name: name
-    description: The name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: TableAsDict
-    domain_of:
-    - NamedObject
-    - Experimenter
-    - Column
-    range: string
-    required: false
   description:
     name: description
-    description: A description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
+    description: A description of the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: false
     alias: description
-    owner: TableAsDict
+    owner: RoiProfiles
     domain_of:
     - NamedObject
     - Roi
     - Tag
     range: string
     required: false
+  image:
+    name: image
+    description: The image or images to which the ROI is applied
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: image
+    owner: RoiProfiles
+    domain_of:
+    - Roi
+    range: Image
+    required: false
+    inlined: false
 
 </code></pre>
 </details>

@@ -214,6 +214,8 @@
 
       TableAsPandasDF : name
 
+      TableAsPandasDF : table_url
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -245,6 +247,12 @@
 <td>1..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
 <td>A Pandas DataFrame object</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../table_url/">table_url</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>An URL linking to the table</td>
+<td><a href="../Table/">Table</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -322,6 +330,19 @@ attributes:
     domain_of:
     - TableAsPandasDF
     range: MetaObject
+    required: true
+  table_url:
+    name: table_url
+    description: An URL linking to the table
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: table_url
+    owner: TableAsPandasDF
+    domain_of:
+    - Table
+    range: string
     required: true
   name:
     name: name

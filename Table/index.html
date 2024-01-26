@@ -218,6 +218,8 @@
 
       Table : name
 
+      Table : table_url
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -245,6 +247,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../table_url/">table_url</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>An URL linking to the table</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -292,6 +300,8 @@ description: A table
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
 abstract: true
+slots:
+- table_url
 
 </code></pre>
 </details>
@@ -303,6 +313,19 @@ from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-sc
 is_a: MetricsObject
 abstract: true
 attributes:
+  table_url:
+    name: table_url
+    description: An URL linking to the table
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: table_url
+    owner: Table
+    domain_of:
+    - Table
+    range: string
+    required: true
   name:
     name: name
     description: The name of an entity
