@@ -210,6 +210,8 @@
 <div class="mermaid"> classDiagram
     class Roi
       Roi &lt;|-- RoiProfiles
+      Roi &lt;|-- RoiCorners
+      Roi &lt;|-- RoiCenters
 
       Roi : description
 
@@ -229,6 +231,8 @@
 <ul>
 <li><strong>Roi</strong><ul>
 <li><a href="../RoiProfiles/">RoiProfiles</a></li>
+<li><a href="../RoiCorners/">RoiCorners</a></li>
+<li><a href="../RoiCenters/">RoiCenters</a></li>
 </ul>
 </li>
 </ul>
@@ -289,18 +293,6 @@
 <tr>
 <td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
 <td><a href="../peaks_rois/">peaks_rois</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../corner_rois/">corner_rois</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../center_of_illumination/">center_of_illumination</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -432,6 +424,8 @@ attributes:
     domain_of:
     - Roi
     - RoiProfiles
+    - RoiCorners
+    - RoiCenters
     range: Shape
     inlined: true
     inlined_as_list: false

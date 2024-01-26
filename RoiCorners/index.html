@@ -152,6 +152,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#usages">
+    Usages
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -204,65 +209,26 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RoiCorners">microscopemetrics_schema:RoiCorners</a></p>
 <div class="mermaid"> classDiagram
     class RoiCorners
-      RectanglesRoi &lt;|-- RoiCorners
-
-      RoiCorners : bottom_center_region
-
-          RoiCorners --|&gt; Rectangle : bottom_center_region
-
-      RoiCorners : bottom_left_region
-
-          RoiCorners --|&gt; Rectangle : bottom_left_region
-
-      RoiCorners : bottom_right_region
-
-          RoiCorners --|&gt; Rectangle : bottom_right_region
+      Roi &lt;|-- RoiCorners
 
       RoiCorners : description
 
       RoiCorners : image
 
-          RoiCorners --|&gt; Image : image
+          RoiCorners --&gt; Image : image
 
       RoiCorners : label
 
-      RoiCorners : middle_center_region
-
-          RoiCorners --|&gt; Rectangle : middle_center_region
-
-      RoiCorners : middle_left_region
-
-          RoiCorners --|&gt; Rectangle : middle_left_region
-
-      RoiCorners : middle_right_region
-
-          RoiCorners --|&gt; Rectangle : middle_right_region
-
       RoiCorners : shapes
 
-          RoiCorners --|&gt; Rectangle : shapes
-
-      RoiCorners : top_center_region
-
-          RoiCorners --|&gt; Rectangle : top_center_region
-
-      RoiCorners : top_left_region
-
-          RoiCorners --|&gt; Rectangle : top_left_region
-
-      RoiCorners : top_right_region
-
-          RoiCorners --|&gt; Rectangle : top_right_region
+          RoiCorners --&gt; Rectangle : shapes
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../Roi/">Roi</a><ul>
-<li><a href="../RectanglesRoi/">RectanglesRoi</a><ul>
 <li><strong>RoiCorners</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -278,64 +244,10 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../top_left_region/">top_left_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The top-left corner of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../top_center_region/">top_center_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The top-center of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../top_right_region/">top_right_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The top-right corner of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../middle_left_region/">middle_left_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The middle-left of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../middle_center_region/">middle_center_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The middle-center of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../middle_right_region/">middle_right_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The middle-right of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../bottom_left_region/">bottom_left_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The bottom-left corner of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../bottom_center_region/">bottom_center_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The bottom-center of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../bottom_right_region/">bottom_right_region</a></td>
-<td>0..1 <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>The bottom-right corner of the image</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../shapes/">shapes</a></td>
 <td>0..* <br/> <a href="../Rectangle/">Rectangle</a></td>
-<td>A ROI of rectangles</td>
-<td><a href="../Roi/">Roi</a>, <a href="../RectanglesRoi/">RectanglesRoi</a></td>
+<td></td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="../label/">label</a></td>
@@ -354,6 +266,25 @@
 <td>0..* <br/> <a href="../Image/">Image</a></td>
 <td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="usages">Usages</h2>
+<table>
+<thead>
+<tr>
+<th>used by</th>
+<th>used in</th>
+<th>type</th>
+<th>used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../corner_rois/">corner_rois</a></td>
+<td>range</td>
+<td><a href="./">RoiCorners</a></td>
 </tr>
 </tbody>
 </table>
@@ -388,17 +319,14 @@
 <pre><code class="language-yaml">name: RoiCorners
 description: Rectangular ROIs used to compute the corner intensities
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: RectanglesRoi
-slots:
-- top_left_region
-- top_center_region
-- top_right_region
-- middle_left_region
-- middle_center_region
-- middle_right_region
-- bottom_left_region
-- bottom_center_region
-- bottom_right_region
+is_a: Roi
+attributes:
+  shapes:
+    name: shapes
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    multivalued: true
+    range: Rectangle
+    inlined_as_list: false
 
 </code></pre>
 </details>
@@ -407,121 +335,21 @@ slots:
 <pre><code class="language-yaml">name: RoiCorners
 description: Rectangular ROIs used to compute the corner intensities
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: RectanglesRoi
+is_a: Roi
 attributes:
-  top_left_region:
-    name: top_left_region
-    description: The top-left corner of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: top_left_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  top_center_region:
-    name: top_center_region
-    description: The top-center of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: top_center_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  top_right_region:
-    name: top_right_region
-    description: The top-right corner of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: top_right_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  middle_left_region:
-    name: middle_left_region
-    description: The middle-left of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: middle_left_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  middle_center_region:
-    name: middle_center_region
-    description: The middle-center of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: middle_center_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  middle_right_region:
-    name: middle_right_region
-    description: The middle-right of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: middle_right_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  bottom_left_region:
-    name: bottom_left_region
-    description: The bottom-left corner of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: bottom_left_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  bottom_center_region:
-    name: bottom_center_region
-    description: The bottom-center of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: bottom_center_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
-  bottom_right_region:
-    name: bottom_right_region
-    description: The bottom-right corner of the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: bottom_right_region
-    owner: RoiCorners
-    domain_of:
-    - RoiCorners
-    range: Rectangle
   shapes:
     name: shapes
-    description: A ROI of rectangles
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: true
     alias: shapes
     owner: RoiCorners
     domain_of:
     - Roi
-    - LinesRoi
-    - PointsRoi
-    - RectanglesRoi
+    - RoiProfiles
+    - RoiCorners
+    - RoiCenters
     range: Rectangle
-    inlined: true
+    inlined_as_list: false
   label:
     name: label
     description: The label of the ROI
