@@ -115,8 +115,8 @@
             "meaning": "@id"
          }
       },
-      "date": {
-         "@type": "xsd:date"
+      "datetime": {
+         "@type": "xsd:dateTime"
       },
       "corner_fraction": {
          "@type": "xsd:float"
@@ -274,8 +274,8 @@
       "median_z_dist": {
          "@type": "xsd:float"
       },
-      "acquisition_date": {
-         "@type": "xsd:date"
+      "acquisition_datetime": {
+         "@type": "xsd:dateTime"
       },
       "comment": {
          "@type": "@id"
@@ -289,8 +289,8 @@
       "processed": {
          "@type": "xsd:boolean"
       },
-      "processing_date": {
-         "@type": "xsd:date"
+      "processing_datetime": {
+         "@type": "xsd:dateTime"
       },
       "sample": {
          "@type": "@id"

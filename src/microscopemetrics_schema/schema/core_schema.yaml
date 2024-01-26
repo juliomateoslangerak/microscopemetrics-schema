@@ -116,9 +116,9 @@ classes:
   Comment:
     description: A comment
     attributes:
-      date:
-        range: date
-        description: The date to which the comment is referring
+      datetime:
+        range: datetime
+        description: The datetime to which the comment is referring
         required: true
         multivalued: false
       comment_type:
@@ -153,9 +153,9 @@ classes:
         description: The experimenter that performed the imaging experiment
         multivalued: true
         inlined: false
-      acquisition_date:
-        range: date
-        description: The date of the acquisition
+      acquisition_datetime:
+        range: datetime
+        description: The datetime of the acquisition
         multivalued: false
       processed:
         range: boolean
@@ -163,9 +163,9 @@ classes:
         multivalued: false
         required: true
         ifabsent: false
-      processing_date:
-        range: date
-        description: The date of the processing by microscope-metrics
+      processing_datetime:
+        range: datetime
+        description: The datetime of the processing by microscope-metrics
         multivalued: false
       processing_log:
         range: string

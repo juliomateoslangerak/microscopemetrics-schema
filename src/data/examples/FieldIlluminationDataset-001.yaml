@@ -17,15 +17,15 @@ sample:
 experimenter:
   - name: "Jane Smith"
     orcid: "https://orcid.org/0000-0000-0000-0002"
-acquisition_date: "2024-01-15"
+acquisition_datetime: "2024-01-15T00:00:00Z"
 processed: true
-processing_date: "2024-01-16"
+processing_datetime: "2024-01-16T00:00:00Z"
 processing_log: "Processed using microscope-metrics v2.0"
 comment:
-  - date: "2024-01-15"
+  - datetime: "2024-01-15T00:00:00Z"
     comment_type: "OTHER"
     text: "This dataset is for testing purposes only."
-  - date: "2023-10-13"
+  - datetime: "2023-10-13T09:00:00Z"
     comment_type: "ACQUISITION"
     text: "So don't care about what I say."
 input:
