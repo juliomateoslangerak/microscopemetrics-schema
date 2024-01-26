@@ -197,7 +197,7 @@ slots:
     required: true
     multivalued: false
     ifabsent: int(64)
-    minimum_value: 5
+    minimum_value: 32
     maximum_value: 512
   # Outputs
   nb_pixels_center:
