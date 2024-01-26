@@ -14,9 +14,9 @@
                 ]
             },
             "properties": {
-                "acquisition_date": {
-                    "description": "The date of the acquisition",
-                    "format": "date",
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "comment": {
@@ -57,9 +57,9 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_date": {
-                    "description": "The date of the processing by microscope-metrics",
-                    "format": "date",
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "processing_log": {
@@ -371,9 +371,9 @@
                 ]
             },
             "properties": {
-                "acquisition_date": {
-                    "description": "The date of the acquisition",
-                    "format": "date",
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "comment": {
@@ -414,9 +414,9 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_date": {
-                    "description": "The date of the processing by microscope-metrics",
-                    "format": "date",
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "processing_log": {
@@ -701,9 +701,9 @@
                     "$ref": "#/$defs/CommentTypes",
                     "description": "The type of the comment"
                 },
-                "date": {
-                    "description": "The date to which the comment is referring",
-                    "format": "date",
+                "datetime": {
+                    "description": "The datetime to which the comment is referring",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "text": {
@@ -712,7 +712,7 @@
                 }
             },
             "required": [
-                "date",
+                "datetime",
                 "text"
             ],
             "title": "Comment",
@@ -821,9 +821,9 @@
                 ]
             },
             "properties": {
-                "acquisition_date": {
-                    "description": "The date of the acquisition",
-                    "format": "date",
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "comment": {
@@ -862,9 +862,9 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_date": {
-                    "description": "The date of the processing by microscope-metrics",
-                    "format": "date",
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "processing_log": {
@@ -921,7 +921,7 @@
                 "intensity_map_size": {
                     "description": "Input parameter: the size of the output intensity map in pixels",
                     "maximum": 512,
-                    "minimum": 5,
+                    "minimum": 32,
                     "type": "integer"
                 },
                 "saturation_threshold": {
@@ -1659,9 +1659,9 @@
             "additionalProperties": false,
             "description": "A base object on which microscope-metrics runs the analysis",
             "properties": {
-                "acquisition_date": {
-                    "description": "The date of the acquisition",
-                    "format": "date",
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "comment": {
@@ -1682,6 +1682,10 @@
                     },
                     "type": "array"
                 },
+                "input": {
+                    "$ref": "#/$defs/MetricsInput",
+                    "description": "The input of the analysis"
+                },
                 "microscope": {
                     "description": "The microscope that was used to acquire the dataset",
                     "type": "string"
@@ -1690,13 +1694,17 @@
                     "description": "The name of an entity",
                     "type": "string"
                 },
+                "output": {
+                    "$ref": "#/$defs/MetricsOutput",
+                    "description": "The output of the analysis"
+                },
                 "processed": {
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_date": {
-                    "description": "The date of the processing by microscope-metrics",
-                    "format": "date",
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
                     "type": "string"
                 },
                 "processing_log": {
@@ -1992,17 +2000,10 @@
                     "type": "string"
                 },
                 "shapes": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Shape__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                    "items": {
+                        "$ref": "#/$defs/Shape"
                     },
-                    "type": "object"
+                    "type": "array"
                 }
             },
             "required": [
@@ -2106,9 +2107,9 @@
     "description": "A base object on which microscope-metrics runs the analysis",
     "metamodel_version": "1.7.0",
     "properties": {
-        "acquisition_date": {
-            "description": "The date of the acquisition",
-            "format": "date",
+        "acquisition_datetime": {
+            "description": "The datetime of the acquisition",
+            "format": "date-time",
             "type": "string"
         },
         "comment": {
@@ -2129,6 +2130,10 @@
             },
             "type": "array"
         },
+        "input": {
+            "$ref": "#/$defs/MetricsInput",
+            "description": "The input of the analysis"
+        },
         "microscope": {
             "description": "The microscope that was used to acquire the dataset",
             "type": "string"
@@ -2137,13 +2142,17 @@
             "description": "The name of an entity",
             "type": "string"
         },
+        "output": {
+            "$ref": "#/$defs/MetricsOutput",
+            "description": "The output of the analysis"
+        },
         "processed": {
             "description": "Has the dataset been processed by microscope-metrics",
             "type": "boolean"
         },
-        "processing_date": {
-            "description": "The date of the processing by microscope-metrics",
-            "format": "date",
+        "processing_datetime": {
+            "description": "The datetime of the processing by microscope-metrics",
+            "format": "date-time",
             "type": "string"
         },
         "processing_log": {

@@ -6,9 +6,9 @@ message ArgolightBDataset
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
-  date acquisitionDate = 0
+  datetime acquisitionDatetime = 0
   boolean processed = 0
-  date processingDate = 0
+  datetime processingDatetime = 0
   string processingLog = 0
  repeated  comment comment = 0
   argolightBInput input = 0
@@ -74,9 +74,9 @@ message ArgolightEDataset
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
-  date acquisitionDate = 0
+  datetime acquisitionDatetime = 0
   boolean processed = 0
-  date processingDate = 0
+  datetime processingDatetime = 0
   string processingLog = 0
  repeated  comment comment = 0
   argolightEInput input = 0
@@ -140,7 +140,7 @@ message Column
 // A comment
 message Comment
  {
-  date date = 0
+  datetime datetime = 0
   commentTypes commentType = 0
   string text = 0
  }
@@ -173,9 +173,9 @@ message FieldIlluminationDataset
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
-  date acquisitionDate = 0
+  datetime acquisitionDatetime = 0
   boolean processed = 0
-  date processingDate = 0
+  datetime processingDatetime = 0
   string processingLog = 0
  repeated  comment comment = 0
   fieldIlluminationInput input = 0
@@ -345,11 +345,13 @@ message MetricsDataset
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
-  date acquisitionDate = 0
+  datetime acquisitionDatetime = 0
   boolean processed = 0
-  date processingDate = 0
+  datetime processingDatetime = 0
   string processingLog = 0
  repeated  comment comment = 0
+  metricsInput input = 0
+  metricsOutput output = 0
  }
 // A microscope
 message Microscope

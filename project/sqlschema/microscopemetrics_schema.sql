@@ -77,10 +77,10 @@ CREATE TABLE "Column" (
 );
 
 CREATE TABLE "Comment" (
-	date DATE NOT NULL, 
+	datetime DATETIME NOT NULL, 
 	comment_type VARCHAR(11), 
 	text TEXT NOT NULL, 
-	PRIMARY KEY (date, comment_type, text)
+	PRIMARY KEY (datetime, comment_type, text)
 );
 
 CREATE TABLE "Ellipse" (
@@ -472,14 +472,14 @@ CREATE TABLE "ArgolightBDataset" (
 	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
-	acquisition_date DATE, 
+	acquisition_datetime DATETIME, 
 	processed BOOLEAN NOT NULL, 
-	processing_date DATE, 
+	processing_datetime DATETIME, 
 	processing_log TEXT, 
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
@@ -490,14 +490,14 @@ CREATE TABLE "ArgolightEDataset" (
 	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
-	acquisition_date DATE, 
+	acquisition_datetime DATETIME, 
 	processed BOOLEAN NOT NULL, 
-	processing_date DATE, 
+	processing_datetime DATETIME, 
 	processing_log TEXT, 
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
@@ -508,14 +508,14 @@ CREATE TABLE "FieldIlluminationDataset" (
 	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
-	acquisition_date DATE, 
+	acquisition_datetime DATETIME, 
 	processed BOOLEAN NOT NULL, 
-	processing_date DATE, 
+	processing_datetime DATETIME, 
 	processing_log TEXT, 
 	comment TEXT, 
 	input TEXT NOT NULL, 
 	output TEXT, 
-	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment, input, output), 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );
@@ -526,12 +526,14 @@ CREATE TABLE "MetricsDataset" (
 	microscope TEXT NOT NULL, 
 	sample TEXT, 
 	experimenter TEXT, 
-	acquisition_date DATE, 
+	acquisition_datetime DATETIME, 
 	processed BOOLEAN NOT NULL, 
-	processing_date DATE, 
+	processing_datetime DATETIME, 
 	processing_log TEXT, 
 	comment TEXT, 
-	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_date, processed, processing_date, processing_log, comment), 
+	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample) REFERENCES "Sample" (type)
 );

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-24T11:30:12
+# Generation date: 2024-01-26T03:20:03
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -21,8 +21,8 @@ from linkml_runtime.utils.formatutils import camelcase, underscore, sfx
 from linkml_runtime.utils.enumerations import EnumDefinitionImpl
 from rdflib import Namespace, URIRef
 from linkml_runtime.utils.curienamespace import CurieNamespace
-from linkml_runtime.linkml_model.types import Boolean, Date, Float, Integer, String
-from linkml_runtime.utils.metamodelcore import Bool, XSDDate
+from linkml_runtime.linkml_model.types import Boolean, Datetime, Float, Integer, String
+from linkml_runtime.utils.metamodelcore import Bool, XSDDateTime
 
 metamodel_version = "1.7.0"
 version = None
@@ -212,7 +212,7 @@ class Microscope(Device):
         if self.url is not None and not isinstance(self.url, str):
             self.url = str(self.url)
 
-        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="date", keyed=False)
+        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="datetime", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -321,15 +321,15 @@ class Comment(YAMLRoot):
     class_name: ClassVar[str] = "Comment"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
 
-    date: Union[str, XSDDate] = None
+    datetime: Union[str, XSDDateTime] = None
     text: str = None
     comment_type: Optional[Union[str, "CommentTypes"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.date):
-            self.MissingRequiredField("date")
-        if not isinstance(self.date, XSDDate):
-            self.date = XSDDate(self.date)
+        if self._is_empty(self.datetime):
+            self.MissingRequiredField("datetime")
+        if not isinstance(self.datetime, XSDDateTime):
+            self.datetime = XSDDateTime(self.datetime)
 
         if self._is_empty(self.text):
             self.MissingRequiredField("text")
@@ -358,10 +358,12 @@ class MetricsDataset(NamedObject):
     processed: Union[bool, Bool] = False
     sample: Optional[Union[str, SampleType]] = None
     experimenter: Optional[Union[Union[str, ExperimenterOrcid], List[Union[str, ExperimenterOrcid]]]] = empty_list()
-    acquisition_date: Optional[Union[str, XSDDate]] = None
-    processing_date: Optional[Union[str, XSDDate]] = None
+    acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
+    processing_datetime: Optional[Union[str, XSDDateTime]] = None
     processing_log: Optional[str] = None
     comment: Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]] = empty_list()
+    input: Optional[Union[dict, "MetricsInput"]] = None
+    output: Optional[Union[dict, "MetricsOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.microscope):
@@ -381,16 +383,22 @@ class MetricsDataset(NamedObject):
             self.experimenter = [self.experimenter] if self.experimenter is not None else []
         self.experimenter = [v if isinstance(v, ExperimenterOrcid) else ExperimenterOrcid(v) for v in self.experimenter]
 
-        if self.acquisition_date is not None and not isinstance(self.acquisition_date, XSDDate):
-            self.acquisition_date = XSDDate(self.acquisition_date)
+        if self.acquisition_datetime is not None and not isinstance(self.acquisition_datetime, XSDDateTime):
+            self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
 
-        if self.processing_date is not None and not isinstance(self.processing_date, XSDDate):
-            self.processing_date = XSDDate(self.processing_date)
+        if self.processing_datetime is not None and not isinstance(self.processing_datetime, XSDDateTime):
+            self.processing_datetime = XSDDateTime(self.processing_datetime)
 
         if self.processing_log is not None and not isinstance(self.processing_log, str):
             self.processing_log = str(self.processing_log)
 
-        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="date", keyed=False)
+        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="datetime", keyed=False)
+
+        if self.input is not None and not isinstance(self.input, MetricsInput):
+            self.input = MetricsInput()
+
+        if self.output is not None and not isinstance(self.output, MetricsOutput):
+            self.output = MetricsOutput()
 
         super().__post_init__(**kwargs)
 
@@ -753,7 +761,7 @@ class Roi(YAMLRoot):
             self.image = [self.image] if self.image is not None else []
         self.image = [v if isinstance(v, ImageImageUrl) else ImageImageUrl(v) for v in self.image]
 
-        self._normalize_inlined_as_dict(slot_name="shapes", slot_type=Shape, key_name="label", keyed=True)
+        self._normalize_inlined_as_list(slot_name="shapes", slot_type=Shape, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -2380,8 +2388,8 @@ slots.experimenter__name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name']
 slots.experimenter__orcid = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/orcid'], name="experimenter__orcid", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/orcid'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.experimenter__orcid, domain=None, range=URIRef)
 
-slots.comment__date = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/date'], name="comment__date", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/date'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__date, domain=None, range=Union[str, XSDDate])
+slots.comment__datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/datetime'], name="comment__datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__datetime, domain=None, range=Union[str, XSDDateTime])
 
 slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment_type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Optional[Union[str, "CommentTypes"]])
@@ -2398,20 +2406,26 @@ slots.metricsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sa
 slots.metricsDataset__experimenter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/experimenter'], name="metricsDataset__experimenter", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/experimenter'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__experimenter, domain=None, range=Optional[Union[Union[str, ExperimenterOrcid], List[Union[str, ExperimenterOrcid]]]])
 
-slots.metricsDataset__acquisition_date = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_date'], name="metricsDataset__acquisition_date", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_date'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__acquisition_date, domain=None, range=Optional[Union[str, XSDDate]])
+slots.metricsDataset__acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_datetime'], name="metricsDataset__acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__acquisition_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.metricsDataset__processed = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/processed'], name="metricsDataset__processed", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/processed'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processed, domain=None, range=Union[bool, Bool])
 
-slots.metricsDataset__processing_date = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/processing_date'], name="metricsDataset__processing_date", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/processing_date'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processing_date, domain=None, range=Optional[Union[str, XSDDate]])
+slots.metricsDataset__processing_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/processing_datetime'], name="metricsDataset__processing_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/processing_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processing_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.metricsDataset__processing_log = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/processing_log'], name="metricsDataset__processing_log", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/processing_log'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processing_log, domain=None, range=Optional[str])
 
 slots.metricsDataset__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="metricsDataset__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__comment, domain=None, range=Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]])
+
+slots.metricsDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input'], name="metricsDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__input, domain=None, range=Optional[Union[dict, MetricsInput]])
+
+slots.metricsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/output'], name="metricsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__output, domain=None, range=Optional[Union[dict, MetricsOutput]])
 
 slots.imageAsNumpy__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="imageAsNumpy__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.imageAsNumpy__data, domain=None, range=Optional[Union[dict, MetaObject]])
