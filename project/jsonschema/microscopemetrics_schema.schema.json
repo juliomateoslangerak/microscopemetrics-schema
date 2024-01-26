@@ -1206,12 +1206,12 @@
             "description": "",
             "properties": {
                 "center_of_illumination": {
-                    "description": "Point ROIs marking the center of illumination",
-                    "type": "string"
+                    "$ref": "#/$defs/RoiCenters",
+                    "description": "Point ROIs marking the center of illumination"
                 },
                 "corner_rois": {
-                    "description": "Rectangular ROIs used to compute the corner intensities",
-                    "type": "string"
+                    "$ref": "#/$defs/RoiCorners",
+                    "description": "Rectangular ROIs used to compute the corner intensities"
                 },
                 "intensity_map": {
                     "$ref": "#/$defs/Image5D",
@@ -1226,8 +1226,8 @@
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "profile_rois": {
-                    "description": "line ROIs used to compute the intensity profiles",
-                    "type": "string"
+                    "$ref": "#/$defs/RoiProfiles",
+                    "description": "line ROIs used to compute the intensity profiles"
                 }
             },
             "title": "FieldIlluminationOutput",
@@ -2000,8 +2000,47 @@
                     "type": "string"
                 },
                 "shapes": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Shape__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "Roi",
+            "type": "object"
+        },
+        "RoiCenters": {
+            "additionalProperties": false,
+            "description": "Point ROIs marking the center of illumination",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
                     "items": {
-                        "$ref": "#/$defs/Shape"
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 }
@@ -2009,7 +2048,71 @@
             "required": [
                 "label"
             ],
-            "title": "Roi",
+            "title": "RoiCenters",
+            "type": "object"
+        },
+        "RoiCorners": {
+            "additionalProperties": false,
+            "description": "Rectangular ROIs used to compute the corner intensities",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "RoiCorners",
+            "type": "object"
+        },
+        "RoiProfiles": {
+            "additionalProperties": false,
+            "description": "line ROIs used to compute the intensity profiles",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "RoiProfiles",
             "type": "object"
         },
         "Sample": {

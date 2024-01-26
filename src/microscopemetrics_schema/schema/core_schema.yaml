@@ -184,11 +184,13 @@ classes:
         description: The input of the analysis
         required: false
         multivalued: false
+        inlined: true
       output:
         range: MetricsOutput
         description: The output of the analysis
         required: false
         multivalued: false
+        inlined: true
 
   MetricsInput:
     description: An abstract class for analysis inputs
@@ -345,7 +347,7 @@ classes:
         range: Shape
         multivalued: true
         inlined: true
-        inlined_as_list: true
+        inlined_as_list: false
 
 #  LinesRoi:
 #    is_a: Roi

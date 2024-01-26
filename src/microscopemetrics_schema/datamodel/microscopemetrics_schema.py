@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-01-26T14:39:13
+# Generation date: 2024-01-26T17:33:10
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -117,6 +117,18 @@ class TagId(extended_int):
 
 
 class ColumnName(extended_str):
+    pass
+
+
+class RoiProfilesLabel(RoiLabel):
+    pass
+
+
+class RoiCornersLabel(RoiLabel):
+    pass
+
+
+class RoiCentersLabel(RoiLabel):
     pass
 
 
@@ -761,7 +773,7 @@ class Roi(YAMLRoot):
             self.image = [self.image] if self.image is not None else []
         self.image = [v if isinstance(v, ImageImageUrl) else ImageImageUrl(v) for v in self.image]
 
-        self._normalize_inlined_as_list(slot_name="shapes", slot_type=Shape, key_name="label", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="shapes", slot_type=Shape, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1363,9 +1375,9 @@ class FieldIlluminationOutput(MetricsOutput):
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[dict, TableAsDict]] = None
     intensity_map: Optional[Union[dict, Image5D]] = None
-    profile_rois: Optional[Union[str, RoiLabel]] = None
-    corner_rois: Optional[Union[str, RoiLabel]] = None
-    center_of_illumination: Optional[Union[str, RoiLabel]] = None
+    profile_rois: Optional[Union[dict, "RoiProfiles"]] = None
+    corner_rois: Optional[Union[dict, "RoiCorners"]] = None
+    center_of_illumination: Optional[Union[dict, "RoiCenters"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
@@ -1377,14 +1389,14 @@ class FieldIlluminationOutput(MetricsOutput):
         if self.intensity_map is not None and not isinstance(self.intensity_map, Image5D):
             self.intensity_map = Image5D(**as_dict(self.intensity_map))
 
-        if self.profile_rois is not None and not isinstance(self.profile_rois, RoiLabel):
-            self.profile_rois = RoiLabel(self.profile_rois)
+        if self.profile_rois is not None and not isinstance(self.profile_rois, RoiProfiles):
+            self.profile_rois = RoiProfiles(**as_dict(self.profile_rois))
 
-        if self.corner_rois is not None and not isinstance(self.corner_rois, RoiLabel):
-            self.corner_rois = RoiLabel(self.corner_rois)
+        if self.corner_rois is not None and not isinstance(self.corner_rois, RoiCorners):
+            self.corner_rois = RoiCorners(**as_dict(self.corner_rois))
 
-        if self.center_of_illumination is not None and not isinstance(self.center_of_illumination, RoiLabel):
-            self.center_of_illumination = RoiLabel(self.center_of_illumination)
+        if self.center_of_illumination is not None and not isinstance(self.center_of_illumination, RoiCenters):
+            self.center_of_illumination = RoiCenters(**as_dict(self.center_of_illumination))
 
         super().__post_init__(**kwargs)
 
@@ -1574,6 +1586,90 @@ class FieldIlluminationKeyValues(KeyValues):
         if not isinstance(self.decile_9, list):
             self.decile_9 = [self.decile_9] if self.decile_9 is not None else []
         self.decile_9 = [v if isinstance(v, float) else float(v) for v in self.decile_9]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiProfiles(Roi):
+    """
+    line ROIs used to compute the intensity profiles
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiProfiles"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiProfiles"
+    class_name: ClassVar[str] = "RoiProfiles"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiProfiles
+
+    label: Union[str, RoiProfilesLabel] = None
+    shapes: Optional[Union[Union[str, LineLabel], List[Union[str, LineLabel]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, RoiProfilesLabel):
+            self.label = RoiProfilesLabel(self.label)
+
+        if not isinstance(self.shapes, list):
+            self.shapes = [self.shapes] if self.shapes is not None else []
+        self.shapes = [v if isinstance(v, LineLabel) else LineLabel(v) for v in self.shapes]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiCorners(Roi):
+    """
+    Rectangular ROIs used to compute the corner intensities
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiCorners"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiCorners"
+    class_name: ClassVar[str] = "RoiCorners"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiCorners
+
+    label: Union[str, RoiCornersLabel] = None
+    shapes: Optional[Union[Union[str, RectangleLabel], List[Union[str, RectangleLabel]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, RoiCornersLabel):
+            self.label = RoiCornersLabel(self.label)
+
+        if not isinstance(self.shapes, list):
+            self.shapes = [self.shapes] if self.shapes is not None else []
+        self.shapes = [v if isinstance(v, RectangleLabel) else RectangleLabel(v) for v in self.shapes]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class RoiCenters(Roi):
+    """
+    Point ROIs marking the center of illumination
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/RoiCenters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/RoiCenters"
+    class_name: ClassVar[str] = "RoiCenters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiCenters
+
+    label: Union[str, RoiCentersLabel] = None
+    shapes: Optional[Union[Union[str, PointLabel], List[Union[str, PointLabel]]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.label):
+            self.MissingRequiredField("label")
+        if not isinstance(self.label, RoiCentersLabel):
+            self.label = RoiCentersLabel(self.label)
+
+        if not isinstance(self.shapes, list):
+            self.shapes = [self.shapes] if self.shapes is not None else []
+        self.shapes = [v if isinstance(v, PointLabel) else PointLabel(v) for v in self.shapes]
 
         super().__post_init__(**kwargs)
 
@@ -2611,13 +2707,22 @@ slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[dict, Image5D]])
 
 slots.fieldIlluminationOutput__profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/profile_rois'], name="fieldIlluminationOutput__profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[str, RoiLabel]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[dict, RoiProfiles]])
 
 slots.fieldIlluminationOutput__corner_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/corner_rois'], name="fieldIlluminationOutput__corner_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/corner_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__corner_rois, domain=None, range=Optional[Union[str, RoiLabel]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__corner_rois, domain=None, range=Optional[Union[dict, RoiCorners]])
 
 slots.fieldIlluminationOutput__center_of_illumination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_illumination'], name="fieldIlluminationOutput__center_of_illumination", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_illumination'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[str, RoiLabel]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[dict, RoiCenters]])
+
+slots.roiProfiles__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/shapes'], name="roiProfiles__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/shapes'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiProfiles__shapes, domain=None, range=Optional[Union[Union[str, LineLabel], List[Union[str, LineLabel]]]])
+
+slots.roiCorners__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/shapes'], name="roiCorners__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/shapes'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiCorners__shapes, domain=None, range=Optional[Union[Union[str, RectangleLabel], List[Union[str, RectangleLabel]]]])
+
+slots.roiCenters__shapes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/shapes'], name="roiCenters__shapes", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/shapes'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiCenters__shapes, domain=None, range=Optional[Union[Union[str, PointLabel], List[Union[str, PointLabel]]]])
 
 slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Union[dict, ArgolightBInput])

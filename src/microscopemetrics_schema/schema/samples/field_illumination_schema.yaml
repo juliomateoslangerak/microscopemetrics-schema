@@ -22,10 +22,12 @@ classes:
         range: FieldIlluminationInput
         required: true
         multivalued: false
+        inlined: true
       output:
         range: FieldIlluminationOutput
         required: false
         multivalued: false
+        inlined: true
     rules:
       - preconditions:
           slot_conditions:
@@ -58,6 +60,7 @@ classes:
         description: >-
           Key-Value pairs containing the Key measurements for the field illumination analysis
         multivalued: false
+        inlined: true
       intensity_profiles:
         range: TableAsDict
         description: >-
@@ -71,19 +74,22 @@ classes:
         multivalued: false
         inlined: true
       profile_rois:  # TODO: rename to roi_profiles
-        range: Roi
+        range: RoiProfiles
         description: line ROIs used to compute the intensity profiles
         multivalued: false
+        inlined: true
       corner_rois:  # TODO: rename to roi_corners
-        range: Roi
+        range: RoiCorners
         description: >-
           Rectangular ROIs used to compute the corner intensities
         multivalued: false
+        inlined: true
       center_of_illumination:
-        range: Roi
+        range: RoiCenters
         description: >-
           Point ROIs marking the center of illumination
         multivalued: false
+        inlined: true
 
   FieldIlluminationKeyValues:
     is_a: KeyValues
@@ -124,37 +130,35 @@ classes:
       - decile_8
       - decile_9
 
-#  RoiProfiles:
-#    is_a: LinesRoi
-#    description: >-
-#      line ROIs used to compute the intensity profiles
-#    slots:
-#      - leftTop_to_rightBottom_profile
-#      - leftBottom_to_rightTop_profile
-#      - left_to_right_profile
-#      - top_to_bottom_profile
-#
-#  RoiCorners:
-#    is_a: RectanglesRoi
-#    description: >-
-#      Rectangular ROIs used to compute the corner intensities
-#    slots:
-#      - top_left_region
-#      - top_center_region
-#      - top_right_region
-#      - middle_left_region
-#      - middle_center_region
-#      - middle_right_region
-#      - bottom_left_region
-#      - bottom_center_region
-#      - bottom_right_region
-#
-#  RoiCenter:
-#    is_a: Roi
-#    description: >-
-#      Point ROIs marking the center of illumination
-#    slots:
-#      - center_points
+  RoiProfiles:
+    is_a: Roi
+    description: >-
+      line ROIs used to compute the intensity profiles
+    attributes:
+      shapes:
+        range: Line
+        multivalued: true
+        inlined_as_list: false
+
+  RoiCorners:
+    is_a: Roi
+    description: >-
+      Rectangular ROIs used to compute the corner intensities
+    attributes:
+      shapes:
+        range: Rectangle
+        multivalued: true
+        inlined_as_list: false
+
+  RoiCenters:
+    is_a: Roi
+    description: >-
+      Point ROIs marking the center of illumination
+    attributes:
+      shapes:
+        range: Point
+        multivalued: true
+        inlined_as_list: false
 
 slots:
   # Inputs
@@ -382,79 +386,3 @@ slots:
     description: >-
       The 9th decile of the intensity distribution of the maximum intensity
     multivalued: true
-
-#  # ROIs
-#  # intensity profiles
-#  leftTop_to_rightBottom_profile:
-#    range: Line
-#    description: >-
-#      The line from the top-left to the bottom-right of the image
-#    multivalued: false
-#  leftBottom_to_rightTop_profile:
-#    range: Line
-#    description: >-
-#      The line from the bottom-left to the top-right of the image
-#    multivalued: false
-#  left_to_right_profile:
-#    range: Line
-#    description: >-
-#      The line from the left to the right of the image
-#    multivalued: false
-#  top_to_bottom_profile:
-#    range: Line
-#    description: >-
-#      The line from the top to the bottom of the image
-#    multivalued: false
-#  # corner ROIs
-#  top_left_region:
-#    range: Rectangle
-#    description: >-
-#      The top-left corner of the image
-#    multivalued: false
-#  top_center_region:
-#    range: Rectangle
-#    description: >-
-#      The top-center of the image
-#    multivalued: false
-#  top_right_region:
-#    range: Rectangle
-#    description: >-
-#      The top-right corner of the image
-#    multivalued: false
-#  middle_left_region:
-#    range: Rectangle
-#    description: >-
-#      The middle-left of the image
-#    multivalued: false
-#  middle_center_region:
-#    range: Rectangle
-#    description: >-
-#      The middle-center of the image
-#    multivalued: false
-#  middle_right_region:
-#    range: Rectangle
-#    description: >-
-#      The middle-right of the image
-#    multivalued: false
-#  bottom_left_region:
-#    range: Rectangle
-#    description: >-
-#      The bottom-left corner of the image
-#    multivalued: false
-#  bottom_center_region:
-#    range: Rectangle
-#    description: >-
-#      The bottom-center of the image
-#    multivalued: false
-#  bottom_right_region:
-#    range: Rectangle
-#    description: >-
-#      The bottom-right corner of the image
-#    multivalued: false
-#  # center of illumination
-#  center_points:  # TODO: add mass center and max intensity point
-#    range: Point
-#    description: >-
-#      The center of illumination
-#    multivalued: true
-#    inlined: true

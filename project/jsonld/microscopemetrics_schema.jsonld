@@ -2352,7 +2352,6 @@
       ],
       "range": "Shape",
       "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3013,7 +3012,8 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiProfiles",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3026,7 +3026,8 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiCorners",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3039,7 +3040,47 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "Roi",
+      "range": "RoiCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiProfiles__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiCorners__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiCorners",
+      "domain_of": [
+        "RoiCorners"
+      ],
+      "range": "Rectangle",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiCenters__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiCenters",
+      "domain_of": [
+        "RoiCenters"
+      ],
+      "range": "Point",
       "@type": "SlotDefinition"
     },
     {
@@ -3628,12 +3669,14 @@
           "name": "input",
           "description": "The input of the analysis",
           "range": "MetricsInput",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "output",
           "description": "The output of the analysis",
           "range": "MetricsOutput",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -3993,7 +4036,6 @@
           "multivalued": true,
           "range": "Shape",
           "inlined": true,
-          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4616,11 +4658,13 @@
           "name": "input",
           "range": "FieldIlluminationInput",
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "output",
           "range": "FieldIlluminationOutput",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4689,6 +4733,7 @@
           "name": "key_values",
           "description": "Key-Value pairs containing the Key measurements for the field illumination analysis",
           "range": "FieldIlluminationKeyValues",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
@@ -4708,19 +4753,22 @@
         {
           "name": "profile_rois",
           "description": "line ROIs used to compute the intensity profiles",
-          "range": "Roi",
+          "range": "RoiProfiles",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "corner_rois",
           "description": "Rectangular ROIs used to compute the corner intensities",
-          "range": "Roi",
+          "range": "RoiCorners",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "center_of_illumination",
           "description": "Point ROIs marking the center of illumination",
-          "range": "Roi",
+          "range": "RoiCenters",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4771,6 +4819,78 @@
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiProfiles",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
+      "description": "line ROIs used to compute the intensity profiles",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiProfiles__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Line",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiCorners",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
+      "description": "Rectangular ROIs used to compute the corner intensities",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiCorners__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Rectangle",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiCenters",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenters",
+      "description": "Point ROIs marking the center of illumination",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiCenters__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Point",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenters",
       "@type": "ClassDefinition"
     },
     {
@@ -5098,7 +5218,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2023-09-05T17:40:12",
   "source_file_size": 758,
-  "generation_date": "2024-01-26T14:39:08",
+  "generation_date": "2024-01-26T17:33:05",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

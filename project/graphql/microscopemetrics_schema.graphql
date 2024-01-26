@@ -246,9 +246,9 @@ type FieldIlluminationOutput
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: TableAsDict
     intensityMap: Image5D
-    profileRois: Roi
-    cornerRois: Roi
-    centerOfIllumination: Roi
+    profileRois: RoiProfiles
+    cornerRois: RoiCorners
+    centerOfIllumination: RoiCenters
   }
 
 interface Image
@@ -495,6 +495,30 @@ type Roi
     description: String
     image: [Image]
     shapes: [Shape]
+  }
+
+type RoiCenters
+  {
+    label: String!
+    description: String
+    image: [Image]
+    shapes: [Point]
+  }
+
+type RoiCorners
+  {
+    label: String!
+    description: String
+    image: [Image]
+    shapes: [Rectangle]
+  }
+
+type RoiProfiles
+  {
+    label: String!
+    description: String
+    image: [Image]
+    shapes: [Line]
   }
 
 type Sample

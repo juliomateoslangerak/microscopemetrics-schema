@@ -5266,185 +5266,189 @@ output:
     description: ROIs used to compute the intensity profiles
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
-    leftTop_to_rightBottom_profile:
-      stroke_color:
-        r: 0
-        g: 0
-        b: 255
-        alpha: 200
-      stroke_width: 1
-      x1: 0.0
-      y1: 0.0
-      x2: 512.0
-      y2: 512.0
-    leftBottom_to_rightTop_profile:
-      stroke_color:
-        r: 0
-        g: 0
-        b: 255
-        alpha: 200
-      stroke_width: 1
-      x1: 0.0
-      y1: 512.0
-      x2: 512.0
-      y2: 0.0
-    left_to_right_profile:
-      stroke_color:
-        r: 0
-        g: 0
-        b: 255
-        alpha: 200
-      stroke_width: 1
-      x1: 0.0
-      y1: 256.0
-      x2: 512.0
-      y2: 256.0
-    top_to_bottom_profile:
-      stroke_color:
-        r: 0
-        g: 0
-        b: 255
-        alpha: 200
-      stroke_width: 1
-      x1: 256.0
-      y1: 0.0
-      x2: 256.0
-      y2: 512.0
+    shapes:
+      leftTop_to_rightBottom_profile:
+        stroke_color:
+          r: 0
+          g: 0
+          b: 255
+          alpha: 200
+        stroke_width: 1
+        x1: 0.0
+        y1: 0.0
+        x2: 512.0
+        y2: 512.0
+      leftBottom_to_rightTop_profile:
+        stroke_color:
+          r: 0
+          g: 0
+          b: 255
+          alpha: 200
+        stroke_width: 1
+        x1: 0.0
+        y1: 512.0
+        x2: 512.0
+        y2: 0.0
+      left_to_right_profile:
+        stroke_color:
+          r: 0
+          g: 0
+          b: 255
+          alpha: 200
+        stroke_width: 1
+        x1: 0.0
+        y1: 256.0
+        x2: 512.0
+        y2: 256.0
+      top_to_bottom_profile:
+        stroke_color:
+          r: 0
+          g: 0
+          b: 255
+          alpha: 200
+        stroke_width: 1
+        x1: 256.0
+        y1: 0.0
+        x2: 256.0
+        y2: 512.0
   corner_rois:
     label: Corner ROIs
     description: ROIs used to compute the corner intensities
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
-    top_left_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 0.0
-      y: 0.0
-      w: 51.0
-      h: 51.0
-    top_center_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 230.0
-      y: 0.0
-      w: 51.0
-      h: 51.0
-    top_right_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 461.0
-      y: 0.0
-      w: 51.0
-      h: 51.0
-    middle_left_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 0.0
-      y: 230.0
-      w: 51.0
-      h: 51.0
-    middle_center_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 230.0
-      y: 230.0
-      w: 51.0
-      h: 51.0
-    middle_right_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 461.0
-      y: 230.0
-      w: 51.0
-      h: 51.0
-    bottom_left_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 0.0
-      y: 461.0
-      w: 51.0
-      h: 51.0
-    bottom_center_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 230.0
-      y: 461.0
-      w: 51.0
-      h: 51.0
-    bottom_right_region:
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 1
-      x: 461.0
-      y: 461.0
-      w: 51.0
-      h: 51.0
+    shapes:
+      top_left_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 0.0
+        y: 0.0
+        w: 51.0
+        h: 51.0
+      top_center_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 230.0
+        y: 0.0
+        w: 51.0
+        h: 51.0
+      top_right_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 461.0
+        y: 0.0
+        w: 51.0
+        h: 51.0
+      middle_left_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 0.0
+        y: 230.0
+        w: 51.0
+        h: 51.0
+      middle_center_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 230.0
+        y: 230.0
+        w: 51.0
+        h: 51.0
+      middle_right_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 461.0
+        y: 230.0
+        w: 51.0
+        h: 51.0
+      bottom_left_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 0.0
+        y: 461.0
+        w: 51.0
+        h: 51.0
+      bottom_center_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 230.0
+        y: 461.0
+        w: 51.0
+        h: 51.0
+      bottom_right_region:
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 1
+        x: 461.0
+        y: 461.0
+        w: 51.0
+        h: 51.0
   center_of_illumination:
+    label: Centers of illumination
+    description: Detected centers of illumination
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
-    center_points:
-    - label: ch00_center
-      c: 0
-      fill_color:
-        r: 255
-        g: 0
-        b: 0
-        alpha: 200
-      stroke_color:
-        r: 255
-        g: 0
-        b: 0
-        alpha: 200
-      stroke_width: 5
-      y: 288.2084306164054
-      x: 264.1675555226803
-    - label: ch01_center
-      c: 1
-      fill_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_color:
-        r: 0
-        g: 255
-        b: 0
-        alpha: 200
-      stroke_width: 5
-      y: 248.2084306164054
-      x: 260.1675555226803
+    shapes:
+      ch00_center:
+        c: 0
+        fill_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 288.2084306164054
+        x: 264.1675555226803
+      ch01_center:
+        c: 1
+        fill_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 248.2084306164054
+        x: 260.1675555226803

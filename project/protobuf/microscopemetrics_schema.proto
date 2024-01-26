@@ -234,9 +234,9 @@ message FieldIlluminationOutput
   fieldIlluminationKeyValues keyValues = 0
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
-  roi profileRois = 0
-  roi cornerRois = 0
-  roi centerOfIllumination = 0
+  roiProfiles profileRois = 0
+  roiCorners cornerRois = 0
+  roiCenters centerOfIllumination = 0
  }
 // A 2D image in YX order
 message Image2D
@@ -423,6 +423,30 @@ message Roi
   string description = 0
  repeated  image image = 0
  repeated  shape shapes = 0
+ }
+// Point ROIs marking the center of illumination
+message RoiCenters
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  point shapes = 0
+ }
+// Rectangular ROIs used to compute the corner intensities
+message RoiCorners
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  rectangle shapes = 0
+ }
+// line ROIs used to compute the intensity profiles
+message RoiProfiles
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  line shapes = 0
  }
 // A sample is a standard physical object that is imaged by a microscope
 message Sample
