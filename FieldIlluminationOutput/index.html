@@ -232,7 +232,7 @@
 
       FieldIlluminationOutput : profile_rois
 
-          FieldIlluminationOutput --&gt; Roi : profile_rois
+          FieldIlluminationOutput --&gt; RoiProfiles : profile_rois
 
 
 </div>
@@ -274,7 +274,7 @@
 </tr>
 <tr>
 <td><a href="../profile_rois/">profile_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
+<td>0..1 <br/> <a href="../RoiProfiles/">RoiProfiles</a></td>
 <td>line ROIs used to compute the intensity profiles</td>
 <td>direct</td>
 </tr>
@@ -374,7 +374,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: Roi
+    range: RoiProfiles
     inlined: true
   corner_rois:
     name: corner_rois
@@ -449,7 +449,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: Roi
+    range: RoiProfiles
     inlined: true
   corner_rois:
     name: corner_rois
