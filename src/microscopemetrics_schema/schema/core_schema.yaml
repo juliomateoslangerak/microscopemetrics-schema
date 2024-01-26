@@ -71,12 +71,12 @@ classes:
     description: A sample is a standard physical object that is imaged by a microscope
     attributes:
       type:   # TODO: develop the sample class
-        range: string
+        range: string    # TODO: make a enum
         description: The type of the sample
         required: true
         identifier: true
       protocol:
-        range: Protocol
+        range: Protocol   # TODO: rename preparation_protocol
         description: The protocol used to prepare the sample
         required: true
         multivalued: false
@@ -113,6 +113,7 @@ classes:
         description: The ORCID of the experimenter
         identifier: true
 
+  # TODO: add comment author
   Comment:
     description: A comment
     attributes:
@@ -132,6 +133,7 @@ classes:
         required: true
         multivalued: false
 
+  # TODO: add software version
   MetricsDataset:
     is_a: NamedObject
     description: A base object on which microscope-metrics runs the analysis
