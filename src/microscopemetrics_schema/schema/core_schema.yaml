@@ -345,6 +345,7 @@ classes:
         range: Shape
         multivalued: true
         inlined: true
+        inlined_as_list: true
 
 #  LinesRoi:
 #    is_a: Roi
