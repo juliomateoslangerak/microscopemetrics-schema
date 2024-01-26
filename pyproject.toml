@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "microscopemetrics_schema"
-version = "0.1.0"
+version = "0.0.3.post10.dev0+8ba3782"
 description = "A schema for microscope-metrics, a python package for microscope QC"
 authors = ["Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"]
 license = "GNU GPL v3.0"
@@ -15,10 +15,11 @@ linkml-runtime = "^1.6.3"
 linkml = "^1.6.8"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^0.6.0"
+hypothesis = "^6"
 #schemasheets = "^0.1.14" # schemasheets is preventing the use of python 3.8 as a development dependency it should not be a requirement for deployment
 
 [tool.poetry-dynamic-versioning]
-enable = true
+enable = false
 vcs = "git"
 style = "pep440"
 
