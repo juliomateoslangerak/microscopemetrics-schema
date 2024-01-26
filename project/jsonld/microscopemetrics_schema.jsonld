@@ -1972,16 +1972,16 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "comment__date",
-      "description": "The date to which the comment is referring",
+      "name": "comment__datetime",
+      "description": "The datetime to which the comment is referring",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/date",
-      "alias": "date",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datetime",
+      "alias": "datetime",
       "owner": "Comment",
       "domain_of": [
         "Comment"
       ],
-      "range": "date",
+      "range": "datetime",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -2054,16 +2054,16 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__acquisition_date",
-      "description": "The date of the acquisition",
+      "name": "metricsDataset__acquisition_datetime",
+      "description": "The datetime of the acquisition",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/acquisition_date",
-      "alias": "acquisition_date",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "alias": "acquisition_datetime",
       "owner": "MetricsDataset",
       "domain_of": [
         "MetricsDataset"
       ],
-      "range": "date",
+      "range": "datetime",
       "@type": "SlotDefinition"
     },
     {
@@ -2082,16 +2082,16 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__processing_date",
-      "description": "The date of the processing by microscope-metrics",
+      "name": "metricsDataset__processing_datetime",
+      "description": "The datetime of the processing by microscope-metrics",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/processing_date",
-      "alias": "processing_date",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/processing_datetime",
+      "alias": "processing_datetime",
       "owner": "MetricsDataset",
       "domain_of": [
         "MetricsDataset"
       ],
-      "range": "date",
+      "range": "datetime",
       "@type": "SlotDefinition"
     },
     {
@@ -3475,16 +3475,16 @@
       "description": "A comment",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slots": [
-        "comment__date",
+        "comment__datetime",
         "comment__comment_type",
         "comment__text"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "date",
-          "description": "The date to which the comment is referring",
-          "range": "date",
+          "name": "datetime",
+          "description": "The datetime to which the comment is referring",
+          "range": "datetime",
           "required": true,
           "@type": "SlotDefinition"
         },
@@ -3517,9 +3517,9 @@
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
-        "metricsDataset__acquisition_date",
+        "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "metricsDataset__processing_date",
+        "metricsDataset__processing_datetime",
         "metricsDataset__processing_log",
         "metricsDataset__comment"
       ],
@@ -3546,9 +3546,9 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "acquisition_date",
-          "description": "The date of the acquisition",
-          "range": "date",
+          "name": "acquisition_datetime",
+          "description": "The datetime of the acquisition",
+          "range": "datetime",
           "@type": "SlotDefinition"
         },
         {
@@ -3560,9 +3560,9 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "processing_date",
-          "description": "The date of the processing by microscope-metrics",
-          "range": "date",
+          "name": "processing_datetime",
+          "description": "The datetime of the processing by microscope-metrics",
+          "range": "datetime",
           "@type": "SlotDefinition"
         },
         {
@@ -4541,9 +4541,9 @@
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
-        "metricsDataset__acquisition_date",
+        "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "metricsDataset__processing_date",
+        "metricsDataset__processing_datetime",
         "metricsDataset__processing_log",
         "metricsDataset__comment",
         "fieldIlluminationDataset__input",
@@ -4722,9 +4722,9 @@
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
-        "metricsDataset__acquisition_date",
+        "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "metricsDataset__processing_date",
+        "metricsDataset__processing_datetime",
         "metricsDataset__processing_log",
         "metricsDataset__comment",
         "argolightBDataset__input",
@@ -4906,9 +4906,9 @@
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
-        "metricsDataset__acquisition_date",
+        "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "metricsDataset__processing_date",
+        "metricsDataset__processing_datetime",
         "metricsDataset__processing_log",
         "metricsDataset__comment",
         "argolightEDataset__input",
@@ -5033,9 +5033,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2023-09-05T17:40:12",
+  "source_file_date": "2023-09-07T00:19:05",
   "source_file_size": 758,
-  "generation_date": "2024-01-24T11:30:06",
+  "generation_date": "2024-01-26T03:04:51",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

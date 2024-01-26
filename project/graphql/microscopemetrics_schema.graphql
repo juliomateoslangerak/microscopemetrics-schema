@@ -5,9 +5,9 @@ type ArgolightBDataset
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
-    acquisitionDate: Date
+    acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDate: Date
+    processingDatetime: Datetime
     processingLog: String
     comment: [Comment]
     input: ArgolightBInput!
@@ -74,9 +74,9 @@ type ArgolightEDataset
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
-    acquisitionDate: Date
+    acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDate: Date
+    processingDatetime: Datetime
     processingLog: String
     comment: [Comment]
     input: ArgolightEInput!
@@ -143,7 +143,7 @@ type Column
 
 type Comment
   {
-    date: Date!
+    datetime: Datetime!
     commentType: CommentTypes
     text: String!
   }
@@ -182,9 +182,9 @@ type FieldIlluminationDataset
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
-    acquisitionDate: Date
+    acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDate: Date
+    processingDatetime: Datetime
     processingLog: String
     comment: [Comment]
     input: FieldIlluminationInput!
@@ -397,9 +397,9 @@ type MetricsDataset
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
-    acquisitionDate: Date
+    acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDate: Date
+    processingDatetime: Datetime
     processingLog: String
     comment: [Comment]
   }
