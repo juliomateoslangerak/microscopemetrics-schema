@@ -631,6 +631,8 @@ classes:
     is_a: MetricsObject
     description: A table
     abstract: true
+    slots:
+      - table_url
 
   TableAsPandasDF:
     is_a: Table
@@ -701,6 +703,10 @@ slots:
     description: A list of URLs linking to the images that were used as a source
     required: false
     multivalued: true
+  table_url:
+    range: string
+    description: An URL linking to the table
+    multivalued: false
   shape_x:
     range: integer
     description: The shape of the image in the x dimension
