@@ -366,17 +366,14 @@ def st_mm_shape(
         "stroke_width": draw(stroke_width),
     }
 
-    return draw(
-        st.sampled_from(
-            [
-                st_mm_point(**params),
-                st_mm_line(**params),
-                st_mm_rectangle(**params),
-                st_mm_polygon(**params),
-                st_mm_ellipse(**params),
-            ]
-        )
-    )
+    shapes_list = [draw(st_mm_point(**params)),
+                draw(st_mm_line(**params)),
+                draw(st_mm_rectangle(**params)),
+                draw(st_mm_polygon(**params)),
+                draw(st_mm_ellipse(**params))
+    ]
+
+    return shapes_list
 
 
 @st.composite
