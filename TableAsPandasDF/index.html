@@ -250,7 +250,7 @@
 </tr>
 <tr>
 <td><a href="../table_url/">table_url</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>An URL linking to the table</td>
 <td><a href="../Table/">Table</a></td>
 </tr>
@@ -337,13 +337,11 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    identifier: true
     alias: table_url
     owner: TableAsPandasDF
     domain_of:
     - Table
     range: string
-    required: true
   name:
     name: name
     description: The name of an entity
