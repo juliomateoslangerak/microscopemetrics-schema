@@ -16,6 +16,7 @@ linkml = "^1.6.8"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^0.6.0"
 hypothesis = "^6"
+black = "^24"
 #schemasheets = "^0.1.14" # schemasheets is preventing the use of python 3.8 as a development dependency it should not be a requirement for deployment
 
 [tool.poetry-dynamic-versioning]
