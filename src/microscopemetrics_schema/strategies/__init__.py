@@ -221,7 +221,15 @@ def st_mm_image_as_numpy(
     ),
     data=None,
 ) -> mm_schema.ImageAsNumpy:
-    shape = data.shape if data is not None else draw(shape)
+    if data is None:
+        shape = draw(shape)
+    else:
+        try:
+            shape = data.shape
+        except AttributeError:
+            shape = draw(shape)
+        except Exception as e:
+            raise e
 
     voxel_size_xy_micron = draw(voxel_size_xy_micron)
 
@@ -533,3 +541,4 @@ def st_mm_field_illumination_processed_dataset(
     ),
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)
+
