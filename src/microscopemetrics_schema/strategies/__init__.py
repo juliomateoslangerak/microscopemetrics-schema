@@ -151,8 +151,8 @@ def st_mm_dataset(
     processing_datetime: str = st.just(None),
     processing_log: str = st.just(None),
     comment: mm_schema.Comment = st.just(None),
-    input: mm_schema.MetricsInput = st.just(st_mm_input()),
-    output: mm_schema.MetricsOutput = st.just(None),
+    input: mm_schema.MetricsInput = st_mm_input(),
+    output: mm_schema.MetricsOutput = st_mm_output(),
 ) -> mm_schema.MetricsDataset:
     processed = draw(processed)
     if processed:
@@ -161,11 +161,6 @@ def st_mm_dataset(
             alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
         )
         comment = st.lists(st_mm_comment(), min_size=1, max_size=2)
-        output = draw(output)
-        if output is None:
-            output = st_mm_output()
-    else:
-        output = None
 
     if target_class is None:
         return mm_schema.MetricsDataset(
@@ -180,7 +175,7 @@ def st_mm_dataset(
             processing_log=draw(processing_log),
             comment=draw(comment),
             input=draw(input),
-            output=output,
+            output=draw(output),
         )
     else:
         return target_class(
@@ -195,7 +190,7 @@ def st_mm_dataset(
             processing_log=draw(processing_log),
             comment=draw(comment),
             input=draw(input),
-            output=output,
+            output=draw(output),
         )
 
 
@@ -524,7 +519,7 @@ def st_mm_field_illumination_unprocessed_dataset(
         target_class=mm_schema.FieldIlluminationDataset,
         processed=st.just(False),
         input=st_mm_field_illumination_input(),
-        output=st.just(None),
+        output=st_mm_field_illumination_output(),
     ),
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)

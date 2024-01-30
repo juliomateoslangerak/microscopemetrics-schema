@@ -106,12 +106,10 @@ class TestFieldIlluminationSchemaElements(unittest.TestCase):
         """Test the field illumination dataset strategy."""
         self.assertIsInstance(dataset, mm_schema.FieldIlluminationDataset)
         self.assertFalse(dataset.processed)
-        self.assertIsNone(dataset.output)
 
     @given(st_mm_field_illumination_processed_dataset())
     def test_field_illumination_processed_dataset(self, dataset):
         """Test the field illumination dataset strategy."""
         self.assertIsInstance(dataset, mm_schema.FieldIlluminationDataset)
         self.assertTrue(dataset.processed)
-        self.assertIsNotNone(dataset.output)
 
