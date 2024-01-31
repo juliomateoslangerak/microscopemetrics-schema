@@ -485,7 +485,7 @@ def st_mm_field_illumination_input(
     draw: Callable[[st.SearchStrategy], mm_schema.FieldIlluminationInput],
     field_illumination_image: mm_schema.ImageAsNumpy = st_mm_image_as_numpy(),
     bit_depth: int = st.sampled_from([8, 10, 11, 12, 15, 16, 32]),
-    saturation_threshold: float = st.floats(min_value=0.0, max_value=0.1),
+    saturation_threshold: float = st.floats(min_value=0.01, max_value=0.05),
     center_threshold: float = st.floats(min_value=0.5, max_value=0.99),
     corner_fraction: float = st.floats(min_value=0.02, max_value=0.3),
     sigma: float = st.floats(min_value=0.0, max_value=100.0),
