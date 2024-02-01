@@ -60,9 +60,9 @@ type ArgolightBIntensityKeyValues
 type ArgolightBOutput
   {
     spotsLabelsImage: ImageAsNumpy
-    spotsCentroids: [Roi]
-    intensityMeasurements: ArgolightBIntensityKeyValues
-    distanceMeasurements: ArgolightBDistanceKeyValues
+    spotsCentroids: [RoiMassCenters]
+    intensityKeyValues: ArgolightBIntensityKeyValues
+    distanceKeyValues: ArgolightBDistanceKeyValues
     spotsProperties: TableAsDict
     spotsDistances: TableAsDict
   }
@@ -88,7 +88,7 @@ type ArgolightEInput
     argolightEImage: ImageAsNumpy!
     bitDepth: Integer
     saturationThreshold: Float!
-    axis: Integer!
+    orientationAxis: Integer!
     measuredBand: Float!
     prominenceThreshold: Float!
   }
@@ -97,7 +97,8 @@ type ArgolightEKeyValues
   {
     channel: [Integer]
     focusSlice: [Integer]
-    rayleighResolution: [Float]
+    rayleighResolutionPixels: [Float]
+    rayleighResolutionMicrons: [Float]
     peakPositionA: [Float]
     peakPositionB: [Float]
     peakHeightA: [Float]
@@ -247,8 +248,8 @@ type FieldIlluminationOutput
     intensityProfiles: TableAsDict
     intensityMap: Image5D
     profileRois: RoiProfiles
-    cornerRois: RoiCorners
-    centerOfIllumination: RoiCenters
+    cornerRois: RoiMeasurements
+    centerOfIllumination: [RoiMassCenters]
   }
 
 interface Image
@@ -497,7 +498,7 @@ type Roi
     shapes: [Shape]
   }
 
-type RoiCenters
+type RoiGeometricCenters
   {
     label: String!
     description: String
@@ -505,7 +506,15 @@ type RoiCenters
     shapes: [Point]
   }
 
-type RoiCorners
+type RoiMassCenters
+  {
+    label: String!
+    description: String
+    image: [Image]
+    shapes: [Point]
+  }
+
+type RoiMeasurements
   {
     label: String!
     description: String

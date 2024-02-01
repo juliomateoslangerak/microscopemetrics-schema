@@ -2,7 +2,7 @@
     "$defs": {
         "ArgolightBDataset": {
             "additionalProperties": false,
-            "description": "An Argolight sample pattern B dataset",
+            "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
             "if": {
                 "properties": {
                     "processed": {
@@ -38,8 +38,7 @@
                     "type": "array"
                 },
                 "input": {
-                    "$ref": "#/$defs/ArgolightBInput",
-                    "description": "An input element for the analysis"
+                    "$ref": "#/$defs/ArgolightBInput"
                 },
                 "microscope": {
                     "description": "The microscope that was used to acquire the dataset",
@@ -50,8 +49,7 @@
                     "type": "string"
                 },
                 "output": {
-                    "$ref": "#/$defs/ArgolightBOutput",
-                    "description": "An output element from the analysis"
+                    "$ref": "#/$defs/ArgolightBOutput"
                 },
                 "processed": {
                     "description": "Has the dataset been processed by microscope-metrics",
@@ -180,7 +178,7 @@
                     "type": "integer"
                 },
                 "lower_threshold_correction_factors": {
-                    "description": "Input parameter: correction factor for the lower thresholds.  Must be a tuple with len = nr of channels or a float if all equal",
+                    "description": "Input parameter: correction factor for the lower thresholds.  Must be a list with len = nr of channels or a float if all equal",
                     "items": {
                         "type": "number"
                     },
@@ -326,20 +324,27 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "distance_measurements": {
+                "distance_key_values": {
                     "$ref": "#/$defs/ArgolightBDistanceKeyValues",
                     "description": "Key Distance Measurements on Argolight spots"
                 },
-                "intensity_measurements": {
+                "intensity_key_values": {
                     "$ref": "#/$defs/ArgolightBIntensityKeyValues",
                     "description": "Key Intensity Measurements on Argolight spots"
                 },
                 "spots_centroids": {
-                    "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
-                    "type": "array"
+                    "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
+                    "type": "object"
                 },
                 "spots_distances": {
                     "$ref": "#/$defs/TableAsDict",
@@ -452,12 +457,6 @@
                     "$ref": "#/$defs/ImageAsNumpy",
                     "description": "Image of the argolight e pattern provided as a 5D numpy array in the order TZYXC"
                 },
-                "axis": {
-                    "description": "Axis along which resolution is being measured. 1=Y, 2=X",
-                    "maximum": 2,
-                    "minimum": 1,
-                    "type": "integer"
-                },
                 "bit_depth": {
                     "description": "Detector bit depth",
                     "maximum": 64,
@@ -469,6 +468,12 @@
                     "maximum": 1,
                     "minimum": 0,
                     "type": "number"
+                },
+                "orientation_axis": {
+                    "description": "Axis along which resolution is being measured. 1=Y, 2=X",
+                    "maximum": 2,
+                    "minimum": 1,
+                    "type": "integer"
                 },
                 "prominence_threshold": {
                     "description": "Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria",
@@ -486,7 +491,7 @@
             "required": [
                 "argolight_e_image",
                 "saturation_threshold",
-                "axis",
+                "orientation_axis",
                 "measured_band",
                 "prominence_threshold"
             ],
@@ -505,7 +510,7 @@
                     "type": "array"
                 },
                 "focus_slice": {
-                    "description": "Z position at which focus has been measured",
+                    "description": "Z position at which focus has been measured. One value per channel",
                     "items": {
                         "minimum": 0,
                         "type": "integer"
@@ -513,49 +518,56 @@
                     "type": "array"
                 },
                 "peak_height_A": {
-                    "description": "Height of first peak in the intensity profiles",
+                    "description": "Height of first peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "peak_height_B": {
-                    "description": "Height of second peak in the intensity profiles",
+                    "description": "Height of second peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "peak_position_A": {
-                    "description": "Position of first peak in the intensity profiles",
+                    "description": "Position, in pixels, of first peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "peak_position_B": {
-                    "description": "Position of second peak in the intensity profiles",
+                    "description": "Position, in pixels, of second peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "peak_prominence_A": {
-                    "description": "Prominence of first peak in the intensity profiles",
+                    "description": "Prominence of first peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "peak_prominence_B": {
-                    "description": "Prominence of second peak in the intensity profiles",
+                    "description": "Prominence of second peak in the intensity profiles. One value per channel",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "rayleigh_resolution": {
-                    "description": "Rayleigh resolution measured",
+                "rayleigh_resolution_microns": {
+                    "description": "Rayleigh resolution measured in microns. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "rayleigh_resolution_pixels": {
+                    "description": "Rayleigh resolution measured in pixels. One value per channel",
                     "items": {
                         "type": "number"
                     },
@@ -578,11 +590,18 @@
                     "description": "Key Measurements on Argolight E images"
                 },
                 "peaks_rois": {
-                    "description": "ROIs of the peaks found in the argolight images. One per channel",
-                    "items": {
-                        "type": "string"
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Roi__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
                     },
-                    "type": "array"
+                    "description": "ROIs of the peaks found in the argolight images. One per channel",
+                    "type": "object"
                 }
             },
             "title": "ArgolightEOutput",
@@ -1206,11 +1225,21 @@
             "description": "",
             "properties": {
                 "center_of_illumination": {
-                    "$ref": "#/$defs/RoiCenters",
-                    "description": "Point ROIs marking the center of illumination"
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
+                    "type": "object"
                 },
                 "corner_rois": {
-                    "$ref": "#/$defs/RoiCorners",
+                    "$ref": "#/$defs/RoiMeasurements",
                     "description": "Rectangular ROIs used to compute the corner intensities"
                 },
                 "intensity_map": {
@@ -2183,9 +2212,9 @@
             "title": "Roi",
             "type": "object"
         },
-        "RoiCenters": {
+        "RoiGeometricCenters": {
             "additionalProperties": false,
-            "description": "Point ROIs marking the center of illumination",
+            "description": "Point ROIs marking the geometric center of detected objects",
             "properties": {
                 "description": {
                     "description": "A description of the ROI",
@@ -2212,12 +2241,74 @@
             "required": [
                 "label"
             ],
-            "title": "RoiCenters",
+            "title": "RoiGeometricCenters",
             "type": "object"
         },
-        "RoiCorners": {
+        "RoiMassCenters": {
             "additionalProperties": false,
-            "description": "Rectangular ROIs used to compute the corner intensities",
+            "description": "Point ROIs marking the center of mass of detected objects",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "label"
+            ],
+            "title": "RoiMassCenters",
+            "type": "object"
+        },
+        "RoiMassCenters__identifier_optional": {
+            "additionalProperties": false,
+            "description": "Point ROIs marking the center of mass of detected objects",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "RoiMassCenters",
+            "type": "object"
+        },
+        "RoiMeasurements": {
+            "additionalProperties": false,
+            "description": "ROIs delimiting where measurements were performed.",
             "properties": {
                 "description": {
                     "description": "A description of the ROI",
@@ -2244,12 +2335,12 @@
             "required": [
                 "label"
             ],
-            "title": "RoiCorners",
+            "title": "RoiMeasurements",
             "type": "object"
         },
         "RoiProfiles": {
             "additionalProperties": false,
-            "description": "line ROIs used to compute the intensity profiles",
+            "description": "line ROIs where profiles were computed.",
             "properties": {
                 "description": {
                     "description": "A description of the ROI",
@@ -2277,6 +2368,43 @@
                 "label"
             ],
             "title": "RoiProfiles",
+            "type": "object"
+        },
+        "Roi__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
+            "properties": {
+                "description": {
+                    "description": "A description of the ROI",
+                    "type": "string"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "label": {
+                    "description": "The label of the ROI",
+                    "type": "string"
+                },
+                "shapes": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Shape__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "Roi",
             "type": "object"
         },
         "Sample": {

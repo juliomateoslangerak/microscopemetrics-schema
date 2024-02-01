@@ -1304,7 +1304,7 @@
     {
       "name": "lower_threshold_correction_factors",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/lower_threshold_correction_factors",
-      "description": "Input parameter: correction factor for the lower thresholds.  Must be a tuple with len = nr of channels or a float if all equal",
+      "description": "Input parameter: correction factor for the lower thresholds.  Must be a list with len = nr of channels or a float if all equal",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/lower_threshold_correction_factors",
       "multivalued": true,
@@ -1641,11 +1641,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "axis",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/axis",
+      "name": "orientation_axis",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/orientation_axis",
       "description": "Axis along which resolution is being measured. 1=Y, 2=X",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/axis",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/orientation_axis",
       "owner": "ArgolightEInput",
       "domain_of": [
         "ArgolightEInput"
@@ -1693,7 +1693,7 @@
     {
       "name": "focus_slice",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/focus_slice",
-      "description": "Z position at which focus has been measured",
+      "description": "Z position at which focus has been measured. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/focus_slice",
       "multivalued": true,
@@ -1706,11 +1706,25 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "rayleigh_resolution",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution",
-      "description": "Rayleigh resolution measured",
+      "name": "rayleigh_resolution_pixels",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution_pixels",
+      "description": "Rayleigh resolution measured in pixels. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution_pixels",
+      "multivalued": true,
+      "owner": "ArgolightEKeyValues",
+      "domain_of": [
+        "ArgolightEKeyValues"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "rayleigh_resolution_microns",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution_microns",
+      "description": "Rayleigh resolution measured in microns. One value per channel",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution_microns",
       "multivalued": true,
       "owner": "ArgolightEKeyValues",
       "domain_of": [
@@ -1722,7 +1736,7 @@
     {
       "name": "peak_position_A",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_position_A",
-      "description": "Position of first peak in the intensity profiles",
+      "description": "Position, in pixels, of first peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_position_A",
       "multivalued": true,
@@ -1736,7 +1750,7 @@
     {
       "name": "peak_position_B",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_position_B",
-      "description": "Position of second peak in the intensity profiles",
+      "description": "Position, in pixels, of second peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_position_B",
       "multivalued": true,
@@ -1750,7 +1764,7 @@
     {
       "name": "peak_height_A",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_height_A",
-      "description": "Height of first peak in the intensity profiles",
+      "description": "Height of first peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_height_A",
       "multivalued": true,
@@ -1764,7 +1778,7 @@
     {
       "name": "peak_height_B",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_height_B",
-      "description": "Height of second peak in the intensity profiles",
+      "description": "Height of second peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_height_B",
       "multivalued": true,
@@ -1778,7 +1792,7 @@
     {
       "name": "peak_prominence_A",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_prominence_A",
-      "description": "Prominence of first peak in the intensity profiles",
+      "description": "Prominence of first peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_prominence_A",
       "multivalued": true,
@@ -1792,7 +1806,7 @@
     {
       "name": "peak_prominence_B",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_prominence_B",
-      "description": "Prominence of second peak in the intensity profiles",
+      "description": "Prominence of second peak in the intensity profiles. One value per channel",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/peak_prominence_B",
       "multivalued": true,
@@ -2818,6 +2832,62 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "roiMassCenters__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiMassCenters",
+      "domain_of": [
+        "RoiMassCenters"
+      ],
+      "range": "Point",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiGeometricCenters__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiGeometricCenters",
+      "domain_of": [
+        "RoiGeometricCenters"
+      ],
+      "range": "Point",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiProfiles__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiProfiles",
+      "domain_of": [
+        "RoiProfiles"
+      ],
+      "range": "Line",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "roiMeasurements__shapes",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shapes",
+      "multivalued": true,
+      "alias": "shapes",
+      "owner": "RoiMeasurements",
+      "domain_of": [
+        "RoiMeasurements"
+      ],
+      "range": "Rectangle",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "tag__id",
       "description": "The id of the tag",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -3026,69 +3096,27 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "RoiCorners",
+      "range": "RoiMeasurements",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "fieldIlluminationOutput__center_of_illumination",
-      "description": "Point ROIs marking the center of illumination",
+      "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_illumination",
+      "multivalued": true,
       "alias": "center_of_illumination",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "RoiCenters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "roiProfiles__shapes",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
-      "multivalued": true,
-      "alias": "shapes",
-      "owner": "RoiProfiles",
-      "domain_of": [
-        "RoiProfiles"
-      ],
-      "range": "Line",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "roiCorners__shapes",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
-      "multivalued": true,
-      "alias": "shapes",
-      "owner": "RoiCorners",
-      "domain_of": [
-        "RoiCorners"
-      ],
-      "range": "Rectangle",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "roiCenters__shapes",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/shapes",
-      "multivalued": true,
-      "alias": "shapes",
-      "owner": "RoiCenters",
-      "domain_of": [
-        "RoiCenters"
-      ],
-      "range": "Point",
+      "range": "RoiMassCenters",
       "inlined": true,
       "@type": "SlotDefinition"
     },
     {
       "name": "argolightBDataset__input",
-      "description": "An input element for the analysis",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/input",
       "alias": "input",
@@ -3103,7 +3131,6 @@
     },
     {
       "name": "argolightBDataset__output",
-      "description": "An output element from the analysis",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/output",
       "alias": "output",
@@ -3139,15 +3166,16 @@
       "domain_of": [
         "ArgolightBOutput"
       ],
-      "range": "Roi",
+      "range": "RoiMassCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
-      "name": "argolightBOutput__intensity_measurements",
+      "name": "argolightBOutput__intensity_key_values",
       "description": "Key Intensity Measurements on Argolight spots",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/intensity_measurements",
-      "alias": "intensity_measurements",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/intensity_key_values",
+      "alias": "intensity_key_values",
       "owner": "ArgolightBOutput",
       "domain_of": [
         "ArgolightBOutput"
@@ -3157,11 +3185,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "argolightBOutput__distance_measurements",
+      "name": "argolightBOutput__distance_key_values",
       "description": "Key Distance Measurements on Argolight spots",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/distance_measurements",
-      "alias": "distance_measurements",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/distance_key_values",
+      "alias": "distance_key_values",
       "owner": "ArgolightBOutput",
       "domain_of": [
         "ArgolightBOutput"
@@ -3239,6 +3267,7 @@
         "ArgolightEOutput"
       ],
       "range": "Roi",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4481,6 +4510,106 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "RoiMassCenters",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters",
+      "description": "Point ROIs marking the center of mass of detected objects",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiMassCenters__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Point",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiGeometricCenters",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiGeometricCenters",
+      "description": "Point ROIs marking the geometric center of detected objects",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiGeometricCenters__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Point",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiGeometricCenters",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiProfiles",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiProfiles",
+      "description": "line ROIs where profiles were computed.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiProfiles__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Line",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiProfiles",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "RoiMeasurements",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements",
+      "description": "ROIs delimiting where measurements were performed.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "Roi",
+      "slots": [
+        "roi__label",
+        "roi__description",
+        "roi__image",
+        "roiMeasurements__shapes"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "shapes",
+          "multivalued": true,
+          "range": "Rectangle",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "KeyValues",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues",
       "description": "A collection of key-value pairs",
@@ -4763,14 +4892,15 @@
         {
           "name": "corner_rois",
           "description": "Rectangular ROIs used to compute the corner intensities",
-          "range": "RoiCorners",
+          "range": "RoiMeasurements",
           "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "center_of_illumination",
-          "description": "Point ROIs marking the center of illumination",
-          "range": "RoiCenters",
+          "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
           "inlined": true,
           "@type": "SlotDefinition"
         }
@@ -4825,84 +4955,9 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "RoiProfiles",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
-      "description": "line ROIs used to compute the intensity profiles",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "is_a": "Roi",
-      "slots": [
-        "roi__label",
-        "roi__description",
-        "roi__image",
-        "roiProfiles__shapes"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "shapes",
-          "multivalued": true,
-          "range": "Line",
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiProfiles",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "RoiCorners",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
-      "description": "Rectangular ROIs used to compute the corner intensities",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "is_a": "Roi",
-      "slots": [
-        "roi__label",
-        "roi__description",
-        "roi__image",
-        "roiCorners__shapes"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "shapes",
-          "multivalued": true,
-          "range": "Rectangle",
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCorners",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "RoiCenters",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenters",
-      "description": "Point ROIs marking the center of illumination",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "is_a": "Roi",
-      "slots": [
-        "roi__label",
-        "roi__description",
-        "roi__image",
-        "roiCenters__shapes"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "shapes",
-          "multivalued": true,
-          "range": "Point",
-          "inlined": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/RoiCenters",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "ArgolightBDataset",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightBDataset",
-      "description": "An Argolight sample pattern B dataset",
+      "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "is_a": "MetricsDataset",
       "slots": [
@@ -4923,15 +4978,15 @@
       "attributes": [
         {
           "name": "input",
-          "description": "An input element for the analysis",
           "range": "ArgolightBInput",
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "output",
-          "description": "An output element from the analysis",
           "range": "ArgolightBOutput",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4992,8 +5047,8 @@
       "slots": [
         "argolightBOutput__spots_labels_image",
         "argolightBOutput__spots_centroids",
-        "argolightBOutput__intensity_measurements",
-        "argolightBOutput__distance_measurements",
+        "argolightBOutput__intensity_key_values",
+        "argolightBOutput__distance_key_values",
         "argolightBOutput__spots_properties",
         "argolightBOutput__spots_distances"
       ],
@@ -5009,17 +5064,18 @@
           "name": "spots_centroids",
           "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
           "multivalued": true,
-          "range": "Roi",
+          "range": "RoiMassCenters",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
-          "name": "intensity_measurements",
+          "name": "intensity_key_values",
           "description": "Key Intensity Measurements on Argolight spots",
           "range": "ArgolightBIntensityKeyValues",
           "@type": "SlotDefinition"
         },
         {
-          "name": "distance_measurements",
+          "name": "distance_key_values",
           "description": "Key Distance Measurements on Argolight spots",
           "range": "ArgolightBDistanceKeyValues",
           "@type": "SlotDefinition"
@@ -5110,12 +5166,14 @@
           "description": "An input element for the analysis",
           "range": "ArgolightEInput",
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "output",
           "description": "An output element from the analysis",
           "range": "ArgolightEOutput",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -5156,7 +5214,7 @@
         "argolight_e_image",
         "bit_depth",
         "ArgolightEInput_saturation_threshold",
-        "axis",
+        "orientation_axis",
         "measured_band",
         "prominence_threshold"
       ],
@@ -5181,18 +5239,21 @@
           "description": "ROIs of the peaks found in the argolight images. One per channel",
           "multivalued": true,
           "range": "Roi",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "key_measurements",
           "description": "Key Measurements on Argolight E images",
           "range": "ArgolightEKeyValues",
+          "inlined": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "intensity_profiles",
           "description": "Intensity profiles of the argolight lines provided as tables. One table per channel",
           "range": "TableAsDict",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -5207,7 +5268,8 @@
       "slots": [
         "channel",
         "focus_slice",
-        "rayleigh_resolution",
+        "rayleigh_resolution_pixels",
+        "rayleigh_resolution_microns",
         "peak_position_A",
         "peak_position_B",
         "peak_height_A",
@@ -5222,9 +5284,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2023-09-05T17:40:12",
+  "source_file_date": "2023-09-13T14:00:57",
   "source_file_size": 758,
-  "generation_date": "2024-01-26T17:42:46",
+  "generation_date": "2024-02-01T19:04:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -32,14 +32,15 @@ CREATE TABLE "ArgolightBIntensityKeyValues" (
 CREATE TABLE "ArgolightEKeyValues" (
 	channel INTEGER, 
 	focus_slice INTEGER, 
-	rayleigh_resolution FLOAT, 
+	rayleigh_resolution_pixels FLOAT, 
+	rayleigh_resolution_microns FLOAT, 
 	"peak_position_A" FLOAT, 
 	"peak_position_B" FLOAT, 
 	"peak_height_A" FLOAT, 
 	"peak_height_B" FLOAT, 
 	"peak_prominence_A" FLOAT, 
 	"peak_prominence_B" FLOAT, 
-	PRIMARY KEY (channel, focus_slice, rayleigh_resolution, "peak_position_A", "peak_position_B", "peak_height_A", "peak_height_B", "peak_prominence_A", "peak_prominence_B")
+	PRIMARY KEY (channel, focus_slice, rayleigh_resolution_pixels, rayleigh_resolution_microns, "peak_position_A", "peak_position_B", "peak_height_A", "peak_height_B", "peak_prominence_A", "peak_prominence_B")
 );
 
 CREATE TABLE "ArgolightEOutput" (
@@ -219,6 +220,19 @@ CREATE TABLE "Microscope" (
 	PRIMARY KEY (id)
 );
 
+CREATE TABLE "Point" (
+	label TEXT NOT NULL, 
+	z FLOAT, 
+	c INTEGER, 
+	t INTEGER, 
+	fill_color TEXT, 
+	stroke_color TEXT, 
+	stroke_width INTEGER, 
+	y FLOAT NOT NULL, 
+	x FLOAT NOT NULL, 
+	PRIMARY KEY (label)
+);
+
 CREATE TABLE "Polygon" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -246,13 +260,21 @@ CREATE TABLE "Roi" (
 	PRIMARY KEY (label)
 );
 
-CREATE TABLE "RoiCenters" (
+CREATE TABLE "RoiGeometricCenters" (
 	label TEXT NOT NULL, 
 	description TEXT, 
+	shapes TEXT, 
 	PRIMARY KEY (label)
 );
 
-CREATE TABLE "RoiCorners" (
+CREATE TABLE "RoiMassCenters" (
+	label TEXT NOT NULL, 
+	description TEXT, 
+	shapes TEXT, 
+	PRIMARY KEY (label)
+);
+
+CREATE TABLE "RoiMeasurements" (
 	label TEXT NOT NULL, 
 	description TEXT, 
 	PRIMARY KEY (label)
@@ -295,11 +317,11 @@ CREATE TABLE "ArgolightBInput" (
 CREATE TABLE "ArgolightBOutput" (
 	spots_labels_image TEXT, 
 	spots_centroids TEXT, 
-	intensity_measurements TEXT, 
-	distance_measurements TEXT, 
+	intensity_key_values TEXT, 
+	distance_key_values TEXT, 
 	spots_properties TEXT, 
 	spots_distances TEXT, 
-	PRIMARY KEY (spots_labels_image, spots_centroids, intensity_measurements, distance_measurements, spots_properties, spots_distances), 
+	PRIMARY KEY (spots_labels_image, spots_centroids, intensity_key_values, distance_key_values, spots_properties, spots_distances), 
 	FOREIGN KEY(spots_labels_image) REFERENCES "ImageAsNumpy" (image_url)
 );
 
@@ -307,10 +329,10 @@ CREATE TABLE "ArgolightEInput" (
 	argolight_e_image TEXT NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT NOT NULL, 
-	axis INTEGER NOT NULL, 
+	orientation_axis INTEGER NOT NULL, 
 	measured_band FLOAT NOT NULL, 
 	prominence_threshold FLOAT NOT NULL, 
-	PRIMARY KEY (argolight_e_image, bit_depth, saturation_threshold, axis, measured_band, prominence_threshold), 
+	PRIMARY KEY (argolight_e_image, bit_depth, saturation_threshold, orientation_axis, measured_band, prominence_threshold), 
 	FOREIGN KEY(argolight_e_image) REFERENCES "ImageAsNumpy" (image_url)
 );
 
@@ -336,8 +358,7 @@ CREATE TABLE "FieldIlluminationOutput" (
 	PRIMARY KEY (key_values, intensity_profiles, intensity_map, profile_rois, corner_rois, center_of_illumination), 
 	FOREIGN KEY(intensity_map) REFERENCES "Image5D" (image_url), 
 	FOREIGN KEY(profile_rois) REFERENCES "RoiProfiles" (label), 
-	FOREIGN KEY(corner_rois) REFERENCES "RoiCorners" (label), 
-	FOREIGN KEY(center_of_illumination) REFERENCES "RoiCenters" (label)
+	FOREIGN KEY(corner_rois) REFERENCES "RoiMeasurements" (label)
 );
 
 CREATE TABLE "Line" (
@@ -372,21 +393,6 @@ CREATE TABLE "Mask" (
 	FOREIGN KEY(mask) REFERENCES "ImageMask" (image_url)
 );
 
-CREATE TABLE "Point" (
-	label TEXT NOT NULL, 
-	z FLOAT, 
-	c INTEGER, 
-	t INTEGER, 
-	fill_color TEXT, 
-	stroke_color TEXT, 
-	stroke_width INTEGER, 
-	y FLOAT NOT NULL, 
-	x FLOAT NOT NULL, 
-	"RoiCenters_label" TEXT, 
-	PRIMARY KEY (label), 
-	FOREIGN KEY("RoiCenters_label") REFERENCES "RoiCenters" (label)
-);
-
 CREATE TABLE "Rectangle" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -399,9 +405,9 @@ CREATE TABLE "Rectangle" (
 	y FLOAT NOT NULL, 
 	w FLOAT NOT NULL, 
 	h FLOAT NOT NULL, 
-	"RoiCorners_label" TEXT, 
+	"RoiMeasurements_label" TEXT, 
 	PRIMARY KEY (label), 
-	FOREIGN KEY("RoiCorners_label") REFERENCES "RoiCorners" (label)
+	FOREIGN KEY("RoiMeasurements_label") REFERENCES "RoiMeasurements" (label)
 );
 
 CREATE TABLE "Sample" (
@@ -491,18 +497,25 @@ CREATE TABLE "Roi_shapes" (
 	FOREIGN KEY(backref_id) REFERENCES "Roi" (label)
 );
 
-CREATE TABLE "RoiCenters_image" (
+CREATE TABLE "RoiGeometricCenters_image" (
 	backref_id TEXT, 
 	image TEXT, 
 	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiCenters" (label)
+	FOREIGN KEY(backref_id) REFERENCES "RoiGeometricCenters" (label)
 );
 
-CREATE TABLE "RoiCorners_image" (
+CREATE TABLE "RoiMassCenters_image" (
 	backref_id TEXT, 
 	image TEXT, 
 	PRIMARY KEY (backref_id, image), 
-	FOREIGN KEY(backref_id) REFERENCES "RoiCorners" (label)
+	FOREIGN KEY(backref_id) REFERENCES "RoiMassCenters" (label)
+);
+
+CREATE TABLE "RoiMeasurements_image" (
+	backref_id TEXT, 
+	image TEXT, 
+	PRIMARY KEY (backref_id, image), 
+	FOREIGN KEY(backref_id) REFERENCES "RoiMeasurements" (label)
 );
 
 CREATE TABLE "RoiProfiles_image" (

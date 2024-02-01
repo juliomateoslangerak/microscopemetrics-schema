@@ -1,4 +1,4 @@
-// An Argolight sample pattern B dataset
+// An Argolight sample pattern B dataset. This pattern consists of an array of circles
 message ArgolightBDataset
  {
   string name = 0
@@ -57,9 +57,9 @@ message ArgolightBIntensityKeyValues
 message ArgolightBOutput
  {
   imageAsNumpy spotsLabelsImage = 0
- repeated  roi spotsCentroids = 0
-  argolightBIntensityKeyValues intensityMeasurements = 0
-  argolightBDistanceKeyValues distanceMeasurements = 0
+ repeated  roiMassCenters spotsCentroids = 0
+  argolightBIntensityKeyValues intensityKeyValues = 0
+  argolightBDistanceKeyValues distanceKeyValues = 0
   tableAsDict spotsProperties = 0
   tableAsDict spotsDistances = 0
  }
@@ -87,7 +87,7 @@ message ArgolightEInput
   imageAsNumpy argolightEImage = 0
   integer bitDepth = 0
   float saturationThreshold = 0
-  integer axis = 0
+  integer orientationAxis = 0
   float measuredBand = 0
   float prominenceThreshold = 0
  }
@@ -95,7 +95,8 @@ message ArgolightEKeyValues
  {
  repeated  integer channel = 0
  repeated  integer focusSlice = 0
- repeated  float rayleighResolution = 0
+ repeated  float rayleighResolutionPixels = 0
+ repeated  float rayleighResolutionMicrons = 0
  repeated  float peakPositionA = 0
  repeated  float peakPositionB = 0
  repeated  float peakHeightA = 0
@@ -235,8 +236,8 @@ message FieldIlluminationOutput
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
   roiProfiles profileRois = 0
-  roiCorners cornerRois = 0
-  roiCenters centerOfIllumination = 0
+  roiMeasurements cornerRois = 0
+ repeated  roiMassCenters centerOfIllumination = 0
  }
 // A 2D image in YX order
 message Image2D
@@ -424,23 +425,31 @@ message Roi
  repeated  image image = 0
  repeated  shape shapes = 0
  }
-// Point ROIs marking the center of illumination
-message RoiCenters
+// Point ROIs marking the geometric center of detected objects
+message RoiGeometricCenters
  {
   string label = 0
   string description = 0
  repeated  image image = 0
  repeated  point shapes = 0
  }
-// Rectangular ROIs used to compute the corner intensities
-message RoiCorners
+// Point ROIs marking the center of mass of detected objects
+message RoiMassCenters
+ {
+  string label = 0
+  string description = 0
+ repeated  image image = 0
+ repeated  point shapes = 0
+ }
+// ROIs delimiting where measurements were performed.
+message RoiMeasurements
  {
   string label = 0
   string description = 0
  repeated  image image = 0
  repeated  rectangle shapes = 0
  }
-// line ROIs used to compute the intensity profiles
+// line ROIs where profiles were computed.
 message RoiProfiles
  {
   string label = 0
