@@ -214,11 +214,11 @@
 
           ArgolightEInput --&gt; ImageAsNumpy : argolight_e_image
 
-      ArgolightEInput : axis
-
       ArgolightEInput : bit_depth
 
       ArgolightEInput : measured_band
+
+      ArgolightEInput : orientation_axis
 
       ArgolightEInput : prominence_threshold
 
@@ -263,7 +263,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../axis/">axis</a></td>
+<td><a href="../orientation_axis/">orientation_axis</a></td>
 <td>1..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>Axis along which resolution is being measured</td>
 <td>direct</td>
@@ -336,7 +336,7 @@ slots:
 - argolight_e_image
 - bit_depth
 - saturation_threshold
-- axis
+- orientation_axis
 - measured_band
 - prominence_threshold
 slot_usage:
@@ -412,13 +412,13 @@ attributes:
     required: true
     minimum_value: 0
     maximum_value: 1
-  axis:
-    name: axis
+  orientation_axis:
+    name: orientation_axis
     description: Axis along which resolution is being measured. 1=Y, 2=X
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
-    alias: axis
+    alias: orientation_axis
     owner: ArgolightEInput
     domain_of:
     - ArgolightEInput

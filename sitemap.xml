@@ -896,6 +896,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/orientation_axis/</loc>
+         <lastmod>2024-02-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/output/</loc>
          <lastmod>2024-02-01</lastmod>
          <changefreq>daily</changefreq>
