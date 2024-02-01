@@ -212,11 +212,11 @@
 
       FieldIlluminationOutput : center_of_illumination
 
-          FieldIlluminationOutput --&gt; RoiCenters : center_of_illumination
+          FieldIlluminationOutput --&gt; RoiMassCenters : center_of_illumination
 
       FieldIlluminationOutput : corner_rois
 
-          FieldIlluminationOutput --&gt; RoiCorners : corner_rois
+          FieldIlluminationOutput --&gt; RoiMeasurements : corner_rois
 
       FieldIlluminationOutput : intensity_map
 
@@ -280,14 +280,14 @@
 </tr>
 <tr>
 <td><a href="../corner_rois/">corner_rois</a></td>
-<td>0..1 <br/> <a href="../RoiCorners/">RoiCorners</a></td>
+<td>0..1 <br/> <a href="../RoiMeasurements/">RoiMeasurements</a></td>
 <td>Rectangular ROIs used to compute the corner intensities</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_illumination/">center_of_illumination</a></td>
-<td>0..1 <br/> <a href="../RoiCenters/">RoiCenters</a></td>
-<td>Point ROIs marking the center of illumination</td>
+<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td>Point ROIs marking the center of mass of the area of maximum illumination 90 ...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -382,15 +382,16 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: RoiCorners
+    range: RoiMeasurements
     inlined: true
   center_of_illumination:
     name: center_of_illumination
-    description: Point ROIs marking the center of illumination
+    description: Point ROIs marking the center of mass of the area of maximum illumination
+      90 percentile of the intensity. One ROI per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
-    multivalued: false
-    range: RoiCenters
+    multivalued: true
+    range: RoiMassCenters
     inlined: true
 
 </code></pre>
@@ -461,19 +462,20 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: RoiCorners
+    range: RoiMeasurements
     inlined: true
   center_of_illumination:
     name: center_of_illumination
-    description: Point ROIs marking the center of illumination
+    description: Point ROIs marking the center of mass of the area of maximum illumination
+      90 percentile of the intensity. One ROI per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
-    multivalued: false
+    multivalued: true
     alias: center_of_illumination
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: RoiCenters
+    range: RoiMassCenters
     inlined: true
 
 </code></pre>

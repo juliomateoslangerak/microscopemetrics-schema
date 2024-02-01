@@ -482,7 +482,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightBDataset/">ArgolightBDataset</a></td>
-<td>An Argolight sample pattern B dataset</td>
+<td>An Argolight sample pattern B dataset. This pattern consists of an array of circles</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightEDataset/">ArgolightEDataset</a></td>
@@ -565,16 +565,20 @@
 <td>A ROI (Region Of Interest). Collection of shapes and an image to which they are applied</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiCenters/">RoiCenters</a></td>
-<td>Point ROIs marking the center of illumination</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiGeometricCenters/">RoiGeometricCenters</a></td>
+<td>Point ROIs marking the geometric center of detected objects</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiCorners/">RoiCorners</a></td>
-<td>Rectangular ROIs used to compute the corner intensities</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiMassCenters/">RoiMassCenters</a></td>
+<td>Point ROIs marking the center of mass of detected objects</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiMeasurements/">RoiMeasurements</a></td>
+<td>ROIs delimiting where measurements were performed.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="RoiProfiles/">RoiProfiles</a></td>
-<td>line ROIs used to compute the intensity profiles</td>
+<td>line ROIs where profiles were computed.</td>
 </tr>
 <tr>
 <td><a href="Shape/">Shape</a></td>
@@ -689,7 +693,7 @@
 </tr>
 <tr>
 <td><a href="center_of_illumination/">center_of_illumination</a></td>
-<td>Point ROIs marking the center of illumination</td>
+<td>Point ROIs marking the center of mass of the area of maximum illumination 90 ...</td>
 </tr>
 <tr>
 <td><a href="center_of_mass_x/">center_of_mass_x</a></td>
@@ -796,7 +800,7 @@
 <td>A Pandas DataFrame object</td>
 </tr>
 <tr>
-<td><a href="distance_measurements/">distance_measurements</a></td>
+<td><a href="distance_key_values/">distance_key_values</a></td>
 <td>Key Distance Measurements on Argolight spots</td>
 </tr>
 <tr>
@@ -845,7 +849,11 @@
 </tr>
 <tr>
 <td><a href="input/">input</a></td>
-<td>An input element for the analysis</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="intensity_key_values/">intensity_key_values</a></td>
+<td>Key Intensity Measurements on Argolight spots</td>
 </tr>
 <tr>
 <td><a href="intensity_map/">intensity_map</a></td>
@@ -862,10 +870,6 @@
 <tr>
 <td><a href="intensity_max_spot_roi/">intensity_max_spot_roi</a></td>
 <td>ROI number of the most intense spot for each channel</td>
-</tr>
-<tr>
-<td><a href="intensity_measurements/">intensity_measurements</a></td>
-<td>Key Intensity Measurements on Argolight spots</td>
 </tr>
 <tr>
 <td><a href="intensity_min_spot/">intensity_min_spot</a></td>
@@ -1013,7 +1017,7 @@
 </tr>
 <tr>
 <td><a href="output/">output</a></td>
-<td>An output element from the analysis</td>
+<td></td>
 </tr>
 <tr>
 <td><a href="peak_height_A/">peak_height_A</a></td>

@@ -209,9 +209,10 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Roi">microscopemetrics_schema:Roi</a></p>
 <div class="mermaid"> classDiagram
     class Roi
+      Roi &lt;|-- RoiMassCenters
+      Roi &lt;|-- RoiGeometricCenters
       Roi &lt;|-- RoiProfiles
-      Roi &lt;|-- RoiCorners
-      Roi &lt;|-- RoiCenters
+      Roi &lt;|-- RoiMeasurements
 
       Roi : description
 
@@ -230,9 +231,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>Roi</strong><ul>
+<li><a href="../RoiMassCenters/">RoiMassCenters</a></li>
+<li><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></li>
 <li><a href="../RoiProfiles/">RoiProfiles</a></li>
-<li><a href="../RoiCorners/">RoiCorners</a></li>
-<li><a href="../RoiCenters/">RoiCenters</a></li>
+<li><a href="../RoiMeasurements/">RoiMeasurements</a></li>
 </ul>
 </li>
 </ul>
@@ -284,12 +286,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_centroids/">spots_centroids</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
 <tr>
 <td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
 <td><a href="../peaks_rois/">peaks_rois</a></td>
@@ -423,9 +419,10 @@ attributes:
     owner: Roi
     domain_of:
     - Roi
+    - RoiMassCenters
+    - RoiGeometricCenters
     - RoiProfiles
-    - RoiCorners
-    - RoiCenters
+    - RoiMeasurements
     range: Shape
     inlined: true
     inlined_as_list: false

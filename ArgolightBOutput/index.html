@@ -210,17 +210,17 @@
     class ArgolightBOutput
       MetricsOutput &lt;|-- ArgolightBOutput
 
-      ArgolightBOutput : distance_measurements
+      ArgolightBOutput : distance_key_values
 
-          ArgolightBOutput --&gt; ArgolightBDistanceKeyValues : distance_measurements
+          ArgolightBOutput --&gt; ArgolightBDistanceKeyValues : distance_key_values
 
-      ArgolightBOutput : intensity_measurements
+      ArgolightBOutput : intensity_key_values
 
-          ArgolightBOutput --&gt; ArgolightBIntensityKeyValues : intensity_measurements
+          ArgolightBOutput --&gt; ArgolightBIntensityKeyValues : intensity_key_values
 
       ArgolightBOutput : spots_centroids
 
-          ArgolightBOutput --&gt; Roi : spots_centroids
+          ArgolightBOutput --&gt; RoiMassCenters : spots_centroids
 
       ArgolightBOutput : spots_distances
 
@@ -262,18 +262,18 @@
 </tr>
 <tr>
 <td><a href="../spots_centroids/">spots_centroids</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
 <td>Centroids of the argolight spots provided as a list of ROIs</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../intensity_measurements/">intensity_measurements</a></td>
+<td><a href="../intensity_key_values/">intensity_key_values</a></td>
 <td>0..1 <br/> <a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></td>
 <td>Key Intensity Measurements on Argolight spots</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../distance_measurements/">distance_measurements</a></td>
+<td><a href="../distance_key_values/">distance_key_values</a></td>
 <td>0..1 <br/> <a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></td>
 <td>Key Distance Measurements on Argolight spots</td>
 <td>direct</td>
@@ -359,18 +359,19 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: true
-    range: Roi
+    range: RoiMassCenters
     required: false
-  intensity_measurements:
-    name: intensity_measurements
+    inlined: true
+  intensity_key_values:
+    name: intensity_key_values
     description: Key Intensity Measurements on Argolight spots
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
     range: ArgolightBIntensityKeyValues
     required: false
-  distance_measurements:
-    name: distance_measurements
+  distance_key_values:
+    name: distance_key_values
     description: Key Distance Measurements on Argolight spots
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
@@ -426,27 +427,28 @@ attributes:
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
-    range: Roi
+    range: RoiMassCenters
     required: false
-  intensity_measurements:
-    name: intensity_measurements
+    inlined: true
+  intensity_key_values:
+    name: intensity_key_values
     description: Key Intensity Measurements on Argolight spots
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    alias: intensity_measurements
+    alias: intensity_key_values
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
     range: ArgolightBIntensityKeyValues
     required: false
-  distance_measurements:
-    name: distance_measurements
+  distance_key_values:
+    name: distance_key_values
     description: Key Distance Measurements on Argolight spots
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    alias: distance_measurements
+    alias: distance_key_values
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
