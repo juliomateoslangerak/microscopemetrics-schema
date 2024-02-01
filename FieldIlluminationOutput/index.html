@@ -351,6 +351,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: FieldIlluminationKeyValues
+    inlined: true
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
@@ -358,6 +359,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: false
     range: TableAsDict
+    inlined: true
   intensity_map:
     name: intensity_map
     description: Intensity map of the field illumination
@@ -365,6 +367,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: Image5D
+    inlined: true
   profile_rois:
     name: profile_rois
     description: line ROIs used to compute the intensity profiles
@@ -372,6 +375,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: RoiProfiles
+    inlined: true
   corner_rois:
     name: corner_rois
     description: Rectangular ROIs used to compute the corner intensities
@@ -379,10 +383,11 @@ attributes:
     rank: 1000
     multivalued: false
     range: RoiMeasurements
+    inlined: true
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. One ROI per channel.
+      90 percentile of the intensity. One point per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
@@ -409,6 +414,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationKeyValues
+    inlined: true
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
@@ -421,6 +427,7 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: TableAsDict
+    inlined: true
   intensity_map:
     name: intensity_map
     description: Intensity map of the field illumination
@@ -432,6 +439,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: Image5D
+    inlined: true
   profile_rois:
     name: profile_rois
     description: line ROIs used to compute the intensity profiles
@@ -443,6 +451,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: RoiProfiles
+    inlined: true
   corner_rois:
     name: corner_rois
     description: Rectangular ROIs used to compute the corner intensities
@@ -454,10 +463,11 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: RoiMeasurements
+    inlined: true
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. One ROI per channel.
+      90 percentile of the intensity. One point per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true

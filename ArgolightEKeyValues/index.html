@@ -226,7 +226,9 @@
 
       ArgolightEKeyValues : peak_prominence_B
 
-      ArgolightEKeyValues : rayleigh_resolution
+      ArgolightEKeyValues : rayleigh_resolution_microns
+
+      ArgolightEKeyValues : rayleigh_resolution_pixels
 
 
 </div>
@@ -261,21 +263,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../rayleigh_resolution/">rayleigh_resolution</a></td>
+<td><a href="../rayleigh_resolution_pixels/">rayleigh_resolution_pixels</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Rayleigh resolution measured</td>
+<td>Rayleigh resolution measured in pixels</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../rayleigh_resolution_microns/">rayleigh_resolution_microns</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Rayleigh resolution measured in microns</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_position_A/">peak_position_A</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Position of first peak in the intensity profiles</td>
+<td>Position, in pixels, of first peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_position_B/">peak_position_B</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Position of second peak in the intensity profiles</td>
+<td>Position, in pixels, of second peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -357,7 +365,8 @@ is_a: KeyValues
 slots:
 - channel
 - focus_slice
-- rayleigh_resolution
+- rayleigh_resolution_pixels
+- rayleigh_resolution_microns
 - peak_position_A
 - peak_position_B
 - peak_height_A
@@ -388,7 +397,7 @@ attributes:
     range: integer
   focus_slice:
     name: focus_slice
-    description: Z position at which focus has been measured
+    description: Z position at which focus has been measured. One value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -398,20 +407,32 @@ attributes:
     - ArgolightEKeyValues
     range: integer
     minimum_value: 0
-  rayleigh_resolution:
-    name: rayleigh_resolution
-    description: Rayleigh resolution measured
+  rayleigh_resolution_pixels:
+    name: rayleigh_resolution_pixels
+    description: Rayleigh resolution measured in pixels. One value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: rayleigh_resolution
+    alias: rayleigh_resolution_pixels
+    owner: ArgolightEKeyValues
+    domain_of:
+    - ArgolightEKeyValues
+    range: float
+  rayleigh_resolution_microns:
+    name: rayleigh_resolution_microns
+    description: Rayleigh resolution measured in microns. One value per channel
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: rayleigh_resolution_microns
     owner: ArgolightEKeyValues
     domain_of:
     - ArgolightEKeyValues
     range: float
   peak_position_A:
     name: peak_position_A
-    description: Position of first peak in the intensity profiles
+    description: Position, in pixels, of first peak in the intensity profiles. One
+      value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -422,7 +443,8 @@ attributes:
     range: float
   peak_position_B:
     name: peak_position_B
-    description: Position of second peak in the intensity profiles
+    description: Position, in pixels, of second peak in the intensity profiles. One
+      value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -433,7 +455,7 @@ attributes:
     range: float
   peak_height_A:
     name: peak_height_A
-    description: Height of first peak in the intensity profiles
+    description: Height of first peak in the intensity profiles. One value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -444,7 +466,7 @@ attributes:
     range: float
   peak_height_B:
     name: peak_height_B
-    description: Height of second peak in the intensity profiles
+    description: Height of second peak in the intensity profiles. One value per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -455,7 +477,8 @@ attributes:
     range: float
   peak_prominence_A:
     name: peak_prominence_A
-    description: Prominence of first peak in the intensity profiles
+    description: Prominence of first peak in the intensity profiles. One value per
+      channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -466,7 +489,8 @@ attributes:
     range: float
   peak_prominence_B:
     name: peak_prominence_B
-    description: Prominence of second peak in the intensity profiles
+    description: Prominence of second peak in the intensity profiles. One value per
+      channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true

@@ -388,6 +388,7 @@ attributes:
     multivalued: false
     range: ArgolightEInput
     required: true
+    inlined: true
   output:
     name: output
     description: An output element from the analysis
@@ -395,6 +396,7 @@ attributes:
     multivalued: false
     range: ArgolightEOutput
     required: false
+    inlined: true
 rules:
 - preconditions:
     slot_conditions:
@@ -436,6 +438,7 @@ attributes:
     - FieldIlluminationDataset
     range: ArgolightEInput
     required: true
+    inlined: true
   output:
     name: output
     description: An output element from the analysis
@@ -450,6 +453,7 @@ attributes:
     - FieldIlluminationDataset
     range: ArgolightEOutput
     required: false
+    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
