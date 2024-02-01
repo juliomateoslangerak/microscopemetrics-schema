@@ -7,7 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - ../core_schema  # TODO: change to metrics:core_schema
+  - core_schema  # TODO: change to metrics:core_schema
 
 default_range: string
 
@@ -15,21 +15,19 @@ default_range: string
 classes:
   PSFBeadsDataset:
     is_a: MetricsDataset
-    description: |
-      A dataset of PSF beads dataset
+    description: >-
+      A PSF beads dataset
     attributes:
       input:
         range: PSFBeadsInput
-        description: |
-          An input element for the PSF beads analysis
         required: true
         multivalued: false
+        inlined: true
       output:
         range: PSFBeadsOutput
-        description: |
-          An output element for the PSF beads analysis
         required: false
         multivalued: false
+        inlined: true
     rules:
       - preconditions:
           slot_conditions:
@@ -46,88 +44,108 @@ classes:
       - psf_beads_image
       - min_lateral_distance_factor
       - sigma_z
-      - sigma_x
       - sigma_y
-      - pixel_size_z
-      - pixel_size_y
-      - pixel_size_x
+      - sigma_x
 
   PSFBeadsOutput:
     is_a: MetricsOutput
     attributes:
       bead_crops:
-        range: Image5D
+        range: ImageAsNumpy
         description: >-
           The crops of the beads provided as a 5D numpy array in the order TZYXC.
           One crop will be provided per bead correctly detected.
         multivalued: true
-      bead_centroids:
-        range: Roi
+        inlined: true
+      analyzed_bead_centroids:
+        range: RoiMassCenters
         description: >-
-          The centroids of the beads.
+          The centroids of the beads that have been analyzed.
           One point shape will be provided per bead correctly detected.
           One ROI per channel.
         multivalued: true
-      edge_bead_centroids:
-        range: Roi
+        inlined: true
+      discarded_bead_centroids_lateral_edge:
+        range: RoiMassCenters
         description: >-
           The centroids of the beads detected but discarded as too close to the edge of the image.
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-      self_proximity_bead_centroids:
-        range: Roi
+        inlined: true
+      discarded_bead_centroids_axial_edge:
+        range: RoiMassCenters
+        description: >-
+          The centroids of the beads detected but discarded as too close to the top and or bottom of the image.
+          One point will be provided per bead.
+          One ROI per channel.
+        multivalued: true
+        inlined: true
+      discarded_bead_centroids_self_proximity:
+        range: RoiMassCenters
         description: >-
           The centroids of the beads detected but discarded as too close to another bead.
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-      cluster_bead_centroids:
-        range: Roi
+        inlined: true
+      discarded_bead_centroids_cluster:
+        range: RoiMassCenters
         description: >-
           The centroids of the beads detected but discarded as being too intense and potentially
           represent a cluster of beads.
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-      # TODO: add to close to z edge
-      key_measurements:
+        inlined: true
+      discarded_bead_centroids_fit_quality:
+        range: RoiMassCenters
+        description: >-
+          The centroids of the beads detected but discarded as the fit quality was not good enough.
+          One point will be provided per bead.
+          One ROI per channel.
+        multivalued: true
+        inlined: true
+      key_values:
         range: PSFBeadsKeyMeasurements
         description: >-
           The key measurements of the PSF beads analysis.
         multivalued: False
+        inlined: true
       psf_properties:
         range: TableAsDict
         description: >-
           Properties associated with the analysis of the beads.
-          One table per channel.
-        multivalued: true
-      # TODO: add description fpr fitting values in the tables
+        multivalued: false
+        inlined: true
       psf_z_profiles:
         range: TableAsDict
         description: >-
-          The intensity profiles along the z axis of the beads.
-          One table per channel.
-        multivalued: true
+          The intensity profiles along the z axis of the analyzed beads as well as the fits.
+        multivalued: false
+        inlined: true
       psf_y_profiles:
         range: TableAsDict
         description: >-
-          The intensity profiles along the y axis of the beads.
-          One table per channel.
-        multivalued: true
+          The intensity profiles along the y axis of the analyzed beads as well as the fits.
+        multivalued: false
+        inlined: true
       psf_x_profiles:
         range: TableAsDict
         description: >-
-          The intensity profiles along the x axis of the beads.
-          One table per channel.
-        multivalued: true
-
+          The intensity profiles along the x axis of the analyzed beads as well as the fits.
+        multivalued: false
+        inlined: true
 
   PSFBeadsKeyMeasurements:
     is_a: KeyValues
     slots:
       - nr_of_beads_analyzed
-      - nr_of_beads_discarded  # TODO: per codition
+      - nr_of_beads_discarded_lateral_edge
+      - nr_of_beads_discarded_axial_edge
+      - nr_of_beads_discarded_self_proximity
+      - nr_of_beads_discarded_cluster
+      - nr_of_beads_discarded_fit_quality
       - resolution_mean_fwhm_z_pixels
       - resolution_median_fwhm_z_pixels
       - resolution_stdev_fwhm_z_pixels
@@ -149,6 +167,7 @@ classes:
 
 
 slots:
+  # Inputs
   psf_beads_image:
     range: ImageAsNumpy
     description: >-
@@ -156,6 +175,7 @@ slots:
       More than one image can be provided if the image conditions are the same.
     required: true
     multivalued: true
+    inlined: true
   min_lateral_distance_factor:
     range: integer
     description: >-
@@ -181,119 +201,125 @@ slots:
       When provided, gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection.
       Does not apply to resolution measurements
     required: false
-  pixel_size_z:
-    range: float
-    description: >-
-      Physical size of the voxel in the Z axis. When provided, the resolution in physical units will be computed.
-    required: false
-  pixel_size_y:
-    range: float
-    description: >-
-      Physical size of the voxel in the Y axis. When provided, the resolution in physical units will be computed.
-    required: false
-  pixel_size_x:
-    range: float
-    description: >-
-      Physical size of the voxel in the X axis. When provided, the resolution in physical units will be computed.
-    required: false
+
+  # Outputs
   nr_of_beads_analyzed:
     range: integer
     description: >-
-      Number of beads analyzed per channel
+      Number of beads analyzed. One value per channel.
     multivalued: true
-  nr_of_beads_discarded:
+  nr_of_beads_discarded_lateral_edge:
     range: integer
     description: >-
-      Sum of the beads discarded per channel for either being too close to the edge of the image,
-      too close to another bead or too intense and potentially representing a cluster of beads.
+      Number of beads discarded for being too close to the edge of the image. One value per channel.
+    multivalued: true
+  nr_of_beads_discarded_axial_edge:
+    range: integer
+    description: >-
+      Number of beads discarded for being too close to the top and or bottom of the image. One value per channel.
+    multivalued: true
+  nr_of_beads_discarded_self_proximity:
+    range: integer
+    description: >-
+      Number of beads discarded for being too close to another bead. One value per channel.
+    multivalued: true
+  nr_of_beads_discarded_cluster:
+    range: integer
+    description: >-
+      Number of beads discarded for being too intense and potentially represent a cluster of beads. One value per channel.
+    multivalued: true
+  nr_of_beads_discarded_fit_quality:
+    range: integer
+    description: >-
+      Number of beads discarded for having a bad fit quality. One value per channel.
     multivalued: true
   resolution_mean_fwhm_z_pixels:
     range: float
     description: >-
-      Mean FWHM in the Z axis in pixels
+      Mean FWHM for the analyzed beads in the Z axis in pixels
     multivalued: true
   resolution_median_fwhm_z_pixels:
     range: float
     description: >-
-      Median FWHM in the Z axis in pixels
+      Median FWHM for the analyzed beads in the Z axis in pixels
     multivalued: true
   resolution_stdev_fwhm_z_pixels:
     range: float
     description: >-
-      Standard deviation of the FWHM in the Z axis in pixels
+      Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels
     multivalued: true
   resolution_mean_fwhm_y_pixels:
     range: float
     description: >-
-      Mean FWHM in the Y axis in pixels
+      Mean FWHM for the analyzed beads in the Y axis in pixels
     multivalued: true
   resolution_median_fwhm_y_pixels:
     range: float
     description: >-
-      Median FWHM in the Y axis in pixels
+      Median FWHM for the analyzed beads in the Y axis in pixels
     multivalued: true
   resolution_stdev_fwhm_y_pixels:
     range: float
     description: >-
-      Standard deviation of the FWHM in the Y axis in pixels
+      Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels
     multivalued: true
   resolution_mean_fwhm_x_pixels:
     range: float
     description: >-
-      Mean FWHM in the X axis in pixels
+      Mean FWHM for the analyzed beads in the X axis in pixels
     multivalued: true
   resolution_median_fwhm_x_pixels:
     range: float
     description: >-
-      Median FWHM in the X axis in pixels
+      Median FWHM for the analyzed beads in the X axis in pixels
     multivalued: true
   resolution_stdev_fwhm_x_pixels:
     range: float
     description: >-
-      Standard deviation of the FWHM in the X axis in pixels
+      Standard deviation of the FWHM for the analyzed beads in the X axis in pixels
     multivalued: true
   resolution_mean_fwhm_z_microns:
     range: float
     description: >-
-      Mean FWHM in the Z axis in microns
+      Mean FWHM for the analyzed beads in the Z axis in microns
     multivalued: true
   resolution_median_fwhm_z_microns:
     range: float
     description: >-
-      Median FWHM in the Z axis in microns
+      Median FWHM for the analyzed beads in the Z axis in microns
     multivalued: true
   resolution_stdev_fwhm_z_microns:
     range: float
     description: >-
-      Standard deviation of the FWHM in the Z axis in microns
+      Standard deviation of the FWHM for the analyzed beads in the Z axis in microns
     multivalued: true
   resolution_mean_fwhm_y_microns:
     range: float
     description: >-
-      Mean FWHM in the Y axis in microns
+      Mean FWHM for the analyzed beads in the Y axis in microns
     multivalued: true
   resolution_median_fwhm_y_microns:
     range: float
     description: >-
-      Median FWHM in the Y axis in microns
+      Median FWHM for the analyzed beads in the Y axis in microns
     multivalued: true
   resolution_stdev_fwhm_y_microns:
     range: float
     description: >-
-      Standard deviation of the FWHM in the Y axis in microns
+      Standard deviation of the FWHM for the analyzed beads in the Y axis in microns
     multivalued: true
   resolution_mean_fwhm_x_microns:
     range: float
     description: >-
-      Mean FWHM in the X axis in microns
+      Mean FWHM for the analyzed beads in the X axis in microns
     multivalued: true
   resolution_median_fwhm_x_microns:
     range: float
     description: >-
-      Median FWHM in the X axis in microns
+      Median FWHM for the analyzed beads in the X axis in microns
     multivalued: true
   resolution_stdev_fwhm_x_microns:
     range: float
     description: >-
-      Standard deviation of the FWHM in the X axis in microns
+      Standard deviation of the FWHM for the analyzed beads in the X axis in microns
     multivalued: true
