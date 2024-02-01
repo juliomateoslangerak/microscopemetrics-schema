@@ -79,16 +79,17 @@ classes:
         multivalued: false
         inlined: true
       corner_rois:  # TODO: rename to roi_corners
-        range: RoiCorners
+        range: RoiMeasurements
         description: >-
           Rectangular ROIs used to compute the corner intensities
         multivalued: false
         inlined: true
-      center_of_illumination:
-        range: RoiCenters
+      center_of_illumination:  # TODO: Verify that this is the correct definition
+        range: RoiMassCenters
         description: >-
-          Point ROIs marking the center of illumination
-        multivalued: false
+          Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity.
+          One point per channel.
+        multivalued: true
         inlined: true
 
   FieldIlluminationKeyValues:
@@ -130,38 +131,6 @@ classes:
       - decile_8
       - decile_9
 
-  RoiProfiles:
-    is_a: Roi
-    description: >-
-      line ROIs used to compute the intensity profiles
-    attributes:
-      shapes:
-        range: Line
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
-
-  RoiCorners:
-    is_a: Roi
-    description: >-
-      Rectangular ROIs used to compute the corner intensities
-    attributes:
-      shapes:
-        range: Rectangle
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
-
-  RoiCenters:
-    is_a: Roi
-    description: >-
-      Point ROIs marking the center of illumination
-    attributes:
-      shapes:
-        range: Point
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
 
 slots:
   # Inputs

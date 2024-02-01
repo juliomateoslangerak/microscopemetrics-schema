@@ -604,6 +604,50 @@ classes:
         minimum_value: 0
         maximum_value: 255
 
+  RoiMassCenters:
+    is_a: Roi
+    description: >-
+      Point ROIs marking the center of mass of detected objects
+    attributes:
+      shapes:
+        range: Point
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+
+  RoiGeometricCenters:
+    is_a: Roi
+    description: >-
+      Point ROIs marking the geometric center of detected objects
+    attributes:
+      shapes:
+        range: Point
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+
+  RoiProfiles:
+    is_a: Roi
+    description: >-
+      line ROIs where profiles were computed.
+    attributes:
+      shapes:
+        range: Line
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+
+  RoiMeasurements:
+    is_a: Roi
+    description: >-
+      ROIs delimiting where measurements were performed.
+    attributes:
+      shapes:  # TODO: this should extend to other type of surface defining rois
+        range: Rectangle
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+
   KeyValues:
     description: A collection of key-value pairs
     abstract: true
