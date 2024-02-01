@@ -378,14 +378,12 @@ attributes:
     multivalued: false
     range: FieldIlluminationInput
     required: true
-    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: false
     range: FieldIlluminationOutput
     required: false
-    inlined: true
 rules:
 - preconditions:
     slot_conditions:
@@ -420,7 +418,6 @@ attributes:
     - FieldIlluminationDataset
     range: FieldIlluminationInput
     required: true
-    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
@@ -434,7 +431,6 @@ attributes:
     - FieldIlluminationDataset
     range: FieldIlluminationOutput
     required: false
-    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
