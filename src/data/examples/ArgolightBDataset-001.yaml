@@ -1968,7 +1968,7 @@ output:
         stroke_width: 1
         y: 203.0
         x: 57.0
-  intensity_measurements:
+  intensity_key_values:
     channel:
     - 0
     - 1
@@ -2024,7 +2024,7 @@ output:
     - 0.0005917205339418298
     - 0.0061887156750419885
     - 0.0001869727167799876
-  distance_measurements:
+  distance_key_values:
     channel_A:
     - 0
     - 0

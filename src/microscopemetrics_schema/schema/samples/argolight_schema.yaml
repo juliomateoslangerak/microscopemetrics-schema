@@ -16,20 +16,18 @@ classes:
   ArgolightBDataset:
     is_a: MetricsDataset
     description: >-
-      An Argolight sample pattern B dataset
+      An Argolight sample pattern B dataset. This pattern consists of an array of circles
     attributes:
       input:
         range: ArgolightBInput
-        description: >-
-          An input element for the analysis
         required: true
         multivalued: false
+        inlined: true
       output:
         range: ArgolightBOutput
-        description: >-
-          An output element from the analysis
         required: false
         multivalued: false
+        inlined: true
     rules:
       - preconditions:
           slot_conditions:
@@ -39,6 +37,7 @@ classes:
           slot_conditions:
             output:
               required: true
+
   ArgolightBInput:
     is_a: MetricsInput
     slots:
@@ -55,10 +54,11 @@ classes:
     slot_usage:
       saturation_threshold:
         required: true
+
   ArgolightBOutput:
     is_a: MetricsOutput
     attributes:
-      spots_labels_image:
+      spots_labels_image:  # TODO: consider making this a mask ROI
         range: ImageAsNumpy
         description: >-
           Labels image of the argolight segmented spots provided as a 5D numpy array in the order TZYXC.
@@ -66,18 +66,19 @@ classes:
         required: false
         multivalued: false
       spots_centroids:
-        range: Roi
+        range: RoiMassCenters
         description: >-
           Centroids of the argolight spots provided as a list of ROIs. One per channel
         required: false
         multivalued: true
-      intensity_measurements:
+        inlined: true
+      intensity_key_values:
         range: ArgolightBIntensityKeyValues
         description: >-
           Key Intensity Measurements on Argolight spots
         required: false
         multivalued: false
-      distance_measurements:
+      distance_key_values:
         range: ArgolightBDistanceKeyValues
         description: >-
           Key Distance Measurements on Argolight spots
@@ -139,12 +140,14 @@ classes:
           An input element for the analysis
         required: true
         multivalued: false
+        inlined: true
       output:
         range: ArgolightEOutput
         description: >-
           An output element from the analysis
         required: false
         multivalued: false
+        inlined: true
     rules:
       - preconditions:
           slot_conditions:
@@ -154,18 +157,20 @@ classes:
           slot_conditions:
             output:
               required: true
+
   ArgolightEInput:
     is_a: MetricsInput
     slots:
       - argolight_e_image
       - bit_depth
       - saturation_threshold
-      - axis
+      - orientation_axis
       - measured_band
       - prominence_threshold
     slot_usage:
       saturation_threshold:
         required: true
+
   ArgolightEOutput:
     is_a: MetricsOutput
     attributes:
@@ -174,23 +179,27 @@ classes:
         description: >-
           ROIs of the peaks found in the argolight images. One per channel
         multivalued: true
+        inlined: true
       key_measurements:
         range: ArgolightEKeyValues
         description: >-
           Key Measurements on Argolight E images
         multivalued: false
+        inlined: true
       intensity_profiles:
         range: TableAsDict
         description: >-
           Intensity profiles of the argolight lines provided as tables. One table per channel
         multivalued: false
+        inlined: true
 
   ArgolightEKeyValues:
     is_a: KeyValues
     slots:
       - channel
       - focus_slice
-      - rayleigh_resolution
+      - rayleigh_resolution_pixels
+      - rayleigh_resolution_microns
       - peak_position_A
       - peak_position_B
       - peak_height_A
@@ -245,7 +254,7 @@ slots:
     range: float
     description: >-
       Input parameter: correction factor for the lower thresholds. 
-      Must be a tuple with len = nr of channels or a float if all equal
+      Must be a list with len = nr of channels or a float if all equal
     required: false
     multivalued: true
   upper_threshold_correction_factors:
@@ -262,6 +271,7 @@ slots:
     required: false
     multivalued: false
     ifabsent: false
+
   # Argolight B outputs
   # Intensity related slots
   nr_of_spots:
@@ -373,7 +383,7 @@ slots:
     required: true
     multivalued: false
     inlined: true
-  axis:
+  orientation_axis:
     range: integer
     description: >-
       Axis along which resolution is being measured. 1=Y, 2=X
@@ -405,41 +415,46 @@ slots:
   focus_slice:
     range: integer
     description: >-
-      Z position at which focus has been measured
+      Z position at which focus has been measured. One value per channel
     multivalued: true
     minimum_value: 0
-  rayleigh_resolution:
+  rayleigh_resolution_pixels:
     range: float
     description: >-
-      Rayleigh resolution measured
+      Rayleigh resolution measured in pixels. One value per channel
+    multivalued: true
+  rayleigh_resolution_microns:
+    range: float
+    description: >-
+      Rayleigh resolution measured in microns. One value per channel
     multivalued: true
   peak_position_A:
     range: float
     description: >-
-      Position of first peak in the intensity profiles
+      Position, in pixels, of first peak in the intensity profiles. One value per channel
     multivalued: true
   peak_position_B:
     range: float
     description: >-
-      Position of second peak in the intensity profiles
+      Position, in pixels, of second peak in the intensity profiles. One value per channel
     multivalued: true
   peak_height_A:
     range: float
     description: >-
-      Height of first peak in the intensity profiles
+      Height of first peak in the intensity profiles. One value per channel
     multivalued: true
   peak_height_B:
     range: float
     description: >-
-      Height of second peak in the intensity profiles
+      Height of second peak in the intensity profiles. One value per channel
     multivalued: true
   peak_prominence_A:
     range: float
     description: >-
-      Prominence of first peak in the intensity profiles
+      Prominence of first peak in the intensity profiles. One value per channel
     multivalued: true
   peak_prominence_B:
     range: float
     description: >-
-      Prominence of second peak in the intensity profiles
+      Prominence of second peak in the intensity profiles. One value per channel
     multivalued: true
