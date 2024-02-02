@@ -827,6 +827,18 @@ slots:
     ifabsent: float(0.01)
     minimum_value: 0.0
     maximum_value: 1.0
+  sigma_z:
+    range: float
+    description: >-
+      Smoothing sigma to be applied to the image in the Z axis.
+  sigma_y:
+    range: float
+    description: >-
+      Smoothing sigma to be applied to the image in the Y axis.
+  sigma_x:
+    range: float
+    description: >-
+      Smoothing sigma to be applied to the image in the X axis.
 
 
 enums:

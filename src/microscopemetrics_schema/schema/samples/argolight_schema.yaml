@@ -54,6 +54,31 @@ classes:
     slot_usage:
       saturation_threshold:
         required: true
+      sigma_z:
+        description: >-
+          Smoothing factor for objects detection in the Z axis
+        required: true
+        multivalued: false
+        minimum_value: 0.0
+        maximum_value: 5.0
+        ifabsent: float(1.0)
+      sigma_y:
+        description: >-
+          Smoothing factor for objects detection in the Y axis
+        required: true
+        multivalued: false
+        minimum_value: 0.0
+        maximum_value: 10.0
+        ifabsent: float(3.0)
+      sigma_x:
+        description: >-
+          Smoothing factor for objects detection in the X axis
+        required: true
+        multivalued: false
+        minimum_value: 0.0
+        maximum_value: 10.0
+        ifabsent: float(3.0)
+
 
   ArgolightBOutput:
     is_a: MetricsOutput
@@ -223,33 +248,6 @@ slots:
       Input parameter: distance between argolight spots
     required: true
     multivalued: false
-  sigma_z:
-    range: float
-    description: >-
-      Input parameter: smoothing factor for objects detection in the Z axis
-    required: true
-    multivalued: false
-    minimum_value: 0.0
-    maximum_value: 5.0
-    ifabsent: float(1.0)
-  sigma_y:
-    range: float
-    description: >-
-      Input parameter: smoothing factor for objects detection in the Y axis
-    required: true
-    multivalued: false
-    minimum_value: 0.0
-    maximum_value: 10.0
-    ifabsent: float(3.0)
-  sigma_x:
-    range: float
-    description: >-
-      Input parameter: smoothing factor for objects detection in the X axis
-    required: true
-    multivalued: false
-    minimum_value: 0.0
-    maximum_value: 10.0
-    ifabsent: float(3.0)
   lower_threshold_correction_factors:
     range: float
     description: >-
