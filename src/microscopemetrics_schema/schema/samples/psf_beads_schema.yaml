@@ -46,6 +46,27 @@ classes:
       - sigma_z
       - sigma_y
       - sigma_x
+      - snr_threshold
+    slot_usage:
+      sigma_z:
+        description: >-
+          Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection.
+          Does not apply to resolution measurements
+        required: true
+        ifabsent: float(1.0)
+      sigma_y:
+        description: >-
+          Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection.
+          Does not apply to resolution measurements
+        required: true
+        ifabsent: float(1.0)
+      sigma_x:
+        description: >-
+          Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection.
+          Does not apply to resolution measurements
+        required: true
+        ifabsent: float(1.0)
+
 
   PSFBeadsOutput:
     is_a: MetricsOutput
@@ -204,30 +225,20 @@ slots:
     multivalued: true
     inlined: true
   min_lateral_distance_factor:
-    range: integer
+    range: float
     description: >-
       Minimal distance that has to separate laterally the beads represented as the 
-      number of pixels
+      number of times the FWHM of the beads.
+    minimum_value: 10.0
+    maximum_value: 30.0
     required: true
-    ifabsent: int(20)
-  sigma_z:
+    ifabsent: float(20)
+  snr_threshold:
     range: float
     description: >-
-      When provided, gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection.
-      Does not apply to resolution measurements
+      Signal to noise ratio threshold to be used for bead detection.
     required: false
-  sigma_y:
-    range: float
-    description: >-
-      When provided, gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection.
-      Does not apply to resolution measurements
-    required: false
-  sigma_x:
-    range: float
-    description: >-
-      When provided, gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection.
-      Does not apply to resolution measurements
-    required: false
+    ifabsent: float(10.0)
 
   # Outputs
   nr_of_beads_analyzed:
