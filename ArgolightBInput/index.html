@@ -279,19 +279,19 @@
 <tr>
 <td><a href="../sigma_z/">sigma_z</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
-<td>Input parameter: smoothing factor for objects detection in the Z axis</td>
+<td>Smoothing factor for objects detection in the Z axis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sigma_y/">sigma_y</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
-<td>Input parameter: smoothing factor for objects detection in the Y axis</td>
+<td>Smoothing factor for objects detection in the Y axis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sigma_x/">sigma_x</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
-<td>Input parameter: smoothing factor for objects detection in the X axis</td>
+<td>Smoothing factor for objects detection in the X axis</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -383,6 +383,39 @@ slot_usage:
     - ArgolightEInput
     - FieldIlluminationInput
     required: true
+  sigma_z:
+    name: sigma_z
+    description: Smoothing factor for objects detection in the Z axis
+    multivalued: false
+    ifabsent: float(1.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 5
+  sigma_y:
+    name: sigma_y
+    description: Smoothing factor for objects detection in the Y axis
+    multivalued: false
+    ifabsent: float(3.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 10
+  sigma_x:
+    name: sigma_x
+    description: Smoothing factor for objects detection in the X axis
+    multivalued: false
+    ifabsent: float(3.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 10
 
 </code></pre>
 </details>
@@ -399,6 +432,39 @@ slot_usage:
     - ArgolightEInput
     - FieldIlluminationInput
     required: true
+  sigma_z:
+    name: sigma_z
+    description: Smoothing factor for objects detection in the Z axis
+    multivalued: false
+    ifabsent: float(1.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 5
+  sigma_y:
+    name: sigma_y
+    description: Smoothing factor for objects detection in the Y axis
+    multivalued: false
+    ifabsent: float(3.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 10
+  sigma_x:
+    name: sigma_x
+    description: Smoothing factor for objects detection in the X axis
+    multivalued: false
+    ifabsent: float(3.0)
+    domain_of:
+    - ArgolightBInput
+    - PSFBeadsInput
+    required: true
+    minimum_value: 0
+    maximum_value: 10
 attributes:
   argolight_b_image:
     name: argolight_b_image
@@ -462,8 +528,7 @@ attributes:
     required: true
   sigma_z:
     name: sigma_z
-    description: 'Input parameter: smoothing factor for objects detection in the Z
-      axis'
+    description: Smoothing factor for objects detection in the Z axis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -472,14 +537,14 @@ attributes:
     owner: ArgolightBInput
     domain_of:
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
     minimum_value: 0
     maximum_value: 5
   sigma_y:
     name: sigma_y
-    description: 'Input parameter: smoothing factor for objects detection in the Y
-      axis'
+    description: Smoothing factor for objects detection in the Y axis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -488,14 +553,14 @@ attributes:
     owner: ArgolightBInput
     domain_of:
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
     minimum_value: 0
     maximum_value: 10
   sigma_x:
     name: sigma_x
-    description: 'Input parameter: smoothing factor for objects detection in the X
-      axis'
+    description: Smoothing factor for objects detection in the X axis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -504,6 +569,7 @@ attributes:
     owner: ArgolightBInput
     domain_of:
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
     minimum_value: 0
