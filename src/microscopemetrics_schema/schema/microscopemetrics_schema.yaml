@@ -21,4 +21,5 @@ imports:
   - linkml:types
   - core_schema
   - samples/field_illumination_schema
+  - samples/psf_beads_schema
   - samples/argolight_schema

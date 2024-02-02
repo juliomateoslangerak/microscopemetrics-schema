@@ -254,6 +254,72 @@ CREATE TABLE "Protocol" (
 	PRIMARY KEY (url)
 );
 
+CREATE TABLE "PSFBeadsInput" (
+	psf_beads_image TEXT NOT NULL, 
+	min_lateral_distance_factor FLOAT NOT NULL, 
+	sigma_z FLOAT NOT NULL, 
+	sigma_y FLOAT NOT NULL, 
+	sigma_x FLOAT NOT NULL, 
+	snr_threshold FLOAT, 
+	PRIMARY KEY (psf_beads_image, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold)
+);
+
+CREATE TABLE "PSFBeadsKeyMeasurements" (
+	nr_of_beads_analyzed INTEGER, 
+	nr_of_beads_discarded_lateral_edge INTEGER, 
+	nr_of_beads_discarded_axial_edge INTEGER, 
+	nr_of_beads_discarded_self_proximity INTEGER, 
+	nr_of_beads_discarded_cluster INTEGER, 
+	nr_of_beads_discarded_fit_quality INTEGER, 
+	fit_quality_z_mean FLOAT, 
+	fit_quality_z_median FLOAT, 
+	fit_quality_z_stdev FLOAT, 
+	fit_quality_y_mean FLOAT, 
+	fit_quality_y_median FLOAT, 
+	fit_quality_y_stdev FLOAT, 
+	fit_quality_x_mean FLOAT, 
+	fit_quality_x_median FLOAT, 
+	fit_quality_x_stdev FLOAT, 
+	resolution_mean_fwhm_z_pixels FLOAT, 
+	resolution_median_fwhm_z_pixels FLOAT, 
+	resolution_stdev_fwhm_z_pixels FLOAT, 
+	resolution_mean_fwhm_y_pixels FLOAT, 
+	resolution_median_fwhm_y_pixels FLOAT, 
+	resolution_stdev_fwhm_y_pixels FLOAT, 
+	resolution_mean_fwhm_x_pixels FLOAT, 
+	resolution_median_fwhm_x_pixels FLOAT, 
+	resolution_stdev_fwhm_x_pixels FLOAT, 
+	resolution_mean_fwhm_z_microns FLOAT, 
+	resolution_median_fwhm_z_microns FLOAT, 
+	resolution_stdev_fwhm_z_microns FLOAT, 
+	resolution_mean_fwhm_y_microns FLOAT, 
+	resolution_median_fwhm_y_microns FLOAT, 
+	resolution_stdev_fwhm_y_microns FLOAT, 
+	resolution_mean_fwhm_x_microns FLOAT, 
+	resolution_median_fwhm_x_microns FLOAT, 
+	resolution_stdev_fwhm_x_microns FLOAT, 
+	resolution_mean_fwhm_lateral_asymmetry_ratio FLOAT, 
+	resolution_median_fwhm_lateral_asymmetry_ratio FLOAT, 
+	resolution_stdev_fwhm_lateral_asymmetry_ratio FLOAT, 
+	PRIMARY KEY (nr_of_beads_analyzed, nr_of_beads_discarded_lateral_edge, nr_of_beads_discarded_axial_edge, nr_of_beads_discarded_self_proximity, nr_of_beads_discarded_cluster, nr_of_beads_discarded_fit_quality, fit_quality_z_mean, fit_quality_z_median, fit_quality_z_stdev, fit_quality_y_mean, fit_quality_y_median, fit_quality_y_stdev, fit_quality_x_mean, fit_quality_x_median, fit_quality_x_stdev, resolution_mean_fwhm_z_pixels, resolution_median_fwhm_z_pixels, resolution_stdev_fwhm_z_pixels, resolution_mean_fwhm_y_pixels, resolution_median_fwhm_y_pixels, resolution_stdev_fwhm_y_pixels, resolution_mean_fwhm_x_pixels, resolution_median_fwhm_x_pixels, resolution_stdev_fwhm_x_pixels, resolution_mean_fwhm_z_microns, resolution_median_fwhm_z_microns, resolution_stdev_fwhm_z_microns, resolution_mean_fwhm_y_microns, resolution_median_fwhm_y_microns, resolution_stdev_fwhm_y_microns, resolution_mean_fwhm_x_microns, resolution_median_fwhm_x_microns, resolution_stdev_fwhm_x_microns, resolution_mean_fwhm_lateral_asymmetry_ratio, resolution_median_fwhm_lateral_asymmetry_ratio, resolution_stdev_fwhm_lateral_asymmetry_ratio)
+);
+
+CREATE TABLE "PSFBeadsOutput" (
+	bead_crops TEXT, 
+	analyzed_bead_centroids TEXT, 
+	discarded_bead_centroids_lateral_edge TEXT, 
+	discarded_bead_centroids_axial_edge TEXT, 
+	discarded_bead_centroids_self_proximity TEXT, 
+	discarded_bead_centroids_cluster TEXT, 
+	discarded_bead_centroids_fit_quality TEXT, 
+	key_values TEXT, 
+	psf_properties TEXT, 
+	psf_z_profiles TEXT, 
+	psf_y_profiles TEXT, 
+	psf_x_profiles TEXT, 
+	PRIMARY KEY (bead_crops, analyzed_bead_centroids, discarded_bead_centroids_lateral_edge, discarded_bead_centroids_axial_edge, discarded_bead_centroids_self_proximity, discarded_bead_centroids_cluster, discarded_bead_centroids_fit_quality, key_values, psf_properties, psf_z_profiles, psf_y_profiles, psf_x_profiles)
+);
+
 CREATE TABLE "Roi" (
 	label TEXT NOT NULL, 
 	description TEXT, 
@@ -591,6 +657,24 @@ CREATE TABLE "MetricsDataset" (
 	processing_log TEXT, 
 	comment TEXT, 
 	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
+	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 
+	FOREIGN KEY(sample) REFERENCES "Sample" (type)
+);
+
+CREATE TABLE "PSFBeadsDataset" (
+	name TEXT, 
+	description TEXT, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	processing_datetime DATETIME, 
+	processing_log TEXT, 
+	comment TEXT, 
+	input TEXT NOT NULL, 
 	output TEXT, 
 	PRIMARY KEY (name, description, microscope, sample, experimenter, acquisition_datetime, processed, processing_datetime, processing_log, comment, input, output), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (id), 

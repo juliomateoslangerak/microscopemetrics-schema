@@ -4,5 +4,17 @@
    "microscopemetrics_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/",
    "MetaObject": {
       "@id": "linkml:Any"
+   },
+   "PSFBeadsDataset": {
+      "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset"
+   },
+   "PSFBeadsInput": {
+      "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput"
+   },
+   "PSFBeadsKeyMeasurements": {
+      "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyMeasurements"
+   },
+   "PSFBeadsOutput": {
+      "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsOutput"
    }
 }

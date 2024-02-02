@@ -536,3 +536,61 @@ def st_mm_field_illumination_processed_dataset(
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)
 
+
+# PSF Beads
+@st.composite
+def st_mm_psf_beads_input(
+    draw,
+    psf_beads_image=st_mm_image_as_numpy(),
+    min_lateral_distance_factor=st.floats(min_value=15.0, max_value=25.0),
+    sigma_z=st.floats(min_value=0.7, max_value=2.0),
+    sigma_y=st.floats(min_value=0.7, max_value=2.0),
+    sigma_x=st.floats(min_value=0.7, max_value=2.0),
+    snr_threshold=st.floats(min_value=5.0, max_value=100.0),
+) -> mm_schema.PSFBeadsInput:
+    return mm_schema.PSFBeadsInput(
+        psf_beads_image=draw(psf_beads_image),
+        min_lateral_distance_factor=draw(min_lateral_distance_factor),
+        sigma_z=draw(sigma_z),
+        sigma_y=draw(sigma_y),
+        sigma_x=draw(sigma_x),
+        snr_threshold=draw(snr_threshold),
+    )
+
+
+@st.composite
+def st_mm_psf_beads_output(
+    draw,
+    output=st.just(
+        mm_schema.PSFBeadsOutput()
+    ),
+) -> mm_schema.PSFBeadsOutput:
+    return draw(output)
+
+
+@st.composite
+def st_mm_psf_beads_unprocessed_dataset(
+    draw,
+    dataset=st_mm_dataset(
+        target_class=mm_schema.PSFBeadsDataset,
+        processed=st.just(False),
+        input=st_mm_psf_beads_input(),
+        output=st_mm_psf_beads_output(),
+    ),
+) -> mm_schema.PSFBeadsDataset:
+    return draw(dataset)
+
+
+@st.composite
+def st_mm_psf_beads_processed_dataset(
+    draw,
+    dataset=st_mm_dataset(
+        target_class=mm_schema.PSFBeadsDataset,
+        processed=st.just(True),
+        input=st_mm_psf_beads_input(),
+        output=st_mm_psf_beads_output(),
+    ),
+) -> mm_schema.PSFBeadsDataset:
+    return draw(dataset)
+
+

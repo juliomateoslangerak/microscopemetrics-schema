@@ -113,3 +113,18 @@ class TestFieldIlluminationSchemaElements(unittest.TestCase):
         self.assertIsInstance(dataset, mm_schema.FieldIlluminationDataset)
         self.assertTrue(dataset.processed)
 
+
+class TestPSFBeadsSchemaElements(unittest.TestCase):
+    """Test the strategies for the PSFBeads schema elements."""
+
+    @given(st_mm_psf_beads_unprocessed_dataset())
+    def test_psf_beads_unprocessed_dataset(self, dataset):
+        """Test the psf beads dataset strategy."""
+        self.assertIsInstance(dataset, mm_schema.PSFBeadsDataset)
+        self.assertFalse(dataset.processed)
+
+    @given(st_mm_psf_beads_processed_dataset())
+    def test_psf_beads_processed_dataset(self, dataset):
+        """Test the psf beads dataset strategy."""
+        self.assertIsInstance(dataset, mm_schema.PSFBeadsDataset)
+        self.assertTrue(dataset.processed)

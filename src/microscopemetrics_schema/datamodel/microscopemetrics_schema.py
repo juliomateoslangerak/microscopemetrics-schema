@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-02T09:09:16
+# Generation date: 2024-02-02T17:59:08
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1698,6 +1698,331 @@ class FieldIlluminationKeyValues(KeyValues):
 
 
 @dataclass
+class PSFBeadsDataset(MetricsDataset):
+    """
+    A PSF beads dataset
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "PSFBeadsDataset"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset
+
+    microscope: Union[str, MicroscopeId] = None
+    input: Union[dict, "PSFBeadsInput"] = None
+    processed: Union[bool, Bool] = False
+    output: Optional[Union[dict, "PSFBeadsOutput"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.input):
+            self.MissingRequiredField("input")
+        if not isinstance(self.input, PSFBeadsInput):
+            self.input = PSFBeadsInput(**as_dict(self.input))
+
+        if self.output is not None and not isinstance(self.output, PSFBeadsOutput):
+            self.output = PSFBeadsOutput(**as_dict(self.output))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PSFBeadsInput(MetricsInput):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "PSFBeadsInput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
+
+    psf_beads_image: Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]] = empty_dict()
+    min_lateral_distance_factor: float = 20.0
+    sigma_z: float = 1.0
+    sigma_y: float = 1.0
+    sigma_x: float = 1.0
+    snr_threshold: Optional[float] = 10.0
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.psf_beads_image):
+            self.MissingRequiredField("psf_beads_image")
+        self._normalize_inlined_as_dict(slot_name="psf_beads_image", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
+
+        if self._is_empty(self.min_lateral_distance_factor):
+            self.MissingRequiredField("min_lateral_distance_factor")
+        if not isinstance(self.min_lateral_distance_factor, float):
+            self.min_lateral_distance_factor = float(self.min_lateral_distance_factor)
+
+        if self._is_empty(self.sigma_z):
+            self.MissingRequiredField("sigma_z")
+        if not isinstance(self.sigma_z, float):
+            self.sigma_z = float(self.sigma_z)
+
+        if self._is_empty(self.sigma_y):
+            self.MissingRequiredField("sigma_y")
+        if not isinstance(self.sigma_y, float):
+            self.sigma_y = float(self.sigma_y)
+
+        if self._is_empty(self.sigma_x):
+            self.MissingRequiredField("sigma_x")
+        if not isinstance(self.sigma_x, float):
+            self.sigma_x = float(self.sigma_x)
+
+        if self.snr_threshold is not None and not isinstance(self.snr_threshold, float):
+            self.snr_threshold = float(self.snr_threshold)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PSFBeadsOutput(MetricsOutput):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsOutput")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "PSFBeadsOutput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsOutput
+
+    bead_crops: Optional[Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]]] = empty_dict()
+    analyzed_bead_centroids: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    discarded_bead_centroids_lateral_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    discarded_bead_centroids_axial_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    discarded_bead_centroids_self_proximity: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    discarded_bead_centroids_cluster: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    discarded_bead_centroids_fit_quality: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    key_values: Optional[Union[dict, "PSFBeadsKeyMeasurements"]] = None
+    psf_properties: Optional[Union[dict, TableAsDict]] = None
+    psf_z_profiles: Optional[Union[dict, TableAsDict]] = None
+    psf_y_profiles: Optional[Union[dict, TableAsDict]] = None
+    psf_x_profiles: Optional[Union[dict, TableAsDict]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        self._normalize_inlined_as_dict(slot_name="bead_crops", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="analyzed_bead_centroids", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_lateral_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_axial_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_self_proximity", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_cluster", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_fit_quality", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        if self.key_values is not None and not isinstance(self.key_values, PSFBeadsKeyMeasurements):
+            self.key_values = PSFBeadsKeyMeasurements(**as_dict(self.key_values))
+
+        if self.psf_properties is not None and not isinstance(self.psf_properties, TableAsDict):
+            self.psf_properties = TableAsDict(**as_dict(self.psf_properties))
+
+        if self.psf_z_profiles is not None and not isinstance(self.psf_z_profiles, TableAsDict):
+            self.psf_z_profiles = TableAsDict(**as_dict(self.psf_z_profiles))
+
+        if self.psf_y_profiles is not None and not isinstance(self.psf_y_profiles, TableAsDict):
+            self.psf_y_profiles = TableAsDict(**as_dict(self.psf_y_profiles))
+
+        if self.psf_x_profiles is not None and not isinstance(self.psf_x_profiles, TableAsDict):
+            self.psf_x_profiles = TableAsDict(**as_dict(self.psf_x_profiles))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PSFBeadsKeyMeasurements(KeyValues):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyMeasurements")
+    class_class_curie: ClassVar[str] = None
+    class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
+
+    nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_discarded_axial_edge: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_discarded_self_proximity: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_discarded_cluster: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_discarded_fit_quality: Optional[Union[int, List[int]]] = empty_list()
+    fit_quality_z_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_z_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_z_stdev: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_y_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_y_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_y_stdev: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_x_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_x_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_quality_x_stdev: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_mean_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
+    resolution_median_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
+    resolution_stdev_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.nr_of_beads_analyzed, list):
+            self.nr_of_beads_analyzed = [self.nr_of_beads_analyzed] if self.nr_of_beads_analyzed is not None else []
+        self.nr_of_beads_analyzed = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_analyzed]
+
+        if not isinstance(self.nr_of_beads_discarded_lateral_edge, list):
+            self.nr_of_beads_discarded_lateral_edge = [self.nr_of_beads_discarded_lateral_edge] if self.nr_of_beads_discarded_lateral_edge is not None else []
+        self.nr_of_beads_discarded_lateral_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_lateral_edge]
+
+        if not isinstance(self.nr_of_beads_discarded_axial_edge, list):
+            self.nr_of_beads_discarded_axial_edge = [self.nr_of_beads_discarded_axial_edge] if self.nr_of_beads_discarded_axial_edge is not None else []
+        self.nr_of_beads_discarded_axial_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_axial_edge]
+
+        if not isinstance(self.nr_of_beads_discarded_self_proximity, list):
+            self.nr_of_beads_discarded_self_proximity = [self.nr_of_beads_discarded_self_proximity] if self.nr_of_beads_discarded_self_proximity is not None else []
+        self.nr_of_beads_discarded_self_proximity = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_self_proximity]
+
+        if not isinstance(self.nr_of_beads_discarded_cluster, list):
+            self.nr_of_beads_discarded_cluster = [self.nr_of_beads_discarded_cluster] if self.nr_of_beads_discarded_cluster is not None else []
+        self.nr_of_beads_discarded_cluster = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_cluster]
+
+        if not isinstance(self.nr_of_beads_discarded_fit_quality, list):
+            self.nr_of_beads_discarded_fit_quality = [self.nr_of_beads_discarded_fit_quality] if self.nr_of_beads_discarded_fit_quality is not None else []
+        self.nr_of_beads_discarded_fit_quality = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_fit_quality]
+
+        if not isinstance(self.fit_quality_z_mean, list):
+            self.fit_quality_z_mean = [self.fit_quality_z_mean] if self.fit_quality_z_mean is not None else []
+        self.fit_quality_z_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_mean]
+
+        if not isinstance(self.fit_quality_z_median, list):
+            self.fit_quality_z_median = [self.fit_quality_z_median] if self.fit_quality_z_median is not None else []
+        self.fit_quality_z_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_median]
+
+        if not isinstance(self.fit_quality_z_stdev, list):
+            self.fit_quality_z_stdev = [self.fit_quality_z_stdev] if self.fit_quality_z_stdev is not None else []
+        self.fit_quality_z_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_stdev]
+
+        if not isinstance(self.fit_quality_y_mean, list):
+            self.fit_quality_y_mean = [self.fit_quality_y_mean] if self.fit_quality_y_mean is not None else []
+        self.fit_quality_y_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_mean]
+
+        if not isinstance(self.fit_quality_y_median, list):
+            self.fit_quality_y_median = [self.fit_quality_y_median] if self.fit_quality_y_median is not None else []
+        self.fit_quality_y_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_median]
+
+        if not isinstance(self.fit_quality_y_stdev, list):
+            self.fit_quality_y_stdev = [self.fit_quality_y_stdev] if self.fit_quality_y_stdev is not None else []
+        self.fit_quality_y_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_stdev]
+
+        if not isinstance(self.fit_quality_x_mean, list):
+            self.fit_quality_x_mean = [self.fit_quality_x_mean] if self.fit_quality_x_mean is not None else []
+        self.fit_quality_x_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_mean]
+
+        if not isinstance(self.fit_quality_x_median, list):
+            self.fit_quality_x_median = [self.fit_quality_x_median] if self.fit_quality_x_median is not None else []
+        self.fit_quality_x_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_median]
+
+        if not isinstance(self.fit_quality_x_stdev, list):
+            self.fit_quality_x_stdev = [self.fit_quality_x_stdev] if self.fit_quality_x_stdev is not None else []
+        self.fit_quality_x_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_stdev]
+
+        if not isinstance(self.resolution_mean_fwhm_z_pixels, list):
+            self.resolution_mean_fwhm_z_pixels = [self.resolution_mean_fwhm_z_pixels] if self.resolution_mean_fwhm_z_pixels is not None else []
+        self.resolution_mean_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_z_pixels]
+
+        if not isinstance(self.resolution_median_fwhm_z_pixels, list):
+            self.resolution_median_fwhm_z_pixels = [self.resolution_median_fwhm_z_pixels] if self.resolution_median_fwhm_z_pixels is not None else []
+        self.resolution_median_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_z_pixels]
+
+        if not isinstance(self.resolution_stdev_fwhm_z_pixels, list):
+            self.resolution_stdev_fwhm_z_pixels = [self.resolution_stdev_fwhm_z_pixels] if self.resolution_stdev_fwhm_z_pixels is not None else []
+        self.resolution_stdev_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_z_pixels]
+
+        if not isinstance(self.resolution_mean_fwhm_y_pixels, list):
+            self.resolution_mean_fwhm_y_pixels = [self.resolution_mean_fwhm_y_pixels] if self.resolution_mean_fwhm_y_pixels is not None else []
+        self.resolution_mean_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_y_pixels]
+
+        if not isinstance(self.resolution_median_fwhm_y_pixels, list):
+            self.resolution_median_fwhm_y_pixels = [self.resolution_median_fwhm_y_pixels] if self.resolution_median_fwhm_y_pixels is not None else []
+        self.resolution_median_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_y_pixels]
+
+        if not isinstance(self.resolution_stdev_fwhm_y_pixels, list):
+            self.resolution_stdev_fwhm_y_pixels = [self.resolution_stdev_fwhm_y_pixels] if self.resolution_stdev_fwhm_y_pixels is not None else []
+        self.resolution_stdev_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_y_pixels]
+
+        if not isinstance(self.resolution_mean_fwhm_x_pixels, list):
+            self.resolution_mean_fwhm_x_pixels = [self.resolution_mean_fwhm_x_pixels] if self.resolution_mean_fwhm_x_pixels is not None else []
+        self.resolution_mean_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_x_pixels]
+
+        if not isinstance(self.resolution_median_fwhm_x_pixels, list):
+            self.resolution_median_fwhm_x_pixels = [self.resolution_median_fwhm_x_pixels] if self.resolution_median_fwhm_x_pixels is not None else []
+        self.resolution_median_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_x_pixels]
+
+        if not isinstance(self.resolution_stdev_fwhm_x_pixels, list):
+            self.resolution_stdev_fwhm_x_pixels = [self.resolution_stdev_fwhm_x_pixels] if self.resolution_stdev_fwhm_x_pixels is not None else []
+        self.resolution_stdev_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_x_pixels]
+
+        if not isinstance(self.resolution_mean_fwhm_z_microns, list):
+            self.resolution_mean_fwhm_z_microns = [self.resolution_mean_fwhm_z_microns] if self.resolution_mean_fwhm_z_microns is not None else []
+        self.resolution_mean_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_z_microns]
+
+        if not isinstance(self.resolution_median_fwhm_z_microns, list):
+            self.resolution_median_fwhm_z_microns = [self.resolution_median_fwhm_z_microns] if self.resolution_median_fwhm_z_microns is not None else []
+        self.resolution_median_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_z_microns]
+
+        if not isinstance(self.resolution_stdev_fwhm_z_microns, list):
+            self.resolution_stdev_fwhm_z_microns = [self.resolution_stdev_fwhm_z_microns] if self.resolution_stdev_fwhm_z_microns is not None else []
+        self.resolution_stdev_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_z_microns]
+
+        if not isinstance(self.resolution_mean_fwhm_y_microns, list):
+            self.resolution_mean_fwhm_y_microns = [self.resolution_mean_fwhm_y_microns] if self.resolution_mean_fwhm_y_microns is not None else []
+        self.resolution_mean_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_y_microns]
+
+        if not isinstance(self.resolution_median_fwhm_y_microns, list):
+            self.resolution_median_fwhm_y_microns = [self.resolution_median_fwhm_y_microns] if self.resolution_median_fwhm_y_microns is not None else []
+        self.resolution_median_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_y_microns]
+
+        if not isinstance(self.resolution_stdev_fwhm_y_microns, list):
+            self.resolution_stdev_fwhm_y_microns = [self.resolution_stdev_fwhm_y_microns] if self.resolution_stdev_fwhm_y_microns is not None else []
+        self.resolution_stdev_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_y_microns]
+
+        if not isinstance(self.resolution_mean_fwhm_x_microns, list):
+            self.resolution_mean_fwhm_x_microns = [self.resolution_mean_fwhm_x_microns] if self.resolution_mean_fwhm_x_microns is not None else []
+        self.resolution_mean_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_x_microns]
+
+        if not isinstance(self.resolution_median_fwhm_x_microns, list):
+            self.resolution_median_fwhm_x_microns = [self.resolution_median_fwhm_x_microns] if self.resolution_median_fwhm_x_microns is not None else []
+        self.resolution_median_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_x_microns]
+
+        if not isinstance(self.resolution_stdev_fwhm_x_microns, list):
+            self.resolution_stdev_fwhm_x_microns = [self.resolution_stdev_fwhm_x_microns] if self.resolution_stdev_fwhm_x_microns is not None else []
+        self.resolution_stdev_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_x_microns]
+
+        if not isinstance(self.resolution_mean_fwhm_lateral_asymmetry_ratio, list):
+            self.resolution_mean_fwhm_lateral_asymmetry_ratio = [self.resolution_mean_fwhm_lateral_asymmetry_ratio] if self.resolution_mean_fwhm_lateral_asymmetry_ratio is not None else []
+        self.resolution_mean_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_mean_fwhm_lateral_asymmetry_ratio]
+
+        if not isinstance(self.resolution_median_fwhm_lateral_asymmetry_ratio, list):
+            self.resolution_median_fwhm_lateral_asymmetry_ratio = [self.resolution_median_fwhm_lateral_asymmetry_ratio] if self.resolution_median_fwhm_lateral_asymmetry_ratio is not None else []
+        self.resolution_median_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_lateral_asymmetry_ratio]
+
+        if not isinstance(self.resolution_stdev_fwhm_lateral_asymmetry_ratio, list):
+            self.resolution_stdev_fwhm_lateral_asymmetry_ratio = [self.resolution_stdev_fwhm_lateral_asymmetry_ratio] if self.resolution_stdev_fwhm_lateral_asymmetry_ratio is not None else []
+        self.resolution_stdev_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_lateral_asymmetry_ratio]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class ArgolightBDataset(MetricsDataset):
     """
     An Argolight sample pattern B dataset. This pattern consists of an array of circles
@@ -2244,6 +2569,15 @@ slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/bit_depth'], na
 slots.saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.saturation_threshold, domain=None, range=Optional[float])
 
+slots.sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_z, domain=None, range=Optional[float])
+
+slots.sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_y, domain=None, range=Optional[float])
+
+slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_x, domain=None, range=Optional[float])
+
 slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/field_illumination_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[dict, ImageAsNumpy])
 
@@ -2361,20 +2695,128 @@ slots.decile_8 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_s
 slots.decile_9 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_9'], name="decile_9", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_9'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.decile_9, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.psf_beads_image = Slot(uri="str(uriorcurie)", name="psf_beads_image", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_image, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])
+
+slots.min_lateral_distance_factor = Slot(uri="str(uriorcurie)", name="min_lateral_distance_factor", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
+
+slots.snr_threshold = Slot(uri="str(uriorcurie)", name="snr_threshold", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=Optional[float])
+
+slots.nr_of_beads_analyzed = Slot(uri="str(uriorcurie)", name="nr_of_beads_analyzed", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_analyzed, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_discarded_lateral_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_lateral_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_lateral_edge, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_discarded_axial_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_axial_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_axial_edge, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_discarded_self_proximity = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_self_proximity", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_discarded_cluster = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_cluster", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_cluster, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_discarded_fit_quality = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_fit_quality", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_fit_quality, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.fit_quality_z_mean = Slot(uri="str(uriorcurie)", name="fit_quality_z_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_mean, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_z_median = Slot(uri="str(uriorcurie)", name="fit_quality_z_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_median, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_z_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_z_stdev", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_stdev, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_y_mean = Slot(uri="str(uriorcurie)", name="fit_quality_y_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_mean, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_y_median = Slot(uri="str(uriorcurie)", name="fit_quality_y_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_median, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_y_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_y_stdev", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_stdev, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_x_mean = Slot(uri="str(uriorcurie)", name="fit_quality_x_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_mean, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_x_median = Slot(uri="str(uriorcurie)", name="fit_quality_x_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_median, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_quality_x_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_x_stdev", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_stdev, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_z_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_y_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_x_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_z_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_y_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_x_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_mean_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_lateral_asymmetry_ratio", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_median_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_lateral_asymmetry_ratio", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.resolution_stdev_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_lateral_asymmetry_ratio", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.argolight_b_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_b_image'], name="argolight_b_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_b_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[dict, ImageAsNumpy])
 
 slots.spots_distance = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distance'], name="spots_distance", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distance'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.spots_distance, domain=None, range=float)
-
-slots.sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/sigma_z'], name="sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/sigma_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_z, domain=None, range=float)
-
-slots.sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/sigma_y'], name="sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/sigma_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_y, domain=None, range=float)
-
-slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/sigma_x'], name="sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/sigma_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_x, domain=None, range=float)
 
 slots.lower_threshold_correction_factors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/lower_threshold_correction_factors'], name="lower_threshold_correction_factors", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/lower_threshold_correction_factors'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.lower_threshold_correction_factors, domain=None, range=Optional[Union[float, List[float]]])
@@ -2754,6 +3196,48 @@ slots.fieldIlluminationOutput__corner_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['
 slots.fieldIlluminationOutput__center_of_illumination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_illumination'], name="fieldIlluminationOutput__center_of_illumination", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_illumination'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
+slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Union[dict, PSFBeadsInput])
+
+slots.pSFBeadsDataset__output = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__output", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
+
+slots.pSFBeadsOutput__bead_crops = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_crops", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_crops, domain=None, range=Optional[Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]]])
+
+slots.pSFBeadsOutput__analyzed_bead_centroids = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__analyzed_bead_centroids", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centroids, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__discarded_bead_centroids_lateral_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_lateral_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_lateral_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__discarded_bead_centroids_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_axial_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_axial_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__discarded_bead_centroids_self_proximity = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_self_proximity", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_self_proximity, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__discarded_bead_centroids_cluster = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_cluster", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_cluster, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__discarded_bead_centroids_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_fit_quality", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_fit_quality, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__key_values = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__key_values", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_values, domain=None, range=Optional[Union[dict, PSFBeadsKeyMeasurements]])
+
+slots.pSFBeadsOutput__psf_properties = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__psf_properties", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__psf_properties, domain=None, range=Optional[Union[dict, TableAsDict]])
+
+slots.pSFBeadsOutput__psf_z_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__psf_z_profiles", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__psf_z_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
+
+slots.pSFBeadsOutput__psf_y_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__psf_y_profiles", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__psf_y_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
+
+slots.pSFBeadsOutput__psf_x_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__psf_x_profiles", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__psf_x_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
+
 slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Union[dict, ArgolightBInput])
 
@@ -2796,8 +3280,26 @@ slots.argolightEOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['
 slots.FieldIlluminationInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInput_saturation_threshold, domain=FieldIlluminationInput, range=float)
 
+slots.PSFBeadsInput_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="PSFBeadsInput_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_z, domain=PSFBeadsInput, range=float)
+
+slots.PSFBeadsInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="PSFBeadsInput_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_y, domain=PSFBeadsInput, range=float)
+
+slots.PSFBeadsInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="PSFBeadsInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_x, domain=PSFBeadsInput, range=float)
+
 slots.ArgolightBInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightBInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_saturation_threshold, domain=ArgolightBInput, range=float)
+
+slots.ArgolightBInput_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="ArgolightBInput_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_z, domain=ArgolightBInput, range=float)
+
+slots.ArgolightBInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="ArgolightBInput_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_y, domain=ArgolightBInput, range=float)
+
+slots.ArgolightBInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="ArgolightBInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_x, domain=ArgolightBInput, range=float)
 
 slots.ArgolightEInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightEInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightEInput_saturation_threshold, domain=ArgolightEInput, range=float)

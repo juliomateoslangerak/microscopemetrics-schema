@@ -402,6 +402,85 @@ message Protocol
  repeated  experimenter authors = 0
   string url = 0
  }
+// A PSF beads dataset
+message PSFBeadsDataset
+ {
+  string name = 0
+  string description = 0
+  microscope microscope = 0
+  sample sample = 0
+ repeated  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  comment comment = 0
+  pSFBeadsInput input = 0
+  pSFBeadsOutput output = 0
+ }
+message PSFBeadsInput
+ {
+ repeated  imageAsNumpy psfBeadsImage = 0
+  float minLateralDistanceFactor = 0
+  float sigmaZ = 0
+  float sigmaY = 0
+  float sigmaX = 0
+  float snrThreshold = 0
+ }
+message PSFBeadsKeyMeasurements
+ {
+ repeated  integer nrOfBeadsAnalyzed = 0
+ repeated  integer nrOfBeadsDiscardedLateralEdge = 0
+ repeated  integer nrOfBeadsDiscardedAxialEdge = 0
+ repeated  integer nrOfBeadsDiscardedSelfProximity = 0
+ repeated  integer nrOfBeadsDiscardedCluster = 0
+ repeated  integer nrOfBeadsDiscardedFitQuality = 0
+ repeated  float fitQualityZMean = 0
+ repeated  float fitQualityZMedian = 0
+ repeated  float fitQualityZStdev = 0
+ repeated  float fitQualityYMean = 0
+ repeated  float fitQualityYMedian = 0
+ repeated  float fitQualityYStdev = 0
+ repeated  float fitQualityXMean = 0
+ repeated  float fitQualityXMedian = 0
+ repeated  float fitQualityXStdev = 0
+ repeated  float resolutionMeanFwhmZPixels = 0
+ repeated  float resolutionMedianFwhmZPixels = 0
+ repeated  float resolutionStdevFwhmZPixels = 0
+ repeated  float resolutionMeanFwhmYPixels = 0
+ repeated  float resolutionMedianFwhmYPixels = 0
+ repeated  float resolutionStdevFwhmYPixels = 0
+ repeated  float resolutionMeanFwhmXPixels = 0
+ repeated  float resolutionMedianFwhmXPixels = 0
+ repeated  float resolutionStdevFwhmXPixels = 0
+ repeated  float resolutionMeanFwhmZMicrons = 0
+ repeated  float resolutionMedianFwhmZMicrons = 0
+ repeated  float resolutionStdevFwhmZMicrons = 0
+ repeated  float resolutionMeanFwhmYMicrons = 0
+ repeated  float resolutionMedianFwhmYMicrons = 0
+ repeated  float resolutionStdevFwhmYMicrons = 0
+ repeated  float resolutionMeanFwhmXMicrons = 0
+ repeated  float resolutionMedianFwhmXMicrons = 0
+ repeated  float resolutionStdevFwhmXMicrons = 0
+ repeated  float resolutionMeanFwhmLateralAsymmetryRatio = 0
+ repeated  float resolutionMedianFwhmLateralAsymmetryRatio = 0
+ repeated  float resolutionStdevFwhmLateralAsymmetryRatio = 0
+ }
+message PSFBeadsOutput
+ {
+ repeated  imageAsNumpy beadCrops = 0
+ repeated  roiMassCenters analyzedBeadCentroids = 0
+ repeated  roiMassCenters discardedBeadCentroidsLateralEdge = 0
+ repeated  roiMassCenters discardedBeadCentroidsAxialEdge = 0
+ repeated  roiMassCenters discardedBeadCentroidsSelfProximity = 0
+ repeated  roiMassCenters discardedBeadCentroidsCluster = 0
+ repeated  roiMassCenters discardedBeadCentroidsFitQuality = 0
+  pSFBeadsKeyMeasurements keyValues = 0
+  tableAsDict psfProperties = 0
+  tableAsDict psfZProfiles = 0
+  tableAsDict psfYProfiles = 0
+  tableAsDict psfXProfiles = 0
+ }
 // A rectangle as defined by x, y coordinates and width, height
 message Rectangle
  {

@@ -475,6 +475,88 @@ type Protocol
     url: String!
   }
 
+type PSFBeadsDataset
+  {
+    name: String
+    description: String
+    microscope: Microscope!
+    sample: Sample
+    experimenter: [Experimenter]
+    acquisitionDatetime: Datetime
+    processed: Boolean!
+    processingDatetime: Datetime
+    processingLog: String
+    comment: [Comment]
+    input: PSFBeadsInput!
+    output: PSFBeadsOutput
+  }
+
+type PSFBeadsInput
+  {
+    psfBeadsImage: [ImageAsNumpy]!
+    minLateralDistanceFactor: Float!
+    sigmaZ: Float!
+    sigmaY: Float!
+    sigmaX: Float!
+    snrThreshold: Float
+  }
+
+type PSFBeadsKeyMeasurements
+  {
+    nrOfBeadsAnalyzed: [Integer]
+    nrOfBeadsDiscardedLateralEdge: [Integer]
+    nrOfBeadsDiscardedAxialEdge: [Integer]
+    nrOfBeadsDiscardedSelfProximity: [Integer]
+    nrOfBeadsDiscardedCluster: [Integer]
+    nrOfBeadsDiscardedFitQuality: [Integer]
+    fitQualityZMean: [Float]
+    fitQualityZMedian: [Float]
+    fitQualityZStdev: [Float]
+    fitQualityYMean: [Float]
+    fitQualityYMedian: [Float]
+    fitQualityYStdev: [Float]
+    fitQualityXMean: [Float]
+    fitQualityXMedian: [Float]
+    fitQualityXStdev: [Float]
+    resolutionMeanFwhmZPixels: [Float]
+    resolutionMedianFwhmZPixels: [Float]
+    resolutionStdevFwhmZPixels: [Float]
+    resolutionMeanFwhmYPixels: [Float]
+    resolutionMedianFwhmYPixels: [Float]
+    resolutionStdevFwhmYPixels: [Float]
+    resolutionMeanFwhmXPixels: [Float]
+    resolutionMedianFwhmXPixels: [Float]
+    resolutionStdevFwhmXPixels: [Float]
+    resolutionMeanFwhmZMicrons: [Float]
+    resolutionMedianFwhmZMicrons: [Float]
+    resolutionStdevFwhmZMicrons: [Float]
+    resolutionMeanFwhmYMicrons: [Float]
+    resolutionMedianFwhmYMicrons: [Float]
+    resolutionStdevFwhmYMicrons: [Float]
+    resolutionMeanFwhmXMicrons: [Float]
+    resolutionMedianFwhmXMicrons: [Float]
+    resolutionStdevFwhmXMicrons: [Float]
+    resolutionMeanFwhmLateralAsymmetryRatio: [Float]
+    resolutionMedianFwhmLateralAsymmetryRatio: [Float]
+    resolutionStdevFwhmLateralAsymmetryRatio: [Float]
+  }
+
+type PSFBeadsOutput
+  {
+    beadCrops: [ImageAsNumpy]
+    analyzedBeadCentroids: [RoiMassCenters]
+    discardedBeadCentroidsLateralEdge: [RoiMassCenters]
+    discardedBeadCentroidsAxialEdge: [RoiMassCenters]
+    discardedBeadCentroidsSelfProximity: [RoiMassCenters]
+    discardedBeadCentroidsCluster: [RoiMassCenters]
+    discardedBeadCentroidsFitQuality: [RoiMassCenters]
+    keyValues: PSFBeadsKeyMeasurements
+    psfProperties: TableAsDict
+    psfZProfiles: TableAsDict
+    psfYProfiles: TableAsDict
+    psfXProfiles: TableAsDict
+  }
+
 type Rectangle
   {
     label: String!

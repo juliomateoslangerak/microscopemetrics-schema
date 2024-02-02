@@ -195,19 +195,19 @@
                     "type": "number"
                 },
                 "sigma_x": {
-                    "description": "Input parameter: smoothing factor for objects detection in the X axis",
+                    "description": "Smoothing factor for objects detection in the X axis",
                     "maximum": 10,
                     "minimum": 0,
                     "type": "number"
                 },
                 "sigma_y": {
-                    "description": "Input parameter: smoothing factor for objects detection in the Y axis",
+                    "description": "Smoothing factor for objects detection in the Y axis",
                     "maximum": 10,
                     "minimum": 0,
                     "type": "number"
                 },
                 "sigma_z": {
-                    "description": "Input parameter: smoothing factor for objects detection in the Z axis",
+                    "description": "Smoothing factor for objects detection in the Z axis",
                     "maximum": 5,
                     "minimum": 0,
                     "type": "number"
@@ -1486,6 +1486,75 @@
             "title": "ImageAsNumpy",
             "type": "object"
         },
+        "ImageAsNumpy__identifier_optional": {
+            "additionalProperties": false,
+            "description": "An image as a numpy array in TZYXC order",
+            "properties": {
+                "data": {
+                    "$ref": "#/$defs/MetaObject"
+                },
+                "description": {
+                    "description": "A description of an entity",
+                    "type": "string"
+                },
+                "image_url": {
+                    "description": "An URL linking to the image",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of an entity",
+                    "type": "string"
+                },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
+                "source_image_url": {
+                    "description": "A list of URLs linking to the images that were used as a source",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
+            ],
+            "title": "ImageAsNumpy",
+            "type": "object"
+        },
         "ImageMask": {
             "additionalProperties": false,
             "description": "A base object for all microscope-metrics masks",
@@ -1871,6 +1940,514 @@
             ],
             "title": "MicroscopeType",
             "type": "string"
+        },
+        "PSFBeadsDataset": {
+            "additionalProperties": false,
+            "description": "A PSF beads dataset",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "comment": {
+                    "description": "A human readable comment about the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A description of an entity",
+                    "type": "string"
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "input": {
+                    "$ref": "#/$defs/PSFBeadsInput"
+                },
+                "microscope": {
+                    "description": "The microscope that was used to acquire the dataset",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The name of an entity",
+                    "type": "string"
+                },
+                "output": {
+                    "$ref": "#/$defs/PSFBeadsOutput"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "sample": {
+                    "description": "The sample that was imaged",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "input",
+                "microscope",
+                "processed"
+            ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
+            "title": "PSFBeadsDataset",
+            "type": "object"
+        },
+        "PSFBeadsInput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "min_lateral_distance_factor": {
+                    "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
+                    "maximum": 30,
+                    "minimum": 10,
+                    "type": "number"
+                },
+                "psf_beads_image": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/ImageAsNumpy__identifier_optional"
+                    },
+                    "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
+                    "type": "object"
+                },
+                "sigma_x": {
+                    "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
+                    "type": "number"
+                },
+                "sigma_y": {
+                    "description": "Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection. Does not apply to resolution measurements",
+                    "type": "number"
+                },
+                "sigma_z": {
+                    "description": "Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection. Does not apply to resolution measurements",
+                    "type": "number"
+                },
+                "snr_threshold": {
+                    "description": "Signal to noise ratio threshold to be used for bead detection.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "psf_beads_image",
+                "min_lateral_distance_factor",
+                "sigma_z",
+                "sigma_y",
+                "sigma_x"
+            ],
+            "title": "PSFBeadsInput",
+            "type": "object"
+        },
+        "PSFBeadsKeyMeasurements": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "fit_quality_x_mean": {
+                    "description": "Mean fit quality in the x axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_x_median": {
+                    "description": "Median fit quality in the x axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_x_stdev": {
+                    "description": "Standard deviation of the fit quality in the x axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_y_mean": {
+                    "description": "Mean fit quality in the y axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_y_median": {
+                    "description": "Median fit quality in the y axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_y_stdev": {
+                    "description": "Standard deviation of the fit quality in the y axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_z_mean": {
+                    "description": "Mean fit quality in the z axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_z_median": {
+                    "description": "Median fit quality in the z axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "fit_quality_z_stdev": {
+                    "description": "Standard deviation of the fit quality in the z axis for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_analyzed": {
+                    "description": "Number of beads analyzed. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_discarded_axial_edge": {
+                    "description": "Number of beads discarded for being too close to the top and or bottom of the image. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_discarded_cluster": {
+                    "description": "Number of beads discarded for being too intense and potentially represent a cluster of beads. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_discarded_fit_quality": {
+                    "description": "Number of beads discarded for having a bad fit quality. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_discarded_lateral_edge": {
+                    "description": "Number of beads discarded for being too close to the edge of the image. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "nr_of_beads_discarded_self_proximity": {
+                    "description": "Number of beads discarded for being too close to another bead. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_lateral_asymmetry_ratio": {
+                    "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_x_microns": {
+                    "description": "Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_x_pixels": {
+                    "description": "Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_y_microns": {
+                    "description": "Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_y_pixels": {
+                    "description": "Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_z_microns": {
+                    "description": "Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_mean_fwhm_z_pixels": {
+                    "description": "Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_lateral_asymmetry_ratio": {
+                    "description": "Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_x_microns": {
+                    "description": "Median FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_x_pixels": {
+                    "description": "Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_y_microns": {
+                    "description": "Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_y_pixels": {
+                    "description": "Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_z_microns": {
+                    "description": "Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_median_fwhm_z_pixels": {
+                    "description": "Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_lateral_asymmetry_ratio": {
+                    "description": "Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_x_microns": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_x_pixels": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_y_microns": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_y_pixels": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_z_microns": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "resolution_stdev_fwhm_z_pixels": {
+                    "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "PSFBeadsKeyMeasurements",
+            "type": "object"
+        },
+        "PSFBeadsOutput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "analyzed_bead_centroids": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
+                    "type": "object"
+                },
+                "bead_crops": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/ImageAsNumpy__identifier_optional"
+                    },
+                    "description": "The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.",
+                    "type": "object"
+                },
+                "discarded_bead_centroids_axial_edge": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but discarded as too close to the top and or bottom of the image. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "discarded_bead_centroids_cluster": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but discarded as being too intense and potentially represent a cluster of beads. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "discarded_bead_centroids_fit_quality": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but discarded as the fit quality was not good enough. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "discarded_bead_centroids_lateral_edge": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but discarded as too close to the edge of the image. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "discarded_bead_centroids_self_proximity": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but discarded as too close to another bead. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "key_values": {
+                    "$ref": "#/$defs/PSFBeadsKeyMeasurements",
+                    "description": "The key measurements of the PSF beads analysis."
+                },
+                "psf_properties": {
+                    "$ref": "#/$defs/TableAsDict",
+                    "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio"
+                },
+                "psf_x_profiles": {
+                    "$ref": "#/$defs/TableAsDict",
+                    "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits."
+                },
+                "psf_y_profiles": {
+                    "$ref": "#/$defs/TableAsDict",
+                    "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits."
+                },
+                "psf_z_profiles": {
+                    "$ref": "#/$defs/TableAsDict",
+                    "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits."
+                }
+            },
+            "title": "PSFBeadsOutput",
+            "type": "object"
         },
         "Point": {
             "additionalProperties": false,

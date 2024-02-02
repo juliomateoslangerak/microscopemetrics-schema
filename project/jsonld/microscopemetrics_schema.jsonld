@@ -10,6 +10,7 @@
     "linkml:types",
     "core_schema",
     "samples/field_illumination_schema",
+    "samples/psf_beads_schema",
     "samples/argolight_schema"
   ],
   "license": "GNU GPL v3.0",
@@ -663,6 +664,48 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "sigma_z",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "description": "Smoothing sigma to be applied to the image in the Z axis.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "PSFBeadsInput",
+        "ArgolightBInput"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sigma_y",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "description": "Smoothing sigma to be applied to the image in the Y axis.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "PSFBeadsInput",
+        "ArgolightBInput"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sigma_x",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "description": "Smoothing sigma to be applied to the image in the X axis.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "PSFBeadsInput",
+        "ArgolightBInput"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "field_illumination_image",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/field_illumination_image",
       "description": "Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
@@ -1222,6 +1265,557 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "psf_beads_image",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_beads_image",
+      "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_beads_image",
+      "multivalued": true,
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "range": "ImageAsNumpy",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "min_lateral_distance_factor",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/min_lateral_distance_factor",
+      "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/min_lateral_distance_factor",
+      "ifabsent": "float(20)",
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "range": "float",
+      "required": true,
+      "minimum_value": 10,
+      "maximum_value": 30,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "snr_threshold",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/snr_threshold",
+      "description": "Signal to noise ratio threshold to be used for bead detection.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/snr_threshold",
+      "ifabsent": "float(10.0)",
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_analyzed",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_analyzed",
+      "description": "Number of beads analyzed. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_analyzed",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_discarded_lateral_edge",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_lateral_edge",
+      "description": "Number of beads discarded for being too close to the edge of the image. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_lateral_edge",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_discarded_axial_edge",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_axial_edge",
+      "description": "Number of beads discarded for being too close to the top and or bottom of the image. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_axial_edge",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_discarded_self_proximity",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_self_proximity",
+      "description": "Number of beads discarded for being too close to another bead. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_self_proximity",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_discarded_cluster",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_cluster",
+      "description": "Number of beads discarded for being too intense and potentially represent a cluster of beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_cluster",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "nr_of_beads_discarded_fit_quality",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_fit_quality",
+      "description": "Number of beads discarded for having a bad fit quality. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_fit_quality",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_z_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_mean",
+      "description": "Mean fit quality in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_mean",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_z_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_median",
+      "description": "Median fit quality in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_median",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_z_stdev",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_stdev",
+      "description": "Standard deviation of the fit quality in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_stdev",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_y_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_mean",
+      "description": "Mean fit quality in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_mean",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_y_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_median",
+      "description": "Median fit quality in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_median",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_y_stdev",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_stdev",
+      "description": "Standard deviation of the fit quality in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_stdev",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_x_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_mean",
+      "description": "Mean fit quality in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_mean",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_x_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_median",
+      "description": "Median fit quality in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_median",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_quality_x_stdev",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_stdev",
+      "description": "Standard deviation of the fit quality in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_stdev",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_z_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_pixels",
+      "description": "Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_z_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_pixels",
+      "description": "Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_z_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_pixels",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_y_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_pixels",
+      "description": "Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_y_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_pixels",
+      "description": "Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_y_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_pixels",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_x_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_pixels",
+      "description": "Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_x_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_pixels",
+      "description": "Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_x_pixels",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_pixels",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_pixels",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_z_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_microns",
+      "description": "Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_z_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_microns",
+      "description": "Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_z_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_microns",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_y_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_microns",
+      "description": "Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_y_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_microns",
+      "description": "Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_y_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_microns",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_x_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_microns",
+      "description": "Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_x_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_microns",
+      "description": "Median FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_x_microns",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_microns",
+      "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_microns",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_mean_fwhm_lateral_asymmetry_ratio",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_lateral_asymmetry_ratio",
+      "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_lateral_asymmetry_ratio",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_median_fwhm_lateral_asymmetry_ratio",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_lateral_asymmetry_ratio",
+      "description": "Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_lateral_asymmetry_ratio",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "resolution_stdev_fwhm_lateral_asymmetry_ratio",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_lateral_asymmetry_ratio",
+      "description": "Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_lateral_asymmetry_ratio",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "argolight_b_image",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/argolight_b_image",
       "description": "Input parameter: image of the argolight b pattern provided as a 5D numpy array in the order TZYXC",
@@ -1248,57 +1842,6 @@
       ],
       "range": "float",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sigma_z",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_z",
-      "description": "Input parameter: smoothing factor for objects detection in the Z axis",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_z",
-      "ifabsent": "float(1.0)",
-      "owner": "ArgolightBInput",
-      "domain_of": [
-        "ArgolightBInput"
-      ],
-      "range": "float",
-      "required": true,
-      "minimum_value": 0,
-      "maximum_value": 5,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sigma_y",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_y",
-      "description": "Input parameter: smoothing factor for objects detection in the Y axis",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_y",
-      "ifabsent": "float(3.0)",
-      "owner": "ArgolightBInput",
-      "domain_of": [
-        "ArgolightBInput"
-      ],
-      "range": "float",
-      "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sigma_x",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_x",
-      "description": "Input parameter: smoothing factor for objects detection in the X axis",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/sigma_x",
-      "ifabsent": "float(3.0)",
-      "owner": "ArgolightBInput",
-      "domain_of": [
-        "ArgolightBInput"
-      ],
-      "range": "float",
-      "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -3116,6 +3659,208 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "pSFBeadsDataset__input",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/input",
+      "alias": "input",
+      "owner": "PSFBeadsDataset",
+      "domain_of": [
+        "PSFBeadsDataset"
+      ],
+      "range": "PSFBeadsInput",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsDataset__output",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/output",
+      "alias": "output",
+      "owner": "PSFBeadsDataset",
+      "domain_of": [
+        "PSFBeadsDataset"
+      ],
+      "range": "PSFBeadsOutput",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__bead_crops",
+      "description": "The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/bead_crops",
+      "multivalued": true,
+      "alias": "bead_crops",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "ImageAsNumpy",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__analyzed_bead_centroids",
+      "description": "The centroids of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/analyzed_bead_centroids",
+      "multivalued": true,
+      "alias": "analyzed_bead_centroids",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__discarded_bead_centroids_lateral_edge",
+      "description": "The centroids of the beads detected but discarded as too close to the edge of the image. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/discarded_bead_centroids_lateral_edge",
+      "multivalued": true,
+      "alias": "discarded_bead_centroids_lateral_edge",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__discarded_bead_centroids_axial_edge",
+      "description": "The centroids of the beads detected but discarded as too close to the top and or bottom of the image. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/discarded_bead_centroids_axial_edge",
+      "multivalued": true,
+      "alias": "discarded_bead_centroids_axial_edge",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__discarded_bead_centroids_self_proximity",
+      "description": "The centroids of the beads detected but discarded as too close to another bead. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/discarded_bead_centroids_self_proximity",
+      "multivalued": true,
+      "alias": "discarded_bead_centroids_self_proximity",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__discarded_bead_centroids_cluster",
+      "description": "The centroids of the beads detected but discarded as being too intense and potentially represent a cluster of beads. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/discarded_bead_centroids_cluster",
+      "multivalued": true,
+      "alias": "discarded_bead_centroids_cluster",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__discarded_bead_centroids_fit_quality",
+      "description": "The centroids of the beads detected but discarded as the fit quality was not good enough. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/discarded_bead_centroids_fit_quality",
+      "multivalued": true,
+      "alias": "discarded_bead_centroids_fit_quality",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "RoiMassCenters",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__key_values",
+      "description": "The key measurements of the PSF beads analysis.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/key_values",
+      "alias": "key_values",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "PSFBeadsKeyMeasurements",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__psf_properties",
+      "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_properties",
+      "alias": "psf_properties",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "TableAsDict",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__psf_z_profiles",
+      "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_z_profiles",
+      "alias": "psf_z_profiles",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "TableAsDict",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__psf_y_profiles",
+      "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_y_profiles",
+      "alias": "psf_y_profiles",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "TableAsDict",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__psf_x_profiles",
+      "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_x_profiles",
+      "alias": "psf_x_profiles",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "TableAsDict",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "argolightBDataset__input",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/input",
@@ -3321,6 +4066,66 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "PSFBeadsInput_sigma_z",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "description": "Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection. Does not apply to resolution measurements",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_z",
+      "domain": "PSFBeadsInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "ifabsent": "float(1.0)",
+      "alias": "sigma_z",
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_z",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PSFBeadsInput_sigma_y",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "description": "Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection. Does not apply to resolution measurements",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_y",
+      "domain": "PSFBeadsInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "ifabsent": "float(1.0)",
+      "alias": "sigma_y",
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_y",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PSFBeadsInput_sigma_x",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_x",
+      "domain": "PSFBeadsInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "ifabsent": "float(1.0)",
+      "alias": "sigma_x",
+      "owner": "PSFBeadsInput",
+      "domain_of": [
+        "PSFBeadsInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_x",
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "ArgolightBInput_saturation_threshold",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/saturation_threshold",
       "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
@@ -3340,6 +4145,72 @@
       "required": true,
       "minimum_value": 0,
       "maximum_value": 1,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ArgolightBInput_sigma_z",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "description": "Smoothing factor for objects detection in the Z axis",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_z",
+      "domain": "ArgolightBInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_z",
+      "ifabsent": "float(1.0)",
+      "alias": "sigma_z",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "ArgolightBInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_z",
+      "range": "float",
+      "required": true,
+      "minimum_value": 0,
+      "maximum_value": 5,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ArgolightBInput_sigma_y",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "description": "Smoothing factor for objects detection in the Y axis",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_y",
+      "domain": "ArgolightBInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_y",
+      "ifabsent": "float(3.0)",
+      "alias": "sigma_y",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "ArgolightBInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_y",
+      "range": "float",
+      "required": true,
+      "minimum_value": 0,
+      "maximum_value": 10,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "ArgolightBInput_sigma_x",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "description": "Smoothing factor for objects detection in the X axis",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "sigma_x",
+      "domain": "ArgolightBInput",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/sigma_x",
+      "ifabsent": "float(3.0)",
+      "alias": "sigma_x",
+      "owner": "ArgolightBInput",
+      "domain_of": [
+        "ArgolightBInput"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sigma_x",
+      "range": "float",
+      "required": true,
+      "minimum_value": 0,
+      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -4955,6 +5826,250 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "PSFBeadsDataset",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset",
+      "description": "A PSF beads dataset",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "is_a": "MetricsDataset",
+      "slots": [
+        "name",
+        "description",
+        "metricsDataset__microscope",
+        "metricsDataset__sample",
+        "metricsDataset__experimenter",
+        "metricsDataset__acquisition_datetime",
+        "metricsDataset__processed",
+        "metricsDataset__processing_datetime",
+        "metricsDataset__processing_log",
+        "metricsDataset__comment",
+        "pSFBeadsDataset__input",
+        "pSFBeadsDataset__output"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "input",
+          "range": "PSFBeadsInput",
+          "required": true,
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "output",
+          "range": "PSFBeadsOutput",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset",
+      "rules": [
+        {
+          "preconditions": {
+            "slot_conditions": [
+              {
+                "name": "processed",
+                "equals_number": 1,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "postconditions": {
+            "slot_conditions": [
+              {
+                "name": "output",
+                "required": true,
+                "@type": "SlotDefinition"
+              }
+            ],
+            "@type": "AnonymousClassExpression"
+          },
+          "@type": "ClassRule"
+        }
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PSFBeadsInput",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "is_a": "MetricsInput",
+      "slots": [
+        "psf_beads_image",
+        "min_lateral_distance_factor",
+        "PSFBeadsInput_sigma_z",
+        "PSFBeadsInput_sigma_y",
+        "PSFBeadsInput_sigma_x",
+        "snr_threshold"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PSFBeadsOutput",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsOutput",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "is_a": "MetricsOutput",
+      "slots": [
+        "pSFBeadsOutput__bead_crops",
+        "pSFBeadsOutput__analyzed_bead_centroids",
+        "pSFBeadsOutput__discarded_bead_centroids_lateral_edge",
+        "pSFBeadsOutput__discarded_bead_centroids_axial_edge",
+        "pSFBeadsOutput__discarded_bead_centroids_self_proximity",
+        "pSFBeadsOutput__discarded_bead_centroids_cluster",
+        "pSFBeadsOutput__discarded_bead_centroids_fit_quality",
+        "pSFBeadsOutput__key_values",
+        "pSFBeadsOutput__psf_properties",
+        "pSFBeadsOutput__psf_z_profiles",
+        "pSFBeadsOutput__psf_y_profiles",
+        "pSFBeadsOutput__psf_x_profiles"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "bead_crops",
+          "description": "The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.",
+          "multivalued": true,
+          "range": "ImageAsNumpy",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "analyzed_bead_centroids",
+          "description": "The centroids of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "discarded_bead_centroids_lateral_edge",
+          "description": "The centroids of the beads detected but discarded as too close to the edge of the image. One point will be provided per bead. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "discarded_bead_centroids_axial_edge",
+          "description": "The centroids of the beads detected but discarded as too close to the top and or bottom of the image. One point will be provided per bead. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "discarded_bead_centroids_self_proximity",
+          "description": "The centroids of the beads detected but discarded as too close to another bead. One point will be provided per bead. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "discarded_bead_centroids_cluster",
+          "description": "The centroids of the beads detected but discarded as being too intense and potentially represent a cluster of beads. One point will be provided per bead. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "discarded_bead_centroids_fit_quality",
+          "description": "The centroids of the beads detected but discarded as the fit quality was not good enough. One point will be provided per bead. One ROI per channel.",
+          "multivalued": true,
+          "range": "RoiMassCenters",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "key_values",
+          "description": "The key measurements of the PSF beads analysis.",
+          "range": "PSFBeadsKeyMeasurements",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "psf_properties",
+          "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
+          "range": "TableAsDict",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "psf_z_profiles",
+          "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
+          "range": "TableAsDict",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "psf_y_profiles",
+          "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
+          "range": "TableAsDict",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "psf_x_profiles",
+          "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
+          "range": "TableAsDict",
+          "inlined": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsOutput",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PSFBeadsKeyMeasurements",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyMeasurements",
+      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
+      "is_a": "KeyValues",
+      "slots": [
+        "nr_of_beads_analyzed",
+        "nr_of_beads_discarded_lateral_edge",
+        "nr_of_beads_discarded_axial_edge",
+        "nr_of_beads_discarded_self_proximity",
+        "nr_of_beads_discarded_cluster",
+        "nr_of_beads_discarded_fit_quality",
+        "fit_quality_z_mean",
+        "fit_quality_z_median",
+        "fit_quality_z_stdev",
+        "fit_quality_y_mean",
+        "fit_quality_y_median",
+        "fit_quality_y_stdev",
+        "fit_quality_x_mean",
+        "fit_quality_x_median",
+        "fit_quality_x_stdev",
+        "resolution_mean_fwhm_z_pixels",
+        "resolution_median_fwhm_z_pixels",
+        "resolution_stdev_fwhm_z_pixels",
+        "resolution_mean_fwhm_y_pixels",
+        "resolution_median_fwhm_y_pixels",
+        "resolution_stdev_fwhm_y_pixels",
+        "resolution_mean_fwhm_x_pixels",
+        "resolution_median_fwhm_x_pixels",
+        "resolution_stdev_fwhm_x_pixels",
+        "resolution_mean_fwhm_z_microns",
+        "resolution_median_fwhm_z_microns",
+        "resolution_stdev_fwhm_z_microns",
+        "resolution_mean_fwhm_y_microns",
+        "resolution_median_fwhm_y_microns",
+        "resolution_stdev_fwhm_y_microns",
+        "resolution_mean_fwhm_x_microns",
+        "resolution_median_fwhm_x_microns",
+        "resolution_stdev_fwhm_x_microns",
+        "resolution_mean_fwhm_lateral_asymmetry_ratio",
+        "resolution_median_fwhm_lateral_asymmetry_ratio",
+        "resolution_stdev_fwhm_lateral_asymmetry_ratio"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyMeasurements",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "ArgolightBDataset",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightBDataset",
       "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
@@ -5028,9 +6143,9 @@
         "bit_depth",
         "ArgolightBInput_saturation_threshold",
         "spots_distance",
-        "sigma_z",
-        "sigma_y",
-        "sigma_x",
+        "ArgolightBInput_sigma_z",
+        "ArgolightBInput_sigma_y",
+        "ArgolightBInput_sigma_x",
         "lower_threshold_correction_factors",
         "upper_threshold_correction_factors",
         "remove_center_cross"
@@ -5284,15 +6399,16 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2023-09-07T00:19:05",
-  "source_file_size": 758,
-  "generation_date": "2024-02-02T09:09:12",
+  "source_file_date": "2024-02-02T17:40:54",
+  "source_file_size": 787,
+  "generation_date": "2024-02-02T17:59:03",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
     "https://w3id.org/linkml/types.context.jsonld",
     "core_schema.context.jsonld",
     "samples/field_illumination_schema.context.jsonld",
+    "samples/psf_beads_schema.context.jsonld",
     "samples/argolight_schema.context.jsonld",
     {
       "@base": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/"
