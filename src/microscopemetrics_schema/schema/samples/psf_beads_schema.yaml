@@ -47,6 +47,8 @@ classes:
       - sigma_y
       - sigma_x
       - snr_threshold
+      - fitting_rss_threshold
+      - intensity_zscore_threshold
     slot_usage:
       sigma_z:
         description: >-
@@ -237,8 +239,21 @@ slots:
     range: float
     description: >-
       Signal to noise ratio threshold to be used for bead detection.
-    required: false
+    required: true
     ifabsent: float(10.0)
+  fitting_rss_threshold:
+    range: float
+    description: >-
+      Threshold for the residual sum of squares of the fit to be considered good.
+    required: true
+    ifabsent: float(0.1)
+  intensity_zscore_threshold:
+    range: float
+    description: >-
+      Threshold for the z-score of the intensity of the bead to be considered good.
+    required: true
+    ifabsent: float(3.0)
+
 
   # Outputs
   nr_of_beads_analyzed:
