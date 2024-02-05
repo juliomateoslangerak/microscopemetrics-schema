@@ -210,6 +210,10 @@
     class PSFBeadsInput
       MetricsInput &lt;|-- PSFBeadsInput
 
+      PSFBeadsInput : fitting_rss_threshold
+
+      PSFBeadsInput : intensity_zscore_threshold
+
       PSFBeadsInput : min_lateral_distance_factor
 
       PSFBeadsInput : psf_beads_image
@@ -276,8 +280,20 @@
 </tr>
 <tr>
 <td><a href="../snr_threshold/">snr_threshold</a></td>
-<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Signal to noise ratio threshold to be used for bead detection</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fitting_rss_threshold/">fitting_rss_threshold</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>Threshold for the residual sum of squares of the fit to be considered good</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_zscore_threshold/">intensity_zscore_threshold</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>Threshold for the z-score of the intensity of the bead to be considered good</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -339,6 +355,8 @@ slots:
 - sigma_y
 - sigma_x
 - snr_threshold
+- fitting_rss_threshold
+- intensity_zscore_threshold
 slot_usage:
   sigma_z:
     name: sigma_z
@@ -487,7 +505,33 @@ attributes:
     domain_of:
     - PSFBeadsInput
     range: float
-    required: false
+    required: true
+  fitting_rss_threshold:
+    name: fitting_rss_threshold
+    description: Threshold for the residual sum of squares of the fit to be considered
+      good.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    ifabsent: float(0.1)
+    alias: fitting_rss_threshold
+    owner: PSFBeadsInput
+    domain_of:
+    - PSFBeadsInput
+    range: float
+    required: true
+  intensity_zscore_threshold:
+    name: intensity_zscore_threshold
+    description: Threshold for the z-score of the intensity of the bead to be considered
+      good.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    ifabsent: float(3.0)
+    alias: intensity_zscore_threshold
+    owner: PSFBeadsInput
+    domain_of:
+    - PSFBeadsInput
+    range: float
+    required: true
 
 </code></pre>
 </details>
