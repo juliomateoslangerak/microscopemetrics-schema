@@ -5,10 +5,10 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ImageAsNumpy/" rel="canonical"/>
+<link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCenter/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
-<title>Class: ImageAsNumpy - microscopemetrics-schema</title>
+<title>Class: RoiCenter - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,7 +21,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#class-imageasnumpy">
+<a class="md-skip" href="#class-roicenter">
           Skip to content
         </a>
 </div>
@@ -45,7 +45,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Class: ImageAsNumpy
+              Class: RoiCenter
             
           </span>
 </div>
@@ -152,11 +152,6 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#usages">
-    Usages
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#identifier-and-mapping-information">
     Identifier and Mapping Information
   </a>
@@ -201,56 +196,38 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/ImageAsNumpy.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/RoiCenter.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
-<h1 id="class-imageasnumpy">Class: ImageAsNumpy</h1>
-<p><em>An image as a numpy array in TZYXC order</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/ImageAsNumpy">microscopemetrics_schema:ImageAsNumpy</a></p>
+<h1 id="class-roicenter">Class: RoiCenter</h1>
+<p><em>Point ROIs marking the center of illumination</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/RoiCenter">microscopemetrics_schema:RoiCenter</a></p>
 <div class="mermaid"> classDiagram
-    class ImageAsNumpy
-      Image &lt;|-- ImageAsNumpy
+    class RoiCenter
+      Roi &lt;|-- RoiCenter
 
-      ImageAsNumpy : data
+      RoiCenter : center_points
 
-          ImageAsNumpy --&gt; MetaObject : data
+          RoiCenter --|&gt; Point : center_points
 
-      ImageAsNumpy : description
+      RoiCenter : description
 
-      ImageAsNumpy : image_url
+      RoiCenter : image
 
-      ImageAsNumpy : name
+          RoiCenter --|&gt; Image : image
 
-      ImageAsNumpy : shape_c
+      RoiCenter : label
 
-      ImageAsNumpy : shape_t
+      RoiCenter : shapes
 
-      ImageAsNumpy : shape_x
-
-      ImageAsNumpy : shape_y
-
-      ImageAsNumpy : shape_z
-
-      ImageAsNumpy : source_image_url
-
-      ImageAsNumpy : voxel_size_x_micron
-
-      ImageAsNumpy : voxel_size_y_micron
-
-      ImageAsNumpy : voxel_size_z_micron
+          RoiCenter --|&gt; Shape : shapes
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
-<li><a href="../Image/">Image</a><ul>
-<li><strong>ImageAsNumpy</strong></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="../Roi/">Roi</a><ul>
+<li><strong>RoiCenter</strong></li>
 </ul>
 </li>
 </ul>
@@ -266,131 +243,34 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../data/">data</a></td>
-<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
-<td></td>
+<td><a href="../center_points/">center_points</a></td>
+<td>0..* <br/> <a href="../Point/">Point</a></td>
+<td>The center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../image_url/">image_url</a></td>
+<td><a href="../label/">label</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
-<td>An URL linking to the image</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../source_image_url/">source_image_url</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>A list of URLs linking to the images that were used as a source</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../voxel_size_x_micron/">voxel_size_x_micron</a></td>
-<td>0..1 <br/> <a href="../Float/">Float</a></td>
-<td>The physical size in the voxel in the x dimension in microns</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../voxel_size_y_micron/">voxel_size_y_micron</a></td>
-<td>0..1 <br/> <a href="../Float/">Float</a></td>
-<td>The physical size in the voxel in the y dimension in microns</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../voxel_size_z_micron/">voxel_size_z_micron</a></td>
-<td>0..1 <br/> <a href="../Float/">Float</a></td>
-<td>The physical size in the voxel in the z dimension in microns</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../shape_x/">shape_x</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The shape of the image in the x dimension</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../shape_y/">shape_y</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The shape of the image in the y dimension</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../shape_z/">shape_z</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The shape of the image in the z dimension</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../shape_c/">shape_c</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The shape of the image in the c dimension</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../shape_t/">shape_t</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The shape of the image in the t dimension</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
+<td>The label of the ROI</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="usages">Usages</h2>
-<table>
-<thead>
-<tr>
-<th>used by</th>
-<th>used in</th>
-<th>type</th>
-<th>used</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td><a href="../argolight_b_image/">argolight_b_image</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
+<td>A description of the ROI</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_labels_image/">spots_labels_image</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
+<td><a href="../image/">image</a></td>
+<td>0..* <br/> <a href="../Image/">Image</a></td>
+<td>The image or images to which the ROI is applied</td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td><a href="../argolight_e_image/">argolight_e_image</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
-<td><a href="../bead_images/">bead_images</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
-<td><a href="../bead_crops/">bead_crops</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td><a href="../field_illumination_image/">field_illumination_image</a></td>
-<td>range</td>
-<td><a href="./">ImageAsNumpy</a></td>
+<td><a href="../shapes/">shapes</a></td>
+<td>0..* <br/> <a href="../Shape/">Shape</a></td>
+<td></td>
+<td><a href="../Roi/">Roi</a></td>
 </tr>
 </tbody>
 </table>
@@ -410,11 +290,11 @@
 <tbody>
 <tr>
 <td>self</td>
-<td>microscopemetrics_schema:ImageAsNumpy</td>
+<td>microscopemetrics_schema:RoiCenter</td>
 </tr>
 <tr>
 <td>native</td>
-<td>microscopemetrics_schema:ImageAsNumpy</td>
+<td>microscopemetrics_schema:RoiCenter</td>
 </tr>
 </tbody>
 </table>
@@ -422,190 +302,88 @@
 <!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
 <h3 id="direct">Direct</h3>
 <details>
-<pre><code class="language-yaml">name: ImageAsNumpy
-description: An image as a numpy array in TZYXC order
+<pre><code class="language-yaml">name: RoiCenter
+description: Point ROIs marking the center of illumination
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Image
-attributes:
-  data:
-    name: data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    range: MetaObject
+is_a: Roi
+slots:
+- center_points
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
-<pre><code class="language-yaml">name: ImageAsNumpy
-description: An image as a numpy array in TZYXC order
+<pre><code class="language-yaml">name: RoiCenter
+description: Point ROIs marking the center of illumination
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: Image
+is_a: Roi
 attributes:
-  data:
-    name: data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: data
-    owner: ImageAsNumpy
-    domain_of:
-    - ImageAsNumpy
-    - ImageMask
-    - Image2D
-    - Image5D
-    range: MetaObject
-  image_url:
-    name: image_url
-    description: An URL linking to the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    alias: image_url
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: string
-    required: true
-  source_image_url:
-    name: source_image_url
-    description: A list of URLs linking to the images that were used as a source
+  center_points:
+    name: center_points
+    description: The center of illumination
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: source_image_url
-    owner: ImageAsNumpy
+    alias: center_points
+    owner: RoiCenter
     domain_of:
-    - Image
+    - RoiCenter
+    range: Point
+    inlined: true
+  label:
+    name: label
+    description: The label of the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: label
+    owner: RoiCenter
+    domain_of:
+    - Roi
+    - Shape
     range: string
-    required: false
-  voxel_size_x_micron:
-    name: voxel_size_x_micron
-    description: The physical size in the voxel in the x dimension in microns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: voxel_size_x_micron
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: float
-    required: false
-  voxel_size_y_micron:
-    name: voxel_size_y_micron
-    description: The physical size in the voxel in the y dimension in microns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: voxel_size_y_micron
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: float
-    required: false
-  voxel_size_z_micron:
-    name: voxel_size_z_micron
-    description: The physical size in the voxel in the z dimension in microns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: voxel_size_z_micron
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: float
-    required: false
-  shape_x:
-    name: shape_x
-    description: The shape of the image in the x dimension
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: shape_x
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: integer
     required: true
-  shape_y:
-    name: shape_y
-    description: The shape of the image in the y dimension
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: shape_y
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: integer
-    required: true
-  shape_z:
-    name: shape_z
-    description: The shape of the image in the z dimension
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    ifabsent: int(1)
-    alias: shape_z
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: integer
-    required: true
-  shape_c:
-    name: shape_c
-    description: The shape of the image in the c dimension
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    ifabsent: int(1)
-    alias: shape_c
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: integer
-    required: true
-  shape_t:
-    name: shape_t
-    description: The shape of the image in the t dimension
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    ifabsent: int(1)
-    alias: shape_t
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: integer
-    required: true
-  name:
-    name: name
-    description: The name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: ImageAsNumpy
-    domain_of:
-    - NamedObject
-    - Experimenter
-    - Column
-    range: string
-    required: false
   description:
     name: description
-    description: A description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
+    description: A description of the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: false
     alias: description
-    owner: ImageAsNumpy
+    owner: RoiCenter
     domain_of:
     - NamedObject
     - Roi
     - Tag
     range: string
     required: false
+  image:
+    name: image
+    description: The image or images to which the ROI is applied
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: image
+    owner: RoiCenter
+    domain_of:
+    - Roi
+    range: Image
+    required: false
+    inlined: false
+  shapes:
+    name: shapes
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: shapes
+    owner: RoiCenter
+    domain_of:
+    - Roi
+    - LinesRoi
+    - PointsRoi
+    - RectanglesRoi
+    range: Shape
+    inlined: true
 
 </code></pre>
 </details>

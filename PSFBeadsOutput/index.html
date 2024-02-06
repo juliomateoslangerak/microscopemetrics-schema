@@ -218,6 +218,22 @@
 
           PSFBeadsOutput --&gt; ImageAsNumpy : bead_crops
 
+      PSFBeadsOutput : bead_properties
+
+          PSFBeadsOutput --&gt; TableAsDict : bead_properties
+
+      PSFBeadsOutput : bead_x_profiles
+
+          PSFBeadsOutput --&gt; TableAsDict : bead_x_profiles
+
+      PSFBeadsOutput : bead_y_profiles
+
+          PSFBeadsOutput --&gt; TableAsDict : bead_y_profiles
+
+      PSFBeadsOutput : bead_z_profiles
+
+          PSFBeadsOutput --&gt; TableAsDict : bead_z_profiles
+
       PSFBeadsOutput : considered_bead_centroids_axial_edge
 
           PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_axial_edge
@@ -241,22 +257,6 @@
       PSFBeadsOutput : key_values
 
           PSFBeadsOutput --&gt; PSFBeadsKeyMeasurements : key_values
-
-      PSFBeadsOutput : psf_properties
-
-          PSFBeadsOutput --&gt; TableAsDict : psf_properties
-
-      PSFBeadsOutput : psf_x_profiles
-
-          PSFBeadsOutput --&gt; TableAsDict : psf_x_profiles
-
-      PSFBeadsOutput : psf_y_profiles
-
-          PSFBeadsOutput --&gt; TableAsDict : psf_y_profiles
-
-      PSFBeadsOutput : psf_z_profiles
-
-          PSFBeadsOutput --&gt; TableAsDict : psf_z_profiles
 
 
 </div>
@@ -327,25 +327,25 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../psf_properties/">psf_properties</a></td>
+<td><a href="../bead_properties/">bead_properties</a></td>
 <td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
 <td>Properties associated with the analysis of the beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../psf_z_profiles/">psf_z_profiles</a></td>
+<td><a href="../bead_z_profiles/">bead_z_profiles</a></td>
 <td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
 <td>The intensity profiles along the z axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../psf_y_profiles/">psf_y_profiles</a></td>
+<td><a href="../bead_y_profiles/">bead_y_profiles</a></td>
 <td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
 <td>The intensity profiles along the y axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../psf_x_profiles/">psf_x_profiles</a></td>
+<td><a href="../bead_x_profiles/">bead_x_profiles</a></td>
 <td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
 <td>The intensity profiles along the x axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
@@ -478,8 +478,8 @@ attributes:
     multivalued: false
     range: PSFBeadsKeyMeasurements
     inlined: true
-  psf_properties:
-    name: psf_properties
+  bead_properties:
+    name: bead_properties
     description: 'Properties associated with the analysis of the beads. This properties
       include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z
       fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels
@@ -490,8 +490,8 @@ attributes:
     multivalued: false
     range: TableAsDict
     inlined: true
-  psf_z_profiles:
-    name: psf_z_profiles
+  bead_z_profiles:
+    name: bead_z_profiles
     description: The intensity profiles along the z axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
@@ -499,8 +499,8 @@ attributes:
     multivalued: false
     range: TableAsDict
     inlined: true
-  psf_y_profiles:
-    name: psf_y_profiles
+  bead_y_profiles:
+    name: bead_y_profiles
     description: The intensity profiles along the y axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
@@ -508,8 +508,8 @@ attributes:
     multivalued: false
     range: TableAsDict
     inlined: true
-  psf_x_profiles:
-    name: psf_x_profiles
+  bead_x_profiles:
+    name: bead_x_profiles
     description: The intensity profiles along the x axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
@@ -634,8 +634,8 @@ attributes:
     - FieldIlluminationOutput
     range: PSFBeadsKeyMeasurements
     inlined: true
-  psf_properties:
-    name: psf_properties
+  bead_properties:
+    name: bead_properties
     description: 'Properties associated with the analysis of the beads. This properties
       include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z
       fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels
@@ -644,46 +644,46 @@ attributes:
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    alias: psf_properties
+    alias: bead_properties
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
     inlined: true
-  psf_z_profiles:
-    name: psf_z_profiles
+  bead_z_profiles:
+    name: bead_z_profiles
     description: The intensity profiles along the z axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    alias: psf_z_profiles
+    alias: bead_z_profiles
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
     inlined: true
-  psf_y_profiles:
-    name: psf_y_profiles
+  bead_y_profiles:
+    name: bead_y_profiles
     description: The intensity profiles along the y axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    alias: psf_y_profiles
+    alias: bead_y_profiles
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
     inlined: true
-  psf_x_profiles:
-    name: psf_x_profiles
+  bead_x_profiles:
+    name: bead_x_profiles
     description: The intensity profiles along the x axis of the analyzed beads as
       well as the fits.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    alias: psf_x_profiles
+    alias: bead_x_profiles
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
