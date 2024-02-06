@@ -549,7 +549,7 @@ def st_mm_psf_beads_input(
     snr_threshold=st.floats(min_value=5.0, max_value=100.0),
 ) -> mm_schema.PSFBeadsInput:
     return mm_schema.PSFBeadsInput(
-        psf_beads_image=draw(psf_beads_image),
+        psf_beads_images=draw(psf_beads_image),
         min_lateral_distance_factor=draw(min_lateral_distance_factor),
         sigma_z=draw(sigma_z),
         sigma_y=draw(sigma_y),
