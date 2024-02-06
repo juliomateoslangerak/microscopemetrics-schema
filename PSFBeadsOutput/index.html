@@ -218,17 +218,17 @@
 
           PSFBeadsOutput --&gt; ImageAsNumpy : bead_crops
 
-      PSFBeadsOutput : discarded_bead_centroids_axial_edge
+      PSFBeadsOutput : considered_bead_centroids_axial_edge
 
-          PSFBeadsOutput --&gt; RoiMassCenters : discarded_bead_centroids_axial_edge
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_axial_edge
 
-      PSFBeadsOutput : discarded_bead_centroids_cluster
+      PSFBeadsOutput : considered_bead_centroids_cluster
 
-          PSFBeadsOutput --&gt; RoiMassCenters : discarded_bead_centroids_cluster
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_cluster
 
-      PSFBeadsOutput : discarded_bead_centroids_fit_quality
+      PSFBeadsOutput : considered_bead_centroids_fit_quality
 
-          PSFBeadsOutput --&gt; RoiMassCenters : discarded_bead_centroids_fit_quality
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_fit_quality
 
       PSFBeadsOutput : discarded_bead_centroids_lateral_edge
 
@@ -297,27 +297,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../discarded_bead_centroids_axial_edge/">discarded_bead_centroids_axial_edge</a></td>
-<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
-<td>The centroids of the beads detected but discarded as too close to the top and...</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../discarded_bead_centroids_self_proximity/">discarded_bead_centroids_self_proximity</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
 <td>The centroids of the beads detected but discarded as too close to another bea...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../discarded_bead_centroids_cluster/">discarded_bead_centroids_cluster</a></td>
+<td><a href="../considered_bead_centroids_axial_edge/">considered_bead_centroids_axial_edge</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
-<td>The centroids of the beads detected but discarded as being too intense and po...</td>
+<td>The centroids of the beads detected but considered as too close to the top an...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../discarded_bead_centroids_fit_quality/">discarded_bead_centroids_fit_quality</a></td>
+<td><a href="../considered_bead_centroids_cluster/">considered_bead_centroids_cluster</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
-<td>The centroids of the beads detected but discarded as the fit quality was not ...</td>
+<td>The centroids of the beads detected but considered as being too intense and p...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../considered_bead_centroids_fit_quality/">considered_bead_centroids_fit_quality</a></td>
+<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td>The centroids of the beads detected but considered as the fit quality was not...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -430,16 +430,6 @@ attributes:
     multivalued: true
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_axial_edge:
-    name: discarded_bead_centroids_axial_edge
-    description: The centroids of the beads detected but discarded as too close to
-      the top and or bottom of the image. One point will be provided per bead. One
-      ROI per channel.
-    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
-    rank: 1000
-    multivalued: true
-    range: RoiMassCenters
-    inlined: true
   discarded_bead_centroids_self_proximity:
     name: discarded_bead_centroids_self_proximity
     description: The centroids of the beads detected but discarded as too close to
@@ -449,20 +439,32 @@ attributes:
     multivalued: true
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_cluster:
-    name: discarded_bead_centroids_cluster
-    description: The centroids of the beads detected but discarded as being too intense
-      and potentially represent a cluster of beads. One point will be provided per
-      bead. One ROI per channel.
+  considered_bead_centroids_axial_edge:
+    name: considered_bead_centroids_axial_edge
+    description: The centroids of the beads detected but considered as too close to
+      the top and or bottom of the image. Measurements not considered for the dataset
+      analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_fit_quality:
-    name: discarded_bead_centroids_fit_quality
-    description: The centroids of the beads detected but discarded as the fit quality
-      was not good enough. One point will be provided per bead. One ROI per channel.
+  considered_bead_centroids_cluster:
+    name: considered_bead_centroids_cluster
+    description: The centroids of the beads detected but considered as being too intense
+      and potentially represent a cluster of beads. z-score over requested threshold.
+      Measurements not considered for the dataset analysis. One point will be provided
+      per bead. One ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_fit_quality:
+    name: considered_bead_centroids_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      was not good enough.  RSS over requested threshold. Measurements not considered
+      for the dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
@@ -563,20 +565,6 @@ attributes:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_axial_edge:
-    name: discarded_bead_centroids_axial_edge
-    description: The centroids of the beads detected but discarded as too close to
-      the top and or bottom of the image. One point will be provided per bead. One
-      ROI per channel.
-    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
-    rank: 1000
-    multivalued: true
-    alias: discarded_bead_centroids_axial_edge
-    owner: PSFBeadsOutput
-    domain_of:
-    - PSFBeadsOutput
-    range: RoiMassCenters
-    inlined: true
   discarded_bead_centroids_self_proximity:
     name: discarded_bead_centroids_self_proximity
     description: The centroids of the beads detected but discarded as too close to
@@ -590,28 +578,44 @@ attributes:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_cluster:
-    name: discarded_bead_centroids_cluster
-    description: The centroids of the beads detected but discarded as being too intense
-      and potentially represent a cluster of beads. One point will be provided per
-      bead. One ROI per channel.
+  considered_bead_centroids_axial_edge:
+    name: considered_bead_centroids_axial_edge
+    description: The centroids of the beads detected but considered as too close to
+      the top and or bottom of the image. Measurements not considered for the dataset
+      analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
-    alias: discarded_bead_centroids_cluster
+    alias: considered_bead_centroids_axial_edge
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-  discarded_bead_centroids_fit_quality:
-    name: discarded_bead_centroids_fit_quality
-    description: The centroids of the beads detected but discarded as the fit quality
-      was not good enough. One point will be provided per bead. One ROI per channel.
+  considered_bead_centroids_cluster:
+    name: considered_bead_centroids_cluster
+    description: The centroids of the beads detected but considered as being too intense
+      and potentially represent a cluster of beads. z-score over requested threshold.
+      Measurements not considered for the dataset analysis. One point will be provided
+      per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
-    alias: discarded_bead_centroids_fit_quality
+    alias: considered_bead_centroids_cluster
+    owner: PSFBeadsOutput
+    domain_of:
+    - PSFBeadsOutput
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_fit_quality:
+    name: considered_bead_centroids_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      was not good enough.  RSS over requested threshold. Measurements not considered
+      for the dataset analysis. One point will be provided per bead. One ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    alias: considered_bead_centroids_fit_quality
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput

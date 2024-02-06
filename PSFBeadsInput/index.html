@@ -216,9 +216,9 @@
 
       PSFBeadsInput : min_lateral_distance_factor
 
-      PSFBeadsInput : psf_beads_image
+      PSFBeadsInput : psf_beads_images
 
-          PSFBeadsInput --&gt; ImageAsNumpy : psf_beads_image
+          PSFBeadsInput --&gt; ImageAsNumpy : psf_beads_images
 
       PSFBeadsInput : sigma_x
 
@@ -249,7 +249,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../psf_beads_image/">psf_beads_image</a></td>
+<td><a href="../psf_beads_images/">psf_beads_images</a></td>
 <td>1..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
 <td>The image containing the beads provided as a 5D numpy array in the order TZYX...</td>
 <td>direct</td>
@@ -349,7 +349,7 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsInput
 slots:
-- psf_beads_image
+- psf_beads_images
 - min_lateral_distance_factor
 - sigma_z
 - sigma_y
@@ -422,15 +422,15 @@ slot_usage:
     - PSFBeadsInput
     required: true
 attributes:
-  psf_beads_image:
-    name: psf_beads_image
+  psf_beads_images:
+    name: psf_beads_images
     description: The image containing the beads provided as a 5D numpy array in the
       order TZYXC. More than one image can be provided if the image conditions are
       the same.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: psf_beads_image
+    alias: psf_beads_images
     owner: PSFBeadsInput
     domain_of:
     - PSFBeadsInput
