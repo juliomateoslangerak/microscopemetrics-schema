@@ -255,13 +255,15 @@ CREATE TABLE "Protocol" (
 );
 
 CREATE TABLE "PSFBeadsInput" (
-	psf_beads_image TEXT NOT NULL, 
+	psf_beads_images TEXT NOT NULL, 
 	min_lateral_distance_factor FLOAT NOT NULL, 
 	sigma_z FLOAT NOT NULL, 
 	sigma_y FLOAT NOT NULL, 
 	sigma_x FLOAT NOT NULL, 
-	snr_threshold FLOAT, 
-	PRIMARY KEY (psf_beads_image, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold)
+	snr_threshold FLOAT NOT NULL, 
+	fitting_rss_threshold FLOAT NOT NULL, 
+	intensity_zscore_threshold FLOAT NOT NULL, 
+	PRIMARY KEY (psf_beads_images, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold, fitting_rss_threshold, intensity_zscore_threshold)
 );
 
 CREATE TABLE "PSFBeadsKeyMeasurements" (
@@ -308,16 +310,16 @@ CREATE TABLE "PSFBeadsOutput" (
 	bead_crops TEXT, 
 	analyzed_bead_centroids TEXT, 
 	discarded_bead_centroids_lateral_edge TEXT, 
-	discarded_bead_centroids_axial_edge TEXT, 
 	discarded_bead_centroids_self_proximity TEXT, 
-	discarded_bead_centroids_cluster TEXT, 
-	discarded_bead_centroids_fit_quality TEXT, 
+	considered_bead_centroids_axial_edge TEXT, 
+	considered_bead_centroids_cluster TEXT, 
+	considered_bead_centroids_fit_quality TEXT, 
 	key_values TEXT, 
 	psf_properties TEXT, 
 	psf_z_profiles TEXT, 
 	psf_y_profiles TEXT, 
 	psf_x_profiles TEXT, 
-	PRIMARY KEY (bead_crops, analyzed_bead_centroids, discarded_bead_centroids_lateral_edge, discarded_bead_centroids_axial_edge, discarded_bead_centroids_self_proximity, discarded_bead_centroids_cluster, discarded_bead_centroids_fit_quality, key_values, psf_properties, psf_z_profiles, psf_y_profiles, psf_x_profiles)
+	PRIMARY KEY (bead_crops, analyzed_bead_centroids, discarded_bead_centroids_lateral_edge, discarded_bead_centroids_self_proximity, considered_bead_centroids_axial_edge, considered_bead_centroids_cluster, considered_bead_centroids_fit_quality, key_values, psf_properties, psf_z_profiles, psf_y_profiles, psf_x_profiles)
 );
 
 CREATE TABLE "Roi" (

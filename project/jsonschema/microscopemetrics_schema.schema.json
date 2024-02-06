@@ -2030,13 +2030,21 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "fitting_rss_threshold": {
+                    "description": "Threshold for the residual sum of squares of the fit to be considered good.",
+                    "type": "number"
+                },
+                "intensity_zscore_threshold": {
+                    "description": "Threshold for the z-score of the intensity of the bead to be considered good.",
+                    "type": "number"
+                },
                 "min_lateral_distance_factor": {
                     "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
                     "maximum": 30,
                     "minimum": 10,
                     "type": "number"
                 },
-                "psf_beads_image": {
+                "psf_beads_images": {
                     "additionalProperties": {
                         "$ref": "#/$defs/ImageAsNumpy__identifier_optional"
                     },
@@ -2061,11 +2069,14 @@
                 }
             },
             "required": [
-                "psf_beads_image",
+                "psf_beads_images",
                 "min_lateral_distance_factor",
                 "sigma_z",
                 "sigma_y",
-                "sigma_x"
+                "sigma_x",
+                "snr_threshold",
+                "fitting_rss_threshold",
+                "intensity_zscore_threshold"
             ],
             "title": "PSFBeadsInput",
             "type": "object"
@@ -2355,7 +2366,7 @@
                     "description": "The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.",
                     "type": "object"
                 },
-                "discarded_bead_centroids_axial_edge": {
+                "considered_bead_centroids_axial_edge": {
                     "additionalProperties": {
                         "anyOf": [
                             {
@@ -2366,10 +2377,10 @@
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but discarded as too close to the top and or bottom of the image. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centroids of the beads detected but considered as too close to the top and or bottom of the image. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "discarded_bead_centroids_cluster": {
+                "considered_bead_centroids_cluster": {
                     "additionalProperties": {
                         "anyOf": [
                             {
@@ -2380,10 +2391,10 @@
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but discarded as being too intense and potentially represent a cluster of beads. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "discarded_bead_centroids_fit_quality": {
+                "considered_bead_centroids_fit_quality": {
                     "additionalProperties": {
                         "anyOf": [
                             {
@@ -2394,7 +2405,7 @@
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but discarded as the fit quality was not good enough. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centroids of the beads detected but considered as the fit quality was not good enough.  RSS over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
                 "discarded_bead_centroids_lateral_edge": {

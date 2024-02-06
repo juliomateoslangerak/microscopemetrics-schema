@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-02T17:59:08
+# Generation date: 2024-02-06T02:00:52
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1735,17 +1735,19 @@ class PSFBeadsInput(MetricsInput):
     class_name: ClassVar[str] = "PSFBeadsInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
 
-    psf_beads_image: Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]] = empty_dict()
+    psf_beads_images: Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]] = empty_dict()
     min_lateral_distance_factor: float = 20.0
     sigma_z: float = 1.0
     sigma_y: float = 1.0
     sigma_x: float = 1.0
-    snr_threshold: Optional[float] = 10.0
+    snr_threshold: float = 10.0
+    fitting_rss_threshold: float = 0.1
+    intensity_zscore_threshold: float = 3.0
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.psf_beads_image):
-            self.MissingRequiredField("psf_beads_image")
-        self._normalize_inlined_as_dict(slot_name="psf_beads_image", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
+        if self._is_empty(self.psf_beads_images):
+            self.MissingRequiredField("psf_beads_images")
+        self._normalize_inlined_as_dict(slot_name="psf_beads_images", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
 
         if self._is_empty(self.min_lateral_distance_factor):
             self.MissingRequiredField("min_lateral_distance_factor")
@@ -1767,8 +1769,20 @@ class PSFBeadsInput(MetricsInput):
         if not isinstance(self.sigma_x, float):
             self.sigma_x = float(self.sigma_x)
 
-        if self.snr_threshold is not None and not isinstance(self.snr_threshold, float):
+        if self._is_empty(self.snr_threshold):
+            self.MissingRequiredField("snr_threshold")
+        if not isinstance(self.snr_threshold, float):
             self.snr_threshold = float(self.snr_threshold)
+
+        if self._is_empty(self.fitting_rss_threshold):
+            self.MissingRequiredField("fitting_rss_threshold")
+        if not isinstance(self.fitting_rss_threshold, float):
+            self.fitting_rss_threshold = float(self.fitting_rss_threshold)
+
+        if self._is_empty(self.intensity_zscore_threshold):
+            self.MissingRequiredField("intensity_zscore_threshold")
+        if not isinstance(self.intensity_zscore_threshold, float):
+            self.intensity_zscore_threshold = float(self.intensity_zscore_threshold)
 
         super().__post_init__(**kwargs)
 
@@ -1785,10 +1799,10 @@ class PSFBeadsOutput(MetricsOutput):
     bead_crops: Optional[Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]]] = empty_dict()
     analyzed_bead_centroids: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     discarded_bead_centroids_lateral_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
-    discarded_bead_centroids_axial_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     discarded_bead_centroids_self_proximity: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
-    discarded_bead_centroids_cluster: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
-    discarded_bead_centroids_fit_quality: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    considered_bead_centroids_axial_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    considered_bead_centroids_cluster: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    considered_bead_centroids_fit_quality: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     key_values: Optional[Union[dict, "PSFBeadsKeyMeasurements"]] = None
     psf_properties: Optional[Union[dict, TableAsDict]] = None
     psf_z_profiles: Optional[Union[dict, TableAsDict]] = None
@@ -1802,13 +1816,13 @@ class PSFBeadsOutput(MetricsOutput):
 
         self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_lateral_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_axial_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
-
         self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_self_proximity", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_cluster", slot_type=RoiMassCenters, key_name="label", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_axial_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="discarded_bead_centroids_fit_quality", slot_type=RoiMassCenters, key_name="label", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_cluster", slot_type=RoiMassCenters, key_name="label", keyed=True)
+
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_fit_quality", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
         if self.key_values is not None and not isinstance(self.key_values, PSFBeadsKeyMeasurements):
             self.key_values = PSFBeadsKeyMeasurements(**as_dict(self.key_values))
@@ -2695,14 +2709,20 @@ slots.decile_8 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_s
 slots.decile_9 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_9'], name="decile_9", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_9'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.decile_9, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.psf_beads_image = Slot(uri="str(uriorcurie)", name="psf_beads_image", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_image, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])
+slots.psf_beads_images = Slot(uri="str(uriorcurie)", name="psf_beads_images", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])
 
 slots.min_lateral_distance_factor = Slot(uri="str(uriorcurie)", name="min_lateral_distance_factor", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
 
 slots.snr_threshold = Slot(uri="str(uriorcurie)", name="snr_threshold", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=Optional[float])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
+
+slots.fitting_rss_threshold = Slot(uri="str(uriorcurie)", name="fitting_rss_threshold", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_rss_threshold, domain=None, range=float)
+
+slots.intensity_zscore_threshold = Slot(uri="str(uriorcurie)", name="intensity_zscore_threshold", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_zscore_threshold, domain=None, range=float)
 
 slots.nr_of_beads_analyzed = Slot(uri="str(uriorcurie)", name="nr_of_beads_analyzed", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_analyzed, domain=None, range=Optional[Union[int, List[int]]])
@@ -3211,17 +3231,17 @@ slots.pSFBeadsOutput__analyzed_bead_centroids = Slot(uri="str(uriorcurie)", name
 slots.pSFBeadsOutput__discarded_bead_centroids_lateral_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_lateral_edge", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_lateral_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centroids_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_axial_edge", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_axial_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
-
 slots.pSFBeadsOutput__discarded_bead_centroids_self_proximity = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_self_proximity", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_self_proximity, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centroids_cluster = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_cluster", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_cluster, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+slots.pSFBeadsOutput__considered_bead_centroids_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_axial_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_axial_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centroids_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centroids_fit_quality", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centroids_fit_quality, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+slots.pSFBeadsOutput__considered_bead_centroids_cluster = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_cluster", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_cluster, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+
+slots.pSFBeadsOutput__considered_bead_centroids_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_fit_quality", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_fit_quality, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
 slots.pSFBeadsOutput__key_values = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__key_values", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_values, domain=None, range=Optional[Union[dict, PSFBeadsKeyMeasurements]])

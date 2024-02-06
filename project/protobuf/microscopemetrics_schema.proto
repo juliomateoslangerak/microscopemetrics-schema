@@ -420,12 +420,14 @@ message PSFBeadsDataset
  }
 message PSFBeadsInput
  {
- repeated  imageAsNumpy psfBeadsImage = 0
+ repeated  imageAsNumpy psfBeadsImages = 0
   float minLateralDistanceFactor = 0
   float sigmaZ = 0
   float sigmaY = 0
   float sigmaX = 0
   float snrThreshold = 0
+  float fittingRssThreshold = 0
+  float intensityZscoreThreshold = 0
  }
 message PSFBeadsKeyMeasurements
  {
@@ -471,10 +473,10 @@ message PSFBeadsOutput
  repeated  imageAsNumpy beadCrops = 0
  repeated  roiMassCenters analyzedBeadCentroids = 0
  repeated  roiMassCenters discardedBeadCentroidsLateralEdge = 0
- repeated  roiMassCenters discardedBeadCentroidsAxialEdge = 0
  repeated  roiMassCenters discardedBeadCentroidsSelfProximity = 0
- repeated  roiMassCenters discardedBeadCentroidsCluster = 0
- repeated  roiMassCenters discardedBeadCentroidsFitQuality = 0
+ repeated  roiMassCenters consideredBeadCentroidsAxialEdge = 0
+ repeated  roiMassCenters consideredBeadCentroidsCluster = 0
+ repeated  roiMassCenters consideredBeadCentroidsFitQuality = 0
   pSFBeadsKeyMeasurements keyValues = 0
   tableAsDict psfProperties = 0
   tableAsDict psfZProfiles = 0

@@ -493,12 +493,14 @@ type PSFBeadsDataset
 
 type PSFBeadsInput
   {
-    psfBeadsImage: [ImageAsNumpy]!
+    psfBeadsImages: [ImageAsNumpy]!
     minLateralDistanceFactor: Float!
     sigmaZ: Float!
     sigmaY: Float!
     sigmaX: Float!
-    snrThreshold: Float
+    snrThreshold: Float!
+    fittingRssThreshold: Float!
+    intensityZscoreThreshold: Float!
   }
 
 type PSFBeadsKeyMeasurements
@@ -546,10 +548,10 @@ type PSFBeadsOutput
     beadCrops: [ImageAsNumpy]
     analyzedBeadCentroids: [RoiMassCenters]
     discardedBeadCentroidsLateralEdge: [RoiMassCenters]
-    discardedBeadCentroidsAxialEdge: [RoiMassCenters]
     discardedBeadCentroidsSelfProximity: [RoiMassCenters]
-    discardedBeadCentroidsCluster: [RoiMassCenters]
-    discardedBeadCentroidsFitQuality: [RoiMassCenters]
+    consideredBeadCentroidsAxialEdge: [RoiMassCenters]
+    consideredBeadCentroidsCluster: [RoiMassCenters]
+    consideredBeadCentroidsFitQuality: [RoiMassCenters]
     keyValues: PSFBeadsKeyMeasurements
     psfProperties: TableAsDict
     psfZProfiles: TableAsDict
