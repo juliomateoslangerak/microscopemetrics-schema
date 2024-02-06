@@ -291,6 +291,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PixelSeries/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Point/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -406,6 +411,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/acquisition_date/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/acquisition_datetime/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -432,6 +442,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/authors/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/axis/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -656,6 +671,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/discarded_bead_centroids_axial_edge/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/discarded_bead_centroids_cluster/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/discarded_bead_centroids_fit_quality/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/discarded_bead_centroids_lateral_edge/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -667,6 +697,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/distance_key_values/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/distance_measurements/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -802,6 +837,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/intensity_max_spot_roi/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/intensity_measurements/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -986,6 +1026,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/nb_pixels/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/nb_pixels_center/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -1081,6 +1126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/processing_date/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/processing_datetime/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
@@ -1106,12 +1156,42 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_bead_images/</loc>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_beads_image/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_beads_images/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_properties/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_x_profiles/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_y_profiles/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_z_profiles/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/r/</loc>
+         <lastmod>2024-02-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/rayleigh_resolution/</loc>
          <lastmod>2024-02-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
