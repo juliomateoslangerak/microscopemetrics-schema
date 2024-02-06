@@ -1265,11 +1265,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "psf_bead_images",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_bead_images",
+      "name": "psf_beads_images",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_beads_images",
       "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_bead_images",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_beads_images",
       "multivalued": true,
       "owner": "PSFBeadsInput",
       "domain_of": [
@@ -3837,7 +3837,7 @@
     },
     {
       "name": "pSFBeadsOutput__bead_properties",
-      "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
+      "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/bead_properties",
       "alias": "bead_properties",
@@ -5926,7 +5926,7 @@
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "is_a": "MetricsInput",
       "slots": [
-        "psf_bead_images",
+        "psf_beads_images",
         "min_lateral_distance_factor",
         "PSFBeadsInput_sigma_z",
         "PSFBeadsInput_sigma_y",
@@ -6025,7 +6025,7 @@
         },
         {
           "name": "bead_properties",
-          "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters fit_quality_z fit_quality_y fit_quality_x resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
+          "description": "Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio",
           "range": "TableAsDict",
           "inlined": true,
           "@type": "SlotDefinition"
@@ -6432,9 +6432,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-05T12:00:47",
+  "source_file_date": "2024-02-02T17:40:54",
   "source_file_size": 787,
-  "generation_date": "2024-02-06T13:57:33",
+  "generation_date": "2024-02-06T23:38:02",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

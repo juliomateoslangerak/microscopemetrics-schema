@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-06T13:57:38
+# Generation date: 2024-02-06T23:38:07
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1735,7 +1735,7 @@ class PSFBeadsInput(MetricsInput):
     class_name: ClassVar[str] = "PSFBeadsInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
 
-    psf_bead_images: Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]] = empty_dict()
+    psf_beads_images: Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]] = empty_dict()
     min_lateral_distance_factor: float = 20.0
     sigma_z: float = 1.0
     sigma_y: float = 1.0
@@ -1745,9 +1745,9 @@ class PSFBeadsInput(MetricsInput):
     intensity_zscore_threshold: float = 3.0
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.psf_bead_images):
-            self.MissingRequiredField("psf_bead_images")
-        self._normalize_inlined_as_dict(slot_name="psf_bead_images", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
+        if self._is_empty(self.psf_beads_images):
+            self.MissingRequiredField("psf_beads_images")
+        self._normalize_inlined_as_dict(slot_name="psf_beads_images", slot_type=ImageAsNumpy, key_name="image_url", keyed=True)
 
         if self._is_empty(self.min_lateral_distance_factor):
             self.MissingRequiredField("min_lateral_distance_factor")
@@ -2709,8 +2709,8 @@ slots.decile_8 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_s
 slots.decile_9 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_9'], name="decile_9", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_9'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.decile_9, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.psf_bead_images = Slot(uri="str(uriorcurie)", name="psf_bead_images", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_bead_images, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])
+slots.psf_beads_images = Slot(uri="str(uriorcurie)", name="psf_beads_images", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])
 
 slots.min_lateral_distance_factor = Slot(uri="str(uriorcurie)", name="min_lateral_distance_factor", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)

@@ -493,7 +493,7 @@ type PSFBeadsDataset
 
 type PSFBeadsInput
   {
-    psfBeadImages: [ImageAsNumpy]!
+    psfBeadsImages: [ImageAsNumpy]!
     minLateralDistanceFactor: Float!
     sigmaZ: Float!
     sigmaY: Float!

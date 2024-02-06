@@ -41,7 +41,7 @@ classes:
   PSFBeadsInput:
     is_a: MetricsInput
     slots:
-      - psf_bead_images
+      - psf_beads_images
       - min_lateral_distance_factor
       - sigma_z
       - sigma_y
@@ -225,7 +225,7 @@ classes:
 
 slots:
   # Inputs
-  psf_bead_images:
+  psf_beads_images:
     range: ImageAsNumpy
     description: >-
       The image containing the beads provided as a 5D numpy array in the order TZYXC.
