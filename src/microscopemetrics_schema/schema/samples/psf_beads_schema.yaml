@@ -41,7 +41,7 @@ classes:
   PSFBeadsInput:
     is_a: MetricsInput
     slots:
-      - psf_beads_images
+      - psf_bead_images
       - min_lateral_distance_factor
       - sigma_z
       - sigma_y
@@ -139,7 +139,7 @@ classes:
           The key measurements of the PSF beads analysis.
         multivalued: False
         inlined: true
-      psf_properties:
+      bead_properties:
         range: TableAsDict
         description: >-
           Properties associated with the analysis of the beads. This properties include:
@@ -148,9 +148,12 @@ classes:
           roi_id
           channel_nr
           fit_parameters
-          fit_quality_z
-          fit_quality_y
-          fit_quality_x
+          z_fit_rss
+          y_fit_rss
+          x_fit_rss
+          considered_bad_z_fit
+          considered_bad_y_fit
+          considered_bad_x_fit
           resolution_fwhm_z_pixels
           resolution_fwhm_y_pixels
           resolution_fwhm_x_pixels
@@ -160,19 +163,19 @@ classes:
           resolution_lateral_asymmetry_ratio
         multivalued: false
         inlined: true
-      psf_z_profiles:
+      bead_z_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the z axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
-      psf_y_profiles:
+      bead_y_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the y axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
-      psf_x_profiles:
+      bead_x_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
@@ -222,7 +225,7 @@ classes:
 
 slots:
   # Inputs
-  psf_beads_images:
+  psf_bead_images:
     range: ImageAsNumpy
     description: >-
       The image containing the beads provided as a 5D numpy array in the order TZYXC.

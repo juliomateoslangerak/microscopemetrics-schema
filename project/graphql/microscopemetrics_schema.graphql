@@ -493,7 +493,7 @@ type PSFBeadsDataset
 
 type PSFBeadsInput
   {
-    psfBeadsImages: [ImageAsNumpy]!
+    psfBeadImages: [ImageAsNumpy]!
     minLateralDistanceFactor: Float!
     sigmaZ: Float!
     sigmaY: Float!
@@ -553,10 +553,10 @@ type PSFBeadsOutput
     consideredBeadCentroidsCluster: [RoiMassCenters]
     consideredBeadCentroidsFitQuality: [RoiMassCenters]
     keyValues: PSFBeadsKeyMeasurements
-    psfProperties: TableAsDict
-    psfZProfiles: TableAsDict
-    psfYProfiles: TableAsDict
-    psfXProfiles: TableAsDict
+    beadProperties: TableAsDict
+    beadZProfiles: TableAsDict
+    beadYProfiles: TableAsDict
+    beadXProfiles: TableAsDict
   }
 
 type Rectangle

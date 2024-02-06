@@ -420,7 +420,7 @@ message PSFBeadsDataset
  }
 message PSFBeadsInput
  {
- repeated  imageAsNumpy psfBeadsImages = 0
+ repeated  imageAsNumpy psfBeadImages = 0
   float minLateralDistanceFactor = 0
   float sigmaZ = 0
   float sigmaY = 0
@@ -478,10 +478,10 @@ message PSFBeadsOutput
  repeated  roiMassCenters consideredBeadCentroidsCluster = 0
  repeated  roiMassCenters consideredBeadCentroidsFitQuality = 0
   pSFBeadsKeyMeasurements keyValues = 0
-  tableAsDict psfProperties = 0
-  tableAsDict psfZProfiles = 0
-  tableAsDict psfYProfiles = 0
-  tableAsDict psfXProfiles = 0
+  tableAsDict beadProperties = 0
+  tableAsDict beadZProfiles = 0
+  tableAsDict beadYProfiles = 0
+  tableAsDict beadXProfiles = 0
  }
 // A rectangle as defined by x, y coordinates and width, height
 message Rectangle
