@@ -541,7 +541,7 @@ def st_mm_field_illumination_processed_dataset(
 @st.composite
 def st_mm_psf_beads_input(
     draw,
-    psf_bead_images=st_mm_image_as_numpy(),
+    psf_beads_images=st_mm_image_as_numpy(),
     min_lateral_distance_factor=st.floats(min_value=15.0, max_value=25.0),
     sigma_z=st.floats(min_value=0.7, max_value=2.0),
     sigma_y=st.floats(min_value=0.7, max_value=2.0),
@@ -549,7 +549,7 @@ def st_mm_psf_beads_input(
     snr_threshold=st.floats(min_value=5.0, max_value=100.0),
 ) -> mm_schema.PSFBeadsInput:
     return mm_schema.PSFBeadsInput(
-        psf_bead_images=draw(psf_bead_images),
+        psf_beads_images=draw(psf_beads_images),
         min_lateral_distance_factor=draw(min_lateral_distance_factor),
         sigma_z=draw(sigma_z),
         sigma_y=draw(sigma_y),
