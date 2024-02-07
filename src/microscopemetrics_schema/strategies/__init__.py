@@ -520,7 +520,7 @@ def st_mm_field_illumination_unprocessed_dataset(
         target_class=mm_schema.FieldIlluminationDataset,
         processed=st.just(False),
         input=input,
-        output=st.just(None),
+        output=st_mm_field_illumination_output(),
     ))
 
 
@@ -578,7 +578,7 @@ def st_mm_psf_beads_unprocessed_dataset(
         target_class=mm_schema.PSFBeadsDataset,
         processed=st.just(False),
         input=input,
-        output=st.just(None),
+        output=st_mm_psf_beads_output(),
     ))
 
 
