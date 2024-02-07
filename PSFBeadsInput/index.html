@@ -210,6 +210,8 @@
     class PSFBeadsInput
       MetricsInput &lt;|-- PSFBeadsInput
 
+      PSFBeadsInput : bit_depth
+
       PSFBeadsInput : fitting_rss_threshold
 
       PSFBeadsInput : intensity_zscore_threshold
@@ -219,6 +221,8 @@
       PSFBeadsInput : psf_beads_images
 
           PSFBeadsInput --&gt; ImageAsNumpy : psf_beads_images
+
+      PSFBeadsInput : saturation_threshold
 
       PSFBeadsInput : sigma_x
 
@@ -252,6 +256,18 @@
 <td><a href="../psf_beads_images/">psf_beads_images</a></td>
 <td>1..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
 <td>The image containing the beads provided as a 5D numpy array in the order TZYX...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../bit_depth/">bit_depth</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>Detector bit depth</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../saturation_threshold/">saturation_threshold</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Tolerated saturation threshold</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -350,6 +366,8 @@ from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-sc
 is_a: MetricsInput
 slots:
 - psf_beads_images
+- bit_depth
+- saturation_threshold
 - min_lateral_distance_factor
 - sigma_z
 - sigma_y
@@ -437,6 +455,41 @@ attributes:
     range: ImageAsNumpy
     required: true
     inlined: true
+  bit_depth:
+    name: bit_depth
+    description: Detector bit depth
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: bit_depth
+    owner: PSFBeadsInput
+    domain_of:
+    - ArgolightBInput
+    - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
+    range: integer
+    minimum_value: 1
+    maximum_value: 64
+  saturation_threshold:
+    name: saturation_threshold
+    description: Tolerated saturation threshold. If the amount of saturated pixels
+      is above this threshold,  the image is considered as saturated and the analysis
+      is not performed.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    ifabsent: float(0.01)
+    alias: saturation_threshold
+    owner: PSFBeadsInput
+    domain_of:
+    - ArgolightBInput
+    - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
+    range: float
+    minimum_value: 0
+    maximum_value: 1
   min_lateral_distance_factor:
     name: min_lateral_distance_factor
     description: Minimal distance that has to separate laterally the beads represented
