@@ -494,6 +494,8 @@ type PSFBeadsDataset
 type PSFBeadsInput
   {
     psfBeadsImages: [ImageAsNumpy]!
+    bitDepth: Integer
+    saturationThreshold: Float
     minLateralDistanceFactor: Float!
     sigmaZ: Float!
     sigmaY: Float!

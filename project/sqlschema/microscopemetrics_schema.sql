@@ -256,6 +256,8 @@ CREATE TABLE "Protocol" (
 
 CREATE TABLE "PSFBeadsInput" (
 	psf_beads_images TEXT NOT NULL, 
+	bit_depth INTEGER, 
+	saturation_threshold FLOAT, 
 	min_lateral_distance_factor FLOAT NOT NULL, 
 	sigma_z FLOAT NOT NULL, 
 	sigma_y FLOAT NOT NULL, 
@@ -263,7 +265,7 @@ CREATE TABLE "PSFBeadsInput" (
 	snr_threshold FLOAT NOT NULL, 
 	fitting_rss_threshold FLOAT NOT NULL, 
 	intensity_zscore_threshold FLOAT NOT NULL, 
-	PRIMARY KEY (psf_beads_images, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold, fitting_rss_threshold, intensity_zscore_threshold)
+	PRIMARY KEY (psf_beads_images, bit_depth, saturation_threshold, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold, fitting_rss_threshold, intensity_zscore_threshold)
 );
 
 CREATE TABLE "PSFBeadsKeyMeasurements" (

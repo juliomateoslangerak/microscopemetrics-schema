@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-07T13:27:43
+# Generation date: 2024-02-07T21:26:02
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1743,6 +1743,8 @@ class PSFBeadsInput(MetricsInput):
     snr_threshold: float = 10.0
     fitting_rss_threshold: float = 0.1
     intensity_zscore_threshold: float = 3.0
+    bit_depth: Optional[int] = None
+    saturation_threshold: Optional[float] = 0.01
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.psf_beads_images):
@@ -1783,6 +1785,12 @@ class PSFBeadsInput(MetricsInput):
             self.MissingRequiredField("intensity_zscore_threshold")
         if not isinstance(self.intensity_zscore_threshold, float):
             self.intensity_zscore_threshold = float(self.intensity_zscore_threshold)
+
+        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
+            self.bit_depth = int(self.bit_depth)
+
+        if self.saturation_threshold is not None and not isinstance(self.saturation_threshold, float):
+            self.saturation_threshold = float(self.saturation_threshold)
 
         super().__post_init__(**kwargs)
 

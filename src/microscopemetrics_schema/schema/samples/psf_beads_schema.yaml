@@ -42,6 +42,8 @@ classes:
     is_a: MetricsInput
     slots:
       - psf_beads_images
+      - bit_depth
+      - saturation_threshold
       - min_lateral_distance_factor
       - sigma_z
       - sigma_y

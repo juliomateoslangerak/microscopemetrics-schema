@@ -637,6 +637,7 @@
       "owner": "ArgolightEInput",
       "domain_of": [
         "FieldIlluminationInput",
+        "PSFBeadsInput",
         "ArgolightBInput",
         "ArgolightEInput"
       ],
@@ -655,6 +656,7 @@
       "owner": "ArgolightEInput",
       "domain_of": [
         "FieldIlluminationInput",
+        "PSFBeadsInput",
         "ArgolightBInput",
         "ArgolightEInput"
       ],
@@ -5927,6 +5929,8 @@
       "is_a": "MetricsInput",
       "slots": [
         "psf_beads_images",
+        "bit_depth",
+        "saturation_threshold",
         "min_lateral_distance_factor",
         "PSFBeadsInput_sigma_z",
         "PSFBeadsInput_sigma_y",
@@ -6432,9 +6436,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-05T12:00:47",
+  "source_file_date": "2024-02-02T17:40:54",
   "source_file_size": 787,
-  "generation_date": "2024-02-07T13:27:37",
+  "generation_date": "2024-02-07T21:25:57",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

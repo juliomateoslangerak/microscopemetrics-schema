@@ -421,6 +421,8 @@ message PSFBeadsDataset
 message PSFBeadsInput
  {
  repeated  imageAsNumpy psfBeadsImages = 0
+  integer bitDepth = 0
+  float saturationThreshold = 0
   float minLateralDistanceFactor = 0
   float sigmaZ = 0
   float sigmaY = 0

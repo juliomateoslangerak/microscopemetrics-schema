@@ -2030,6 +2030,12 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "bit_depth": {
+                    "description": "Detector bit depth",
+                    "maximum": 64,
+                    "minimum": 1,
+                    "type": "integer"
+                },
                 "fitting_rss_threshold": {
                     "description": "Threshold for the residual sum of squares of the fit to be considered good.",
                     "type": "number"
@@ -2050,6 +2056,12 @@
                     },
                     "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
                     "type": "object"
+                },
+                "saturation_threshold": {
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "maximum": 1,
+                    "minimum": 0,
+                    "type": "number"
                 },
                 "sigma_x": {
                     "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
