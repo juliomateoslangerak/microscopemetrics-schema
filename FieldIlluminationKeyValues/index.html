@@ -222,9 +222,13 @@
 
       FieldIlluminationKeyValues : bottom_right_intensity_ratio
 
-      FieldIlluminationKeyValues : center_of_mass_x
+      FieldIlluminationKeyValues : centroid_weighted_x
 
-      FieldIlluminationKeyValues : center_of_mass_y
+      FieldIlluminationKeyValues : centroid_weighted_y
+
+      FieldIlluminationKeyValues : centroid_x
+
+      FieldIlluminationKeyValues : centroid_y
 
       FieldIlluminationKeyValues : channel
 
@@ -301,7 +305,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel/">channel</a></td>
+<td><a href="channel.md">channel</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
@@ -313,15 +317,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_x/">center_of_mass_x</a></td>
+<td><a href="../centroid_weighted_y/">centroid_weighted_y</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>The y coordinate of the center of mass of the center of illumination region</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../centroid_weighted_x/">centroid_weighted_x</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the center of mass of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_y/">center_of_mass_y</a></td>
+<td><a href="../centroid_y/">centroid_y</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The y coordinate of the center of mass of the center of illumination region</td>
+<td>The y coordinate of the geometric center of the center of illumination region</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../centroid_x/">centroid_x</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>The x coordinate of the geometric center of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -565,8 +581,10 @@ is_a: KeyValues
 slots:
 - channel
 - nb_pixels_center
-- center_of_mass_x
-- center_of_mass_y
+- centroid_weighted_y
+- centroid_weighted_x
+- centroid_y
+- centroid_x
 - max_intensity
 - max_intensity_pos_x
 - max_intensity_pos_y
@@ -631,26 +649,50 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: integer
-  center_of_mass_x:
-    name: center_of_mass_x
-    description: The x coordinate of the center of mass of the center of illumination
-      region. In pixels
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: center_of_mass_x
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  center_of_mass_y:
-    name: center_of_mass_y
+  centroid_weighted_y:
+    name: centroid_weighted_y
     description: The y coordinate of the center of mass of the center of illumination
       region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_y
+    alias: centroid_weighted_y
+    owner: FieldIlluminationKeyValues
+    domain_of:
+    - FieldIlluminationKeyValues
+    range: float
+  centroid_weighted_x:
+    name: centroid_weighted_x
+    description: The x coordinate of the center of mass of the center of illumination
+      region. In pixels
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: centroid_weighted_x
+    owner: FieldIlluminationKeyValues
+    domain_of:
+    - FieldIlluminationKeyValues
+    range: float
+  centroid_y:
+    name: centroid_y
+    description: The y coordinate of the geometric center of the center of illumination
+      region. In pixels
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: centroid_y
+    owner: FieldIlluminationKeyValues
+    domain_of:
+    - FieldIlluminationKeyValues
+    range: float
+  centroid_x:
+    name: centroid_x
+    description: The x coordinate of the geometric center of the center of illumination
+      region. In pixels
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: centroid_x
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
