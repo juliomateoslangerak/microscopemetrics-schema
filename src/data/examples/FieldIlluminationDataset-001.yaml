@@ -52,10 +52,14 @@ output:
     - 0
     nb_pixels_center:
     - 220894
-    center_of_mass_x:
+    centroid_weighted_x:
     - 264.1675555226803
-    center_of_mass_y:
+    centroid_weighted_y:
     - 288.2084306164054
+    centroid_x:
+    - 264.0
+    centroid_y:
+    - 288.0
     max_intensity:
     - 239.0
     max_intensity_pos_x:

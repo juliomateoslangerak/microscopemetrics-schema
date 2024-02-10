@@ -207,8 +207,10 @@ type FieldIlluminationKeyValues
   {
     channel: [Integer]
     nbPixelsCenter: [Integer]
-    centerOfMassX: [Float]
-    centerOfMassY: [Float]
+    centroidWeightedY: [Float]
+    centroidWeightedX: [Float]
+    centroidY: [Float]
+    centroidX: [Float]
     maxIntensity: [Float]
     maxIntensityPosX: [Float]
     maxIntensityPosY: [Float]

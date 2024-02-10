@@ -805,11 +805,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "center_of_mass_x",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_x",
-      "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
+      "name": "centroid_weighted_y",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_weighted_y",
+      "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_x",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_weighted_y",
       "multivalued": true,
       "owner": "FieldIlluminationKeyValues",
       "domain_of": [
@@ -819,11 +819,39 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "center_of_mass_y",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_y",
-      "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
+      "name": "centroid_weighted_x",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_weighted_x",
+      "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_y",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_weighted_x",
+      "multivalued": true,
+      "owner": "FieldIlluminationKeyValues",
+      "domain_of": [
+        "FieldIlluminationKeyValues"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "centroid_y",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_y",
+      "description": "The y coordinate of the geometric center of the center of illumination region. In pixels",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_y",
+      "multivalued": true,
+      "owner": "FieldIlluminationKeyValues",
+      "domain_of": [
+        "FieldIlluminationKeyValues"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "centroid_x",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_x",
+      "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/centroid_x",
       "multivalued": true,
       "owner": "FieldIlluminationKeyValues",
       "domain_of": [
@@ -5820,8 +5848,10 @@
       "slots": [
         "channel",
         "nb_pixels_center",
-        "center_of_mass_x",
-        "center_of_mass_y",
+        "centroid_weighted_y",
+        "centroid_weighted_x",
+        "centroid_y",
+        "centroid_x",
         "max_intensity",
         "max_intensity_pos_x",
         "max_intensity_pos_y",
@@ -6436,9 +6466,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-02T17:40:54",
+  "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-02-07T21:25:57",
+  "generation_date": "2024-02-10T18:47:43",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

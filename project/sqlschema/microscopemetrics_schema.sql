@@ -108,8 +108,10 @@ CREATE TABLE "Experimenter" (
 CREATE TABLE "FieldIlluminationKeyValues" (
 	channel INTEGER, 
 	nb_pixels_center INTEGER, 
-	center_of_mass_x FLOAT, 
-	center_of_mass_y FLOAT, 
+	centroid_weighted_y FLOAT, 
+	centroid_weighted_x FLOAT, 
+	centroid_y FLOAT, 
+	centroid_x FLOAT, 
 	max_intensity FLOAT, 
 	max_intensity_pos_x FLOAT, 
 	max_intensity_pos_y FLOAT, 
@@ -141,7 +143,7 @@ CREATE TABLE "FieldIlluminationKeyValues" (
 	decile_7 FLOAT, 
 	decile_8 FLOAT, 
 	decile_9 FLOAT, 
-	PRIMARY KEY (channel, nb_pixels_center, center_of_mass_x, center_of_mass_y, max_intensity, max_intensity_pos_x, max_intensity_pos_y, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
+	PRIMARY KEY (channel, nb_pixels_center, centroid_weighted_y, centroid_weighted_x, centroid_y, centroid_x, max_intensity, max_intensity_pos_x, max_intensity_pos_y, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
 );
 
 CREATE TABLE "Image2D" (

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-07T21:26:02
+# Generation date: 2024-02-10T18:47:47
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1519,8 +1519,10 @@ class FieldIlluminationKeyValues(KeyValues):
 
     channel: Optional[Union[int, List[int]]] = empty_list()
     nb_pixels_center: Optional[Union[int, List[int]]] = empty_list()
-    center_of_mass_x: Optional[Union[float, List[float]]] = empty_list()
-    center_of_mass_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_weighted_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_weighted_x: Optional[Union[float, List[float]]] = empty_list()
+    centroid_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_x: Optional[Union[float, List[float]]] = empty_list()
     max_intensity: Optional[Union[float, List[float]]] = empty_list()
     max_intensity_pos_x: Optional[Union[float, List[float]]] = empty_list()
     max_intensity_pos_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1562,13 +1564,21 @@ class FieldIlluminationKeyValues(KeyValues):
             self.nb_pixels_center = [self.nb_pixels_center] if self.nb_pixels_center is not None else []
         self.nb_pixels_center = [v if isinstance(v, int) else int(v) for v in self.nb_pixels_center]
 
-        if not isinstance(self.center_of_mass_x, list):
-            self.center_of_mass_x = [self.center_of_mass_x] if self.center_of_mass_x is not None else []
-        self.center_of_mass_x = [v if isinstance(v, float) else float(v) for v in self.center_of_mass_x]
+        if not isinstance(self.centroid_weighted_y, list):
+            self.centroid_weighted_y = [self.centroid_weighted_y] if self.centroid_weighted_y is not None else []
+        self.centroid_weighted_y = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_y]
 
-        if not isinstance(self.center_of_mass_y, list):
-            self.center_of_mass_y = [self.center_of_mass_y] if self.center_of_mass_y is not None else []
-        self.center_of_mass_y = [v if isinstance(v, float) else float(v) for v in self.center_of_mass_y]
+        if not isinstance(self.centroid_weighted_x, list):
+            self.centroid_weighted_x = [self.centroid_weighted_x] if self.centroid_weighted_x is not None else []
+        self.centroid_weighted_x = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_x]
+
+        if not isinstance(self.centroid_y, list):
+            self.centroid_y = [self.centroid_y] if self.centroid_y is not None else []
+        self.centroid_y = [v if isinstance(v, float) else float(v) for v in self.centroid_y]
+
+        if not isinstance(self.centroid_x, list):
+            self.centroid_x = [self.centroid_x] if self.centroid_x is not None else []
+        self.centroid_x = [v if isinstance(v, float) else float(v) for v in self.centroid_x]
 
         if not isinstance(self.max_intensity, list):
             self.max_intensity = [self.max_intensity] if self.max_intensity is not None else []
@@ -2618,11 +2628,17 @@ slots.intensity_map_size = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illu
 slots.nb_pixels_center = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/nb_pixels_center'], name="nb_pixels_center", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/nb_pixels_center'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nb_pixels_center, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.center_of_mass_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_mass_x'], name="center_of_mass_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_mass_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_x, domain=None, range=Optional[Union[float, List[float]]])
+slots.centroid_weighted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_y'], name="centroid_weighted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_mass_y'], name="center_of_mass_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_mass_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_y, domain=None, range=Optional[Union[float, List[float]]])
+slots.centroid_weighted_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_x'], name="centroid_weighted_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_x, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_y'], name="centroid_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_y, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_x'], name="centroid_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_x, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity'], name="max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity, domain=None, range=Optional[Union[float, List[float]]])

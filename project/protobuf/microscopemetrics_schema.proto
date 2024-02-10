@@ -196,8 +196,10 @@ message FieldIlluminationKeyValues
  {
  repeated  integer channel = 0
  repeated  integer nbPixelsCenter = 0
- repeated  float centerOfMassX = 0
- repeated  float centerOfMassY = 0
+ repeated  float centroidWeightedY = 0
+ repeated  float centroidWeightedX = 0
+ repeated  float centroidY = 0
+ repeated  float centroidX = 0
  repeated  float maxIntensity = 0
  repeated  float maxIntensityPosX = 0
  repeated  float maxIntensityPosY = 0

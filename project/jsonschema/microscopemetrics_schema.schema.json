@@ -1013,15 +1013,29 @@
                     },
                     "type": "array"
                 },
-                "center_of_mass_x": {
+                "centroid_weighted_x": {
                     "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "center_of_mass_y": {
+                "centroid_weighted_y": {
                     "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_x": {
+                    "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_y": {
+                    "description": "The y coordinate of the geometric center of the center of illumination region. In pixels",
                     "items": {
                         "type": "number"
                     },

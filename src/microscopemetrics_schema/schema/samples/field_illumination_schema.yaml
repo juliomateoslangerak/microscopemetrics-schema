@@ -97,8 +97,10 @@ classes:
     slots:
       - channel
       - nb_pixels_center
-      - center_of_mass_x
-      - center_of_mass_y
+      - centroid_weighted_y
+      - centroid_weighted_x
+      - centroid_y
+      - centroid_x
       - max_intensity
       - max_intensity_pos_x
       - max_intensity_pos_y
@@ -184,15 +186,25 @@ slots:
     description: >-
       The area occupied by the center of illumination region. In pixels
     multivalued: true
-  center_of_mass_x:
+  centroid_weighted_y:
+    range: float
+    description: >-
+      The y coordinate of the center of mass of the center of illumination region. In pixels
+    multivalued: true
+  centroid_weighted_x:
     range: float
     description: >-
       The x coordinate of the center of mass of the center of illumination region. In pixels
     multivalued: true
-  center_of_mass_y:
+  centroid_y:
     range: float
     description: >-
-      The y coordinate of the center of mass of the center of illumination region. In pixels
+      The y coordinate of the geometric center of the center of illumination region. In pixels
+    multivalued: true
+  centroid_x:
+    range: float
+    description: >-
+      The x coordinate of the geometric center of the center of illumination region. In pixels
     multivalued: true
   max_intensity:
     range: float
