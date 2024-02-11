@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-10T18:47:47
+# Generation date: 2024-02-11T11:08:56
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1518,7 +1518,7 @@ class FieldIlluminationKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
     channel: Optional[Union[int, List[int]]] = empty_list()
-    nb_pixels_center: Optional[Union[int, List[int]]] = empty_list()
+    center_fraction: Optional[Union[float, List[float]]] = empty_list()
     centroid_weighted_y: Optional[Union[float, List[float]]] = empty_list()
     centroid_weighted_x: Optional[Union[float, List[float]]] = empty_list()
     centroid_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1560,9 +1560,9 @@ class FieldIlluminationKeyValues(KeyValues):
             self.channel = [self.channel] if self.channel is not None else []
         self.channel = [v if isinstance(v, int) else int(v) for v in self.channel]
 
-        if not isinstance(self.nb_pixels_center, list):
-            self.nb_pixels_center = [self.nb_pixels_center] if self.nb_pixels_center is not None else []
-        self.nb_pixels_center = [v if isinstance(v, int) else int(v) for v in self.nb_pixels_center]
+        if not isinstance(self.center_fraction, list):
+            self.center_fraction = [self.center_fraction] if self.center_fraction is not None else []
+        self.center_fraction = [v if isinstance(v, float) else float(v) for v in self.center_fraction]
 
         if not isinstance(self.centroid_weighted_y, list):
             self.centroid_weighted_y = [self.centroid_weighted_y] if self.centroid_weighted_y is not None else []
@@ -2625,8 +2625,8 @@ slots.sigma = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_sche
 slots.intensity_map_size = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map_size'], name="intensity_map_size", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map_size'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_map_size, domain=None, range=int)
 
-slots.nb_pixels_center = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/nb_pixels_center'], name="nb_pixels_center", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/nb_pixels_center'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nb_pixels_center, domain=None, range=Optional[Union[int, List[int]]])
+slots.center_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_fraction'], name="center_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_fraction'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_fraction, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.centroid_weighted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_y'], name="centroid_weighted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_y, domain=None, range=Optional[Union[float, List[float]]])

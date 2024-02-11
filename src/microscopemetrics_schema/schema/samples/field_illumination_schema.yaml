@@ -88,6 +88,7 @@ classes:
         range: RoiMassCenters
         description: >-
           Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity.
+          When the image is very flat, the 99 percentile is used instead.
           One point per channel.
         multivalued: true
         inlined: true
@@ -96,7 +97,7 @@ classes:
     is_a: KeyValues
     slots:
       - channel
-      - nb_pixels_center
+      - center_fraction
       - centroid_weighted_y
       - centroid_weighted_x
       - centroid_y
@@ -181,11 +182,13 @@ slots:
     minimum_value: 32
     maximum_value: 512
   # Outputs
-  nb_pixels_center:
-    range: integer
+  center_fraction:
+    range: float
     description: >-
-      The area occupied by the center of illumination region. In pixels
+      The fraction of the area occupied by the center of illumination region.
     multivalued: true
+    minimum_value: 0.0
+    maximum_value: 1.0
   centroid_weighted_y:
     range: float
     description: >-

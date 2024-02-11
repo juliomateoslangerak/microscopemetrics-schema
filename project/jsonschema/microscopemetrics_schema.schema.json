@@ -1013,6 +1013,15 @@
                     },
                     "type": "array"
                 },
+                "center_fraction": {
+                    "description": "The fraction of the area occupied by the center of illumination region.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "centroid_weighted_x": {
                     "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
                     "items": {
@@ -1181,13 +1190,6 @@
                     },
                     "type": "array"
                 },
-                "nb_pixels_center": {
-                    "description": "The area occupied by the center of illumination region. In pixels",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
                     "items": {
@@ -1249,7 +1251,7 @@
                             }
                         ]
                     },
-                    "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
+                    "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.",
                     "type": "object"
                 },
                 "corner_rois": {

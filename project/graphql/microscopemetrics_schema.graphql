@@ -206,7 +206,7 @@ type FieldIlluminationInput
 type FieldIlluminationKeyValues
   {
     channel: [Integer]
-    nbPixelsCenter: [Integer]
+    centerFraction: [Float]
     centroidWeightedY: [Float]
     centroidWeightedX: [Float]
     centroidY: [Float]

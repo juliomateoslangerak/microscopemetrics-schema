@@ -195,7 +195,7 @@ message FieldIlluminationInput
 message FieldIlluminationKeyValues
  {
  repeated  integer channel = 0
- repeated  integer nbPixelsCenter = 0
+ repeated  float centerFraction = 0
  repeated  float centroidWeightedY = 0
  repeated  float centroidWeightedX = 0
  repeated  float centroidY = 0

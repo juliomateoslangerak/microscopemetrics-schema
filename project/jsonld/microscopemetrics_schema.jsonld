@@ -791,17 +791,19 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "nb_pixels_center",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/nb_pixels_center",
-      "description": "The area occupied by the center of illumination region. In pixels",
+      "name": "center_fraction",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_fraction",
+      "description": "The fraction of the area occupied by the center of illumination region.",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/nb_pixels_center",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_fraction",
       "multivalued": true,
       "owner": "FieldIlluminationKeyValues",
       "domain_of": [
         "FieldIlluminationKeyValues"
       ],
-      "range": "integer",
+      "range": "float",
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -3706,7 +3708,7 @@
     },
     {
       "name": "fieldIlluminationOutput__center_of_illumination",
-      "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
+      "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_of_illumination",
       "multivalued": true,
@@ -5830,7 +5832,7 @@
         },
         {
           "name": "center_of_illumination",
-          "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.",
+          "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.",
           "multivalued": true,
           "range": "RoiMassCenters",
           "inlined": true,
@@ -5847,7 +5849,7 @@
       "is_a": "KeyValues",
       "slots": [
         "channel",
-        "nb_pixels_center",
+        "center_fraction",
         "centroid_weighted_y",
         "centroid_weighted_x",
         "centroid_y",
@@ -6468,7 +6470,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-02-10T18:47:43",
+  "generation_date": "2024-02-11T11:08:52",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
