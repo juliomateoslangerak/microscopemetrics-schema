@@ -386,7 +386,8 @@ attributes:
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. One point per channel.
+      90 percentile of the intensity. When the image is very flat, the 99 percentile
+      is used instead. One point per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
@@ -466,7 +467,8 @@ attributes:
   center_of_illumination:
     name: center_of_illumination
     description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. One point per channel.
+      90 percentile of the intensity. When the image is very flat, the 99 percentile
+      is used instead. One point per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true

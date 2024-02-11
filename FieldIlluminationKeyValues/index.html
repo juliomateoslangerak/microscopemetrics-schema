@@ -222,6 +222,8 @@
 
       FieldIlluminationKeyValues : bottom_right_intensity_ratio
 
+      FieldIlluminationKeyValues : center_fraction
+
       FieldIlluminationKeyValues : centroid_weighted_x
 
       FieldIlluminationKeyValues : centroid_weighted_y
@@ -270,8 +272,6 @@
 
       FieldIlluminationKeyValues : middle_right_intensity_ratio
 
-      FieldIlluminationKeyValues : nb_pixels_center
-
       FieldIlluminationKeyValues : top_center_intensity_mean
 
       FieldIlluminationKeyValues : top_center_intensity_ratio
@@ -305,15 +305,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel/">channel</a></td>
+<td><a href="channel.md">channel</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nb_pixels_center/">nb_pixels_center</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>The area occupied by the center of illumination region</td>
+<td><a href="../center_fraction/">center_fraction</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>The fraction of the area occupied by the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -580,7 +580,7 @@ from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-sc
 is_a: KeyValues
 slots:
 - channel
-- nb_pixels_center
+- center_fraction
 - centroid_weighted_y
 - centroid_weighted_x
 - centroid_y
@@ -638,17 +638,19 @@ attributes:
     - ArgolightEKeyValues
     - FieldIlluminationKeyValues
     range: integer
-  nb_pixels_center:
-    name: nb_pixels_center
-    description: The area occupied by the center of illumination region. In pixels
+  center_fraction:
+    name: center_fraction
+    description: The fraction of the area occupied by the center of illumination region.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nb_pixels_center
+    alias: center_fraction
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
-    range: integer
+    range: float
+    minimum_value: 0
+    maximum_value: 1
   centroid_weighted_y:
     name: centroid_weighted_y
     description: The y coordinate of the center of mass of the center of illumination
