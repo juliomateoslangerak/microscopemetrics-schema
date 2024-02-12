@@ -44,7 +44,7 @@ input:
   saturation_threshold: 0.01
   center_threshold: 0.9
   corner_fraction: 0.1
-  sigma: 2.0
+  sigma: 3.0
   intensity_map_size: 64
 output:
   key_values:

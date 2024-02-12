@@ -170,8 +170,8 @@ slots:
     required: true
     multivalued: false
     ifabsent: float(5.0)
-    minimum_value: 0.0
-    maximum_value: 100.0
+    minimum_value: 2.0
+    maximum_value: 10.0
   intensity_map_size:
     range: integer
     description: >-

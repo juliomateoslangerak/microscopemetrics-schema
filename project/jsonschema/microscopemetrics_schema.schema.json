@@ -951,8 +951,8 @@
                 },
                 "sigma": {
                     "description": "Input parameter: the sigma for the smoothing gaussian filter to be applied prior to analysis",
-                    "maximum": 100,
-                    "minimum": 0,
+                    "maximum": 10,
+                    "minimum": 2,
                     "type": "number"
                 }
             },
