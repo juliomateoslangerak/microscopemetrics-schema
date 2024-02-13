@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-12T22:36:53
+# Generation date: 2024-02-13T09:06:22
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1428,7 +1428,6 @@ class FieldIlluminationInput(MetricsInput):
 
     field_illumination_image: Union[dict, ImageAsNumpy] = None
     saturation_threshold: float = 0.01
-    center_threshold: float = 0.9
     corner_fraction: float = 0.1
     sigma: float = 5.0
     intensity_map_size: int = 64
@@ -1444,11 +1443,6 @@ class FieldIlluminationInput(MetricsInput):
             self.MissingRequiredField("saturation_threshold")
         if not isinstance(self.saturation_threshold, float):
             self.saturation_threshold = float(self.saturation_threshold)
-
-        if self._is_empty(self.center_threshold):
-            self.MissingRequiredField("center_threshold")
-        if not isinstance(self.center_threshold, float):
-            self.center_threshold = float(self.center_threshold)
 
         if self._is_empty(self.corner_fraction):
             self.MissingRequiredField("corner_fraction")
@@ -1483,9 +1477,9 @@ class FieldIlluminationOutput(MetricsOutput):
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[dict, TableAsDict]] = None
     intensity_map: Optional[Union[dict, Image5D]] = None
-    profile_rois: Optional[Union[dict, RoiProfiles]] = None
-    corner_rois: Optional[Union[dict, RoiMeasurements]] = None
-    center_of_illumination: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    roi_profiles: Optional[Union[dict, RoiProfiles]] = None
+    roi_corners: Optional[Union[dict, RoiMeasurements]] = None
+    roi_centroids_weighted: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
@@ -1497,13 +1491,13 @@ class FieldIlluminationOutput(MetricsOutput):
         if self.intensity_map is not None and not isinstance(self.intensity_map, Image5D):
             self.intensity_map = Image5D(**as_dict(self.intensity_map))
 
-        if self.profile_rois is not None and not isinstance(self.profile_rois, RoiProfiles):
-            self.profile_rois = RoiProfiles(**as_dict(self.profile_rois))
+        if self.roi_profiles is not None and not isinstance(self.roi_profiles, RoiProfiles):
+            self.roi_profiles = RoiProfiles(**as_dict(self.roi_profiles))
 
-        if self.corner_rois is not None and not isinstance(self.corner_rois, RoiMeasurements):
-            self.corner_rois = RoiMeasurements(**as_dict(self.corner_rois))
+        if self.roi_corners is not None and not isinstance(self.roi_corners, RoiMeasurements):
+            self.roi_corners = RoiMeasurements(**as_dict(self.roi_corners))
 
-        self._normalize_inlined_as_dict(slot_name="center_of_illumination", slot_type=RoiMassCenters, key_name="label", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="roi_centroids_weighted", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
         super().__post_init__(**kwargs)
 
@@ -1518,14 +1512,29 @@ class FieldIlluminationKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
     channel: Optional[Union[int, List[int]]] = empty_list()
-    center_fraction: Optional[Union[float, List[float]]] = empty_list()
+    center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
+    center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
     centroid_weighted_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_weighted_y_relative: Optional[Union[float, List[float]]] = empty_list()
     centroid_weighted_x: Optional[Union[float, List[float]]] = empty_list()
+    centroid_weighted_x_relative: Optional[Union[float, List[float]]] = empty_list()
+    centroid_weighted_distance_relative: Optional[Union[float, List[float]]] = empty_list()
     centroid_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_y_relative: Optional[Union[float, List[float]]] = empty_list()
     centroid_x: Optional[Union[float, List[float]]] = empty_list()
+    centroid_x_relative: Optional[Union[float, List[float]]] = empty_list()
+    centroid_distance_relative: Optional[Union[float, List[float]]] = empty_list()
+    centroid_fitted_y: Optional[Union[float, List[float]]] = empty_list()
+    centroid_fitted_y_relative: Optional[Union[float, List[float]]] = empty_list()
+    centroid_fitted_x: Optional[Union[float, List[float]]] = empty_list()
+    centroid_fitted_x_relative: Optional[Union[float, List[float]]] = empty_list()
+    centroid_fitted_distance_relative: Optional[Union[float, List[float]]] = empty_list()
     max_intensity: Optional[Union[float, List[float]]] = empty_list()
-    max_intensity_pos_x: Optional[Union[float, List[float]]] = empty_list()
     max_intensity_pos_y: Optional[Union[float, List[float]]] = empty_list()
+    max_intensity_pos_y_relative: Optional[Union[float, List[float]]] = empty_list()
+    max_intensity_pos_x: Optional[Union[float, List[float]]] = empty_list()
+    max_intensity_pos_x_relative: Optional[Union[float, List[float]]] = empty_list()
+    max_intensity_distance_relative: Optional[Union[float, List[float]]] = empty_list()
     top_left_intensity_mean: Optional[Union[float, List[float]]] = empty_list()
     top_left_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
     top_center_intensity_mean: Optional[Union[float, List[float]]] = empty_list()
@@ -1560,37 +1569,97 @@ class FieldIlluminationKeyValues(KeyValues):
             self.channel = [self.channel] if self.channel is not None else []
         self.channel = [v if isinstance(v, int) else int(v) for v in self.channel]
 
-        if not isinstance(self.center_fraction, list):
-            self.center_fraction = [self.center_fraction] if self.center_fraction is not None else []
-        self.center_fraction = [v if isinstance(v, float) else float(v) for v in self.center_fraction]
+        if not isinstance(self.center_region_intensity_fraction, list):
+            self.center_region_intensity_fraction = [self.center_region_intensity_fraction] if self.center_region_intensity_fraction is not None else []
+        self.center_region_intensity_fraction = [v if isinstance(v, float) else float(v) for v in self.center_region_intensity_fraction]
+
+        if not isinstance(self.center_region_area_fraction, list):
+            self.center_region_area_fraction = [self.center_region_area_fraction] if self.center_region_area_fraction is not None else []
+        self.center_region_area_fraction = [v if isinstance(v, float) else float(v) for v in self.center_region_area_fraction]
 
         if not isinstance(self.centroid_weighted_y, list):
             self.centroid_weighted_y = [self.centroid_weighted_y] if self.centroid_weighted_y is not None else []
         self.centroid_weighted_y = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_y]
 
+        if not isinstance(self.centroid_weighted_y_relative, list):
+            self.centroid_weighted_y_relative = [self.centroid_weighted_y_relative] if self.centroid_weighted_y_relative is not None else []
+        self.centroid_weighted_y_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_y_relative]
+
         if not isinstance(self.centroid_weighted_x, list):
             self.centroid_weighted_x = [self.centroid_weighted_x] if self.centroid_weighted_x is not None else []
         self.centroid_weighted_x = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_x]
+
+        if not isinstance(self.centroid_weighted_x_relative, list):
+            self.centroid_weighted_x_relative = [self.centroid_weighted_x_relative] if self.centroid_weighted_x_relative is not None else []
+        self.centroid_weighted_x_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_x_relative]
+
+        if not isinstance(self.centroid_weighted_distance_relative, list):
+            self.centroid_weighted_distance_relative = [self.centroid_weighted_distance_relative] if self.centroid_weighted_distance_relative is not None else []
+        self.centroid_weighted_distance_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_weighted_distance_relative]
 
         if not isinstance(self.centroid_y, list):
             self.centroid_y = [self.centroid_y] if self.centroid_y is not None else []
         self.centroid_y = [v if isinstance(v, float) else float(v) for v in self.centroid_y]
 
+        if not isinstance(self.centroid_y_relative, list):
+            self.centroid_y_relative = [self.centroid_y_relative] if self.centroid_y_relative is not None else []
+        self.centroid_y_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_y_relative]
+
         if not isinstance(self.centroid_x, list):
             self.centroid_x = [self.centroid_x] if self.centroid_x is not None else []
         self.centroid_x = [v if isinstance(v, float) else float(v) for v in self.centroid_x]
+
+        if not isinstance(self.centroid_x_relative, list):
+            self.centroid_x_relative = [self.centroid_x_relative] if self.centroid_x_relative is not None else []
+        self.centroid_x_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_x_relative]
+
+        if not isinstance(self.centroid_distance_relative, list):
+            self.centroid_distance_relative = [self.centroid_distance_relative] if self.centroid_distance_relative is not None else []
+        self.centroid_distance_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_distance_relative]
+
+        if not isinstance(self.centroid_fitted_y, list):
+            self.centroid_fitted_y = [self.centroid_fitted_y] if self.centroid_fitted_y is not None else []
+        self.centroid_fitted_y = [v if isinstance(v, float) else float(v) for v in self.centroid_fitted_y]
+
+        if not isinstance(self.centroid_fitted_y_relative, list):
+            self.centroid_fitted_y_relative = [self.centroid_fitted_y_relative] if self.centroid_fitted_y_relative is not None else []
+        self.centroid_fitted_y_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_fitted_y_relative]
+
+        if not isinstance(self.centroid_fitted_x, list):
+            self.centroid_fitted_x = [self.centroid_fitted_x] if self.centroid_fitted_x is not None else []
+        self.centroid_fitted_x = [v if isinstance(v, float) else float(v) for v in self.centroid_fitted_x]
+
+        if not isinstance(self.centroid_fitted_x_relative, list):
+            self.centroid_fitted_x_relative = [self.centroid_fitted_x_relative] if self.centroid_fitted_x_relative is not None else []
+        self.centroid_fitted_x_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_fitted_x_relative]
+
+        if not isinstance(self.centroid_fitted_distance_relative, list):
+            self.centroid_fitted_distance_relative = [self.centroid_fitted_distance_relative] if self.centroid_fitted_distance_relative is not None else []
+        self.centroid_fitted_distance_relative = [v if isinstance(v, float) else float(v) for v in self.centroid_fitted_distance_relative]
 
         if not isinstance(self.max_intensity, list):
             self.max_intensity = [self.max_intensity] if self.max_intensity is not None else []
         self.max_intensity = [v if isinstance(v, float) else float(v) for v in self.max_intensity]
 
+        if not isinstance(self.max_intensity_pos_y, list):
+            self.max_intensity_pos_y = [self.max_intensity_pos_y] if self.max_intensity_pos_y is not None else []
+        self.max_intensity_pos_y = [v if isinstance(v, float) else float(v) for v in self.max_intensity_pos_y]
+
+        if not isinstance(self.max_intensity_pos_y_relative, list):
+            self.max_intensity_pos_y_relative = [self.max_intensity_pos_y_relative] if self.max_intensity_pos_y_relative is not None else []
+        self.max_intensity_pos_y_relative = [v if isinstance(v, float) else float(v) for v in self.max_intensity_pos_y_relative]
+
         if not isinstance(self.max_intensity_pos_x, list):
             self.max_intensity_pos_x = [self.max_intensity_pos_x] if self.max_intensity_pos_x is not None else []
         self.max_intensity_pos_x = [v if isinstance(v, float) else float(v) for v in self.max_intensity_pos_x]
 
-        if not isinstance(self.max_intensity_pos_y, list):
-            self.max_intensity_pos_y = [self.max_intensity_pos_y] if self.max_intensity_pos_y is not None else []
-        self.max_intensity_pos_y = [v if isinstance(v, float) else float(v) for v in self.max_intensity_pos_y]
+        if not isinstance(self.max_intensity_pos_x_relative, list):
+            self.max_intensity_pos_x_relative = [self.max_intensity_pos_x_relative] if self.max_intensity_pos_x_relative is not None else []
+        self.max_intensity_pos_x_relative = [v if isinstance(v, float) else float(v) for v in self.max_intensity_pos_x_relative]
+
+        if not isinstance(self.max_intensity_distance_relative, list):
+            self.max_intensity_distance_relative = [self.max_intensity_distance_relative] if self.max_intensity_distance_relative is not None else []
+        self.max_intensity_distance_relative = [v if isinstance(v, float) else float(v) for v in self.max_intensity_distance_relative]
 
         if not isinstance(self.top_left_intensity_mean, list):
             self.top_left_intensity_mean = [self.top_left_intensity_mean] if self.top_left_intensity_mean is not None else []
@@ -2613,9 +2682,6 @@ slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="
 slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/field_illumination_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[dict, ImageAsNumpy])
 
-slots.center_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_threshold'], name="center_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_threshold, domain=None, range=float)
-
 slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/corner_fraction'], name="corner_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/corner_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.corner_fraction, domain=None, range=float)
 
@@ -2625,29 +2691,74 @@ slots.sigma = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_sche
 slots.intensity_map_size = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map_size'], name="intensity_map_size", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map_size'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_map_size, domain=None, range=int)
 
-slots.center_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_fraction'], name="center_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_fraction'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_fraction, domain=None, range=Optional[Union[float, List[float]]])
+slots.center_region_intensity_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_region_intensity_fraction'], name="center_region_intensity_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_region_intensity_fraction'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_region_intensity_fraction, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.center_region_area_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_region_area_fraction'], name="center_region_area_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_region_area_fraction'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.center_region_area_fraction, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.centroid_weighted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_y'], name="centroid_weighted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_y, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.centroid_weighted_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_y_relative'], name="centroid_weighted_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_y_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_y_relative, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.centroid_weighted_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_x'], name="centroid_weighted_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_x, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_weighted_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_x_relative'], name="centroid_weighted_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_x_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_x_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_weighted_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_weighted_distance_relative'], name="centroid_weighted_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_weighted_distance_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_weighted_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.centroid_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_y'], name="centroid_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_y, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.centroid_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_y_relative'], name="centroid_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_y_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_y_relative, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.centroid_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_x'], name="centroid_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_x, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_x_relative'], name="centroid_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_x_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_x_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_distance_relative'], name="centroid_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_distance_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_fitted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_fitted_y'], name="centroid_fitted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_fitted_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_fitted_y, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_fitted_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_fitted_y_relative'], name="centroid_fitted_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_fitted_y_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_fitted_y_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_fitted_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_fitted_x'], name="centroid_fitted_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_fitted_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_fitted_x, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_fitted_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_fitted_x_relative'], name="centroid_fitted_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_fitted_x_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_fitted_x_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.centroid_fitted_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/centroid_fitted_distance_relative'], name="centroid_fitted_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/centroid_fitted_distance_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.centroid_fitted_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity'], name="max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.max_intensity_pos_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_pos_y'], name="max_intensity_pos_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_pos_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.max_intensity_pos_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_pos_y_relative'], name="max_intensity_pos_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_pos_y_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y_relative, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.max_intensity_pos_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_pos_x'], name="max_intensity_pos_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_pos_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_pos_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_pos_y'], name="max_intensity_pos_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_pos_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y, domain=None, range=Optional[Union[float, List[float]]])
+slots.max_intensity_pos_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_pos_x_relative'], name="max_intensity_pos_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_pos_x_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_x_relative, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.max_intensity_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/max_intensity_distance_relative'], name="max_intensity_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/max_intensity_distance_relative'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.top_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/top_left_intensity_mean'], name="top_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/top_left_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_left_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
@@ -3231,14 +3342,14 @@ slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_S
 slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map'], name="fieldIlluminationOutput__intensity_map", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[dict, Image5D]])
 
-slots.fieldIlluminationOutput__profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/profile_rois'], name="fieldIlluminationOutput__profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__profile_rois, domain=None, range=Optional[Union[dict, RoiProfiles]])
+slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_profiles'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[dict, RoiProfiles]])
 
-slots.fieldIlluminationOutput__corner_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/corner_rois'], name="fieldIlluminationOutput__corner_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/corner_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__corner_rois, domain=None, range=Optional[Union[dict, RoiMeasurements]])
+slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_corners'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[dict, RoiMeasurements]])
 
-slots.fieldIlluminationOutput__center_of_illumination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_of_illumination'], name="fieldIlluminationOutput__center_of_illumination", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_of_illumination'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__center_of_illumination, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+slots.fieldIlluminationOutput__roi_centroids_weighted = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centroids_weighted'], name="fieldIlluminationOutput__roi_centroids_weighted", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centroids_weighted'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centroids_weighted, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
 slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Union[dict, PSFBeadsInput])

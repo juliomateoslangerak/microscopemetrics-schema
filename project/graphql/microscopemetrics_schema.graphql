@@ -197,7 +197,6 @@ type FieldIlluminationInput
     fieldIlluminationImage: ImageAsNumpy!
     bitDepth: Integer
     saturationThreshold: Float!
-    centerThreshold: Float!
     cornerFraction: Float!
     sigma: Float!
     intensityMapSize: Integer!
@@ -206,14 +205,29 @@ type FieldIlluminationInput
 type FieldIlluminationKeyValues
   {
     channel: [Integer]
-    centerFraction: [Float]
+    centerRegionIntensityFraction: [Float]
+    centerRegionAreaFraction: [Float]
     centroidWeightedY: [Float]
+    centroidWeightedYRelative: [Float]
     centroidWeightedX: [Float]
+    centroidWeightedXRelative: [Float]
+    centroidWeightedDistanceRelative: [Float]
     centroidY: [Float]
+    centroidYRelative: [Float]
     centroidX: [Float]
+    centroidXRelative: [Float]
+    centroidDistanceRelative: [Float]
+    centroidFittedY: [Float]
+    centroidFittedYRelative: [Float]
+    centroidFittedX: [Float]
+    centroidFittedXRelative: [Float]
+    centroidFittedDistanceRelative: [Float]
     maxIntensity: [Float]
-    maxIntensityPosX: [Float]
     maxIntensityPosY: [Float]
+    maxIntensityPosYRelative: [Float]
+    maxIntensityPosX: [Float]
+    maxIntensityPosXRelative: [Float]
+    maxIntensityDistanceRelative: [Float]
     topLeftIntensityMean: [Float]
     topLeftIntensityRatio: [Float]
     topCenterIntensityMean: [Float]
@@ -249,9 +263,9 @@ type FieldIlluminationOutput
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: TableAsDict
     intensityMap: Image5D
-    profileRois: RoiProfiles
-    cornerRois: RoiMeasurements
-    centerOfIllumination: [RoiMassCenters]
+    roiProfiles: RoiProfiles
+    roiCorners: RoiMeasurements
+    roiCentroidsWeighted: [RoiMassCenters]
   }
 
 interface Image

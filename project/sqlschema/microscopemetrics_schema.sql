@@ -107,14 +107,29 @@ CREATE TABLE "Experimenter" (
 
 CREATE TABLE "FieldIlluminationKeyValues" (
 	channel INTEGER, 
-	center_fraction FLOAT, 
+	center_region_intensity_fraction FLOAT, 
+	center_region_area_fraction FLOAT, 
 	centroid_weighted_y FLOAT, 
+	centroid_weighted_y_relative FLOAT, 
 	centroid_weighted_x FLOAT, 
+	centroid_weighted_x_relative FLOAT, 
+	centroid_weighted_distance_relative FLOAT, 
 	centroid_y FLOAT, 
+	centroid_y_relative FLOAT, 
 	centroid_x FLOAT, 
+	centroid_x_relative FLOAT, 
+	centroid_distance_relative FLOAT, 
+	centroid_fitted_y FLOAT, 
+	centroid_fitted_y_relative FLOAT, 
+	centroid_fitted_x FLOAT, 
+	centroid_fitted_x_relative FLOAT, 
+	centroid_fitted_distance_relative FLOAT, 
 	max_intensity FLOAT, 
-	max_intensity_pos_x FLOAT, 
 	max_intensity_pos_y FLOAT, 
+	max_intensity_pos_y_relative FLOAT, 
+	max_intensity_pos_x FLOAT, 
+	max_intensity_pos_x_relative FLOAT, 
+	max_intensity_distance_relative FLOAT, 
 	top_left_intensity_mean FLOAT, 
 	top_left_intensity_ratio FLOAT, 
 	top_center_intensity_mean FLOAT, 
@@ -143,7 +158,7 @@ CREATE TABLE "FieldIlluminationKeyValues" (
 	decile_7 FLOAT, 
 	decile_8 FLOAT, 
 	decile_9 FLOAT, 
-	PRIMARY KEY (channel, center_fraction, centroid_weighted_y, centroid_weighted_x, centroid_y, centroid_x, max_intensity, max_intensity_pos_x, max_intensity_pos_y, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
+	PRIMARY KEY (channel, center_region_intensity_fraction, center_region_area_fraction, centroid_weighted_y, centroid_weighted_y_relative, centroid_weighted_x, centroid_weighted_x_relative, centroid_weighted_distance_relative, centroid_y, centroid_y_relative, centroid_x, centroid_x_relative, centroid_distance_relative, centroid_fitted_y, centroid_fitted_y_relative, centroid_fitted_x, centroid_fitted_x_relative, centroid_fitted_distance_relative, max_intensity, max_intensity_pos_y, max_intensity_pos_y_relative, max_intensity_pos_x, max_intensity_pos_x_relative, max_intensity_distance_relative, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio, decile_0, decile_1, decile_2, decile_3, decile_4, decile_5, decile_6, decile_7, decile_8, decile_9)
 );
 
 CREATE TABLE "Image2D" (
@@ -412,11 +427,10 @@ CREATE TABLE "FieldIlluminationInput" (
 	field_illumination_image TEXT NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT NOT NULL, 
-	center_threshold FLOAT NOT NULL, 
 	corner_fraction FLOAT NOT NULL, 
 	sigma FLOAT NOT NULL, 
 	intensity_map_size INTEGER NOT NULL, 
-	PRIMARY KEY (field_illumination_image, bit_depth, saturation_threshold, center_threshold, corner_fraction, sigma, intensity_map_size), 
+	PRIMARY KEY (field_illumination_image, bit_depth, saturation_threshold, corner_fraction, sigma, intensity_map_size), 
 	FOREIGN KEY(field_illumination_image) REFERENCES "ImageAsNumpy" (image_url)
 );
 
@@ -424,13 +438,13 @@ CREATE TABLE "FieldIlluminationOutput" (
 	key_values TEXT, 
 	intensity_profiles TEXT, 
 	intensity_map TEXT, 
-	profile_rois TEXT, 
-	corner_rois TEXT, 
-	center_of_illumination TEXT, 
-	PRIMARY KEY (key_values, intensity_profiles, intensity_map, profile_rois, corner_rois, center_of_illumination), 
+	roi_profiles TEXT, 
+	roi_corners TEXT, 
+	roi_centroids_weighted TEXT, 
+	PRIMARY KEY (key_values, intensity_profiles, intensity_map, roi_profiles, roi_corners, roi_centroids_weighted), 
 	FOREIGN KEY(intensity_map) REFERENCES "Image5D" (image_url), 
-	FOREIGN KEY(profile_rois) REFERENCES "RoiProfiles" (label), 
-	FOREIGN KEY(corner_rois) REFERENCES "RoiMeasurements" (label)
+	FOREIGN KEY(roi_profiles) REFERENCES "RoiProfiles" (label), 
+	FOREIGN KEY(roi_corners) REFERENCES "RoiMeasurements" (label)
 );
 
 CREATE TABLE "Line" (

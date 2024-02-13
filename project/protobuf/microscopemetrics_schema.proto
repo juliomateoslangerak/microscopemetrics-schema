@@ -187,7 +187,6 @@ message FieldIlluminationInput
   imageAsNumpy fieldIlluminationImage = 0
   integer bitDepth = 0
   float saturationThreshold = 0
-  float centerThreshold = 0
   float cornerFraction = 0
   float sigma = 0
   integer intensityMapSize = 0
@@ -195,14 +194,29 @@ message FieldIlluminationInput
 message FieldIlluminationKeyValues
  {
  repeated  integer channel = 0
- repeated  float centerFraction = 0
+ repeated  float centerRegionIntensityFraction = 0
+ repeated  float centerRegionAreaFraction = 0
  repeated  float centroidWeightedY = 0
+ repeated  float centroidWeightedYRelative = 0
  repeated  float centroidWeightedX = 0
+ repeated  float centroidWeightedXRelative = 0
+ repeated  float centroidWeightedDistanceRelative = 0
  repeated  float centroidY = 0
+ repeated  float centroidYRelative = 0
  repeated  float centroidX = 0
+ repeated  float centroidXRelative = 0
+ repeated  float centroidDistanceRelative = 0
+ repeated  float centroidFittedY = 0
+ repeated  float centroidFittedYRelative = 0
+ repeated  float centroidFittedX = 0
+ repeated  float centroidFittedXRelative = 0
+ repeated  float centroidFittedDistanceRelative = 0
  repeated  float maxIntensity = 0
- repeated  float maxIntensityPosX = 0
  repeated  float maxIntensityPosY = 0
+ repeated  float maxIntensityPosYRelative = 0
+ repeated  float maxIntensityPosX = 0
+ repeated  float maxIntensityPosXRelative = 0
+ repeated  float maxIntensityDistanceRelative = 0
  repeated  float topLeftIntensityMean = 0
  repeated  float topLeftIntensityRatio = 0
  repeated  float topCenterIntensityMean = 0
@@ -237,9 +251,9 @@ message FieldIlluminationOutput
   fieldIlluminationKeyValues keyValues = 0
   tableAsDict intensityProfiles = 0
   image5D intensityMap = 0
-  roiProfiles profileRois = 0
-  roiMeasurements cornerRois = 0
- repeated  roiMassCenters centerOfIllumination = 0
+  roiProfiles roiProfiles = 0
+  roiMeasurements roiCorners = 0
+ repeated  roiMassCenters roiCentroidsWeighted = 0
  }
 // A 2D image in YX order
 message Image2D

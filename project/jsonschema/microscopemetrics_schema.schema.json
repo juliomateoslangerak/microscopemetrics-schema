@@ -921,12 +921,6 @@
                     "minimum": 1,
                     "type": "integer"
                 },
-                "center_threshold": {
-                    "description": "Input parameter: relative threshold for what is going to be considered as the intensity center of the image",
-                    "maximum": 1,
-                    "minimum": 0,
-                    "type": "number"
-                },
                 "corner_fraction": {
                     "description": "Input parameter: the proportion of the image to be considered as corner or center",
                     "maximum": 0,
@@ -951,7 +945,7 @@
                 },
                 "sigma": {
                     "description": "Input parameter: the sigma for the smoothing gaussian filter to be applied prior to analysis",
-                    "maximum": 10,
+                    "maximum": 8,
                     "minimum": 2,
                     "type": "number"
                 }
@@ -959,7 +953,6 @@
             "required": [
                 "field_illumination_image",
                 "saturation_threshold",
-                "center_threshold",
                 "corner_fraction",
                 "sigma",
                 "intensity_map_size"
@@ -1013,8 +1006,76 @@
                     },
                     "type": "array"
                 },
-                "center_fraction": {
-                    "description": "The fraction of the area occupied by the center of illumination region.",
+                "center_region_area_fraction": {
+                    "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_region_intensity_fraction": {
+                    "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_distance_relative": {
+                    "description": "The relative distance of the centroid to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_fitted_distance_relative": {
+                    "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_fitted_x": {
+                    "description": "The x coordinate of the fitted center of illumination. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_fitted_x_relative": {
+                    "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_fitted_y": {
+                    "description": "The y coordinate of the fitted center of illumination. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_fitted_y_relative": {
+                    "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_weighted_distance_relative": {
+                    "description": "The relative distance of the weighted centroid to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
                         "maximum": 1,
                         "minimum": 0,
@@ -1029,9 +1090,27 @@
                     },
                     "type": "array"
                 },
+                "centroid_weighted_x_relative": {
+                    "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "centroid_weighted_y": {
                     "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
                     "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_weighted_y_relative": {
+                    "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
                         "type": "number"
                     },
                     "type": "array"
@@ -1043,9 +1122,27 @@
                     },
                     "type": "array"
                 },
+                "centroid_x_relative": {
+                    "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "centroid_y": {
                     "description": "The y coordinate of the geometric center of the center of illumination region. In pixels",
                     "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "centroid_y_relative": {
+                    "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
                         "type": "number"
                     },
                     "type": "array"
@@ -1134,6 +1231,15 @@
                     },
                     "type": "array"
                 },
+                "max_intensity_distance_relative": {
+                    "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "max_intensity_pos_x": {
                     "description": "The x coordinate of the maximum intensity of the center of illumination. In pixels",
                     "items": {
@@ -1141,9 +1247,27 @@
                     },
                     "type": "array"
                 },
+                "max_intensity_pos_x_relative": {
+                    "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "max_intensity_pos_y": {
                     "description": "The y coordinate of the maximum intensity of the center of illumination. In pixels",
                     "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "max_intensity_pos_y_relative": {
+                    "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
                         "type": "number"
                     },
                     "type": "array"
@@ -1240,7 +1364,19 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "center_of_illumination": {
+                "intensity_map": {
+                    "$ref": "#/$defs/Image5D",
+                    "description": "Intensity map of the field illumination"
+                },
+                "intensity_profiles": {
+                    "$ref": "#/$defs/TableAsDict",
+                    "description": "Intensity profiles for the field illumination analysis in the different directions"
+                },
+                "key_values": {
+                    "$ref": "#/$defs/FieldIlluminationKeyValues",
+                    "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
+                },
+                "roi_centroids_weighted": {
                     "additionalProperties": {
                         "anyOf": [
                             {
@@ -1254,23 +1390,11 @@
                     "description": "Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.",
                     "type": "object"
                 },
-                "corner_rois": {
+                "roi_corners": {
                     "$ref": "#/$defs/RoiMeasurements",
                     "description": "Rectangular ROIs used to compute the corner intensities"
                 },
-                "intensity_map": {
-                    "$ref": "#/$defs/Image5D",
-                    "description": "Intensity map of the field illumination"
-                },
-                "intensity_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
-                    "description": "Intensity profiles for the field illumination analysis in the different directions"
-                },
-                "key_values": {
-                    "$ref": "#/$defs/FieldIlluminationKeyValues",
-                    "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
-                },
-                "profile_rois": {
+                "roi_profiles": {
                     "$ref": "#/$defs/RoiProfiles",
                     "description": "line ROIs used to compute the intensity profiles"
                 }
