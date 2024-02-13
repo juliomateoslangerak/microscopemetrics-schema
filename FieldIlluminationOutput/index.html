@@ -222,10 +222,6 @@
 
           FieldIlluminationOutput --&gt; FieldIlluminationKeyValues : key_values
 
-      FieldIlluminationOutput : profile_rois
-
-          FieldIlluminationOutput --&gt; RoiProfiles : profile_rois
-
       FieldIlluminationOutput : roi_centroids_weighted
 
           FieldIlluminationOutput --&gt; RoiMassCenters : roi_centroids_weighted
@@ -233,6 +229,10 @@
       FieldIlluminationOutput : roi_corners
 
           FieldIlluminationOutput --&gt; RoiMeasurements : roi_corners
+
+      FieldIlluminationOutput : roi_profiles
+
+          FieldIlluminationOutput --&gt; RoiProfiles : roi_profiles
 
 
 </div>
@@ -273,7 +273,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../profile_rois/">profile_rois</a></td>
+<td><a href="../roi_profiles/">roi_profiles</a></td>
 <td>0..1 <br/> <a href="../RoiProfiles/">RoiProfiles</a></td>
 <td>line ROIs used to compute the intensity profiles</td>
 <td>direct</td>
@@ -367,8 +367,8 @@ attributes:
     multivalued: false
     range: Image5D
     inlined: true
-  profile_rois:
-    name: profile_rois
+  roi_profiles:
+    name: roi_profiles
     description: line ROIs used to compute the intensity profiles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
@@ -440,13 +440,13 @@ attributes:
     - FieldIlluminationOutput
     range: Image5D
     inlined: true
-  profile_rois:
-    name: profile_rois
+  roi_profiles:
+    name: roi_profiles
     description: line ROIs used to compute the intensity profiles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    alias: profile_rois
+    alias: roi_profiles
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
