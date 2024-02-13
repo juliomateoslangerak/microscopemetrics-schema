@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/protocol/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/centroid_fitted_distance_relative/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: protocol - microscopemetrics-schema</title>
+        <title>Slot: centroid_fitted_distance_relative - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-protocol" class="md-skip">
+        <a href="#slot-centroid_fitted_distance_relative" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: protocol
+              Slot: centroid_fitted_distance_relative
             
           </span>
         </div>
@@ -310,15 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/protocol.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/centroid_fitted_distance_relative.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-protocol">Slot: protocol</h1>
-<p><em>The protocol used to prepare the sample</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/protocol">microscopemetrics_schema:protocol</a></p>
+<h1 id="slot-centroid_fitted_distance_relative">Slot: centroid_fitted_distance_relative</h1>
+<p><em>The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/centroid_fitted_distance_relative">microscopemetrics_schema:centroid_fitted_distance_relative</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -332,8 +332,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Sample/">Sample</a></td>
-<td>A sample is a standard physical object that is imaged by a microscope</td>
+<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
+<td></td>
 <td>no</td>
 </tr>
 </tbody>
@@ -341,10 +341,16 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Protocol/">Protocol</a></p>
+<p>Range: <a href="../Float/">Float</a></p>
 </li>
 <li>
-<p>Required: True</p>
+<p>Multivalued: True</p>
+</li>
+<li>
+<p>Minimum Value: 0</p>
+</li>
+<li>
+<p>Maximum Value: 1</p>
 </li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -355,18 +361,19 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: protocol
-description: The protocol used to prepare the sample
+<pre><code class="language-yaml">name: centroid_fitted_distance_relative
+description: The relative distance of the fitted center of illumination to the center
+  of the image. Relative to the distance to  an image corner. 0.0 is centered and
+  1.0 at a distance equal to the the corner of the image.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-multivalued: false
-alias: protocol
-owner: Sample
+multivalued: true
+alias: centroid_fitted_distance_relative
 domain_of:
-- Sample
-range: Protocol
-required: true
-inlined: false
+- FieldIlluminationKeyValues
+range: float
+minimum_value: 0
+maximum_value: 1
 
 </code></pre>
 

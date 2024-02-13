@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/experimenter/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/centroid_fitted_y/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: experimenter - microscopemetrics-schema</title>
+        <title>Slot: centroid_fitted_y - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-experimenter" class="md-skip">
+        <a href="#slot-centroid_fitted_y" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: experimenter
+              Slot: centroid_fitted_y
             
           </span>
         </div>
@@ -310,15 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/experimenter.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/centroid_fitted_y.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-experimenter">Slot: experimenter</h1>
-<p><em>The experimenter that performed the imaging experiment</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/experimenter">microscopemetrics_schema:experimenter</a></p>
+<h1 id="slot-centroid_fitted_y">Slot: centroid_fitted_y</h1>
+<p><em>The y coordinate of the fitted center of illumination. In pixels</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/centroid_fitted_y">microscopemetrics_schema:centroid_fitted_y</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -332,28 +332,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td>An Argolight sample pattern B dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
-<td>An Argolight sample pattern E dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
-<td>A base object on which microscope-metrics runs the analysis</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsDataset/">PSFBeadsDataset</a></td>
-<td>A PSF beads dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
-<td>A field illumination dataset</td>
+<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
+<td></td>
 <td>no</td>
 </tr>
 </tbody>
@@ -361,7 +341,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Experimenter/">Experimenter</a></p>
+<p>Range: <a href="../Float/">Float</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -375,17 +355,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: experimenter
-description: The experimenter that performed the imaging experiment
+<pre><code class="language-yaml">name: centroid_fitted_y
+description: The y coordinate of the fitted center of illumination. In pixels
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
-alias: experimenter
-owner: MetricsDataset
+alias: centroid_fitted_y
 domain_of:
-- MetricsDataset
-range: Experimenter
-inlined: false
+- FieldIlluminationKeyValues
+range: float
 
 </code></pre>
 

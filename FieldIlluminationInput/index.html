@@ -212,8 +212,6 @@
 
       FieldIlluminationInput : bit_depth
 
-      FieldIlluminationInput : center_threshold
-
       FieldIlluminationInput : corner_fraction
 
       FieldIlluminationInput : field_illumination_image
@@ -262,12 +260,6 @@
 <td><a href="../saturation_threshold/">saturation_threshold</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Tolerated saturation threshold</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../center_threshold/">center_threshold</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
-<td>Input parameter: relative threshold for what is going to be considered as the...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -344,7 +336,6 @@ slots:
 - field_illumination_image
 - bit_depth
 - saturation_threshold
-- center_threshold
 - corner_fraction
 - sigma
 - intensity_map_size
@@ -426,22 +417,6 @@ attributes:
     required: true
     minimum_value: 0
     maximum_value: 1
-  center_threshold:
-    name: center_threshold
-    description: 'Input parameter: relative threshold for what is going to be considered
-      as the intensity center of the image'
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    ifabsent: float(0.9)
-    alias: center_threshold
-    owner: FieldIlluminationInput
-    domain_of:
-    - FieldIlluminationInput
-    range: float
-    required: true
-    minimum_value: 0
-    maximum_value: 1
   corner_fraction:
     name: corner_fraction
     description: 'Input parameter: the proportion of the image to be considered as
@@ -473,7 +448,7 @@ attributes:
     range: float
     required: true
     minimum_value: 2
-    maximum_value: 10
+    maximum_value: 8
   intensity_map_size:
     name: intensity_map_size
     description: 'Input parameter: the size of the output intensity map in pixels'

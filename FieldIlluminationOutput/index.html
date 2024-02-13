@@ -210,14 +210,6 @@
     class FieldIlluminationOutput
       MetricsOutput &lt;|-- FieldIlluminationOutput
 
-      FieldIlluminationOutput : center_of_illumination
-
-          FieldIlluminationOutput --&gt; RoiMassCenters : center_of_illumination
-
-      FieldIlluminationOutput : corner_rois
-
-          FieldIlluminationOutput --&gt; RoiMeasurements : corner_rois
-
       FieldIlluminationOutput : intensity_map
 
           FieldIlluminationOutput --&gt; Image5D : intensity_map
@@ -233,6 +225,14 @@
       FieldIlluminationOutput : profile_rois
 
           FieldIlluminationOutput --&gt; RoiProfiles : profile_rois
+
+      FieldIlluminationOutput : roi_centroids_weighted
+
+          FieldIlluminationOutput --&gt; RoiMassCenters : roi_centroids_weighted
+
+      FieldIlluminationOutput : roi_corners
+
+          FieldIlluminationOutput --&gt; RoiMeasurements : roi_corners
 
 
 </div>
@@ -279,13 +279,13 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../corner_rois/">corner_rois</a></td>
+<td><a href="../roi_corners/">roi_corners</a></td>
 <td>0..1 <br/> <a href="../RoiMeasurements/">RoiMeasurements</a></td>
 <td>Rectangular ROIs used to compute the corner intensities</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_illumination/">center_of_illumination</a></td>
+<td><a href="../roi_centroids_weighted/">roi_centroids_weighted</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
 <td>Point ROIs marking the center of mass of the area of maximum illumination 90 ...</td>
 <td>direct</td>
@@ -375,16 +375,16 @@ attributes:
     multivalued: false
     range: RoiProfiles
     inlined: true
-  corner_rois:
-    name: corner_rois
+  roi_corners:
+    name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
     range: RoiMeasurements
     inlined: true
-  center_of_illumination:
-    name: center_of_illumination
+  roi_centroids_weighted:
+    name: roi_centroids_weighted
     description: Point ROIs marking the center of mass of the area of maximum illumination
       90 percentile of the intensity. When the image is very flat, the 99 percentile
       is used instead. One point per channel.
@@ -452,27 +452,27 @@ attributes:
     - FieldIlluminationOutput
     range: RoiProfiles
     inlined: true
-  corner_rois:
-    name: corner_rois
+  roi_corners:
+    name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    alias: corner_rois
+    alias: roi_corners
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
     range: RoiMeasurements
     inlined: true
-  center_of_illumination:
-    name: center_of_illumination
+  roi_centroids_weighted:
+    name: roi_centroids_weighted
     description: Point ROIs marking the center of mass of the area of maximum illumination
       90 percentile of the intensity. When the image is very flat, the 99 percentile
       is used instead. One point per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    alias: center_of_illumination
+    alias: roi_centroids_weighted
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
