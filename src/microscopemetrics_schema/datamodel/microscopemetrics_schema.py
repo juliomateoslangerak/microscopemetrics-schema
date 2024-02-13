@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-13T09:06:22
+# Generation date: 2024-02-13T15:05:41
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1553,16 +1553,6 @@ class FieldIlluminationKeyValues(KeyValues):
     bottom_center_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
     bottom_right_intensity_mean: Optional[Union[float, List[float]]] = empty_list()
     bottom_right_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
-    decile_0: Optional[Union[float, List[float]]] = empty_list()
-    decile_1: Optional[Union[float, List[float]]] = empty_list()
-    decile_2: Optional[Union[float, List[float]]] = empty_list()
-    decile_3: Optional[Union[float, List[float]]] = empty_list()
-    decile_4: Optional[Union[float, List[float]]] = empty_list()
-    decile_5: Optional[Union[float, List[float]]] = empty_list()
-    decile_6: Optional[Union[float, List[float]]] = empty_list()
-    decile_7: Optional[Union[float, List[float]]] = empty_list()
-    decile_8: Optional[Union[float, List[float]]] = empty_list()
-    decile_9: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if not isinstance(self.channel, list):
@@ -1732,46 +1722,6 @@ class FieldIlluminationKeyValues(KeyValues):
         if not isinstance(self.bottom_right_intensity_ratio, list):
             self.bottom_right_intensity_ratio = [self.bottom_right_intensity_ratio] if self.bottom_right_intensity_ratio is not None else []
         self.bottom_right_intensity_ratio = [v if isinstance(v, float) else float(v) for v in self.bottom_right_intensity_ratio]
-
-        if not isinstance(self.decile_0, list):
-            self.decile_0 = [self.decile_0] if self.decile_0 is not None else []
-        self.decile_0 = [v if isinstance(v, float) else float(v) for v in self.decile_0]
-
-        if not isinstance(self.decile_1, list):
-            self.decile_1 = [self.decile_1] if self.decile_1 is not None else []
-        self.decile_1 = [v if isinstance(v, float) else float(v) for v in self.decile_1]
-
-        if not isinstance(self.decile_2, list):
-            self.decile_2 = [self.decile_2] if self.decile_2 is not None else []
-        self.decile_2 = [v if isinstance(v, float) else float(v) for v in self.decile_2]
-
-        if not isinstance(self.decile_3, list):
-            self.decile_3 = [self.decile_3] if self.decile_3 is not None else []
-        self.decile_3 = [v if isinstance(v, float) else float(v) for v in self.decile_3]
-
-        if not isinstance(self.decile_4, list):
-            self.decile_4 = [self.decile_4] if self.decile_4 is not None else []
-        self.decile_4 = [v if isinstance(v, float) else float(v) for v in self.decile_4]
-
-        if not isinstance(self.decile_5, list):
-            self.decile_5 = [self.decile_5] if self.decile_5 is not None else []
-        self.decile_5 = [v if isinstance(v, float) else float(v) for v in self.decile_5]
-
-        if not isinstance(self.decile_6, list):
-            self.decile_6 = [self.decile_6] if self.decile_6 is not None else []
-        self.decile_6 = [v if isinstance(v, float) else float(v) for v in self.decile_6]
-
-        if not isinstance(self.decile_7, list):
-            self.decile_7 = [self.decile_7] if self.decile_7 is not None else []
-        self.decile_7 = [v if isinstance(v, float) else float(v) for v in self.decile_7]
-
-        if not isinstance(self.decile_8, list):
-            self.decile_8 = [self.decile_8] if self.decile_8 is not None else []
-        self.decile_8 = [v if isinstance(v, float) else float(v) for v in self.decile_8]
-
-        if not isinstance(self.decile_9, list):
-            self.decile_9 = [self.decile_9] if self.decile_9 is not None else []
-        self.decile_9 = [v if isinstance(v, float) else float(v) for v in self.decile_9]
 
         super().__post_init__(**kwargs)
 
@@ -2813,36 +2763,6 @@ slots.bottom_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/f
 
 slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/bottom_right_intensity_ratio'], name="bottom_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/bottom_right_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_0 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_0'], name="decile_0", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_0'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_0, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_1 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_1'], name="decile_1", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_1'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_1, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_2 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_2'], name="decile_2", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_2'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_2, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_3 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_3'], name="decile_3", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_3'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_3, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_4 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_4'], name="decile_4", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_4'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_4, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_5 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_5'], name="decile_5", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_5'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_5, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_6 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_6'], name="decile_6", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_6'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_6, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_7 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_7'], name="decile_7", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_7'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_7, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_8 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_8'], name="decile_8", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_8'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_8, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.decile_9 = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/decile_9'], name="decile_9", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/decile_9'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.decile_9, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.psf_beads_images = Slot(uri="str(uriorcurie)", name="psf_beads_images", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Dict[Union[str, ImageAsNumpyImageUrl], Union[dict, ImageAsNumpy]], List[Union[dict, ImageAsNumpy]]])

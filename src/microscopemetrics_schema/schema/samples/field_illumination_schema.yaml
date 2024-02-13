@@ -137,16 +137,6 @@ classes:
       - bottom_center_intensity_ratio
       - bottom_right_intensity_mean
       - bottom_right_intensity_ratio
-      - decile_0
-      - decile_1
-      - decile_2
-      - decile_3
-      - decile_4
-      - decile_5
-      - decile_6
-      - decile_7
-      - decile_8
-      - decile_9
 
 
 slots:
@@ -443,54 +433,4 @@ slots:
     description: >-
       The mean intensity of the bottom-right of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
-  decile_0:
-    range: float
-    description: >-
-      The 0th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_1:
-    range: float
-    description: >-
-      The 1st decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_2:
-    range: float
-    description: >-
-      The 2nd decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_3:
-    range: float
-    description: >-
-      The 3rd decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_4:
-    range: float
-    description: >-
-      The 4th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_5:
-    range: float
-    description: >-
-      The 5th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_6:
-    range: float
-    description: >-
-      The 6th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_7:
-    range: float
-    description: >-
-      The 7th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_8:
-    range: float
-    description: >-
-      The 8th decile of the intensity distribution of the maximum intensity
-    multivalued: true
-  decile_9:
-    range: float
-    description: >-
-      The 9th decile of the intensity distribution of the maximum intensity
     multivalued: true

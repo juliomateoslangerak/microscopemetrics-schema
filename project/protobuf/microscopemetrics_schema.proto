@@ -235,16 +235,6 @@ message FieldIlluminationKeyValues
  repeated  float bottomCenterIntensityRatio = 0
  repeated  float bottomRightIntensityMean = 0
  repeated  float bottomRightIntensityRatio = 0
- repeated  float decile0 = 0
- repeated  float decile1 = 0
- repeated  float decile2 = 0
- repeated  float decile3 = 0
- repeated  float decile4 = 0
- repeated  float decile5 = 0
- repeated  float decile6 = 0
- repeated  float decile7 = 0
- repeated  float decile8 = 0
- repeated  float decile9 = 0
  }
 message FieldIlluminationOutput
  {

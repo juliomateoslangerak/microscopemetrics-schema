@@ -246,16 +246,6 @@ type FieldIlluminationKeyValues
     bottomCenterIntensityRatio: [Float]
     bottomRightIntensityMean: [Float]
     bottomRightIntensityRatio: [Float]
-    decile0: [Float]
-    decile1: [Float]
-    decile2: [Float]
-    decile3: [Float]
-    decile4: [Float]
-    decile5: [Float]
-    decile6: [Float]
-    decile7: [Float]
-    decile8: [Float]
-    decile9: [Float]
   }
 
 type FieldIlluminationOutput

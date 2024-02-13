@@ -1376,146 +1376,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "decile_0",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_0",
-      "description": "The 0th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_0",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_1",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_1",
-      "description": "The 1st decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_1",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_2",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_2",
-      "description": "The 2nd decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_2",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_3",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_3",
-      "description": "The 3rd decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_3",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_4",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_4",
-      "description": "The 4th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_4",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_5",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_5",
-      "description": "The 5th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_5",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_6",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_6",
-      "description": "The 6th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_6",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_7",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_7",
-      "description": "The 7th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_7",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_8",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_8",
-      "description": "The 8th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_8",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "decile_9",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_9",
-      "description": "The 9th decile of the intensity distribution of the maximum intensity",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/decile_9",
-      "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
-      "domain_of": [
-        "FieldIlluminationKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "psf_beads_images",
       "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/psf_beads_images",
       "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
@@ -6107,17 +5967,7 @@
         "bottom_center_intensity_mean",
         "bottom_center_intensity_ratio",
         "bottom_right_intensity_mean",
-        "bottom_right_intensity_ratio",
-        "decile_0",
-        "decile_1",
-        "decile_2",
-        "decile_3",
-        "decile_4",
-        "decile_5",
-        "decile_6",
-        "decile_7",
-        "decile_8",
-        "decile_9"
+        "bottom_right_intensity_ratio"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues",
@@ -6701,9 +6551,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-10T18:16:22",
+  "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-02-13T09:06:16",
+  "generation_date": "2024-02-13T15:05:35",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
