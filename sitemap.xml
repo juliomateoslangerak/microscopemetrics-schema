@@ -101,6 +101,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Datetime/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Decimal/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -206,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/LinesRoi/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Mask/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -217,6 +227,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MetricsDataset/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MetricsDatasetCollection/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -247,6 +262,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NamedObject/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NamedThing/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -286,7 +306,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PersonStatus/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PixelSeries/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Point/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PointsRoi/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -306,7 +341,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RectanglesRoi/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Roi/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCenter/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCenters/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/RoiCorners/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -401,7 +456,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/acquisition_date/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/acquisition_datetime/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/age_in_years/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -446,6 +511,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bead_images/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bead_properties/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -466,6 +536,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/birth_date/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bit_depth/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -481,12 +556,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bottom_center_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bottom_left_intensity_mean/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bottom_left_intensity_ratio/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bottom_left_region/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -501,12 +586,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/c/</loc>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/bottom_right_region/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_fraction/</loc>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/c/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -522,6 +607,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_of_mass_y/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_points/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -616,6 +706,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/centroids/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/channel/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/channel_A/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -632,6 +732,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/columns/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/comment/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -667,6 +772,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/data/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/date/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -761,7 +871,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/entries/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/excitation_wavelength_nm/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/experimenter/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -846,6 +966,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/image/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/image_url/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -926,6 +1051,41 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/leftBottom_to_rightTop/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/leftBottom_to_rightTop_profile/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/leftTop_to_rightBottom/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/leftTop_to_rightBottom_profile/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/left_to_right/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/left_to_right_profile/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/lines/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/lower_threshold_correction_factors/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -947,6 +1107,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/manufacturer/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/mask/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1016,6 +1181,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/microscope/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/microscopemetrics-schema/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -1031,6 +1201,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_center_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_left_intensity_mean/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -1041,12 +1216,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_left_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_right_intensity_mean/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_right_intensity_ratio/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/middle_right_region/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1067,6 +1252,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/name/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/nb_pixels/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1161,7 +1351,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/primary_email/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/processed/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/processing_date/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1182,6 +1382,16 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/prominence_threshold/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/protocol/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/psf_bead_images/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1332,6 +1542,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/roi_profiles/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sample/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1491,6 +1706,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_center_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_left_intensity_mean/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
@@ -1501,12 +1721,32 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_left_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_right_intensity_mean/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_right_intensity_ratio/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_right_region/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_to_bottom/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/top_to_bottom_profile/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1537,6 +1777,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/vertexes/</loc>
+         <lastmod>2024-02-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/vital_status/</loc>
          <lastmod>2024-02-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

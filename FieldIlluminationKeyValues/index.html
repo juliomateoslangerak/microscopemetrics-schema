@@ -258,26 +258,6 @@
 
       FieldIlluminationKeyValues : channel
 
-      FieldIlluminationKeyValues : decile_0
-
-      FieldIlluminationKeyValues : decile_1
-
-      FieldIlluminationKeyValues : decile_2
-
-      FieldIlluminationKeyValues : decile_3
-
-      FieldIlluminationKeyValues : decile_4
-
-      FieldIlluminationKeyValues : decile_5
-
-      FieldIlluminationKeyValues : decile_6
-
-      FieldIlluminationKeyValues : decile_7
-
-      FieldIlluminationKeyValues : decile_8
-
-      FieldIlluminationKeyValues : decile_9
-
       FieldIlluminationKeyValues : max_intensity
 
       FieldIlluminationKeyValues : max_intensity_distance_relative
@@ -335,7 +315,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="channel.md">channel</a></td>
+<td><a href="../channel/">channel</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
@@ -586,66 +566,6 @@
 <td>The mean intensity of the bottom-right of the image  divided by the maximum i...</td>
 <td>direct</td>
 </tr>
-<tr>
-<td><a href="../decile_0/">decile_0</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 0th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_1/">decile_1</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 1st decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_2/">decile_2</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 2nd decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_3/">decile_3</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 3rd decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_4/">decile_4</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 4th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_5/">decile_5</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 5th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_6/">decile_6</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 6th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_7/">decile_7</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 7th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_8/">decile_8</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 8th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../decile_9/">decile_9</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The 9th decile of the intensity distribution of the maximum intensity</td>
-<td>direct</td>
-</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -741,16 +661,6 @@ slots:
 - bottom_center_intensity_ratio
 - bottom_right_intensity_mean
 - bottom_right_intensity_ratio
-- decile_0
-- decile_1
-- decile_2
-- decile_3
-- decile_4
-- decile_5
-- decile_6
-- decile_7
-- decile_8
-- decile_9
 
 </code></pre>
 </details>
@@ -1292,116 +1202,6 @@ attributes:
     rank: 1000
     multivalued: true
     alias: bottom_right_intensity_ratio
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_0:
-    name: decile_0
-    description: The 0th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_0
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_1:
-    name: decile_1
-    description: The 1st decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_1
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_2:
-    name: decile_2
-    description: The 2nd decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_2
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_3:
-    name: decile_3
-    description: The 3rd decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_3
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_4:
-    name: decile_4
-    description: The 4th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_4
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_5:
-    name: decile_5
-    description: The 5th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_5
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_6:
-    name: decile_6
-    description: The 6th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_6
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_7:
-    name: decile_7
-    description: The 7th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_7
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_8:
-    name: decile_8
-    description: The 8th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_8
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - FieldIlluminationKeyValues
-    range: float
-  decile_9:
-    name: decile_9
-    description: The 9th decile of the intensity distribution of the maximum intensity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: decile_9
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
