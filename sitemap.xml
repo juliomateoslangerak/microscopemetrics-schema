@@ -1321,6 +1321,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/nr_of_beads_considered_axial_edge/</loc>
+         <lastmod>2024-02-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/nr_of_beads_considered_bad_x_fit/</loc>
          <lastmod>2024-02-14</lastmod>
          <changefreq>daily</changefreq>

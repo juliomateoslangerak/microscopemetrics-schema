@@ -232,6 +232,8 @@
 
       PSFBeadsKeyMeasurements : nr_of_beads_analyzed
 
+      PSFBeadsKeyMeasurements : nr_of_beads_considered_axial_edge
+
       PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_x_fit
 
       PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_y_fit
@@ -239,8 +241,6 @@
       PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_z_fit
 
       PSFBeadsKeyMeasurements : nr_of_beads_considered_intensity_outlier
-
-      PSFBeadsKeyMeasurements : nr_of_beads_discarded_axial_edge
 
       PSFBeadsKeyMeasurements : nr_of_beads_discarded_lateral_edge
 
@@ -327,15 +327,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_discarded_axial_edge/">nr_of_beads_discarded_axial_edge</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads discarded for being too close to the top and or bottom of the...</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../nr_of_beads_discarded_self_proximity/">nr_of_beads_discarded_self_proximity</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads discarded for being too close to another bead</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../nr_of_beads_considered_axial_edge/">nr_of_beads_considered_axial_edge</a></td>
+<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>Number of beads considered as being too close to the top and or bottom of the...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -598,8 +598,8 @@ slots:
 - channel_nr
 - nr_of_beads_analyzed
 - nr_of_beads_discarded_lateral_edge
-- nr_of_beads_discarded_axial_edge
 - nr_of_beads_discarded_self_proximity
+- nr_of_beads_considered_axial_edge
 - nr_of_beads_considered_intensity_outlier
 - nr_of_beads_considered_bad_z_fit
 - nr_of_beads_considered_bad_y_fit
@@ -680,18 +680,6 @@ attributes:
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_discarded_axial_edge:
-    name: nr_of_beads_discarded_axial_edge
-    description: Number of beads discarded for being too close to the top and or bottom
-      of the image. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: nr_of_beads_discarded_axial_edge
-    owner: PSFBeadsKeyMeasurements
-    domain_of:
-    - PSFBeadsKeyMeasurements
-    range: integer
   nr_of_beads_discarded_self_proximity:
     name: nr_of_beads_discarded_self_proximity
     description: Number of beads discarded for being too close to another bead. One
@@ -700,6 +688,19 @@ attributes:
     rank: 1000
     multivalued: true
     alias: nr_of_beads_discarded_self_proximity
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: integer
+  nr_of_beads_considered_axial_edge:
+    name: nr_of_beads_considered_axial_edge
+    description: Number of beads considered as being too close to the top and or bottom
+      of the image. These beads are not considered for the z axis FWHM measurements.
+      One value per channel.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: nr_of_beads_considered_axial_edge
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
