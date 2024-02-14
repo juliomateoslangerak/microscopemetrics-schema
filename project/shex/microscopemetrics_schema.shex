@@ -897,10 +897,10 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_lateral_edge>
           @linkml:Integer * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_axial_edge>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_self_proximity>
           @linkml:Integer * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_self_proximity>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_axial_edge>
           @linkml:Integer * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_intensity_outlier>

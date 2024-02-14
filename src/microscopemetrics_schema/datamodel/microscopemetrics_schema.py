@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-14T08:37:27
+# Generation date: 2024-02-14T09:07:05
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1891,8 +1891,8 @@ class PSFBeadsKeyMeasurements(KeyValues):
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_beads_discarded_axial_edge: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_self_proximity: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_axial_edge: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_intensity_outlier: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_bad_z_fit: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_bad_y_fit: Optional[Union[int, List[int]]] = empty_list()
@@ -1941,13 +1941,13 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.nr_of_beads_discarded_lateral_edge = [self.nr_of_beads_discarded_lateral_edge] if self.nr_of_beads_discarded_lateral_edge is not None else []
         self.nr_of_beads_discarded_lateral_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_lateral_edge]
 
-        if not isinstance(self.nr_of_beads_discarded_axial_edge, list):
-            self.nr_of_beads_discarded_axial_edge = [self.nr_of_beads_discarded_axial_edge] if self.nr_of_beads_discarded_axial_edge is not None else []
-        self.nr_of_beads_discarded_axial_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_axial_edge]
-
         if not isinstance(self.nr_of_beads_discarded_self_proximity, list):
             self.nr_of_beads_discarded_self_proximity = [self.nr_of_beads_discarded_self_proximity] if self.nr_of_beads_discarded_self_proximity is not None else []
         self.nr_of_beads_discarded_self_proximity = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_self_proximity]
+
+        if not isinstance(self.nr_of_beads_considered_axial_edge, list):
+            self.nr_of_beads_considered_axial_edge = [self.nr_of_beads_considered_axial_edge] if self.nr_of_beads_considered_axial_edge is not None else []
+        self.nr_of_beads_considered_axial_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_axial_edge]
 
         if not isinstance(self.nr_of_beads_considered_intensity_outlier, list):
             self.nr_of_beads_considered_intensity_outlier = [self.nr_of_beads_considered_intensity_outlier] if self.nr_of_beads_considered_intensity_outlier is not None else []
@@ -2800,11 +2800,11 @@ slots.nr_of_beads_analyzed = Slot(uri="str(uriorcurie)", name="nr_of_beads_analy
 slots.nr_of_beads_discarded_lateral_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_lateral_edge", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_lateral_edge, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_axial_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_axial_edge", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_axial_edge, domain=None, range=Optional[Union[int, List[int]]])
-
 slots.nr_of_beads_discarded_self_proximity = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_self_proximity", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.nr_of_beads_considered_axial_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_axial_edge", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_axial_edge, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.nr_of_beads_considered_intensity_outlier = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_intensity_outlier", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_intensity_outlier, domain=None, range=Optional[Union[int, List[int]]])

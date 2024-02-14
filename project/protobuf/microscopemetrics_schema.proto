@@ -442,8 +442,8 @@ message PSFBeadsKeyMeasurements
  repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
  repeated  integer nrOfBeadsDiscardedLateralEdge = 0
- repeated  integer nrOfBeadsDiscardedAxialEdge = 0
  repeated  integer nrOfBeadsDiscardedSelfProximity = 0
+ repeated  integer nrOfBeadsConsideredAxialEdge = 0
  repeated  integer nrOfBeadsConsideredIntensityOutlier = 0
  repeated  integer nrOfBeadsConsideredBadZFit = 0
  repeated  integer nrOfBeadsConsideredBadYFit = 0
