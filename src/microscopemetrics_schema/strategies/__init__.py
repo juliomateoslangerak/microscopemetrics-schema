@@ -512,28 +512,26 @@ def st_mm_field_illumination_output(
 @st.composite
 def st_mm_field_illumination_unprocessed_dataset(
     draw,
-    input=st_mm_field_illumination_input(),
-) -> mm_schema.FieldIlluminationDataset:
-    return draw(st_mm_dataset(
+    dataset=st_mm_dataset(
         target_class=mm_schema.FieldIlluminationDataset,
         processed=st.just(False),
-        input=input,
-        output=st_mm_field_illumination_output(),
-    ))
+        input=st_mm_field_illumination_input(),
+    ),
+) -> mm_schema.FieldIlluminationDataset:
+    return draw(dataset)
 
 
 @st.composite
 def st_mm_field_illumination_processed_dataset(
     draw,
-    input=st_mm_field_illumination_input(),
-    output=st_mm_field_illumination_output(),
-) -> mm_schema.FieldIlluminationDataset:
-    return draw(st_mm_dataset(
+    dataset=st_mm_dataset(
         target_class=mm_schema.FieldIlluminationDataset,
         processed=st.just(True),
-        input=input,
-        output=output,
-    ))
+        input=st_mm_field_illumination_input(),
+        output=st_mm_field_illumination_output(),
+    ),
+) -> mm_schema.FieldIlluminationDataset:
+    return draw(dataset)
 
 
 # PSF Beads
@@ -574,27 +572,25 @@ def st_mm_psf_beads_output(
 @st.composite
 def st_mm_psf_beads_unprocessed_dataset(
     draw,
-    input=st_mm_psf_beads_input(),
-) -> mm_schema.PSFBeadsDataset:
-    return draw(st_mm_dataset(
+    dataset=st_mm_dataset(
         target_class=mm_schema.PSFBeadsDataset,
         processed=st.just(False),
-        input=input,
-        output=st_mm_psf_beads_output(),
-    ))
+        input=st_mm_psf_beads_input(),
+    )
+) -> mm_schema.PSFBeadsDataset:
+    return draw(dataset)
 
 
 @st.composite
 def st_mm_psf_beads_processed_dataset(
     draw,
+    dataset=st_mm_dataset(
+    target_class=mm_schema.PSFBeadsDataset,
+    processed=st.just(True),
     input=st_mm_psf_beads_input(),
     output=st_mm_psf_beads_output(),
+    )
 ) -> mm_schema.PSFBeadsDataset:
-    return draw(st_mm_dataset(
-        target_class=mm_schema.PSFBeadsDataset,
-        processed=st.just(True),
-        input=input,
-        output=output,
-    ))
+    return draw(dataset)
 
 
