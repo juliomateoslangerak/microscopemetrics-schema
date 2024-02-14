@@ -258,7 +258,7 @@ slots:
     description: >-
       Threshold for the residual sum of squares of the fit to be considered good.
     required: true
-    ifabsent: float(0.1)
+    ifabsent: float(1.0)
   intensity_zscore_threshold:
     range: float
     description: >-
