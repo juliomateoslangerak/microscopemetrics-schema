@@ -210,7 +210,7 @@
     class ArgolightEKeyValues
       KeyValues &lt;|-- ArgolightEKeyValues
 
-      ArgolightEKeyValues : channel
+      ArgolightEKeyValues : channel_nr
 
       ArgolightEKeyValues : focus_slice
 
@@ -251,7 +251,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel/">channel</a></td>
+<td><a href="../channel_nr/">channel_nr</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
@@ -363,7 +363,7 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 slots:
-- channel
+- channel_nr
 - focus_slice
 - rayleigh_resolution_pixels
 - rayleigh_resolution_microns
@@ -382,17 +382,18 @@ slots:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 attributes:
-  channel:
-    name: channel
+  channel_nr:
+    name: channel_nr
     description: The channel number to which the measurements apply
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: channel
+    alias: channel_nr
     owner: ArgolightEKeyValues
     domain_of:
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
+    - PSFBeadsKeyMeasurements
     - FieldIlluminationKeyValues
     range: integer
   focus_slice:

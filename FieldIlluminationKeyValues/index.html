@@ -256,7 +256,7 @@
 
       FieldIlluminationKeyValues : centroid_y_relative
 
-      FieldIlluminationKeyValues : channel
+      FieldIlluminationKeyValues : channel_nr
 
       FieldIlluminationKeyValues : max_intensity
 
@@ -315,7 +315,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel/">channel</a></td>
+<td><a href="../channel_nr/">channel_nr</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
@@ -619,7 +619,7 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 slots:
-- channel
+- channel_nr
 - center_region_intensity_fraction
 - center_region_area_fraction
 - centroid_weighted_y
@@ -670,17 +670,18 @@ slots:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 attributes:
-  channel:
-    name: channel
+  channel_nr:
+    name: channel_nr
     description: The channel number to which the measurements apply
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: channel
+    alias: channel_nr
     owner: FieldIlluminationKeyValues
     domain_of:
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
+    - PSFBeadsKeyMeasurements
     - FieldIlluminationKeyValues
     range: integer
   center_region_intensity_fraction:

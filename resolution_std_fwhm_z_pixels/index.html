@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/channel_A/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/resolution_std_fwhm_z_pixels/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: channel_A - microscopemetrics-schema</title>
+        <title>Slot: resolution_std_fwhm_z_pixels - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-channel_a" class="md-skip">
+        <a href="#slot-resolution_std_fwhm_z_pixels" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: channel_A
+              Slot: resolution_std_fwhm_z_pixels
             
           </span>
         </div>
@@ -256,13 +256,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#inheritance" class="md-nav__link">
-    Inheritance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#applicable-classes" class="md-nav__link">
     Applicable Classes
   </a>
@@ -317,22 +310,17 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/channel_A.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/resolution_std_fwhm_z_pixels.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-channel_a">Slot: channel_A</h1>
-<p><em>The first channel number to which the measurements apply</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/channel_A">microscopemetrics_schema:channel_A</a></p>
-<h2 id="inheritance">Inheritance</h2>
-<ul>
-<li><a href="../channel_nr/">channel_nr</a><ul>
-<li><strong>channel_A</strong></li>
-</ul>
-</li>
-</ul>
+<h1 id="slot-resolution_std_fwhm_z_pixels">Slot: resolution_std_fwhm_z_pixels</h1>
+<p><em>Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/resolution_std_fwhm_z_pixels">microscopemetrics_schema:resolution_std_fwhm_z_pixels</a></p>
+<!-- no inheritance hierarchy -->
+
 <h2 id="applicable-classes">Applicable Classes</h2>
 <table>
 <thead>
@@ -344,7 +332,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></td>
+<td><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -353,7 +341,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Integer/">Integer</a></p>
+<p>Range: <a href="../Float/">Float</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -367,16 +355,16 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: channel_A
-description: The first channel number to which the measurements apply
+<pre><code class="language-yaml">name: resolution_std_fwhm_z_pixels
+description: Standard deviation of the FWHM for the analyzed beads in the Z axis in
+  pixels. One value per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-is_a: channel_nr
 multivalued: true
-alias: channel_A
+alias: resolution_std_fwhm_z_pixels
 domain_of:
-- ArgolightBDistanceKeyValues
-range: integer
+- PSFBeadsKeyMeasurements
+range: float
 
 </code></pre>
 

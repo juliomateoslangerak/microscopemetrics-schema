@@ -210,7 +210,7 @@
     class ArgolightBIntensityKeyValues
       KeyValues &lt;|-- ArgolightBIntensityKeyValues
 
-      ArgolightBIntensityKeyValues : channel
+      ArgolightBIntensityKeyValues : channel_nr
 
       ArgolightBIntensityKeyValues : intensity_max_spot
 
@@ -253,7 +253,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel/">channel</a></td>
+<td><a href="../channel_nr/">channel_nr</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
@@ -371,7 +371,7 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 slots:
-- channel
+- channel_nr
 - nr_of_spots
 - intensity_max_spot
 - intensity_max_spot_roi
@@ -391,17 +391,18 @@ slots:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 attributes:
-  channel:
-    name: channel
+  channel_nr:
+    name: channel_nr
     description: The channel number to which the measurements apply
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: channel
+    alias: channel_nr
     owner: ArgolightBIntensityKeyValues
     domain_of:
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
+    - PSFBeadsKeyMeasurements
     - FieldIlluminationKeyValues
     range: integer
   nr_of_spots:

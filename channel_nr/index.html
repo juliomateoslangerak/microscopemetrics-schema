@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/channel_A/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/channel_nr/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: channel_A - microscopemetrics-schema</title>
+        <title>Slot: channel_nr - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-channel_a" class="md-skip">
+        <a href="#slot-channel_nr" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: channel_A
+              Slot: channel_nr
             
           </span>
         </div>
@@ -317,19 +317,20 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/channel_A.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/channel_nr.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-channel_a">Slot: channel_A</h1>
-<p><em>The first channel number to which the measurements apply</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/channel_A">microscopemetrics_schema:channel_A</a></p>
+<h1 id="slot-channel_nr">Slot: channel_nr</h1>
+<p><em>The channel number to which the measurements apply</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/channel_nr">microscopemetrics_schema:channel_nr</a></p>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../channel_nr/">channel_nr</a><ul>
-<li><strong>channel_A</strong></li>
+<li><strong>channel_nr</strong><ul>
+<li><a href="../channel_A/">channel_A</a></li>
+<li><a href="../channel_B/">channel_B</a></li>
 </ul>
 </li>
 </ul>
@@ -344,7 +345,22 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></td>
+<td><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -367,15 +383,17 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: channel_A
-description: The first channel number to which the measurements apply
+<pre><code class="language-yaml">name: channel_nr
+description: The channel number to which the measurements apply
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-is_a: channel_nr
 multivalued: true
-alias: channel_A
+alias: channel_nr
 domain_of:
-- ArgolightBDistanceKeyValues
+- ArgolightBIntensityKeyValues
+- ArgolightEKeyValues
+- PSFBeadsKeyMeasurements
+- FieldIlluminationKeyValues
 range: integer
 
 </code></pre>
