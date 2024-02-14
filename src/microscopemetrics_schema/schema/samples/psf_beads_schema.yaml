@@ -187,42 +187,45 @@ classes:
   PSFBeadsKeyMeasurements:
     is_a: KeyValues
     slots:
+      - channel_nr
       - nr_of_beads_analyzed
       - nr_of_beads_discarded_lateral_edge
       - nr_of_beads_discarded_axial_edge
       - nr_of_beads_discarded_self_proximity
-      - nr_of_beads_discarded_cluster
-      - nr_of_beads_discarded_fit_quality
-      - fit_quality_z_mean
-      - fit_quality_z_median
-      - fit_quality_z_stdev
-      - fit_quality_y_mean
-      - fit_quality_y_median
-      - fit_quality_y_stdev
-      - fit_quality_x_mean
-      - fit_quality_x_median
-      - fit_quality_x_stdev
+      - nr_of_beads_considered_intensity_outlier
+      - nr_of_beads_considered_bad_z_fit
+      - nr_of_beads_considered_bad_y_fit
+      - nr_of_beads_considered_bad_x_fit
+      - fit_rss_z_mean
+      - fit_rss_z_median
+      - fit_rss_z_std
+      - fit_rss_y_mean
+      - fit_rss_y_median
+      - fit_rss_y_std
+      - fit_rss_x_mean
+      - fit_rss_x_median
+      - fit_rss_x_std
       - resolution_mean_fwhm_z_pixels
       - resolution_median_fwhm_z_pixels
-      - resolution_stdev_fwhm_z_pixels
+      - resolution_std_fwhm_z_pixels
       - resolution_mean_fwhm_y_pixels
       - resolution_median_fwhm_y_pixels
-      - resolution_stdev_fwhm_y_pixels
+      - resolution_std_fwhm_y_pixels
       - resolution_mean_fwhm_x_pixels
       - resolution_median_fwhm_x_pixels
-      - resolution_stdev_fwhm_x_pixels
+      - resolution_std_fwhm_x_pixels
       - resolution_mean_fwhm_z_microns
       - resolution_median_fwhm_z_microns
-      - resolution_stdev_fwhm_z_microns
+      - resolution_std_fwhm_z_microns
       - resolution_mean_fwhm_y_microns
       - resolution_median_fwhm_y_microns
-      - resolution_stdev_fwhm_y_microns
+      - resolution_std_fwhm_y_microns
       - resolution_mean_fwhm_x_microns
       - resolution_median_fwhm_x_microns
-      - resolution_stdev_fwhm_x_microns
+      - resolution_std_fwhm_x_microns
       - resolution_mean_fwhm_lateral_asymmetry_ratio
       - resolution_median_fwhm_lateral_asymmetry_ratio
-      - resolution_stdev_fwhm_lateral_asymmetry_ratio
+      - resolution_std_fwhm_lateral_asymmetry_ratio
 
 
 slots:
@@ -285,60 +288,76 @@ slots:
     description: >-
       Number of beads discarded for being too close to another bead. One value per channel.
     multivalued: true
-  nr_of_beads_discarded_cluster:
+  nr_of_beads_considered_intensity_outlier:
     range: integer
     description: >-
-      Number of beads discarded for being too intense and potentially represent a cluster of beads. One value per channel.
+      Number of beads considered as being too intense and potentially represent a cluster of beads. These beads
+      have a z-score over the requested threshold.
+      Measurements on these beads are not averaged into the key measurements.
+      One value per channel.
     multivalued: true
-  nr_of_beads_discarded_fit_quality:
+  nr_of_beads_considered_bad_z_fit:
     range: integer
     description: >-
-      Number of beads discarded for having a bad fit quality. One value per channel.
+      Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are 
+      not averaged into the key measurements. One value per channel.
     multivalued: true
-  fit_quality_z_mean:
+  nr_of_beads_considered_bad_y_fit:
+    range: integer
+    description: >-
+      Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are 
+      not averaged into the key measurements. One value per channel.
+    multivalued: true
+  nr_of_beads_considered_bad_x_fit:
+    range: integer
+    description: >-
+      Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are 
+      not averaged into the key measurements. One value per channel.
+    multivalued: true
+  fit_rss_z_mean:
     range: float
     description: >-
-      Mean fit quality in the z axis for the analyzed beads. One value per channel.
+      Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_z_median:
+  fit_rss_z_median:
     range: float
     description: >-
-      Median fit quality in the z axis for the analyzed beads. One value per channel.
+      Median residual sum of squares in the z axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_z_stdev:
+  fit_rss_z_std:
     range: float
     description: >-
-      Standard deviation of the fit quality in the z axis for the analyzed beads. One value per channel.
+      Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_y_mean:
+  fit_rss_y_mean:
     range: float
     description: >-
-      Mean fit quality in the y axis for the analyzed beads. One value per channel.
+      Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_y_median:
+  fit_rss_y_median:
     range: float
     description: >-
-      Median fit quality in the y axis for the analyzed beads. One value per channel.
+      Median residual sum of squares in the y axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_y_stdev:
+  fit_rss_y_std:
     range: float
     description: >-
-      Standard deviation of the fit quality in the y axis for the analyzed beads. One value per channel.
+      Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_x_mean:
+  fit_rss_x_mean:
     range: float
     description: >-
-      Mean fit quality in the x axis for the analyzed beads. One value per channel.
+      Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_x_median:
+  fit_rss_x_median:
     range: float
     description: >-
-      Median fit quality in the x axis for the analyzed beads. One value per channel.
+      Median residual sum of squares in the x axis for the analyzed beads. One value per channel.
     multivalued: true
-  fit_quality_x_stdev:
+  fit_rss_x_std:
     range: float
     description: >-
-      Standard deviation of the fit quality in the x axis for the analyzed beads. One value per channel.
+      Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.
     multivalued: true
   resolution_mean_fwhm_z_pixels:
     range: float
@@ -350,7 +369,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_z_pixels:
+  resolution_std_fwhm_z_pixels:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
@@ -365,7 +384,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_y_pixels:
+  resolution_std_fwhm_y_pixels:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
@@ -380,7 +399,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_x_pixels:
+  resolution_std_fwhm_x_pixels:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.
@@ -395,7 +414,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_z_microns:
+  resolution_std_fwhm_z_microns:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.
@@ -410,7 +429,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_y_microns:
+  resolution_std_fwhm_y_microns:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.
@@ -425,7 +444,7 @@ slots:
     description: >-
       Median FWHM for the analyzed beads in the X axis in microns. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_x_microns:
+  resolution_std_fwhm_x_microns:
     range: float
     description: >-
       Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.
@@ -440,9 +459,8 @@ slots:
     description: >-
       Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
     multivalued: true
-  resolution_stdev_fwhm_lateral_asymmetry_ratio:
+  resolution_std_fwhm_lateral_asymmetry_ratio:
     range: float
     description: >-
       Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
     multivalued: true
-

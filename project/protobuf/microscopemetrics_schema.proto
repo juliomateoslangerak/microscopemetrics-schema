@@ -42,7 +42,7 @@ message ArgolightBInput
  }
 message ArgolightBIntensityKeyValues
  {
- repeated  integer channel = 0
+ repeated  integer channelNr = 0
  repeated  integer nrOfSpots = 0
  repeated  float intensityMaxSpot = 0
  repeated  integer intensityMaxSpotRoi = 0
@@ -93,7 +93,7 @@ message ArgolightEInput
  }
 message ArgolightEKeyValues
  {
- repeated  integer channel = 0
+ repeated  integer channelNr = 0
  repeated  integer focusSlice = 0
  repeated  float rayleighResolutionPixels = 0
  repeated  float rayleighResolutionMicrons = 0
@@ -193,7 +193,7 @@ message FieldIlluminationInput
  }
 message FieldIlluminationKeyValues
  {
- repeated  integer channel = 0
+ repeated  integer channelNr = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
  repeated  float centroidWeightedY = 0
@@ -439,42 +439,45 @@ message PSFBeadsInput
  }
 message PSFBeadsKeyMeasurements
  {
+ repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
  repeated  integer nrOfBeadsDiscardedLateralEdge = 0
  repeated  integer nrOfBeadsDiscardedAxialEdge = 0
  repeated  integer nrOfBeadsDiscardedSelfProximity = 0
- repeated  integer nrOfBeadsDiscardedCluster = 0
- repeated  integer nrOfBeadsDiscardedFitQuality = 0
- repeated  float fitQualityZMean = 0
- repeated  float fitQualityZMedian = 0
- repeated  float fitQualityZStdev = 0
- repeated  float fitQualityYMean = 0
- repeated  float fitQualityYMedian = 0
- repeated  float fitQualityYStdev = 0
- repeated  float fitQualityXMean = 0
- repeated  float fitQualityXMedian = 0
- repeated  float fitQualityXStdev = 0
+ repeated  integer nrOfBeadsConsideredIntensityOutlier = 0
+ repeated  integer nrOfBeadsConsideredBadZFit = 0
+ repeated  integer nrOfBeadsConsideredBadYFit = 0
+ repeated  integer nrOfBeadsConsideredBadXFit = 0
+ repeated  float fitRssZMean = 0
+ repeated  float fitRssZMedian = 0
+ repeated  float fitRssZStd = 0
+ repeated  float fitRssYMean = 0
+ repeated  float fitRssYMedian = 0
+ repeated  float fitRssYStd = 0
+ repeated  float fitRssXMean = 0
+ repeated  float fitRssXMedian = 0
+ repeated  float fitRssXStd = 0
  repeated  float resolutionMeanFwhmZPixels = 0
  repeated  float resolutionMedianFwhmZPixels = 0
- repeated  float resolutionStdevFwhmZPixels = 0
+ repeated  float resolutionStdFwhmZPixels = 0
  repeated  float resolutionMeanFwhmYPixels = 0
  repeated  float resolutionMedianFwhmYPixels = 0
- repeated  float resolutionStdevFwhmYPixels = 0
+ repeated  float resolutionStdFwhmYPixels = 0
  repeated  float resolutionMeanFwhmXPixels = 0
  repeated  float resolutionMedianFwhmXPixels = 0
- repeated  float resolutionStdevFwhmXPixels = 0
+ repeated  float resolutionStdFwhmXPixels = 0
  repeated  float resolutionMeanFwhmZMicrons = 0
  repeated  float resolutionMedianFwhmZMicrons = 0
- repeated  float resolutionStdevFwhmZMicrons = 0
+ repeated  float resolutionStdFwhmZMicrons = 0
  repeated  float resolutionMeanFwhmYMicrons = 0
  repeated  float resolutionMedianFwhmYMicrons = 0
- repeated  float resolutionStdevFwhmYMicrons = 0
+ repeated  float resolutionStdFwhmYMicrons = 0
  repeated  float resolutionMeanFwhmXMicrons = 0
  repeated  float resolutionMedianFwhmXMicrons = 0
- repeated  float resolutionStdevFwhmXMicrons = 0
+ repeated  float resolutionStdFwhmXMicrons = 0
  repeated  float resolutionMeanFwhmLateralAsymmetryRatio = 0
  repeated  float resolutionMedianFwhmLateralAsymmetryRatio = 0
- repeated  float resolutionStdevFwhmLateralAsymmetryRatio = 0
+ repeated  float resolutionStdFwhmLateralAsymmetryRatio = 0
  }
 message PSFBeadsOutput
  {

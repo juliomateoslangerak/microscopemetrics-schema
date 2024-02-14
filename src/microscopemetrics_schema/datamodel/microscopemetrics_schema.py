@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-13T15:20:44
+# Generation date: 2024-02-14T08:37:27
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1511,7 +1511,7 @@ class FieldIlluminationKeyValues(KeyValues):
     class_name: ClassVar[str] = "FieldIlluminationKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
-    channel: Optional[Union[int, List[int]]] = empty_list()
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
     centroid_weighted_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1555,9 +1555,9 @@ class FieldIlluminationKeyValues(KeyValues):
     bottom_right_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel, list):
-            self.channel = [self.channel] if self.channel is not None else []
-        self.channel = [v if isinstance(v, int) else int(v) for v in self.channel]
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
 
         if not isinstance(self.center_region_intensity_fraction, list):
             self.center_region_intensity_fraction = [self.center_region_intensity_fraction] if self.center_region_intensity_fraction is not None else []
@@ -1888,44 +1888,51 @@ class PSFBeadsKeyMeasurements(KeyValues):
     class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
 
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_axial_edge: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_self_proximity: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_beads_discarded_cluster: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_beads_discarded_fit_quality: Optional[Union[int, List[int]]] = empty_list()
-    fit_quality_z_mean: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_z_median: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_z_stdev: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_y_mean: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_y_median: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_y_stdev: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_x_mean: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_x_median: Optional[Union[float, List[float]]] = empty_list()
-    fit_quality_x_stdev: Optional[Union[float, List[float]]] = empty_list()
+    nr_of_beads_considered_intensity_outlier: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_bad_z_fit: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_bad_y_fit: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_bad_x_fit: Optional[Union[int, List[int]]] = empty_list()
+    fit_rss_z_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_z_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_z_std: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_y_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_y_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_y_std: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_x_mean: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_x_median: Optional[Union[float, List[float]]] = empty_list()
+    fit_rss_x_std: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_z_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_y_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_x_pixels: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_z_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_y_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_x_microns: Optional[Union[float, List[float]]] = empty_list()
     resolution_mean_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
     resolution_median_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
-    resolution_stdev_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
+    resolution_std_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
+
         if not isinstance(self.nr_of_beads_analyzed, list):
             self.nr_of_beads_analyzed = [self.nr_of_beads_analyzed] if self.nr_of_beads_analyzed is not None else []
         self.nr_of_beads_analyzed = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_analyzed]
@@ -1942,49 +1949,57 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.nr_of_beads_discarded_self_proximity = [self.nr_of_beads_discarded_self_proximity] if self.nr_of_beads_discarded_self_proximity is not None else []
         self.nr_of_beads_discarded_self_proximity = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_self_proximity]
 
-        if not isinstance(self.nr_of_beads_discarded_cluster, list):
-            self.nr_of_beads_discarded_cluster = [self.nr_of_beads_discarded_cluster] if self.nr_of_beads_discarded_cluster is not None else []
-        self.nr_of_beads_discarded_cluster = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_cluster]
+        if not isinstance(self.nr_of_beads_considered_intensity_outlier, list):
+            self.nr_of_beads_considered_intensity_outlier = [self.nr_of_beads_considered_intensity_outlier] if self.nr_of_beads_considered_intensity_outlier is not None else []
+        self.nr_of_beads_considered_intensity_outlier = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_intensity_outlier]
 
-        if not isinstance(self.nr_of_beads_discarded_fit_quality, list):
-            self.nr_of_beads_discarded_fit_quality = [self.nr_of_beads_discarded_fit_quality] if self.nr_of_beads_discarded_fit_quality is not None else []
-        self.nr_of_beads_discarded_fit_quality = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_fit_quality]
+        if not isinstance(self.nr_of_beads_considered_bad_z_fit, list):
+            self.nr_of_beads_considered_bad_z_fit = [self.nr_of_beads_considered_bad_z_fit] if self.nr_of_beads_considered_bad_z_fit is not None else []
+        self.nr_of_beads_considered_bad_z_fit = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_bad_z_fit]
 
-        if not isinstance(self.fit_quality_z_mean, list):
-            self.fit_quality_z_mean = [self.fit_quality_z_mean] if self.fit_quality_z_mean is not None else []
-        self.fit_quality_z_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_mean]
+        if not isinstance(self.nr_of_beads_considered_bad_y_fit, list):
+            self.nr_of_beads_considered_bad_y_fit = [self.nr_of_beads_considered_bad_y_fit] if self.nr_of_beads_considered_bad_y_fit is not None else []
+        self.nr_of_beads_considered_bad_y_fit = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_bad_y_fit]
 
-        if not isinstance(self.fit_quality_z_median, list):
-            self.fit_quality_z_median = [self.fit_quality_z_median] if self.fit_quality_z_median is not None else []
-        self.fit_quality_z_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_median]
+        if not isinstance(self.nr_of_beads_considered_bad_x_fit, list):
+            self.nr_of_beads_considered_bad_x_fit = [self.nr_of_beads_considered_bad_x_fit] if self.nr_of_beads_considered_bad_x_fit is not None else []
+        self.nr_of_beads_considered_bad_x_fit = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_bad_x_fit]
 
-        if not isinstance(self.fit_quality_z_stdev, list):
-            self.fit_quality_z_stdev = [self.fit_quality_z_stdev] if self.fit_quality_z_stdev is not None else []
-        self.fit_quality_z_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_z_stdev]
+        if not isinstance(self.fit_rss_z_mean, list):
+            self.fit_rss_z_mean = [self.fit_rss_z_mean] if self.fit_rss_z_mean is not None else []
+        self.fit_rss_z_mean = [v if isinstance(v, float) else float(v) for v in self.fit_rss_z_mean]
 
-        if not isinstance(self.fit_quality_y_mean, list):
-            self.fit_quality_y_mean = [self.fit_quality_y_mean] if self.fit_quality_y_mean is not None else []
-        self.fit_quality_y_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_mean]
+        if not isinstance(self.fit_rss_z_median, list):
+            self.fit_rss_z_median = [self.fit_rss_z_median] if self.fit_rss_z_median is not None else []
+        self.fit_rss_z_median = [v if isinstance(v, float) else float(v) for v in self.fit_rss_z_median]
 
-        if not isinstance(self.fit_quality_y_median, list):
-            self.fit_quality_y_median = [self.fit_quality_y_median] if self.fit_quality_y_median is not None else []
-        self.fit_quality_y_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_median]
+        if not isinstance(self.fit_rss_z_std, list):
+            self.fit_rss_z_std = [self.fit_rss_z_std] if self.fit_rss_z_std is not None else []
+        self.fit_rss_z_std = [v if isinstance(v, float) else float(v) for v in self.fit_rss_z_std]
 
-        if not isinstance(self.fit_quality_y_stdev, list):
-            self.fit_quality_y_stdev = [self.fit_quality_y_stdev] if self.fit_quality_y_stdev is not None else []
-        self.fit_quality_y_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_y_stdev]
+        if not isinstance(self.fit_rss_y_mean, list):
+            self.fit_rss_y_mean = [self.fit_rss_y_mean] if self.fit_rss_y_mean is not None else []
+        self.fit_rss_y_mean = [v if isinstance(v, float) else float(v) for v in self.fit_rss_y_mean]
 
-        if not isinstance(self.fit_quality_x_mean, list):
-            self.fit_quality_x_mean = [self.fit_quality_x_mean] if self.fit_quality_x_mean is not None else []
-        self.fit_quality_x_mean = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_mean]
+        if not isinstance(self.fit_rss_y_median, list):
+            self.fit_rss_y_median = [self.fit_rss_y_median] if self.fit_rss_y_median is not None else []
+        self.fit_rss_y_median = [v if isinstance(v, float) else float(v) for v in self.fit_rss_y_median]
 
-        if not isinstance(self.fit_quality_x_median, list):
-            self.fit_quality_x_median = [self.fit_quality_x_median] if self.fit_quality_x_median is not None else []
-        self.fit_quality_x_median = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_median]
+        if not isinstance(self.fit_rss_y_std, list):
+            self.fit_rss_y_std = [self.fit_rss_y_std] if self.fit_rss_y_std is not None else []
+        self.fit_rss_y_std = [v if isinstance(v, float) else float(v) for v in self.fit_rss_y_std]
 
-        if not isinstance(self.fit_quality_x_stdev, list):
-            self.fit_quality_x_stdev = [self.fit_quality_x_stdev] if self.fit_quality_x_stdev is not None else []
-        self.fit_quality_x_stdev = [v if isinstance(v, float) else float(v) for v in self.fit_quality_x_stdev]
+        if not isinstance(self.fit_rss_x_mean, list):
+            self.fit_rss_x_mean = [self.fit_rss_x_mean] if self.fit_rss_x_mean is not None else []
+        self.fit_rss_x_mean = [v if isinstance(v, float) else float(v) for v in self.fit_rss_x_mean]
+
+        if not isinstance(self.fit_rss_x_median, list):
+            self.fit_rss_x_median = [self.fit_rss_x_median] if self.fit_rss_x_median is not None else []
+        self.fit_rss_x_median = [v if isinstance(v, float) else float(v) for v in self.fit_rss_x_median]
+
+        if not isinstance(self.fit_rss_x_std, list):
+            self.fit_rss_x_std = [self.fit_rss_x_std] if self.fit_rss_x_std is not None else []
+        self.fit_rss_x_std = [v if isinstance(v, float) else float(v) for v in self.fit_rss_x_std]
 
         if not isinstance(self.resolution_mean_fwhm_z_pixels, list):
             self.resolution_mean_fwhm_z_pixels = [self.resolution_mean_fwhm_z_pixels] if self.resolution_mean_fwhm_z_pixels is not None else []
@@ -1994,9 +2009,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_z_pixels = [self.resolution_median_fwhm_z_pixels] if self.resolution_median_fwhm_z_pixels is not None else []
         self.resolution_median_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_z_pixels]
 
-        if not isinstance(self.resolution_stdev_fwhm_z_pixels, list):
-            self.resolution_stdev_fwhm_z_pixels = [self.resolution_stdev_fwhm_z_pixels] if self.resolution_stdev_fwhm_z_pixels is not None else []
-        self.resolution_stdev_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_z_pixels]
+        if not isinstance(self.resolution_std_fwhm_z_pixels, list):
+            self.resolution_std_fwhm_z_pixels = [self.resolution_std_fwhm_z_pixels] if self.resolution_std_fwhm_z_pixels is not None else []
+        self.resolution_std_fwhm_z_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_z_pixels]
 
         if not isinstance(self.resolution_mean_fwhm_y_pixels, list):
             self.resolution_mean_fwhm_y_pixels = [self.resolution_mean_fwhm_y_pixels] if self.resolution_mean_fwhm_y_pixels is not None else []
@@ -2006,9 +2021,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_y_pixels = [self.resolution_median_fwhm_y_pixels] if self.resolution_median_fwhm_y_pixels is not None else []
         self.resolution_median_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_y_pixels]
 
-        if not isinstance(self.resolution_stdev_fwhm_y_pixels, list):
-            self.resolution_stdev_fwhm_y_pixels = [self.resolution_stdev_fwhm_y_pixels] if self.resolution_stdev_fwhm_y_pixels is not None else []
-        self.resolution_stdev_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_y_pixels]
+        if not isinstance(self.resolution_std_fwhm_y_pixels, list):
+            self.resolution_std_fwhm_y_pixels = [self.resolution_std_fwhm_y_pixels] if self.resolution_std_fwhm_y_pixels is not None else []
+        self.resolution_std_fwhm_y_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_y_pixels]
 
         if not isinstance(self.resolution_mean_fwhm_x_pixels, list):
             self.resolution_mean_fwhm_x_pixels = [self.resolution_mean_fwhm_x_pixels] if self.resolution_mean_fwhm_x_pixels is not None else []
@@ -2018,9 +2033,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_x_pixels = [self.resolution_median_fwhm_x_pixels] if self.resolution_median_fwhm_x_pixels is not None else []
         self.resolution_median_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_x_pixels]
 
-        if not isinstance(self.resolution_stdev_fwhm_x_pixels, list):
-            self.resolution_stdev_fwhm_x_pixels = [self.resolution_stdev_fwhm_x_pixels] if self.resolution_stdev_fwhm_x_pixels is not None else []
-        self.resolution_stdev_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_x_pixels]
+        if not isinstance(self.resolution_std_fwhm_x_pixels, list):
+            self.resolution_std_fwhm_x_pixels = [self.resolution_std_fwhm_x_pixels] if self.resolution_std_fwhm_x_pixels is not None else []
+        self.resolution_std_fwhm_x_pixels = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_x_pixels]
 
         if not isinstance(self.resolution_mean_fwhm_z_microns, list):
             self.resolution_mean_fwhm_z_microns = [self.resolution_mean_fwhm_z_microns] if self.resolution_mean_fwhm_z_microns is not None else []
@@ -2030,9 +2045,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_z_microns = [self.resolution_median_fwhm_z_microns] if self.resolution_median_fwhm_z_microns is not None else []
         self.resolution_median_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_z_microns]
 
-        if not isinstance(self.resolution_stdev_fwhm_z_microns, list):
-            self.resolution_stdev_fwhm_z_microns = [self.resolution_stdev_fwhm_z_microns] if self.resolution_stdev_fwhm_z_microns is not None else []
-        self.resolution_stdev_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_z_microns]
+        if not isinstance(self.resolution_std_fwhm_z_microns, list):
+            self.resolution_std_fwhm_z_microns = [self.resolution_std_fwhm_z_microns] if self.resolution_std_fwhm_z_microns is not None else []
+        self.resolution_std_fwhm_z_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_z_microns]
 
         if not isinstance(self.resolution_mean_fwhm_y_microns, list):
             self.resolution_mean_fwhm_y_microns = [self.resolution_mean_fwhm_y_microns] if self.resolution_mean_fwhm_y_microns is not None else []
@@ -2042,9 +2057,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_y_microns = [self.resolution_median_fwhm_y_microns] if self.resolution_median_fwhm_y_microns is not None else []
         self.resolution_median_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_y_microns]
 
-        if not isinstance(self.resolution_stdev_fwhm_y_microns, list):
-            self.resolution_stdev_fwhm_y_microns = [self.resolution_stdev_fwhm_y_microns] if self.resolution_stdev_fwhm_y_microns is not None else []
-        self.resolution_stdev_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_y_microns]
+        if not isinstance(self.resolution_std_fwhm_y_microns, list):
+            self.resolution_std_fwhm_y_microns = [self.resolution_std_fwhm_y_microns] if self.resolution_std_fwhm_y_microns is not None else []
+        self.resolution_std_fwhm_y_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_y_microns]
 
         if not isinstance(self.resolution_mean_fwhm_x_microns, list):
             self.resolution_mean_fwhm_x_microns = [self.resolution_mean_fwhm_x_microns] if self.resolution_mean_fwhm_x_microns is not None else []
@@ -2054,9 +2069,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_x_microns = [self.resolution_median_fwhm_x_microns] if self.resolution_median_fwhm_x_microns is not None else []
         self.resolution_median_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_x_microns]
 
-        if not isinstance(self.resolution_stdev_fwhm_x_microns, list):
-            self.resolution_stdev_fwhm_x_microns = [self.resolution_stdev_fwhm_x_microns] if self.resolution_stdev_fwhm_x_microns is not None else []
-        self.resolution_stdev_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_x_microns]
+        if not isinstance(self.resolution_std_fwhm_x_microns, list):
+            self.resolution_std_fwhm_x_microns = [self.resolution_std_fwhm_x_microns] if self.resolution_std_fwhm_x_microns is not None else []
+        self.resolution_std_fwhm_x_microns = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_x_microns]
 
         if not isinstance(self.resolution_mean_fwhm_lateral_asymmetry_ratio, list):
             self.resolution_mean_fwhm_lateral_asymmetry_ratio = [self.resolution_mean_fwhm_lateral_asymmetry_ratio] if self.resolution_mean_fwhm_lateral_asymmetry_ratio is not None else []
@@ -2066,9 +2081,9 @@ class PSFBeadsKeyMeasurements(KeyValues):
             self.resolution_median_fwhm_lateral_asymmetry_ratio = [self.resolution_median_fwhm_lateral_asymmetry_ratio] if self.resolution_median_fwhm_lateral_asymmetry_ratio is not None else []
         self.resolution_median_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_median_fwhm_lateral_asymmetry_ratio]
 
-        if not isinstance(self.resolution_stdev_fwhm_lateral_asymmetry_ratio, list):
-            self.resolution_stdev_fwhm_lateral_asymmetry_ratio = [self.resolution_stdev_fwhm_lateral_asymmetry_ratio] if self.resolution_stdev_fwhm_lateral_asymmetry_ratio is not None else []
-        self.resolution_stdev_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_stdev_fwhm_lateral_asymmetry_ratio]
+        if not isinstance(self.resolution_std_fwhm_lateral_asymmetry_ratio, list):
+            self.resolution_std_fwhm_lateral_asymmetry_ratio = [self.resolution_std_fwhm_lateral_asymmetry_ratio] if self.resolution_std_fwhm_lateral_asymmetry_ratio is not None else []
+        self.resolution_std_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_lateral_asymmetry_ratio]
 
         super().__post_init__(**kwargs)
 
@@ -2216,7 +2231,7 @@ class ArgolightBIntensityKeyValues(KeyValues):
     class_name: ClassVar[str] = "ArgolightBIntensityKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBIntensityKeyValues
 
-    channel: Optional[Union[int, List[int]]] = empty_list()
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_spots: Optional[Union[int, List[int]]] = empty_list()
     intensity_max_spot: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_spot_roi: Optional[Union[int, List[int]]] = empty_list()
@@ -2229,9 +2244,9 @@ class ArgolightBIntensityKeyValues(KeyValues):
     min_max_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel, list):
-            self.channel = [self.channel] if self.channel is not None else []
-        self.channel = [v if isinstance(v, int) else int(v) for v in self.channel]
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
 
         if not isinstance(self.nr_of_spots, list):
             self.nr_of_spots = [self.nr_of_spots] if self.nr_of_spots is not None else []
@@ -2454,7 +2469,7 @@ class ArgolightEKeyValues(KeyValues):
     class_name: ClassVar[str] = "ArgolightEKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEKeyValues
 
-    channel: Optional[Union[int, List[int]]] = empty_list()
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
     focus_slice: Optional[Union[int, List[int]]] = empty_list()
     rayleigh_resolution_pixels: Optional[Union[float, List[float]]] = empty_list()
     rayleigh_resolution_microns: Optional[Union[float, List[float]]] = empty_list()
@@ -2466,9 +2481,9 @@ class ArgolightEKeyValues(KeyValues):
     peak_prominence_B: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel, list):
-            self.channel = [self.channel] if self.channel is not None else []
-        self.channel = [v if isinstance(v, int) else int(v) for v in self.channel]
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
 
         if not isinstance(self.focus_slice, list):
             self.focus_slice = [self.focus_slice] if self.focus_slice is not None else []
@@ -2611,8 +2626,8 @@ slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/
 slots.emission_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/emission_wavelength_nm'], name="emission_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/emission_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.emission_wavelength_nm, domain=None, range=Optional[float])
 
-slots.channel = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel'], name="channel", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel, domain=None, range=Optional[Union[int, List[int]]])
+slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_nr'], name="channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_nr, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])
@@ -2791,38 +2806,44 @@ slots.nr_of_beads_discarded_axial_edge = Slot(uri="str(uriorcurie)", name="nr_of
 slots.nr_of_beads_discarded_self_proximity = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_self_proximity", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_cluster = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_cluster", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_cluster, domain=None, range=Optional[Union[int, List[int]]])
+slots.nr_of_beads_considered_intensity_outlier = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_intensity_outlier", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_intensity_outlier, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_fit_quality = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_fit_quality", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_fit_quality, domain=None, range=Optional[Union[int, List[int]]])
+slots.nr_of_beads_considered_bad_z_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_z_fit", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_z_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.fit_quality_z_mean = Slot(uri="str(uriorcurie)", name="fit_quality_z_mean", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_mean, domain=None, range=Optional[Union[float, List[float]]])
+slots.nr_of_beads_considered_bad_y_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_y_fit", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_y_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.fit_quality_z_median = Slot(uri="str(uriorcurie)", name="fit_quality_z_median", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_median, domain=None, range=Optional[Union[float, List[float]]])
+slots.nr_of_beads_considered_bad_x_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_x_fit", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_x_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.fit_quality_z_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_z_stdev", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_z_stdev, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_z_mean = Slot(uri="str(uriorcurie)", name="fit_rss_z_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_z_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_y_mean = Slot(uri="str(uriorcurie)", name="fit_quality_y_mean", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_mean, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_z_median = Slot(uri="str(uriorcurie)", name="fit_rss_z_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_z_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_y_median = Slot(uri="str(uriorcurie)", name="fit_quality_y_median", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_median, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_z_std = Slot(uri="str(uriorcurie)", name="fit_rss_z_std", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_z_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_y_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_y_stdev", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_y_stdev, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_y_mean = Slot(uri="str(uriorcurie)", name="fit_rss_y_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_y_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_x_mean = Slot(uri="str(uriorcurie)", name="fit_quality_x_mean", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_mean, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_y_median = Slot(uri="str(uriorcurie)", name="fit_rss_y_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_y_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_x_median = Slot(uri="str(uriorcurie)", name="fit_quality_x_median", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_median, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_y_std = Slot(uri="str(uriorcurie)", name="fit_rss_y_std", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_y_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_quality_x_stdev = Slot(uri="str(uriorcurie)", name="fit_quality_x_stdev", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_quality_x_stdev, domain=None, range=Optional[Union[float, List[float]]])
+slots.fit_rss_x_mean = Slot(uri="str(uriorcurie)", name="fit_rss_x_mean", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_x_mean, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_rss_x_median = Slot(uri="str(uriorcurie)", name="fit_rss_x_median", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_x_median, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.fit_rss_x_std = Slot(uri="str(uriorcurie)", name="fit_rss_x_std", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_rss_x_std, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
@@ -2830,8 +2851,8 @@ slots.resolution_mean_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resoluti
 slots.resolution_median_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_z_pixels", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_z_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
@@ -2839,8 +2860,8 @@ slots.resolution_mean_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resoluti
 slots.resolution_median_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_y_pixels", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_y_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
@@ -2848,8 +2869,8 @@ slots.resolution_mean_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resoluti
 slots.resolution_median_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_pixels", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_x_pixels", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_x_pixels", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
@@ -2857,8 +2878,8 @@ slots.resolution_mean_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolut
 slots.resolution_median_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_z_microns", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_z_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
@@ -2866,8 +2887,8 @@ slots.resolution_mean_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolut
 slots.resolution_median_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_y_microns", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_y_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
@@ -2875,8 +2896,8 @@ slots.resolution_mean_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolut
 slots.resolution_median_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_microns", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_x_microns", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_x_microns", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.resolution_mean_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_lateral_asymmetry_ratio", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
@@ -2884,8 +2905,8 @@ slots.resolution_mean_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)",
 slots.resolution_median_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_lateral_asymmetry_ratio", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_stdev_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_stdev_fwhm_lateral_asymmetry_ratio", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_stdev_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
+slots.resolution_std_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_lateral_asymmetry_ratio", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.argolight_b_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_b_image'], name="argolight_b_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_b_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[dict, ImageAsNumpy])

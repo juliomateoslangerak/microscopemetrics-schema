@@ -44,7 +44,7 @@ type ArgolightBInput
 
 type ArgolightBIntensityKeyValues
   {
-    channel: [Integer]
+    channelNr: [Integer]
     nrOfSpots: [Integer]
     intensityMaxSpot: [Float]
     intensityMaxSpotRoi: [Integer]
@@ -95,7 +95,7 @@ type ArgolightEInput
 
 type ArgolightEKeyValues
   {
-    channel: [Integer]
+    channelNr: [Integer]
     focusSlice: [Integer]
     rayleighResolutionPixels: [Float]
     rayleighResolutionMicrons: [Float]
@@ -204,7 +204,7 @@ type FieldIlluminationInput
 
 type FieldIlluminationKeyValues
   {
-    channel: [Integer]
+    channelNr: [Integer]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
     centroidWeightedY: [Float]
@@ -513,42 +513,45 @@ type PSFBeadsInput
 
 type PSFBeadsKeyMeasurements
   {
+    channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
     nrOfBeadsDiscardedLateralEdge: [Integer]
     nrOfBeadsDiscardedAxialEdge: [Integer]
     nrOfBeadsDiscardedSelfProximity: [Integer]
-    nrOfBeadsDiscardedCluster: [Integer]
-    nrOfBeadsDiscardedFitQuality: [Integer]
-    fitQualityZMean: [Float]
-    fitQualityZMedian: [Float]
-    fitQualityZStdev: [Float]
-    fitQualityYMean: [Float]
-    fitQualityYMedian: [Float]
-    fitQualityYStdev: [Float]
-    fitQualityXMean: [Float]
-    fitQualityXMedian: [Float]
-    fitQualityXStdev: [Float]
+    nrOfBeadsConsideredIntensityOutlier: [Integer]
+    nrOfBeadsConsideredBadZFit: [Integer]
+    nrOfBeadsConsideredBadYFit: [Integer]
+    nrOfBeadsConsideredBadXFit: [Integer]
+    fitRssZMean: [Float]
+    fitRssZMedian: [Float]
+    fitRssZStd: [Float]
+    fitRssYMean: [Float]
+    fitRssYMedian: [Float]
+    fitRssYStd: [Float]
+    fitRssXMean: [Float]
+    fitRssXMedian: [Float]
+    fitRssXStd: [Float]
     resolutionMeanFwhmZPixels: [Float]
     resolutionMedianFwhmZPixels: [Float]
-    resolutionStdevFwhmZPixels: [Float]
+    resolutionStdFwhmZPixels: [Float]
     resolutionMeanFwhmYPixels: [Float]
     resolutionMedianFwhmYPixels: [Float]
-    resolutionStdevFwhmYPixels: [Float]
+    resolutionStdFwhmYPixels: [Float]
     resolutionMeanFwhmXPixels: [Float]
     resolutionMedianFwhmXPixels: [Float]
-    resolutionStdevFwhmXPixels: [Float]
+    resolutionStdFwhmXPixels: [Float]
     resolutionMeanFwhmZMicrons: [Float]
     resolutionMedianFwhmZMicrons: [Float]
-    resolutionStdevFwhmZMicrons: [Float]
+    resolutionStdFwhmZMicrons: [Float]
     resolutionMeanFwhmYMicrons: [Float]
     resolutionMedianFwhmYMicrons: [Float]
-    resolutionStdevFwhmYMicrons: [Float]
+    resolutionStdFwhmYMicrons: [Float]
     resolutionMeanFwhmXMicrons: [Float]
     resolutionMedianFwhmXMicrons: [Float]
-    resolutionStdevFwhmXMicrons: [Float]
+    resolutionStdFwhmXMicrons: [Float]
     resolutionMeanFwhmLateralAsymmetryRatio: [Float]
     resolutionMedianFwhmLateralAsymmetryRatio: [Float]
-    resolutionStdevFwhmLateralAsymmetryRatio: [Float]
+    resolutionStdFwhmLateralAsymmetryRatio: [Float]
   }
 
 type PSFBeadsOutput

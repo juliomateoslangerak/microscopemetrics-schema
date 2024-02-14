@@ -47,7 +47,7 @@ input:
   intensity_map_size: 64
 output:
   key_values:
-    channel:
+    channel_nr:
     - 0
     centroid_weighted_x:
     - 264.1675555226803

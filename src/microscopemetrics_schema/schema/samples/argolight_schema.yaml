@@ -125,7 +125,7 @@ classes:
   ArgolightBIntensityKeyValues:
     is_a: KeyValues
     slots:
-      - channel
+      - channel_nr
       - nr_of_spots
       - intensity_max_spot
       - intensity_max_spot_roi
@@ -221,7 +221,7 @@ classes:
   ArgolightEKeyValues:
     is_a: KeyValues
     slots:
-      - channel
+      - channel_nr
       - focus_slice
       - rayleigh_resolution_pixels
       - rayleigh_resolution_microns
@@ -325,11 +325,11 @@ slots:
 
   # Distance related slots
   channel_A:
-    is_a: channel
+    is_a: channel_nr
     description: >-
       The first channel number to which the measurements apply
   channel_B:
-    is_a: channel
+    is_a: channel_nr
     description: >-
       The second channel number to which the measurements apply
   mean_3d_dist:

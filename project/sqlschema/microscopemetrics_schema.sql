@@ -15,7 +15,7 @@ CREATE TABLE "ArgolightBDistanceKeyValues" (
 );
 
 CREATE TABLE "ArgolightBIntensityKeyValues" (
-	channel INTEGER, 
+	channel_nr INTEGER, 
 	nr_of_spots INTEGER, 
 	intensity_max_spot FLOAT, 
 	intensity_max_spot_roi INTEGER, 
@@ -26,11 +26,11 @@ CREATE TABLE "ArgolightBIntensityKeyValues" (
 	std_mean_intensity FLOAT, 
 	mad_mean_intensity FLOAT, 
 	min_max_intensity_ratio FLOAT, 
-	PRIMARY KEY (channel, nr_of_spots, intensity_max_spot, intensity_max_spot_roi, intensity_min_spot, intensity_min_spot_roi, mean_intensity, median_intensity, std_mean_intensity, mad_mean_intensity, min_max_intensity_ratio)
+	PRIMARY KEY (channel_nr, nr_of_spots, intensity_max_spot, intensity_max_spot_roi, intensity_min_spot, intensity_min_spot_roi, mean_intensity, median_intensity, std_mean_intensity, mad_mean_intensity, min_max_intensity_ratio)
 );
 
 CREATE TABLE "ArgolightEKeyValues" (
-	channel INTEGER, 
+	channel_nr INTEGER, 
 	focus_slice INTEGER, 
 	rayleigh_resolution_pixels FLOAT, 
 	rayleigh_resolution_microns FLOAT, 
@@ -40,7 +40,7 @@ CREATE TABLE "ArgolightEKeyValues" (
 	"peak_height_B" FLOAT, 
 	"peak_prominence_A" FLOAT, 
 	"peak_prominence_B" FLOAT, 
-	PRIMARY KEY (channel, focus_slice, rayleigh_resolution_pixels, rayleigh_resolution_microns, "peak_position_A", "peak_position_B", "peak_height_A", "peak_height_B", "peak_prominence_A", "peak_prominence_B")
+	PRIMARY KEY (channel_nr, focus_slice, rayleigh_resolution_pixels, rayleigh_resolution_microns, "peak_position_A", "peak_position_B", "peak_height_A", "peak_height_B", "peak_prominence_A", "peak_prominence_B")
 );
 
 CREATE TABLE "ArgolightEOutput" (
@@ -106,7 +106,7 @@ CREATE TABLE "Experimenter" (
 );
 
 CREATE TABLE "FieldIlluminationKeyValues" (
-	channel INTEGER, 
+	channel_nr INTEGER, 
 	center_region_intensity_fraction FLOAT, 
 	center_region_area_fraction FLOAT, 
 	centroid_weighted_y FLOAT, 
@@ -148,7 +148,7 @@ CREATE TABLE "FieldIlluminationKeyValues" (
 	bottom_center_intensity_ratio FLOAT, 
 	bottom_right_intensity_mean FLOAT, 
 	bottom_right_intensity_ratio FLOAT, 
-	PRIMARY KEY (channel, center_region_intensity_fraction, center_region_area_fraction, centroid_weighted_y, centroid_weighted_y_relative, centroid_weighted_x, centroid_weighted_x_relative, centroid_weighted_distance_relative, centroid_y, centroid_y_relative, centroid_x, centroid_x_relative, centroid_distance_relative, centroid_fitted_y, centroid_fitted_y_relative, centroid_fitted_x, centroid_fitted_x_relative, centroid_fitted_distance_relative, max_intensity, max_intensity_pos_y, max_intensity_pos_y_relative, max_intensity_pos_x, max_intensity_pos_x_relative, max_intensity_distance_relative, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio)
+	PRIMARY KEY (channel_nr, center_region_intensity_fraction, center_region_area_fraction, centroid_weighted_y, centroid_weighted_y_relative, centroid_weighted_x, centroid_weighted_x_relative, centroid_weighted_distance_relative, centroid_y, centroid_y_relative, centroid_x, centroid_x_relative, centroid_distance_relative, centroid_fitted_y, centroid_fitted_y_relative, centroid_fitted_x, centroid_fitted_x_relative, centroid_fitted_distance_relative, max_intensity, max_intensity_pos_y, max_intensity_pos_y_relative, max_intensity_pos_x, max_intensity_pos_x_relative, max_intensity_distance_relative, top_left_intensity_mean, top_left_intensity_ratio, top_center_intensity_mean, top_center_intensity_ratio, top_right_intensity_mean, top_right_intensity_ratio, middle_left_intensity_mean, middle_left_intensity_ratio, middle_center_intensity_mean, middle_center_intensity_ratio, middle_right_intensity_mean, middle_right_intensity_ratio, bottom_left_intensity_mean, bottom_left_intensity_ratio, bottom_center_intensity_mean, bottom_center_intensity_ratio, bottom_right_intensity_mean, bottom_right_intensity_ratio)
 );
 
 CREATE TABLE "Image2D" (
@@ -276,43 +276,46 @@ CREATE TABLE "PSFBeadsInput" (
 );
 
 CREATE TABLE "PSFBeadsKeyMeasurements" (
+	channel_nr INTEGER, 
 	nr_of_beads_analyzed INTEGER, 
 	nr_of_beads_discarded_lateral_edge INTEGER, 
 	nr_of_beads_discarded_axial_edge INTEGER, 
 	nr_of_beads_discarded_self_proximity INTEGER, 
-	nr_of_beads_discarded_cluster INTEGER, 
-	nr_of_beads_discarded_fit_quality INTEGER, 
-	fit_quality_z_mean FLOAT, 
-	fit_quality_z_median FLOAT, 
-	fit_quality_z_stdev FLOAT, 
-	fit_quality_y_mean FLOAT, 
-	fit_quality_y_median FLOAT, 
-	fit_quality_y_stdev FLOAT, 
-	fit_quality_x_mean FLOAT, 
-	fit_quality_x_median FLOAT, 
-	fit_quality_x_stdev FLOAT, 
+	nr_of_beads_considered_intensity_outlier INTEGER, 
+	nr_of_beads_considered_bad_z_fit INTEGER, 
+	nr_of_beads_considered_bad_y_fit INTEGER, 
+	nr_of_beads_considered_bad_x_fit INTEGER, 
+	fit_rss_z_mean FLOAT, 
+	fit_rss_z_median FLOAT, 
+	fit_rss_z_std FLOAT, 
+	fit_rss_y_mean FLOAT, 
+	fit_rss_y_median FLOAT, 
+	fit_rss_y_std FLOAT, 
+	fit_rss_x_mean FLOAT, 
+	fit_rss_x_median FLOAT, 
+	fit_rss_x_std FLOAT, 
 	resolution_mean_fwhm_z_pixels FLOAT, 
 	resolution_median_fwhm_z_pixels FLOAT, 
-	resolution_stdev_fwhm_z_pixels FLOAT, 
+	resolution_std_fwhm_z_pixels FLOAT, 
 	resolution_mean_fwhm_y_pixels FLOAT, 
 	resolution_median_fwhm_y_pixels FLOAT, 
-	resolution_stdev_fwhm_y_pixels FLOAT, 
+	resolution_std_fwhm_y_pixels FLOAT, 
 	resolution_mean_fwhm_x_pixels FLOAT, 
 	resolution_median_fwhm_x_pixels FLOAT, 
-	resolution_stdev_fwhm_x_pixels FLOAT, 
+	resolution_std_fwhm_x_pixels FLOAT, 
 	resolution_mean_fwhm_z_microns FLOAT, 
 	resolution_median_fwhm_z_microns FLOAT, 
-	resolution_stdev_fwhm_z_microns FLOAT, 
+	resolution_std_fwhm_z_microns FLOAT, 
 	resolution_mean_fwhm_y_microns FLOAT, 
 	resolution_median_fwhm_y_microns FLOAT, 
-	resolution_stdev_fwhm_y_microns FLOAT, 
+	resolution_std_fwhm_y_microns FLOAT, 
 	resolution_mean_fwhm_x_microns FLOAT, 
 	resolution_median_fwhm_x_microns FLOAT, 
-	resolution_stdev_fwhm_x_microns FLOAT, 
+	resolution_std_fwhm_x_microns FLOAT, 
 	resolution_mean_fwhm_lateral_asymmetry_ratio FLOAT, 
 	resolution_median_fwhm_lateral_asymmetry_ratio FLOAT, 
-	resolution_stdev_fwhm_lateral_asymmetry_ratio FLOAT, 
-	PRIMARY KEY (nr_of_beads_analyzed, nr_of_beads_discarded_lateral_edge, nr_of_beads_discarded_axial_edge, nr_of_beads_discarded_self_proximity, nr_of_beads_discarded_cluster, nr_of_beads_discarded_fit_quality, fit_quality_z_mean, fit_quality_z_median, fit_quality_z_stdev, fit_quality_y_mean, fit_quality_y_median, fit_quality_y_stdev, fit_quality_x_mean, fit_quality_x_median, fit_quality_x_stdev, resolution_mean_fwhm_z_pixels, resolution_median_fwhm_z_pixels, resolution_stdev_fwhm_z_pixels, resolution_mean_fwhm_y_pixels, resolution_median_fwhm_y_pixels, resolution_stdev_fwhm_y_pixels, resolution_mean_fwhm_x_pixels, resolution_median_fwhm_x_pixels, resolution_stdev_fwhm_x_pixels, resolution_mean_fwhm_z_microns, resolution_median_fwhm_z_microns, resolution_stdev_fwhm_z_microns, resolution_mean_fwhm_y_microns, resolution_median_fwhm_y_microns, resolution_stdev_fwhm_y_microns, resolution_mean_fwhm_x_microns, resolution_median_fwhm_x_microns, resolution_stdev_fwhm_x_microns, resolution_mean_fwhm_lateral_asymmetry_ratio, resolution_median_fwhm_lateral_asymmetry_ratio, resolution_stdev_fwhm_lateral_asymmetry_ratio)
+	resolution_std_fwhm_lateral_asymmetry_ratio FLOAT, 
+	PRIMARY KEY (channel_nr, nr_of_beads_analyzed, nr_of_beads_discarded_lateral_edge, nr_of_beads_discarded_axial_edge, nr_of_beads_discarded_self_proximity, nr_of_beads_considered_intensity_outlier, nr_of_beads_considered_bad_z_fit, nr_of_beads_considered_bad_y_fit, nr_of_beads_considered_bad_x_fit, fit_rss_z_mean, fit_rss_z_median, fit_rss_z_std, fit_rss_y_mean, fit_rss_y_median, fit_rss_y_std, fit_rss_x_mean, fit_rss_x_median, fit_rss_x_std, resolution_mean_fwhm_z_pixels, resolution_median_fwhm_z_pixels, resolution_std_fwhm_z_pixels, resolution_mean_fwhm_y_pixels, resolution_median_fwhm_y_pixels, resolution_std_fwhm_y_pixels, resolution_mean_fwhm_x_pixels, resolution_median_fwhm_x_pixels, resolution_std_fwhm_x_pixels, resolution_mean_fwhm_z_microns, resolution_median_fwhm_z_microns, resolution_std_fwhm_z_microns, resolution_mean_fwhm_y_microns, resolution_median_fwhm_y_microns, resolution_std_fwhm_y_microns, resolution_mean_fwhm_x_microns, resolution_median_fwhm_x_microns, resolution_std_fwhm_x_microns, resolution_mean_fwhm_lateral_asymmetry_ratio, resolution_median_fwhm_lateral_asymmetry_ratio, resolution_std_fwhm_lateral_asymmetry_ratio)
 );
 
 CREATE TABLE "PSFBeadsOutput" (

@@ -1969,7 +1969,7 @@ output:
         y: 203.0
         x: 57.0
   intensity_key_values:
-    channel:
+    channel_nr:
     - 0
     - 1
     - 2
@@ -2198,8 +2198,8 @@ output:
   spots_properties:
     name: spots_properties
     columns:
-      channel:
-        name: channel
+      channel_nr:
+        name: channel_nr
         values:
         - '0'
         - '0'

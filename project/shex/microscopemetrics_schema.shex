@@ -123,7 +123,7 @@ CLOSED {
        $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightBIntensityKeyValues_tes>
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel> @linkml:Integer * ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/nr_of_spots>
           @linkml:Integer * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/intensity_max_spot>
@@ -214,7 +214,7 @@ CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightEKeyValues_tes>
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel> @linkml:Integer * ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/focus_slice>
           @linkml:Integer * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/rayleigh_resolution_pixels>
@@ -394,7 +394,7 @@ CLOSED {
        $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues_tes>
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel> @linkml:Integer * ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
 
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_region_intensity_fraction>
           @linkml:Float * ;
@@ -889,6 +889,7 @@ CLOSED {
        $<https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyMeasurements_tes>
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_analyzed>
           @linkml:Integer * ;
@@ -902,37 +903,43 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_self_proximity>
           @linkml:Integer * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_cluster>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_intensity_outlier>
           @linkml:Integer * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_discarded_fit_quality>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_bad_z_fit>
           @linkml:Integer * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_mean>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_bad_y_fit>
+          @linkml:Integer * ;
+
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_bad_x_fit>
+          @linkml:Integer * ;
+
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_mean>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_median>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_median>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_z_stdev>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_std>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_mean>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_mean>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_median>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_median>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_y_stdev>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_std>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_mean>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_mean>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_median>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_median>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_quality_x_stdev>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_std>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_pixels>
@@ -941,7 +948,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_pixels>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_pixels>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_z_pixels>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_pixels>
@@ -950,7 +957,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_pixels>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_pixels>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_y_pixels>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_pixels>
@@ -959,7 +966,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_pixels>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_pixels>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_x_pixels>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_z_microns>
@@ -968,7 +975,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_z_microns>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_z_microns>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_z_microns>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_y_microns>
@@ -977,7 +984,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_y_microns>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_y_microns>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_y_microns>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_x_microns>
@@ -986,7 +993,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_x_microns>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_x_microns>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_x_microns>
           @linkml:Float * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_mean_fwhm_lateral_asymmetry_ratio>
@@ -995,7 +1002,7 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_median_fwhm_lateral_asymmetry_ratio>
           @linkml:Float * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_stdev_fwhm_lateral_asymmetry_ratio>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/resolution_std_fwhm_lateral_asymmetry_ratio>
           @linkml:Float *
        ) ;
        rdf:type [

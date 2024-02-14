@@ -806,7 +806,7 @@ slots:
     description: The emission wavelength in nm
     required: false
     multivalued: false
-  channel:
+  channel_nr:
     range: integer
     description: >-
       The channel number to which the measurements apply

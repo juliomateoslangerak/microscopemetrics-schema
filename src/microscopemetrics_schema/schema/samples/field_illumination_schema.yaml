@@ -95,7 +95,7 @@ classes:
   FieldIlluminationKeyValues:
     is_a: KeyValues
     slots:
-      - channel
+      - channel_nr
       - center_region_intensity_fraction
       - center_region_area_fraction
       - centroid_weighted_y
