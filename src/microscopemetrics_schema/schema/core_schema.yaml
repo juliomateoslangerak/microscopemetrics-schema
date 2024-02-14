@@ -63,8 +63,8 @@ classes:
         range: Comment
         description: A human readable comment about the microscope
         required: false
-        inlined: true
         multivalued: true
+        inlined: true
 
   Sample:
     is_a: NamedObject
