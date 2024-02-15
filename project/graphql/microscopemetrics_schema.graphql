@@ -562,7 +562,9 @@ type PSFBeadsOutput
     discardedBeadCentroidsSelfProximity: [RoiMassCenters]
     consideredBeadCentroidsAxialEdge: [RoiMassCenters]
     consideredBeadCentroidsIntensityOutlier: [RoiMassCenters]
-    consideredBeadCentroidsFitQuality: [RoiMassCenters]
+    consideredBeadCentroidsZFitQuality: [RoiMassCenters]
+    consideredBeadCentroidsYFitQuality: [RoiMassCenters]
+    consideredBeadCentroidsXFitQuality: [RoiMassCenters]
     keyValues: PSFBeadsKeyMeasurements
     beadProperties: TableAsDict
     beadZProfiles: TableAsDict

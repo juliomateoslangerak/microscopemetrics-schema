@@ -487,7 +487,9 @@ message PSFBeadsOutput
  repeated  roiMassCenters discardedBeadCentroidsSelfProximity = 0
  repeated  roiMassCenters consideredBeadCentroidsAxialEdge = 0
  repeated  roiMassCenters consideredBeadCentroidsIntensityOutlier = 0
- repeated  roiMassCenters consideredBeadCentroidsFitQuality = 0
+ repeated  roiMassCenters consideredBeadCentroidsZFitQuality = 0
+ repeated  roiMassCenters consideredBeadCentroidsYFitQuality = 0
+ repeated  roiMassCenters consideredBeadCentroidsXFitQuality = 0
   pSFBeadsKeyMeasurements keyValues = 0
   tableAsDict beadProperties = 0
   tableAsDict beadZProfiles = 0

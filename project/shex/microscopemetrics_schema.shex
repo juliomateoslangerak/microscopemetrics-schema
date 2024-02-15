@@ -1037,7 +1037,13 @@ CLOSED {
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_intensity_outlier>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters> * ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_fit_quality>
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_z_fit_quality>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters> * ;
+
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_y_fit_quality>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters> * ;
+
+          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_x_fit_quality>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMassCenters> * ;
 
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/key_values>
