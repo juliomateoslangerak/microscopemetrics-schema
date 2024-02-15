@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-15T09:06:00
+# Generation date: 2024-02-15T22:18:47
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1367,8 +1367,9 @@ class Column(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Column
 
     name: Union[str, ColumnName] = None
-    values: Union[str, List[str]] = None
+    description: Optional[str] = None
     source_uri: Optional[str] = None
+    values: Optional[Union[str, List[str]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.name):
@@ -1376,14 +1377,15 @@ class Column(YAMLRoot):
         if not isinstance(self.name, ColumnName):
             self.name = ColumnName(self.name)
 
-        if self._is_empty(self.values):
-            self.MissingRequiredField("values")
-        if not isinstance(self.values, list):
-            self.values = [self.values] if self.values is not None else []
-        self.values = [v if isinstance(v, str) else str(v) for v in self.values]
+        if self.description is not None and not isinstance(self.description, str):
+            self.description = str(self.description)
 
         if self.source_uri is not None and not isinstance(self.source_uri, str):
             self.source_uri = str(self.source_uri)
+
+        if not isinstance(self.values, list):
+            self.values = [self.values] if self.values is not None else []
+        self.values = [v if isinstance(v, str) else str(v) for v in self.values]
 
         super().__post_init__(**kwargs)
 
@@ -3268,11 +3270,14 @@ slots.tableAsDict__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/colu
 slots.column__name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="column__name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.column__name, domain=None, range=URIRef)
 
+slots.column__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="column__description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__description, domain=None, range=Optional[str])
+
 slots.column__source_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_uri'], name="column__source_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.column__source_uri, domain=None, range=Optional[str])
 
 slots.column__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="column__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__values, domain=None, range=Union[str, List[str]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__values, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.fieldIlluminationDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/input'], name="fieldIlluminationDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input, domain=None, range=Union[dict, FieldIlluminationInput])

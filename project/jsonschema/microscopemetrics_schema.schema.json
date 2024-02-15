@@ -689,6 +689,10 @@
             "additionalProperties": false,
             "description": "A column",
             "properties": {
+                "description": {
+                    "description": "The description of the column",
+                    "type": "string"
+                },
                 "name": {
                     "description": "The name of the column",
                     "type": "string"
@@ -706,8 +710,7 @@
                 }
             },
             "required": [
-                "name",
-                "values"
+                "name"
             ],
             "title": "Column",
             "type": "object"

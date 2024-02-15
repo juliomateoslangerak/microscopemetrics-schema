@@ -73,6 +73,7 @@ CREATE TABLE "Color" (
 
 CREATE TABLE "Column" (
 	name TEXT NOT NULL, 
+	description TEXT, 
 	source_uri TEXT, 
 	PRIMARY KEY (name)
 );
@@ -510,7 +511,7 @@ CREATE TABLE "Vertex" (
 
 CREATE TABLE "Column_values" (
 	backref_id TEXT, 
-	"values" TEXT NOT NULL, 
+	"values" TEXT, 
 	PRIMARY KEY (backref_id, "values"), 
 	FOREIGN KEY(backref_id) REFERENCES "Column" (name)
 );

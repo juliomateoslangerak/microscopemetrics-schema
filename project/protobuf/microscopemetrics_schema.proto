@@ -135,6 +135,7 @@ message Color
 message Column
  {
   string name = 0
+  string description = 0
   string sourceUri = 0
  repeated  string values = 0
  }

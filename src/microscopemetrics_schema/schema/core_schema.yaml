@@ -711,6 +711,10 @@ classes:
         description: The name of the column
         required: true
         identifier: true
+      description:
+        range: string
+        description: The description of the column
+        required: false
       source_uri:
         range: string
         description: The URI of the source of the column
@@ -718,7 +722,7 @@ classes:
       values:
         range: string
         description: The values of the column
-        required: true
+        required: false
         multivalued: true
 
 

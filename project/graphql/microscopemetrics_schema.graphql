@@ -138,8 +138,9 @@ type Color
 type Column
   {
     name: String!
+    description: String
     sourceUri: String
-    values: [String]!
+    values: [String]
   }
 
 type Comment

@@ -291,8 +291,9 @@ CLOSED {
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column_tes> ( 
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description> @linkml:String ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_uri> @linkml:String ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/values> @linkml:String +
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/values> @linkml:String *
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> ]
     )
