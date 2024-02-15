@@ -238,13 +238,21 @@
 
           PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_axial_edge
 
-      PSFBeadsOutput : considered_bead_centroids_fit_quality
-
-          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_fit_quality
-
       PSFBeadsOutput : considered_bead_centroids_intensity_outlier
 
           PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_intensity_outlier
+
+      PSFBeadsOutput : considered_bead_centroids_x_fit_quality
+
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_x_fit_quality
+
+      PSFBeadsOutput : considered_bead_centroids_y_fit_quality
+
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_y_fit_quality
+
+      PSFBeadsOutput : considered_bead_centroids_z_fit_quality
+
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_z_fit_quality
 
       PSFBeadsOutput : discarded_bead_centroids_lateral_edge
 
@@ -315,9 +323,21 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../considered_bead_centroids_fit_quality/">considered_bead_centroids_fit_quality</a></td>
+<td><a href="../considered_bead_centroids_z_fit_quality/">considered_bead_centroids_z_fit_quality</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
-<td>The centroids of the beads detected but considered as the fit quality was not...</td>
+<td>The centroids of the beads detected but considered as the fit quality in z wa...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../considered_bead_centroids_y_fit_quality/">considered_bead_centroids_y_fit_quality</a></td>
+<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td>The centroids of the beads detected but considered as the fit quality in y wa...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../considered_bead_centroids_x_fit_quality/">considered_bead_centroids_x_fit_quality</a></td>
+<td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td>The centroids of the beads detected but considered as the fit quality in x wa...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -460,11 +480,34 @@ attributes:
     multivalued: true
     range: RoiMassCenters
     inlined: true
-  considered_bead_centroids_fit_quality:
-    name: considered_bead_centroids_fit_quality
+  considered_bead_centroids_z_fit_quality:
+    name: considered_bead_centroids_z_fit_quality
     description: The centroids of the beads detected but considered as the fit quality
-      was not good enough.  RSS over requested threshold. Measurements not considered
-      for the dataset analysis. One point will be provided per bead. One ROI per channel.
+      in z was not good enough.  RSS over requested threshold. Measurements in z not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_y_fit_quality:
+    name: considered_bead_centroids_y_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      in y was not good enough.  RSS over requested threshold. Measurements in y not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_x_fit_quality:
+    name: considered_bead_centroids_x_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      in x was not good enough.  RSS over requested threshold. Measurements in x not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
@@ -607,15 +650,46 @@ attributes:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-  considered_bead_centroids_fit_quality:
-    name: considered_bead_centroids_fit_quality
+  considered_bead_centroids_z_fit_quality:
+    name: considered_bead_centroids_z_fit_quality
     description: The centroids of the beads detected but considered as the fit quality
-      was not good enough.  RSS over requested threshold. Measurements not considered
-      for the dataset analysis. One point will be provided per bead. One ROI per channel.
+      in z was not good enough.  RSS over requested threshold. Measurements in z not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
-    alias: considered_bead_centroids_fit_quality
+    alias: considered_bead_centroids_z_fit_quality
+    owner: PSFBeadsOutput
+    domain_of:
+    - PSFBeadsOutput
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_y_fit_quality:
+    name: considered_bead_centroids_y_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      in y was not good enough.  RSS over requested threshold. Measurements in y not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    alias: considered_bead_centroids_y_fit_quality
+    owner: PSFBeadsOutput
+    domain_of:
+    - PSFBeadsOutput
+    range: RoiMassCenters
+    inlined: true
+  considered_bead_centroids_x_fit_quality:
+    name: considered_bead_centroids_x_fit_quality
+    description: The centroids of the beads detected but considered as the fit quality
+      in x was not good enough.  RSS over requested threshold. Measurements in x not
+      considered for the dataset analysis. One point will be provided per bead. One
+      ROI per channel.
+    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    rank: 1000
+    multivalued: true
+    alias: considered_bead_centroids_x_fit_quality
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
