@@ -238,13 +238,13 @@
 
           PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_axial_edge
 
-      PSFBeadsOutput : considered_bead_centroids_cluster
-
-          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_cluster
-
       PSFBeadsOutput : considered_bead_centroids_fit_quality
 
           PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_fit_quality
+
+      PSFBeadsOutput : considered_bead_centroids_intensity_outlier
+
+          PSFBeadsOutput --&gt; RoiMassCenters : considered_bead_centroids_intensity_outlier
 
       PSFBeadsOutput : discarded_bead_centroids_lateral_edge
 
@@ -309,7 +309,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../considered_bead_centroids_cluster/">considered_bead_centroids_cluster</a></td>
+<td><a href="../considered_bead_centroids_intensity_outlier/">considered_bead_centroids_intensity_outlier</a></td>
 <td>0..* <br/> <a href="../RoiMassCenters/">RoiMassCenters</a></td>
 <td>The centroids of the beads detected but considered as being too intense and p...</td>
 <td>direct</td>
@@ -421,7 +421,6 @@ attributes:
     multivalued: true
     range: RoiMassCenters
     inlined: true
-    inlined_as_list: false
   discarded_bead_centroids_lateral_edge:
     name: discarded_bead_centroids_lateral_edge
     description: The centroids of the beads detected but discarded as too close to
@@ -450,12 +449,12 @@ attributes:
     multivalued: true
     range: RoiMassCenters
     inlined: true
-  considered_bead_centroids_cluster:
-    name: considered_bead_centroids_cluster
+  considered_bead_centroids_intensity_outlier:
+    name: considered_bead_centroids_intensity_outlier
     description: The centroids of the beads detected but considered as being too intense
-      and potentially represent a cluster of beads. z-score over requested threshold.
-      Measurements not considered for the dataset analysis. One point will be provided
-      per bead. One ROI per channel.
+      and potentially represent a cluster of beads. Intensity z-score over requested
+      threshold. Measurements not considered for the dataset analysis. One point will
+      be provided per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
@@ -553,7 +552,6 @@ attributes:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-    inlined_as_list: false
   discarded_bead_centroids_lateral_edge:
     name: discarded_bead_centroids_lateral_edge
     description: The centroids of the beads detected but discarded as too close to
@@ -594,16 +592,16 @@ attributes:
     - PSFBeadsOutput
     range: RoiMassCenters
     inlined: true
-  considered_bead_centroids_cluster:
-    name: considered_bead_centroids_cluster
+  considered_bead_centroids_intensity_outlier:
+    name: considered_bead_centroids_intensity_outlier
     description: The centroids of the beads detected but considered as being too intense
-      and potentially represent a cluster of beads. z-score over requested threshold.
-      Measurements not considered for the dataset analysis. One point will be provided
-      per bead. One ROI per channel.
+      and potentially represent a cluster of beads. Intensity z-score over requested
+      threshold. Measurements not considered for the dataset analysis. One point will
+      be provided per bead. One ROI per channel.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
-    alias: considered_bead_centroids_cluster
+    alias: considered_bead_centroids_intensity_outlier
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput

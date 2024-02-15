@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyzed_bead_centroids/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/considered_bead_centroids_intensity_outlier/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: analyzed_bead_centroids - microscopemetrics-schema</title>
+        <title>Slot: considered_bead_centroids_intensity_outlier - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-analyzed_bead_centroids" class="md-skip">
+        <a href="#slot-considered_bead_centroids_intensity_outlier" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: analyzed_bead_centroids
+              Slot: considered_bead_centroids_intensity_outlier
             
           </span>
         </div>
@@ -310,15 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/analyzed_bead_centroids.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/considered_bead_centroids_intensity_outlier.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-analyzed_bead_centroids">Slot: analyzed_bead_centroids</h1>
-<p><em>The centroids of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/analyzed_bead_centroids">microscopemetrics_schema:analyzed_bead_centroids</a></p>
+<h1 id="slot-considered_bead_centroids_intensity_outlier">Slot: considered_bead_centroids_intensity_outlier</h1>
+<p><em>The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/considered_bead_centroids_intensity_outlier">microscopemetrics_schema:considered_bead_centroids_intensity_outlier</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -355,13 +355,15 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: analyzed_bead_centroids
-description: The centroids of the beads that have been analyzed. One point shape will
-  be provided per bead correctly detected. One ROI per channel.
+<pre><code class="language-yaml">name: considered_bead_centroids_intensity_outlier
+description: The centroids of the beads detected but considered as being too intense
+  and potentially represent a cluster of beads. Intensity z-score over requested threshold.
+  Measurements not considered for the dataset analysis. One point will be provided
+  per bead. One ROI per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
-alias: analyzed_bead_centroids
+alias: considered_bead_centroids_intensity_outlier
 owner: PSFBeadsOutput
 domain_of:
 - PSFBeadsOutput

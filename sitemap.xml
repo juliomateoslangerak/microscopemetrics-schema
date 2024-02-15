@@ -766,6 +766,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/considered_bead_centroids_intensity_outlier/</loc>
+         <lastmod>2024-02-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/corner_fraction/</loc>
          <lastmod>2024-02-15</lastmod>
          <changefreq>daily</changefreq>
