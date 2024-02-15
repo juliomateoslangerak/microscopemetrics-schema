@@ -115,11 +115,11 @@ classes:
           One ROI per channel.
         multivalued: true
         inlined: true
-      considered_bead_centroids_cluster:
+      considered_bead_centroids_intensity_outlier:
         range: RoiMassCenters
         description: >-
           The centroids of the beads detected but considered as being too intense and potentially
-          represent a cluster of beads. z-score over requested threshold.
+          represent a cluster of beads. Intensity z-score over requested threshold.
           Measurements not considered for the dataset analysis.
           One point will be provided per bead.
           One ROI per channel.

@@ -3932,12 +3932,12 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__considered_bead_centroids_cluster",
-      "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "name": "pSFBeadsOutput__considered_bead_centroids_intensity_outlier",
+      "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_cluster",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_intensity_outlier",
       "multivalued": true,
-      "alias": "considered_bead_centroids_cluster",
+      "alias": "considered_bead_centroids_intensity_outlier",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -6098,7 +6098,7 @@
         "pSFBeadsOutput__discarded_bead_centroids_lateral_edge",
         "pSFBeadsOutput__discarded_bead_centroids_self_proximity",
         "pSFBeadsOutput__considered_bead_centroids_axial_edge",
-        "pSFBeadsOutput__considered_bead_centroids_cluster",
+        "pSFBeadsOutput__considered_bead_centroids_intensity_outlier",
         "pSFBeadsOutput__considered_bead_centroids_fit_quality",
         "pSFBeadsOutput__key_values",
         "pSFBeadsOutput__bead_properties",
@@ -6149,8 +6149,8 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "considered_bead_centroids_cluster",
-          "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "name": "considered_bead_centroids_intensity_outlier",
+          "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "RoiMassCenters",
           "inlined": true,
@@ -6585,7 +6585,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-02-14T11:06:26",
+  "generation_date": "2024-02-15T08:42:44",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

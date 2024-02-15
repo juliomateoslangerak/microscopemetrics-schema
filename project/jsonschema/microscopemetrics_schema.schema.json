@@ -2499,20 +2499,6 @@
                     "description": "The centroids of the beads detected but considered as too close to the top and or bottom of the image. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "considered_bead_centroids_cluster": {
-                    "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
-                    },
-                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-                    "type": "object"
-                },
                 "considered_bead_centroids_fit_quality": {
                     "additionalProperties": {
                         "anyOf": [
@@ -2525,6 +2511,20 @@
                         ]
                     },
                     "description": "The centroids of the beads detected but considered as the fit quality was not good enough.  RSS over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "type": "object"
+                },
+                "considered_bead_centroids_intensity_outlier": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
                 "discarded_bead_centroids_lateral_edge": {

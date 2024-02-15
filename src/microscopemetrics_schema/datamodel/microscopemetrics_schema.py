@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-14T11:06:31
+# Generation date: 2024-02-15T08:42:49
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1838,7 +1838,7 @@ class PSFBeadsOutput(MetricsOutput):
     discarded_bead_centroids_lateral_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     discarded_bead_centroids_self_proximity: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     considered_bead_centroids_axial_edge: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
-    considered_bead_centroids_cluster: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
+    considered_bead_centroids_intensity_outlier: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     considered_bead_centroids_fit_quality: Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]] = empty_dict()
     key_values: Optional[Union[dict, "PSFBeadsKeyMeasurements"]] = None
     bead_properties: Optional[Union[dict, TableAsDict]] = None
@@ -1857,7 +1857,7 @@ class PSFBeadsOutput(MetricsOutput):
 
         self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_axial_edge", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_cluster", slot_type=RoiMassCenters, key_name="label", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_intensity_outlier", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
         self._normalize_inlined_as_dict(slot_name="considered_bead_centroids_fit_quality", slot_type=RoiMassCenters, key_name="label", keyed=True)
 
@@ -3313,8 +3313,8 @@ slots.pSFBeadsOutput__discarded_bead_centroids_self_proximity = Slot(uri="str(ur
 slots.pSFBeadsOutput__considered_bead_centroids_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_axial_edge", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_axial_edge, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
-slots.pSFBeadsOutput__considered_bead_centroids_cluster = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_cluster", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_cluster, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
+slots.pSFBeadsOutput__considered_bead_centroids_intensity_outlier = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_intensity_outlier", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_intensity_outlier, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centroids_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centroids_fit_quality", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centroids_fit_quality, domain=None, range=Optional[Union[Dict[Union[str, RoiMassCentersLabel], Union[dict, RoiMassCenters]], List[Union[dict, RoiMassCenters]]]])

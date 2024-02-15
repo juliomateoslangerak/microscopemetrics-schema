@@ -324,14 +324,14 @@ CREATE TABLE "PSFBeadsOutput" (
 	discarded_bead_centroids_lateral_edge TEXT, 
 	discarded_bead_centroids_self_proximity TEXT, 
 	considered_bead_centroids_axial_edge TEXT, 
-	considered_bead_centroids_cluster TEXT, 
+	considered_bead_centroids_intensity_outlier TEXT, 
 	considered_bead_centroids_fit_quality TEXT, 
 	key_values TEXT, 
 	bead_properties TEXT, 
 	bead_z_profiles TEXT, 
 	bead_y_profiles TEXT, 
 	bead_x_profiles TEXT, 
-	PRIMARY KEY (bead_crops, analyzed_bead_centroids, discarded_bead_centroids_lateral_edge, discarded_bead_centroids_self_proximity, considered_bead_centroids_axial_edge, considered_bead_centroids_cluster, considered_bead_centroids_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles)
+	PRIMARY KEY (bead_crops, analyzed_bead_centroids, discarded_bead_centroids_lateral_edge, discarded_bead_centroids_self_proximity, considered_bead_centroids_axial_edge, considered_bead_centroids_intensity_outlier, considered_bead_centroids_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles)
 );
 
 CREATE TABLE "Roi" (

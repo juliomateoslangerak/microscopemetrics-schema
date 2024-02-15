@@ -486,7 +486,7 @@ message PSFBeadsOutput
  repeated  roiMassCenters discardedBeadCentroidsLateralEdge = 0
  repeated  roiMassCenters discardedBeadCentroidsSelfProximity = 0
  repeated  roiMassCenters consideredBeadCentroidsAxialEdge = 0
- repeated  roiMassCenters consideredBeadCentroidsCluster = 0
+ repeated  roiMassCenters consideredBeadCentroidsIntensityOutlier = 0
  repeated  roiMassCenters consideredBeadCentroidsFitQuality = 0
   pSFBeadsKeyMeasurements keyValues = 0
   tableAsDict beadProperties = 0
