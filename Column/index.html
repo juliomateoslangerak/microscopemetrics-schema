@@ -204,6 +204,8 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Column">microscopemetrics_schema:Column</a></p>
 <div class="mermaid"> classDiagram
     class Column
+      Column : description
+
       Column : name
 
       Column : source_uri
@@ -231,6 +233,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The description of the column</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../source_uri/">source_uri</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the source of the column</td>
@@ -238,7 +246,7 @@
 </tr>
 <tr>
 <td><a href="../values/">values</a></td>
-<td>1..* <br/> <a href="../String/">String</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
 <td>The values of the column</td>
 <td>direct</td>
 </tr>
@@ -302,6 +310,12 @@ attributes:
     identifier: true
     range: string
     required: true
+  description:
+    name: description
+    description: The description of the column
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    range: string
+    required: false
   source_uri:
     name: source_uri
     description: The URI of the source of the column
@@ -315,7 +329,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: true
     range: string
-    required: true
+    required: false
 
 </code></pre>
 </details>
@@ -338,6 +352,19 @@ attributes:
     - Column
     range: string
     required: true
+  description:
+    name: description
+    description: The description of the column
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    alias: description
+    owner: Column
+    domain_of:
+    - NamedObject
+    - Roi
+    - Tag
+    - Column
+    range: string
+    required: false
   source_uri:
     name: source_uri
     description: The URI of the source of the column
@@ -361,7 +388,7 @@ attributes:
     - TimeSeries
     - Column
     range: string
-    required: true
+    required: false
 
 </code></pre>
 </details>

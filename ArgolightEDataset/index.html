@@ -281,19 +281,19 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../microscope/">microscope</a></td>
+<td><a href="microscope.md">microscope</a></td>
 <td>1..1 <br/> <a href="../Microscope/">Microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../sample/">sample</a></td>
+<td><a href="sample.md">sample</a></td>
 <td>0..1 <br/> <a href="../Sample/">Sample</a></td>
 <td>The sample that was imaged</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../experimenter/">experimenter</a></td>
+<td><a href="experimenter.md">experimenter</a></td>
 <td>0..* <br/> <a href="../Experimenter/">Experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
@@ -323,7 +323,7 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
@@ -578,6 +578,7 @@ attributes:
     - NamedObject
     - Roi
     - Tag
+    - Column
     range: string
     required: false
 rules:
