@@ -302,6 +302,8 @@ CLOSED {
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment_tes> ( 
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datetime> @linkml:Datetime ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/author>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Experimenter> ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comment_type> [
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CommentTypes#ACQUISITION>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CommentTypes#PROCESSING>

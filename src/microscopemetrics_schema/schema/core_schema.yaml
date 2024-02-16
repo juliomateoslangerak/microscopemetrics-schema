@@ -113,7 +113,6 @@ classes:
         description: The ORCID of the experimenter
         identifier: true
 
-  # TODO: add comment author
   Comment:
     description: A comment
     attributes:
@@ -121,6 +120,11 @@ classes:
         range: datetime
         description: The datetime to which the comment is referring
         required: true
+        multivalued: false
+      author:
+        range: Experimenter
+        description: The author of the comment
+        required: false
         multivalued: false
       comment_type:
         range: CommentTypes

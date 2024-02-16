@@ -78,13 +78,6 @@ CREATE TABLE "Column" (
 	PRIMARY KEY (name)
 );
 
-CREATE TABLE "Comment" (
-	datetime DATETIME NOT NULL, 
-	comment_type VARCHAR(11), 
-	text TEXT NOT NULL, 
-	PRIMARY KEY (datetime, comment_type, text)
-);
-
 CREATE TABLE "Ellipse" (
 	label TEXT NOT NULL, 
 	z FLOAT, 
@@ -417,6 +410,15 @@ CREATE TABLE "ArgolightEInput" (
 	prominence_threshold FLOAT NOT NULL, 
 	PRIMARY KEY (argolight_e_image, bit_depth, saturation_threshold, orientation_axis, measured_band, prominence_threshold), 
 	FOREIGN KEY(argolight_e_image) REFERENCES "ImageAsNumpy" (image_url)
+);
+
+CREATE TABLE "Comment" (
+	datetime DATETIME NOT NULL, 
+	author TEXT, 
+	comment_type VARCHAR(11), 
+	text TEXT NOT NULL, 
+	PRIMARY KEY (datetime, author, comment_type, text), 
+	FOREIGN KEY(author) REFERENCES "Experimenter" (orcid)
 );
 
 CREATE TABLE "FieldIlluminationInput" (

@@ -146,6 +146,7 @@ type Column
 type Comment
   {
     datetime: Datetime!
+    author: Experimenter
     commentType: CommentTypes
     text: String!
   }

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-15T22:18:47
+# Generation date: 2024-02-16T07:37:43
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -339,6 +339,7 @@ class Comment(YAMLRoot):
 
     datetime: Union[str, XSDDateTime] = None
     text: str = None
+    author: Optional[Union[str, ExperimenterOrcid]] = None
     comment_type: Optional[Union[str, "CommentTypes"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -351,6 +352,9 @@ class Comment(YAMLRoot):
             self.MissingRequiredField("text")
         if not isinstance(self.text, str):
             self.text = str(self.text)
+
+        if self.author is not None and not isinstance(self.author, ExperimenterOrcid):
+            self.author = ExperimenterOrcid(self.author)
 
         if self.comment_type is not None and not isinstance(self.comment_type, CommentTypes):
             self.comment_type = CommentTypes(self.comment_type)
@@ -3071,6 +3075,9 @@ slots.experimenter__orcid = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/orcid
 
 slots.comment__datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/datetime'], name="comment__datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/datetime'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__datetime, domain=None, range=Union[str, XSDDateTime])
+
+slots.comment__author = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/author'], name="comment__author", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/author'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__author, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
 
 slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment_type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Optional[Union[str, "CommentTypes"]])

@@ -719,6 +719,10 @@
             "additionalProperties": false,
             "description": "A comment",
             "properties": {
+                "author": {
+                    "description": "The author of the comment",
+                    "type": "string"
+                },
                 "comment_type": {
                     "$ref": "#/$defs/CommentTypes",
                     "description": "The type of the comment"

@@ -143,6 +143,7 @@ message Column
 message Comment
  {
   datetime datetime = 0
+  experimenter author = 0
   commentTypes commentType = 0
   string text = 0
  }

@@ -2727,6 +2727,19 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "comment__author",
+      "description": "The author of the comment",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/author",
+      "alias": "author",
+      "owner": "Comment",
+      "domain_of": [
+        "Comment"
+      ],
+      "range": "Experimenter",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "comment__comment_type",
       "description": "The type of the comment",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -4676,6 +4689,7 @@
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slots": [
         "comment__datetime",
+        "comment__author",
         "comment__comment_type",
         "comment__text"
       ],
@@ -4686,6 +4700,12 @@
           "description": "The datetime to which the comment is referring",
           "range": "datetime",
           "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "author",
+          "description": "The author of the comment",
+          "range": "Experimenter",
           "@type": "SlotDefinition"
         },
         {
@@ -6649,9 +6669,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-10T18:16:22",
+  "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-02-15T22:18:41",
+  "generation_date": "2024-02-16T07:37:36",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
