@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-16T07:37:43
+# Generation date: 2024-02-17T22:08:12
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1777,7 +1777,7 @@ class PSFBeadsInput(MetricsInput):
     sigma_x: float = 1.0
     snr_threshold: float = 10.0
     fitting_rss_threshold: float = 1.0
-    intensity_zscore_threshold: float = 3.0
+    intensity_robust_z_score_threshold: float = 3.0
     bit_depth: Optional[int] = None
     saturation_threshold: Optional[float] = 0.01
 
@@ -1816,10 +1816,10 @@ class PSFBeadsInput(MetricsInput):
         if not isinstance(self.fitting_rss_threshold, float):
             self.fitting_rss_threshold = float(self.fitting_rss_threshold)
 
-        if self._is_empty(self.intensity_zscore_threshold):
-            self.MissingRequiredField("intensity_zscore_threshold")
-        if not isinstance(self.intensity_zscore_threshold, float):
-            self.intensity_zscore_threshold = float(self.intensity_zscore_threshold)
+        if self._is_empty(self.intensity_robust_z_score_threshold):
+            self.MissingRequiredField("intensity_robust_z_score_threshold")
+        if not isinstance(self.intensity_robust_z_score_threshold, float):
+            self.intensity_robust_z_score_threshold = float(self.intensity_robust_z_score_threshold)
 
         if self.bit_depth is not None and not isinstance(self.bit_depth, int):
             self.bit_depth = int(self.bit_depth)
@@ -2803,8 +2803,8 @@ slots.snr_threshold = Slot(uri="str(uriorcurie)", name="snr_threshold", curie=No
 slots.fitting_rss_threshold = Slot(uri="str(uriorcurie)", name="fitting_rss_threshold", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_rss_threshold, domain=None, range=float)
 
-slots.intensity_zscore_threshold = Slot(uri="str(uriorcurie)", name="intensity_zscore_threshold", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_zscore_threshold, domain=None, range=float)
+slots.intensity_robust_z_score_threshold = Slot(uri="str(uriorcurie)", name="intensity_robust_z_score_threshold", curie=None,
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
 
 slots.nr_of_beads_analyzed = Slot(uri="str(uriorcurie)", name="nr_of_beads_analyzed", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_analyzed, domain=None, range=Optional[Union[int, List[int]]])

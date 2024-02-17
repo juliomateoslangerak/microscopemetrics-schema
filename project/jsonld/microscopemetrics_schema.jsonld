@@ -1440,11 +1440,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "intensity_zscore_threshold",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/intensity_zscore_threshold",
-      "description": "Threshold for the z-score of the intensity of the bead to be considered good.",
+      "name": "intensity_robust_z_score_threshold",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/intensity_robust_z_score_threshold",
+      "description": "Threshold for the robust z-score of the intensity of the bead to be considered good.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/intensity_zscore_threshold",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/intensity_robust_z_score_threshold",
       "ifabsent": "float(3.0)",
       "owner": "PSFBeadsInput",
       "domain_of": [
@@ -1513,7 +1513,7 @@
     {
       "name": "nr_of_beads_considered_intensity_outlier",
       "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_intensity_outlier",
-      "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
+      "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/nr_of_beads_considered_intensity_outlier",
       "multivalued": true,
@@ -3958,7 +3958,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centroids_intensity_outlier",
-      "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centroids_intensity_outlier",
       "multivalued": true,
@@ -6149,7 +6149,7 @@
         "PSFBeadsInput_sigma_x",
         "snr_threshold",
         "fitting_rss_threshold",
-        "intensity_zscore_threshold"
+        "intensity_robust_z_score_threshold"
       ],
       "slot_usage": {},
       "class_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput",
@@ -6220,7 +6220,7 @@
         },
         {
           "name": "considered_bead_centroids_intensity_outlier",
-          "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "RoiMassCenters",
           "inlined": true,
@@ -6669,9 +6669,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-05T12:00:47",
+  "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-02-16T07:37:36",
+  "generation_date": "2024-02-17T22:08:06",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

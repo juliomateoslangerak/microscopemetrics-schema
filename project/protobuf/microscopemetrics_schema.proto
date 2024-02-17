@@ -437,7 +437,7 @@ message PSFBeadsInput
   float sigmaX = 0
   float snrThreshold = 0
   float fittingRssThreshold = 0
-  float intensityZscoreThreshold = 0
+  float intensityRobustZScoreThreshold = 0
  }
 message PSFBeadsKeyMeasurements
  {

@@ -2117,8 +2117,8 @@
                     "description": "Threshold for the residual sum of squares of the fit to be considered good.",
                     "type": "number"
                 },
-                "intensity_zscore_threshold": {
-                    "description": "Threshold for the z-score of the intensity of the bead to be considered good.",
+                "intensity_robust_z_score_threshold": {
+                    "description": "Threshold for the robust z-score of the intensity of the bead to be considered good.",
                     "type": "number"
                 },
                 "min_lateral_distance_factor": {
@@ -2165,7 +2165,7 @@
                 "sigma_x",
                 "snr_threshold",
                 "fitting_rss_threshold",
-                "intensity_zscore_threshold"
+                "intensity_robust_z_score_threshold"
             ],
             "title": "PSFBeadsInput",
             "type": "object"
@@ -2280,7 +2280,7 @@
                     "type": "array"
                 },
                 "nr_of_beads_considered_intensity_outlier": {
-                    "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
+                    "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
@@ -2517,7 +2517,7 @@
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
                 "considered_bead_centroids_x_fit_quality": {

@@ -510,7 +510,7 @@ type PSFBeadsInput
     sigmaX: Float!
     snrThreshold: Float!
     fittingRssThreshold: Float!
-    intensityZscoreThreshold: Float!
+    intensityRobustZScoreThreshold: Float!
   }
 
 type PSFBeadsKeyMeasurements

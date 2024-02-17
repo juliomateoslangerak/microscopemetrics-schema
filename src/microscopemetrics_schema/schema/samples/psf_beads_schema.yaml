@@ -50,7 +50,7 @@ classes:
       - sigma_x
       - snr_threshold
       - fitting_rss_threshold
-      - intensity_zscore_threshold
+      - intensity_robust_z_score_threshold
     slot_usage:
       sigma_z:
         description: >-
@@ -119,7 +119,7 @@ classes:
         range: RoiMassCenters
         description: >-
           The centroids of the beads detected but considered as being too intense and potentially
-          represent a cluster of beads. Intensity z-score over requested threshold.
+          represent a cluster of beads. Intensity robust z-score over requested threshold.
           Measurements not considered for the dataset analysis.
           One point will be provided per bead.
           One ROI per channel.
@@ -279,10 +279,10 @@ slots:
       Threshold for the residual sum of squares of the fit to be considered good.
     required: true
     ifabsent: float(1.0)
-  intensity_zscore_threshold:
+  intensity_robust_z_score_threshold:
     range: float
     description: >-
-      Threshold for the z-score of the intensity of the bead to be considered good.
+      Threshold for the robust z-score of the intensity of the bead to be considered good.
     required: true
     ifabsent: float(3.0)
 
@@ -314,7 +314,7 @@ slots:
     range: integer
     description: >-
       Number of beads considered as being too intense and potentially represent a cluster of beads. These beads
-      have a z-score over the requested threshold.
+      have a robust z-score over the requested threshold.
       Measurements on these beads are not averaged into the key measurements.
       One value per channel.
     multivalued: true
