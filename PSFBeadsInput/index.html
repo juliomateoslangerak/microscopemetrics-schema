@@ -214,7 +214,7 @@
 
       PSFBeadsInput : fitting_rss_threshold
 
-      PSFBeadsInput : intensity_zscore_threshold
+      PSFBeadsInput : intensity_robust_z_score_threshold
 
       PSFBeadsInput : min_lateral_distance_factor
 
@@ -307,9 +307,9 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../intensity_zscore_threshold/">intensity_zscore_threshold</a></td>
+<td><a href="../intensity_robust_z_score_threshold/">intensity_robust_z_score_threshold</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
-<td>Threshold for the z-score of the intensity of the bead to be considered good</td>
+<td>Threshold for the robust z-score of the intensity of the bead to be considere...</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -374,7 +374,7 @@ slots:
 - sigma_x
 - snr_threshold
 - fitting_rss_threshold
-- intensity_zscore_threshold
+- intensity_robust_z_score_threshold
 slot_usage:
   sigma_z:
     name: sigma_z
@@ -572,14 +572,14 @@ attributes:
     - PSFBeadsInput
     range: float
     required: true
-  intensity_zscore_threshold:
-    name: intensity_zscore_threshold
-    description: Threshold for the z-score of the intensity of the bead to be considered
-      good.
+  intensity_robust_z_score_threshold:
+    name: intensity_robust_z_score_threshold
+    description: Threshold for the robust z-score of the intensity of the bead to
+      be considered good.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     ifabsent: float(3.0)
-    alias: intensity_zscore_threshold
+    alias: intensity_robust_z_score_threshold
     owner: PSFBeadsInput
     domain_of:
     - PSFBeadsInput

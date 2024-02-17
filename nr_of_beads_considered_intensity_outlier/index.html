@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-nr_of_beads_considered_intensity_outlier">Slot: nr_of_beads_considered_intensity_outlier</h1>
-<p><em>Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.</em></p>
+<p><em>Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/nr_of_beads_considered_intensity_outlier">microscopemetrics_schema:nr_of_beads_considered_intensity_outlier</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -357,8 +357,9 @@
 
 <pre><code class="language-yaml">name: nr_of_beads_considered_intensity_outlier
 description: Number of beads considered as being too intense and potentially represent
-  a cluster of beads. These beads have a z-score over the requested threshold. Measurements
-  on these beads are not averaged into the key measurements. One value per channel.
+  a cluster of beads. These beads have a robust z-score over the requested threshold.
+  Measurements on these beads are not averaged into the key measurements. One value
+  per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
