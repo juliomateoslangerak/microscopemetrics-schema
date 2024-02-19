@@ -209,32 +209,72 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Roi">microscopemetrics_schema:Roi</a></p>
 <div class="mermaid"> classDiagram
     class Roi
-      Roi &lt;|-- RoiMassCenters
-      Roi &lt;|-- RoiGeometricCenters
-      Roi &lt;|-- RoiProfiles
-      Roi &lt;|-- RoiMeasurements
+      MetricsObject &lt;|-- Roi
+
+
+      Roi &lt;|-- ArgolightBCentersOfMass
+      Roi &lt;|-- PSFBeadsCenters
+      Roi &lt;|-- FieldIlluminationProfilesIntensity
+      Roi &lt;|-- FieldIlluminationCornersIntensities
+      Roi &lt;|-- FieldIlluminationCentersOfMass
+      Roi &lt;|-- FieldIlluminationCentersGeometric
+      Roi &lt;|-- FieldIlluminationCentersFitted
+      Roi &lt;|-- FieldIlluminationCentersMaxIntensity
+
+
+      Roi : data_uri
 
       Roi : description
+
+      Roi : ellipses
+
+          Roi --&gt; Ellipse : ellipses
 
       Roi : image
 
           Roi --&gt; Image : image
 
-      Roi : label
+      Roi : lines
 
-      Roi : shapes
+          Roi --&gt; Line : lines
 
-          Roi --&gt; Shape : shapes
+      Roi : masks
+
+          Roi --&gt; Mask : masks
+
+      Roi : name
+
+      Roi : points
+
+          Roi --&gt; Point : points
+
+      Roi : polygons
+
+          Roi --&gt; Polygon : polygons
+
+      Roi : rectangles
+
+          Roi --&gt; Rectangle : rectangles
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
+<li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>Roi</strong><ul>
-<li><a href="../RoiMassCenters/">RoiMassCenters</a></li>
-<li><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></li>
-<li><a href="../RoiProfiles/">RoiProfiles</a></li>
-<li><a href="../RoiMeasurements/">RoiMeasurements</a></li>
+<li><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a> [ <a href="../CentersOfMass/">CentersOfMass</a>]</li>
+<li><a href="../PSFBeadsCenters/">PSFBeadsCenters</a> [ <a href="../CentersMaxIntensity/">CentersMaxIntensity</a>]</li>
+<li><a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a> [ <a href="../ProfilesIntensity/">ProfilesIntensity</a>]</li>
+<li><a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a> [ <a href="../RoiMeasurements/">RoiMeasurements</a>]</li>
+<li><a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a> [ <a href="../CentersOfMass/">CentersOfMass</a>]</li>
+<li><a href="../FieldIlluminationCentersGeometric/">FieldIlluminationCentersGeometric</a> [ <a href="../CentersGeometric/">CentersGeometric</a>]</li>
+<li><a href="../FieldIlluminationCentersFitted/">FieldIlluminationCentersFitted</a> [ <a href="../CentersFitted/">CentersFitted</a>]</li>
+<li><a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a> [ <a href="../CentersMaxIntensity/">CentersMaxIntensity</a>]</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -250,28 +290,64 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../label/">label</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The label of the ROI</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of the ROI</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="image.md">image</a></td>
+<td><a href="../image/">image</a></td>
 <td>0..* <br/> <a href="../Image/">Image</a></td>
 <td>The image or images to which the ROI is applied</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../shapes/">shapes</a></td>
-<td>0..* <br/> <a href="../Shape/">Shape</a></td>
-<td></td>
+<td><a href="../points/">points</a></td>
+<td>0..* <br/> <a href="../Point/">Point</a></td>
+<td>A list of points included in the ROI</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../lines/">lines</a></td>
+<td>0..* <br/> <a href="../Line/">Line</a></td>
+<td>A list of lines included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../rectangles/">rectangles</a></td>
+<td>0..* <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>A list of rectangles included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ellipses/">ellipses</a></td>
+<td>0..* <br/> <a href="../Ellipse/">Ellipse</a></td>
+<td>A list of ellipses included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../polygons/">polygons</a></td>
+<td>0..* <br/> <a href="../Polygon/">Polygon</a></td>
+<td>A list of polygons included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../masks/">masks</a></td>
+<td>0..* <br/> <a href="../Mask/">Mask</a></td>
+<td>A list of masks included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The human readable name of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human readable description of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -326,23 +402,8 @@
 description: A ROI (Region Of Interest). Collection of shapes and an image to which
   they are applied
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 attributes:
-  label:
-    name: label
-    description: The label of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    range: string
-    required: true
-  description:
-    name: description
-    description: A description of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: false
-    range: string
-    required: false
   image:
     name: image
     description: The image or images to which the ROI is applied
@@ -352,14 +413,65 @@ attributes:
     range: Image
     required: false
     inlined: false
-  shapes:
-    name: shapes
+  points:
+    name: points
+    description: A list of points included in the ROI
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    range: Shape
+    range: Point
+    required: false
     inlined: true
     inlined_as_list: false
+  lines:
+    name: lines
+    description: A list of lines included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Line
+    required: false
+    inlined: true
+    inlined_as_list: false
+  rectangles:
+    name: rectangles
+    description: A list of rectangles included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Rectangle
+    required: false
+    inlined: true
+    inlined_as_list: false
+  ellipses:
+    name: ellipses
+    description: A list of ellipses included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Ellipse
+    required: false
+    inlined: true
+    inlined_as_list: false
+  polygons:
+    name: polygons
+    description: A list of polygons included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Polygon
+    required: false
+    inlined: true
+    inlined_as_list: false
+  masks:
+    name: masks
+    description: A list of masks included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Mask
+    required: false
+    inlined: false
 
 </code></pre>
 </details>
@@ -369,35 +481,8 @@ attributes:
 description: A ROI (Region Of Interest). Collection of shapes and an image to which
   they are applied
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 attributes:
-  label:
-    name: label
-    description: The label of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    alias: label
-    owner: Roi
-    domain_of:
-    - Roi
-    - Shape
-    range: string
-    required: true
-  description:
-    name: description
-    description: A description of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: false
-    alias: description
-    owner: Roi
-    domain_of:
-    - NamedObject
-    - Roi
-    - Tag
-    - Column
-    range: string
-    required: false
   image:
     name: image
     description: The image or images to which the ROI is applied
@@ -411,22 +496,127 @@ attributes:
     range: Image
     required: false
     inlined: false
-  shapes:
-    name: shapes
+  points:
+    name: points
+    description: A list of points included in the ROI
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    alias: shapes
+    alias: points
     owner: Roi
     domain_of:
     - Roi
-    - RoiMassCenters
-    - RoiGeometricCenters
-    - RoiProfiles
-    - RoiMeasurements
-    range: Shape
+    range: Point
+    required: false
     inlined: true
     inlined_as_list: false
+  lines:
+    name: lines
+    description: A list of lines included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: lines
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Line
+    required: false
+    inlined: true
+    inlined_as_list: false
+  rectangles:
+    name: rectangles
+    description: A list of rectangles included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: rectangles
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Rectangle
+    required: false
+    inlined: true
+    inlined_as_list: false
+  ellipses:
+    name: ellipses
+    description: A list of ellipses included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: ellipses
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Ellipse
+    required: false
+    inlined: true
+    inlined_as_list: false
+  polygons:
+    name: polygons
+    description: A list of polygons included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: polygons
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Polygon
+    required: false
+    inlined: true
+    inlined_as_list: false
+  masks:
+    name: masks
+    description: A list of masks included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: masks
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Mask
+    required: false
+    inlined: false
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    identifier: true
+    alias: data_uri
+    owner: Roi
+    domain_of:
+    - MetricsObject
+    range: string
+    required: true
+  name:
+    name: name
+    description: The human readable name of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: name
+    owner: Roi
+    domain_of:
+    - NamedObject
+    - Experimenter
+    range: string
+    required: false
+  description:
+    name: description
+    description: A human readable description of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: description
+    owner: Roi
+    domain_of:
+    - NamedObject
+    - Tag
+    range: string
+    required: false
 
 </code></pre>
 </details>
