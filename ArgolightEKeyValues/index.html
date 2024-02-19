@@ -212,13 +212,7 @@
 
       ArgolightEKeyValues : channel_nr
 
-      ArgolightEKeyValues : data_uri
-
-      ArgolightEKeyValues : description
-
       ArgolightEKeyValues : focus_slice
-
-      ArgolightEKeyValues : name
 
       ArgolightEKeyValues : peak_height_A
 
@@ -240,14 +234,8 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../KeyValues/">KeyValues</a><ul>
 <li><strong>ArgolightEKeyValues</strong></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -321,24 +309,6 @@
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Prominence of second peak in the intensity profiles</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -423,7 +393,7 @@ attributes:
     domain_of:
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyValues
+    - PSFBeadsKeyMeasurements
     - FieldIlluminationKeyValues
     range: integer
   focus_slice:
@@ -530,44 +500,6 @@ attributes:
     domain_of:
     - ArgolightEKeyValues
     range: float
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: ArgolightEKeyValues
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  name:
-    name: name
-    description: The human readable name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: ArgolightEKeyValues
-    domain_of:
-    - NamedObject
-    - Experimenter
-    range: string
-    required: false
-  description:
-    name: description
-    description: A human readable description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: description
-    owner: ArgolightEKeyValues
-    domain_of:
-    - NamedObject
-    - Tag
-    range: string
-    required: false
 
 </code></pre>
 </details>

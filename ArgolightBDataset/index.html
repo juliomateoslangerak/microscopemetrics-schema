@@ -208,7 +208,9 @@
 
       ArgolightBDataset : acquisition_datetime
 
-      ArgolightBDataset : data_uri
+      ArgolightBDataset : comment
+
+          ArgolightBDataset --&gt; Comment : comment
 
       ArgolightBDataset : description
 
@@ -232,6 +234,10 @@
 
       ArgolightBDataset : processed
 
+      ArgolightBDataset : processing_datetime
+
+      ArgolightBDataset : processing_log
+
       ArgolightBDataset : sample
 
           ArgolightBDataset --&gt; Sample : sample
@@ -241,11 +247,8 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../MetricsDataset/">MetricsDataset</a><ul>
 <li><strong>ArgolightBDataset</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -264,7 +267,7 @@
 <tbody>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td>1..1 <br/> <a href="../ArgolightBInput/">ArgolightBInput</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -305,21 +308,33 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../processing_datetime/">processing_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the processing by microscope-metrics</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+</tr>
+<tr>
+<td><a href="../processing_log/">processing_log</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The log of the processing by microscope-metrics</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+</tr>
+<tr>
+<td><a href="../comment/">comment</a></td>
+<td>0..* <br/> <a href="../Comment/">Comment</a></td>
+<td>A human readable comment about the dataset</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -362,12 +377,18 @@ attributes:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
+    multivalued: false
     range: ArgolightBInput
+    required: true
+    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
+    multivalued: false
     range: ArgolightBOutput
+    required: false
+    inlined: true
 rules:
 - preconditions:
     slot_conditions:
@@ -394,6 +415,7 @@ attributes:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
+    multivalued: false
     alias: input
     owner: ArgolightBDataset
     domain_of:
@@ -403,10 +425,13 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: ArgolightBInput
+    required: true
+    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
+    multivalued: false
     alias: output
     owner: ArgolightBDataset
     domain_of:
@@ -416,6 +441,8 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: ArgolightBOutput
+    required: false
+    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
@@ -477,21 +504,44 @@ attributes:
     - MetricsDataset
     range: boolean
     required: true
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
+  processing_datetime:
+    name: processing_datetime
+    description: The datetime of the processing by microscope-metrics
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    identifier: true
-    alias: data_uri
+    multivalued: false
+    alias: processing_datetime
     owner: ArgolightBDataset
     domain_of:
-    - MetricsObject
+    - MetricsDataset
+    range: datetime
+  processing_log:
+    name: processing_log
+    description: The log of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: processing_log
+    owner: ArgolightBDataset
+    domain_of:
+    - MetricsDataset
     range: string
-    required: true
+  comment:
+    name: comment
+    description: A human readable comment about the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    multivalued: true
+    alias: comment
+    owner: ArgolightBDataset
+    domain_of:
+    - Microscope
+    - MetricsDataset
+    range: Comment
+    required: false
+    inlined: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -500,11 +550,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -512,7 +563,9 @@ attributes:
     owner: ArgolightBDataset
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 rules:

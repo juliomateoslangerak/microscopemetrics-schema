@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-description">Slot: description</h1>
-<p><em>A human readable description of an entity</em></p>
+<p><em>A description of an entity</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/description">microscopemetrics_schema:description</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -342,28 +342,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
 <td>An Argolight sample pattern E dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></td>
-<td></td>
 <td>no</td>
 </tr>
 <tr>
@@ -437,43 +417,23 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Shape/">Shape</a></td>
-<td>A shape</td>
+<td><a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td>Point ROIs marking the center of mass of detected objects</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Point/">Point</a></td>
-<td>A point as defined by x and y coordinates</td>
+<td><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></td>
+<td>Point ROIs marking the geometric center of detected objects</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Line/">Line</a></td>
-<td>A line as defined by x1, y1, x2, y2 coordinates</td>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td>line ROIs where profiles were computed</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../Rectangle/">Rectangle</a></td>
-<td>A rectangle as defined by x, y coordinates and width, height</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Ellipse/">Ellipse</a></td>
-<td>An ellipse as defined by x, y coordinates and x and y radii</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Polygon/">Polygon</a></td>
-<td>A polygon as defined by a series of vertexes and a boolean to indicate if clo...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Mask/">Mask</a></td>
-<td>A mask as defined by a boolean image</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../KeyValues/">KeyValues</a></td>
-<td>A collection of key-value pairs</td>
+<td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
+<td>ROIs delimiting where measurements were performed</td>
 <td>no</td>
 </tr>
 <tr>
@@ -507,53 +467,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../PSFBeadsCenters/">PSFBeadsCenters</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsKeyValues/">PSFBeadsKeyValues</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
 <td>A field illumination dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersGeometric/">FieldIlluminationCentersGeometric</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersFitted/">FieldIlluminationCentersFitted</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
-<td></td>
 <td>no</td>
 </tr>
 </tbody>
@@ -571,14 +486,16 @@
 <details>
 
 <pre><code class="language-yaml">name: description
-description: A human readable description of an entity
+description: A description of an entity
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: false
 alias: description
 domain_of:
 - NamedObject
+- Roi
 - Tag
+- Column
 range: string
 required: false
 

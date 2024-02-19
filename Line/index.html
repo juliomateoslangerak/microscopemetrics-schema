@@ -213,15 +213,11 @@
 
       Line : c
 
-      Line : data_uri
-
-      Line : description
-
       Line : fill_color
 
           Line --&gt; Color : fill_color
 
-      Line : name
+      Line : label
 
       Line : stroke_color
 
@@ -245,14 +241,8 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../Shape/">Shape</a><ul>
 <li><strong>Line</strong></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -292,6 +282,12 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../label/">label</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The label of the shape</td>
+<td><a href="../Shape/">Shape</a></td>
+</tr>
+<tr>
 <td><a href="../z/">z</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
 <td>The z coordinate of the shape</td>
@@ -327,24 +323,6 @@
 <td>The stroke width of the shape</td>
 <td><a href="../Shape/">Shape</a></td>
 </tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -359,56 +337,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../Roi/">Roi</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsCenters/">PSFBeadsCenters</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersGeometric/">FieldIlluminationCentersGeometric</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersFitted/">FieldIlluminationCentersFitted</a></td>
-<td><a href="../lines/">lines</a></td>
-<td>range</td>
-<td><a href="./">Line</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a></td>
-<td><a href="../lines/">lines</a></td>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td><a href="../shapes/">shapes</a></td>
 <td>range</td>
 <td><a href="./">Line</a></td>
 </tr>
@@ -537,6 +467,18 @@ attributes:
     - Line
     range: float
     required: true
+  label:
+    name: label
+    description: The label of the shape
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    identifier: true
+    alias: label
+    owner: Line
+    domain_of:
+    - Roi
+    - Shape
+    range: string
+    required: true
   z:
     name: z
     description: The z coordinate of the shape
@@ -603,44 +545,6 @@ attributes:
     domain_of:
     - Shape
     range: integer
-    required: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: Line
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  name:
-    name: name
-    description: The human readable name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: Line
-    domain_of:
-    - NamedObject
-    - Experimenter
-    range: string
-    required: false
-  description:
-    name: description
-    description: A human readable description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: description
-    owner: Line
-    domain_of:
-    - NamedObject
-    - Tag
-    range: string
     required: false
 
 </code></pre>

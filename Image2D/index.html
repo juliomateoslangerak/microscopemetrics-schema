@@ -208,9 +208,9 @@
 
       Image2D : data
 
-      Image2D : data_uri
-
       Image2D : description
+
+      Image2D : image_url
 
       Image2D : name
 
@@ -224,7 +224,7 @@
 
       Image2D : shape_z
 
-      Image2D : source_image_uri
+      Image2D : source_image_url
 
       Image2D : voxel_size_x_micron
 
@@ -268,7 +268,13 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../source_image_uri/">source_image_uri</a></td>
+<td><a href="../image_url/">image_url</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>An URL linking to the image</td>
+<td><a href="../Image/">Image</a></td>
+</tr>
+<tr>
+<td><a href="../source_image_url/">source_image_url</a></td>
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>A list of URLs linking to the images that were used as a source</td>
 <td><a href="../Image/">Image</a></td>
@@ -322,21 +328,15 @@
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -413,13 +413,26 @@ attributes:
     - Image5D
     range: float
     required: true
-  source_image_uri:
-    name: source_image_uri
+  image_url:
+    name: image_url
+    description: An URL linking to the image
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: image_url
+    owner: Image2D
+    domain_of:
+    - Image
+    range: string
+    required: true
+  source_image_url:
+    name: source_image_url
     description: A list of URLs linking to the images that were used as a source
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: source_image_uri
+    alias: source_image_url
     owner: Image2D
     domain_of:
     - Image
@@ -524,21 +537,9 @@ attributes:
     - Image
     range: integer
     required: true
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: Image2D
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -547,11 +548,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -559,7 +561,9 @@ attributes:
     owner: Image2D
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 

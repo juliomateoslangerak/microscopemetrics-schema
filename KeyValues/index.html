@@ -207,38 +207,22 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/KeyValues">microscopemetrics_schema:KeyValues</a></p>
 <div class="mermaid"> classDiagram
     class KeyValues
-      MetricsObject &lt;|-- KeyValues
-
-
       KeyValues &lt;|-- ArgolightBIntensityKeyValues
       KeyValues &lt;|-- ArgolightBDistanceKeyValues
       KeyValues &lt;|-- ArgolightEKeyValues
-      KeyValues &lt;|-- PSFBeadsKeyValues
+      KeyValues &lt;|-- PSFBeadsKeyMeasurements
       KeyValues &lt;|-- FieldIlluminationKeyValues
-
-
-      KeyValues : data_uri
-
-      KeyValues : description
-
-      KeyValues : name
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>KeyValues</strong><ul>
 <li><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></li>
 <li><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></li>
 <li><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></li>
-<li><a href="../PSFBeadsKeyValues/">PSFBeadsKeyValues</a></li>
+<li><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></li>
 <li><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -254,22 +238,10 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -304,7 +276,6 @@
 <pre><code class="language-yaml">name: KeyValues
 description: A collection of key-value pairs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
 abstract: true
 
 </code></pre>
@@ -314,47 +285,7 @@ abstract: true
 <pre><code class="language-yaml">name: KeyValues
 description: A collection of key-value pairs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
 abstract: true
-attributes:
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: KeyValues
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  name:
-    name: name
-    description: The human readable name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: KeyValues
-    domain_of:
-    - NamedObject
-    - Experimenter
-    range: string
-    required: false
-  description:
-    name: description
-    description: A human readable description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: description
-    owner: KeyValues
-    domain_of:
-    - NamedObject
-    - Tag
-    range: string
-    required: false
 
 </code></pre>
 </details>
