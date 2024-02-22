@@ -210,9 +210,9 @@
     class ArgolightEOutput
       MetricsOutput &lt;|-- ArgolightEOutput
 
-      ArgolightEOutput : comment
+      ArgolightEOutput : comments
 
-          ArgolightEOutput --&gt; Comment : comment
+          ArgolightEOutput --&gt; Comment : comments
 
       ArgolightEOutput : errors
 
@@ -321,7 +321,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="../comments/">comments</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -535,15 +535,15 @@ attributes:
     - MetricsOutput
     range: string
     required: false
-  comment:
-    name: comment
+  comments:
+    name: comments
     description: A human readable comment about the dataset
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
     multivalued: true
-    alias: comment
+    alias: comments
     owner: ArgolightEOutput
     domain_of:
-    - Microscope
     - MetricsOutput
     range: Comment
     required: false
