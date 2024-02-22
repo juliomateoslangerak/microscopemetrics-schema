@@ -623,49 +623,55 @@ classes:
         minimum_value: 0
         maximum_value: 255
 
-  RoiMassCenters:
-    is_a: Roi
+  CentersOfMass:
+    mixin: true
     description: >-
-      Point ROIs marking the center of mass of detected objects
-    attributes:
-      shapes:
-        range: Point
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
+      The center of mass of detected objects.
+      Intended to be used with ROIs.
 
-  RoiGeometricCenters:
-    is_a: Roi
+  CentersGeometric:
+    mixin: true
     description: >-
-      Point ROIs marking the geometric center of detected objects
-    attributes:
-      shapes:
-        range: Point
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
+      The geometric center of detected objects.
+      Intended to be used with ROIs.
 
-  RoiProfiles:
-    is_a: Roi
+  CentersFitted:
+    mixin: true
     description: >-
-      line ROIs where profiles were computed.
+      The fitted center of detected objects.
+      Intended to be used with ROIs.
+
+  CentersMaxIntensity:
+    mixin: true
+    description: >-
+      The position of maximum intensity of detected objects.
+      Intended to be used with ROIs.
+
+  ProfilesIntensity:
+    mixin: true
+    description: >-
+      Profiles computed on the image.
+      Intended to be used with ROIs.
     attributes:
-      shapes:
-        range: Line
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
+      intensity_profiles_table:
+        range: TableAsDict
+        description: Linked table of profiles
+        required: true
+        multivalued: false
+        inlined: false
 
   RoiMeasurements:
-    is_a: Roi
+    mixin: true
     description: >-
-      ROIs delimiting where measurements were performed.
+      Measurements computed on the ROIs of an image.
+      Intended to be used with ROIs.
     attributes:
-      shapes:  # TODO: this should extend to other type of surface defining rois
-        range: Rectangle
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
+      measurements_table:
+        range: TableAsDict
+        description: Linked table of measurements
+        required: true
+        multivalued: false
+        inlined: false
 
   KeyValues:
     is_a: MetricsObject

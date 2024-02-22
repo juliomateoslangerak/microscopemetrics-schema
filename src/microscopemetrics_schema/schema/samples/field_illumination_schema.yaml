@@ -73,24 +73,75 @@ classes:
         multivalued: false
         inlined: true
       roi_profiles:
-        range: RoiProfiles
+        range: FieldIlluminationProfilesIntensity
         description: line ROIs used to compute the intensity profiles
         multivalued: false
         inlined: true
       roi_corners:
-        range: RoiMeasurements
+        range: FieldIlluminationCornersIntensities
         description: >-
           Rectangular ROIs used to compute the corner intensities
         multivalued: false
         inlined: true
-      roi_centroids_weighted:
-        range: RoiMassCenters
+      roi_centers_of_mass:
+        range: FieldIlluminationCentersOfMass
         description: >-
           Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity.
           When the image is very flat, the 99 percentile is used instead.
           One point per channel.
         multivalued: true
         inlined: true
+      roi_centers_geometric:
+        range: FieldIlluminationCentersGeometric
+        description: >-
+          Point ROIs marking the geometric center of the area of maximum illumination.
+          One point per channel.
+        multivalued: true
+        inlined: true
+      roi_centers_fitted:
+        range: FieldIlluminationCentersFitted
+        description: >-
+          Point ROIs marking the fitted center of the area of maximum illumination.
+          One point per channel.
+        multivalued: true
+        inlined: true
+      roi_centers_max_intensity:
+        range: FieldIlluminationCentersMaxIntensity
+        description: >-
+          Point ROIs marking the maximum intensity of the area of maximum illumination.
+          One point per channel.
+        multivalued: true
+        inlined: true
+
+  FieldIlluminationProfilesIntensity:
+    is_a: Roi
+    mixins:
+      - ProfilesIntensity
+
+  FieldIlluminationCornersIntensities:
+    is_a: Roi
+    mixins:
+      - RoiMeasurements
+
+  FieldIlluminationCentersOfMass:
+    is_a: Roi
+    mixins:
+      - CentersOfMass
+
+  FieldIlluminationCentersGeometric:
+    is_a: Roi
+    mixins:
+      - CentersGeometric
+
+  FieldIlluminationCentersFitted:
+    is_a: Roi
+    mixins:
+      - CentersFitted
+
+  FieldIlluminationCentersMaxIntensity:
+    is_a: Roi
+    mixins:
+      - CentersMaxIntensity
 
   FieldIlluminationKeyValues:
     is_a: KeyValues
@@ -98,21 +149,21 @@ classes:
       - channel_nr
       - center_region_intensity_fraction
       - center_region_area_fraction
-      - centroid_weighted_y
-      - centroid_weighted_y_relative
-      - centroid_weighted_x
-      - centroid_weighted_x_relative
-      - centroid_weighted_distance_relative
-      - centroid_y
-      - centroid_y_relative
-      - centroid_x
-      - centroid_x_relative
-      - centroid_distance_relative
-      - centroid_fitted_y
-      - centroid_fitted_y_relative
-      - centroid_fitted_x
-      - centroid_fitted_x_relative
-      - centroid_fitted_distance_relative
+      - center_of_mass_y
+      - center_of_mass_y_relative
+      - center_of_mass_x
+      - center_of_mass_x_relative
+      - center_of_mass_distance_relative
+      - center_geometric_y
+      - center_geometric_y_relative
+      - center_geometric_x
+      - center_geometric_x_relative
+      - center_geometric_distance_relative
+      - center_fitted_y
+      - center_fitted_y_relative
+      - center_fitted_x
+      - center_fitted_x_relative
+      - center_fitted_distance_relative
       - max_intensity
       - max_intensity_pos_y
       - max_intensity_pos_y_relative
@@ -194,12 +245,12 @@ slots:
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
-  centroid_weighted_y:
+  center_of_mass_y:
     range: float
     description: >-
       The y coordinate of the center of mass of the center of illumination region. In pixels
     multivalued: true
-  centroid_weighted_y_relative:
+  center_of_mass_y_relative:
     range: float
     description: >-
       The relative y position of the center of mass of the center of illumination region. 
@@ -207,12 +258,12 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_weighted_x:
+  center_of_mass_x:
     range: float
     description: >-
       The x coordinate of the center of mass of the center of illumination region. In pixels
     multivalued: true
-  centroid_weighted_x_relative:
+  center_of_mass_x_relative:
     range: float
     description: >-
       The relative x position of the center of mass of the center of illumination region. 
@@ -220,10 +271,10 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_weighted_distance_relative:
+  center_of_mass_distance_relative:
     range: float
     description: >-
-      The relative distance of the weighted centroid to the center of the image. Relative to the distance to 
+      The relative distance of the centers of mass to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
     multivalued: true
     minimum_value: 0.0
@@ -233,7 +284,7 @@ slots:
     description: >-
       The y coordinate of the geometric center of the center of illumination region. In pixels
     multivalued: true
-  centroid_y_relative:
+  center_geometric_y_relative:
     range: float
     description: >-
       The relative y position of the geometric center of the center of illumination region. 
@@ -241,12 +292,12 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_x:
+  center_geometric_x:
     range: float
     description: >-
       The x coordinate of the geometric center of the center of illumination region. In pixels
     multivalued: true
-  centroid_x_relative:
+  center_geometric_x_relative:
     range: float
     description: >-
       The relative x position of the geometric center of the center of illumination region. 
@@ -254,20 +305,20 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_distance_relative:
+  center_geometric_distance_relative:
     range: float
     description: >-
-      The relative distance of the centroid to the center of the image. Relative to the distance to 
+      The relative distance of the geometric center to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
-  centroid_fitted_y:
+  center_fitted_y:
     range: float
     description: >-
       The y coordinate of the fitted center of illumination. In pixels
     multivalued: true
-  centroid_fitted_y_relative:
+  center_fitted_y_relative:
     range: float
     description: >-
       The relative y position of the fitted center of illumination. 
@@ -275,12 +326,12 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_fitted_x:
+  center_fitted_x:
     range: float
     description: >-
       The x coordinate of the fitted center of illumination. In pixels
     multivalued: true
-  centroid_fitted_x_relative:
+  center_fitted_x_relative:
     range: float
     description: >-
       The relative x position of the fitted center of illumination. 
@@ -288,7 +339,7 @@ slots:
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
-  centroid_fitted_distance_relative:
+  center_fitted_distance_relative:
     range: float
     description: >-
       The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to 

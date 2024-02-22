@@ -90,10 +90,10 @@ classes:
           Image intensities correspond to ROI labels
         required: false
         multivalued: false
-      spots_centroids:
-        range: RoiMassCenters
+      spots_centers_of_mass:
+        range: ArgolightBCentersOfMass
         description: >-
-          Centroids of the argolight spots provided as a list of ROIs. One per channel
+          Centers of mass of the argolight spots provided as a list of ROIs. One per channel
         required: false
         multivalued: true
         inlined: true
@@ -121,6 +121,11 @@ classes:
           Table of distances between argolight spots
         required: false
         multivalued: false
+
+  ArgolightBCentersOfMass:
+    is_a: Roi
+    mixins:
+      - CentersOfMass
 
   ArgolightBIntensityKeyValues:
     is_a: KeyValues

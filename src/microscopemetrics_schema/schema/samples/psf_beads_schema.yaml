@@ -145,10 +145,10 @@ classes:
           One ROI per channel.
         multivalued: true
         inlined: true
-      considered_bead_centroids_x_fit_quality:
-        range: RoiMassCenters
+      considered_bead_centers_x_fit_quality:
+        range: PSFBeadsCenters
         description: >-
-          The centroids of the beads detected but considered as the fit quality in x was not good enough. 
+          The centers of the beads detected but considered as the fit quality in x was not good enough. 
           RSS over requested threshold.
           Measurements in x not considered for the dataset analysis.
           One point will be provided per bead.
@@ -205,6 +205,11 @@ classes:
         inlined: true
 
   PSFBeadsKeyMeasurements:
+  PSFBeadsCenters:
+    is_a: Roi
+    mixins:
+      - CentersMaxIntensity
+
     is_a: KeyValues
     slots:
       - channel_nr
