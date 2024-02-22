@@ -20,23 +20,8 @@ classes:
     attributes:
       input:
         range: PSFBeadsInput
-        required: true
-        multivalued: false
-        inlined: true
       output:
         range: PSFBeadsOutput
-        required: false
-        multivalued: false
-        inlined: true
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
 
   PSFBeadsInput:
     is_a: MetricsInput

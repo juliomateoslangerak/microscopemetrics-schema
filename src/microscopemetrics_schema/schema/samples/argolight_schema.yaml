@@ -20,23 +20,8 @@ classes:
     attributes:
       input:
         range: ArgolightBInput
-        required: true
-        multivalued: false
-        inlined: true
       output:
         range: ArgolightBOutput
-        required: false
-        multivalued: false
-        inlined: true
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
 
   ArgolightBInput:
     is_a: MetricsInput
@@ -166,27 +151,8 @@ classes:
     attributes:
       input:
         range: ArgolightEInput
-        description: >-
-          An input element for the analysis
-        required: true
-        multivalued: false
-        inlined: true
       output:
         range: ArgolightEOutput
-        description: >-
-          An output element from the analysis
-        required: false
-        multivalued: false
-        inlined: true
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
 
   ArgolightEInput:
     is_a: MetricsInput

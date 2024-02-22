@@ -25,18 +25,6 @@ classes:
         inlined: true
       output:
         range: FieldIlluminationOutput
-        required: false
-        multivalued: false
-        inlined: true
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
 
   FieldIlluminationInput:
     is_a: MetricsInput
