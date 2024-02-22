@@ -5,6 +5,13 @@ prefixes:
 #imports:
 #  - metrics:types
   linkml: https://w3id.org/linkml/
+  isa: https://isa-specs.readthedocs.io/en/latest/isamodel.html#
+  schema: http://schema.org/
+  ome: https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html#
+  ORCID: https://orcid.org/
+  wiki: https://en.wikipedia.org/wiki/
+  ucum: https://unitsofmeasure.org/ucum/
+
 imports:
   - linkml:types
 
