@@ -156,7 +156,7 @@ classes:
         multivalued: true
         inlined: true
       key_values:
-        range: PSFBeadsKeyMeasurements
+        range: PSFBeadsKeyValues
         description: >-
           The key measurements of the PSF beads analysis.
         multivalued: False
@@ -209,6 +209,7 @@ classes:
     mixins:
       - CentersMaxIntensity
 
+  PSFBeadsKeyValues:
     is_a: KeyValues
     slots:
       - channel_nr
