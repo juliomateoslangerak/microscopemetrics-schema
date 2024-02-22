@@ -1,5 +1,147 @@
 {
     "$defs": {
+        "ArgolightBCentersOfMass": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "ArgolightBCentersOfMass",
+            "type": "object"
+        },
+        "ArgolightBCentersOfMass__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "ArgolightBCentersOfMass",
+            "type": "object"
+        },
         "ArgolightBDataset": {
             "additionalProperties": false,
             "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
@@ -19,15 +161,12 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "comment": {
-                    "description": "A human readable comment about the dataset",
-                    "items": {
-                        "$ref": "#/$defs/Comment"
-                    },
-                    "type": "array"
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "experimenter": {
@@ -45,7 +184,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "output": {
@@ -55,24 +194,15 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
                 "sample": {
-                    "description": "The sample that was imaged",
-                    "type": "string"
+                    "$ref": "#/$defs/Sample",
+                    "description": "The sample that was imaged"
                 }
             },
             "required": [
-                "input",
                 "microscope",
-                "processed"
+                "processed",
+                "data_uri"
             ],
             "then": {
                 "properties": {
@@ -102,6 +232,14 @@
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
                 },
                 "mad_3d_dist": {
                     "description": "Median absolute deviation of the 3D distances between spots for each permutation of channel A and B",
@@ -145,6 +283,10 @@
                     },
                     "type": "array"
                 },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
                 "std_3d_dist": {
                     "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
                     "items": {
@@ -160,6 +302,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "data_uri"
+            ],
             "title": "ArgolightBDistanceKeyValues",
             "type": "object"
         },
@@ -246,6 +391,14 @@
                     },
                     "type": "array"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "intensity_max_spot": {
                     "description": "Integrated intensity of the most intense spot for each channel",
                     "items": {
@@ -302,6 +455,10 @@
                     },
                     "type": "array"
                 },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
                 "nr_of_spots": {
                     "description": "Number of argolight spots detected for each channel",
                     "items": {
@@ -317,6 +474,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "data_uri"
+            ],
             "title": "ArgolightBIntensityKeyValues",
             "type": "object"
         },
@@ -324,41 +484,97 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "comment": {
+                    "description": "A human readable comment about the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
                 "distance_key_values": {
-                    "$ref": "#/$defs/ArgolightBDistanceKeyValues",
-                    "description": "Key Distance Measurements on Argolight spots"
+                    "description": "Key Distance Measurements on Argolight spots",
+                    "type": "string"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "intensity_key_values": {
-                    "$ref": "#/$defs/ArgolightBIntensityKeyValues",
-                    "description": "Key Intensity Measurements on Argolight spots"
+                    "description": "Key Intensity Measurements on Argolight spots",
+                    "type": "string"
                 },
-                "spots_centroids": {
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "spots_centers_of_mass": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/ArgolightBCentersOfMass__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "Centroids of the argolight spots provided as a list of ROIs. One per channel",
+                    "description": "Centers of mass of the argolight spots provided as a list of ROIs. One per channel",
                     "type": "object"
                 },
                 "spots_distances": {
-                    "$ref": "#/$defs/TableAsDict",
-                    "description": "Table of distances between argolight spots"
+                    "description": "Table of distances between argolight spots",
+                    "type": "string"
                 },
                 "spots_labels_image": {
                     "description": "Labels image of the argolight segmented spots provided as a 5D numpy array in the order TZYXC. Image intensities correspond to ROI labels",
                     "type": "string"
                 },
                 "spots_properties": {
-                    "$ref": "#/$defs/TableAsDict",
-                    "description": "Table of properties of the argolight spots"
+                    "description": "Table of properties of the argolight spots",
+                    "type": "string"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime"
+            ],
             "title": "ArgolightBOutput",
             "type": "object"
         },
@@ -381,15 +597,12 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "comment": {
-                    "description": "A human readable comment about the dataset",
-                    "items": {
-                        "$ref": "#/$defs/Comment"
-                    },
-                    "type": "array"
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "experimenter": {
@@ -400,43 +613,32 @@
                     "type": "array"
                 },
                 "input": {
-                    "$ref": "#/$defs/ArgolightEInput",
-                    "description": "An input element for the analysis"
+                    "$ref": "#/$defs/ArgolightEInput"
                 },
                 "microscope": {
                     "description": "The microscope that was used to acquire the dataset",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "output": {
-                    "$ref": "#/$defs/ArgolightEOutput",
-                    "description": "An output element from the analysis"
+                    "$ref": "#/$defs/ArgolightEOutput"
                 },
                 "processed": {
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
                 "sample": {
-                    "description": "The sample that was imaged",
-                    "type": "string"
+                    "$ref": "#/$defs/Sample",
+                    "description": "The sample that was imaged"
                 }
             },
             "required": [
-                "input",
                 "microscope",
-                "processed"
+                "processed",
+                "data_uri"
             ],
             "then": {
                 "properties": {
@@ -509,6 +711,14 @@
                     },
                     "type": "array"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "focus_slice": {
                     "description": "Z position at which focus has been measured. One value per channel",
                     "items": {
@@ -516,6 +726,10 @@
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
                 },
                 "peak_height_A": {
                     "description": "Height of first peak in the intensity profiles. One value per channel",
@@ -574,6 +788,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "data_uri"
+            ],
             "title": "ArgolightEKeyValues",
             "type": "object"
         },
@@ -581,6 +798,20 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "comment": {
+                    "description": "A human readable comment about the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "intensity_profiles": {
                     "$ref": "#/$defs/TableAsDict",
                     "description": "Intensity profiles of the argolight lines provided as tables. One table per channel"
@@ -602,8 +833,50 @@
                     },
                     "description": "ROIs of the peaks found in the argolight images. One per channel",
                     "type": "object"
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime"
+            ],
             "title": "ArgolightEOutput",
             "type": "object"
         },
@@ -612,7 +885,7 @@
             "description": "A image channel",
             "properties": {
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "emission_wavelength_nm": {
@@ -624,7 +897,7 @@
                     "type": "number"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 }
             },
@@ -690,11 +963,11 @@
             "description": "A column",
             "properties": {
                 "description": {
-                    "description": "The description of the column",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of the column",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "source_uri": {
@@ -709,9 +982,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "name"
-            ],
             "title": "Column",
             "type": "object"
         },
@@ -762,12 +1032,20 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -808,7 +1086,73 @@
                 "y",
                 "x_rad",
                 "y_rad",
-                "label"
+                "data_uri"
+            ],
+            "title": "Ellipse",
+            "type": "object"
+        },
+        "Ellipse__identifier_optional": {
+            "additionalProperties": false,
+            "description": "An ellipse as defined by x, y coordinates and x and y radii",
+            "properties": {
+                "c": {
+                    "description": "The c coordinate of the shape",
+                    "type": "integer"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "fill_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The fill color of the shape"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "stroke_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The stroke color of the shape"
+                },
+                "stroke_width": {
+                    "description": "The stroke width of the shape",
+                    "type": "integer"
+                },
+                "t": {
+                    "description": "The t coordinate of the shape",
+                    "type": "integer"
+                },
+                "x": {
+                    "description": "The x coordinate of the bounding box of the ellipse",
+                    "type": "number"
+                },
+                "x_rad": {
+                    "description": "The x radius of the ellipse",
+                    "type": "number"
+                },
+                "y": {
+                    "description": "The y coordinate of the bounding box of the ellipse",
+                    "type": "number"
+                },
+                "y_rad": {
+                    "description": "The y radius of the ellipse",
+                    "type": "number"
+                },
+                "z": {
+                    "description": "The z coordinate of the shape",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "x",
+                "y",
+                "x_rad",
+                "y_rad"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -833,6 +1177,651 @@
             "title": "Experimenter",
             "type": "object"
         },
+        "FieldIlluminationCentersFitted": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "FieldIlluminationCentersFitted",
+            "type": "object"
+        },
+        "FieldIlluminationCentersFitted__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "FieldIlluminationCentersFitted",
+            "type": "object"
+        },
+        "FieldIlluminationCentersGeometric": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "FieldIlluminationCentersGeometric",
+            "type": "object"
+        },
+        "FieldIlluminationCentersGeometric__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "FieldIlluminationCentersGeometric",
+            "type": "object"
+        },
+        "FieldIlluminationCentersMaxIntensity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "FieldIlluminationCentersMaxIntensity",
+            "type": "object"
+        },
+        "FieldIlluminationCentersMaxIntensity__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "FieldIlluminationCentersMaxIntensity",
+            "type": "object"
+        },
+        "FieldIlluminationCentersOfMass": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "FieldIlluminationCentersOfMass",
+            "type": "object"
+        },
+        "FieldIlluminationCentersOfMass__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "FieldIlluminationCentersOfMass",
+            "type": "object"
+        },
+        "FieldIlluminationCornersIntensities": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "measurements_table": {
+                    "description": "Linked table of measurements",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "measurements_table",
+                "data_uri"
+            ],
+            "title": "FieldIlluminationCornersIntensities",
+            "type": "object"
+        },
         "FieldIlluminationDataset": {
             "additionalProperties": false,
             "description": "A field illumination dataset",
@@ -852,15 +1841,12 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "comment": {
-                    "description": "A human readable comment about the dataset",
-                    "items": {
-                        "$ref": "#/$defs/Comment"
-                    },
-                    "type": "array"
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "experimenter": {
@@ -878,7 +1864,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "output": {
@@ -888,24 +1874,15 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
                 "sample": {
-                    "description": "The sample that was imaged",
-                    "type": "string"
+                    "$ref": "#/$defs/Sample",
+                    "description": "The sample that was imaged"
                 }
             },
             "required": [
-                "input",
                 "microscope",
-                "processed"
+                "processed",
+                "data_uri"
             ],
             "then": {
                 "properties": {
@@ -935,8 +1912,11 @@
                     "type": "number"
                 },
                 "field_illumination_image": {
-                    "$ref": "#/$defs/ImageAsNumpy",
-                    "description": "Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1."
+                    "additionalProperties": {
+                        "$ref": "#/$defs/ImageAsNumpy__identifier_optional"
+                    },
+                    "description": "Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
+                    "type": "object"
                 },
                 "intensity_map_size": {
                     "description": "Input parameter: the size of the output intensity map in pixels",
@@ -1013,6 +1993,129 @@
                     },
                     "type": "array"
                 },
+                "center_fitted_distance_relative": {
+                    "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_fitted_x": {
+                    "description": "The x coordinate of the fitted center of illumination. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_fitted_x_relative": {
+                    "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_fitted_y": {
+                    "description": "The y coordinate of the fitted center of illumination. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_fitted_y_relative": {
+                    "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_geometric_distance_relative": {
+                    "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_geometric_x": {
+                    "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_geometric_x_relative": {
+                    "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_geometric_y": {
+                    "description": "The y coordinate of the geometric center of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_geometric_y_relative": {
+                    "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_of_mass_distance_relative": {
+                    "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": 0,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_of_mass_x": {
+                    "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_of_mass_x_relative": {
+                    "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_of_mass_y": {
+                    "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "center_of_mass_y_relative": {
+                    "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
+                    "items": {
+                        "maximum": 1,
+                        "minimum": -1,
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "center_region_area_fraction": {
                     "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image.",
                     "items": {
@@ -1031,135 +2134,20 @@
                     },
                     "type": "array"
                 },
-                "centroid_distance_relative": {
-                    "description": "The relative distance of the centroid to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": 0,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_fitted_distance_relative": {
-                    "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": 0,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_fitted_x": {
-                    "description": "The x coordinate of the fitted center of illumination. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_fitted_x_relative": {
-                    "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_fitted_y": {
-                    "description": "The y coordinate of the fitted center of illumination. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_fitted_y_relative": {
-                    "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_weighted_distance_relative": {
-                    "description": "The relative distance of the weighted centroid to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": 0,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_weighted_x": {
-                    "description": "The x coordinate of the center of mass of the center of illumination region. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_weighted_x_relative": {
-                    "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_weighted_y": {
-                    "description": "The y coordinate of the center of mass of the center of illumination region. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_weighted_y_relative": {
-                    "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_x": {
-                    "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_x_relative": {
-                    "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_y": {
-                    "description": "The y coordinate of the geometric center of the center of illumination region. In pixels",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "centroid_y_relative": {
-                    "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
-                    "items": {
-                        "maximum": 1,
-                        "minimum": -1,
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
                 },
                 "max_intensity": {
                     "description": "The maximum intensity of the center of illumination",
@@ -1251,6 +2239,10 @@
                     },
                     "type": "array"
                 },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
                     "items": {
@@ -1294,6 +2286,9 @@
                     "type": "array"
                 }
             },
+            "required": [
+                "data_uri"
+            ],
             "title": "FieldIlluminationKeyValues",
             "type": "object"
         },
@@ -1301,23 +2296,115 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "comment": {
+                    "description": "A human readable comment about the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
                 "intensity_map": {
-                    "$ref": "#/$defs/Image5D",
-                    "description": "Intensity map of the field illumination"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Image5D__identifier_optional"
+                    },
+                    "description": "Intensity map of the field illumination",
+                    "type": "object"
                 },
                 "intensity_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
-                    "description": "Intensity profiles for the field illumination analysis in the different directions"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/TableAsDict__identifier_optional"
+                    },
+                    "description": "Intensity profiles for the field illumination analysis in the different directions",
+                    "type": "object"
                 },
                 "key_values": {
                     "$ref": "#/$defs/FieldIlluminationKeyValues",
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
-                "roi_centroids_weighted": {
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "roi_centers_fitted": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/FieldIlluminationCentersFitted__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
+                    "type": "object"
+                },
+                "roi_centers_geometric": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/FieldIlluminationCentersGeometric__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
+                    "type": "object"
+                },
+                "roi_centers_max_intensity": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/FieldIlluminationCentersMaxIntensity__identifier_optional"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ]
+                    },
+                    "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
+                    "type": "object"
+                },
+                "roi_centers_of_mass": {
+                    "additionalProperties": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/FieldIlluminationCentersOfMass__identifier_optional"
                             },
                             {
                                 "type": "null"
@@ -1328,15 +2415,183 @@
                     "type": "object"
                 },
                 "roi_corners": {
-                    "$ref": "#/$defs/RoiMeasurements",
+                    "$ref": "#/$defs/FieldIlluminationCornersIntensities",
                     "description": "Rectangular ROIs used to compute the corner intensities"
                 },
                 "roi_profiles": {
-                    "$ref": "#/$defs/RoiProfiles",
-                    "description": "line ROIs used to compute the intensity profiles"
+                    "additionalProperties": {
+                        "$ref": "#/$defs/FieldIlluminationProfilesIntensity__identifier_optional"
+                    },
+                    "description": "line ROIs used to compute the intensity profiles",
+                    "type": "object"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime"
+            ],
             "title": "FieldIlluminationOutput",
+            "type": "object"
+        },
+        "FieldIlluminationProfilesIntensity": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "intensity_profiles_table": {
+                    "description": "Linked table of profiles",
+                    "type": "string"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "intensity_profiles_table",
+                "data_uri"
+            ],
+            "title": "FieldIlluminationProfilesIntensity",
+            "type": "object"
+        },
+        "FieldIlluminationProfilesIntensity__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "intensity_profiles_table": {
+                    "description": "Linked table of profiles",
+                    "type": "string"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "intensity_profiles_table"
+            ],
+            "title": "FieldIlluminationProfilesIntensity",
             "type": "object"
         },
         "Image2D": {
@@ -1349,16 +2604,16 @@
                     },
                     "type": "array"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "image_url": {
-                    "description": "An URL linking to the image",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "shape_c": {
@@ -1381,7 +2636,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image_url": {
+                "source_image_uri": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
@@ -1403,12 +2658,12 @@
             },
             "required": [
                 "data",
-                "image_url",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "data_uri"
             ],
             "title": "Image2D",
             "type": "object"
@@ -1426,16 +2681,16 @@
                     },
                     "type": "array"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "image_url": {
-                    "description": "An URL linking to the image",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "shape_c": {
@@ -1458,7 +2713,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image_url": {
+                "source_image_uri": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
@@ -1483,33 +2738,39 @@
             },
             "required": [
                 "data",
-                "image_url",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "data_uri"
             ],
             "title": "Image5D",
             "type": "object"
         },
-        "ImageAsNumpy": {
+        "Image5D__identifier_optional": {
             "additionalProperties": false,
-            "description": "An image as a numpy array in TZYXC order",
+            "description": "A 5D image in TZYXC order",
             "properties": {
-                "data": {
-                    "$ref": "#/$defs/MetaObject"
+                "channel_series": {
+                    "$ref": "#/$defs/ChannelSeries"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data": {
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "image_url": {
-                    "description": "An URL linking to the image",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "shape_c": {
@@ -1532,7 +2793,80 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image_url": {
+                "source_image_uri": {
+                    "description": "A list of URLs linking to the images that were used as a source",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "time_series": {
+                    "$ref": "#/$defs/TimeSeries"
+                },
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "data",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
+            ],
+            "title": "Image5D",
+            "type": "object"
+        },
+        "ImageAsNumpy": {
+            "additionalProperties": false,
+            "description": "An image as a numpy array in TZYXC order",
+            "properties": {
+                "data": {
+                    "$ref": "#/$defs/MetaObject"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
+                "source_image_uri": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
@@ -1553,12 +2887,12 @@
                 }
             },
             "required": [
-                "image_url",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "data_uri"
             ],
             "title": "ImageAsNumpy",
             "type": "object"
@@ -1570,16 +2904,16 @@
                 "data": {
                     "$ref": "#/$defs/MetaObject"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "image_url": {
-                    "description": "An URL linking to the image",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "shape_c": {
@@ -1602,7 +2936,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image_url": {
+                "source_image_uri": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
@@ -1642,16 +2976,16 @@
                     },
                     "type": "array"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "image_url": {
-                    "description": "An URL linking to the image",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "shape_c": {
@@ -1674,7 +3008,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image_url": {
+                "source_image_uri": {
                     "description": "A list of URLs linking to the images that were used as a source",
                     "items": {
                         "type": "string"
@@ -1696,12 +3030,12 @@
             },
             "required": [
                 "data",
-                "image_url",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "data_uri"
             ],
             "title": "ImageMask",
             "type": "object"
@@ -1714,12 +3048,20 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -1760,7 +3102,7 @@
                 "y1",
                 "x2",
                 "y2",
-                "label"
+                "data_uri"
             ],
             "title": "Line",
             "type": "object"
@@ -1773,12 +3115,20 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -1831,17 +3181,25 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
-                    "type": "string"
-                },
                 "mask": {
                     "$ref": "#/$defs/ImageMask",
                     "description": "The mask image"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -1871,7 +3229,7 @@
             "required": [
                 "y",
                 "x",
-                "label"
+                "data_uri"
             ],
             "title": "Mask",
             "type": "object"
@@ -1891,21 +3249,28 @@
         "MetricsDataset": {
             "additionalProperties": false,
             "description": "A base object on which microscope-metrics runs the analysis",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
             "properties": {
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
                     "type": "string"
                 },
-                "comment": {
-                    "description": "A human readable comment about the dataset",
-                    "items": {
-                        "$ref": "#/$defs/Comment"
-                    },
-                    "type": "array"
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "experimenter": {
@@ -1924,7 +3289,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "output": {
@@ -1935,25 +3300,43 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
                 "sample": {
-                    "description": "The sample that was imaged",
-                    "type": "string"
+                    "$ref": "#/$defs/Sample",
+                    "description": "The sample that was imaged"
                 }
             },
             "required": [
                 "microscope",
-                "processed"
+                "processed",
+                "data_uri"
             ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
             "title": "MetricsDataset",
+            "type": "object"
+        },
+        "MetricsDatasetCollection": {
+            "additionalProperties": false,
+            "description": "A collection of microscope-metrics datasets",
+            "properties": {
+                "datasets": {
+                    "description": "A list of datasets",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "datasets"
+            ],
+            "title": "MetricsDatasetCollection",
             "type": "object"
         },
         "Microscope": {
@@ -1967,12 +3350,12 @@
                     },
                     "type": "array"
                 },
-                "description": {
-                    "description": "A description of an entity",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
                 },
-                "id": {
-                    "description": "The unique identifier for an entity",
+                "description": {
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "manufacturer": {
@@ -1984,7 +3367,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "serial_number": {
@@ -1994,14 +3377,10 @@
                 "type": {
                     "$ref": "#/$defs/MicroscopeType",
                     "description": "The type of the microscope"
-                },
-                "url": {
-                    "description": "The URL where the microscope can be found",
-                    "type": "string"
                 }
             },
             "required": [
-                "id"
+                "data_uri"
             ],
             "title": "Microscope",
             "type": "object"
@@ -2017,6 +3396,148 @@
             ],
             "title": "MicroscopeType",
             "type": "string"
+        },
+        "PSFBeadsCenters": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [
+                "data_uri"
+            ],
+            "title": "PSFBeadsCenters",
+            "type": "object"
+        },
+        "PSFBeadsCenters__identifier_optional": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
+                },
+                "image": {
+                    "description": "The image or images to which the ROI is applied",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
+                    "type": "object"
+                }
+            },
+            "required": [],
+            "title": "PSFBeadsCenters",
+            "type": "object"
         },
         "PSFBeadsDataset": {
             "additionalProperties": false,
@@ -2037,15 +3558,12 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "comment": {
-                    "description": "A human readable comment about the dataset",
-                    "items": {
-                        "$ref": "#/$defs/Comment"
-                    },
-                    "type": "array"
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "experimenter": {
@@ -2063,7 +3581,7 @@
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "output": {
@@ -2073,24 +3591,15 @@
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
                 "sample": {
-                    "description": "The sample that was imaged",
-                    "type": "string"
+                    "$ref": "#/$defs/Sample",
+                    "description": "The sample that was imaged"
                 }
             },
             "required": [
-                "input",
                 "microscope",
-                "processed"
+                "processed",
+                "data_uri"
             ],
             "then": {
                 "properties": {
@@ -2170,7 +3679,7 @@
             "title": "PSFBeadsInput",
             "type": "object"
         },
-        "PSFBeadsKeyMeasurements": {
+        "PSFBeadsKeyValues": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -2180,6 +3689,14 @@
                         "type": "integer"
                     },
                     "type": "array"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
                 },
                 "fit_rss_x_mean": {
                     "description": "Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.",
@@ -2243,6 +3760,10 @@
                         "type": "number"
                     },
                     "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
                 },
                 "nr_of_beads_analyzed": {
                     "description": "Number of beads analyzed. One value per channel.",
@@ -2448,25 +3969,28 @@
                     "type": "array"
                 }
             },
-            "title": "PSFBeadsKeyMeasurements",
+            "required": [
+                "data_uri"
+            ],
+            "title": "PSFBeadsKeyValues",
             "type": "object"
         },
         "PSFBeadsOutput": {
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "analyzed_bead_centroids": {
+                "analyzed_bead_centers": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
+                    "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
                     "type": "object"
                 },
                 "bead_crops": {
@@ -2492,109 +4016,165 @@
                     "$ref": "#/$defs/TableAsDict",
                     "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits."
                 },
-                "considered_bead_centroids_axial_edge": {
+                "comment": {
+                    "description": "A human readable comment about the dataset",
+                    "items": {
+                        "$ref": "#/$defs/Comment"
+                    },
+                    "type": "array"
+                },
+                "considered_bead_centers_axial_edge": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as too close to the top and or bottom of the image. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "considered_bead_centroids_intensity_outlier": {
+                "considered_bead_centers_intensity_outlier": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "considered_bead_centroids_x_fit_quality": {
+                "considered_bead_centers_x_fit_quality": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as the fit quality in x was not good enough.  RSS over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  RSS over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "considered_bead_centroids_y_fit_quality": {
+                "considered_bead_centers_y_fit_quality": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as the fit quality in y was not good enough.  RSS over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  RSS over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "considered_bead_centroids_z_fit_quality": {
+                "considered_bead_centers_z_fit_quality": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but considered as the fit quality in z was not good enough.  RSS over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  RSS over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "discarded_bead_centroids_lateral_edge": {
+                "discarded_bead_centers_lateral_edge": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but discarded as too close to the edge of the image. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but discarded as too close to the edge of the image. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
                 },
-                "discarded_bead_centroids_self_proximity": {
+                "discarded_bead_centers_self_proximity": {
                     "additionalProperties": {
                         "anyOf": [
                             {
-                                "$ref": "#/$defs/RoiMassCenters__identifier_optional"
+                                "$ref": "#/$defs/PSFBeadsCenters__identifier_optional"
                             },
                             {
                                 "type": "null"
                             }
                         ]
                     },
-                    "description": "The centroids of the beads detected but discarded as too close to another bead. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but discarded as too close to another bead. One point will be provided per bead. One ROI per channel.",
                     "type": "object"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 },
                 "key_values": {
-                    "$ref": "#/$defs/PSFBeadsKeyMeasurements",
+                    "$ref": "#/$defs/PSFBeadsKeyValues",
                     "description": "The key measurements of the PSF beads analysis."
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
                 }
             },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime"
+            ],
             "title": "PSFBeadsOutput",
             "type": "object"
         },
@@ -2606,12 +4186,20 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -2642,7 +4230,7 @@
             "required": [
                 "y",
                 "x",
-                "label"
+                "data_uri"
             ],
             "title": "Point",
             "type": "object"
@@ -2655,12 +4243,20 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -2703,6 +4299,14 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
@@ -2711,8 +4315,8 @@
                     "description": "Is the polygon open. By default, it is closed (false)",
                     "type": "boolean"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -2742,7 +4346,66 @@
             "required": [
                 "vertexes",
                 "is_open",
-                "label"
+                "data_uri"
+            ],
+            "title": "Polygon",
+            "type": "object"
+        },
+        "Polygon__identifier_optional": {
+            "additionalProperties": false,
+            "description": "A polygon as defined by a series of vertexes and a boolean to indicate if closed or not",
+            "properties": {
+                "c": {
+                    "description": "The c coordinate of the shape",
+                    "type": "integer"
+                },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "fill_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The fill color of the shape"
+                },
+                "is_open": {
+                    "description": "Is the polygon open. By default, it is closed (false)",
+                    "type": "boolean"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "stroke_color": {
+                    "$ref": "#/$defs/Color",
+                    "description": "The stroke color of the shape"
+                },
+                "stroke_width": {
+                    "description": "The stroke width of the shape",
+                    "type": "integer"
+                },
+                "t": {
+                    "description": "The t coordinate of the shape",
+                    "type": "integer"
+                },
+                "vertexes": {
+                    "description": "A list of vertexes defining the polygon",
+                    "items": {
+                        "$ref": "#/$defs/Vertex"
+                    },
+                    "type": "array"
+                },
+                "z": {
+                    "description": "The z coordinate of the shape",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "vertexes",
+                "is_open"
             ],
             "title": "Polygon",
             "type": "object"
@@ -2759,11 +4422,11 @@
                     "type": "array"
                 },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "url": {
@@ -2790,6 +4453,14 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
@@ -2798,8 +4469,8 @@
                     "description": "The height of the rectangle",
                     "type": "number"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -2836,7 +4507,7 @@
                 "y",
                 "w",
                 "h",
-                "label"
+                "data_uri"
             ],
             "title": "Rectangle",
             "type": "object"
@@ -2849,6 +4520,14 @@
                     "description": "The c coordinate of the shape",
                     "type": "integer"
                 },
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
@@ -2857,8 +4536,8 @@
                     "description": "The height of the rectangle",
                     "type": "number"
                 },
-                "label": {
-                    "description": "The label of the shape",
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "stroke_color": {
@@ -2903,48 +4582,20 @@
             "additionalProperties": false,
             "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
             "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
                 "description": {
-                    "description": "A description of the ROI",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
+                "ellipses": {
                     "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Shape__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
                     },
+                    "description": "A list of ellipses included in the ROI",
                     "type": "object"
-                }
-            },
-            "required": [
-                "label"
-            ],
-            "title": "Roi",
-            "type": "object"
-        },
-        "RoiGeometricCenters": {
-            "additionalProperties": false,
-            "description": "Point ROIs marking the geometric center of detected objects",
-            "properties": {
-                "description": {
-                    "description": "A description of the ROI",
-                    "type": "string"
                 },
                 "image": {
                     "description": "The image or images to which the ROI is applied",
@@ -2953,156 +4604,70 @@
                     },
                     "type": "array"
                 },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Point__identifier_optional"
-                    },
-                    "type": "object"
-                }
-            },
-            "required": [
-                "label"
-            ],
-            "title": "RoiGeometricCenters",
-            "type": "object"
-        },
-        "RoiMassCenters": {
-            "additionalProperties": false,
-            "description": "Point ROIs marking the center of mass of detected objects",
-            "properties": {
-                "description": {
-                    "description": "A description of the ROI",
-                    "type": "string"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Point__identifier_optional"
-                    },
-                    "type": "object"
-                }
-            },
-            "required": [
-                "label"
-            ],
-            "title": "RoiMassCenters",
-            "type": "object"
-        },
-        "RoiMassCenters__identifier_optional": {
-            "additionalProperties": false,
-            "description": "Point ROIs marking the center of mass of detected objects",
-            "properties": {
-                "description": {
-                    "description": "A description of the ROI",
-                    "type": "string"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Point__identifier_optional"
-                    },
-                    "type": "object"
-                }
-            },
-            "required": [],
-            "title": "RoiMassCenters",
-            "type": "object"
-        },
-        "RoiMeasurements": {
-            "additionalProperties": false,
-            "description": "ROIs delimiting where measurements were performed.",
-            "properties": {
-                "description": {
-                    "description": "A description of the ROI",
-                    "type": "string"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
-                    "additionalProperties": {
-                        "$ref": "#/$defs/Rectangle__identifier_optional"
-                    },
-                    "type": "object"
-                }
-            },
-            "required": [
-                "label"
-            ],
-            "title": "RoiMeasurements",
-            "type": "object"
-        },
-        "RoiProfiles": {
-            "additionalProperties": false,
-            "description": "line ROIs where profiles were computed.",
-            "properties": {
-                "description": {
-                    "description": "A description of the ROI",
-                    "type": "string"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "label": {
-                    "description": "The label of the ROI",
-                    "type": "string"
-                },
-                "shapes": {
+                "lines": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Line__identifier_optional"
                     },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "points": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Point__identifier_optional"
+                    },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
                     "type": "object"
                 }
             },
             "required": [
-                "label"
+                "data_uri"
             ],
-            "title": "RoiProfiles",
+            "title": "Roi",
             "type": "object"
         },
         "Roi__identifier_optional": {
             "additionalProperties": false,
             "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
             "properties": {
-                "description": {
-                    "description": "A description of the ROI",
+                "data_uri": {
+                    "description": "The URI of the object data",
                     "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "ellipses": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Ellipse__identifier_optional"
+                    },
+                    "description": "A list of ellipses included in the ROI",
+                    "type": "object"
                 },
                 "image": {
                     "description": "The image or images to which the ROI is applied",
@@ -3111,21 +4676,43 @@
                     },
                     "type": "array"
                 },
-                "label": {
-                    "description": "The label of the ROI",
+                "lines": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Line__identifier_optional"
+                    },
+                    "description": "A list of lines included in the ROI",
+                    "type": "object"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "shapes": {
+                "points": {
                     "additionalProperties": {
-                        "anyOf": [
-                            {
-                                "$ref": "#/$defs/Shape__identifier_optional"
-                            },
-                            {
-                                "type": "null"
-                            }
-                        ]
+                        "$ref": "#/$defs/Point__identifier_optional"
                     },
+                    "description": "A list of points included in the ROI",
+                    "type": "object"
+                },
+                "polygons": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Polygon__identifier_optional"
+                    },
+                    "description": "A list of polygons included in the ROI",
+                    "type": "object"
+                },
+                "rectangles": {
+                    "additionalProperties": {
+                        "$ref": "#/$defs/Rectangle__identifier_optional"
+                    },
+                    "description": "A list of rectangles included in the ROI",
                     "type": "object"
                 }
             },
@@ -3138,11 +4725,11 @@
             "description": "A sample is a standard physical object that is imaged by a microscope",
             "properties": {
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "name": {
-                    "description": "The name of an entity",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "protocol": {
@@ -3165,8 +4752,12 @@
             "additionalProperties": false,
             "description": "A table as a Pandas DataFrame",
             "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
                 "description": {
-                    "description": "A description of an entity",
+                    "description": "A human readable description of an entity",
                     "type": "string"
                 },
                 "df": {
@@ -3174,16 +4765,13 @@
                     "description": "A Pandas DataFrame object"
                 },
                 "name": {
-                    "description": "The name of an entity",
-                    "type": "string"
-                },
-                "table_url": {
-                    "description": "An URL linking to the table",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 }
             },
             "required": [
-                "df"
+                "df",
+                "data_uri"
             ],
             "title": "TableAsPandasDF",
             "type": "object"
@@ -3230,6 +4818,16 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A base object on which microscope-metrics runs the analysis",
+    "if": {
+        "properties": {
+            "processed": {
+                "const": 1
+            }
+        },
+        "required": [
+            "processed"
+        ]
+    },
     "metamodel_version": "1.7.0",
     "properties": {
         "acquisition_datetime": {
@@ -3237,15 +4835,12 @@
             "format": "date-time",
             "type": "string"
         },
-        "comment": {
-            "description": "A human readable comment about the dataset",
-            "items": {
-                "$ref": "#/$defs/Comment"
-            },
-            "type": "array"
+        "data_uri": {
+            "description": "The URI of the object data",
+            "type": "string"
         },
         "description": {
-            "description": "A description of an entity",
+            "description": "A human readable description of an entity",
             "type": "string"
         },
         "experimenter": {
@@ -3264,7 +4859,7 @@
             "type": "string"
         },
         "name": {
-            "description": "The name of an entity",
+            "description": "The human readable name of an entity",
             "type": "string"
         },
         "output": {
@@ -3275,24 +4870,24 @@
             "description": "Has the dataset been processed by microscope-metrics",
             "type": "boolean"
         },
-        "processing_datetime": {
-            "description": "The datetime of the processing by microscope-metrics",
-            "format": "date-time",
-            "type": "string"
-        },
-        "processing_log": {
-            "description": "The log of the processing by microscope-metrics",
-            "type": "string"
-        },
         "sample": {
-            "description": "The sample that was imaged",
-            "type": "string"
+            "$ref": "#/$defs/Sample",
+            "description": "The sample that was imaged"
         }
     },
     "required": [
         "microscope",
-        "processed"
+        "processed",
+        "data_uri"
     ],
+    "then": {
+        "properties": {
+            "output": {}
+        },
+        "required": [
+            "output"
+        ]
+    },
     "title": "microscopemetrics-schema",
     "type": "object",
     "version": null

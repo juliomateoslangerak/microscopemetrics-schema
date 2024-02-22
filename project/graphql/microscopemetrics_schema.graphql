@@ -1,21 +1,36 @@
+type ArgolightBCentersOfMass implements CentersOfMass
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
 type ArgolightBDataset
   {
     name: String
     description: String
+    dataUri: String!
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDatetime: Datetime
-    processingLog: String
-    comment: [Comment]
-    input: ArgolightBInput!
+    input: ArgolightBInput
     output: ArgolightBOutput
   }
 
 type ArgolightBDistanceKeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
     channelA: [Integer]
     channelB: [Integer]
     mean3dDist: [Float]
@@ -44,6 +59,9 @@ type ArgolightBInput
 
 type ArgolightBIntensityKeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
     channelNr: [Integer]
     nrOfSpots: [Integer]
     intensityMaxSpot: [Float]
@@ -59,8 +77,16 @@ type ArgolightBIntensityKeyValues
 
 type ArgolightBOutput
   {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: [Comment]
     spotsLabelsImage: ImageAsNumpy
-    spotsCentroids: [RoiMassCenters]
+    spotsCentersOfMass: [ArgolightBCentersOfMass]
     intensityKeyValues: ArgolightBIntensityKeyValues
     distanceKeyValues: ArgolightBDistanceKeyValues
     spotsProperties: TableAsDict
@@ -71,15 +97,13 @@ type ArgolightEDataset
   {
     name: String
     description: String
+    dataUri: String!
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDatetime: Datetime
-    processingLog: String
-    comment: [Comment]
-    input: ArgolightEInput!
+    input: ArgolightEInput
     output: ArgolightEOutput
   }
 
@@ -95,6 +119,9 @@ type ArgolightEInput
 
 type ArgolightEKeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
     channelNr: [Integer]
     focusSlice: [Integer]
     rayleighResolutionPixels: [Float]
@@ -109,9 +136,33 @@ type ArgolightEKeyValues
 
 type ArgolightEOutput
   {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: [Comment]
     peaksRois: [Roi]
     keyMeasurements: ArgolightEKeyValues
     intensityProfiles: TableAsDict
+  }
+
+interface CentersFitted
+  {
+  }
+
+interface CentersGeometric
+  {
+  }
+
+interface CentersMaxIntensity
+  {
+  }
+
+interface CentersOfMass
+  {
   }
 
 type Channel
@@ -137,7 +188,7 @@ type Color
 
 type Column
   {
-    name: String!
+    name: String
     description: String
     sourceUri: String
     values: [String]
@@ -155,11 +206,14 @@ interface Device
   {
     name: String
     description: String
+    dataUri: String!
   }
 
 type Ellipse
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -178,25 +232,94 @@ type Experimenter
     orcid: String!
   }
 
+type FieldIlluminationCentersFitted implements CentersFitted
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
+type FieldIlluminationCentersGeometric implements CentersGeometric
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
+type FieldIlluminationCentersMaxIntensity implements CentersMaxIntensity
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
+type FieldIlluminationCentersOfMass implements CentersOfMass
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
+type FieldIlluminationCornersIntensities implements RoiMeasurements
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+    measurementsTable: TableAsDict!
+  }
+
 type FieldIlluminationDataset
   {
     name: String
     description: String
+    dataUri: String!
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDatetime: Datetime
-    processingLog: String
-    comment: [Comment]
-    input: FieldIlluminationInput!
+    input: FieldIlluminationInput
     output: FieldIlluminationOutput
   }
 
 type FieldIlluminationInput
   {
-    fieldIlluminationImage: ImageAsNumpy!
+    fieldIlluminationImage: [ImageAsNumpy]!
     bitDepth: Integer
     saturationThreshold: Float!
     cornerFraction: Float!
@@ -206,24 +329,27 @@ type FieldIlluminationInput
 
 type FieldIlluminationKeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
     channelNr: [Integer]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
-    centroidWeightedY: [Float]
-    centroidWeightedYRelative: [Float]
-    centroidWeightedX: [Float]
-    centroidWeightedXRelative: [Float]
-    centroidWeightedDistanceRelative: [Float]
-    centroidY: [Float]
-    centroidYRelative: [Float]
-    centroidX: [Float]
-    centroidXRelative: [Float]
-    centroidDistanceRelative: [Float]
-    centroidFittedY: [Float]
-    centroidFittedYRelative: [Float]
-    centroidFittedX: [Float]
-    centroidFittedXRelative: [Float]
-    centroidFittedDistanceRelative: [Float]
+    centerOfMassY: [Float]
+    centerOfMassYRelative: [Float]
+    centerOfMassX: [Float]
+    centerOfMassXRelative: [Float]
+    centerOfMassDistanceRelative: [Float]
+    centerGeometricY: [Float]
+    centerGeometricYRelative: [Float]
+    centerGeometricX: [Float]
+    centerGeometricXRelative: [Float]
+    centerGeometricDistanceRelative: [Float]
+    centerFittedY: [Float]
+    centerFittedYRelative: [Float]
+    centerFittedX: [Float]
+    centerFittedXRelative: [Float]
+    centerFittedDistanceRelative: [Float]
     maxIntensity: [Float]
     maxIntensityPosY: [Float]
     maxIntensityPosYRelative: [Float]
@@ -252,20 +378,46 @@ type FieldIlluminationKeyValues
 
 type FieldIlluminationOutput
   {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: [Comment]
     keyValues: FieldIlluminationKeyValues
-    intensityProfiles: TableAsDict
-    intensityMap: Image5D
-    roiProfiles: RoiProfiles
-    roiCorners: RoiMeasurements
-    roiCentroidsWeighted: [RoiMassCenters]
+    intensityProfiles: [TableAsDict]
+    intensityMap: [Image5D]
+    roiProfiles: [FieldIlluminationProfilesIntensity]
+    roiCorners: FieldIlluminationCornersIntensities
+    roiCentersOfMass: [FieldIlluminationCentersOfMass]
+    roiCentersGeometric: [FieldIlluminationCentersGeometric]
+    roiCentersFitted: [FieldIlluminationCentersFitted]
+    roiCentersMaxIntensity: [FieldIlluminationCentersMaxIntensity]
+  }
+
+type FieldIlluminationProfilesIntensity implements ProfilesIntensity
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+    intensityProfilesTable: TableAsDict!
   }
 
 interface Image
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -280,8 +432,8 @@ type Image2D
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -297,8 +449,8 @@ type Image5D
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -316,8 +468,8 @@ type ImageAsNumpy
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -333,8 +485,8 @@ interface ImageInline
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -349,8 +501,8 @@ type ImageMask
   {
     name: String
     description: String
-    imageUrl: String!
-    sourceImageUrl: [String]
+    dataUri: String!
+    sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -364,11 +516,16 @@ type ImageMask
 
 interface KeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
   }
 
 type Line
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -383,7 +540,9 @@ type Line
 
 type Mask
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -403,16 +562,19 @@ type MetricsDataset
   {
     name: String
     description: String
+    dataUri: String!
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDatetime: Datetime
-    processingLog: String
-    comment: [Comment]
     input: MetricsInput
     output: MetricsOutput
+  }
+
+type MetricsDatasetCollection
+  {
+    datasets: [MetricsDataset]!
   }
 
 interface MetricsInput
@@ -423,22 +585,30 @@ interface MetricsObject
   {
     name: String
     description: String
+    dataUri: String!
   }
 
 interface MetricsOutput
   {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: [Comment]
   }
 
 type Microscope
   {
     name: String
     description: String
-    id: String!
+    dataUri: String!
     type: MicroscopeType
     manufacturer: String
     model: String
     serialNumber: String
-    url: String
     comment: [Comment]
   }
 
@@ -450,7 +620,9 @@ interface NamedObject
 
 type Point
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -463,7 +635,9 @@ type Point
 
 type Polygon
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -472,6 +646,11 @@ type Polygon
     strokeWidth: Integer
     vertexes: [Vertex]!
     isOpen: Boolean!
+  }
+
+interface ProfilesIntensity
+  {
+    intensityProfilesTable: TableAsDict!
   }
 
 type Protocol
@@ -483,19 +662,31 @@ type Protocol
     url: String!
   }
 
+type PSFBeadsCenters implements CentersMaxIntensity
+  {
+    name: String
+    description: String
+    dataUri: String!
+    image: [Image]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
 type PSFBeadsDataset
   {
     name: String
     description: String
+    dataUri: String!
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
     acquisitionDatetime: Datetime
     processed: Boolean!
-    processingDatetime: Datetime
-    processingLog: String
-    comment: [Comment]
-    input: PSFBeadsInput!
+    input: PSFBeadsInput
     output: PSFBeadsOutput
   }
 
@@ -513,8 +704,11 @@ type PSFBeadsInput
     intensityRobustZScoreThreshold: Float!
   }
 
-type PSFBeadsKeyMeasurements
+type PSFBeadsKeyValues
   {
+    name: String
+    description: String
+    dataUri: String!
     channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
     nrOfBeadsDiscardedLateralEdge: [Integer]
@@ -558,16 +752,24 @@ type PSFBeadsKeyMeasurements
 
 type PSFBeadsOutput
   {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: [Comment]
     beadCrops: [ImageAsNumpy]
-    analyzedBeadCentroids: [RoiMassCenters]
-    discardedBeadCentroidsLateralEdge: [RoiMassCenters]
-    discardedBeadCentroidsSelfProximity: [RoiMassCenters]
-    consideredBeadCentroidsAxialEdge: [RoiMassCenters]
-    consideredBeadCentroidsIntensityOutlier: [RoiMassCenters]
-    consideredBeadCentroidsZFitQuality: [RoiMassCenters]
-    consideredBeadCentroidsYFitQuality: [RoiMassCenters]
-    consideredBeadCentroidsXFitQuality: [RoiMassCenters]
-    keyValues: PSFBeadsKeyMeasurements
+    analyzedBeadCenters: [PSFBeadsCenters]
+    discardedBeadCentersLateralEdge: [PSFBeadsCenters]
+    discardedBeadCentersSelfProximity: [PSFBeadsCenters]
+    consideredBeadCentersAxialEdge: [PSFBeadsCenters]
+    consideredBeadCentersIntensityOutlier: [PSFBeadsCenters]
+    consideredBeadCentersZFitQuality: [PSFBeadsCenters]
+    consideredBeadCentersYFitQuality: [PSFBeadsCenters]
+    consideredBeadCentersXFitQuality: [PSFBeadsCenters]
+    keyValues: PSFBeadsKeyValues
     beadProperties: TableAsDict
     beadZProfiles: TableAsDict
     beadYProfiles: TableAsDict
@@ -576,7 +778,9 @@ type PSFBeadsOutput
 
 type Rectangle
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -591,42 +795,21 @@ type Rectangle
 
 type Roi
   {
-    label: String!
+    name: String
     description: String
+    dataUri: String!
     image: [Image]
-    shapes: [Shape]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
   }
 
-type RoiGeometricCenters
+interface RoiMeasurements
   {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Point]
-  }
-
-type RoiMassCenters
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Point]
-  }
-
-type RoiMeasurements
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Rectangle]
-  }
-
-type RoiProfiles
-  {
-    label: String!
-    description: String
-    image: [Image]
-    shapes: [Line]
+    measurementsTable: TableAsDict!
   }
 
 type Sample
@@ -639,7 +822,9 @@ type Sample
 
 interface Shape
   {
-    label: String!
+    name: String
+    description: String
+    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -652,14 +837,14 @@ interface Table
   {
     name: String
     description: String
-    tableUrl: String
+    dataUri: String!
   }
 
 interface TableAsDict
   {
     name: String
     description: String
-    tableUrl: String
+    dataUri: String!
     columns: [Column]!
   }
 
@@ -667,13 +852,14 @@ type TableAsPandasDF
   {
     name: String
     description: String
-    tableUrl: String
+    dataUri: String!
     df: MetaObject!
   }
 
 interface Tag
   {
-    id: Integer!
+    name: String
+    dataUri: String!
     text: String!
     description: String
   }

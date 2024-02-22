@@ -1,21 +1,35 @@
+message ArgolightBCentersOfMass
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
 // An Argolight sample pattern B dataset. This pattern consists of an array of circles
 message ArgolightBDataset
  {
   string name = 0
   string description = 0
+  string dataUri = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  comment comment = 0
   argolightBInput input = 0
   argolightBOutput output = 0
  }
 message ArgolightBDistanceKeyValues
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
  repeated  integer channelA = 0
  repeated  integer channelB = 0
  repeated  float mean3dDist = 0
@@ -42,6 +56,9 @@ message ArgolightBInput
  }
 message ArgolightBIntensityKeyValues
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfSpots = 0
  repeated  float intensityMaxSpot = 0
@@ -56,8 +73,16 @@ message ArgolightBIntensityKeyValues
  }
 message ArgolightBOutput
  {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+ repeated  comment comment = 0
   imageAsNumpy spotsLabelsImage = 0
- repeated  roiMassCenters spotsCentroids = 0
+ repeated  argolightBCentersOfMass spotsCentersOfMass = 0
   argolightBIntensityKeyValues intensityKeyValues = 0
   argolightBDistanceKeyValues distanceKeyValues = 0
   tableAsDict spotsProperties = 0
@@ -71,14 +96,12 @@ message ArgolightEDataset
  {
   string name = 0
   string description = 0
+  string dataUri = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  comment comment = 0
   argolightEInput input = 0
   argolightEOutput output = 0
  }
@@ -93,6 +116,9 @@ message ArgolightEInput
  }
 message ArgolightEKeyValues
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
  repeated  integer channelNr = 0
  repeated  integer focusSlice = 0
  repeated  float rayleighResolutionPixels = 0
@@ -106,6 +132,14 @@ message ArgolightEKeyValues
  }
 message ArgolightEOutput
  {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+ repeated  comment comment = 0
  repeated  roi peaksRois = 0
   argolightEKeyValues keyMeasurements = 0
   tableAsDict intensityProfiles = 0
@@ -150,7 +184,9 @@ message Comment
 // An ellipse as defined by x, y coordinates and x and y radii
 message Ellipse
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -168,25 +204,89 @@ message Experimenter
   string name = 0
   string orcid = 0
  }
+message FieldIlluminationCentersFitted
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+message FieldIlluminationCentersGeometric
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+message FieldIlluminationCentersMaxIntensity
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+message FieldIlluminationCentersOfMass
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+message FieldIlluminationCornersIntensities
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+  tableAsDict measurementsTable = 0
+ }
 // A field illumination dataset
 message FieldIlluminationDataset
  {
   string name = 0
   string description = 0
+  string dataUri = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  comment comment = 0
   fieldIlluminationInput input = 0
   fieldIlluminationOutput output = 0
  }
 message FieldIlluminationInput
  {
-  imageAsNumpy fieldIlluminationImage = 0
+ repeated  imageAsNumpy fieldIlluminationImage = 0
   integer bitDepth = 0
   float saturationThreshold = 0
   float cornerFraction = 0
@@ -195,24 +295,27 @@ message FieldIlluminationInput
  }
 message FieldIlluminationKeyValues
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
  repeated  integer channelNr = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
- repeated  float centroidWeightedY = 0
- repeated  float centroidWeightedYRelative = 0
- repeated  float centroidWeightedX = 0
- repeated  float centroidWeightedXRelative = 0
- repeated  float centroidWeightedDistanceRelative = 0
- repeated  float centroidY = 0
- repeated  float centroidYRelative = 0
- repeated  float centroidX = 0
- repeated  float centroidXRelative = 0
- repeated  float centroidDistanceRelative = 0
- repeated  float centroidFittedY = 0
- repeated  float centroidFittedYRelative = 0
- repeated  float centroidFittedX = 0
- repeated  float centroidFittedXRelative = 0
- repeated  float centroidFittedDistanceRelative = 0
+ repeated  float centerOfMassY = 0
+ repeated  float centerOfMassYRelative = 0
+ repeated  float centerOfMassX = 0
+ repeated  float centerOfMassXRelative = 0
+ repeated  float centerOfMassDistanceRelative = 0
+ repeated  float centerGeometricY = 0
+ repeated  float centerGeometricYRelative = 0
+ repeated  float centerGeometricX = 0
+ repeated  float centerGeometricXRelative = 0
+ repeated  float centerGeometricDistanceRelative = 0
+ repeated  float centerFittedY = 0
+ repeated  float centerFittedYRelative = 0
+ repeated  float centerFittedX = 0
+ repeated  float centerFittedXRelative = 0
+ repeated  float centerFittedDistanceRelative = 0
  repeated  float maxIntensity = 0
  repeated  float maxIntensityPosY = 0
  repeated  float maxIntensityPosYRelative = 0
@@ -240,20 +343,45 @@ message FieldIlluminationKeyValues
  }
 message FieldIlluminationOutput
  {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+ repeated  comment comment = 0
   fieldIlluminationKeyValues keyValues = 0
-  tableAsDict intensityProfiles = 0
-  image5D intensityMap = 0
-  roiProfiles roiProfiles = 0
-  roiMeasurements roiCorners = 0
- repeated  roiMassCenters roiCentroidsWeighted = 0
+ repeated  tableAsDict intensityProfiles = 0
+ repeated  image5D intensityMap = 0
+ repeated  fieldIlluminationProfilesIntensity roiProfiles = 0
+  fieldIlluminationCornersIntensities roiCorners = 0
+ repeated  fieldIlluminationCentersOfMass roiCentersOfMass = 0
+ repeated  fieldIlluminationCentersGeometric roiCentersGeometric = 0
+ repeated  fieldIlluminationCentersFitted roiCentersFitted = 0
+ repeated  fieldIlluminationCentersMaxIntensity roiCentersMaxIntensity = 0
+ }
+message FieldIlluminationProfilesIntensity
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+  tableAsDict intensityProfilesTable = 0
  }
 // A 2D image in YX order
 message Image2D
  {
   string name = 0
   string description = 0
-  string imageUrl = 0
- repeated  string sourceImageUrl = 0
+  string dataUri = 0
+ repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -269,8 +397,8 @@ message Image5D
  {
   string name = 0
   string description = 0
-  string imageUrl = 0
- repeated  string sourceImageUrl = 0
+  string dataUri = 0
+ repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -288,8 +416,8 @@ message ImageAsNumpy
  {
   string name = 0
   string description = 0
-  string imageUrl = 0
- repeated  string sourceImageUrl = 0
+  string dataUri = 0
+ repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -305,8 +433,8 @@ message ImageMask
  {
   string name = 0
   string description = 0
-  string imageUrl = 0
- repeated  string sourceImageUrl = 0
+  string dataUri = 0
+ repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -320,7 +448,9 @@ message ImageMask
 // A line as defined by x1, y1, x2, y2 coordinates
 message Line
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -335,7 +465,9 @@ message Line
 // A mask as defined by a boolean image
 message Mask
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -351,34 +483,38 @@ message MetricsDataset
  {
   string name = 0
   string description = 0
+  string dataUri = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  comment comment = 0
   metricsInput input = 0
   metricsOutput output = 0
+ }
+// A collection of microscope-metrics datasets
+message MetricsDatasetCollection
+ {
+ repeated  metricsDataset datasets = 0
  }
 // A microscope
 message Microscope
  {
   string name = 0
   string description = 0
-  string id = 0
+  string dataUri = 0
   microscopeType type = 0
   string manufacturer = 0
   string model = 0
   string serialNumber = 0
-  string url = 0
  repeated  comment comment = 0
  }
 // A point as defined by x and y coordinates
 message Point
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -391,7 +527,9 @@ message Point
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -410,19 +548,30 @@ message Protocol
  repeated  experimenter authors = 0
   string url = 0
  }
+message PSFBeadsCenters
+ {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+ repeated  image image = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
 // A PSF beads dataset
 message PSFBeadsDataset
  {
   string name = 0
   string description = 0
+  string dataUri = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  comment comment = 0
   pSFBeadsInput input = 0
   pSFBeadsOutput output = 0
  }
@@ -439,8 +588,11 @@ message PSFBeadsInput
   float fittingRssThreshold = 0
   float intensityRobustZScoreThreshold = 0
  }
-message PSFBeadsKeyMeasurements
+message PSFBeadsKeyValues
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
  repeated  integer nrOfBeadsDiscardedLateralEdge = 0
@@ -483,16 +635,24 @@ message PSFBeadsKeyMeasurements
  }
 message PSFBeadsOutput
  {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+ repeated  comment comment = 0
  repeated  imageAsNumpy beadCrops = 0
- repeated  roiMassCenters analyzedBeadCentroids = 0
- repeated  roiMassCenters discardedBeadCentroidsLateralEdge = 0
- repeated  roiMassCenters discardedBeadCentroidsSelfProximity = 0
- repeated  roiMassCenters consideredBeadCentroidsAxialEdge = 0
- repeated  roiMassCenters consideredBeadCentroidsIntensityOutlier = 0
- repeated  roiMassCenters consideredBeadCentroidsZFitQuality = 0
- repeated  roiMassCenters consideredBeadCentroidsYFitQuality = 0
- repeated  roiMassCenters consideredBeadCentroidsXFitQuality = 0
-  pSFBeadsKeyMeasurements keyValues = 0
+ repeated  pSFBeadsCenters analyzedBeadCenters = 0
+ repeated  pSFBeadsCenters discardedBeadCentersLateralEdge = 0
+ repeated  pSFBeadsCenters discardedBeadCentersSelfProximity = 0
+ repeated  pSFBeadsCenters consideredBeadCentersAxialEdge = 0
+ repeated  pSFBeadsCenters consideredBeadCentersIntensityOutlier = 0
+ repeated  pSFBeadsCenters consideredBeadCentersZFitQuality = 0
+ repeated  pSFBeadsCenters consideredBeadCentersYFitQuality = 0
+ repeated  pSFBeadsCenters consideredBeadCentersXFitQuality = 0
+  pSFBeadsKeyValues keyValues = 0
   tableAsDict beadProperties = 0
   tableAsDict beadZProfiles = 0
   tableAsDict beadYProfiles = 0
@@ -501,7 +661,9 @@ message PSFBeadsOutput
 // A rectangle as defined by x, y coordinates and width, height
 message Rectangle
  {
-  string label = 0
+  string name = 0
+  string description = 0
+  string dataUri = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -516,42 +678,16 @@ message Rectangle
 // A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
 message Roi
  {
-  string label = 0
+  string name = 0
   string description = 0
+  string dataUri = 0
  repeated  image image = 0
- repeated  shape shapes = 0
- }
-// Point ROIs marking the geometric center of detected objects
-message RoiGeometricCenters
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  point shapes = 0
- }
-// Point ROIs marking the center of mass of detected objects
-message RoiMassCenters
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  point shapes = 0
- }
-// ROIs delimiting where measurements were performed.
-message RoiMeasurements
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  rectangle shapes = 0
- }
-// line ROIs where profiles were computed.
-message RoiProfiles
- {
-  string label = 0
-  string description = 0
- repeated  image image = 0
- repeated  line shapes = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
  }
 // A sample is a standard physical object that is imaged by a microscope
 message Sample
@@ -566,7 +702,7 @@ message TableAsPandasDF
  {
   string name = 0
   string description = 0
-  string tableUrl = 0
+  string dataUri = 0
   metaObject df = 0
  }
 // A series whose values represent time
