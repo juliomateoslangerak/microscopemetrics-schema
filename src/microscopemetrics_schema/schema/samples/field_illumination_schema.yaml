@@ -279,7 +279,7 @@ slots:
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
-  centroid_y:
+  center_geometric_y:
     range: float
     description: >-
       The y coordinate of the geometric center of the center of illumination region. In pixels
