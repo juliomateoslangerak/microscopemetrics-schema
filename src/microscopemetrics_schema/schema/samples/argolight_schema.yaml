@@ -223,14 +223,14 @@ slots:
     range: float
     description: >-
       Input parameter: correction factor for the lower thresholds. 
-      Must be a list with len = nr of channels or a float if all equal
+      Must be a list with length equal to the number of channels or a single float if all equal
     required: false
     multivalued: true
   upper_threshold_correction_factors:
     range: float
     description: >-
       Input parameter: correction factor for the upper thresholds.
-      Must be a tuple with len = nr of channels or a float if all equal
+      Must be a tuple with length equal to the number of channels or a single float if all equal
     required: false
     multivalued: true
   remove_center_cross:

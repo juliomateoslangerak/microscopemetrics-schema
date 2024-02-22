@@ -65,7 +65,7 @@ classes:
       roi_corners:
         range: FieldIlluminationCornersIntensities
         description: >-
-          Rectangular ROIs used to compute the corner intensities
+          Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
         multivalued: false
         inlined: true
       roi_centers_of_mass:
@@ -212,6 +212,7 @@ slots:
     ifabsent: int(64)
     minimum_value: 32
     maximum_value: 512
+
   # Outputs
   center_region_intensity_fraction:
     range: float
@@ -219,6 +220,7 @@ slots:
       The fraction of the upper intensity range occupied by the center of illumination region.
       That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range.
       microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large.
+      One value per channel.
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
@@ -227,32 +229,35 @@ slots:
     description: >-
       The fraction of the area occupied by the center of illumination region. If the centre upper intensity
       fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image.
+      One value per channel.
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
   center_of_mass_y:
     range: float
     description: >-
-      The y coordinate of the center of mass of the center of illumination region. In pixels
+      The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
     multivalued: true
   center_of_mass_y_relative:
     range: float
     description: >-
       The relative y position of the center of mass of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
+      One value per channel.
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
   center_of_mass_x:
     range: float
     description: >-
-      The x coordinate of the center of mass of the center of illumination region. In pixels
+      The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
     multivalued: true
   center_of_mass_x_relative:
     range: float
     description: >-
       The relative x position of the center of mass of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
+      One value per channel.
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0
@@ -261,19 +266,21 @@ slots:
     description: >-
       The relative distance of the centers of mass to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
+      One value per channel.
     multivalued: true
     minimum_value: 0.0
     maximum_value: 1.0
   center_geometric_y:
     range: float
     description: >-
-      The y coordinate of the geometric center of the center of illumination region. In pixels
+      The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.
     multivalued: true
   center_geometric_y_relative:
     range: float
     description: >-
       The relative y position of the geometric center of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
+      One value per channel.
     multivalued: true
     minimum_value: -1.0
     maximum_value: 1.0

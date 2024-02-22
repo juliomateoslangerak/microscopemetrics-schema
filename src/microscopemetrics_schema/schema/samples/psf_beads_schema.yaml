@@ -149,25 +149,7 @@ classes:
       bead_properties:
         range: TableAsDict
         description: >-
-          Properties associated with the analysis of the beads. This properties include:
-          dataset_id
-          image_id
-          roi_id
-          channel_nr
-          fit_parameters
-          z_fit_rss
-          y_fit_rss
-          x_fit_rss
-          considered_bad_z_fit
-          considered_bad_y_fit
-          considered_bad_x_fit
-          resolution_fwhm_z_pixels
-          resolution_fwhm_y_pixels
-          resolution_fwhm_x_pixels
-          resolution_fwhm_z_microns
-          resolution_fwhm_y_microns
-          resolution_fwhm_x_microns
-          resolution_lateral_asymmetry_ratio
+          Properties associated with the analysis of the beads.
         multivalued: false
         inlined: true
       bead_z_profiles:
