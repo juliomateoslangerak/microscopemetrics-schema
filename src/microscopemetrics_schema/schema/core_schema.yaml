@@ -25,9 +25,16 @@ classes:
   MetricsObject:
     is_a: NamedObject
     abstract: true
-    description: A base object for all microscope-metrics objects
+    description: A base object for all microscope-metrics objects.
+    attributes:
+      data_uri:
+        range: string
+        description: The URI of the object data
+        required: true
+        identifier: true
 
   Device:
+    # TODO: Is a devide a MM object?
     is_a: MetricsObject
     abstract: true
     description: A base object for all microscope-metrics devices
@@ -35,8 +42,6 @@ classes:
   Microscope:
     is_a: Device
     description: A microscope
-    slots:
-      - id
     attributes:
       type:
         range: MicroscopeType
@@ -54,11 +59,6 @@ classes:
         range: string
         description: The serial number of the microscope
         required: false
-      url:
-        range: string
-        description: The URL where the microscope can be found
-        required: false
-        multivalued: false
       comment:
         range: Comment
         description: A human readable comment about the microscope
@@ -74,7 +74,6 @@ classes:
         range: string    # TODO: make a enum
         description: The type of the sample
         required: true
-        identifier: true
       protocol:
         range: Protocol   # TODO: rename preparation_protocol
         description: The protocol used to prepare the sample
@@ -139,7 +138,7 @@ classes:
 
   # TODO: add software version
   MetricsDataset:
-    is_a: NamedObject
+    is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
     tree_root: true
     attributes:
@@ -209,8 +208,7 @@ classes:
     description: A base object for all microscope-metrics images
     abstract: true
     slots:
-      - image_url
-      - source_image_url
+      - source_image_uri
       - voxel_size_x_micron
       - voxel_size_y_micron
       - voxel_size_z_micron
@@ -328,19 +326,9 @@ classes:
           ucum_code: s
 
   Roi:
+    is_a: MetricsObject
     description: A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
     attributes:
-      label:
-        range: string
-        identifier: true
-        description: The label of the ROI
-        required: true
-        multivalued: false
-      description:
-        range: string
-        description: A description of the ROI
-        required: false
-        multivalued: false
       image:
         range: Image
         description: The image or images to which the ROI is applied
@@ -395,14 +383,10 @@ classes:
 #        multivalued: true
 
   Shape:
+    is_a: MetricsObject
     description: A shape
     abstract: true
     attributes:
-      label:
-        range: string
-        identifier: true
-        description: The label of the shape
-        required: true
       z:
         range: float
         description: The z coordinate of the shape
@@ -653,19 +637,15 @@ classes:
         inlined_as_list: false
 
   KeyValues:
+    is_a: MetricsObject
     description: A collection of key-value pairs
     abstract: true
 
   Tag:
+    is_a: MetricsObject
     description: A tag
     abstract: true
     attributes:
-      id:
-        range: integer
-        description: The id of the tag
-        identifier: true
-        required: true
-        multivalued: false
       text:
         range: string
         description: The text of the tag
@@ -681,8 +661,6 @@ classes:
     is_a: MetricsObject
     description: A table
     abstract: true
-    slots:
-      - table_url
 
   TableAsPandasDF:
     is_a: Table
@@ -708,17 +686,9 @@ classes:
         inlined_as_list: false
 
   Column:
+    is_a: NamedObject
     description: A column
     attributes:
-      name:
-        range: string
-        description: The name of the column
-        required: true
-        identifier: true
-      description:
-        range: string
-        description: The description of the column
-        required: false
       source_uri:
         range: string
         description: The URI of the source of the column
@@ -731,12 +701,6 @@ classes:
 
 
 slots:
-  id:
-    range: string
-    description: The unique identifier for an entity
-    identifier: true
-    required: true
-    multivalued: false
   name:
     range: string
     description: The name of an entity
@@ -747,20 +711,11 @@ slots:
     description: A description of an entity
     required: false
     multivalued: false
-  image_url:
-    range: string
-    identifier: true
-    description: An URL linking to the image
-    multivalued: false
-  source_image_url:
+  source_image_uri:
     range: string
     description: A list of URLs linking to the images that were used as a source
     required: false
     multivalued: true
-  table_url:
-    range: string
-    description: An URL linking to the table
-    multivalued: false
   shape_x:
     range: integer
     description: The shape of the image in the x dimension
