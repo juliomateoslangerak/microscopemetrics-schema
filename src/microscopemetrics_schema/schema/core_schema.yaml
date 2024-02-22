@@ -177,20 +177,6 @@ classes:
         multivalued: false
         required: true
         ifabsent: false
-      processing_datetime:
-        range: datetime
-        description: The datetime of the processing by microscope-metrics
-        multivalued: false
-      processing_log:
-        range: string
-        description: The log of the processing by microscope-metrics
-        multivalued: false
-      comment:
-        range: Comment
-        description: A human readable comment about the dataset
-        required: false
-        inlined: true
-        multivalued: true
       input:
         range: MetricsInput
         description: The input of the analysis
@@ -211,6 +197,38 @@ classes:
   MetricsOutput:
     description: An abstract class for analysis outputs
     abstract: true
+    attributes:
+      processing_application:
+        range: string
+        description: The application used to process the dataset
+        required: true
+        multivalued: true
+      processing_version:
+        range: string
+        description: The version of the application used to process the dataset
+        required: true
+        multivalued: true
+      processing_entity:
+        range: string
+        description: The entity that processed the dataset
+        required: false
+        multivalued: true
+      processing_datetime:
+        range: datetime
+        description: The datetime of the processing by microscope-metrics
+        required: true
+        multivalued: false
+      processing_log:
+        range: string
+        description: The log of the processing by microscope-metrics
+        required: false
+        multivalued: false
+      comment:
+        range: Comment
+        description: A human readable comment about the dataset
+        required: false
+        multivalued: true
+        inlined: true
 
   Image:
     is_a: MetricsObject
