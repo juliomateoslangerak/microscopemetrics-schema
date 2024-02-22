@@ -214,6 +214,8 @@
 
           FieldIlluminationOutput --&gt; Comment : comment
 
+      FieldIlluminationOutput : errors
+
       FieldIlluminationOutput : intensity_map
 
           FieldIlluminationOutput --&gt; Image5D : intensity_map
@@ -259,6 +261,8 @@
       FieldIlluminationOutput : roi_profiles
 
           FieldIlluminationOutput --&gt; FieldIlluminationProfilesIntensity : roi_profiles
+
+      FieldIlluminationOutput : warnings
 
 
 </div>
@@ -362,6 +366,18 @@
 <td><a href="../processing_log/">processing_log</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The log of the processing by microscope-metrics</td>
+<td><a href="../MetricsOutput/">MetricsOutput</a></td>
+</tr>
+<tr>
+<td><a href="../warnings/">warnings</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The warnings of the processing by microscope-metrics</td>
+<td><a href="../MetricsOutput/">MetricsOutput</a></td>
+</tr>
+<tr>
+<td><a href="../errors/">errors</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The errors of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
@@ -679,6 +695,30 @@ attributes:
     rank: 1000
     multivalued: false
     alias: processing_log
+    owner: FieldIlluminationOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  warnings:
+    name: warnings
+    description: The warnings of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: warnings
+    owner: FieldIlluminationOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  errors:
+    name: errors
+    description: The errors of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: errors
     owner: FieldIlluminationOutput
     domain_of:
     - MetricsOutput

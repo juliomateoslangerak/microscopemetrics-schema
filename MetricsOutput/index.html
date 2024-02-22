@@ -221,6 +221,8 @@
 
           MetricsOutput --&gt; Comment : comment
 
+      MetricsOutput : errors
+
       MetricsOutput : processing_application
 
       MetricsOutput : processing_datetime
@@ -230,6 +232,8 @@
       MetricsOutput : processing_log
 
       MetricsOutput : processing_version
+
+      MetricsOutput : warnings
 
 
 </div>
@@ -282,6 +286,18 @@
 <td><a href="../processing_log/">processing_log</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The log of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../warnings/">warnings</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The warnings of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../errors/">errors</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The errors of the processing by microscope-metrics</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -384,6 +400,22 @@ attributes:
     multivalued: false
     range: string
     required: false
+  warnings:
+    name: warnings
+    description: The warnings of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: false
+  errors:
+    name: errors
+    description: The errors of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: false
   comment:
     name: comment
     description: A human readable comment about the dataset
@@ -457,6 +489,30 @@ attributes:
     rank: 1000
     multivalued: false
     alias: processing_log
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  warnings:
+    name: warnings
+    description: The warnings of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: warnings
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  errors:
+    name: errors
+    description: The errors of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: errors
     owner: MetricsOutput
     domain_of:
     - MetricsOutput
