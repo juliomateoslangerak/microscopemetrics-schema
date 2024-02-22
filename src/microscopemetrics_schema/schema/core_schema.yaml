@@ -136,7 +136,16 @@ classes:
         required: true
         multivalued: false
 
-  # TODO: add software version
+  MetricsDatasetCollection:
+    description: A collection of microscope-metrics datasets
+    attributes:
+      datasets:
+        range: MetricsDataset
+        description: A list of datasets
+        required: true
+        multivalued: true
+        inlined: false
+
   MetricsDataset:
     is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
