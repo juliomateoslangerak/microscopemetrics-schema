@@ -66,7 +66,7 @@ classes:
           The crops of the beads provided as a 5D numpy array in the order TZYXC.
           One crop will be provided per bead correctly detected.
         multivalued: true
-        inlined: true
+        inlined: false
       analyzed_bead_centers:
         range: PSFBeadsCenters
         description: >-
@@ -74,7 +74,7 @@ classes:
           One point shape will be provided per bead correctly detected.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       discarded_bead_centers_lateral_edge:
         range: PSFBeadsCenters
         description: >-
@@ -82,7 +82,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       discarded_bead_centers_self_proximity:
         range: PSFBeadsCenters
         description: >-
@@ -90,7 +90,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       considered_bead_centers_axial_edge:
         range: PSFBeadsCenters
         description: >-
@@ -99,7 +99,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       considered_bead_centers_intensity_outlier:
         range: PSFBeadsCenters
         description: >-
@@ -109,7 +109,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       considered_bead_centers_z_fit_quality:
         range: PSFBeadsCenters
         description: >-
@@ -119,7 +119,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       considered_bead_centers_y_fit_quality:
         range: PSFBeadsCenters
         description: >-
@@ -129,7 +129,7 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       considered_bead_centers_x_fit_quality:
         range: PSFBeadsCenters
         description: >-
@@ -139,37 +139,37 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       key_values:
         range: PSFBeadsKeyValues
         description: >-
           The key measurements of the PSF beads analysis.
         multivalued: False
-        inlined: true
+        inlined: false
       bead_properties:
         range: TableAsDict
         description: >-
           Properties associated with the analysis of the beads.
         multivalued: false
-        inlined: true
+        inlined: false
       bead_z_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the z axis of the analyzed beads as well as the fits.
         multivalued: false
-        inlined: true
+        inlined: false
       bead_y_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the y axis of the analyzed beads as well as the fits.
         multivalued: false
-        inlined: true
+        inlined: false
       bead_x_profiles:
         range: TableAsDict
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
         multivalued: false
-        inlined: true
+        inlined: false
 
   PSFBeadsCenters:
     is_a: Roi
@@ -229,7 +229,7 @@ slots:
       More than one image can be provided if the image conditions are the same.
     required: true
     multivalued: true
-    inlined: true
+    inlined: false
   min_lateral_distance_factor:
     range: float
     description: >-

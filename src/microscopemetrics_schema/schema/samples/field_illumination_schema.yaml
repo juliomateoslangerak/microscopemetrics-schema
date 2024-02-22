@@ -44,30 +44,30 @@ classes:
         description: >-
           Key-Value pairs containing the Key measurements for the field illumination analysis
         multivalued: false
-        inlined: true
+        inlined: false
       intensity_profiles:
         range: TableAsDict
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
         multivalued: true
-        inlined: true
+        inlined: false
       intensity_map:
-        range: Image5D
+        range: ImageAsNumpy
         description: >-
           Intensity map of the field illumination
         multivalued: true
-        inlined: true
+        inlined: false
       roi_profiles:
         range: FieldIlluminationProfilesIntensity
         description: line ROIs used to compute the intensity profiles
         multivalued: true
-        inlined: true
+        inlined: false
       roi_corners:
         range: FieldIlluminationCornersIntensities
         description: >-
           Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
         multivalued: false
-        inlined: true
+        inlined: false
       roi_centers_of_mass:
         range: FieldIlluminationCentersOfMass
         description: >-
@@ -75,28 +75,28 @@ classes:
           When the image is very flat, the 99 percentile is used instead.
           One point per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       roi_centers_geometric:
         range: FieldIlluminationCentersGeometric
         description: >-
           Point ROIs marking the geometric center of the area of maximum illumination.
           One point per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       roi_centers_fitted:
         range: FieldIlluminationCentersFitted
         description: >-
           Point ROIs marking the fitted center of the area of maximum illumination.
           One point per channel.
         multivalued: true
-        inlined: true
+        inlined: false
       roi_centers_max_intensity:
         range: FieldIlluminationCentersMaxIntensity
         description: >-
           Point ROIs marking the maximum intensity of the area of maximum illumination.
           One point per channel.
         multivalued: true
-        inlined: true
+        inlined: false
 
   FieldIlluminationProfilesIntensity:
     is_a: Roi
@@ -184,7 +184,7 @@ slots:
       multiple channels, the T and Z dimensions are expected to be 1.
     required: true
     multivalued: true
-    inlined: true
+    inlined: false
   corner_fraction:
     range: float
     description: >-

@@ -81,7 +81,7 @@ classes:
           Centers of mass of the argolight spots provided as a list of ROIs. One per channel
         required: false
         multivalued: true
-        inlined: true
+        inlined: false
       intensity_key_values:
         range: ArgolightBIntensityKeyValues
         description: >-
@@ -175,19 +175,19 @@ classes:
         description: >-
           ROIs of the peaks found in the argolight images. One per channel
         multivalued: true
-        inlined: true
+        inlined: false
       key_measurements:
         range: ArgolightEKeyValues
         description: >-
           Key Measurements on Argolight E images
         multivalued: false
-        inlined: true
+        inlined: false
       intensity_profiles:
         range: TableAsDict
         description: >-
           Intensity profiles of the argolight lines provided as tables. One table per channel
         multivalued: false
-        inlined: true
+        inlined: false
 
   ArgolightEKeyValues:
     is_a: KeyValues
@@ -212,7 +212,7 @@ slots:
       Input parameter: image of the argolight b pattern provided as a 5D numpy array in the order TZYXC
     required: true
     multivalued: false
-    inlined: true
+    inlined: false
   spots_distance:
     range: float
     description: >-
@@ -351,7 +351,7 @@ slots:
       Image of the argolight e pattern provided as a 5D numpy array in the order TZYXC
     required: true
     multivalued: false
-    inlined: true
+    inlined: false
   orientation_axis:
     range: integer
     description: >-
