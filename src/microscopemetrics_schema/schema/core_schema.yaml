@@ -371,52 +371,47 @@ classes:
         required: false
         multivalued: true
         inlined: false
-      shapes:
-        range: Shape
+      points:
+        range: Point
+        description: A list of points included in the ROI
+        required: false
         multivalued: true
         inlined: true
         inlined_as_list: false
-
-#  LinesRoi:
-#    is_a: Roi
-#    description: >-
-#      ROI representing a set of lines in a single channel
-#    attributes:
-#      shapes:
-#        range: Line
-#        description: >-
-#          A ROI of lines
-#        multivalued: true
-#        inlined: true
-#
-#  PointsRoi:
-#    is_a: Roi
-#    description: >-
-#      ROI representing a set of points in a single channel
-#    attributes:
-#      shapes:
-#        range: Point
-#        description: >-
-#          A ROI of points
-#        multivalued: true
-#        inlined: true
-#
-#  RectanglesRoi:
-#    is_a: Roi
-#    description: >-
-#      ROI representing a set of rectangles in a single channel
-#    attributes:
-#      shapes:
-#        range: Rectangle
-#        description: >-
-#          A ROI of rectangles
-#        multivalued: true
-#        inlined: true
-
-#      shapes:
-#        range: Shape
-#        inlined: true
-#        multivalued: true
+      lines:
+        range: Line
+        description: A list of lines included in the ROI
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+      rectangles:
+        range: Rectangle
+        description: A list of rectangles included in the ROI
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+      ellipses:
+        range: Ellipse
+        description: A list of ellipses included in the ROI
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+      polygons:
+        range: Polygon
+        description: A list of polygons included in the ROI
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+      masks:
+        range: Mask
+        description: A list of masks included in the ROI
+        required: false
+        multivalued: true
+        inlined: false
 
   Shape:
     is_a: MetricsObject
