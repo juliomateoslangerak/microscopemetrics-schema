@@ -239,6 +239,16 @@ classes:
         description: The log of the processing by microscope-metrics
         required: false
         multivalued: false
+      warnings:
+        range: string
+        description: The warnings of the processing by microscope-metrics
+        required: false
+        multivalued: true
+      errors:
+        range: string
+        description: The errors of the processing by microscope-metrics
+        required: false
+        multivalued: true
       comment:
         range: Comment
         description: A human readable comment about the dataset
