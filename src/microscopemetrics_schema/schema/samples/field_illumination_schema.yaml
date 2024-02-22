@@ -64,18 +64,18 @@ classes:
         range: TableAsDict
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
-        multivalued: false
+        multivalued: true
         inlined: true
       intensity_map:
         range: Image5D
         description: >-
           Intensity map of the field illumination
-        multivalued: false
+        multivalued: true
         inlined: true
       roi_profiles:
         range: FieldIlluminationProfilesIntensity
         description: line ROIs used to compute the intensity profiles
-        multivalued: false
+        multivalued: true
         inlined: true
       roi_corners:
         range: FieldIlluminationCornersIntensities
@@ -198,8 +198,8 @@ slots:
       Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts
       multiple channels, the T and Z dimensions are expected to be 1.
     required: true
-    multivalued: false
-    inlined: true  # TODO: Why do I do this?
+    multivalued: true
+    inlined: true
   corner_fraction:
     range: float
     description: >-
