@@ -321,7 +321,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -386,7 +386,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: Roi
-    inlined: true
+    inlined: false
   key_measurements:
     name: key_measurements
     description: Key Measurements on Argolight E images
@@ -394,7 +394,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: ArgolightEKeyValues
-    inlined: true
+    inlined: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles of the argolight lines provided as tables. One
@@ -403,7 +403,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: TableAsDict
-    inlined: true
+    inlined: false
 
 </code></pre>
 </details>
@@ -424,7 +424,7 @@ attributes:
     domain_of:
     - ArgolightEOutput
     range: Roi
-    inlined: true
+    inlined: false
   key_measurements:
     name: key_measurements
     description: Key Measurements on Argolight E images
@@ -436,7 +436,7 @@ attributes:
     domain_of:
     - ArgolightEOutput
     range: ArgolightEKeyValues
-    inlined: true
+    inlined: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles of the argolight lines provided as tables. One
@@ -450,7 +450,7 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   processing_application:
     name: processing_application
     description: The application used to process the dataset

@@ -218,7 +218,7 @@
 
       FieldIlluminationOutput : intensity_map
 
-          FieldIlluminationOutput --&gt; Image5D : intensity_map
+          FieldIlluminationOutput --&gt; ImageAsNumpy : intensity_map
 
       FieldIlluminationOutput : intensity_profiles
 
@@ -298,7 +298,7 @@
 </tr>
 <tr>
 <td><a href="../intensity_map/">intensity_map</a></td>
-<td>0..* <br/> <a href="../Image5D/">Image5D</a></td>
+<td>0..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
 <td>Intensity map of the field illumination</td>
 <td>direct</td>
 </tr>
@@ -317,7 +317,7 @@
 <tr>
 <td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
 <td>0..* <br/> <a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a></td>
-<td>Point ROIs marking the center of mass of the area of maximum illumination 90 ...</td>
+<td>Point ROIs marking the center of mass of the area of maximum illumination</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -381,7 +381,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -446,7 +446,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: false
     range: FieldIlluminationKeyValues
-    inlined: true
+    inlined: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
@@ -454,15 +454,15 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: true
     range: TableAsDict
-    inlined: true
+    inlined: false
   intensity_map:
     name: intensity_map
     description: Intensity map of the field illumination
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: Image5D
-    inlined: true
+    range: ImageAsNumpy
+    inlined: false
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
@@ -470,25 +470,26 @@ attributes:
     rank: 1000
     multivalued: true
     range: FieldIlluminationProfilesIntensity
-    inlined: true
+    inlined: false
   roi_corners:
     name: roi_corners
-    description: Rectangular ROIs used to compute the corner intensities
+    description: Rectangular ROIs used to compute the corner intensities. The sama
+      ROI is assigned to multiple images.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
     range: FieldIlluminationCornersIntensities
-    inlined: true
+    inlined: false
   roi_centers_of_mass:
     name: roi_centers_of_mass
-    description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. When the image is very flat, the 99 percentile
-      is used instead. One point per channel.
+    description: Point ROIs marking the center of mass of the area of maximum illumination.
+      When the image is very flat, the 99 percentile is used instead. One point per
+      channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
     range: FieldIlluminationCentersOfMass
-    inlined: true
+    inlined: false
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -497,7 +498,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: FieldIlluminationCentersGeometric
-    inlined: true
+    inlined: false
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -506,7 +507,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: FieldIlluminationCentersFitted
-    inlined: true
+    inlined: false
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -515,7 +516,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: FieldIlluminationCentersMaxIntensity
-    inlined: true
+    inlined: false
 
 </code></pre>
 </details>
@@ -537,7 +538,7 @@ attributes:
     - PSFBeadsOutput
     - FieldIlluminationOutput
     range: FieldIlluminationKeyValues
-    inlined: true
+    inlined: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
@@ -550,7 +551,7 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   intensity_map:
     name: intensity_map
     description: Intensity map of the field illumination
@@ -561,8 +562,8 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: Image5D
-    inlined: true
+    range: ImageAsNumpy
+    inlined: false
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
@@ -574,10 +575,11 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationProfilesIntensity
-    inlined: true
+    inlined: false
   roi_corners:
     name: roi_corners
-    description: Rectangular ROIs used to compute the corner intensities
+    description: Rectangular ROIs used to compute the corner intensities. The sama
+      ROI is assigned to multiple images.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
@@ -586,12 +588,12 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationCornersIntensities
-    inlined: true
+    inlined: false
   roi_centers_of_mass:
     name: roi_centers_of_mass
-    description: Point ROIs marking the center of mass of the area of maximum illumination
-      90 percentile of the intensity. When the image is very flat, the 99 percentile
-      is used instead. One point per channel.
+    description: Point ROIs marking the center of mass of the area of maximum illumination.
+      When the image is very flat, the 99 percentile is used instead. One point per
+      channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
@@ -600,7 +602,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersOfMass
-    inlined: true
+    inlined: false
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -613,7 +615,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersGeometric
-    inlined: true
+    inlined: false
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -626,7 +628,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersFitted
-    inlined: true
+    inlined: false
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -639,7 +641,7 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersMaxIntensity
-    inlined: true
+    inlined: false
   processing_application:
     name: processing_application
     description: The application used to process the dataset

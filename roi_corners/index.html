@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-roi_corners">Slot: roi_corners</h1>
-<p><em>Rectangular ROIs used to compute the corner intensities</em></p>
+<p><em>Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/roi_corners">microscopemetrics_schema:roi_corners</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -351,7 +351,8 @@
 <details>
 
 <pre><code class="language-yaml">name: roi_corners
-description: Rectangular ROIs used to compute the corner intensities
+description: Rectangular ROIs used to compute the corner intensities. The sama ROI
+  is assigned to multiple images.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: false
@@ -360,7 +361,7 @@ owner: FieldIlluminationOutput
 domain_of:
 - FieldIlluminationOutput
 range: FieldIlluminationCornersIntensities
-inlined: true
+inlined: false
 
 </code></pre>
 

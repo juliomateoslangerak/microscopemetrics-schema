@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-roi_centers_of_mass">Slot: roi_centers_of_mass</h1>
-<p><em>Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.</em></p>
+<p><em>Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/roi_centers_of_mass">microscopemetrics_schema:roi_centers_of_mass</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -356,9 +356,8 @@
 <details>
 
 <pre><code class="language-yaml">name: roi_centers_of_mass
-description: Point ROIs marking the center of mass of the area of maximum illumination
-  90 percentile of the intensity. When the image is very flat, the 99 percentile is
-  used instead. One point per channel.
+description: Point ROIs marking the center of mass of the area of maximum illumination.
+  When the image is very flat, the 99 percentile is used instead. One point per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
@@ -367,7 +366,7 @@ owner: FieldIlluminationOutput
 domain_of:
 - FieldIlluminationOutput
 range: FieldIlluminationCentersOfMass
-inlined: true
+inlined: false
 
 </code></pre>
 

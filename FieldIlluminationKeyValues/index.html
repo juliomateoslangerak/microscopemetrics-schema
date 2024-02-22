@@ -720,6 +720,7 @@ attributes:
       of illumination region. That is, a value of 0.1 means that the center of illumination
       occupies the top 10% of the intensity range. microscope-metrics tries to adapt
       the threshold of this intensity so that the area occupied is not too large.
+      One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -734,7 +735,7 @@ attributes:
     name: center_region_area_fraction
     description: The fraction of the area occupied by the center of illumination region.
       If the centre upper intensity fraction is 0.1, that means that the center of
-      illumination occupies 10% of the area of the image.
+      illumination occupies 10% of the area of the image. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -748,7 +749,7 @@ attributes:
   center_of_mass_y:
     name: center_of_mass_y
     description: The y coordinate of the center of mass of the center of illumination
-      region. In pixels
+      region. In pixels. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -761,7 +762,7 @@ attributes:
     name: center_of_mass_y_relative
     description: The relative y position of the center of mass of the center of illumination
       region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0
-      is center and 1.0 is lower edge.
+      is center and 1.0 is lower edge. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -775,7 +776,7 @@ attributes:
   center_of_mass_x:
     name: center_of_mass_x
     description: The x coordinate of the center of mass of the center of illumination
-      region. In pixels
+      region. In pixels. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -788,7 +789,7 @@ attributes:
     name: center_of_mass_x_relative
     description: The relative x position of the center of mass of the center of illumination
       region.  Relative to the image size along that axis. -1.0 is left edge, 0.0
-      is center and 1.0 is right edge.
+      is center and 1.0 is right edge. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -803,7 +804,7 @@ attributes:
     name: center_of_mass_distance_relative
     description: The relative distance of the centers of mass to the center of the
       image. Relative to the distance to  an image corner. 0.0 is centered and 1.0
-      at a distance equal to the the corner of the image.
+      at a distance equal to the the corner of the image. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -817,7 +818,7 @@ attributes:
   center_geometric_y:
     name: center_geometric_y
     description: The y coordinate of the geometric center of the center of illumination
-      region. In pixels
+      region. In pixels. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -830,7 +831,7 @@ attributes:
     name: center_geometric_y_relative
     description: The relative y position of the geometric center of the center of
       illumination region.  Relative to the image size along that axis. -1.0 is upper
-      edge, 0.0 is center and 1.0 is lower edge.
+      edge, 0.0 is center and 1.0 is lower edge. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true

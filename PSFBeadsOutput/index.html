@@ -431,7 +431,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -497,7 +497,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: ImageAsNumpy
-    inlined: true
+    inlined: false
   analyzed_bead_centers:
     name: analyzed_bead_centers
     description: The centers of the beads that have been analyzed. One point shape
@@ -506,7 +506,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   discarded_bead_centers_lateral_edge:
     name: discarded_bead_centers_lateral_edge
     description: The centers of the beads detected but discarded as too close to the
@@ -515,7 +515,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   discarded_bead_centers_self_proximity:
     name: discarded_bead_centers_self_proximity
     description: The centers of the beads detected but discarded as too close to another
@@ -524,7 +524,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_axial_edge:
     name: considered_bead_centers_axial_edge
     description: The centers of the beads detected but considered as too close to
@@ -534,7 +534,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_intensity_outlier:
     name: considered_bead_centers_intensity_outlier
     description: The centers of the beads detected but considered as being too intense
@@ -545,7 +545,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_z_fit_quality:
     name: considered_bead_centers_z_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -556,7 +556,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_y_fit_quality:
     name: considered_bead_centers_y_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -567,7 +567,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_x_fit_quality:
     name: considered_bead_centers_x_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -578,7 +578,7 @@ attributes:
     rank: 1000
     multivalued: true
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   key_values:
     name: key_values
     description: The key measurements of the PSF beads analysis.
@@ -586,19 +586,15 @@ attributes:
     rank: 1000
     multivalued: false
     range: PSFBeadsKeyValues
-    inlined: true
+    inlined: false
   bead_properties:
     name: bead_properties
-    description: 'Properties associated with the analysis of the beads. This properties
-      include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss
-      x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels
-      resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns
-      resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio'
+    description: Properties associated with the analysis of the beads.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_z_profiles:
     name: bead_z_profiles
     description: The intensity profiles along the z axis of the analyzed beads as
@@ -607,7 +603,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_y_profiles:
     name: bead_y_profiles
     description: The intensity profiles along the y axis of the analyzed beads as
@@ -616,7 +612,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_x_profiles:
     name: bead_x_profiles
     description: The intensity profiles along the x axis of the analyzed beads as
@@ -625,7 +621,7 @@ attributes:
     rank: 1000
     multivalued: false
     range: TableAsDict
-    inlined: true
+    inlined: false
 
 </code></pre>
 </details>
@@ -647,7 +643,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: ImageAsNumpy
-    inlined: true
+    inlined: false
   analyzed_bead_centers:
     name: analyzed_bead_centers
     description: The centers of the beads that have been analyzed. One point shape
@@ -660,7 +656,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   discarded_bead_centers_lateral_edge:
     name: discarded_bead_centers_lateral_edge
     description: The centers of the beads detected but discarded as too close to the
@@ -673,7 +669,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   discarded_bead_centers_self_proximity:
     name: discarded_bead_centers_self_proximity
     description: The centers of the beads detected but discarded as too close to another
@@ -686,7 +682,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_axial_edge:
     name: considered_bead_centers_axial_edge
     description: The centers of the beads detected but considered as too close to
@@ -700,7 +696,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_intensity_outlier:
     name: considered_bead_centers_intensity_outlier
     description: The centers of the beads detected but considered as being too intense
@@ -715,7 +711,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_z_fit_quality:
     name: considered_bead_centers_z_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -730,7 +726,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_y_fit_quality:
     name: considered_bead_centers_y_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -745,7 +741,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   considered_bead_centers_x_fit_quality:
     name: considered_bead_centers_x_fit_quality
     description: The centers of the beads detected but considered as the fit quality
@@ -760,7 +756,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: PSFBeadsCenters
-    inlined: true
+    inlined: false
   key_values:
     name: key_values
     description: The key measurements of the PSF beads analysis.
@@ -773,14 +769,10 @@ attributes:
     - PSFBeadsOutput
     - FieldIlluminationOutput
     range: PSFBeadsKeyValues
-    inlined: true
+    inlined: false
   bead_properties:
     name: bead_properties
-    description: 'Properties associated with the analysis of the beads. This properties
-      include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss
-      x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels
-      resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns
-      resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio'
+    description: Properties associated with the analysis of the beads.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
@@ -789,7 +781,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_z_profiles:
     name: bead_z_profiles
     description: The intensity profiles along the z axis of the analyzed beads as
@@ -802,7 +794,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_y_profiles:
     name: bead_y_profiles
     description: The intensity profiles along the y axis of the analyzed beads as
@@ -815,7 +807,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   bead_x_profiles:
     name: bead_x_profiles
     description: The intensity profiles along the x axis of the analyzed beads as
@@ -828,7 +820,7 @@ attributes:
     domain_of:
     - PSFBeadsOutput
     range: TableAsDict
-    inlined: true
+    inlined: false
   processing_application:
     name: processing_application
     description: The application used to process the dataset
