@@ -740,12 +740,12 @@ classes:
 slots:
   name:
     range: string
-    description: The name of an entity
+    description: The human readable name of an entity
     required: false
     multivalued: false
   description:
     range: string
-    description: A description of an entity
+    description: A human readable description of an entity
     required: false
     multivalued: false
   source_image_uri:
