@@ -71,7 +71,7 @@ classes:
       roi_centers_of_mass:
         range: FieldIlluminationCentersOfMass
         description: >-
-          Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity.
+          Point ROIs marking the center of mass of the area of maximum illumination.
           When the image is very flat, the 99 percentile is used instead.
           One point per channel.
         multivalued: true
