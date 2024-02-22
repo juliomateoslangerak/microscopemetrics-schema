@@ -388,7 +388,7 @@ type FieldIlluminationOutput
     comment: [Comment]
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: [TableAsDict]
-    intensityMap: [Image5D]
+    intensityMap: [ImageAsNumpy]
     roiProfiles: [FieldIlluminationProfilesIntensity]
     roiCorners: FieldIlluminationCornersIntensities
     roiCentersOfMass: [FieldIlluminationCentersOfMass]

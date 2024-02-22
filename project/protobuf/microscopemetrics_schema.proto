@@ -353,7 +353,7 @@ message FieldIlluminationOutput
  repeated  comment comment = 0
   fieldIlluminationKeyValues keyValues = 0
  repeated  tableAsDict intensityProfiles = 0
- repeated  image5D intensityMap = 0
+ repeated  imageAsNumpy intensityMap = 0
  repeated  fieldIlluminationProfilesIntensity roiProfiles = 0
   fieldIlluminationCornersIntensities roiCorners = 0
  repeated  fieldIlluminationCentersOfMass roiCentersOfMass = 0
