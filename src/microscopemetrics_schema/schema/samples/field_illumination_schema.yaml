@@ -20,9 +20,6 @@ classes:
     attributes:
       input:
         range: FieldIlluminationInput
-        required: true
-        multivalued: false
-        inlined: true
       output:
         range: FieldIlluminationOutput
 
