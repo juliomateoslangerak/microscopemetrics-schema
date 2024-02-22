@@ -189,6 +189,15 @@ classes:
         required: false
         multivalued: false
         inlined: true
+    rules:
+      - preconditions:
+          slot_conditions:
+            processed:
+              equals_number: 1
+        postconditions:
+          slot_conditions:
+            output:
+              required: true
 
   MetricsInput:
     description: An abstract class for analysis inputs
