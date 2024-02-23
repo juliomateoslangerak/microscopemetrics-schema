@@ -1,12 +1,11 @@
 name: "ExampleFieldIlluminationDataset"
 description: "Description of the example dataset."
+data_uri: "https://example.org/datasets/1"
 microscope: "an id for the microscope"
 sample:
-  id: "https://example.org/sample/1"
   name: "ExampleSample"
   type: "Sample"
   protocol:
-    id: "https://example.org/protocol/1"
     name: "ExampleProtocol"
     type: "Protocol"
     version: "1.0"
@@ -19,19 +18,10 @@ experimenter:
     orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_datetime: "2024-01-15T00:00:00Z"
 processed: true
-processing_datetime: "2024-01-16T00:00:00Z"
-processing_log: "Processed using microscope-metrics v2.0"
-comment:
-  - datetime: "2024-01-15T00:00:00Z"
-    comment_type: "OTHER"
-    text: "This dataset is for testing purposes only."
-  - datetime: "2023-10-13T09:00:00Z"
-    comment_type: "ACQUISITION"
-    text: "So don't care about what I say."
 input:
   field_illumination_image:
     name: "ExampleImage"
-    image_url: "https://example.org/images/1"
+    data_uri: "https://example.org/images/1"
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -46,23 +36,73 @@ input:
   sigma: 3.0
   intensity_map_size: 64
 output:
+  processing_application: "microscope-metrics"
+  processing_version: 0.1.0
+  processing_entity: microscope-metrics/0.1.0/FIELD_ILLUMINATION
+  processing_datetime: '2024-01-17T00:00:00.000000'
+  processing_log: "A log"
+  warnings:
+    - "A warning"
+    - "Another warning"
+  errors:
+    - "An error"
+    - "Another error"
+  comments:
+    - datetime: "2024-01-15T00:00:00Z"
+      comment_type: "OTHER"
+      text: "This dataset is for testing purposes only."
+    - datetime: "2023-10-13T09:00:00Z"
+      comment_type: "ACQUISITION"
+      text: "So don't care about what I say."
   key_values:
     channel_nr:
     - 0
-    centroid_weighted_x:
+    center_region_intensity_fraction:
+    - 0.8548346166225148
+    center_region_area_fraction:
+    - 0.25
+    center_of_mass_x:
     - 264.1675555226803
-    centroid_weighted_y:
+    center_of_mass_x_relative:
+    - 0.2084306164054108
+    center_of_mass_y:
     - 288.2084306164054
-    centroid_x:
+    center_of_mass_y_relative:
+    - 0.2264306164054108
+    center_of_mass_distance_relative:
+    - 0.1064306164054108
+    center_geometric_x:
     - 264.0
-    centroid_y:
+    center_geometric_x_relative:
+    - 0.20833333333333334
+    center_geometric_y:
     - 288.0
+    center_geometric_y_relative:
+    - 0.22625
+    center_geometric_distance_relative:
+    - 0.10583333333333333
+    center_fitted_x:
+    - 264.0
+    center_fitted_x_relative:
+    - 0.20833333333333334
+    center_fitted_y:
+    - 288.0
+    center_fitted_y_relative:
+    - 0.22625
+    center_fitted_distance_relative:
+    - 0.10583333333333333
     max_intensity:
     - 239.0
     max_intensity_pos_x:
     - 329.0
+    maxintensity_pos_x_relative:
+    - 0.25916666666666666
     max_intensity_pos_y:
     - 342.0
+    maxintensity_pos_y_relative:
+    - 0.26875
+    max_intensity_pos_distance_relative:
+    - 0.13458333333333333
     top_left_intensity_mean:
     - 183.5840061514802
     top_left_intensity_ratio:
@@ -101,6 +141,7 @@ output:
     - 0.8118543933054393
   intensity_profiles:
     name: intensity_profiles
+    data_uri: "https://example.org/intensity_profiles/1"
     columns:
       ch00_leftTop_to_rightBottom:
         name: ch00_leftTop_to_rightBottom
@@ -1137,7 +1178,7 @@ output:
   intensity_map:
     name: image_name_intensity_map
     description: Intensity map of image_name
-    image_url: https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
+    data_uri: https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     shape_x: 64
     shape_y: 64
     shape_z: 1
@@ -5243,8 +5284,9 @@ output:
     - 0.7932377419218949
     - 0.8200836820083683
   roi_profiles:
-    label: Intensity profiles ROI
+    name: Intensity profiles ROI
     description: ROIs used to compute the intensity profiles
+    data_uri: https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     shapes:
@@ -5293,8 +5335,9 @@ output:
         x2: 256.0
         y2: 512.0
   roi_corners:
-    label: Corner ROIs
+    name: Corner ROIs
     description: ROIs used to compute the corner intensities
+    data_uri: https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     shapes:
@@ -5397,9 +5440,121 @@ output:
         y: 461.0
         w: 51.0
         h: 51.0
-  roi_centroids_weighted:
-    label: Weighted Centroids ROIs
+  roi_centers_of_mass:
+    name: Weighted centers ROIs
     description: Detected centers of illumination
+    data_uri: https://example.com/rois_1.npy
+    image:
+    - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
+    shapes:
+      ch00_center:
+        c: 0
+        fill_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 288.2084306164054
+        x: 264.1675555226803
+      ch01_center:
+        c: 1
+        fill_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 248.2084306164054
+        x: 260.1675555226803
+  roi_centers_geometric:
+    name: Geometric centers ROIs
+    description: Detected centers of illumination
+    data_uri: https://example.com/rois_2.npy
+    image:
+    - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
+    shapes:
+      ch00_center:
+        c: 0
+        fill_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 288.2084306164054
+        x: 264.1675555226803
+      ch01_center:
+        c: 1
+        fill_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 248.2084306164054
+        x: 260.1675555226803
+  roi_centers_fitted:
+    name: Fitted centers ROIs
+    description: Detected centers of illumination
+    data_uri: https://example.com/rois_3.npy
+    image:
+    - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
+    shapes:
+      ch00_center:
+        c: 0
+        fill_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 255
+          g: 0
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 288.2084306164054
+        x: 264.1675555226803
+      ch01_center:
+        c: 1
+        fill_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_color:
+          r: 0
+          g: 255
+          b: 0
+          alpha: 200
+        stroke_width: 5
+        y: 248.2084306164054
+        x: 260.1675555226803
+  roi_centers_max_intensity:
+    name: max intensity centers ROIs
+    description: Detected centers of illumination
+    data_uri: https://example.com/rois_4.npy
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3071/chroma.npy
     shapes:

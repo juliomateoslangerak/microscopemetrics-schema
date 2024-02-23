@@ -1,12 +1,12 @@
 name: an analysis
 description: a description
+data_uri: "https://example.org/analysis/1"
 microscope: "an id for the microscope"
 processed: true
-processing_datetime: '2024-01-17T00:00:00.000000'
 input:
   argolight_b_image:
     name: "ExampleImage1"
-    image_url: "https://example.org/images/1"
+    data_uri: "https://example.org/images/1"
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -22,9 +22,30 @@ input:
   sigma_x: 3.0
   remove_center_cross: false
 output:
+  processing_application:  "microscope-metrics"
+  processing_version: 0.1.0
+  processing_entity: microscope-metrics/0.1.0/ArgolidhtSpotDetection
+  processing_datetime: '2024-01-17T00:00:00.000000'
+  processing_log: "A log"
+  warnings:
+    - "A warning"
+    - "Another warning"
+  errors:
+    - "An error"
+    - "Another error"
+  comments:
+    - datetime: "2024-01-15T00:00:00Z"
+      comment_type: "OTHER"
+      text: "This dataset is for testing purposes only."
+    - datetime: "2023-10-13T09:00:00Z"
+      comment_type: "ACQUISITION"
+      text: "So don't care about what I say."
+
+
   spots_labels_image:
     name: "ExampleImage2"
-    image_url: "https://example.org/images/2"
+    description: "A description"
+    data_uri: "https://example.org/images/2"
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -33,11 +54,13 @@ output:
     shape_z: 20
     shape_c: 4
     shape_t: 1
-  spots_centroids:
-  - label: Centroids_ch00
+  spots_centers_of_mass:
+  - data_uri: "https://example.org/centers/1"
+    name: centers_ch00
+    description: "A description"
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3075/201702_RI510_Argolight-1-1_010_SIR_ALX.npy
-    shapes:
+    points:
       '1':
         label: '1'
         z: 12.0702289192477
@@ -570,10 +593,12 @@ output:
         stroke_width: 1
         y: 441.9317309110065
         x: 66.03939464568897
-  - label: Centroids_ch01
+  - data_uri: "https://example.org/centers/2"
+    mane: centers_ch01
+    description: "A description"
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3075/201702_RI510_Argolight-1-1_010_SIR_ALX.npy
-    shapes:
+    points:
       '1':
         label: '1'
         z: 12.837266967351622
@@ -1057,7 +1082,9 @@ output:
         stroke_width: 1
         y: 958.3492493748297
         x: 62.314595301172574
-  - label: Centroids_ch02
+  - data_uri: "https://example.org/centers/3"
+    name: centers_ch02
+    description: "A description"
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3075/201702_RI510_Argolight-1-1_010_SIR_ALX.npy
     shapes:
@@ -1516,7 +1543,9 @@ output:
         stroke_width: 1
         y: 70.30166076364495
         x: 323.1709157685865
-  - label: Centroids_ch03
+  - data_uri: "https://example.org/centers/4"
+    name: centers_ch03
+    description: "A description"
     image:
     - https://dev.mri.cnrs.fr/attachments/download/3075/201702_RI510_Argolight-1-1_010_SIR_ALX.npy
     shapes:
@@ -1969,6 +1998,7 @@ output:
         y: 203.0
         x: 57.0
   intensity_key_values:
+    data_uri: "https://example.org/intensity/4"
     channel_nr:
     - 0
     - 1
@@ -2025,6 +2055,7 @@ output:
     - 0.0061887156750419885
     - 0.0001869727167799876
   distance_key_values:
+    data_uri: "https://example.org/distance/4"
     channel_A:
     - 0
     - 0
@@ -2196,7 +2227,9 @@ output:
     - .nan
     - 1.453923970141943
   spots_properties:
+    data_uri: "https://example.org/properties/4"
     name: spots_properties
+    description: "A description"
     columns:
       channel_nr:
         name: channel_nr
@@ -5523,7 +5556,9 @@ output:
         - PIXEL
         - PIXEL
   spots_distances:
+    data_uri: "http://localhost:8080/api/v1/annotations/1/properties/spots_distances/data"
     name: spots_distances
+    description: "Distances between spots"
     columns:
       channel_a:
         name: channel_a

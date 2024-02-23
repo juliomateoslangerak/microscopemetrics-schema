@@ -135,7 +135,7 @@ classes:
       comment_type:
         range: CommentTypes
         description: The type of the comment
-        required: false
+        required: true
         multivalued: false
       text:
         range: string
@@ -249,12 +249,13 @@ classes:
         description: The errors of the processing by microscope-metrics
         required: false
         multivalued: true
-      comment:
+      comments:
         range: Comment
         description: A human readable comment about the dataset
         required: false
         multivalued: true
         inlined: true
+        inlined_as_list: true
 
   Image:
     is_a: MetricsObject

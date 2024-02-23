@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-22T22:53:29
+# Generation date: 2024-02-23T01:23:48
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -419,15 +419,20 @@ class Comment(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
 
     datetime: Union[str, XSDDateTime] = None
+    comment_type: Union[str, "CommentTypes"] = None
     text: str = None
     author: Optional[Union[str, ExperimenterOrcid]] = None
-    comment_type: Optional[Union[str, "CommentTypes"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.datetime):
             self.MissingRequiredField("datetime")
         if not isinstance(self.datetime, XSDDateTime):
             self.datetime = XSDDateTime(self.datetime)
+
+        if self._is_empty(self.comment_type):
+            self.MissingRequiredField("comment_type")
+        if not isinstance(self.comment_type, CommentTypes):
+            self.comment_type = CommentTypes(self.comment_type)
 
         if self._is_empty(self.text):
             self.MissingRequiredField("text")
@@ -436,9 +441,6 @@ class Comment(YAMLRoot):
 
         if self.author is not None and not isinstance(self.author, ExperimenterOrcid):
             self.author = ExperimenterOrcid(self.author)
-
-        if self.comment_type is not None and not isinstance(self.comment_type, CommentTypes):
-            self.comment_type = CommentTypes(self.comment_type)
 
         super().__post_init__(**kwargs)
 
@@ -554,7 +556,7 @@ class MetricsOutput(YAMLRoot):
     processing_log: Optional[str] = None
     warnings: Optional[Union[str, List[str]]] = empty_list()
     errors: Optional[Union[str, List[str]]] = empty_list()
-    comment: Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]] = empty_list()
+    comments: Optional[Union[dict, Comment]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.processing_application):
@@ -589,7 +591,8 @@ class MetricsOutput(YAMLRoot):
             self.errors = [self.errors] if self.errors is not None else []
         self.errors = [v if isinstance(v, str) else str(v) for v in self.errors]
 
-        self._normalize_inlined_as_dict(slot_name="comment", slot_type=Comment, key_name="datetime", keyed=False)
+        if self.comments is not None and not isinstance(self.comments, Comment):
+            self.comments = Comment(**as_dict(self.comments))
 
         super().__post_init__(**kwargs)
 
@@ -2805,7 +2808,7 @@ class ArgolightEInput(MetricsInput):
     class_name: ClassVar[str] = "ArgolightEInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInput
 
-    argolight_e_image: Union[dict, ImageAsNumpy] = None
+    argolight_e_image: Union[str, ImageAsNumpyDataUri] = None
     orientation_axis: int = None
     saturation_threshold: float = 0.01
     measured_band: float = 0.4
@@ -2815,8 +2818,8 @@ class ArgolightEInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.argolight_e_image):
             self.MissingRequiredField("argolight_e_image")
-        if not isinstance(self.argolight_e_image, ImageAsNumpy):
-            self.argolight_e_image = ImageAsNumpy(**as_dict(self.argolight_e_image))
+        if not isinstance(self.argolight_e_image, ImageAsNumpyDataUri):
+            self.argolight_e_image = ImageAsNumpyDataUri(self.argolight_e_image)
 
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
@@ -3395,7 +3398,7 @@ slots.mad_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/m
                    model_uri=MICROSCOPEMETRICS_SCHEMA.mad_z_dist, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.argolight_e_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_e_image'], name="argolight_e_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_e_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_e_image, domain=None, range=Union[dict, ImageAsNumpy])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_e_image, domain=None, range=Union[str, ImageAsNumpyDataUri])
 
 slots.orientation_axis = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/orientation_axis'], name="orientation_axis", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/orientation_axis'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.orientation_axis, domain=None, range=int)
@@ -3479,7 +3482,7 @@ slots.comment__author = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/author'],
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__author, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
 
 slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment_type'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Optional[Union[str, "CommentTypes"]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Union[str, "CommentTypes"])
 
 slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="comment__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
@@ -3529,8 +3532,8 @@ slots.metricsOutput__warnings = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/w
 slots.metricsOutput__errors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/errors'], name="metricsOutput__errors", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/errors'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__errors, domain=None, range=Optional[Union[str, List[str]]])
 
-slots.metricsOutput__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="metricsOutput__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__comment, domain=None, range=Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]])
+slots.metricsOutput__comments = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comments'], name="metricsOutput__comments", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comments'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__comments, domain=None, range=Optional[Union[dict, Comment]])
 
 slots.imageAsNumpy__data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data'], name="imageAsNumpy__data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.imageAsNumpy__data, domain=None, range=Optional[Union[dict, MetaObject]])

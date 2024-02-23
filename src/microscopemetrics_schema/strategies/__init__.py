@@ -8,13 +8,13 @@ from ..datamodel import microscopemetrics_schema as mm_schema
 @st.composite
 def st_mm_microscope(
     draw,
+    data_uri=st.uuids(),
     name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
-    id=st.uuids(),
     type=st.sampled_from(["WIDE-FIELD", "CONFOCAL", "STED", "3D-SIM", "OTHER"]),
     manufacturer=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
@@ -25,17 +25,15 @@ def st_mm_microscope(
     serial_number=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
-    url=st.uuids(),
 ) -> mm_schema.Microscope:
     return mm_schema.Microscope(
         name=draw(name),
         description=draw(description),
-        id=draw(id),
+        data_uri=draw(data_uri),
         type=draw(type),
         manufacturer=draw(manufacturer),
         model=draw(model),
         serial_number=draw(serial_number),
-        url=draw(url),
     )
 
 
@@ -127,15 +125,32 @@ def st_mm_input(
 @st.composite
 def st_mm_output(
     draw,
-    output=st.just(mm_schema.MetricsOutput()),
+    processing_application=st.just("MicroscopeMetrics"),
+    processing_version=st.just("0.1.0"),
+    processing_entity=st.just("MicroscopeMetricsAnalysis"),
+    processing_datetime=st.datetimes(),
+    processing_log=st.text(),
+    warnings=st.text(),
+    errors=st.text(),
+    comments=st_mm_comment(),
 ) -> mm_schema.MetricsOutput:
-    return draw(output)
+    return mm_schema.MetricsOutput(
+        processing_application=draw(processing_application),
+        processing_version=draw(processing_version),
+        processing_entity=draw(processing_entity),
+        processing_datetime=draw(processing_datetime),
+        processing_log=draw(processing_log),
+        warnings=draw(warnings),
+        errors=draw(errors),
+        comments=draw(comments),
+    )
 
 
 @st.composite
 def st_mm_dataset(
     draw,
     target_class=None,
+    data_uri=st.uuids(),
     name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
@@ -147,22 +162,15 @@ def st_mm_dataset(
     experimenter=st_mm_experimenter(),
     acquisition_datetime=st.datetimes(),
     processed=st.booleans(),
-    processing_datetime=st.just(None),
-    processing_log=st.just(None),
-    comment=st.just(None),
     input=st_mm_input(),
     output=st_mm_output(),
 ) -> mm_schema.MetricsDataset:
     processed = draw(processed)
-    if processed:
-        processing_datetime = st.datetimes()
-        processing_log = st.text(
-            alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
-        )
-        comment = st.lists(st_mm_comment(), min_size=1, max_size=2)
-
+    output = draw(output) if processed else None
+    
     if target_class is None:
         return mm_schema.MetricsDataset(
+            data_uri=draw(data_uri),
             name=draw(name),
             description=draw(description),
             microscope=draw(microscope),
@@ -170,14 +178,12 @@ def st_mm_dataset(
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
-            processing_datetime=draw(processing_datetime),
-            processing_log=draw(processing_log),
-            comment=draw(comment),
             input=draw(input),
-            output=draw(output),
+            output=output,
         )
     else:
         return target_class(
+            data_uri=draw(data_uri),
             name=draw(name),
             description=draw(description),
             microscope=draw(microscope),
@@ -185,11 +191,8 @@ def st_mm_dataset(
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
-            processing_datetime=draw(processing_datetime),
-            processing_log=draw(processing_log),
-            comment=draw(comment),
             input=draw(input),
-            output=draw(output),
+            output=output,
         )
 
 
@@ -203,7 +206,7 @@ def st_mm_image_as_numpy(
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
-    image_url=st.uuids(),
+    data_uri=st.uuids(),
     voxel_size_xy_micron=st.floats(min_value=0.1, max_value=1.0),
     voxel_size_z_micron=st.floats(min_value=0.3, max_value=3.0),
     shape=st.tuples(
@@ -230,7 +233,7 @@ def st_mm_image_as_numpy(
     return mm_schema.ImageAsNumpy(
         name=draw(name),
         description=draw(description),
-        image_url=draw(image_url),
+        data_uri=draw(data_uri),
         voxel_size_x_micron=voxel_size_xy_micron,
         voxel_size_y_micron=voxel_size_xy_micron,
         voxel_size_z_micron=draw(voxel_size_z_micron),
@@ -257,9 +260,10 @@ def st_mm_color(
 @st.composite
 def st_mm_point(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -270,7 +274,8 @@ def st_mm_point(
     y=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Point:
     return mm_schema.Point(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -285,9 +290,10 @@ def st_mm_point(
 @st.composite
 def st_mm_line(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -300,7 +306,8 @@ def st_mm_line(
     y2=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Line:
     return mm_schema.Line(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -317,9 +324,10 @@ def st_mm_line(
 @st.composite
 def st_mm_rectangle(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -332,7 +340,8 @@ def st_mm_rectangle(
     h=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Rectangle:
     return mm_schema.Rectangle(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -349,9 +358,10 @@ def st_mm_rectangle(
 @st.composite
 def st_mm_ellipse(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -364,7 +374,8 @@ def st_mm_ellipse(
     y_rad=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Ellipse:
     return mm_schema.Ellipse(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -390,9 +401,10 @@ def st_mm_vertex(
 @st.composite
 def st_mm_polygon(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -405,7 +417,8 @@ def st_mm_polygon(
     is_open=st.booleans(),
 ) -> mm_schema.Polygon:
     return mm_schema.Polygon(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -420,9 +433,10 @@ def st_mm_polygon(
 @st.composite
 def st_mm_shape(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_uri=st.uuids(),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -431,7 +445,8 @@ def st_mm_shape(
     stroke_width=st.integers(min_value=1, max_value=5),
 ) -> mm_schema.Shape:
     params = {
-        "label": label,
+        "name": name,
+        "data_uri": data_uri,
         "z": z,
         "c": c,
         "t": t,
@@ -442,14 +457,11 @@ def st_mm_shape(
 
     shape = st.one_of(
         [
-            strategy
-            for strategy in [
-                st_mm_point(**params),
-                st_mm_line(**params),
-                st_mm_rectangle(**params),
-                st_mm_ellipse(**params),
-                st_mm_polygon(**params),
-            ]
+            st_mm_point(**params),
+            st_mm_line(**params),
+            st_mm_rectangle(**params),
+            st_mm_ellipse(**params),
+            st_mm_polygon(**params),
         ]
     )
 
@@ -459,22 +471,29 @@ def st_mm_shape(
 @st.composite
 def st_mm_roi(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
+    data_uri=st.uuids(),
     image=st.lists(st.uuids(), min_size=1, max_size=5),
     shapes=st.lists(
-        st_mm_shape(), min_size=1, max_size=5, unique_by=lambda shape: shape.label
+        st_mm_shape(), min_size=1, max_size=5, unique_by=lambda shape: shape.name
     ),
 ) -> mm_schema.Roi:
+    shapes = draw(shapes)
     return mm_schema.Roi(
-        label=draw(label),
+        name=draw(name),
+        data_uri=draw(data_uri),
         description=draw(description),
         image=draw(image),
-        shapes=draw(shapes),
+        points=[shape for shape in shapes if isinstance(shape, mm_schema.Point)],
+        lines=[shape for shape in shapes if isinstance(shape, mm_schema.Line)],
+        rectangles=[shape for shape in shapes if isinstance(shape, mm_schema.Rectangle)],
+        ellipses=[shape for shape in shapes if isinstance(shape, mm_schema.Ellipse)],
+        polygons=[shape for shape in shapes if isinstance(shape, mm_schema.Polygon)],
     )
 
 
@@ -502,8 +521,8 @@ def st_mm_field_illumination_input(
 @st.composite
 def st_mm_field_illumination_output(
     draw,
-    output=st.just(
-        mm_schema.FieldIlluminationOutput()
+    output=st_mm_output(
+        processing_entity=st.just("FieldIlluminationAnalysis"),
     ),
 ) -> mm_schema.FieldIlluminationOutput:
     return draw(output)
@@ -562,8 +581,8 @@ def st_mm_psf_beads_input(
 @st.composite
 def st_mm_psf_beads_output(
     draw,
-    output=st.just(
-        mm_schema.PSFBeadsOutput()
+    output=st_mm_output(
+        processing_entity=st.just("PSFBeadsAnalysis"),
     ),
 ) -> mm_schema.PSFBeadsOutput:
     return draw(output)

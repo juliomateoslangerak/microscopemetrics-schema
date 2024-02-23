@@ -1,12 +1,11 @@
 name: "ExampleMetricsDataset"
 description: "This is an example MetricsDataset."
+data_uri: "https://example.org/metrics/1"
 microscope: "an id for the microscope"
 sample:
-  id: "https://example.org/sample/1"
   name: "ExampleSample"
   type: "Sample"
   protocol:
-    id: "https://example.org/protocol/1"
     name: "ExampleProtocol"
     type: "Protocol"
     version: "1.0"
@@ -18,38 +17,5 @@ experimenter:
   - name: "Jane Smith"
     orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_datetime: "2024-01-15T12:00:00"
-processed: true
-processing_datetime: "2024-01-16T12:00:00"
-processing_log: "Processed using microscope-metrics v2.0"
-comment:
-  - datetime: "2024-01-15T12:00:00"
-    comment_type: "OTHER"
-    text: "This dataset is for testing purposes only."
-  - datetime: "2023-10-13T12:00:00"
-    comment_type: "ACQUISITION"
-    text: "So don't care about what I say."
-
-#- id: "https://example.org/image/1"
-#  name: "ExampleImage"
-#  image_url: "https://example.org/images/1"
-#  source_image_url:
-#    - "https://example.org/sourceimages/1"
-#    - "https://example.org/sourceimages/2"
-#  voxel_size_x_micron: 0.1
-#  voxel_size_y_micron: 0.1
-#  voxel_size_z_micron: 0.5
-#  shape_x: 512
-#  shape_y: 512
-#  shape_z: 20
-#  shape_c: 3
-#  shape_t: 1
-#  excitation_wavelength_nm: 488.0
-#  emission_wavelength_nm: 525.0
-#
-#- id: "https://example.org/metricsinput/1"
-#  name: "ExampleMetricsInput"
-#  # Add attributes specific to MetricsInput
-#
-#- id: "https://example.org/metricsoutput/1"
-#  name: "ExampleMetricsOutput"
-#  # Add attributes specific to MetricsOutput
+processed: false
+input: ""

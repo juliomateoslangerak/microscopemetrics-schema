@@ -84,7 +84,7 @@ type ArgolightBOutput
     processingLog: String
     warnings: [String]
     errors: [String]
-    comment: [Comment]
+    comments: Comment
     spotsLabelsImage: ImageAsNumpy
     spotsCentersOfMass: [ArgolightBCentersOfMass]
     intensityKeyValues: ArgolightBIntensityKeyValues
@@ -143,7 +143,7 @@ type ArgolightEOutput
     processingLog: String
     warnings: [String]
     errors: [String]
-    comment: [Comment]
+    comments: Comment
     peaksRois: [Roi]
     keyMeasurements: ArgolightEKeyValues
     intensityProfiles: TableAsDict
@@ -198,7 +198,7 @@ type Comment
   {
     datetime: Datetime!
     author: Experimenter
-    commentType: CommentTypes
+    commentType: CommentTypes!
     text: String!
   }
 
@@ -385,7 +385,7 @@ type FieldIlluminationOutput
     processingLog: String
     warnings: [String]
     errors: [String]
-    comment: [Comment]
+    comments: Comment
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: [TableAsDict]
     intensityMap: [ImageAsNumpy]
@@ -597,7 +597,7 @@ interface MetricsOutput
     processingLog: String
     warnings: [String]
     errors: [String]
-    comment: [Comment]
+    comments: Comment
   }
 
 type Microscope
@@ -759,7 +759,7 @@ type PSFBeadsOutput
     processingLog: String
     warnings: [String]
     errors: [String]
-    comment: [Comment]
+    comments: Comment
     beadCrops: [ImageAsNumpy]
     analyzedBeadCenters: [PSFBeadsCenters]
     discardedBeadCentersLateralEdge: [PSFBeadsCenters]
