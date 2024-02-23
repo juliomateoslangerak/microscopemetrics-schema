@@ -309,7 +309,7 @@
 </tr>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../MetricsInput/">MetricsInput</a></td>
+<td>1..1 <br/> <a href="../MetricsInput/">MetricsInput</a></td>
 <td>The input of the analysis</td>
 <td>direct</td>
 </tr>
@@ -438,7 +438,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: false
     range: MetricsInput
-    required: false
+    required: true
   output:
     name: output
     description: The output of the analysis
@@ -543,7 +543,7 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: MetricsInput
-    required: false
+    required: true
   output:
     name: output
     description: The output of the analysis
