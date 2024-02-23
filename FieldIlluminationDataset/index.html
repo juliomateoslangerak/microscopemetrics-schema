@@ -264,7 +264,7 @@
 <tbody>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>1..1 <br/> <a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td>0..1 <br/> <a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -360,17 +360,11 @@ attributes:
   input:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    multivalued: false
     range: FieldIlluminationInput
-    required: true
-    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    multivalued: false
     range: FieldIlluminationOutput
-    required: false
-    inlined: true
 
 </code></pre>
 </details>
@@ -384,7 +378,6 @@ attributes:
   input:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    multivalued: false
     alias: input
     owner: FieldIlluminationDataset
     domain_of:
@@ -394,12 +387,9 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: FieldIlluminationInput
-    required: true
-    inlined: true
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    multivalued: false
     alias: output
     owner: FieldIlluminationDataset
     domain_of:
@@ -409,8 +399,6 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: FieldIlluminationOutput
-    required: false
-    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset

@@ -210,9 +210,9 @@
     class FieldIlluminationOutput
       MetricsOutput &lt;|-- FieldIlluminationOutput
 
-      FieldIlluminationOutput : comments
+      FieldIlluminationOutput : comment
 
-          FieldIlluminationOutput --&gt; Comment : comments
+          FieldIlluminationOutput --&gt; Comment : comment
 
       FieldIlluminationOutput : errors
 
@@ -381,8 +381,8 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comments/">comments</a></td>
-<td>0..* <br/> <a href="../Comment/">Comment</a></td>
+<td><a href="../comment/">comment</a></td>
+<td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -726,20 +726,18 @@ attributes:
     - MetricsOutput
     range: string
     required: false
-  comments:
-    name: comments
+  comment:
+    name: comment
     description: A human readable comment about the dataset
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: comments
+    multivalued: false
+    alias: comment
     owner: FieldIlluminationOutput
     domain_of:
+    - Microscope
     - MetricsOutput
     range: Comment
     required: false
-    inlined: true
-    inlined_as_list: true
 
 </code></pre>
 </details>
