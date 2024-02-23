@@ -352,7 +352,7 @@
 </tr>
 <tr>
 <td><a href="../comments/">comments</a></td>
-<td>0..1 <br/> <a href="../Comment/">Comment</a></td>
+<td>0..* <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -633,13 +633,15 @@ attributes:
     description: A human readable comment about the dataset
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
+    multivalued: true
     alias: comments
     owner: ArgolightBOutput
     domain_of:
     - MetricsOutput
     range: Comment
     required: false
+    inlined: true
+    inlined_as_list: true
 
 </code></pre>
 </details>
