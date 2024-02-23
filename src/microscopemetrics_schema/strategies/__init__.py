@@ -117,7 +117,7 @@ def st_mm_comment(
 @st.composite
 def st_mm_input(
     draw,
-    input=st.just(mm_schema.MetricsInput()),
+    input=st.just(mm_schema.MetricsInput(input_data=None)),
 ) -> mm_schema.MetricsInput:
     return draw(input)
 
@@ -525,8 +525,17 @@ def st_mm_field_illumination_output(
         processing_entity=st.just("FieldIlluminationAnalysis"),
     ),
 ) -> mm_schema.FieldIlluminationOutput:
-    return draw(output)
-
+    mm_output = draw(output)
+    return mm_schema.FieldIlluminationOutput(
+        processing_application=mm_output.processing_application,
+        processing_version=mm_output.processing_version,
+        processing_entity=mm_output.processing_entity,
+        processing_datetime=mm_output.processing_datetime,
+        processing_log=mm_output.processing_log,
+        warnings=mm_output.warnings,
+        errors=mm_output.errors,
+        comment=mm_output.comment,
+    )
 
 @st.composite
 def st_mm_field_illumination_unprocessed_dataset(
@@ -585,7 +594,17 @@ def st_mm_psf_beads_output(
         processing_entity=st.just("PSFBeadsAnalysis"),
     ),
 ) -> mm_schema.PSFBeadsOutput:
-    return draw(output)
+    mm_output = draw(output)
+    return mm_schema.PSFBeadsOutput(
+        processing_application=mm_output.processing_application,
+        processing_version=mm_output.processing_version,
+        processing_entity=mm_output.processing_entity,
+        processing_datetime=mm_output.processing_datetime,
+        processing_log=mm_output.processing_log,
+        warnings=mm_output.warnings,
+        errors=mm_output.errors,
+        comment=mm_output.comment,
+    )
 
 
 @st.composite
