@@ -31,10 +31,7 @@ output:
   errors:
     - "An error"
     - "Another error"
-  comments:
-    - datetime: "2024-01-15T00:00:00Z"
-      comment_type: "OTHER"
-      text: "This dataset is for testing purposes only."
-    - datetime: "2023-10-13T09:00:00Z"
-      comment_type: "ACQUISITION"
-      text: "So don't care about what I say."
+  comment:
+    datetime: "2024-01-15T00:00:00Z"
+    comment_type: "OTHER"
+    text: "This dataset is for testing purposes only."

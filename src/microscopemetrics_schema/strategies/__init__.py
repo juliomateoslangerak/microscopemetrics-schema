@@ -132,7 +132,7 @@ def st_mm_output(
     processing_log=st.text(),
     warnings=st.text(),
     errors=st.text(),
-    comments=st_mm_comment(),
+    comment=st_mm_comment(),
 ) -> mm_schema.MetricsOutput:
     return mm_schema.MetricsOutput(
         processing_application=draw(processing_application),
@@ -142,7 +142,7 @@ def st_mm_output(
         processing_log=draw(processing_log),
         warnings=draw(warnings),
         errors=draw(errors),
-        comments=draw(comments),
+        comment=draw(comment),
     )
 
 

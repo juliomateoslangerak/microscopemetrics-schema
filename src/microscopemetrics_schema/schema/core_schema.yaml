@@ -72,6 +72,7 @@ classes:
         required: false
         multivalued: true
         inlined: true
+        inlined_as_list: true
 
   Sample:
     is_a: NamedObject
@@ -181,21 +182,19 @@ classes:
       processed:
         range: boolean
         description: Has the dataset been processed by microscope-metrics
-        multivalued: false
         required: true
         ifabsent: false
+        multivalued: false
       input:
         range: MetricsInput
         description: The input of the analysis
-        required: false
+        required: true
         multivalued: false
-        inlined: true
       output:
         range: MetricsOutput
         description: The output of the analysis
         required: false
         multivalued: false
-        inlined: true
     rules:
       - preconditions:
           slot_conditions:
@@ -249,13 +248,11 @@ classes:
         description: The errors of the processing by microscope-metrics
         required: false
         multivalued: true
-      comments:
+      comment:
         range: Comment
         description: A human readable comment about the dataset
         required: false
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
+        multivalued: false
 
   Image:
     is_a: MetricsObject

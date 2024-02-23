@@ -433,14 +433,14 @@ CREATE TABLE "ArgolightBOutput" (
 	processing_log TEXT, 
 	warnings TEXT, 
 	errors TEXT, 
-	comments TEXT, 
+	comment TEXT, 
 	spots_labels_image TEXT, 
 	spots_centers_of_mass TEXT, 
 	intensity_key_values TEXT, 
 	distance_key_values TEXT, 
 	spots_properties TEXT, 
 	spots_distances TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comments, spots_labels_image, spots_centers_of_mass, intensity_key_values, distance_key_values, spots_properties, spots_distances), 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, spots_labels_image, spots_centers_of_mass, intensity_key_values, distance_key_values, spots_properties, spots_distances), 
 	FOREIGN KEY(spots_labels_image) REFERENCES "ImageAsNumpy" (data_uri), 
 	FOREIGN KEY(intensity_key_values) REFERENCES "ArgolightBIntensityKeyValues" (data_uri), 
 	FOREIGN KEY(distance_key_values) REFERENCES "ArgolightBDistanceKeyValues" (data_uri)
@@ -480,11 +480,11 @@ CREATE TABLE "ArgolightEOutput" (
 	processing_log TEXT, 
 	warnings TEXT, 
 	errors TEXT, 
-	comments TEXT, 
+	comment TEXT, 
 	peaks_rois TEXT, 
 	key_measurements TEXT, 
 	intensity_profiles TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comments, peaks_rois, key_measurements, intensity_profiles), 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, peaks_rois, key_measurements, intensity_profiles), 
 	FOREIGN KEY(key_measurements) REFERENCES "ArgolightEKeyValues" (data_uri)
 );
 
@@ -520,7 +520,7 @@ CREATE TABLE "FieldIlluminationOutput" (
 	processing_log TEXT, 
 	warnings TEXT, 
 	errors TEXT, 
-	comments TEXT, 
+	comment TEXT, 
 	key_values TEXT, 
 	intensity_profiles TEXT, 
 	intensity_map TEXT, 
@@ -530,7 +530,7 @@ CREATE TABLE "FieldIlluminationOutput" (
 	roi_centers_geometric TEXT, 
 	roi_centers_fitted TEXT, 
 	roi_centers_max_intensity TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comments, key_values, intensity_profiles, intensity_map, roi_profiles, roi_corners, roi_centers_of_mass, roi_centers_geometric, roi_centers_fitted, roi_centers_max_intensity), 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, key_values, intensity_profiles, intensity_map, roi_profiles, roi_corners, roi_centers_of_mass, roi_centers_geometric, roi_centers_fitted, roi_centers_max_intensity), 
 	FOREIGN KEY(key_values) REFERENCES "FieldIlluminationKeyValues" (data_uri), 
 	FOREIGN KEY(roi_corners) REFERENCES "FieldIlluminationCornersIntensities" (data_uri)
 );
@@ -561,7 +561,7 @@ CREATE TABLE "MetricsDataset" (
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
 	processed BOOLEAN NOT NULL, 
-	input TEXT, 
+	input TEXT NOT NULL, 
 	output TEXT, 
 	PRIMARY KEY (data_uri), 
 	FOREIGN KEY(microscope) REFERENCES "Microscope" (data_uri)
@@ -590,7 +590,7 @@ CREATE TABLE "PSFBeadsOutput" (
 	processing_log TEXT, 
 	warnings TEXT, 
 	errors TEXT, 
-	comments TEXT, 
+	comment TEXT, 
 	bead_crops TEXT, 
 	analyzed_bead_centers TEXT, 
 	discarded_bead_centers_lateral_edge TEXT, 
@@ -605,7 +605,7 @@ CREATE TABLE "PSFBeadsOutput" (
 	bead_z_profiles TEXT, 
 	bead_y_profiles TEXT, 
 	bead_x_profiles TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comments, bead_crops, analyzed_bead_centers, discarded_bead_centers_lateral_edge, discarded_bead_centers_self_proximity, considered_bead_centers_axial_edge, considered_bead_centers_intensity_outlier, considered_bead_centers_z_fit_quality, considered_bead_centers_y_fit_quality, considered_bead_centers_x_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles), 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, bead_crops, analyzed_bead_centers, discarded_bead_centers_lateral_edge, discarded_bead_centers_self_proximity, considered_bead_centers_axial_edge, considered_bead_centers_intensity_outlier, considered_bead_centers_z_fit_quality, considered_bead_centers_y_fit_quality, considered_bead_centers_x_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles), 
 	FOREIGN KEY(key_values) REFERENCES "PSFBeadsKeyValues" (data_uri)
 );
 
