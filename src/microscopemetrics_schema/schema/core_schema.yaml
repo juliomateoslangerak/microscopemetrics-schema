@@ -152,7 +152,7 @@ classes:
     attributes:
       datasets:
         range: MetricsDataset
-        description: A list of datasets
+        description: The datasets of the collection
         required: true
         multivalued: true
         inlined: false
