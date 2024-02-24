@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_region_intensity_fraction/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyValue/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: center_region_intensity_fraction - microscopemetrics-schema</title>
+        <title>Subset: KeyValue - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-center_region_intensity_fraction" class="md-skip">
+        <a href="#subset-keyvalue" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: center_region_intensity_fraction
+              Subset: KeyValue
             
           </span>
         </div>
@@ -256,20 +256,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -290,8 +276,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    LinkML Source
+  <a href="#slots-in-subset" class="md-nav__link">
+    Slots in subset
   </a>
   
 </li>
@@ -310,78 +296,35 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/center_region_intensity_fraction.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/KeyValue.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-center_region_intensity_fraction">Slot: center_region_intensity_fraction</h1>
-<p><em>The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/center_region_intensity_fraction">microscopemetrics_schema:center_region_intensity_fraction</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
-<td></td>
-<td>no</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>
-<p>Range: <a href="../Float/">Float</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
-<li>
-<p>Minimum Value: 0</p>
-</li>
-<li>
-<p>Maximum Value: 1</p>
-</li>
-</ul>
+<h1 id="subset-keyvalue">Subset: KeyValue</h1>
+<p><em>A key-value slot</em></p>
+<p>URI: <a href="./">KeyValue</a></p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
 </ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: center_region_intensity_fraction
-description: The fraction of the upper intensity range occupied by the center of illumination
-  region. That is, a value of 0.1 means that the center of illumination occupies the
-  top 10% of the intensity range. microscope-metrics tries to adapt the threshold
-  of this intensity so that the area occupied is not too large. One value per channel.
-in_subset:
-- key_value
-- not_averaged
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-rank: 1000
-multivalued: true
-alias: center_region_intensity_fraction
-domain_of:
-- FieldIlluminationKeyValues
-range: float
-minimum_value: 0
-maximum_value: 1
-
-</code></pre>
-
-</details>
+<h2 id="slots-in-subset">Slots in subset</h2>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../center_region_intensity_fraction/">center_region_intensity_fraction</a></td>
+<td>The fraction of the upper intensity range occupied by the center of illuminat...</td>
+</tr>
+</tbody>
+</table>
 
 
 

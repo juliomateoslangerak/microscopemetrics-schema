@@ -256,6 +256,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyValue/</loc>
+         <lastmod>2024-02-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyValues/</loc>
          <lastmod>2024-02-24</lastmod>
          <changefreq>daily</changefreq>
@@ -327,6 +332,11 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Nodeidentifier/</loc>
+         <lastmod>2024-02-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NotAveraged/</loc>
          <lastmod>2024-02-24</lastmod>
          <changefreq>daily</changefreq>
     </url>
