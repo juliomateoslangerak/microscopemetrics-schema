@@ -70,13 +70,12 @@ classes:
         range: string
         description: The serial number of the microscope
         required: false
-      comment:
+      comments:
         range: Comment
-        description: A human readable comment about the microscope
+        description: A list of comments linked to the microscope
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: true
+        inlined: false
 
   Sample:
     is_a: NamedObject
