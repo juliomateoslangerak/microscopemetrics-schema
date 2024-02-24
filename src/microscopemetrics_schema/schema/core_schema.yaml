@@ -40,14 +40,18 @@ classes:
         required: true
         identifier: true
 
-  Device:
-    # TODO: Is a devide a MM object?
-    is_a: MetricsObject
-    abstract: true
-    description: A base object for all microscope-metrics devices
+  MicroscopeCollection:
+    description: A collection of microscopes
+    attributes:
+      microscopes:
+        range: Microscope
+        description: The microscopes of the collection
+        required: true
+        multivalued: true
+        inlined: false
 
   Microscope:
-    is_a: Device
+    is_a: MetricsObject
     description: A microscope
     attributes:
       type:
