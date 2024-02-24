@@ -157,6 +157,18 @@ classes:
         multivalued: true
         inlined: false
 
+  HarmonizedMetricsDatasetCollection:
+    is_a: MetricsDatasetCollection
+    description: >-
+      A collection of harmonized microscope-metrics datasets. All of the datasets 
+      in the collection share the same analysis and processing parameters.
+    attributes:
+      dataset_class:
+        range: string
+        description: The class of the datasets in the collection
+        required: true
+        multivalued: false
+
   MetricsDataset:
     is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
