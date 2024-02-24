@@ -433,6 +433,10 @@
 <td>A collection of microscope-metrics datasets</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="HarmonizedMetricsDatasetCollection/">HarmonizedMetricsDatasetCollection</a></td>
+<td>A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.</td>
+</tr>
+<tr>
 <td><a href="MetricsInput/">MetricsInput</a></td>
 <td>An abstract class for analysis inputs</td>
 </tr>
@@ -473,6 +477,10 @@
 <td>None</td>
 </tr>
 <tr>
+<td><a href="MicroscopeCollection/">MicroscopeCollection</a></td>
+<td>A collection of microscopes</td>
+</tr>
+<tr>
 <td><a href="NamedObject/">NamedObject</a></td>
 <td>An object with a name and a description</td>
 </tr>
@@ -487,14 +495,6 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MetricsObject/">MetricsObject</a></td>
 <td>A base object for all microscope-metrics objects.</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Device/">Device</a></td>
-<td>A base object for all microscope-metrics devices</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Microscope/">Microscope</a></td>
-<td>A microscope</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Image/">Image</a></td>
@@ -575,6 +575,10 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsDataset/">PSFBeadsDataset</a></td>
 <td>A PSF beads dataset</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Microscope/">Microscope</a></td>
+<td>A microscope</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Roi/">Roi</a></td>
@@ -865,11 +869,15 @@
 </tr>
 <tr>
 <td><a href="comment.md">comment</a></td>
-<td>A human readable comment about the microscope</td>
+<td>A human readable comment about the dataset</td>
 </tr>
 <tr>
 <td><a href="comment_type/">comment_type</a></td>
 <td>The type of the comment</td>
+</tr>
+<tr>
+<td><a href="comments/">comments</a></td>
+<td>A list of comments linked to the microscope</td>
 </tr>
 <tr>
 <td><a href="considered_bead_centers_axial_edge/">considered_bead_centers_axial_edge</a></td>
@@ -904,8 +912,12 @@
 <td>The URI of the object data</td>
 </tr>
 <tr>
+<td><a href="dataset_class/">dataset_class</a></td>
+<td>The class of the datasets in the collection</td>
+</tr>
+<tr>
 <td><a href="datasets/">datasets</a></td>
-<td>A list of datasets</td>
+<td>The datasets of the collection</td>
 </tr>
 <tr>
 <td><a href="datetime/">datetime</a></td>
@@ -1162,6 +1174,10 @@
 <tr>
 <td><a href="microscope.md">microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
+</tr>
+<tr>
+<td><a href="microscopes/">microscopes</a></td>
+<td>The microscopes of the collection</td>
 </tr>
 <tr>
 <td><a href="middle_center_intensity_mean/">middle_center_intensity_mean</a></td>
