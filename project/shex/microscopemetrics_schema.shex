@@ -354,17 +354,6 @@ CLOSED {
     )
 }
 
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device>  (
-    {
-       (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device_tes> ( 
-             &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
-             rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ?
-          ) ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device> ]
-       )
-    } OR @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope>
-)
-
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Ellipse> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Ellipse_tes> ( 
           &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Shape_tes> ;
@@ -699,6 +688,20 @@ CLOSED {
     )
 }
 
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection> CLOSED {
+    ( 
+       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection_tes>
+       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection_tes> ;
+          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection>
+             ] ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/dataset_class> @linkml:String
+       ) ;
+       rdf:type [
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection>
+          ] ?
+    )
+}
+
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image>  (
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ImageAsNumpy> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ImageInline>
@@ -864,14 +867,16 @@ CLOSED {
     @<https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset>
 )
 
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection> CLOSED {
-    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection_tes>
-       <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datasets>
-       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> + ;
-       rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection> ]
-       ?
-    )
-}
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection>  (
+    CLOSED {
+       (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection_tes>
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datasets>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> + ;
+          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection>
+             ] ?
+       )
+    } OR @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection>
+)
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsInput>  (
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightBInput> OR
@@ -888,10 +893,10 @@ CLOSED {
 }
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject>  (
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> OR
+    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Shape> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> OR
@@ -937,8 +942,8 @@ CLOSED {
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope_tes> ( 
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device> ] ? ;
+          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
+          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/type> [
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeType#WIDE-FIELD>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeType#CONFOCAL>
@@ -948,10 +953,18 @@ CLOSED {
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/manufacturer> @linkml:String ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/model> @linkml:String ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/serial_number> @linkml:String ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comment>
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comments>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Comment> *
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope> ]
+    )
+}
+
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeCollection> CLOSED {
+    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeCollection_tes>
+       <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/microscopes>
+       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope> + ;
+       rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeCollection> ] ?
     )
 }
 

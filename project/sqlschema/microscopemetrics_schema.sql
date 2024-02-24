@@ -183,6 +183,12 @@ CREATE TABLE "FieldIlluminationProfilesIntensity" (
 	PRIMARY KEY (data_uri)
 );
 
+CREATE TABLE "HarmonizedMetricsDatasetCollection" (
+	datasets TEXT NOT NULL, 
+	dataset_class TEXT NOT NULL, 
+	PRIMARY KEY (datasets, dataset_class)
+);
+
 CREATE TABLE "Image2D" (
 	name TEXT, 
 	description TEXT, 
@@ -276,8 +282,13 @@ CREATE TABLE "Microscope" (
 	manufacturer TEXT, 
 	model TEXT, 
 	serial_number TEXT, 
-	comment TEXT, 
+	comments TEXT, 
 	PRIMARY KEY (data_uri)
+);
+
+CREATE TABLE "MicroscopeCollection" (
+	microscopes TEXT NOT NULL, 
+	PRIMARY KEY (microscopes)
 );
 
 CREATE TABLE "Point" (

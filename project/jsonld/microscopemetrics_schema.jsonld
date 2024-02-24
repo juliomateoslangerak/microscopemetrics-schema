@@ -2501,6 +2501,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "microscopeCollection__microscopes",
+      "description": "The microscopes of the collection",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/microscopes",
+      "multivalued": true,
+      "alias": "microscopes",
+      "owner": "MicroscopeCollection",
+      "domain_of": [
+        "MicroscopeCollection"
+      ],
+      "range": "Microscope",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "microscope__type",
       "description": "The type of the microscope",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
@@ -2553,19 +2568,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "microscope__comment",
-      "description": "A human readable comment about the microscope",
+      "name": "microscope__comments",
+      "description": "A list of comments linked to the microscope",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comment",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/comments",
       "multivalued": true,
-      "alias": "comment",
+      "alias": "comments",
       "owner": "Microscope",
       "domain_of": [
         "Microscope"
       ],
       "range": "Comment",
       "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2725,7 +2739,7 @@
     },
     {
       "name": "metricsDatasetCollection__datasets",
-      "description": "A list of datasets",
+      "description": "The datasets of the collection",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datasets",
       "multivalued": true,
@@ -2735,6 +2749,20 @@
         "MetricsDatasetCollection"
       ],
       "range": "MetricsDataset",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "harmonizedMetricsDatasetCollection__dataset_class",
+      "description": "The class of the datasets in the collection",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/dataset_class",
+      "alias": "dataset_class",
+      "owner": "HarmonizedMetricsDatasetCollection",
+      "domain_of": [
+        "HarmonizedMetricsDatasetCollection"
+      ],
+      "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -4533,19 +4561,25 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "Device",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device",
-      "description": "A base object for all microscope-metrics devices",
+      "name": "MicroscopeCollection",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeCollection",
+      "description": "A collection of microscopes",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "is_a": "MetricsObject",
-      "abstract": true,
       "slots": [
-        "name",
-        "description",
-        "metricsObject__data_uri"
+        "microscopeCollection__microscopes"
       ],
       "slot_usage": {},
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Device",
+      "attributes": [
+        {
+          "name": "microscopes",
+          "description": "The microscopes of the collection",
+          "multivalued": true,
+          "range": "Microscope",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MicroscopeCollection",
       "@type": "ClassDefinition"
     },
     {
@@ -4553,7 +4587,7 @@
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope",
       "description": "A microscope",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "is_a": "Device",
+      "is_a": "MetricsObject",
       "slots": [
         "name",
         "description",
@@ -4562,7 +4596,7 @@
         "microscope__manufacturer",
         "microscope__model",
         "microscope__serial_number",
-        "microscope__comment"
+        "microscope__comments"
       ],
       "slot_usage": {},
       "attributes": [
@@ -4591,12 +4625,10 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "comment",
-          "description": "A human readable comment about the microscope",
+          "name": "comments",
+          "description": "A list of comments linked to the microscope",
           "multivalued": true,
           "range": "Comment",
-          "inlined": true,
-          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -4761,7 +4793,7 @@
       "attributes": [
         {
           "name": "datasets",
-          "description": "A list of datasets",
+          "description": "The datasets of the collection",
           "multivalued": true,
           "range": "MetricsDataset",
           "required": true,
@@ -4769,6 +4801,29 @@
         }
       ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "HarmonizedMetricsDatasetCollection",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection",
+      "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "is_a": "MetricsDatasetCollection",
+      "slots": [
+        "metricsDatasetCollection__datasets",
+        "harmonizedMetricsDatasetCollection__dataset_class"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "dataset_class",
+          "description": "The class of the datasets in the collection",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection",
       "@type": "ClassDefinition"
     },
     {
@@ -6920,7 +6975,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-02-23T21:27:02",
+  "generation_date": "2024-02-24T15:31:26",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

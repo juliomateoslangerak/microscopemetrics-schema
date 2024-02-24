@@ -2118,6 +2118,29 @@
             "title": "FieldIlluminationProfilesIntensity",
             "type": "object"
         },
+        "HarmonizedMetricsDatasetCollection": {
+            "additionalProperties": false,
+            "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
+            "properties": {
+                "dataset_class": {
+                    "description": "The class of the datasets in the collection",
+                    "type": "string"
+                },
+                "datasets": {
+                    "description": "The datasets of the collection",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "dataset_class",
+                "datasets"
+            ],
+            "title": "HarmonizedMetricsDatasetCollection",
+            "type": "object"
+        },
         "Image2D": {
             "additionalProperties": false,
             "description": "A 2D image in YX order",
@@ -2703,7 +2726,7 @@
             "description": "A collection of microscope-metrics datasets",
             "properties": {
                 "datasets": {
-                    "description": "A list of datasets",
+                    "description": "The datasets of the collection",
                     "items": {
                         "type": "string"
                     },
@@ -2720,8 +2743,8 @@
             "additionalProperties": false,
             "description": "A microscope",
             "properties": {
-                "comment": {
-                    "description": "A human readable comment about the microscope",
+                "comments": {
+                    "description": "A list of comments linked to the microscope",
                     "items": {
                         "$ref": "#/$defs/Comment"
                     },
@@ -2760,6 +2783,24 @@
                 "data_uri"
             ],
             "title": "Microscope",
+            "type": "object"
+        },
+        "MicroscopeCollection": {
+            "additionalProperties": false,
+            "description": "A collection of microscopes",
+            "properties": {
+                "microscopes": {
+                    "description": "The microscopes of the collection",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "microscopes"
+            ],
+            "title": "MicroscopeCollection",
             "type": "object"
         },
         "MicroscopeType": {

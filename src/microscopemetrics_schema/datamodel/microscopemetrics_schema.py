@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-23T21:27:06
+# Generation date: 2024-02-24T15:31:30
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -44,11 +44,7 @@ class MetricsObjectDataUri(extended_str):
     pass
 
 
-class DeviceDataUri(MetricsObjectDataUri):
-    pass
-
-
-class MicroscopeDataUri(DeviceDataUri):
+class MicroscopeDataUri(MetricsObjectDataUri):
     pass
 
 
@@ -259,21 +255,31 @@ class MetricsObject(NamedObject):
 
 
 @dataclass
-class Device(MetricsObject):
+class MicroscopeCollection(YAMLRoot):
     """
-    A base object for all microscope-metrics devices
+    A collection of microscopes
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Device"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Device"
-    class_name: ClassVar[str] = "Device"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Device
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/MicroscopeCollection"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/MicroscopeCollection"
+    class_name: ClassVar[str] = "MicroscopeCollection"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MicroscopeCollection
 
-    data_uri: Union[str, DeviceDataUri] = None
+    microscopes: Union[Union[str, MicroscopeDataUri], List[Union[str, MicroscopeDataUri]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.microscopes):
+            self.MissingRequiredField("microscopes")
+        if not isinstance(self.microscopes, list):
+            self.microscopes = [self.microscopes] if self.microscopes is not None else []
+        self.microscopes = [v if isinstance(v, MicroscopeDataUri) else MicroscopeDataUri(v) for v in self.microscopes]
+
+        super().__post_init__(**kwargs)
+
 
 @dataclass
-class Microscope(Device):
+class Microscope(MetricsObject):
     """
     A microscope
     """
@@ -289,7 +295,7 @@ class Microscope(Device):
     manufacturer: Optional[str] = None
     model: Optional[str] = None
     serial_number: Optional[str] = None
-    comment: Optional[Union[Union[dict, "Comment"], List[Union[dict, "Comment"]]]] = empty_list()
+    comments: Optional[Union[Union[dict, "Comment"], List[Union[dict, "Comment"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -309,9 +315,7 @@ class Microscope(Device):
         if self.serial_number is not None and not isinstance(self.serial_number, str):
             self.serial_number = str(self.serial_number)
 
-        if not isinstance(self.comment, list):
-            self.comment = [self.comment] if self.comment is not None else []
-        self.comment = [v if isinstance(v, Comment) else Comment(**as_dict(v)) for v in self.comment]
+        self._normalize_inlined_as_dict(slot_name="comments", slot_type=Comment, key_name="datetime", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -467,6 +471,31 @@ class MetricsDatasetCollection(YAMLRoot):
         if not isinstance(self.datasets, list):
             self.datasets = [self.datasets] if self.datasets is not None else []
         self.datasets = [v if isinstance(v, MetricsDatasetDataUri) else MetricsDatasetDataUri(v) for v in self.datasets]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class HarmonizedMetricsDatasetCollection(MetricsDatasetCollection):
+    """
+    A collection of harmonized microscope-metrics datasets. All of the datasets in the collection share the same
+    analysis and processing parameters.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/HarmonizedMetricsDatasetCollection"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/HarmonizedMetricsDatasetCollection"
+    class_name: ClassVar[str] = "HarmonizedMetricsDatasetCollection"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HarmonizedMetricsDatasetCollection
+
+    datasets: Union[Union[str, MetricsDatasetDataUri], List[Union[str, MetricsDatasetDataUri]]] = None
+    dataset_class: str = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.dataset_class):
+            self.MissingRequiredField("dataset_class")
+        if not isinstance(self.dataset_class, str):
+            self.dataset_class = str(self.dataset_class)
 
         super().__post_init__(**kwargs)
 
@@ -3443,6 +3472,9 @@ slots.peak_prominence_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_s
 slots.metricsObject__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="metricsObject__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__data_uri, domain=None, range=URIRef)
 
+slots.microscopeCollection__microscopes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscopes'], name="microscopeCollection__microscopes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscopes'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[str, MicroscopeDataUri], List[Union[str, MicroscopeDataUri]]])
+
 slots.microscope__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="microscope__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__type, domain=None, range=Optional[Union[str, "MicroscopeType"]])
 
@@ -3455,8 +3487,8 @@ slots.microscope__model = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/model']
 slots.microscope__serial_number = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/serial_number'], name="microscope__serial_number", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/serial_number'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__serial_number, domain=None, range=Optional[str])
 
-slots.microscope__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="microscope__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__comment, domain=None, range=Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]])
+slots.microscope__comments = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comments'], name="microscope__comments", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comments'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__comments, domain=None, range=Optional[Union[Union[dict, Comment], List[Union[dict, Comment]]]])
 
 slots.sample__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="sample__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sample__type, domain=None, range=str)
@@ -3493,6 +3525,9 @@ slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], nam
 
 slots.metricsDatasetCollection__datasets = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/datasets'], name="metricsDatasetCollection__datasets", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/datasets'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDatasetCollection__datasets, domain=None, range=Union[Union[str, MetricsDatasetDataUri], List[Union[str, MetricsDatasetDataUri]]])
+
+slots.harmonizedMetricsDatasetCollection__dataset_class = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/dataset_class'], name="harmonizedMetricsDatasetCollection__dataset_class", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/dataset_class'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.harmonizedMetricsDatasetCollection__dataset_class, domain=None, range=str)
 
 slots.metricsDataset__microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscope'], name="metricsDataset__microscope", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscope'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[str, MicroscopeDataUri])

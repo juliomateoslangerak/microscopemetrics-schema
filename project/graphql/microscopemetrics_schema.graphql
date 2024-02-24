@@ -202,13 +202,6 @@ type Comment
     text: String!
   }
 
-interface Device
-  {
-    name: String
-    description: String
-    dataUri: String!
-  }
-
 type Ellipse
   {
     name: String
@@ -412,6 +405,12 @@ type FieldIlluminationProfilesIntensity implements ProfilesIntensity
     intensityProfilesTable: TableAsDict!
   }
 
+type HarmonizedMetricsDatasetCollection
+  {
+    datasets: [MetricsDataset]!
+    datasetClass: String!
+  }
+
 interface Image
   {
     name: String
@@ -609,7 +608,12 @@ type Microscope
     manufacturer: String
     model: String
     serialNumber: String
-    comment: [Comment]
+    comments: [Comment]
+  }
+
+type MicroscopeCollection
+  {
+    microscopes: [Microscope]!
   }
 
 interface NamedObject

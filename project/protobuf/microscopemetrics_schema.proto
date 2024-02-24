@@ -375,6 +375,12 @@ message FieldIlluminationProfilesIntensity
  repeated  mask masks = 0
   tableAsDict intensityProfilesTable = 0
  }
+// A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
+message HarmonizedMetricsDatasetCollection
+ {
+ repeated  metricsDataset datasets = 0
+  string datasetClass = 0
+ }
 // A 2D image in YX order
 message Image2D
  {
@@ -507,7 +513,12 @@ message Microscope
   string manufacturer = 0
   string model = 0
   string serialNumber = 0
- repeated  comment comment = 0
+ repeated  comment comments = 0
+ }
+// A collection of microscopes
+message MicroscopeCollection
+ {
+ repeated  microscope microscopes = 0
  }
 // A point as defined by x and y coordinates
 message Point
