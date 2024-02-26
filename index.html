@@ -669,6 +669,10 @@
 <td>A sample is a standard physical object that is imaged by a microscope</td>
 </tr>
 <tr>
+<td><a href="OMEROObject/">OMEROObject</a></td>
+<td>A mixin for objects that have a mapping to an OMERO object</td>
+</tr>
+<tr>
 <td><a href="ProfilesIntensity/">ProfilesIntensity</a></td>
 <td>Profiles computed on the image. Intended to be used with ROIs.</td>
 </tr>
@@ -868,7 +872,7 @@
 <td>A list of the columns of the table</td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="comment/">comment</a></td>
 <td>A human readable comment about the dataset</td>
 </tr>
 <tr>
@@ -960,7 +964,7 @@
 <td>The excitation wavelength in nm</td>
 </tr>
 <tr>
-<td><a href="experimenter.md">experimenter</a></td>
+<td><a href="experimenter/">experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 </tr>
 <tr>
@@ -1024,7 +1028,11 @@
 <td>The height of the rectangle</td>
 </tr>
 <tr>
-<td><a href="image.md">image</a></td>
+<td><a href="host/">host</a></td>
+<td>The host of the OMERO server</td>
+</tr>
+<tr>
+<td><a href="image/">image</a></td>
 <td>The image or images to which the ROI is applied</td>
 </tr>
 <tr>
@@ -1108,7 +1116,7 @@
 <td>The manufacturer of the microscope</td>
 </tr>
 <tr>
-<td><a href="mask.md">mask</a></td>
+<td><a href="mask/">mask</a></td>
 <td>The mask image</td>
 </tr>
 <tr>
@@ -1172,7 +1180,7 @@
 <td>Median of the Z distances between spots for each permutation of channel A and...</td>
 </tr>
 <tr>
-<td><a href="microscope.md">microscope</a></td>
+<td><a href="microscope/">microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
 </tr>
 <tr>
@@ -1256,6 +1264,14 @@
 <td>Number of argolight spots detected for each channel</td>
 </tr>
 <tr>
+<td><a href="object_id/">object_id</a></td>
+<td>The ID of the OMERO object</td>
+</tr>
+<tr>
+<td><a href="object_type/">object_type</a></td>
+<td>The type of the OMERO object</td>
+</tr>
+<tr>
 <td><a href="orcid/">orcid</a></td>
 <td>The ORCID of the experimenter</td>
 </tr>
@@ -1304,6 +1320,10 @@
 <td>A list of polygons included in the ROI</td>
 </tr>
 <tr>
+<td><a href="port/">port</a></td>
+<td>The port of the OMERO server</td>
+</tr>
+<tr>
 <td><a href="processed/">processed</a></td>
 <td>Has the dataset been processed by microscope-metrics</td>
 </tr>
@@ -1332,7 +1352,7 @@
 <td>Peak prominence used as a threshold to distinguish two peaks</td>
 </tr>
 <tr>
-<td><a href="protocol.md">protocol</a></td>
+<td><a href="protocol/">protocol</a></td>
 <td>The protocol used to prepare the sample</td>
 </tr>
 <tr>
@@ -1468,7 +1488,7 @@
 <td>line ROIs used to compute the intensity profiles</td>
 </tr>
 <tr>
-<td><a href="sample.md">sample</a></td>
+<td><a href="sample/">sample</a></td>
 <td>The sample that was imaged</td>
 </tr>
 <tr>
@@ -1695,12 +1715,16 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="CommentTypes/">CommentTypes</a></td>
+<td><a href="CommentTypesEnum/">CommentTypesEnum</a></td>
 <td>The type of the comment</td>
 </tr>
 <tr>
-<td><a href="MicroscopeType/">MicroscopeType</a></td>
+<td><a href="MicroscopeTypeEnum/">MicroscopeTypeEnum</a></td>
 <td>The type of the microscope</td>
+</tr>
+<tr>
+<td><a href="OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
 </tr>
 </tbody>
 </table>
@@ -1730,7 +1754,7 @@
 <td>Either a date or a datetime</td>
 </tr>
 <tr>
-<td><a href="Datetime.md">Datetime</a></td>
+<td><a href="Datetime/">Datetime</a></td>
 <td>The combination of a date and time</td>
 </tr>
 <tr>
