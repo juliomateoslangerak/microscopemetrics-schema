@@ -229,6 +229,10 @@
 
       ArgolightEDataset : name
 
+      ArgolightEDataset : omero_reference
+
+          ArgolightEDataset --&gt; OMEROReference : omero_reference
+
       ArgolightEDataset : output
 
           ArgolightEDataset --&gt; ArgolightEOutput : output
@@ -311,6 +315,12 @@
 <td><a href="../data_uri/">data_uri</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_reference/">omero_reference</a></td>
+<td>0..1 <br/> <a href="../OMEROReference/">OMEROReference</a></td>
+<td>The reference to the OMERO object</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
@@ -487,6 +497,18 @@ attributes:
     - MetricsObject
     range: string
     required: true
+  omero_reference:
+    name: omero_reference
+    description: The reference to the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: omero_reference
+    owner: ArgolightEDataset
+    domain_of:
+    - MetricsObject
+    range: OMEROReference
+    required: false
   name:
     name: name
     description: The human readable name of an entity

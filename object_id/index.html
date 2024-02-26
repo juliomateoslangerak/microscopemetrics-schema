@@ -332,38 +332,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../OMEROObject/">OMEROObject</a></td>
-<td>A mixin for objects that have a mapping to an OMERO object</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Image/">Image</a></td>
-<td>A base object for all microscope-metrics images</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>An image as a numpy array in TZYXC order</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ImageInline/">ImageInline</a></td>
-<td>A base object for all microscope-metrics images that are stored as arrays in ...</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ImageMask/">ImageMask</a></td>
-<td>A base object for all microscope-metrics masks</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Image2D/">Image2D</a></td>
-<td>A 2D image in YX order</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../Image5D/">Image5D</a></td>
-<td>A 5D image in TZYXC order</td>
+<td><a href="../OMEROReference/">OMEROReference</a></td>
+<td>A reference to an OMERO object</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -390,9 +360,9 @@ description: The ID of the OMERO object
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 alias: object_id
-owner: OMEROObject
+owner: OMEROReference
 domain_of:
-- OMEROObject
+- OMEROReference
 range: integer
 required: true
 

@@ -216,17 +216,11 @@
 
       Image5D : description
 
-      Image5D : host
-
       Image5D : name
 
-      Image5D : object_id
+      Image5D : omero_reference
 
-      Image5D : object_type
-
-          Image5D --&gt; OMEROObjectTypeEnum : object_type
-
-      Image5D : port
+          Image5D --&gt; OMEROReference : omero_reference
 
       Image5D : shape_c
 
@@ -256,7 +250,7 @@
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
-<li><a href="../Image/">Image</a> [ <a href="../OMEROObject/">OMEROObject</a>]<ul>
+<li><a href="../Image/">Image</a><ul>
 <li><a href="../ImageInline/">ImageInline</a><ul>
 <li><strong>Image5D</strong></li>
 </ul>
@@ -352,33 +346,15 @@
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
-<td><a href="../host/">host</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../OMEROObject/">OMEROObject</a></td>
-</tr>
-<tr>
-<td><a href="../port/">port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../OMEROObject/">OMEROObject</a></td>
-</tr>
-<tr>
-<td><a href="../object_type/">object_type</a></td>
-<td>1..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../OMEROObject/">OMEROObject</a></td>
-</tr>
-<tr>
-<td><a href="../object_id/">object_id</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../OMEROObject/">OMEROObject</a></td>
-</tr>
-<tr>
 <td><a href="../data_uri/">data_uri</a></td>
 <td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_reference/">omero_reference</a></td>
+<td>0..1 <br/> <a href="../OMEROReference/">OMEROReference</a></td>
+<td>The reference to the OMERO object</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
@@ -618,51 +594,6 @@ attributes:
     - Image
     range: integer
     required: true
-  host:
-    name: host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: host
-    owner: Image5D
-    domain_of:
-    - OMEROObject
-    range: string
-    required: true
-  port:
-    name: port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    ifabsent: int(4064)
-    alias: port
-    owner: Image5D
-    domain_of:
-    - OMEROObject
-    range: integer
-    required: false
-  object_type:
-    name: object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: object_type
-    owner: Image5D
-    domain_of:
-    - OMEROObject
-    range: OMEROObjectTypeEnum
-    required: true
-  object_id:
-    name: object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: object_id
-    owner: Image5D
-    domain_of:
-    - OMEROObject
-    range: integer
-    required: true
   data_uri:
     name: data_uri
     description: The URI of the object data
@@ -675,6 +606,18 @@ attributes:
     - MetricsObject
     range: string
     required: true
+  omero_reference:
+    name: omero_reference
+    description: The reference to the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: omero_reference
+    owner: Image5D
+    domain_of:
+    - MetricsObject
+    range: OMEROReference
+    required: false
   name:
     name: name
     description: The human readable name of an entity
