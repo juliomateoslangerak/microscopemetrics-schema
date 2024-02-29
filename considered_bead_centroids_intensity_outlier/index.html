@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-considered_bead_centroids_intensity_outlier">Slot: considered_bead_centroids_intensity_outlier</h1>
-<p><em>The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.</em></p>
+<p><em>The centroids of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/considered_bead_centroids_intensity_outlier">microscopemetrics_schema:considered_bead_centroids_intensity_outlier</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -357,9 +357,9 @@
 
 <pre><code class="language-yaml">name: considered_bead_centroids_intensity_outlier
 description: The centroids of the beads detected but considered as being too intense
-  and potentially represent a cluster of beads. Intensity z-score over requested threshold.
-  Measurements not considered for the dataset analysis. One point will be provided
-  per bead. One ROI per channel.
+  and potentially represent a cluster of beads. Intensity robust z-score over requested
+  threshold. Measurements not considered for the dataset analysis. One point will
+  be provided per bead. One ROI per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true

@@ -481,7 +481,7 @@ attributes:
     - ArgolightBInput
     range: ImageAsNumpy
     required: true
-    inlined: false
+    inlined: true
   bit_depth:
     name: bit_depth
     description: Detector bit depth
@@ -581,8 +581,7 @@ attributes:
   lower_threshold_correction_factors:
     name: lower_threshold_correction_factors
     description: 'Input parameter: correction factor for the lower thresholds.  Must
-      be a list with length equal to the number of channels or a single float if all
-      equal'
+      be a list with len = nr of channels or a float if all equal'
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -595,8 +594,7 @@ attributes:
   upper_threshold_correction_factors:
     name: upper_threshold_correction_factors
     description: 'Input parameter: correction factor for the upper thresholds. Must
-      be a tuple with length equal to the number of channels or a single float if
-      all equal'
+      be a tuple with len = nr of channels or a float if all equal'
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true

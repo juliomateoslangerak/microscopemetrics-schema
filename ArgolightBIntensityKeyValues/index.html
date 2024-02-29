@@ -212,10 +212,6 @@
 
       ArgolightBIntensityKeyValues : channel_nr
 
-      ArgolightBIntensityKeyValues : data_uri
-
-      ArgolightBIntensityKeyValues : description
-
       ArgolightBIntensityKeyValues : intensity_max_spot
 
       ArgolightBIntensityKeyValues : intensity_max_spot_roi
@@ -232,13 +228,7 @@
 
       ArgolightBIntensityKeyValues : min_max_intensity_ratio
 
-      ArgolightBIntensityKeyValues : name
-
       ArgolightBIntensityKeyValues : nr_of_spots
-
-      ArgolightBIntensityKeyValues : omero_reference
-
-          ArgolightBIntensityKeyValues --&gt; OMEROReference : omero_reference
 
       ArgolightBIntensityKeyValues : std_mean_intensity
 
@@ -246,14 +236,8 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../KeyValues/">KeyValues</a><ul>
 <li><strong>ArgolightBIntensityKeyValues</strong></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -333,30 +317,6 @@
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Ratio between the integrated intensities between the most intense and the lea...</td>
 <td>direct</td>
-</tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../omero_reference/">omero_reference</a></td>
-<td>0..1 <br/> <a href="../OMEROReference/">OMEROReference</a></td>
-<td>The reference to the OMERO object</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -442,7 +402,7 @@ attributes:
     domain_of:
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyValues
+    - PSFBeadsKeyMeasurements
     - FieldIlluminationKeyValues
     range: integer
   nr_of_spots:
@@ -557,56 +517,6 @@ attributes:
     domain_of:
     - ArgolightBIntensityKeyValues
     range: float
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: ArgolightBIntensityKeyValues
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  omero_reference:
-    name: omero_reference
-    description: The reference to the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    alias: omero_reference
-    owner: ArgolightBIntensityKeyValues
-    domain_of:
-    - MetricsObject
-    range: OMEROReference
-    required: false
-  name:
-    name: name
-    description: The human readable name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: ArgolightBIntensityKeyValues
-    domain_of:
-    - NamedObject
-    - Experimenter
-    range: string
-    required: false
-  description:
-    name: description
-    description: A human readable description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: description
-    owner: ArgolightBIntensityKeyValues
-    domain_of:
-    - NamedObject
-    - Tag
-    range: string
-    required: false
 
 </code></pre>
 </details>

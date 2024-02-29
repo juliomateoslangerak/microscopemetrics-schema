@@ -209,15 +209,15 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Microscope">microscopemetrics_schema:Microscope</a></p>
 <div class="mermaid"> classDiagram
     class Microscope
-      MetricsObject &lt;|-- Microscope
+      Device &lt;|-- Microscope
 
-      Microscope : comments
+      Microscope : comment
 
-          Microscope --&gt; Comment : comments
-
-      Microscope : data_uri
+          Microscope --&gt; Comment : comment
 
       Microscope : description
+
+      Microscope : id
 
       Microscope : manufacturer
 
@@ -225,15 +225,13 @@
 
       Microscope : name
 
-      Microscope : omero_reference
-
-          Microscope --&gt; OMEROReference : omero_reference
-
       Microscope : serial_number
 
       Microscope : type
 
-          Microscope --&gt; MicroscopeTypeEnum : type
+          Microscope --&gt; MicroscopeType : type
+
+      Microscope : url
 
 
 </div>
@@ -241,7 +239,10 @@
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../Device/">Device</a><ul>
 <li><strong>Microscope</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -259,8 +260,14 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The unique identifier for an entity</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../type/">type</a></td>
-<td>0..1 <br/> <a href="../MicroscopeTypeEnum/">MicroscopeTypeEnum</a></td>
+<td>0..1 <br/> <a href="../MicroscopeType/">MicroscopeType</a></td>
 <td>The type of the microscope</td>
 <td>direct</td>
 </tr>
@@ -283,33 +290,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../comments/">comments</a></td>
-<td>0..* <br/> <a href="../Comment/">Comment</a></td>
-<td>A list of comments linked to the microscope</td>
+<td><a href="../url/">url</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URL where the microscope can be found</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
-</tr>
-<tr>
-<td><a href="../omero_reference/">omero_reference</a></td>
-<td>0..1 <br/> <a href="../OMEROReference/">OMEROReference</a></td>
-<td>The reference to the OMERO object</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../comment/">comment</a></td>
+<td>0..* <br/> <a href="../Comment/">Comment</a></td>
+<td>A human readable comment about the microscope</td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -334,12 +335,6 @@
 <tr>
 <td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
 <td><a href="../microscope/">microscope</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
-<td><a href="../MicroscopeCollection/">MicroscopeCollection</a></td>
-<td><a href="../microscopes/">microscopes</a></td>
 <td>range</td>
 <td><a href="./">Microscope</a></td>
 </tr>
@@ -394,14 +389,16 @@
 <pre><code class="language-yaml">name: Microscope
 description: A microscope
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
+is_a: Device
+slots:
+- id
 attributes:
   type:
     name: type
     description: The type of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    range: MicroscopeTypeEnum
+    range: MicroscopeType
     required: false
   manufacturer:
     name: manufacturer
@@ -424,15 +421,23 @@ attributes:
     rank: 1000
     range: string
     required: false
-  comments:
-    name: comments
-    description: A list of comments linked to the microscope
+  url:
+    name: url
+    description: The URL where the microscope can be found
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    range: string
+    required: false
+  comment:
+    name: comment
+    description: A human readable comment about the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
     range: Comment
     required: false
-    inlined: false
+    inlined: true
 
 </code></pre>
 </details>
@@ -441,7 +446,7 @@ attributes:
 <pre><code class="language-yaml">name: Microscope
 description: A microscope
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
+is_a: Device
 attributes:
   type:
     name: type
@@ -453,7 +458,7 @@ attributes:
     domain_of:
     - Microscope
     - Sample
-    range: MicroscopeTypeEnum
+    range: MicroscopeType
     required: false
   manufacturer:
     name: manufacturer
@@ -488,46 +493,50 @@ attributes:
     - Microscope
     range: string
     required: false
-  comments:
-    name: comments
-    description: A list of comments linked to the microscope
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: comments
-    owner: Microscope
-    domain_of:
-    - Microscope
-    range: Comment
-    required: false
-    inlined: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: Microscope
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  omero_reference:
-    name: omero_reference
-    description: The reference to the OMERO object
+  url:
+    name: url
+    description: The URL where the microscope can be found
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    alias: omero_reference
+    alias: url
     owner: Microscope
     domain_of:
-    - MetricsObject
-    range: OMEROReference
+    - Microscope
+    - Protocol
+    range: string
     required: false
+  comment:
+    name: comment
+    description: A human readable comment about the microscope
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: comment
+    owner: Microscope
+    domain_of:
+    - Microscope
+    - MetricsDataset
+    range: Comment
+    required: false
+    inlined: true
+  id:
+    name: id
+    description: The unique identifier for an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: id
+    owner: Microscope
+    domain_of:
+    - Microscope
+    - Tag
+    range: string
+    required: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -536,11 +545,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -548,7 +558,9 @@ attributes:
     owner: Microscope
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 

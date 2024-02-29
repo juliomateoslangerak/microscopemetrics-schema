@@ -200,7 +200,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-metricsobject">Class: MetricsObject</h1>
-<p><em>A base object for all microscope-metrics objects.</em></p>
+<p><em>A base object for all microscope-metrics objects</em></p>
 <ul>
 <li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
 </ul>
@@ -210,25 +210,14 @@
       NamedObject &lt;|-- MetricsObject
 
 
-      MetricsObject &lt;|-- Microscope
-      MetricsObject &lt;|-- MetricsDataset
+      MetricsObject &lt;|-- Device
       MetricsObject &lt;|-- Image
-      MetricsObject &lt;|-- Roi
-      MetricsObject &lt;|-- Shape
-      MetricsObject &lt;|-- KeyValues
-      MetricsObject &lt;|-- Tag
       MetricsObject &lt;|-- Table
 
-
-      MetricsObject : data_uri
 
       MetricsObject : description
 
       MetricsObject : name
-
-      MetricsObject : omero_reference
-
-          MetricsObject --&gt; OMEROReference : omero_reference
 
 
 </div>
@@ -236,13 +225,8 @@
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><strong>MetricsObject</strong><ul>
-<li><a href="../Microscope/">Microscope</a></li>
-<li><a href="../MetricsDataset/">MetricsDataset</a></li>
+<li><a href="../Device/">Device</a></li>
 <li><a href="../Image/">Image</a></li>
-<li><a href="../Roi/">Roi</a></li>
-<li><a href="../Shape/">Shape</a></li>
-<li><a href="../KeyValues/">KeyValues</a></li>
-<li><a href="../Tag/">Tag</a></li>
 <li><a href="../Table/">Table</a></li>
 </ul>
 </li>
@@ -261,27 +245,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../omero_reference/">omero_reference</a></td>
-<td>0..1 <br/> <a href="../OMEROReference/">OMEROReference</a></td>
-<td>The reference to the OMERO object</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -315,65 +287,24 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: MetricsObject
-description: A base object for all microscope-metrics objects.
+description: A base object for all microscope-metrics objects
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: NamedObject
 abstract: true
-attributes:
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    range: string
-    required: true
-  omero_reference:
-    name: omero_reference
-    description: The reference to the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    range: OMEROReference
-    required: false
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: MetricsObject
-description: A base object for all microscope-metrics objects.
+description: A base object for all microscope-metrics objects
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: NamedObject
 abstract: true
 attributes:
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    identifier: true
-    alias: data_uri
-    owner: MetricsObject
-    domain_of:
-    - MetricsObject
-    range: string
-    required: true
-  omero_reference:
-    name: omero_reference
-    description: The reference to the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    alias: omero_reference
-    owner: MetricsObject
-    domain_of:
-    - MetricsObject
-    range: OMEROReference
-    required: false
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -382,11 +313,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -394,7 +326,9 @@ attributes:
     owner: MetricsObject
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 
