@@ -97,6 +97,16 @@ class TestCoreSchemaElements(unittest.TestCase):
         """Test the roi strategy."""
         self.assertIsInstance(roi, mm_schema.Roi)
 
+    @given(st_mm_key_values())
+    def test_key_values(self, key_values):
+        """Test the key_values strategy."""
+        self.assertIsInstance(key_values, mm_schema.KeyValues)
+
+    @given(st_mm_tag())
+    def test_tag(self, tag):
+        """Test the tag strategy."""
+        self.assertIsInstance(tag, mm_schema.Tag)
+
 
 class TestFieldIlluminationSchemaElements(unittest.TestCase):
     """Test the strategies for the FieldIllumination schema elements."""

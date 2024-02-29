@@ -478,6 +478,34 @@ def st_mm_roi(
     )
 
 
+@st.composite
+def st_mm_key_values(
+    draw,
+    key_values=st.dictionaries(
+        max_size=10,
+        keys=st.text(),
+        values=st.one_of(st.text(), st.integers(), st.floats())
+    )
+) -> mm_schema.KeyValues:
+    return mm_schema.KeyValues(
+        **draw(key_values)
+    )
+
+
+@st.composite
+def st_mm_tag(
+    draw,
+    id=st.integers(min_value=1, max_value=1000),
+    text=st.text(
+        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
+    ),
+) -> mm_schema.Tag:
+    return mm_schema.Tag(
+        id=draw(id),
+        text=draw(text),
+    )
+
+
 # Field Illumination
 @st.composite
 def st_mm_field_illumination_input(
