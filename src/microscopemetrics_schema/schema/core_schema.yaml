@@ -872,7 +872,7 @@ slots:
 
 
 enums:
-  CommentTypes:
+  CommentTypesEnum:
     description: The type of the comment
     permissible_values:
       ACQUISITION:
@@ -882,7 +882,7 @@ enums:
       OTHER:
         description: The comment is referring to something else
 
-  MicroscopeType:
+  MicroscopeTypeEnum:
     description: The type of the microscope
     permissible_values:
       WIDE-FIELD:
