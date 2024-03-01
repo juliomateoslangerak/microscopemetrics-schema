@@ -55,7 +55,7 @@ classes:
     description: A microscope
     attributes:
       type:
-        range: MicroscopeType
+        range: MicroscopeTypeEnum
         description: The type of the microscope
         required: false
       manufacturer:
@@ -137,7 +137,7 @@ classes:
         required: false
         multivalued: false
       comment_type:
-        range: CommentTypes
+        range: CommentTypesEnum
         description: The type of the comment
         required: true
         multivalued: false
