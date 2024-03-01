@@ -345,19 +345,6 @@ classes:
         multivalued: true
         required: true
 
-#  PixelSeries:
-#    description: >-
-#      A series whose values represent pixels or voxels or a single integer defining the shape of the dimension
-#    implements:
-#      - linkml:OneDimensionalSeries
-#    attributes:
-#      values:
-#        range: integer
-#        multivalued: true
-#        implements:
-#          - linkml:elements
-#        required: true
-#
   ChannelSeries:
     description: A series whose values represent channel
     implements:
