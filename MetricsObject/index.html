@@ -382,6 +382,16 @@ attributes:
     rank: 1000
     range: integer
     required: true
+unique_keys:
+  omero_uri:
+    unique_key_name: omero_uri
+    unique_key_slots:
+    - omero_host
+    - omero_port
+    - omero_object_type
+    - omero_object_id
+    description: A metrics object is uniquely identified by a combination of its OMERO
+      attributes
 
 </code></pre>
 </details>
@@ -477,6 +487,16 @@ attributes:
     - Tag
     range: string
     required: false
+unique_keys:
+  omero_uri:
+    unique_key_name: omero_uri
+    unique_key_slots:
+    - omero_host
+    - omero_port
+    - omero_object_type
+    - omero_object_id
+    description: A metrics object is uniquely identified by a combination of its OMERO
+      attributes
 
 </code></pre>
 </details>
