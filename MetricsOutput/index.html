@@ -217,6 +217,24 @@
       MetricsOutput &lt;|-- PSFBeadsOutput
       MetricsOutput &lt;|-- FieldIlluminationOutput
 
+      MetricsOutput : comment
+
+          MetricsOutput --&gt; Comment : comment
+
+      MetricsOutput : errors
+
+      MetricsOutput : processing_application
+
+      MetricsOutput : processing_datetime
+
+      MetricsOutput : processing_entity
+
+      MetricsOutput : processing_log
+
+      MetricsOutput : processing_version
+
+      MetricsOutput : warnings
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -241,10 +259,52 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../processing_application/">processing_application</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
+<td>The application used to process the dataset</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../processing_version/">processing_version</a></td>
+<td>1..* <br/> <a href="../String/">String</a></td>
+<td>The version of the application used to process the dataset</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../processing_entity/">processing_entity</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The entity that processed the dataset</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../processing_datetime/">processing_datetime</a></td>
+<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../processing_log/">processing_log</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The log of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../warnings/">warnings</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The warnings of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../errors/">errors</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>The errors of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../comment/">comment</a></td>
+<td>0..1 <br/> <a href="../Comment/">Comment</a></td>
+<td>A human readable comment about the dataset</td>
+<td>direct</td>
 </tr>
 </tbody>
 </table>
@@ -299,6 +359,71 @@
 description: An abstract class for analysis outputs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 abstract: true
+attributes:
+  processing_application:
+    name: processing_application
+    description: The application used to process the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: true
+  processing_version:
+    name: processing_version
+    description: The version of the application used to process the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: true
+  processing_entity:
+    name: processing_entity
+    description: The entity that processed the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: false
+  processing_datetime:
+    name: processing_datetime
+    description: The datetime of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    range: datetime
+    required: true
+  processing_log:
+    name: processing_log
+    description: The log of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    range: string
+    required: false
+  warnings:
+    name: warnings
+    description: The warnings of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: false
+  errors:
+    name: errors
+    description: The errors of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: string
+    required: false
+  comment:
+    name: comment
+    description: A human readable comment about the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    range: Comment
+    required: false
 
 </code></pre>
 </details>
@@ -308,6 +433,103 @@ abstract: true
 description: An abstract class for analysis outputs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 abstract: true
+attributes:
+  processing_application:
+    name: processing_application
+    description: The application used to process the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: processing_application
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: true
+  processing_version:
+    name: processing_version
+    description: The version of the application used to process the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: processing_version
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: true
+  processing_entity:
+    name: processing_entity
+    description: The entity that processed the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: processing_entity
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  processing_datetime:
+    name: processing_datetime
+    description: The datetime of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: processing_datetime
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: datetime
+    required: true
+  processing_log:
+    name: processing_log
+    description: The log of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: processing_log
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  warnings:
+    name: warnings
+    description: The warnings of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: warnings
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  errors:
+    name: errors
+    description: The errors of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: errors
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: string
+    required: false
+  comment:
+    name: comment
+    description: A human readable comment about the dataset
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: comment
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: Comment
+    required: false
 
 </code></pre>
 </details>

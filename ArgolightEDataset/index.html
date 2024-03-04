@@ -211,9 +211,7 @@
 
       ArgolightEDataset : acquisition_datetime
 
-      ArgolightEDataset : comment
-
-          ArgolightEDataset --&gt; Comment : comment
+      ArgolightEDataset : data_uri
 
       ArgolightEDataset : description
 
@@ -231,15 +229,21 @@
 
       ArgolightEDataset : name
 
+      ArgolightEDataset : omero_host
+
+      ArgolightEDataset : omero_object_id
+
+      ArgolightEDataset : omero_object_type
+
+          ArgolightEDataset --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      ArgolightEDataset : omero_port
+
       ArgolightEDataset : output
 
           ArgolightEDataset --&gt; ArgolightEOutput : output
 
       ArgolightEDataset : processed
-
-      ArgolightEDataset : processing_datetime
-
-      ArgolightEDataset : processing_log
 
       ArgolightEDataset : sample
 
@@ -250,8 +254,11 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../MetricsDataset/">MetricsDataset</a><ul>
 <li><strong>ArgolightEDataset</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -270,14 +277,14 @@
 <tbody>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>1..1 <br/> <a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td>An input element for the analysis</td>
+<td>0..1 <br/> <a href="../ArgolightEInput/">ArgolightEInput</a></td>
+<td></td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../output/">output</a></td>
 <td>0..1 <br/> <a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td>An output element from the analysis</td>
+<td></td>
 <td>direct</td>
 </tr>
 <tr>
@@ -311,33 +318,45 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../processing_datetime/">processing_datetime</a></td>
-<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
-<td>The datetime of the processing by microscope-metrics</td>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
-<td><a href="../processing_log/">processing_log</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The log of the processing by microscope-metrics</td>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
-<td>0..* <br/> <a href="../Comment/">Comment</a></td>
-<td>A human readable comment about the dataset</td>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>1..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
+<td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
+<td>A human readable description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -383,31 +402,12 @@ is_a: MetricsDataset
 attributes:
   input:
     name: input
-    description: An input element for the analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    multivalued: false
     range: ArgolightEInput
-    required: true
-    inlined: true
   output:
     name: output
-    description: An output element from the analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    multivalued: false
     range: ArgolightEOutput
-    required: false
-    inlined: true
-rules:
-- preconditions:
-    slot_conditions:
-      processed:
-        name: processed
-        equals_number: 1
-  postconditions:
-    slot_conditions:
-      output:
-        name: output
-        required: true
 
 </code></pre>
 </details>
@@ -426,9 +426,7 @@ is_a: MetricsDataset
 attributes:
   input:
     name: input
-    description: An input element for the analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    multivalued: false
     alias: input
     owner: ArgolightEDataset
     domain_of:
@@ -438,13 +436,9 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: ArgolightEInput
-    required: true
-    inlined: true
   output:
     name: output
-    description: An output element from the analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    multivalued: false
     alias: output
     owner: ArgolightEDataset
     domain_of:
@@ -454,8 +448,6 @@ attributes:
     - PSFBeadsDataset
     - FieldIlluminationDataset
     range: ArgolightEOutput
-    required: false
-    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
@@ -517,44 +509,67 @@ attributes:
     - MetricsDataset
     range: boolean
     required: true
-  processing_datetime:
-    name: processing_datetime
-    description: The datetime of the processing by microscope-metrics
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
-    alias: processing_datetime
+    string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
+    identifier: true
+    alias: data_uri
     owner: ArgolightEDataset
     domain_of:
-    - MetricsDataset
-    range: datetime
-  processing_log:
-    name: processing_log
-    description: The log of the processing by microscope-metrics
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    alias: processing_log
-    owner: ArgolightEDataset
-    domain_of:
-    - MetricsDataset
+    - MetricsObject
     range: string
-  comment:
-    name: comment
-    description: A human readable comment about the dataset
+    required: true
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: true
-    alias: comment
+    rank: 1000
+    alias: omero_host
     owner: ArgolightEDataset
     domain_of:
-    - Microscope
-    - MetricsDataset
-    range: Comment
+    - MetricsObject
+    range: string
+    required: true
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    ifabsent: int(4064)
+    alias: omero_port
+    owner: ArgolightEDataset
+    domain_of:
+    - MetricsObject
+    range: integer
     required: false
-    inlined: true
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: ArgolightEDataset
+    domain_of:
+    - MetricsObject
+    range: OMEROObjectTypeEnum
+    required: true
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: ArgolightEDataset
+    domain_of:
+    - MetricsObject
+    range: integer
+    required: true
   name:
     name: name
-    description: The name of an entity
+    description: The human readable name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -563,12 +578,11 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
-    - Column
     range: string
     required: false
   description:
     name: description
-    description: A description of an entity
+    description: A human readable description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -576,22 +590,9 @@ attributes:
     owner: ArgolightEDataset
     domain_of:
     - NamedObject
-    - Roi
     - Tag
-    - Column
     range: string
     required: false
-rules:
-- preconditions:
-    slot_conditions:
-      processed:
-        name: processed
-        equals_number: 1
-  postconditions:
-    slot_conditions:
-      output:
-        name: output
-        required: true
 
 </code></pre>
 </details>

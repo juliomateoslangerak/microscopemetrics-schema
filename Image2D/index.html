@@ -208,11 +208,21 @@
 
       Image2D : data
 
+      Image2D : data_uri
+
       Image2D : description
 
-      Image2D : image_url
-
       Image2D : name
+
+      Image2D : omero_host
+
+      Image2D : omero_object_id
+
+      Image2D : omero_object_type
+
+          Image2D --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      Image2D : omero_port
 
       Image2D : shape_c
 
@@ -224,7 +234,7 @@
 
       Image2D : shape_z
 
-      Image2D : source_image_url
+      Image2D : source_image_uri
 
       Image2D : voxel_size_x_micron
 
@@ -268,13 +278,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../image_url/">image_url</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>An URL linking to the image</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../source_image_url/">source_image_url</a></td>
+<td><a href="../source_image_uri/">source_image_uri</a></td>
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>A list of URLs linking to the images that were used as a source</td>
 <td><a href="../Image/">Image</a></td>
@@ -328,15 +332,45 @@
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>1..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
+<td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
+<td>A human readable description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -413,26 +447,13 @@ attributes:
     - Image5D
     range: float
     required: true
-  image_url:
-    name: image_url
-    description: An URL linking to the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    alias: image_url
-    owner: Image2D
-    domain_of:
-    - Image
-    range: string
-    required: true
-  source_image_url:
-    name: source_image_url
+  source_image_uri:
+    name: source_image_uri
     description: A list of URLs linking to the images that were used as a source
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: source_image_url
+    alias: source_image_uri
     owner: Image2D
     domain_of:
     - Image
@@ -537,9 +558,67 @@ attributes:
     - Image
     range: integer
     required: true
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
+    identifier: true
+    alias: data_uri
+    owner: Image2D
+    domain_of:
+    - MetricsObject
+    range: string
+    required: true
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_host
+    owner: Image2D
+    domain_of:
+    - MetricsObject
+    range: string
+    required: true
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    ifabsent: int(4064)
+    alias: omero_port
+    owner: Image2D
+    domain_of:
+    - MetricsObject
+    range: integer
+    required: false
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: Image2D
+    domain_of:
+    - MetricsObject
+    range: OMEROObjectTypeEnum
+    required: true
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: Image2D
+    domain_of:
+    - MetricsObject
+    range: integer
+    required: true
   name:
     name: name
-    description: The name of an entity
+    description: The human readable name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -548,12 +627,11 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
-    - Column
     range: string
     required: false
   description:
     name: description
-    description: A description of an entity
+    description: A human readable description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -561,9 +639,7 @@ attributes:
     owner: Image2D
     domain_of:
     - NamedObject
-    - Roi
     - Tag
-    - Column
     range: string
     required: false
 

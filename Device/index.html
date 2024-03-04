@@ -213,6 +213,8 @@
       Device &lt;|-- Microscope
 
 
+      Device : data_uri
+
       Device : description
 
       Device : name
@@ -244,15 +246,21 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
+<td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
+<td>A human readable description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -301,9 +309,21 @@ from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-sc
 is_a: MetricsObject
 abstract: true
 attributes:
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    identifier: true
+    alias: data_uri
+    owner: Device
+    domain_of:
+    - MetricsObject
+    range: string
+    required: true
   name:
     name: name
-    description: The name of an entity
+    description: The human readable name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -312,12 +332,11 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
-    - Column
     range: string
     required: false
   description:
     name: description
-    description: A description of an entity
+    description: A human readable description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -325,9 +344,7 @@ attributes:
     owner: Device
     domain_of:
     - NamedObject
-    - Roi
     - Tag
-    - Column
     range: string
     required: false
 
