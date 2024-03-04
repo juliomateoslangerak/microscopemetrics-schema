@@ -33,17 +33,37 @@ classes:
     is_a: NamedObject
     abstract: true
     description: A base object for all microscope-metrics objects.
+    unique_keys:
+      omero_uri:
+        description: A metrics object is uniquely identified by a combination of its OMERO attributes
+        unique_key_slots:
+          - omero_host
+          - omero_port
+          - omero_object_type
+          - omero_object_id
     attributes:
       data_uri:
         range: string
         description: The URI of the object data
         required: true
-        identifier: true
-      omero_reference:
-        range: OMEROReference
-        description: The reference to the OMERO object
-        required: false
-        multivalued: false
+        string_serialization: "omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}"
+      omero_host:
+        range: string
+        description: The host of the OMERO server
+      omero_port:
+        range: integer
+        description: The port of the OMERO server
+      omero_object_type:
+        range: OMEROObjectTypeEnum
+        description: The type of the OMERO object
+      omero_object_id:
+        range: integer
+        description: The ID of the OMERO object
+#      omero_reference:
+#        range: OMEROReference
+#        description: The reference to the OMERO object
+#        required: false
+#        multivalued: false
 
   OMEROReference:
     description: A reference to an OMERO object

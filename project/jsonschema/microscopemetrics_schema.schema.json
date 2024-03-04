@@ -44,6 +44,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -67,7 +83,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ArgolightBCentersOfMass",
             "type": "object"
@@ -117,6 +136,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "output": {
                     "$ref": "#/$defs/ArgolightBOutput"
                 },
@@ -132,7 +167,10 @@
             "required": [
                 "microscope",
                 "processed",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "then": {
                 "properties": {
@@ -217,6 +255,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "std_3d_dist": {
                     "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
                     "items": {
@@ -233,7 +287,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ArgolightBDistanceKeyValues",
             "type": "object"
@@ -396,6 +453,22 @@
                     },
                     "type": "array"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "std_mean_intensity": {
                     "description": "Standard deviation of all spots integrated intensity for each channel",
                     "items": {
@@ -405,7 +478,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ArgolightBIntensityKeyValues",
             "type": "object"
@@ -543,6 +619,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "output": {
                     "$ref": "#/$defs/ArgolightEOutput"
                 },
@@ -558,7 +650,10 @@
             "required": [
                 "microscope",
                 "processed",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "then": {
                 "properties": {
@@ -651,6 +746,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "peak_height_A": {
                     "description": "Height of first peak in the intensity profiles. One value per channel",
                     "items": {
@@ -709,7 +820,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ArgolightEKeyValues",
             "type": "object"
@@ -904,7 +1018,7 @@
                     "type": "string"
                 },
                 "comment_type": {
-                    "$ref": "#/$defs/CommentTypes",
+                    "$ref": "#/$defs/CommentTypesEnum",
                     "description": "The type of the comment"
                 },
                 "datetime": {
@@ -925,14 +1039,14 @@
             "title": "Comment",
             "type": "object"
         },
-        "CommentTypes": {
+        "CommentTypesEnum": {
             "description": "The type of the comment",
             "enum": [
                 "ACQUISITION",
                 "PROCESSING",
                 "OTHER"
             ],
-            "title": "CommentTypes",
+            "title": "CommentTypesEnum",
             "type": "string"
         },
         "Ellipse": {
@@ -958,6 +1072,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -997,7 +1127,10 @@
                 "y",
                 "x_rad",
                 "y_rad",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -1025,6 +1158,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -1063,7 +1212,10 @@
                 "x",
                 "y",
                 "x_rad",
-                "y_rad"
+                "y_rad",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -1132,6 +1284,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -1155,7 +1323,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationCentersFitted",
             "type": "object"
@@ -1204,6 +1375,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -1227,7 +1414,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationCentersGeometric",
             "type": "object"
@@ -1276,6 +1466,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -1299,7 +1505,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationCentersMaxIntensity",
             "type": "object"
@@ -1348,6 +1557,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -1371,7 +1596,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationCentersOfMass",
             "type": "object"
@@ -1424,6 +1652,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -1448,7 +1692,10 @@
             },
             "required": [
                 "measurements_table",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationCornersIntensities",
             "type": "object"
@@ -1498,6 +1745,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "output": {
                     "$ref": "#/$defs/FieldIlluminationOutput"
                 },
@@ -1513,7 +1776,10 @@
             "required": [
                 "microscope",
                 "processed",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "then": {
                 "properties": {
@@ -1874,6 +2140,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
                     "items": {
@@ -1918,7 +2200,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationKeyValues",
             "type": "object"
@@ -2089,6 +2374,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -2113,7 +2414,10 @@
             },
             "required": [
                 "intensity_profiles_table",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "FieldIlluminationProfilesIntensity",
             "type": "object"
@@ -2163,6 +2467,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
                     "type": "integer"
@@ -2210,7 +2530,10 @@
                 "shape_z",
                 "shape_c",
                 "shape_t",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Image2D",
             "type": "object"
@@ -2239,6 +2562,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -2290,7 +2629,10 @@
                 "shape_z",
                 "shape_c",
                 "shape_t",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Image5D",
             "type": "object"
@@ -2313,6 +2655,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -2360,7 +2718,10 @@
                 "shape_z",
                 "shape_c",
                 "shape_t",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ImageAsNumpy",
             "type": "object"
@@ -2386,6 +2747,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -2434,7 +2811,10 @@
                 "shape_z",
                 "shape_c",
                 "shape_t",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "ImageMask",
             "type": "object"
@@ -2462,6 +2842,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -2501,7 +2897,10 @@
                 "y1",
                 "x2",
                 "y2",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Line",
             "type": "object"
@@ -2529,6 +2928,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -2567,7 +2982,10 @@
                 "x1",
                 "y1",
                 "x2",
-                "y2"
+                "y2",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Line",
             "type": "object"
@@ -2600,6 +3018,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -2628,7 +3062,10 @@
             "required": [
                 "y",
                 "x",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Mask",
             "type": "object"
@@ -2691,6 +3128,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "output": {
                     "$ref": "#/$defs/MetricsOutput",
                     "description": "The output of the analysis"
@@ -2708,7 +3161,10 @@
                 "microscope",
                 "processed",
                 "input",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "then": {
                 "properties": {
@@ -2770,17 +3226,36 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "serial_number": {
                     "description": "The serial number of the microscope",
                     "type": "string"
                 },
                 "type": {
-                    "$ref": "#/$defs/MicroscopeType",
+                    "$ref": "#/$defs/MicroscopeTypeEnum",
                     "description": "The type of the microscope"
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Microscope",
             "type": "object"
@@ -2803,7 +3278,7 @@
             "title": "MicroscopeCollection",
             "type": "object"
         },
-        "MicroscopeType": {
+        "MicroscopeTypeEnum": {
             "description": "The type of the microscope",
             "enum": [
                 "WIDE-FIELD",
@@ -2812,8 +3287,48 @@
                 "3D-SIM",
                 "OTHER"
             ],
-            "title": "MicroscopeType",
+            "title": "MicroscopeTypeEnum",
             "type": "string"
+        },
+        "OMEROObjectTypeEnum": {
+            "description": "The type of the OMERO object",
+            "enum": [
+                "IMAGE",
+                "DATASET",
+                "PROJECT",
+                "GROUP"
+            ],
+            "title": "OMEROObjectTypeEnum",
+            "type": "string"
+        },
+        "OMEROReference": {
+            "additionalProperties": false,
+            "description": "A reference to an OMERO object",
+            "properties": {
+                "host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "host",
+                "object_type",
+                "object_id"
+            ],
+            "title": "OMEROReference",
+            "type": "object"
         },
         "PSFBeadsCenters": {
             "additionalProperties": false,
@@ -2859,6 +3374,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -2882,7 +3413,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "PSFBeadsCenters",
             "type": "object"
@@ -2932,6 +3466,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "output": {
                     "$ref": "#/$defs/PSFBeadsOutput"
                 },
@@ -2947,7 +3497,10 @@
             "required": [
                 "microscope",
                 "processed",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "then": {
                 "properties": {
@@ -3169,6 +3722,22 @@
                     },
                     "type": "array"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "resolution_mean_fwhm_lateral_asymmetry_ratio": {
                     "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
                     "items": {
@@ -3318,7 +3887,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "PSFBeadsKeyValues",
             "type": "object"
@@ -3491,6 +4063,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -3519,7 +4107,10 @@
             "required": [
                 "y",
                 "x",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Point",
             "type": "object"
@@ -3548,6 +4139,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -3575,7 +4182,10 @@
             },
             "required": [
                 "y",
-                "x"
+                "x",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Point",
             "type": "object"
@@ -3608,6 +4218,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -3635,7 +4261,10 @@
             "required": [
                 "vertexes",
                 "is_open",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Polygon",
             "type": "object"
@@ -3668,6 +4297,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -3694,7 +4339,10 @@
             },
             "required": [
                 "vertexes",
-                "is_open"
+                "is_open",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Polygon",
             "type": "object"
@@ -3762,6 +4410,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
@@ -3796,7 +4460,10 @@
                 "y",
                 "w",
                 "h",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Rectangle",
             "type": "object"
@@ -3828,6 +4495,22 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 },
                 "stroke_color": {
                     "$ref": "#/$defs/Color",
@@ -3862,7 +4545,10 @@
                 "x",
                 "y",
                 "w",
-                "h"
+                "h",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Rectangle",
             "type": "object"
@@ -3911,6 +4597,22 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                },
                 "points": {
                     "additionalProperties": {
                         "$ref": "#/$defs/Point__identifier_optional"
@@ -3934,7 +4636,10 @@
                 }
             },
             "required": [
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "Roi",
             "type": "object"
@@ -3986,11 +4691,30 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
                 }
             },
             "required": [
                 "df",
-                "data_uri"
+                "data_uri",
+                "omero_host",
+                "omero_object_type",
+                "omero_object_id"
             ],
             "title": "TableAsPandasDF",
             "type": "object"
@@ -4081,6 +4805,22 @@
             "description": "The human readable name of an entity",
             "type": "string"
         },
+        "omero_host": {
+            "description": "The host of the OMERO server",
+            "type": "string"
+        },
+        "omero_object_id": {
+            "description": "The ID of the OMERO object",
+            "type": "integer"
+        },
+        "omero_object_type": {
+            "$ref": "#/$defs/OMEROObjectTypeEnum",
+            "description": "The type of the OMERO object"
+        },
+        "omero_port": {
+            "description": "The port of the OMERO server",
+            "type": "integer"
+        },
         "output": {
             "$ref": "#/$defs/MetricsOutput",
             "description": "The output of the analysis"
@@ -4098,7 +4838,10 @@
         "microscope",
         "processed",
         "input",
-        "data_uri"
+        "data_uri",
+        "omero_host",
+        "omero_object_type",
+        "omero_object_id"
     ],
     "then": {
         "properties": {

@@ -3,6 +3,10 @@ message ArgolightBCentersOfMass
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -17,6 +21,10 @@ message ArgolightBDataset
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
@@ -30,6 +38,10 @@ message ArgolightBDistanceKeyValues
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  integer channelA = 0
  repeated  integer channelB = 0
  repeated  float mean3dDist = 0
@@ -59,6 +71,10 @@ message ArgolightBIntensityKeyValues
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfSpots = 0
  repeated  float intensityMaxSpot = 0
@@ -97,6 +113,10 @@ message ArgolightEDataset
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
@@ -119,6 +139,10 @@ message ArgolightEKeyValues
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  integer channelNr = 0
  repeated  integer focusSlice = 0
  repeated  float rayleighResolutionPixels = 0
@@ -178,7 +202,7 @@ message Comment
  {
   datetime datetime = 0
   experimenter author = 0
-  commentTypes commentType = 0
+  commentTypesEnum commentType = 0
   string text = 0
  }
 // An ellipse as defined by x, y coordinates and x and y radii
@@ -187,6 +211,10 @@ message Ellipse
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -209,6 +237,10 @@ message FieldIlluminationCentersFitted
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -222,6 +254,10 @@ message FieldIlluminationCentersGeometric
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -235,6 +271,10 @@ message FieldIlluminationCentersMaxIntensity
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -248,6 +288,10 @@ message FieldIlluminationCentersOfMass
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -261,6 +305,10 @@ message FieldIlluminationCornersIntensities
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -276,6 +324,10 @@ message FieldIlluminationDataset
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
@@ -298,6 +350,10 @@ message FieldIlluminationKeyValues
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  integer channelNr = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
@@ -366,6 +422,10 @@ message FieldIlluminationProfilesIntensity
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -387,6 +447,10 @@ message Image2D
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
@@ -404,6 +468,10 @@ message Image5D
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
@@ -423,6 +491,10 @@ message ImageAsNumpy
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
@@ -440,6 +512,10 @@ message ImageMask
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  string sourceImageUri = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
@@ -457,6 +533,10 @@ message Line
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -474,6 +554,10 @@ message Mask
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -490,6 +574,10 @@ message MetricsDataset
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
@@ -509,7 +597,11 @@ message Microscope
   string name = 0
   string description = 0
   string dataUri = 0
-  microscopeType type = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
+  microscopeTypeEnum type = 0
   string manufacturer = 0
   string model = 0
   string serialNumber = 0
@@ -520,12 +612,24 @@ message MicroscopeCollection
  {
  repeated  microscope microscopes = 0
  }
+// A reference to an OMERO object
+message OMEROReference
+ {
+  string host = 0
+  integer port = 0
+  oMEROObjectTypeEnum objectType = 0
+  integer objectId = 0
+ }
 // A point as defined by x and y coordinates
 message Point
  {
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -541,6 +645,10 @@ message Polygon
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -564,6 +672,10 @@ message PSFBeadsCenters
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -578,6 +690,10 @@ message PSFBeadsDataset
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   microscope microscope = 0
   sample sample = 0
  repeated  experimenter experimenter = 0
@@ -604,6 +720,10 @@ message PSFBeadsKeyValues
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
  repeated  integer nrOfBeadsDiscardedLateralEdge = 0
@@ -675,6 +795,10 @@ message Rectangle
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -692,6 +816,10 @@ message Roi
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
  repeated  image image = 0
  repeated  point points = 0
  repeated  line lines = 0
@@ -714,6 +842,10 @@ message TableAsPandasDF
   string name = 0
   string description = 0
   string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
   metaObject df = 0
  }
 // A series whose values represent time

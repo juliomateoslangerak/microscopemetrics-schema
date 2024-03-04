@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-02-25T14:45:39
+# Generation date: 2024-03-04T16:06:32
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -244,12 +244,73 @@ class MetricsObject(NamedObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsObject
 
     data_uri: Union[str, MetricsObjectDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
+    omero_port: Optional[int] = 4064
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
             self.MissingRequiredField("data_uri")
         if not isinstance(self.data_uri, MetricsObjectDataUri):
             self.data_uri = MetricsObjectDataUri(self.data_uri)
+
+        if self._is_empty(self.omero_host):
+            self.MissingRequiredField("omero_host")
+        if not isinstance(self.omero_host, str):
+            self.omero_host = str(self.omero_host)
+
+        if self._is_empty(self.omero_object_type):
+            self.MissingRequiredField("omero_object_type")
+        if not isinstance(self.omero_object_type, OMEROObjectTypeEnum):
+            self.omero_object_type = OMEROObjectTypeEnum(self.omero_object_type)
+
+        if self._is_empty(self.omero_object_id):
+            self.MissingRequiredField("omero_object_id")
+        if not isinstance(self.omero_object_id, int):
+            self.omero_object_id = int(self.omero_object_id)
+
+        if self.omero_port is not None and not isinstance(self.omero_port, int):
+            self.omero_port = int(self.omero_port)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class OMEROReference(YAMLRoot):
+    """
+    A reference to an OMERO object
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/OMEROReference"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/OMEROReference"
+    class_name: ClassVar[str] = "OMEROReference"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.OMEROReference
+
+    host: str = None
+    object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    object_id: int = None
+    port: Optional[int] = 4064
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.host):
+            self.MissingRequiredField("host")
+        if not isinstance(self.host, str):
+            self.host = str(self.host)
+
+        if self._is_empty(self.object_type):
+            self.MissingRequiredField("object_type")
+        if not isinstance(self.object_type, OMEROObjectTypeEnum):
+            self.object_type = OMEROObjectTypeEnum(self.object_type)
+
+        if self._is_empty(self.object_id):
+            self.MissingRequiredField("object_id")
+        if not isinstance(self.object_id, int):
+            self.object_id = int(self.object_id)
+
+        if self.port is not None and not isinstance(self.port, int):
+            self.port = int(self.port)
 
         super().__post_init__(**kwargs)
 
@@ -291,7 +352,10 @@ class Microscope(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Microscope
 
     data_uri: Union[str, MicroscopeDataUri] = None
-    type: Optional[Union[str, "MicroscopeType"]] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
+    type: Optional[Union[str, "MicroscopeTypeEnum"]] = None
     manufacturer: Optional[str] = None
     model: Optional[str] = None
     serial_number: Optional[str] = None
@@ -303,8 +367,8 @@ class Microscope(MetricsObject):
         if not isinstance(self.data_uri, MicroscopeDataUri):
             self.data_uri = MicroscopeDataUri(self.data_uri)
 
-        if self.type is not None and not isinstance(self.type, MicroscopeType):
-            self.type = MicroscopeType(self.type)
+        if self.type is not None and not isinstance(self.type, MicroscopeTypeEnum):
+            self.type = MicroscopeTypeEnum(self.type)
 
         if self.manufacturer is not None and not isinstance(self.manufacturer, str):
             self.manufacturer = str(self.manufacturer)
@@ -425,7 +489,7 @@ class Comment(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
 
     datetime: Union[str, XSDDateTime] = None
-    comment_type: Union[str, "CommentTypes"] = None
+    comment_type: Union[str, "CommentTypesEnum"] = None
     text: str = None
     author: Optional[Union[str, ExperimenterOrcid]] = None
 
@@ -437,8 +501,8 @@ class Comment(YAMLRoot):
 
         if self._is_empty(self.comment_type):
             self.MissingRequiredField("comment_type")
-        if not isinstance(self.comment_type, CommentTypes):
-            self.comment_type = CommentTypes(self.comment_type)
+        if not isinstance(self.comment_type, CommentTypesEnum):
+            self.comment_type = CommentTypesEnum(self.comment_type)
 
         if self._is_empty(self.text):
             self.MissingRequiredField("text")
@@ -513,6 +577,9 @@ class MetricsDataset(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDataset
 
     data_uri: Union[str, MetricsDatasetDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     microscope: Union[str, MicroscopeDataUri] = None
     input: Union[dict, "MetricsInput"] = None
     processed: Union[bool, Bool] = False
@@ -643,6 +710,9 @@ class Image(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image
 
     data_uri: Union[str, ImageDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
@@ -708,6 +778,9 @@ class ImageAsNumpy(Image):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageAsNumpy
 
     data_uri: Union[str, ImageAsNumpyDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
@@ -737,6 +810,9 @@ class ImageInline(Image):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageInline
 
     data_uri: Union[str, ImageInlineDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
@@ -756,6 +832,9 @@ class ImageMask(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageMask
 
     data_uri: Union[str, ImageMaskDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     data: Union[Union[bool, Bool], List[Union[bool, Bool]]] = None
@@ -791,6 +870,9 @@ class Image2D(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image2D
 
     data_uri: Union[str, Image2DDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     data: Union[float, List[float]] = None
@@ -826,6 +908,9 @@ class Image5D(ImageInline):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image5D
 
     data_uri: Union[str, Image5DDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     shape_x: int = None
     shape_y: int = None
     data: Union[float, List[float]] = None
@@ -942,6 +1027,9 @@ class Roi(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Roi
 
     data_uri: Union[str, RoiDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     image: Optional[Union[Union[str, ImageDataUri], List[Union[str, ImageDataUri]]]] = empty_list()
     points: Optional[Union[Dict[Union[str, PointDataUri], Union[dict, "Point"]], List[Union[dict, "Point"]]]] = empty_dict()
     lines: Optional[Union[Dict[Union[str, LineDataUri], Union[dict, "Line"]], List[Union[dict, "Line"]]]] = empty_dict()
@@ -990,6 +1078,9 @@ class Shape(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Shape
 
     data_uri: Union[str, ShapeDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     z: Optional[float] = None
     c: Optional[int] = None
     t: Optional[int] = None
@@ -1032,6 +1123,9 @@ class Point(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Point
 
     data_uri: Union[str, PointDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     y: float = None
     x: float = None
 
@@ -1067,6 +1161,9 @@ class Line(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Line
 
     data_uri: Union[str, LineDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     x1: float = None
     y1: float = None
     x2: float = None
@@ -1114,6 +1211,9 @@ class Rectangle(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Rectangle
 
     data_uri: Union[str, RectangleDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     x: float = None
     y: float = None
     w: float = None
@@ -1161,6 +1261,9 @@ class Ellipse(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Ellipse
 
     data_uri: Union[str, EllipseDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     x: float = None
     y: float = None
     x_rad: float = None
@@ -1208,6 +1311,9 @@ class Polygon(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Polygon
 
     data_uri: Union[str, PolygonDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     vertexes: Union[Union[dict, "Vertex"], List[Union[dict, "Vertex"]]] = None
     is_open: Union[bool, Bool] = False
 
@@ -1273,6 +1379,9 @@ class Mask(Shape):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Mask
 
     data_uri: Union[str, MaskDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     y: int = 0
     x: int = 0
     mask: Optional[Union[dict, ImageMask]] = None
@@ -1445,6 +1554,9 @@ class KeyValues(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
 
     data_uri: Union[str, KeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
 @dataclass
 class Tag(MetricsObject):
@@ -1459,6 +1571,9 @@ class Tag(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Tag
 
     data_uri: Union[str, TagDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     text: str = None
     description: Optional[str] = None
 
@@ -1487,6 +1602,9 @@ class Table(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Table
 
     data_uri: Union[str, TableDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
 @dataclass
 class TableAsPandasDF(Table):
@@ -1501,6 +1619,9 @@ class TableAsPandasDF(Table):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.TableAsPandasDF
 
     data_uri: Union[str, TableAsPandasDFDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     df: Union[dict, MetaObject] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1525,6 +1646,9 @@ class TableAsDict(Table):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.TableAsDict
 
     data_uri: Union[str, TableAsDictDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     columns: Union[Union[dict, "Column"], List[Union[dict, "Column"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1576,6 +1700,9 @@ class FieldIlluminationDataset(MetricsDataset):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset
 
     data_uri: Union[str, FieldIlluminationDatasetDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     microscope: Union[str, MicroscopeDataUri] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "FieldIlluminationInput"]] = None
@@ -1715,6 +1842,9 @@ class FieldIlluminationProfilesIntensity(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationProfilesIntensity
 
     data_uri: Union[str, FieldIlluminationProfilesIntensityDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     intensity_profiles_table: Union[str, TableAsDictDataUri] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1741,6 +1871,9 @@ class FieldIlluminationCornersIntensities(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCornersIntensities
 
     data_uri: Union[str, FieldIlluminationCornersIntensitiesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     measurements_table: Union[str, TableAsDictDataUri] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1767,6 +1900,9 @@ class FieldIlluminationCentersOfMass(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersOfMass
 
     data_uri: Union[str, FieldIlluminationCentersOfMassDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -1787,6 +1923,9 @@ class FieldIlluminationCentersGeometric(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersGeometric
 
     data_uri: Union[str, FieldIlluminationCentersGeometricDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -1807,6 +1946,9 @@ class FieldIlluminationCentersFitted(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersFitted
 
     data_uri: Union[str, FieldIlluminationCentersFittedDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -1827,6 +1969,9 @@ class FieldIlluminationCentersMaxIntensity(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersMaxIntensity
 
     data_uri: Union[str, FieldIlluminationCentersMaxIntensityDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -1847,6 +1992,9 @@ class FieldIlluminationKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
     data_uri: Union[str, FieldIlluminationKeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
@@ -2080,6 +2228,9 @@ class PSFBeadsDataset(MetricsDataset):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset
 
     data_uri: Union[str, PSFBeadsDatasetDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     microscope: Union[str, MicroscopeDataUri] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "PSFBeadsInput"]] = None
@@ -2263,6 +2414,9 @@ class PSFBeadsCenters(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsCenters
 
     data_uri: Union[str, PSFBeadsCentersDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -2283,6 +2437,9 @@ class PSFBeadsKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyValues
 
     data_uri: Union[str, PSFBeadsKeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
@@ -2501,6 +2658,9 @@ class ArgolightBDataset(MetricsDataset):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDataset
 
     data_uri: Union[str, ArgolightBDatasetDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     microscope: Union[str, MicroscopeDataUri] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "ArgolightBInput"]] = None
@@ -2641,6 +2801,9 @@ class ArgolightBCentersOfMass(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBCentersOfMass
 
     data_uri: Union[str, ArgolightBCentersOfMassDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
@@ -2661,6 +2824,9 @@ class ArgolightBIntensityKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBIntensityKeyValues
 
     data_uri: Union[str, ArgolightBIntensityKeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_spots: Optional[Union[int, List[int]]] = empty_list()
     intensity_max_spot: Optional[Union[float, List[float]]] = empty_list()
@@ -2736,6 +2902,9 @@ class ArgolightBDistanceKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDistanceKeyValues
 
     data_uri: Union[str, ArgolightBDistanceKeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     channel_A: Optional[Union[int, List[int]]] = empty_list()
     channel_B: Optional[Union[int, List[int]]] = empty_list()
     mean_3d_dist: Optional[Union[float, List[float]]] = empty_list()
@@ -2812,6 +2981,9 @@ class ArgolightEDataset(MetricsDataset):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEDataset
 
     data_uri: Union[str, ArgolightEDatasetDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     microscope: Union[str, MicroscopeDataUri] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "ArgolightEInput"]] = None
@@ -2920,6 +3092,9 @@ class ArgolightEKeyValues(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEKeyValues
 
     data_uri: Union[str, ArgolightEKeyValuesDataUri] = None
+    omero_host: str = None
+    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
+    omero_object_id: int = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     focus_slice: Optional[Union[int, List[int]]] = empty_list()
     rayleigh_resolution_pixels: Optional[Union[float, List[float]]] = empty_list()
@@ -2981,7 +3156,7 @@ class ArgolightEKeyValues(KeyValues):
 
 
 # Enumerations
-class CommentTypes(EnumDefinitionImpl):
+class CommentTypesEnum(EnumDefinitionImpl):
     """
     The type of the comment
     """
@@ -2996,11 +3171,11 @@ class CommentTypes(EnumDefinitionImpl):
         description="The comment is referring to something else")
 
     _defn = EnumDefinition(
-        name="CommentTypes",
+        name="CommentTypesEnum",
         description="The type of the comment",
     )
 
-class MicroscopeType(EnumDefinitionImpl):
+class MicroscopeTypeEnum(EnumDefinitionImpl):
     """
     The type of the microscope
     """
@@ -3015,7 +3190,7 @@ class MicroscopeType(EnumDefinitionImpl):
         description="Another type of microscope")
 
     _defn = EnumDefinition(
-        name="MicroscopeType",
+        name="MicroscopeTypeEnum",
         description="The type of the microscope",
     )
 
@@ -3029,6 +3204,28 @@ class MicroscopeType(EnumDefinitionImpl):
             PermissibleValue(
                 text="3D-SIM",
                 description="A 3D-SIM microscope"))
+
+class OMEROObjectTypeEnum(EnumDefinitionImpl):
+    """
+    The type of the OMERO object
+    """
+    IMAGE = PermissibleValue(
+        text="IMAGE",
+        description="An image")
+    DATASET = PermissibleValue(
+        text="DATASET",
+        description="A dataset")
+    PROJECT = PermissibleValue(
+        text="PROJECT",
+        description="A project")
+    GROUP = PermissibleValue(
+        text="GROUP",
+        description="A group")
+
+    _defn = EnumDefinition(
+        name="OMEROObjectTypeEnum",
+        description="The type of the OMERO object",
+    )
 
 # Slots
 class slots:
@@ -3472,11 +3669,35 @@ slots.peak_prominence_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_s
 slots.metricsObject__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="metricsObject__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__data_uri, domain=None, range=URIRef)
 
+slots.metricsObject__omero_host = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_host'], name="metricsObject__omero_host", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_host'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_host, domain=None, range=str)
+
+slots.metricsObject__omero_port = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_port'], name="metricsObject__omero_port", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_port'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_port, domain=None, range=Optional[int])
+
+slots.metricsObject__omero_object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_type'], name="metricsObject__omero_object_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_type'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_type, domain=None, range=Union[str, "OMEROObjectTypeEnum"])
+
+slots.metricsObject__omero_object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_id'], name="metricsObject__omero_object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_id'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_id, domain=None, range=int)
+
+slots.oMEROReference__host = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/host'], name="oMEROReference__host", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/host'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__host, domain=None, range=str)
+
+slots.oMEROReference__port = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/port'], name="oMEROReference__port", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/port'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__port, domain=None, range=Optional[int])
+
+slots.oMEROReference__object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/object_type'], name="oMEROReference__object_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/object_type'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__object_type, domain=None, range=Union[str, "OMEROObjectTypeEnum"])
+
+slots.oMEROReference__object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/object_id'], name="oMEROReference__object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/object_id'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__object_id, domain=None, range=int)
+
 slots.microscopeCollection__microscopes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscopes'], name="microscopeCollection__microscopes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscopes'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[str, MicroscopeDataUri], List[Union[str, MicroscopeDataUri]]])
 
 slots.microscope__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="microscope__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__type, domain=None, range=Optional[Union[str, "MicroscopeType"]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__type, domain=None, range=Optional[Union[str, "MicroscopeTypeEnum"]])
 
 slots.microscope__manufacturer = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/manufacturer'], name="microscope__manufacturer", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/manufacturer'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__manufacturer, domain=None, range=Optional[str])
@@ -3518,7 +3739,7 @@ slots.comment__author = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/author'],
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__author, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
 
 slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment_type'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Union[str, "CommentTypes"])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Union[str, "CommentTypesEnum"])
 
 slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="comment__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
