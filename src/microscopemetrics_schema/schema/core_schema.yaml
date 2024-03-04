@@ -39,6 +39,32 @@ classes:
         description: The URI of the object data
         required: true
         identifier: true
+      omero_reference:
+        range: OMEROReference
+        description: The reference to the OMERO object
+        required: false
+        multivalued: false
+
+  OMEROReference:
+    description: A reference to an OMERO object
+    attributes:
+      host:
+        range: string
+        description: The host of the OMERO server
+        required: true
+      port:
+        range: integer
+        description: The port of the OMERO server
+        required: false
+        ifabsent: int(4064)
+      object_type:
+        range: OMEROObjectTypeEnum
+        description: The type of the OMERO object
+        required: true
+      object_id:
+        range: integer
+        description: The ID of the OMERO object
+        required: true
 
   MicroscopeCollection:
     description: A collection of microscopes
@@ -882,3 +908,15 @@ enums:
         description: A 3D-SIM microscope
       OTHER:
         description: Another type of microscope
+
+  OMEROObjectTypeEnum:
+    description: The type of the OMERO object
+    permissible_values:
+      IMAGE:
+        description: An image
+      DATASET:
+        description: A dataset
+      PROJECT:
+        description: A project
+      GROUP:
+        description: A group
