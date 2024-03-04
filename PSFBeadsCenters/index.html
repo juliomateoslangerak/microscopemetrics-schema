@@ -283,7 +283,7 @@
 <tbody>
 <tr>
 <td><a href="../image/">image</a></td>
-<td>0..* <br/> <a href="../Image/">Image</a></td>
+<td>1..* <br/> <a href="../Image/">Image</a></td>
 <td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
@@ -483,7 +483,7 @@ attributes:
     domain_of:
     - Roi
     range: Image
-    required: false
+    required: true
     inlined: false
   points:
     name: points
@@ -567,7 +567,8 @@ attributes:
     - Roi
     range: Mask
     required: false
-    inlined: false
+    inlined: true
+    inlined_as_list: false
   data_uri:
     name: data_uri
     description: The URI of the object data
