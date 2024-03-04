@@ -1339,7 +1339,7 @@ CLOSED {
              &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
              rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/image>
-             @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> * ;
+             @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> + ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/points>
              @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Point> * ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/lines>

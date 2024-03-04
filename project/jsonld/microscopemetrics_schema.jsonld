@@ -3264,6 +3264,7 @@
         "Roi"
       ],
       "range": "Image",
+      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -5626,6 +5627,7 @@
           "description": "The image or images to which the ROI is applied",
           "multivalued": true,
           "range": "Image",
+          "required": true,
           "@type": "SlotDefinition"
         },
         {
@@ -5673,6 +5675,7 @@
           "description": "A list of masks included in the ROI",
           "multivalued": true,
           "range": "Mask",
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -6205,6 +6208,7 @@
           "description": "Linked table of profiles",
           "range": "TableAsDict",
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -6227,6 +6231,7 @@
           "description": "Linked table of measurements",
           "range": "TableAsDict",
           "required": true,
+          "inlined": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -7388,7 +7393,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-04T16:14:34",
+  "generation_date": "2024-03-04T16:28:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

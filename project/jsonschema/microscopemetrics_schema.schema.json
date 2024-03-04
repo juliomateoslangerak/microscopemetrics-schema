@@ -83,6 +83,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "ArgolightBCentersOfMass",
@@ -1217,6 +1218,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationCentersFitted",
@@ -1305,6 +1307,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationCentersGeometric",
@@ -1393,6 +1396,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationCentersMaxIntensity",
@@ -1481,6 +1485,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationCentersOfMass",
@@ -1574,6 +1579,7 @@
             },
             "required": [
                 "measurements_table",
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationCornersIntensities",
@@ -2287,6 +2293,7 @@
             },
             "required": [
                 "intensity_profiles_table",
+                "image",
                 "data_uri"
             ],
             "title": "FieldIlluminationProfilesIntensity",
@@ -3174,6 +3181,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "PSFBeadsCenters",
@@ -4141,6 +4149,7 @@
                 }
             },
             "required": [
+                "image",
                 "data_uri"
             ],
             "title": "Roi",

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-04T16:14:41
+# Generation date: 2024-03-04T16:28:32
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -803,7 +803,7 @@ class Roi(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Roi
 
     data_uri: str = None
-    image: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
     points: Optional[Union[Union[dict, "Point"], List[Union[dict, "Point"]]]] = empty_list()
     lines: Optional[Union[Union[dict, "Line"], List[Union[dict, "Line"]]]] = empty_list()
     rectangles: Optional[Union[Union[dict, "Rectangle"], List[Union[dict, "Rectangle"]]]] = empty_list()
@@ -812,6 +812,8 @@ class Roi(MetricsObject):
     masks: Optional[Union[Union[dict, "Mask"], List[Union[dict, "Mask"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.image):
+            self.MissingRequiredField("image")
         self._normalize_inlined_as_dict(slot_name="image", slot_type=Image, key_name="data_uri", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="points", slot_type=Point, key_name="data_uri", keyed=False)
@@ -1507,6 +1509,7 @@ class FieldIlluminationProfilesIntensity(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationProfilesIntensity
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
     intensity_profiles_table: Union[dict, TableAsDict] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1528,6 +1531,7 @@ class FieldIlluminationCornersIntensities(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCornersIntensities
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
     measurements_table: Union[dict, TableAsDict] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1549,6 +1553,7 @@ class FieldIlluminationCentersOfMass(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersOfMass
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class FieldIlluminationCentersGeometric(Roi):
@@ -1560,6 +1565,7 @@ class FieldIlluminationCentersGeometric(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersGeometric
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class FieldIlluminationCentersFitted(Roi):
@@ -1571,6 +1577,7 @@ class FieldIlluminationCentersFitted(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersFitted
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class FieldIlluminationCentersMaxIntensity(Roi):
@@ -1582,6 +1589,7 @@ class FieldIlluminationCentersMaxIntensity(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersMaxIntensity
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class FieldIlluminationKeyValues(KeyValues):
@@ -1979,6 +1987,7 @@ class PSFBeadsCenters(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsCenters
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class PSFBeadsKeyValues(KeyValues):
@@ -2336,6 +2345,7 @@ class ArgolightBCentersOfMass(Roi):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBCentersOfMass
 
     data_uri: str = None
+    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class ArgolightBIntensityKeyValues(KeyValues):
@@ -3309,7 +3319,7 @@ slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values
                    model_uri=MICROSCOPEMETRICS_SCHEMA.timeSeries__values, domain=None, range=Union[float, List[float]])
 
 slots.roi__image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image'], name="roi__image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
 slots.roi__points = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/points'], name="roi__points", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/points'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roi__points, domain=None, range=Optional[Union[Union[dict, Point], List[Union[dict, Point]]]])

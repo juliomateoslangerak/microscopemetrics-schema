@@ -94,7 +94,6 @@ classes:
         description: The microscopes of the collection
         required: true
         multivalued: true
-        inlined: false
 
   Microscope:
     is_a: MetricsObject
@@ -121,7 +120,6 @@ classes:
         description: A list of comments linked to the microscope
         required: false
         multivalued: true
-        inlined: false
 
   Sample:
     is_a: NamedObject
@@ -225,17 +223,14 @@ classes:
         description: The microscope that was used to acquire the dataset
         required: true
         multivalued: false
-        inlined: false
       sample:
         range: Sample
         description: The sample that was imaged
         multivalued: false
-        inlined: false
       experimenter:
         range: Experimenter
         description: The experimenter that performed the imaging experiment
         multivalued: true
-        inlined: false
       acquisition_datetime:
         range: datetime
         description: The datetime of the acquisition
@@ -431,7 +426,7 @@ classes:
       image:
         range: Image
         description: The image or images to which the ROI is applied
-        required: false
+        required: true
         multivalued: true
         inlined: false
       points:
@@ -474,7 +469,8 @@ classes:
         description: A list of masks included in the ROI
         required: false
         multivalued: true
-        inlined: false
+        inlined: true
+        inlined_as_list: false
 
   Shape:
     is_a: MetricsObject
@@ -721,7 +717,7 @@ classes:
         description: Linked table of profiles
         required: true
         multivalued: false
-        inlined: false
+        inlined: true
 
   RoiMeasurements:
     mixin: true
@@ -734,7 +730,7 @@ classes:
         description: Linked table of measurements
         required: true
         multivalued: false
-        inlined: false
+        inlined: true
 
   KeyValues:
     is_a: MetricsObject
