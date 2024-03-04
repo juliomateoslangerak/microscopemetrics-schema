@@ -274,7 +274,7 @@
 </tr>
 <tr>
 <td><a href="../omero_host/">omero_host</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The host of the OMERO server</td>
 <td>direct</td>
 </tr>
@@ -286,13 +286,13 @@
 </tr>
 <tr>
 <td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>1..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
 <td>The type of the OMERO object</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The ID of the OMERO object</td>
 <td>direct</td>
 </tr>
@@ -350,7 +350,6 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
-    identifier: true
     range: string
     required: true
   omero_host:
@@ -359,29 +358,24 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     range: string
-    required: true
   omero_port:
     name: omero_port
     description: The port of the OMERO server
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    ifabsent: int(4064)
     range: integer
-    required: false
   omero_object_type:
     name: omero_object_type
     description: The type of the OMERO object
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     range: OMEROObjectTypeEnum
-    required: true
   omero_object_id:
     name: omero_object_id
     description: The ID of the OMERO object
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     range: integer
-    required: true
 unique_keys:
   omero_uri:
     unique_key_name: omero_uri
@@ -409,7 +403,6 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
-    identifier: true
     alias: data_uri
     owner: MetricsObject
     domain_of:
@@ -426,19 +419,16 @@ attributes:
     domain_of:
     - MetricsObject
     range: string
-    required: true
   omero_port:
     name: omero_port
     description: The port of the OMERO server
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    ifabsent: int(4064)
     alias: omero_port
     owner: MetricsObject
     domain_of:
     - MetricsObject
     range: integer
-    required: false
   omero_object_type:
     name: omero_object_type
     description: The type of the OMERO object
@@ -449,7 +439,6 @@ attributes:
     domain_of:
     - MetricsObject
     range: OMEROObjectTypeEnum
-    required: true
   omero_object_id:
     name: omero_object_id
     description: The ID of the OMERO object
@@ -460,7 +449,6 @@ attributes:
     domain_of:
     - MetricsObject
     range: integer
-    required: true
   name:
     name: name
     description: The human readable name of an entity
