@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-04T16:06:32
+# Generation date: 2024-03-04T16:14:41
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -40,167 +40,11 @@ DEFAULT_ = MICROSCOPEMETRICS_SCHEMA
 # Types
 
 # Class references
-class MetricsObjectDataUri(extended_str):
-    pass
-
-
-class MicroscopeDataUri(MetricsObjectDataUri):
-    pass
-
-
 class ProtocolUrl(extended_str):
     pass
 
 
 class ExperimenterOrcid(extended_str):
-    pass
-
-
-class MetricsDatasetDataUri(MetricsObjectDataUri):
-    pass
-
-
-class ImageDataUri(MetricsObjectDataUri):
-    pass
-
-
-class ImageAsNumpyDataUri(ImageDataUri):
-    pass
-
-
-class ImageInlineDataUri(ImageDataUri):
-    pass
-
-
-class ImageMaskDataUri(ImageInlineDataUri):
-    pass
-
-
-class Image2DDataUri(ImageInlineDataUri):
-    pass
-
-
-class Image5DDataUri(ImageInlineDataUri):
-    pass
-
-
-class RoiDataUri(MetricsObjectDataUri):
-    pass
-
-
-class ShapeDataUri(MetricsObjectDataUri):
-    pass
-
-
-class PointDataUri(ShapeDataUri):
-    pass
-
-
-class LineDataUri(ShapeDataUri):
-    pass
-
-
-class RectangleDataUri(ShapeDataUri):
-    pass
-
-
-class EllipseDataUri(ShapeDataUri):
-    pass
-
-
-class PolygonDataUri(ShapeDataUri):
-    pass
-
-
-class MaskDataUri(ShapeDataUri):
-    pass
-
-
-class KeyValuesDataUri(MetricsObjectDataUri):
-    pass
-
-
-class TagDataUri(MetricsObjectDataUri):
-    pass
-
-
-class TableDataUri(MetricsObjectDataUri):
-    pass
-
-
-class TableAsPandasDFDataUri(TableDataUri):
-    pass
-
-
-class TableAsDictDataUri(TableDataUri):
-    pass
-
-
-class FieldIlluminationDatasetDataUri(MetricsDatasetDataUri):
-    pass
-
-
-class FieldIlluminationProfilesIntensityDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationCornersIntensitiesDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationCentersOfMassDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationCentersGeometricDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationCentersFittedDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationCentersMaxIntensityDataUri(RoiDataUri):
-    pass
-
-
-class FieldIlluminationKeyValuesDataUri(KeyValuesDataUri):
-    pass
-
-
-class PSFBeadsDatasetDataUri(MetricsDatasetDataUri):
-    pass
-
-
-class PSFBeadsCentersDataUri(RoiDataUri):
-    pass
-
-
-class PSFBeadsKeyValuesDataUri(KeyValuesDataUri):
-    pass
-
-
-class ArgolightBDatasetDataUri(MetricsDatasetDataUri):
-    pass
-
-
-class ArgolightBCentersOfMassDataUri(RoiDataUri):
-    pass
-
-
-class ArgolightBIntensityKeyValuesDataUri(KeyValuesDataUri):
-    pass
-
-
-class ArgolightBDistanceKeyValuesDataUri(KeyValuesDataUri):
-    pass
-
-
-class ArgolightEDatasetDataUri(MetricsDatasetDataUri):
-    pass
-
-
-class ArgolightEKeyValuesDataUri(KeyValuesDataUri):
     pass
 
 
@@ -243,35 +87,29 @@ class MetricsObject(NamedObject):
     class_name: ClassVar[str] = "MetricsObject"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsObject
 
-    data_uri: Union[str, MetricsObjectDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    omero_port: Optional[int] = 4064
+    data_uri: str = None
+    omero_host: Optional[str] = None
+    omero_port: Optional[int] = None
+    omero_object_type: Optional[Union[str, "OMEROObjectTypeEnum"]] = None
+    omero_object_id: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.data_uri):
             self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, MetricsObjectDataUri):
-            self.data_uri = MetricsObjectDataUri(self.data_uri)
+        if not isinstance(self.data_uri, str):
+            self.data_uri = str(self.data_uri)
 
-        if self._is_empty(self.omero_host):
-            self.MissingRequiredField("omero_host")
-        if not isinstance(self.omero_host, str):
+        if self.omero_host is not None and not isinstance(self.omero_host, str):
             self.omero_host = str(self.omero_host)
-
-        if self._is_empty(self.omero_object_type):
-            self.MissingRequiredField("omero_object_type")
-        if not isinstance(self.omero_object_type, OMEROObjectTypeEnum):
-            self.omero_object_type = OMEROObjectTypeEnum(self.omero_object_type)
-
-        if self._is_empty(self.omero_object_id):
-            self.MissingRequiredField("omero_object_id")
-        if not isinstance(self.omero_object_id, int):
-            self.omero_object_id = int(self.omero_object_id)
 
         if self.omero_port is not None and not isinstance(self.omero_port, int):
             self.omero_port = int(self.omero_port)
+
+        if self.omero_object_type is not None and not isinstance(self.omero_object_type, OMEROObjectTypeEnum):
+            self.omero_object_type = OMEROObjectTypeEnum(self.omero_object_type)
+
+        if self.omero_object_id is not None and not isinstance(self.omero_object_id, int):
+            self.omero_object_id = int(self.omero_object_id)
 
         super().__post_init__(**kwargs)
 
@@ -327,14 +165,12 @@ class MicroscopeCollection(YAMLRoot):
     class_name: ClassVar[str] = "MicroscopeCollection"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MicroscopeCollection
 
-    microscopes: Union[Union[str, MicroscopeDataUri], List[Union[str, MicroscopeDataUri]]] = None
+    microscopes: Union[Union[dict, "Microscope"], List[Union[dict, "Microscope"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.microscopes):
             self.MissingRequiredField("microscopes")
-        if not isinstance(self.microscopes, list):
-            self.microscopes = [self.microscopes] if self.microscopes is not None else []
-        self.microscopes = [v if isinstance(v, MicroscopeDataUri) else MicroscopeDataUri(v) for v in self.microscopes]
+        self._normalize_inlined_as_dict(slot_name="microscopes", slot_type=Microscope, key_name="data_uri", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -351,10 +187,7 @@ class Microscope(MetricsObject):
     class_name: ClassVar[str] = "Microscope"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Microscope
 
-    data_uri: Union[str, MicroscopeDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     type: Optional[Union[str, "MicroscopeTypeEnum"]] = None
     manufacturer: Optional[str] = None
     model: Optional[str] = None
@@ -362,11 +195,6 @@ class Microscope(MetricsObject):
     comments: Optional[Union[Union[dict, "Comment"], List[Union[dict, "Comment"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, MicroscopeDataUri):
-            self.data_uri = MicroscopeDataUri(self.data_uri)
-
         if self.type is not None and not isinstance(self.type, MicroscopeTypeEnum):
             self.type = MicroscopeTypeEnum(self.type)
 
@@ -527,14 +355,12 @@ class MetricsDatasetCollection(YAMLRoot):
     class_name: ClassVar[str] = "MetricsDatasetCollection"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDatasetCollection
 
-    datasets: Union[Union[str, MetricsDatasetDataUri], List[Union[str, MetricsDatasetDataUri]]] = None
+    datasets: Union[Union[dict, "MetricsDataset"], List[Union[dict, "MetricsDataset"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.datasets):
             self.MissingRequiredField("datasets")
-        if not isinstance(self.datasets, list):
-            self.datasets = [self.datasets] if self.datasets is not None else []
-        self.datasets = [v if isinstance(v, MetricsDatasetDataUri) else MetricsDatasetDataUri(v) for v in self.datasets]
+        self._normalize_inlined_as_dict(slot_name="datasets", slot_type=MetricsDataset, key_name="data_uri", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -552,7 +378,7 @@ class HarmonizedMetricsDatasetCollection(MetricsDatasetCollection):
     class_name: ClassVar[str] = "HarmonizedMetricsDatasetCollection"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HarmonizedMetricsDatasetCollection
 
-    datasets: Union[Union[str, MetricsDatasetDataUri], List[Union[str, MetricsDatasetDataUri]]] = None
+    datasets: Union[Union[dict, "MetricsDataset"], List[Union[dict, "MetricsDataset"]]] = None
     dataset_class: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -576,11 +402,8 @@ class MetricsDataset(MetricsObject):
     class_name: ClassVar[str] = "MetricsDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDataset
 
-    data_uri: Union[str, MetricsDatasetDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    microscope: Union[str, MicroscopeDataUri] = None
+    data_uri: str = None
+    microscope: Union[dict, Microscope] = None
     input: Union[dict, "MetricsInput"] = None
     processed: Union[bool, Bool] = False
     sample: Optional[Union[dict, Sample]] = None
@@ -589,15 +412,10 @@ class MetricsDataset(MetricsObject):
     output: Optional[Union[dict, "MetricsOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, MetricsDatasetDataUri):
-            self.data_uri = MetricsDatasetDataUri(self.data_uri)
-
         if self._is_empty(self.microscope):
             self.MissingRequiredField("microscope")
-        if not isinstance(self.microscope, MicroscopeDataUri):
-            self.microscope = MicroscopeDataUri(self.microscope)
+        if not isinstance(self.microscope, Microscope):
+            self.microscope = Microscope(**as_dict(self.microscope))
 
         if self._is_empty(self.processed):
             self.MissingRequiredField("processed")
@@ -709,10 +527,7 @@ class Image(MetricsObject):
     class_name: ClassVar[str] = "Image"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image
 
-    data_uri: Union[str, ImageDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
@@ -777,25 +592,13 @@ class ImageAsNumpy(Image):
     class_name: ClassVar[str] = "ImageAsNumpy"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageAsNumpy
 
-    data_uri: Union[str, ImageAsNumpyDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
     data: Optional[Union[dict, MetaObject]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ImageAsNumpyDataUri):
-            self.data_uri = ImageAsNumpyDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
 
 @dataclass
 class ImageInline(Image):
@@ -809,10 +612,7 @@ class ImageInline(Image):
     class_name: ClassVar[str] = "ImageInline"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageInline
 
-    data_uri: Union[str, ImageInlineDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     shape_z: int = 1
@@ -831,10 +631,7 @@ class ImageMask(ImageInline):
     class_name: ClassVar[str] = "ImageMask"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ImageMask
 
-    data_uri: Union[str, ImageMaskDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     data: Union[Union[bool, Bool], List[Union[bool, Bool]]] = None
@@ -843,11 +640,6 @@ class ImageMask(ImageInline):
     shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ImageMaskDataUri):
-            self.data_uri = ImageMaskDataUri(self.data_uri)
-
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
         if not isinstance(self.data, list):
@@ -869,10 +661,7 @@ class Image2D(ImageInline):
     class_name: ClassVar[str] = "Image2D"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image2D
 
-    data_uri: Union[str, Image2DDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     data: Union[float, List[float]] = None
@@ -881,11 +670,6 @@ class Image2D(ImageInline):
     shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, Image2DDataUri):
-            self.data_uri = Image2DDataUri(self.data_uri)
-
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
         if not isinstance(self.data, list):
@@ -907,10 +691,7 @@ class Image5D(ImageInline):
     class_name: ClassVar[str] = "Image5D"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Image5D
 
-    data_uri: Union[str, Image5DDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     shape_x: int = None
     shape_y: int = None
     data: Union[float, List[float]] = None
@@ -921,11 +702,6 @@ class Image5D(ImageInline):
     channel_series: Optional[Union[dict, "ChannelSeries"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, Image5DDataUri):
-            self.data_uri = Image5DDataUri(self.data_uri)
-
         if self._is_empty(self.data):
             self.MissingRequiredField("data")
         if not isinstance(self.data, list):
@@ -1026,41 +802,29 @@ class Roi(MetricsObject):
     class_name: ClassVar[str] = "Roi"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Roi
 
-    data_uri: Union[str, RoiDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    image: Optional[Union[Union[str, ImageDataUri], List[Union[str, ImageDataUri]]]] = empty_list()
-    points: Optional[Union[Dict[Union[str, PointDataUri], Union[dict, "Point"]], List[Union[dict, "Point"]]]] = empty_dict()
-    lines: Optional[Union[Dict[Union[str, LineDataUri], Union[dict, "Line"]], List[Union[dict, "Line"]]]] = empty_dict()
-    rectangles: Optional[Union[Dict[Union[str, RectangleDataUri], Union[dict, "Rectangle"]], List[Union[dict, "Rectangle"]]]] = empty_dict()
-    ellipses: Optional[Union[Dict[Union[str, EllipseDataUri], Union[dict, "Ellipse"]], List[Union[dict, "Ellipse"]]]] = empty_dict()
-    polygons: Optional[Union[Dict[Union[str, PolygonDataUri], Union[dict, "Polygon"]], List[Union[dict, "Polygon"]]]] = empty_dict()
-    masks: Optional[Union[Union[str, MaskDataUri], List[Union[str, MaskDataUri]]]] = empty_list()
+    data_uri: str = None
+    image: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    points: Optional[Union[Union[dict, "Point"], List[Union[dict, "Point"]]]] = empty_list()
+    lines: Optional[Union[Union[dict, "Line"], List[Union[dict, "Line"]]]] = empty_list()
+    rectangles: Optional[Union[Union[dict, "Rectangle"], List[Union[dict, "Rectangle"]]]] = empty_list()
+    ellipses: Optional[Union[Union[dict, "Ellipse"], List[Union[dict, "Ellipse"]]]] = empty_list()
+    polygons: Optional[Union[Union[dict, "Polygon"], List[Union[dict, "Polygon"]]]] = empty_list()
+    masks: Optional[Union[Union[dict, "Mask"], List[Union[dict, "Mask"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, RoiDataUri):
-            self.data_uri = RoiDataUri(self.data_uri)
+        self._normalize_inlined_as_dict(slot_name="image", slot_type=Image, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.image, list):
-            self.image = [self.image] if self.image is not None else []
-        self.image = [v if isinstance(v, ImageDataUri) else ImageDataUri(v) for v in self.image]
+        self._normalize_inlined_as_dict(slot_name="points", slot_type=Point, key_name="data_uri", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="points", slot_type=Point, key_name="data_uri", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="lines", slot_type=Line, key_name="data_uri", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="lines", slot_type=Line, key_name="data_uri", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="rectangles", slot_type=Rectangle, key_name="data_uri", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="rectangles", slot_type=Rectangle, key_name="data_uri", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="ellipses", slot_type=Ellipse, key_name="data_uri", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="ellipses", slot_type=Ellipse, key_name="data_uri", keyed=True)
+        self._normalize_inlined_as_dict(slot_name="polygons", slot_type=Polygon, key_name="data_uri", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="polygons", slot_type=Polygon, key_name="data_uri", keyed=True)
-
-        if not isinstance(self.masks, list):
-            self.masks = [self.masks] if self.masks is not None else []
-        self.masks = [v if isinstance(v, MaskDataUri) else MaskDataUri(v) for v in self.masks]
+        self._normalize_inlined_as_dict(slot_name="masks", slot_type=Mask, key_name="data_uri", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1077,10 +841,7 @@ class Shape(MetricsObject):
     class_name: ClassVar[str] = "Shape"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Shape
 
-    data_uri: Union[str, ShapeDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     z: Optional[float] = None
     c: Optional[int] = None
     t: Optional[int] = None
@@ -1122,19 +883,11 @@ class Point(Shape):
     class_name: ClassVar[str] = "Point"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Point
 
-    data_uri: Union[str, PointDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     y: float = None
     x: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, PointDataUri):
-            self.data_uri = PointDataUri(self.data_uri)
-
         if self._is_empty(self.y):
             self.MissingRequiredField("y")
         if not isinstance(self.y, float):
@@ -1160,21 +913,13 @@ class Line(Shape):
     class_name: ClassVar[str] = "Line"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Line
 
-    data_uri: Union[str, LineDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     x1: float = None
     y1: float = None
     x2: float = None
     y2: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, LineDataUri):
-            self.data_uri = LineDataUri(self.data_uri)
-
         if self._is_empty(self.x1):
             self.MissingRequiredField("x1")
         if not isinstance(self.x1, float):
@@ -1210,21 +955,13 @@ class Rectangle(Shape):
     class_name: ClassVar[str] = "Rectangle"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Rectangle
 
-    data_uri: Union[str, RectangleDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     x: float = None
     y: float = None
     w: float = None
     h: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, RectangleDataUri):
-            self.data_uri = RectangleDataUri(self.data_uri)
-
         if self._is_empty(self.x):
             self.MissingRequiredField("x")
         if not isinstance(self.x, float):
@@ -1260,21 +997,13 @@ class Ellipse(Shape):
     class_name: ClassVar[str] = "Ellipse"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Ellipse
 
-    data_uri: Union[str, EllipseDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     x: float = None
     y: float = None
     x_rad: float = None
     y_rad: float = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, EllipseDataUri):
-            self.data_uri = EllipseDataUri(self.data_uri)
-
         if self._is_empty(self.x):
             self.MissingRequiredField("x")
         if not isinstance(self.x, float):
@@ -1310,19 +1039,11 @@ class Polygon(Shape):
     class_name: ClassVar[str] = "Polygon"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Polygon
 
-    data_uri: Union[str, PolygonDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     vertexes: Union[Union[dict, "Vertex"], List[Union[dict, "Vertex"]]] = None
     is_open: Union[bool, Bool] = False
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, PolygonDataUri):
-            self.data_uri = PolygonDataUri(self.data_uri)
-
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
         if not isinstance(self.vertexes, list):
@@ -1378,20 +1099,12 @@ class Mask(Shape):
     class_name: ClassVar[str] = "Mask"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Mask
 
-    data_uri: Union[str, MaskDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     y: int = 0
     x: int = 0
     mask: Optional[Union[dict, ImageMask]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, MaskDataUri):
-            self.data_uri = MaskDataUri(self.data_uri)
-
         if self._is_empty(self.y):
             self.MissingRequiredField("y")
         if not isinstance(self.y, int):
@@ -1507,13 +1220,13 @@ class ProfilesIntensity(YAMLRoot):
     class_name: ClassVar[str] = "ProfilesIntensity"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ProfilesIntensity
 
-    intensity_profiles_table: Union[str, TableAsDictDataUri] = None
+    intensity_profiles_table: Union[dict, "TableAsDict"] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.intensity_profiles_table):
             self.MissingRequiredField("intensity_profiles_table")
-        if not isinstance(self.intensity_profiles_table, TableAsDictDataUri):
-            self.intensity_profiles_table = TableAsDictDataUri(self.intensity_profiles_table)
+        if not isinstance(self.intensity_profiles_table, TableAsDict):
+            self.intensity_profiles_table = TableAsDict(**as_dict(self.intensity_profiles_table))
 
         super().__post_init__(**kwargs)
 
@@ -1530,13 +1243,13 @@ class RoiMeasurements(YAMLRoot):
     class_name: ClassVar[str] = "RoiMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiMeasurements
 
-    measurements_table: Union[str, TableAsDictDataUri] = None
+    measurements_table: Union[dict, "TableAsDict"] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.measurements_table):
             self.MissingRequiredField("measurements_table")
-        if not isinstance(self.measurements_table, TableAsDictDataUri):
-            self.measurements_table = TableAsDictDataUri(self.measurements_table)
+        if not isinstance(self.measurements_table, TableAsDict):
+            self.measurements_table = TableAsDict(**as_dict(self.measurements_table))
 
         super().__post_init__(**kwargs)
 
@@ -1553,10 +1266,7 @@ class KeyValues(MetricsObject):
     class_name: ClassVar[str] = "KeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
 
-    data_uri: Union[str, KeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
 
 @dataclass
 class Tag(MetricsObject):
@@ -1570,10 +1280,7 @@ class Tag(MetricsObject):
     class_name: ClassVar[str] = "Tag"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Tag
 
-    data_uri: Union[str, TagDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     text: str = None
     description: Optional[str] = None
 
@@ -1601,10 +1308,7 @@ class Table(MetricsObject):
     class_name: ClassVar[str] = "Table"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Table
 
-    data_uri: Union[str, TableDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
 
 @dataclass
 class TableAsPandasDF(Table):
@@ -1618,20 +1322,8 @@ class TableAsPandasDF(Table):
     class_name: ClassVar[str] = "TableAsPandasDF"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.TableAsPandasDF
 
-    data_uri: Union[str, TableAsPandasDFDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     df: Union[dict, MetaObject] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, TableAsPandasDFDataUri):
-            self.data_uri = TableAsPandasDFDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
 
 @dataclass
 class TableAsDict(Table):
@@ -1645,10 +1337,7 @@ class TableAsDict(Table):
     class_name: ClassVar[str] = "TableAsDict"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.TableAsDict
 
-    data_uri: Union[str, TableAsDictDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     columns: Union[Union[dict, "Column"], List[Union[dict, "Column"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1699,21 +1388,13 @@ class FieldIlluminationDataset(MetricsDataset):
     class_name: ClassVar[str] = "FieldIlluminationDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset
 
-    data_uri: Union[str, FieldIlluminationDatasetDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    microscope: Union[str, MicroscopeDataUri] = None
+    data_uri: str = None
+    microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "FieldIlluminationInput"]] = None
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationDatasetDataUri):
-            self.data_uri = FieldIlluminationDatasetDataUri(self.data_uri)
-
         if self.input is not None and not isinstance(self.input, FieldIlluminationInput):
             self.input = FieldIlluminationInput(**as_dict(self.input))
 
@@ -1732,7 +1413,7 @@ class FieldIlluminationInput(MetricsInput):
     class_name: ClassVar[str] = "FieldIlluminationInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInput
 
-    field_illumination_image: Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]] = None
+    field_illumination_image: Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]] = None
     saturation_threshold: float = 0.01
     corner_fraction: float = 0.1
     sigma: float = 5.0
@@ -1742,9 +1423,7 @@ class FieldIlluminationInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.field_illumination_image):
             self.MissingRequiredField("field_illumination_image")
-        if not isinstance(self.field_illumination_image, list):
-            self.field_illumination_image = [self.field_illumination_image] if self.field_illumination_image is not None else []
-        self.field_illumination_image = [v if isinstance(v, ImageAsNumpyDataUri) else ImageAsNumpyDataUri(v) for v in self.field_illumination_image]
+        self._normalize_inlined_as_dict(slot_name="field_illumination_image", slot_type=ImageAsNumpy, key_name="data_uri", keyed=False)
 
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
@@ -1784,50 +1463,36 @@ class FieldIlluminationOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
-    key_values: Optional[Union[str, FieldIlluminationKeyValuesDataUri]] = None
-    intensity_profiles: Optional[Union[Union[str, TableAsDictDataUri], List[Union[str, TableAsDictDataUri]]]] = empty_list()
-    intensity_map: Optional[Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]]] = empty_list()
-    roi_profiles: Optional[Union[Union[str, FieldIlluminationProfilesIntensityDataUri], List[Union[str, FieldIlluminationProfilesIntensityDataUri]]]] = empty_list()
-    roi_corners: Optional[Union[str, FieldIlluminationCornersIntensitiesDataUri]] = None
-    roi_centers_of_mass: Optional[Union[Union[str, FieldIlluminationCentersOfMassDataUri], List[Union[str, FieldIlluminationCentersOfMassDataUri]]]] = empty_list()
-    roi_centers_geometric: Optional[Union[Union[str, FieldIlluminationCentersGeometricDataUri], List[Union[str, FieldIlluminationCentersGeometricDataUri]]]] = empty_list()
-    roi_centers_fitted: Optional[Union[Union[str, FieldIlluminationCentersFittedDataUri], List[Union[str, FieldIlluminationCentersFittedDataUri]]]] = empty_list()
-    roi_centers_max_intensity: Optional[Union[Union[str, FieldIlluminationCentersMaxIntensityDataUri], List[Union[str, FieldIlluminationCentersMaxIntensityDataUri]]]] = empty_list()
+    key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
+    intensity_profiles: Optional[Union[Union[dict, TableAsDict], List[Union[dict, TableAsDict]]]] = empty_list()
+    intensity_map: Optional[Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]]] = empty_list()
+    roi_profiles: Optional[Union[Union[dict, "FieldIlluminationProfilesIntensity"], List[Union[dict, "FieldIlluminationProfilesIntensity"]]]] = empty_list()
+    roi_corners: Optional[Union[dict, "FieldIlluminationCornersIntensities"]] = None
+    roi_centers_of_mass: Optional[Union[Union[dict, "FieldIlluminationCentersOfMass"], List[Union[dict, "FieldIlluminationCentersOfMass"]]]] = empty_list()
+    roi_centers_geometric: Optional[Union[Union[dict, "FieldIlluminationCentersGeometric"], List[Union[dict, "FieldIlluminationCentersGeometric"]]]] = empty_list()
+    roi_centers_fitted: Optional[Union[Union[dict, "FieldIlluminationCentersFitted"], List[Union[dict, "FieldIlluminationCentersFitted"]]]] = empty_list()
+    roi_centers_max_intensity: Optional[Union[Union[dict, "FieldIlluminationCentersMaxIntensity"], List[Union[dict, "FieldIlluminationCentersMaxIntensity"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValuesDataUri):
-            self.key_values = FieldIlluminationKeyValuesDataUri(self.key_values)
+        if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
+            self.key_values = FieldIlluminationKeyValues(**as_dict(self.key_values))
 
-        if not isinstance(self.intensity_profiles, list):
-            self.intensity_profiles = [self.intensity_profiles] if self.intensity_profiles is not None else []
-        self.intensity_profiles = [v if isinstance(v, TableAsDictDataUri) else TableAsDictDataUri(v) for v in self.intensity_profiles]
+        self._normalize_inlined_as_dict(slot_name="intensity_profiles", slot_type=TableAsDict, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.intensity_map, list):
-            self.intensity_map = [self.intensity_map] if self.intensity_map is not None else []
-        self.intensity_map = [v if isinstance(v, ImageAsNumpyDataUri) else ImageAsNumpyDataUri(v) for v in self.intensity_map]
+        self._normalize_inlined_as_dict(slot_name="intensity_map", slot_type=ImageAsNumpy, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.roi_profiles, list):
-            self.roi_profiles = [self.roi_profiles] if self.roi_profiles is not None else []
-        self.roi_profiles = [v if isinstance(v, FieldIlluminationProfilesIntensityDataUri) else FieldIlluminationProfilesIntensityDataUri(v) for v in self.roi_profiles]
+        self._normalize_inlined_as_dict(slot_name="roi_profiles", slot_type=FieldIlluminationProfilesIntensity, key_name="data_uri", keyed=False)
 
-        if self.roi_corners is not None and not isinstance(self.roi_corners, FieldIlluminationCornersIntensitiesDataUri):
-            self.roi_corners = FieldIlluminationCornersIntensitiesDataUri(self.roi_corners)
+        if self.roi_corners is not None and not isinstance(self.roi_corners, FieldIlluminationCornersIntensities):
+            self.roi_corners = FieldIlluminationCornersIntensities(**as_dict(self.roi_corners))
 
-        if not isinstance(self.roi_centers_of_mass, list):
-            self.roi_centers_of_mass = [self.roi_centers_of_mass] if self.roi_centers_of_mass is not None else []
-        self.roi_centers_of_mass = [v if isinstance(v, FieldIlluminationCentersOfMassDataUri) else FieldIlluminationCentersOfMassDataUri(v) for v in self.roi_centers_of_mass]
+        self._normalize_inlined_as_dict(slot_name="roi_centers_of_mass", slot_type=FieldIlluminationCentersOfMass, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.roi_centers_geometric, list):
-            self.roi_centers_geometric = [self.roi_centers_geometric] if self.roi_centers_geometric is not None else []
-        self.roi_centers_geometric = [v if isinstance(v, FieldIlluminationCentersGeometricDataUri) else FieldIlluminationCentersGeometricDataUri(v) for v in self.roi_centers_geometric]
+        self._normalize_inlined_as_dict(slot_name="roi_centers_geometric", slot_type=FieldIlluminationCentersGeometric, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.roi_centers_fitted, list):
-            self.roi_centers_fitted = [self.roi_centers_fitted] if self.roi_centers_fitted is not None else []
-        self.roi_centers_fitted = [v if isinstance(v, FieldIlluminationCentersFittedDataUri) else FieldIlluminationCentersFittedDataUri(v) for v in self.roi_centers_fitted]
+        self._normalize_inlined_as_dict(slot_name="roi_centers_fitted", slot_type=FieldIlluminationCentersFitted, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.roi_centers_max_intensity, list):
-            self.roi_centers_max_intensity = [self.roi_centers_max_intensity] if self.roi_centers_max_intensity is not None else []
-        self.roi_centers_max_intensity = [v if isinstance(v, FieldIlluminationCentersMaxIntensityDataUri) else FieldIlluminationCentersMaxIntensityDataUri(v) for v in self.roi_centers_max_intensity]
+        self._normalize_inlined_as_dict(slot_name="roi_centers_max_intensity", slot_type=FieldIlluminationCentersMaxIntensity, key_name="data_uri", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1841,22 +1506,14 @@ class FieldIlluminationProfilesIntensity(Roi):
     class_name: ClassVar[str] = "FieldIlluminationProfilesIntensity"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationProfilesIntensity
 
-    data_uri: Union[str, FieldIlluminationProfilesIntensityDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    intensity_profiles_table: Union[str, TableAsDictDataUri] = None
+    data_uri: str = None
+    intensity_profiles_table: Union[dict, TableAsDict] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationProfilesIntensityDataUri):
-            self.data_uri = FieldIlluminationProfilesIntensityDataUri(self.data_uri)
-
         if self._is_empty(self.intensity_profiles_table):
             self.MissingRequiredField("intensity_profiles_table")
-        if not isinstance(self.intensity_profiles_table, TableAsDictDataUri):
-            self.intensity_profiles_table = TableAsDictDataUri(self.intensity_profiles_table)
+        if not isinstance(self.intensity_profiles_table, TableAsDict):
+            self.intensity_profiles_table = TableAsDict(**as_dict(self.intensity_profiles_table))
 
         super().__post_init__(**kwargs)
 
@@ -1870,22 +1527,14 @@ class FieldIlluminationCornersIntensities(Roi):
     class_name: ClassVar[str] = "FieldIlluminationCornersIntensities"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCornersIntensities
 
-    data_uri: Union[str, FieldIlluminationCornersIntensitiesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    measurements_table: Union[str, TableAsDictDataUri] = None
+    data_uri: str = None
+    measurements_table: Union[dict, TableAsDict] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationCornersIntensitiesDataUri):
-            self.data_uri = FieldIlluminationCornersIntensitiesDataUri(self.data_uri)
-
         if self._is_empty(self.measurements_table):
             self.MissingRequiredField("measurements_table")
-        if not isinstance(self.measurements_table, TableAsDictDataUri):
-            self.measurements_table = TableAsDictDataUri(self.measurements_table)
+        if not isinstance(self.measurements_table, TableAsDict):
+            self.measurements_table = TableAsDict(**as_dict(self.measurements_table))
 
         super().__post_init__(**kwargs)
 
@@ -1899,19 +1548,7 @@ class FieldIlluminationCentersOfMass(Roi):
     class_name: ClassVar[str] = "FieldIlluminationCentersOfMass"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersOfMass
 
-    data_uri: Union[str, FieldIlluminationCentersOfMassDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationCentersOfMassDataUri):
-            self.data_uri = FieldIlluminationCentersOfMassDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class FieldIlluminationCentersGeometric(Roi):
@@ -1922,19 +1559,7 @@ class FieldIlluminationCentersGeometric(Roi):
     class_name: ClassVar[str] = "FieldIlluminationCentersGeometric"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersGeometric
 
-    data_uri: Union[str, FieldIlluminationCentersGeometricDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationCentersGeometricDataUri):
-            self.data_uri = FieldIlluminationCentersGeometricDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class FieldIlluminationCentersFitted(Roi):
@@ -1945,19 +1570,7 @@ class FieldIlluminationCentersFitted(Roi):
     class_name: ClassVar[str] = "FieldIlluminationCentersFitted"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersFitted
 
-    data_uri: Union[str, FieldIlluminationCentersFittedDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationCentersFittedDataUri):
-            self.data_uri = FieldIlluminationCentersFittedDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class FieldIlluminationCentersMaxIntensity(Roi):
@@ -1968,19 +1581,7 @@ class FieldIlluminationCentersMaxIntensity(Roi):
     class_name: ClassVar[str] = "FieldIlluminationCentersMaxIntensity"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersMaxIntensity
 
-    data_uri: Union[str, FieldIlluminationCentersMaxIntensityDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationCentersMaxIntensityDataUri):
-            self.data_uri = FieldIlluminationCentersMaxIntensityDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class FieldIlluminationKeyValues(KeyValues):
@@ -1991,10 +1592,7 @@ class FieldIlluminationKeyValues(KeyValues):
     class_name: ClassVar[str] = "FieldIlluminationKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
-    data_uri: Union[str, FieldIlluminationKeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
@@ -2039,11 +1637,6 @@ class FieldIlluminationKeyValues(KeyValues):
     bottom_right_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, FieldIlluminationKeyValuesDataUri):
-            self.data_uri = FieldIlluminationKeyValuesDataUri(self.data_uri)
-
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
@@ -2227,21 +1820,13 @@ class PSFBeadsDataset(MetricsDataset):
     class_name: ClassVar[str] = "PSFBeadsDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset
 
-    data_uri: Union[str, PSFBeadsDatasetDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    microscope: Union[str, MicroscopeDataUri] = None
+    data_uri: str = None
+    microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "PSFBeadsInput"]] = None
     output: Optional[Union[dict, "PSFBeadsOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, PSFBeadsDatasetDataUri):
-            self.data_uri = PSFBeadsDatasetDataUri(self.data_uri)
-
         if self.input is not None and not isinstance(self.input, PSFBeadsInput):
             self.input = PSFBeadsInput(**as_dict(self.input))
 
@@ -2260,7 +1845,7 @@ class PSFBeadsInput(MetricsInput):
     class_name: ClassVar[str] = "PSFBeadsInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
 
-    psf_beads_images: Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]] = None
+    psf_beads_images: Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]] = None
     min_lateral_distance_factor: float = 20.0
     sigma_z: float = 1.0
     sigma_y: float = 1.0
@@ -2274,9 +1859,7 @@ class PSFBeadsInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.psf_beads_images):
             self.MissingRequiredField("psf_beads_images")
-        if not isinstance(self.psf_beads_images, list):
-            self.psf_beads_images = [self.psf_beads_images] if self.psf_beads_images is not None else []
-        self.psf_beads_images = [v if isinstance(v, ImageAsNumpyDataUri) else ImageAsNumpyDataUri(v) for v in self.psf_beads_images]
+        self._normalize_inlined_as_dict(slot_name="psf_beads_images", slot_type=ImageAsNumpy, key_name="data_uri", keyed=False)
 
         if self._is_empty(self.min_lateral_distance_factor):
             self.MissingRequiredField("min_lateral_distance_factor")
@@ -2334,72 +1917,54 @@ class PSFBeadsOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
-    bead_crops: Optional[Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]]] = empty_list()
-    analyzed_bead_centers: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    discarded_bead_centers_lateral_edge: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    discarded_bead_centers_self_proximity: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    considered_bead_centers_axial_edge: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    considered_bead_centers_intensity_outlier: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    considered_bead_centers_z_fit_quality: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    considered_bead_centers_y_fit_quality: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    considered_bead_centers_x_fit_quality: Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]] = empty_list()
-    key_values: Optional[Union[str, PSFBeadsKeyValuesDataUri]] = None
-    bead_properties: Optional[Union[str, TableAsDictDataUri]] = None
-    bead_z_profiles: Optional[Union[str, TableAsDictDataUri]] = None
-    bead_y_profiles: Optional[Union[str, TableAsDictDataUri]] = None
-    bead_x_profiles: Optional[Union[str, TableAsDictDataUri]] = None
+    bead_crops: Optional[Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]]] = empty_list()
+    analyzed_bead_centers: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    discarded_bead_centers_lateral_edge: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    discarded_bead_centers_self_proximity: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    considered_bead_centers_axial_edge: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    considered_bead_centers_intensity_outlier: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    considered_bead_centers_z_fit_quality: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    considered_bead_centers_y_fit_quality: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    considered_bead_centers_x_fit_quality: Optional[Union[Union[dict, "PSFBeadsCenters"], List[Union[dict, "PSFBeadsCenters"]]]] = empty_list()
+    key_values: Optional[Union[dict, "PSFBeadsKeyValues"]] = None
+    bead_properties: Optional[Union[dict, TableAsDict]] = None
+    bead_z_profiles: Optional[Union[dict, TableAsDict]] = None
+    bead_y_profiles: Optional[Union[dict, TableAsDict]] = None
+    bead_x_profiles: Optional[Union[dict, TableAsDict]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.bead_crops, list):
-            self.bead_crops = [self.bead_crops] if self.bead_crops is not None else []
-        self.bead_crops = [v if isinstance(v, ImageAsNumpyDataUri) else ImageAsNumpyDataUri(v) for v in self.bead_crops]
+        self._normalize_inlined_as_dict(slot_name="bead_crops", slot_type=ImageAsNumpy, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.analyzed_bead_centers, list):
-            self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
-        self.analyzed_bead_centers = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.analyzed_bead_centers]
+        self._normalize_inlined_as_dict(slot_name="analyzed_bead_centers", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.discarded_bead_centers_lateral_edge, list):
-            self.discarded_bead_centers_lateral_edge = [self.discarded_bead_centers_lateral_edge] if self.discarded_bead_centers_lateral_edge is not None else []
-        self.discarded_bead_centers_lateral_edge = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.discarded_bead_centers_lateral_edge]
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centers_lateral_edge", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.discarded_bead_centers_self_proximity, list):
-            self.discarded_bead_centers_self_proximity = [self.discarded_bead_centers_self_proximity] if self.discarded_bead_centers_self_proximity is not None else []
-        self.discarded_bead_centers_self_proximity = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.discarded_bead_centers_self_proximity]
+        self._normalize_inlined_as_dict(slot_name="discarded_bead_centers_self_proximity", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.considered_bead_centers_axial_edge, list):
-            self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
-        self.considered_bead_centers_axial_edge = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.considered_bead_centers_axial_edge]
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_axial_edge", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.considered_bead_centers_intensity_outlier, list):
-            self.considered_bead_centers_intensity_outlier = [self.considered_bead_centers_intensity_outlier] if self.considered_bead_centers_intensity_outlier is not None else []
-        self.considered_bead_centers_intensity_outlier = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.considered_bead_centers_intensity_outlier]
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_intensity_outlier", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.considered_bead_centers_z_fit_quality, list):
-            self.considered_bead_centers_z_fit_quality = [self.considered_bead_centers_z_fit_quality] if self.considered_bead_centers_z_fit_quality is not None else []
-        self.considered_bead_centers_z_fit_quality = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.considered_bead_centers_z_fit_quality]
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_z_fit_quality", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.considered_bead_centers_y_fit_quality, list):
-            self.considered_bead_centers_y_fit_quality = [self.considered_bead_centers_y_fit_quality] if self.considered_bead_centers_y_fit_quality is not None else []
-        self.considered_bead_centers_y_fit_quality = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.considered_bead_centers_y_fit_quality]
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_y_fit_quality", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if not isinstance(self.considered_bead_centers_x_fit_quality, list):
-            self.considered_bead_centers_x_fit_quality = [self.considered_bead_centers_x_fit_quality] if self.considered_bead_centers_x_fit_quality is not None else []
-        self.considered_bead_centers_x_fit_quality = [v if isinstance(v, PSFBeadsCentersDataUri) else PSFBeadsCentersDataUri(v) for v in self.considered_bead_centers_x_fit_quality]
+        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_x_fit_quality", slot_type=PSFBeadsCenters, key_name="data_uri", keyed=False)
 
-        if self.key_values is not None and not isinstance(self.key_values, PSFBeadsKeyValuesDataUri):
-            self.key_values = PSFBeadsKeyValuesDataUri(self.key_values)
+        if self.key_values is not None and not isinstance(self.key_values, PSFBeadsKeyValues):
+            self.key_values = PSFBeadsKeyValues(**as_dict(self.key_values))
 
-        if self.bead_properties is not None and not isinstance(self.bead_properties, TableAsDictDataUri):
-            self.bead_properties = TableAsDictDataUri(self.bead_properties)
+        if self.bead_properties is not None and not isinstance(self.bead_properties, TableAsDict):
+            self.bead_properties = TableAsDict(**as_dict(self.bead_properties))
 
-        if self.bead_z_profiles is not None and not isinstance(self.bead_z_profiles, TableAsDictDataUri):
-            self.bead_z_profiles = TableAsDictDataUri(self.bead_z_profiles)
+        if self.bead_z_profiles is not None and not isinstance(self.bead_z_profiles, TableAsDict):
+            self.bead_z_profiles = TableAsDict(**as_dict(self.bead_z_profiles))
 
-        if self.bead_y_profiles is not None and not isinstance(self.bead_y_profiles, TableAsDictDataUri):
-            self.bead_y_profiles = TableAsDictDataUri(self.bead_y_profiles)
+        if self.bead_y_profiles is not None and not isinstance(self.bead_y_profiles, TableAsDict):
+            self.bead_y_profiles = TableAsDict(**as_dict(self.bead_y_profiles))
 
-        if self.bead_x_profiles is not None and not isinstance(self.bead_x_profiles, TableAsDictDataUri):
-            self.bead_x_profiles = TableAsDictDataUri(self.bead_x_profiles)
+        if self.bead_x_profiles is not None and not isinstance(self.bead_x_profiles, TableAsDict):
+            self.bead_x_profiles = TableAsDict(**as_dict(self.bead_x_profiles))
 
         super().__post_init__(**kwargs)
 
@@ -2413,19 +1978,7 @@ class PSFBeadsCenters(Roi):
     class_name: ClassVar[str] = "PSFBeadsCenters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsCenters
 
-    data_uri: Union[str, PSFBeadsCentersDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, PSFBeadsCentersDataUri):
-            self.data_uri = PSFBeadsCentersDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class PSFBeadsKeyValues(KeyValues):
@@ -2436,10 +1989,7 @@ class PSFBeadsKeyValues(KeyValues):
     class_name: ClassVar[str] = "PSFBeadsKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyValues
 
-    data_uri: Union[str, PSFBeadsKeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
@@ -2481,11 +2031,6 @@ class PSFBeadsKeyValues(KeyValues):
     resolution_std_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, PSFBeadsKeyValuesDataUri):
-            self.data_uri = PSFBeadsKeyValuesDataUri(self.data_uri)
-
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
@@ -2657,21 +2202,13 @@ class ArgolightBDataset(MetricsDataset):
     class_name: ClassVar[str] = "ArgolightBDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDataset
 
-    data_uri: Union[str, ArgolightBDatasetDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    microscope: Union[str, MicroscopeDataUri] = None
+    data_uri: str = None
+    microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "ArgolightBInput"]] = None
     output: Optional[Union[dict, "ArgolightBOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightBDatasetDataUri):
-            self.data_uri = ArgolightBDatasetDataUri(self.data_uri)
-
         if self.input is not None and not isinstance(self.input, ArgolightBInput):
             self.input = ArgolightBInput(**as_dict(self.input))
 
@@ -2690,7 +2227,7 @@ class ArgolightBInput(MetricsInput):
     class_name: ClassVar[str] = "ArgolightBInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBInput
 
-    argolight_b_image: Union[str, ImageAsNumpyDataUri] = None
+    argolight_b_image: Union[dict, ImageAsNumpy] = None
     spots_distance: float = None
     saturation_threshold: float = 0.01
     sigma_z: float = 1.0
@@ -2704,8 +2241,8 @@ class ArgolightBInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.argolight_b_image):
             self.MissingRequiredField("argolight_b_image")
-        if not isinstance(self.argolight_b_image, ImageAsNumpyDataUri):
-            self.argolight_b_image = ImageAsNumpyDataUri(self.argolight_b_image)
+        if not isinstance(self.argolight_b_image, ImageAsNumpy):
+            self.argolight_b_image = ImageAsNumpy(**as_dict(self.argolight_b_image))
 
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
@@ -2761,32 +2298,30 @@ class ArgolightBOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
-    spots_labels_image: Optional[Union[str, ImageAsNumpyDataUri]] = None
-    spots_centers_of_mass: Optional[Union[Union[str, ArgolightBCentersOfMassDataUri], List[Union[str, ArgolightBCentersOfMassDataUri]]]] = empty_list()
-    intensity_key_values: Optional[Union[str, ArgolightBIntensityKeyValuesDataUri]] = None
-    distance_key_values: Optional[Union[str, ArgolightBDistanceKeyValuesDataUri]] = None
-    spots_properties: Optional[Union[str, TableAsDictDataUri]] = None
-    spots_distances: Optional[Union[str, TableAsDictDataUri]] = None
+    spots_labels_image: Optional[Union[dict, ImageAsNumpy]] = None
+    spots_centers_of_mass: Optional[Union[Union[dict, "ArgolightBCentersOfMass"], List[Union[dict, "ArgolightBCentersOfMass"]]]] = empty_list()
+    intensity_key_values: Optional[Union[dict, "ArgolightBIntensityKeyValues"]] = None
+    distance_key_values: Optional[Union[dict, "ArgolightBDistanceKeyValues"]] = None
+    spots_properties: Optional[Union[dict, TableAsDict]] = None
+    spots_distances: Optional[Union[dict, TableAsDict]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.spots_labels_image is not None and not isinstance(self.spots_labels_image, ImageAsNumpyDataUri):
-            self.spots_labels_image = ImageAsNumpyDataUri(self.spots_labels_image)
+        if self.spots_labels_image is not None and not isinstance(self.spots_labels_image, ImageAsNumpy):
+            self.spots_labels_image = ImageAsNumpy(**as_dict(self.spots_labels_image))
 
-        if not isinstance(self.spots_centers_of_mass, list):
-            self.spots_centers_of_mass = [self.spots_centers_of_mass] if self.spots_centers_of_mass is not None else []
-        self.spots_centers_of_mass = [v if isinstance(v, ArgolightBCentersOfMassDataUri) else ArgolightBCentersOfMassDataUri(v) for v in self.spots_centers_of_mass]
+        self._normalize_inlined_as_dict(slot_name="spots_centers_of_mass", slot_type=ArgolightBCentersOfMass, key_name="data_uri", keyed=False)
 
-        if self.intensity_key_values is not None and not isinstance(self.intensity_key_values, ArgolightBIntensityKeyValuesDataUri):
-            self.intensity_key_values = ArgolightBIntensityKeyValuesDataUri(self.intensity_key_values)
+        if self.intensity_key_values is not None and not isinstance(self.intensity_key_values, ArgolightBIntensityKeyValues):
+            self.intensity_key_values = ArgolightBIntensityKeyValues(**as_dict(self.intensity_key_values))
 
-        if self.distance_key_values is not None and not isinstance(self.distance_key_values, ArgolightBDistanceKeyValuesDataUri):
-            self.distance_key_values = ArgolightBDistanceKeyValuesDataUri(self.distance_key_values)
+        if self.distance_key_values is not None and not isinstance(self.distance_key_values, ArgolightBDistanceKeyValues):
+            self.distance_key_values = ArgolightBDistanceKeyValues(**as_dict(self.distance_key_values))
 
-        if self.spots_properties is not None and not isinstance(self.spots_properties, TableAsDictDataUri):
-            self.spots_properties = TableAsDictDataUri(self.spots_properties)
+        if self.spots_properties is not None and not isinstance(self.spots_properties, TableAsDict):
+            self.spots_properties = TableAsDict(**as_dict(self.spots_properties))
 
-        if self.spots_distances is not None and not isinstance(self.spots_distances, TableAsDictDataUri):
-            self.spots_distances = TableAsDictDataUri(self.spots_distances)
+        if self.spots_distances is not None and not isinstance(self.spots_distances, TableAsDict):
+            self.spots_distances = TableAsDict(**as_dict(self.spots_distances))
 
         super().__post_init__(**kwargs)
 
@@ -2800,19 +2335,7 @@ class ArgolightBCentersOfMass(Roi):
     class_name: ClassVar[str] = "ArgolightBCentersOfMass"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBCentersOfMass
 
-    data_uri: Union[str, ArgolightBCentersOfMassDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightBCentersOfMassDataUri):
-            self.data_uri = ArgolightBCentersOfMassDataUri(self.data_uri)
-
-        super().__post_init__(**kwargs)
-
+    data_uri: str = None
 
 @dataclass
 class ArgolightBIntensityKeyValues(KeyValues):
@@ -2823,10 +2346,7 @@ class ArgolightBIntensityKeyValues(KeyValues):
     class_name: ClassVar[str] = "ArgolightBIntensityKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBIntensityKeyValues
 
-    data_uri: Union[str, ArgolightBIntensityKeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_spots: Optional[Union[int, List[int]]] = empty_list()
     intensity_max_spot: Optional[Union[float, List[float]]] = empty_list()
@@ -2840,11 +2360,6 @@ class ArgolightBIntensityKeyValues(KeyValues):
     min_max_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightBIntensityKeyValuesDataUri):
-            self.data_uri = ArgolightBIntensityKeyValuesDataUri(self.data_uri)
-
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
@@ -2901,10 +2416,7 @@ class ArgolightBDistanceKeyValues(KeyValues):
     class_name: ClassVar[str] = "ArgolightBDistanceKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDistanceKeyValues
 
-    data_uri: Union[str, ArgolightBDistanceKeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     channel_A: Optional[Union[int, List[int]]] = empty_list()
     channel_B: Optional[Union[int, List[int]]] = empty_list()
     mean_3d_dist: Optional[Union[float, List[float]]] = empty_list()
@@ -2917,11 +2429,6 @@ class ArgolightBDistanceKeyValues(KeyValues):
     mad_z_dist: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightBDistanceKeyValuesDataUri):
-            self.data_uri = ArgolightBDistanceKeyValuesDataUri(self.data_uri)
-
         if not isinstance(self.channel_A, list):
             self.channel_A = [self.channel_A] if self.channel_A is not None else []
         self.channel_A = [v if isinstance(v, int) else int(v) for v in self.channel_A]
@@ -2980,21 +2487,13 @@ class ArgolightEDataset(MetricsDataset):
     class_name: ClassVar[str] = "ArgolightEDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEDataset
 
-    data_uri: Union[str, ArgolightEDatasetDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
-    microscope: Union[str, MicroscopeDataUri] = None
+    data_uri: str = None
+    microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
     input: Optional[Union[dict, "ArgolightEInput"]] = None
     output: Optional[Union[dict, "ArgolightEOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightEDatasetDataUri):
-            self.data_uri = ArgolightEDatasetDataUri(self.data_uri)
-
         if self.input is not None and not isinstance(self.input, ArgolightEInput):
             self.input = ArgolightEInput(**as_dict(self.input))
 
@@ -3013,7 +2512,7 @@ class ArgolightEInput(MetricsInput):
     class_name: ClassVar[str] = "ArgolightEInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInput
 
-    argolight_e_image: Union[str, ImageAsNumpyDataUri] = None
+    argolight_e_image: Union[dict, ImageAsNumpy] = None
     orientation_axis: int = None
     saturation_threshold: float = 0.01
     measured_band: float = 0.4
@@ -3023,8 +2522,8 @@ class ArgolightEInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.argolight_e_image):
             self.MissingRequiredField("argolight_e_image")
-        if not isinstance(self.argolight_e_image, ImageAsNumpyDataUri):
-            self.argolight_e_image = ImageAsNumpyDataUri(self.argolight_e_image)
+        if not isinstance(self.argolight_e_image, ImageAsNumpy):
+            self.argolight_e_image = ImageAsNumpy(**as_dict(self.argolight_e_image))
 
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
@@ -3064,20 +2563,18 @@ class ArgolightEOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
-    peaks_rois: Optional[Union[Union[str, RoiDataUri], List[Union[str, RoiDataUri]]]] = empty_list()
-    key_measurements: Optional[Union[str, ArgolightEKeyValuesDataUri]] = None
-    intensity_profiles: Optional[Union[str, TableAsDictDataUri]] = None
+    peaks_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    key_measurements: Optional[Union[dict, "ArgolightEKeyValues"]] = None
+    intensity_profiles: Optional[Union[dict, TableAsDict]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.peaks_rois, list):
-            self.peaks_rois = [self.peaks_rois] if self.peaks_rois is not None else []
-        self.peaks_rois = [v if isinstance(v, RoiDataUri) else RoiDataUri(v) for v in self.peaks_rois]
+        self._normalize_inlined_as_dict(slot_name="peaks_rois", slot_type=Roi, key_name="data_uri", keyed=False)
 
-        if self.key_measurements is not None and not isinstance(self.key_measurements, ArgolightEKeyValuesDataUri):
-            self.key_measurements = ArgolightEKeyValuesDataUri(self.key_measurements)
+        if self.key_measurements is not None and not isinstance(self.key_measurements, ArgolightEKeyValues):
+            self.key_measurements = ArgolightEKeyValues(**as_dict(self.key_measurements))
 
-        if self.intensity_profiles is not None and not isinstance(self.intensity_profiles, TableAsDictDataUri):
-            self.intensity_profiles = TableAsDictDataUri(self.intensity_profiles)
+        if self.intensity_profiles is not None and not isinstance(self.intensity_profiles, TableAsDict):
+            self.intensity_profiles = TableAsDict(**as_dict(self.intensity_profiles))
 
         super().__post_init__(**kwargs)
 
@@ -3091,10 +2588,7 @@ class ArgolightEKeyValues(KeyValues):
     class_name: ClassVar[str] = "ArgolightEKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEKeyValues
 
-    data_uri: Union[str, ArgolightEKeyValuesDataUri] = None
-    omero_host: str = None
-    omero_object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    omero_object_id: int = None
+    data_uri: str = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     focus_slice: Optional[Union[int, List[int]]] = empty_list()
     rayleigh_resolution_pixels: Optional[Union[float, List[float]]] = empty_list()
@@ -3107,11 +2601,6 @@ class ArgolightEKeyValues(KeyValues):
     peak_prominence_B: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.data_uri):
-            self.MissingRequiredField("data_uri")
-        if not isinstance(self.data_uri, ArgolightEKeyValuesDataUri):
-            self.data_uri = ArgolightEKeyValuesDataUri(self.data_uri)
-
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
@@ -3289,7 +2778,7 @@ slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_x, domain=None, range=Optional[float])
 
 slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/field_illumination_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]])
 
 slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/corner_fraction'], name="corner_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/corner_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.corner_fraction, domain=None, range=float)
@@ -3424,7 +2913,7 @@ slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.psf_beads_images = Slot(uri="str(uriorcurie)", name="psf_beads_images", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]])
 
 slots.min_lateral_distance_factor = Slot(uri="str(uriorcurie)", name="min_lateral_distance_factor", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
@@ -3553,7 +3042,7 @@ slots.resolution_std_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", 
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.argolight_b_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_b_image'], name="argolight_b_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_b_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[str, ImageAsNumpyDataUri])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[dict, ImageAsNumpy])
 
 slots.spots_distance = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distance'], name="spots_distance", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distance'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.spots_distance, domain=None, range=float)
@@ -3628,7 +3117,7 @@ slots.mad_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/m
                    model_uri=MICROSCOPEMETRICS_SCHEMA.mad_z_dist, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.argolight_e_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_e_image'], name="argolight_e_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_e_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_e_image, domain=None, range=Union[str, ImageAsNumpyDataUri])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_e_image, domain=None, range=Union[dict, ImageAsNumpy])
 
 slots.orientation_axis = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/orientation_axis'], name="orientation_axis", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/orientation_axis'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.orientation_axis, domain=None, range=int)
@@ -3667,19 +3156,19 @@ slots.peak_prominence_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_s
                    model_uri=MICROSCOPEMETRICS_SCHEMA.peak_prominence_B, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.metricsObject__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="metricsObject__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__data_uri, domain=None, range=URIRef)
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__data_uri, domain=None, range=str)
 
 slots.metricsObject__omero_host = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_host'], name="metricsObject__omero_host", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_host'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_host, domain=None, range=str)
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_host, domain=None, range=Optional[str])
 
 slots.metricsObject__omero_port = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_port'], name="metricsObject__omero_port", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_port'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_port, domain=None, range=Optional[int])
 
 slots.metricsObject__omero_object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_type'], name="metricsObject__omero_object_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_type'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_type, domain=None, range=Union[str, "OMEROObjectTypeEnum"])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_type, domain=None, range=Optional[Union[str, "OMEROObjectTypeEnum"]])
 
 slots.metricsObject__omero_object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_id'], name="metricsObject__omero_object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_id'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_id, domain=None, range=int)
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__omero_object_id, domain=None, range=Optional[int])
 
 slots.oMEROReference__host = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/host'], name="oMEROReference__host", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/host'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__host, domain=None, range=str)
@@ -3694,7 +3183,7 @@ slots.oMEROReference__object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema
                    model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__object_id, domain=None, range=int)
 
 slots.microscopeCollection__microscopes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscopes'], name="microscopeCollection__microscopes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscopes'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[str, MicroscopeDataUri], List[Union[str, MicroscopeDataUri]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[dict, Microscope], List[Union[dict, Microscope]]])
 
 slots.microscope__type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/type'], name="microscope__type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscope__type, domain=None, range=Optional[Union[str, "MicroscopeTypeEnum"]])
@@ -3745,13 +3234,13 @@ slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], nam
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
 
 slots.metricsDatasetCollection__datasets = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/datasets'], name="metricsDatasetCollection__datasets", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/datasets'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDatasetCollection__datasets, domain=None, range=Union[Union[str, MetricsDatasetDataUri], List[Union[str, MetricsDatasetDataUri]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDatasetCollection__datasets, domain=None, range=Union[Union[dict, MetricsDataset], List[Union[dict, MetricsDataset]]])
 
 slots.harmonizedMetricsDatasetCollection__dataset_class = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/dataset_class'], name="harmonizedMetricsDatasetCollection__dataset_class", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/dataset_class'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.harmonizedMetricsDatasetCollection__dataset_class, domain=None, range=str)
 
 slots.metricsDataset__microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscope'], name="metricsDataset__microscope", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscope'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[str, MicroscopeDataUri])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[dict, Microscope])
 
 slots.metricsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="metricsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__sample, domain=None, range=Optional[Union[dict, Sample]])
@@ -3820,25 +3309,25 @@ slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values
                    model_uri=MICROSCOPEMETRICS_SCHEMA.timeSeries__values, domain=None, range=Union[float, List[float]])
 
 slots.roi__image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image'], name="roi__image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Optional[Union[Union[str, ImageDataUri], List[Union[str, ImageDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
 
 slots.roi__points = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/points'], name="roi__points", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/points'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__points, domain=None, range=Optional[Union[Dict[Union[str, PointDataUri], Union[dict, Point]], List[Union[dict, Point]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__points, domain=None, range=Optional[Union[Union[dict, Point], List[Union[dict, Point]]]])
 
 slots.roi__lines = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/lines'], name="roi__lines", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/lines'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__lines, domain=None, range=Optional[Union[Dict[Union[str, LineDataUri], Union[dict, Line]], List[Union[dict, Line]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__lines, domain=None, range=Optional[Union[Union[dict, Line], List[Union[dict, Line]]]])
 
 slots.roi__rectangles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/rectangles'], name="roi__rectangles", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/rectangles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__rectangles, domain=None, range=Optional[Union[Dict[Union[str, RectangleDataUri], Union[dict, Rectangle]], List[Union[dict, Rectangle]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__rectangles, domain=None, range=Optional[Union[Union[dict, Rectangle], List[Union[dict, Rectangle]]]])
 
 slots.roi__ellipses = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/ellipses'], name="roi__ellipses", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/ellipses'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__ellipses, domain=None, range=Optional[Union[Dict[Union[str, EllipseDataUri], Union[dict, Ellipse]], List[Union[dict, Ellipse]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__ellipses, domain=None, range=Optional[Union[Union[dict, Ellipse], List[Union[dict, Ellipse]]]])
 
 slots.roi__polygons = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/polygons'], name="roi__polygons", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/polygons'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__polygons, domain=None, range=Optional[Union[Dict[Union[str, PolygonDataUri], Union[dict, Polygon]], List[Union[dict, Polygon]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__polygons, domain=None, range=Optional[Union[Union[dict, Polygon], List[Union[dict, Polygon]]]])
 
 slots.roi__masks = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/masks'], name="roi__masks", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/masks'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__masks, domain=None, range=Optional[Union[Union[str, MaskDataUri], List[Union[str, MaskDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__masks, domain=None, range=Optional[Union[Union[dict, Mask], List[Union[dict, Mask]]]])
 
 slots.shape__z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/z'], name="shape__z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape__z, domain=None, range=Optional[float])
@@ -3934,10 +3423,10 @@ slots.color__alpha = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/alpha'], nam
                    model_uri=MICROSCOPEMETRICS_SCHEMA.color__alpha, domain=None, range=Optional[int])
 
 slots.profilesIntensity__intensity_profiles_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/intensity_profiles_table'], name="profilesIntensity__intensity_profiles_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/intensity_profiles_table'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.profilesIntensity__intensity_profiles_table, domain=None, range=Union[str, TableAsDictDataUri])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profilesIntensity__intensity_profiles_table, domain=None, range=Union[dict, TableAsDict])
 
 slots.roiMeasurements__measurements_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/measurements_table'], name="roiMeasurements__measurements_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/measurements_table'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Union[str, TableAsDictDataUri])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Union[dict, TableAsDict])
 
 slots.tag__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="tag__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tag__text, domain=None, range=str)
@@ -3964,31 +3453,31 @@ slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samp
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__output, domain=None, range=Optional[Union[dict, FieldIlluminationOutput]])
 
 slots.fieldIlluminationOutput__key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/key_values'], name="fieldIlluminationOutput__key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/key_values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__key_values, domain=None, range=Optional[Union[str, FieldIlluminationKeyValuesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__key_values, domain=None, range=Optional[Union[dict, FieldIlluminationKeyValues]])
 
 slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_profiles'], name="fieldIlluminationOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[Union[str, TableAsDictDataUri], List[Union[str, TableAsDictDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, TableAsDict], List[Union[dict, TableAsDict]]]])
 
 slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map'], name="fieldIlluminationOutput__intensity_map", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]]])
 
 slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[str, FieldIlluminationProfilesIntensityDataUri], List[Union[str, FieldIlluminationProfilesIntensityDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, FieldIlluminationProfilesIntensity], List[Union[dict, FieldIlluminationProfilesIntensity]]]])
 
 slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_corners'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[str, FieldIlluminationCornersIntensitiesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[dict, FieldIlluminationCornersIntensities]])
 
 slots.fieldIlluminationOutput__roi_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_of_mass'], name="fieldIlluminationOutput__roi_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_of_mass'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[str, FieldIlluminationCentersOfMassDataUri], List[Union[str, FieldIlluminationCentersOfMassDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersOfMass], List[Union[dict, FieldIlluminationCentersOfMass]]]])
 
 slots.fieldIlluminationOutput__roi_centers_geometric = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_geometric'], name="fieldIlluminationOutput__roi_centers_geometric", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_geometric'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_geometric, domain=None, range=Optional[Union[Union[str, FieldIlluminationCentersGeometricDataUri], List[Union[str, FieldIlluminationCentersGeometricDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_geometric, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersGeometric], List[Union[dict, FieldIlluminationCentersGeometric]]]])
 
 slots.fieldIlluminationOutput__roi_centers_fitted = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_fitted'], name="fieldIlluminationOutput__roi_centers_fitted", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_fitted'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_fitted, domain=None, range=Optional[Union[Union[str, FieldIlluminationCentersFittedDataUri], List[Union[str, FieldIlluminationCentersFittedDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_fitted, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersFitted], List[Union[dict, FieldIlluminationCentersFitted]]]])
 
 slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_max_intensity'], name="fieldIlluminationOutput__roi_centers_max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_max_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[str, FieldIlluminationCentersMaxIntensityDataUri], List[Union[str, FieldIlluminationCentersMaxIntensityDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersMaxIntensity], List[Union[dict, FieldIlluminationCentersMaxIntensity]]]])
 
 slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Optional[Union[dict, PSFBeadsInput]])
@@ -3997,46 +3486,46 @@ slots.pSFBeadsDataset__output = Slot(uri="str(uriorcurie)", name="pSFBeadsDatase
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
 
 slots.pSFBeadsOutput__bead_crops = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_crops", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_crops, domain=None, range=Optional[Union[Union[str, ImageAsNumpyDataUri], List[Union[str, ImageAsNumpyDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_crops, domain=None, range=Optional[Union[Union[dict, ImageAsNumpy], List[Union[dict, ImageAsNumpy]]]])
 
 slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__analyzed_bead_centers", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__discarded_bead_centers_lateral_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centers_lateral_edge", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__discarded_bead_centers_self_proximity = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centers_self_proximity", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_quality, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_quality, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_quality, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_quality, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_quality, domain=None, range=Optional[Union[Union[str, PSFBeadsCentersDataUri], List[Union[str, PSFBeadsCentersDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_quality, domain=None, range=Optional[Union[Union[dict, PSFBeadsCenters], List[Union[dict, PSFBeadsCenters]]]])
 
 slots.pSFBeadsOutput__key_values = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__key_values", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_values, domain=None, range=Optional[Union[str, PSFBeadsKeyValuesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_values, domain=None, range=Optional[Union[dict, PSFBeadsKeyValues]])
 
 slots.pSFBeadsOutput__bead_properties = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_properties", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.pSFBeadsOutput__bead_z_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_z_profiles", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_z_profiles, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_z_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.pSFBeadsOutput__bead_y_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_y_profiles", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_y_profiles, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_y_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.pSFBeadsOutput__bead_x_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_x_profiles", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_x_profiles, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_x_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Optional[Union[dict, ArgolightBInput]])
@@ -4045,22 +3534,22 @@ slots.argolightBDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/arg
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__output, domain=None, range=Optional[Union[dict, ArgolightBOutput]])
 
 slots.argolightBOutput__spots_labels_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_labels_image'], name="argolightBOutput__spots_labels_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_labels_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_labels_image, domain=None, range=Optional[Union[str, ImageAsNumpyDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_labels_image, domain=None, range=Optional[Union[dict, ImageAsNumpy]])
 
 slots.argolightBOutput__spots_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_centers_of_mass'], name="argolightBOutput__spots_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_centers_of_mass'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_centers_of_mass, domain=None, range=Optional[Union[Union[str, ArgolightBCentersOfMassDataUri], List[Union[str, ArgolightBCentersOfMassDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_centers_of_mass, domain=None, range=Optional[Union[Union[dict, ArgolightBCentersOfMass], List[Union[dict, ArgolightBCentersOfMass]]]])
 
 slots.argolightBOutput__intensity_key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_key_values'], name="argolightBOutput__intensity_key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_key_values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__intensity_key_values, domain=None, range=Optional[Union[str, ArgolightBIntensityKeyValuesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__intensity_key_values, domain=None, range=Optional[Union[dict, ArgolightBIntensityKeyValues]])
 
 slots.argolightBOutput__distance_key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/distance_key_values'], name="argolightBOutput__distance_key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/distance_key_values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__distance_key_values, domain=None, range=Optional[Union[str, ArgolightBDistanceKeyValuesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__distance_key_values, domain=None, range=Optional[Union[dict, ArgolightBDistanceKeyValues]])
 
 slots.argolightBOutput__spots_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_properties'], name="argolightBOutput__spots_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_properties'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_properties, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_properties, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.argolightBOutput__spots_distances = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distances'], name="argolightBOutput__spots_distances", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distances'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_distances, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_distances, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.argolightEDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightEDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__input, domain=None, range=Optional[Union[dict, ArgolightEInput]])
@@ -4069,13 +3558,13 @@ slots.argolightEDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/arg
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__output, domain=None, range=Optional[Union[dict, ArgolightEOutput]])
 
 slots.argolightEOutput__peaks_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peaks_rois'], name="argolightEOutput__peaks_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peaks_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__peaks_rois, domain=None, range=Optional[Union[Union[str, RoiDataUri], List[Union[str, RoiDataUri]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__peaks_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.argolightEOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/key_measurements'], name="argolightEOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/key_measurements'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__key_measurements, domain=None, range=Optional[Union[str, ArgolightEKeyValuesDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__key_measurements, domain=None, range=Optional[Union[dict, ArgolightEKeyValues]])
 
 slots.argolightEOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_profiles'], name="argolightEOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__intensity_profiles, domain=None, range=Optional[Union[str, TableAsDictDataUri]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__intensity_profiles, domain=None, range=Optional[Union[dict, TableAsDict]])
 
 slots.FieldIlluminationInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInput_saturation_threshold, domain=FieldIlluminationInput, range=float)

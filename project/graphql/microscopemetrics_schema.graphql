@@ -3,10 +3,10 @@ type ArgolightBCentersOfMass implements CentersOfMass
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -21,10 +21,10 @@ type ArgolightBDataset
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
@@ -39,10 +39,10 @@ type ArgolightBDistanceKeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     channelA: [Integer]
     channelB: [Integer]
     mean3dDist: [Float]
@@ -74,10 +74,10 @@ type ArgolightBIntensityKeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     channelNr: [Integer]
     nrOfSpots: [Integer]
     intensityMaxSpot: [Float]
@@ -114,10 +114,10 @@ type ArgolightEDataset
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
@@ -142,10 +142,10 @@ type ArgolightEKeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     channelNr: [Integer]
     focusSlice: [Integer]
     rayleighResolutionPixels: [Float]
@@ -231,10 +231,10 @@ type Ellipse
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -258,10 +258,10 @@ type FieldIlluminationCentersFitted implements CentersFitted
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -276,10 +276,10 @@ type FieldIlluminationCentersGeometric implements CentersGeometric
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -294,10 +294,10 @@ type FieldIlluminationCentersMaxIntensity implements CentersMaxIntensity
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -312,10 +312,10 @@ type FieldIlluminationCentersOfMass implements CentersOfMass
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -330,10 +330,10 @@ type FieldIlluminationCornersIntensities implements RoiMeasurements
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -349,10 +349,10 @@ type FieldIlluminationDataset
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
@@ -377,10 +377,10 @@ type FieldIlluminationKeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     channelNr: [Integer]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
@@ -451,10 +451,10 @@ type FieldIlluminationProfilesIntensity implements ProfilesIntensity
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -476,10 +476,10 @@ interface Image
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -496,10 +496,10 @@ type Image2D
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -517,10 +517,10 @@ type Image5D
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -540,10 +540,10 @@ type ImageAsNumpy
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -561,10 +561,10 @@ interface ImageInline
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -581,10 +581,10 @@ type ImageMask
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     sourceImageUri: [String]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
@@ -602,10 +602,10 @@ interface KeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
   }
 
 type Line
@@ -613,10 +613,10 @@ type Line
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -634,10 +634,10 @@ type Mask
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -658,10 +658,10 @@ type MetricsDataset
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
@@ -685,10 +685,10 @@ interface MetricsObject
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
   }
 
 interface MetricsOutput
@@ -708,10 +708,10 @@ type Microscope
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     type: MicroscopeTypeEnum
     manufacturer: String
     model: String
@@ -743,10 +743,10 @@ type Point
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -762,10 +762,10 @@ type Polygon
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -795,10 +795,10 @@ type PSFBeadsCenters implements CentersMaxIntensity
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -813,10 +813,10 @@ type PSFBeadsDataset
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     microscope: Microscope!
     sample: Sample
     experimenter: [Experimenter]
@@ -845,10 +845,10 @@ type PSFBeadsKeyValues
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
     nrOfBeadsDiscardedLateralEdge: [Integer]
@@ -921,10 +921,10 @@ type Rectangle
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -942,10 +942,10 @@ type Roi
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     image: [Image]
     points: [Point]
     lines: [Line]
@@ -973,10 +973,10 @@ interface Shape
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     z: Float
     c: Integer
     t: Integer
@@ -990,10 +990,10 @@ interface Table
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
   }
 
 interface TableAsDict
@@ -1001,10 +1001,10 @@ interface TableAsDict
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     columns: [Column]!
   }
 
@@ -1013,10 +1013,10 @@ type TableAsPandasDF
     name: String
     description: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     df: MetaObject!
   }
 
@@ -1024,10 +1024,10 @@ interface Tag
   {
     name: String
     dataUri: String!
-    omeroHost: String!
+    omeroHost: String
     omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum!
-    omeroObjectId: Integer!
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
     text: String!
     description: String
   }

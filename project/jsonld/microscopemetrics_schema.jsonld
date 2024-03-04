@@ -702,6 +702,7 @@
       ],
       "range": "ImageAsNumpy",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1370,6 +1371,7 @@
       ],
       "range": "ImageAsNumpy",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1978,6 +1980,7 @@
       ],
       "range": "ImageAsNumpy",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2330,6 +2333,7 @@
       ],
       "range": "ImageAsNumpy",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2515,7 +2519,6 @@
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "string_serialization": "omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/data_uri",
-      "identifier": true,
       "alias": "data_uri",
       "owner": "MetricsObject",
       "domain_of": [
@@ -2536,7 +2539,6 @@
         "MetricsObject"
       ],
       "range": "string",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2544,7 +2546,6 @@
       "description": "The port of the OMERO server",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_port",
-      "ifabsent": "int(4064)",
       "alias": "omero_port",
       "owner": "MetricsObject",
       "domain_of": [
@@ -2564,7 +2565,6 @@
         "MetricsObject"
       ],
       "range": "OMEROObjectTypeEnum",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2578,7 +2578,6 @@
         "MetricsObject"
       ],
       "range": "integer",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2650,6 +2649,7 @@
       ],
       "range": "Microscope",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2887,6 +2887,7 @@
       ],
       "range": "MetricsDataset",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2915,6 +2916,7 @@
       ],
       "range": "Microscope",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3262,6 +3264,7 @@
         "Roi"
       ],
       "range": "Image",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3351,6 +3354,7 @@
         "Roi"
       ],
       "range": "Mask",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3813,6 +3817,7 @@
       ],
       "range": "TableAsDict",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3827,6 +3832,7 @@
       ],
       "range": "TableAsDict",
       "required": true,
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3951,6 +3957,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationKeyValues",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3965,6 +3972,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3979,6 +3987,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "ImageAsNumpy",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3993,6 +4002,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationProfilesIntensity",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4006,6 +4016,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationCornersIntensities",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4020,6 +4031,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationCentersOfMass",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4034,6 +4046,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationCentersGeometric",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4048,6 +4061,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationCentersFitted",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4062,6 +4076,7 @@
         "FieldIlluminationOutput"
       ],
       "range": "FieldIlluminationCentersMaxIntensity",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4102,6 +4117,7 @@
         "PSFBeadsOutput"
       ],
       "range": "ImageAsNumpy",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4116,6 +4132,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4130,6 +4147,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4144,6 +4162,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4158,6 +4177,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4172,6 +4192,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4186,6 +4207,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4200,6 +4222,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4214,6 +4237,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsCenters",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4227,6 +4251,7 @@
         "PSFBeadsOutput"
       ],
       "range": "PSFBeadsKeyValues",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4240,6 +4265,7 @@
         "PSFBeadsOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4253,6 +4279,7 @@
         "PSFBeadsOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4266,6 +4293,7 @@
         "PSFBeadsOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4279,6 +4307,7 @@
         "PSFBeadsOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4318,6 +4347,7 @@
         "ArgolightBOutput"
       ],
       "range": "ImageAsNumpy",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4332,6 +4362,7 @@
         "ArgolightBOutput"
       ],
       "range": "ArgolightBCentersOfMass",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4345,6 +4376,7 @@
         "ArgolightBOutput"
       ],
       "range": "ArgolightBIntensityKeyValues",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4358,6 +4390,7 @@
         "ArgolightBOutput"
       ],
       "range": "ArgolightBDistanceKeyValues",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4371,6 +4404,7 @@
         "ArgolightBOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4384,6 +4418,7 @@
         "ArgolightBOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4424,6 +4459,7 @@
         "ArgolightEOutput"
       ],
       "range": "Roi",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4437,6 +4473,7 @@
         "ArgolightEOutput"
       ],
       "range": "ArgolightEKeyValues",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4450,6 +4487,7 @@
         "ArgolightEOutput"
       ],
       "range": "TableAsDict",
+      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4693,7 +4731,6 @@
           "name": "data_uri",
           "description": "The URI of the object data",
           "string_serialization": "omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}",
-          "identifier": true,
           "range": "string",
           "required": true,
           "@type": "SlotDefinition"
@@ -4702,13 +4739,11 @@
           "name": "omero_host",
           "description": "The host of the OMERO server",
           "range": "string",
-          "required": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "omero_port",
           "description": "The port of the OMERO server",
-          "ifabsent": "int(4064)",
           "range": "integer",
           "@type": "SlotDefinition"
         },
@@ -4716,14 +4751,12 @@
           "name": "omero_object_type",
           "description": "The type of the OMERO object",
           "range": "OMEROObjectTypeEnum",
-          "required": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "omero_object_id",
           "description": "The ID of the OMERO object",
           "range": "integer",
-          "required": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -7355,7 +7388,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-04T16:06:25",
+  "generation_date": "2024-03-04T16:14:34",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
