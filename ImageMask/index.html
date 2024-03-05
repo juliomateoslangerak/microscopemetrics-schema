@@ -249,8 +249,6 @@
 
       ImageMask : shape_z
 
-      ImageMask : source_image_uri
-
       ImageMask : time_series
 
           ImageMask --&gt; TimeSeries : time_series
@@ -287,12 +285,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../source_image_uri/">source_image_uri</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>A list of URLs linking to the images that were used as a source</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
 <tr>
 <td><a href="../voxel_size_x_micron/">voxel_size_x_micron</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
@@ -476,18 +468,6 @@ description: A mask image. Either a binary image or a label image
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: Image
 attributes:
-  source_image_uri:
-    name: source_image_uri
-    description: A list of URLs linking to the images that were used as a source
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: source_image_uri
-    owner: ImageMask
-    domain_of:
-    - Image
-    range: string
-    required: false
   voxel_size_x_micron:
     name: voxel_size_x_micron
     description: The physical size in the voxel in the x dimension in microns

@@ -1176,6 +1176,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/intensity_maps/</loc>
+         <lastmod>2024-03-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/intensity_max_spot/</loc>
          <lastmod>2024-03-05</lastmod>
          <changefreq>daily</changefreq>

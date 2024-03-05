@@ -253,8 +253,6 @@
 
       Image : shape_z
 
-      Image : source_image_uri
-
       Image : time_series
 
           Image --&gt; TimeSeries : time_series
@@ -291,12 +289,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../source_image_uri/">source_image_uri</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>A list of URLs linking to the images that were used as a source</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../voxel_size_x_micron/">voxel_size_x_micron</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
@@ -456,7 +448,7 @@
 </tr>
 <tr>
 <td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../intensity_map/">intensity_map</a></td>
+<td><a href="../intensity_maps/">intensity_maps</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -495,7 +487,6 @@ description: A microscope-metrics image
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
 slots:
-- source_image_uri
 - voxel_size_x_micron
 - voxel_size_y_micron
 - voxel_size_z_micron
@@ -517,18 +508,6 @@ description: A microscope-metrics image
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
 attributes:
-  source_image_uri:
-    name: source_image_uri
-    description: A list of URLs linking to the images that were used as a source
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: source_image_uri
-    owner: Image
-    domain_of:
-    - Image
-    range: string
-    required: false
   voxel_size_x_micron:
     name: voxel_size_x_micron
     description: The physical size in the voxel in the x dimension in microns
