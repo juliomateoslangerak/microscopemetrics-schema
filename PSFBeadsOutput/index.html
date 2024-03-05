@@ -216,23 +216,23 @@
 
       PSFBeadsOutput : bead_crops
 
-          PSFBeadsOutput --&gt; ImageAsNumpy : bead_crops
+          PSFBeadsOutput --&gt; Image : bead_crops
 
       PSFBeadsOutput : bead_properties
 
-          PSFBeadsOutput --&gt; TableAsDict : bead_properties
+          PSFBeadsOutput --&gt; Table : bead_properties
 
       PSFBeadsOutput : bead_x_profiles
 
-          PSFBeadsOutput --&gt; TableAsDict : bead_x_profiles
+          PSFBeadsOutput --&gt; Table : bead_x_profiles
 
       PSFBeadsOutput : bead_y_profiles
 
-          PSFBeadsOutput --&gt; TableAsDict : bead_y_profiles
+          PSFBeadsOutput --&gt; Table : bead_y_profiles
 
       PSFBeadsOutput : bead_z_profiles
 
-          PSFBeadsOutput --&gt; TableAsDict : bead_z_profiles
+          PSFBeadsOutput --&gt; Table : bead_z_profiles
 
       PSFBeadsOutput : comment
 
@@ -306,8 +306,8 @@
 <tbody>
 <tr>
 <td><a href="../bead_crops/">bead_crops</a></td>
-<td>0..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>The crops of the beads provided as a 5D numpy array in the order TZYXC</td>
+<td>0..* <br/> <a href="../Image/">Image</a></td>
+<td>The crops of the beads provided in the order TZYXC</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -366,25 +366,25 @@
 </tr>
 <tr>
 <td><a href="../bead_properties/">bead_properties</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>Properties associated with the analysis of the beads</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bead_z_profiles/">bead_z_profiles</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the z axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bead_y_profiles/">bead_y_profiles</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the y axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bead_x_profiles/">bead_x_profiles</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the x axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
@@ -491,12 +491,12 @@ is_a: MetricsOutput
 attributes:
   bead_crops:
     name: bead_crops
-    description: The crops of the beads provided as a 5D numpy array in the order
-      TZYXC. One crop will be provided per bead correctly detected.
+    description: The crops of the beads provided in the order TZYXC. One crop will
+      be provided per bead correctly detected.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
-    range: ImageAsNumpy
+    range: Image
     inlined: false
   analyzed_bead_centers:
     name: analyzed_bead_centers
@@ -593,7 +593,7 @@ attributes:
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_z_profiles:
     name: bead_z_profiles
@@ -602,7 +602,7 @@ attributes:
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_y_profiles:
     name: bead_y_profiles
@@ -611,7 +611,7 @@ attributes:
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_x_profiles:
     name: bead_x_profiles
@@ -620,7 +620,7 @@ attributes:
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     inlined: false
 
 </code></pre>
@@ -633,8 +633,8 @@ is_a: MetricsOutput
 attributes:
   bead_crops:
     name: bead_crops
-    description: The crops of the beads provided as a 5D numpy array in the order
-      TZYXC. One crop will be provided per bead correctly detected.
+    description: The crops of the beads provided in the order TZYXC. One crop will
+      be provided per bead correctly detected.
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
     rank: 1000
     multivalued: true
@@ -642,7 +642,7 @@ attributes:
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
-    range: ImageAsNumpy
+    range: Image
     inlined: false
   analyzed_bead_centers:
     name: analyzed_bead_centers
@@ -780,7 +780,7 @@ attributes:
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_z_profiles:
     name: bead_z_profiles
@@ -793,7 +793,7 @@ attributes:
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_y_profiles:
     name: bead_y_profiles
@@ -806,7 +806,7 @@ attributes:
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   bead_x_profiles:
     name: bead_x_profiles
@@ -819,7 +819,7 @@ attributes:
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   processing_application:
     name: processing_application

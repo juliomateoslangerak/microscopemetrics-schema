@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-bead_crops">Slot: bead_crops</h1>
-<p><em>The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.</em></p>
+<p><em>The crops of the beads provided in the order TZYXC. One crop will be provided per bead correctly detected.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/bead_crops">microscopemetrics_schema:bead_crops</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -341,7 +341,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../ImageAsNumpy/">ImageAsNumpy</a></p>
+<p>Range: <a href="../Image/">Image</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -356,8 +356,8 @@
 <details>
 
 <pre><code class="language-yaml">name: bead_crops
-description: The crops of the beads provided as a 5D numpy array in the order TZYXC.
-  One crop will be provided per bead correctly detected.
+description: The crops of the beads provided in the order TZYXC. One crop will be
+  provided per bead correctly detected.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
@@ -365,7 +365,7 @@ alias: bead_crops
 owner: PSFBeadsOutput
 domain_of:
 - PSFBeadsOutput
-range: ImageAsNumpy
+range: Image
 inlined: false
 
 </code></pre>

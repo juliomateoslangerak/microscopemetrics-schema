@@ -218,7 +218,7 @@
 
       ArgolightEOutput : intensity_profiles
 
-          ArgolightEOutput --&gt; TableAsDict : intensity_profiles
+          ArgolightEOutput --&gt; Table : intensity_profiles
 
       ArgolightEOutput : key_measurements
 
@@ -274,7 +274,7 @@
 </tr>
 <tr>
 <td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>Intensity profiles of the argolight lines provided as tables</td>
 <td>direct</td>
 </tr>
@@ -402,7 +402,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     inlined: false
 
 </code></pre>
@@ -449,7 +449,7 @@ attributes:
     domain_of:
     - ArgolightEOutput
     - FieldIlluminationOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   processing_application:
     name: processing_application

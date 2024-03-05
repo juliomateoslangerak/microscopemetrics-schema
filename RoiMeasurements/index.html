@@ -208,7 +208,7 @@
 
       RoiMeasurements : measurements_table
 
-          RoiMeasurements --&gt; TableAsDict : measurements_table
+          RoiMeasurements --&gt; Table : measurements_table
 
 
 </div>
@@ -226,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../measurements_table/">measurements_table</a></td>
-<td>1..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>1..1 <br/> <a href="../Table/">Table</a></td>
 <td>Linked table of measurements</td>
 <td>direct</td>
 </tr>
@@ -287,7 +287,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     required: true
     inlined: true
 
@@ -311,7 +311,7 @@ attributes:
     owner: RoiMeasurements
     domain_of:
     - RoiMeasurements
-    range: TableAsDict
+    range: Table
     required: true
     inlined: true
 

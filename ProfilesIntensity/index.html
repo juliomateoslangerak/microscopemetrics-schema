@@ -208,7 +208,7 @@
 
       ProfilesIntensity : intensity_profiles_table
 
-          ProfilesIntensity --&gt; TableAsDict : intensity_profiles_table
+          ProfilesIntensity --&gt; Table : intensity_profiles_table
 
 
 </div>
@@ -226,7 +226,7 @@
 <tbody>
 <tr>
 <td><a href="../intensity_profiles_table/">intensity_profiles_table</a></td>
-<td>1..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>1..1 <br/> <a href="../Table/">Table</a></td>
 <td>Linked table of profiles</td>
 <td>direct</td>
 </tr>
@@ -286,7 +286,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     required: true
     inlined: true
 
@@ -309,7 +309,7 @@ attributes:
     owner: ProfilesIntensity
     domain_of:
     - ProfilesIntensity
-    range: TableAsDict
+    range: Table
     required: true
     inlined: true
 

@@ -218,11 +218,11 @@
 
       FieldIlluminationOutput : intensity_map
 
-          FieldIlluminationOutput --&gt; ImageAsNumpy : intensity_map
+          FieldIlluminationOutput --&gt; Image : intensity_map
 
       FieldIlluminationOutput : intensity_profiles
 
-          FieldIlluminationOutput --&gt; TableAsDict : intensity_profiles
+          FieldIlluminationOutput --&gt; Table : intensity_profiles
 
       FieldIlluminationOutput : key_values
 
@@ -292,13 +292,13 @@
 </tr>
 <tr>
 <td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>0..* <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..* <br/> <a href="../Table/">Table</a></td>
 <td>Intensity profiles for the field illumination analysis in the different direc...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../intensity_map/">intensity_map</a></td>
-<td>0..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
+<td>0..* <br/> <a href="../Image/">Image</a></td>
 <td>Intensity map of the field illumination</td>
 <td>direct</td>
 </tr>
@@ -453,7 +453,7 @@ attributes:
       directions
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: true
-    range: TableAsDict
+    range: Table
     inlined: false
   intensity_map:
     name: intensity_map
@@ -461,7 +461,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: ImageAsNumpy
+    range: Image
     inlined: false
   roi_profiles:
     name: roi_profiles
@@ -550,7 +550,7 @@ attributes:
     domain_of:
     - ArgolightEOutput
     - FieldIlluminationOutput
-    range: TableAsDict
+    range: Table
     inlined: false
   intensity_map:
     name: intensity_map
@@ -562,7 +562,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: ImageAsNumpy
+    range: Image
     inlined: false
   roi_profiles:
     name: roi_profiles

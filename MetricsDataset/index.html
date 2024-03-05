@@ -301,7 +301,7 @@
 </tr>
 <tr>
 <td><a href="../experimenter/">experimenter</a></td>
-<td>0..* <br/> <a href="../Experimenter/">Experimenter</a></td>
+<td>0..1 <br/> <a href="../Experimenter/">Experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 <td>direct</td>
 </tr>
@@ -451,7 +451,7 @@ attributes:
     description: The experimenter that performed the imaging experiment
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
+    multivalued: false
     range: Experimenter
   acquisition_datetime:
     name: acquisition_datetime
@@ -533,7 +533,7 @@ attributes:
     description: The experimenter that performed the imaging experiment
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
+    multivalued: false
     alias: experimenter
     owner: MetricsDataset
     domain_of:

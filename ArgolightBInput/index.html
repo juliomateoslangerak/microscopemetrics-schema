@@ -212,7 +212,7 @@
 
       ArgolightBInput : argolight_b_image
 
-          ArgolightBInput --&gt; ImageAsNumpy : argolight_b_image
+          ArgolightBInput --&gt; Image : argolight_b_image
 
       ArgolightBInput : bit_depth
 
@@ -254,8 +254,8 @@
 <tbody>
 <tr>
 <td><a href="../argolight_b_image/">argolight_b_image</a></td>
-<td>1..1 <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>Input parameter: image of the argolight b pattern provided as a 5D numpy arra...</td>
+<td>1..1 <br/> <a href="../Image/">Image</a></td>
+<td>Input parameter: image of the argolight b pattern in the order TZYXC</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -470,8 +470,7 @@ slot_usage:
 attributes:
   argolight_b_image:
     name: argolight_b_image
-    description: 'Input parameter: image of the argolight b pattern provided as a
-      5D numpy array in the order TZYXC'
+    description: 'Input parameter: image of the argolight b pattern in the order TZYXC'
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -479,7 +478,7 @@ attributes:
     owner: ArgolightBInput
     domain_of:
     - ArgolightBInput
-    range: ImageAsNumpy
+    range: Image
     required: true
     inlined: false
   bit_depth:

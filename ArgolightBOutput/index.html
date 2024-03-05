@@ -240,15 +240,15 @@
 
       ArgolightBOutput : spots_distances
 
-          ArgolightBOutput --&gt; TableAsDict : spots_distances
+          ArgolightBOutput --&gt; Table : spots_distances
 
       ArgolightBOutput : spots_labels_image
 
-          ArgolightBOutput --&gt; ImageAsNumpy : spots_labels_image
+          ArgolightBOutput --&gt; ImageMask : spots_labels_image
 
       ArgolightBOutput : spots_properties
 
-          ArgolightBOutput --&gt; TableAsDict : spots_properties
+          ArgolightBOutput --&gt; Table : spots_properties
 
       ArgolightBOutput : warnings
 
@@ -274,8 +274,8 @@
 <tbody>
 <tr>
 <td><a href="../spots_labels_image/">spots_labels_image</a></td>
-<td>0..1 <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>Labels image of the argolight segmented spots provided as a 5D numpy array in...</td>
+<td>0..1 <br/> <a href="../ImageMask/">ImageMask</a></td>
+<td>Labels image of the argolight segmented spots provided in the order TZYXC</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -298,13 +298,13 @@
 </tr>
 <tr>
 <td><a href="../spots_properties/">spots_properties</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>Table of properties of the argolight spots</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../spots_distances/">spots_distances</a></td>
-<td>0..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>Table of distances between argolight spots</td>
 <td>direct</td>
 </tr>
@@ -411,12 +411,12 @@ is_a: MetricsOutput
 attributes:
   spots_labels_image:
     name: spots_labels_image
-    description: Labels image of the argolight segmented spots provided as a 5D numpy
-      array in the order TZYXC. Image intensities correspond to ROI labels
+    description: Labels image of the argolight segmented spots provided in the order
+      TZYXC. Image intensities correspond to ROI labels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    range: ImageAsNumpy
+    range: ImageMask
     required: false
   spots_centers_of_mass:
     name: spots_centers_of_mass
@@ -450,7 +450,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     required: false
   spots_distances:
     name: spots_distances
@@ -458,7 +458,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    range: TableAsDict
+    range: Table
     required: false
 
 </code></pre>
@@ -471,8 +471,8 @@ is_a: MetricsOutput
 attributes:
   spots_labels_image:
     name: spots_labels_image
-    description: Labels image of the argolight segmented spots provided as a 5D numpy
-      array in the order TZYXC. Image intensities correspond to ROI labels
+    description: Labels image of the argolight segmented spots provided in the order
+      TZYXC. Image intensities correspond to ROI labels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
@@ -480,7 +480,7 @@ attributes:
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
-    range: ImageAsNumpy
+    range: ImageMask
     required: false
   spots_centers_of_mass:
     name: spots_centers_of_mass
@@ -530,7 +530,7 @@ attributes:
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
-    range: TableAsDict
+    range: Table
     required: false
   spots_distances:
     name: spots_distances
@@ -542,7 +542,7 @@ attributes:
     owner: ArgolightBOutput
     domain_of:
     - ArgolightBOutput
-    range: TableAsDict
+    range: Table
     required: false
   processing_application:
     name: processing_application

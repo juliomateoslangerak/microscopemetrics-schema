@@ -233,7 +233,7 @@
 
       FieldIlluminationCornersIntensities : measurements_table
 
-          FieldIlluminationCornersIntensities --&gt; TableAsDict : measurements_table
+          FieldIlluminationCornersIntensities --&gt; Table : measurements_table
 
       FieldIlluminationCornersIntensities : name
 
@@ -287,7 +287,7 @@
 <tbody>
 <tr>
 <td><a href="../measurements_table/">measurements_table</a></td>
-<td>1..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
+<td>1..1 <br/> <a href="../Table/">Table</a></td>
 <td>Linked table of measurements</td>
 <td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
 </tr>
@@ -450,7 +450,7 @@ attributes:
     owner: FieldIlluminationCornersIntensities
     domain_of:
     - RoiMeasurements
-    range: TableAsDict
+    range: Table
     required: true
     inlined: true
   image:

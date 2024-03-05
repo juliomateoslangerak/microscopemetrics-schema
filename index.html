@@ -417,6 +417,10 @@
 <td>A color as defined by RGB values and an optional alpha value</td>
 </tr>
 <tr>
+<td><a href="ColumnSeries/">ColumnSeries</a></td>
+<td>A series whose values represent column</td>
+</tr>
+<tr>
 <td><a href="Comment/">Comment</a></td>
 <td>A comment</td>
 </tr>
@@ -431,6 +435,14 @@
 <tr>
 <td><a href="MetaObject/">MetaObject</a></td>
 <td>None</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArrayData/">ArrayData</a></td>
+<td>A non serializable array data object</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TableData/">TableData</a></td>
+<td>A non serializable table data object</td>
 </tr>
 <tr>
 <td><a href="MetricsDatasetCollection/">MetricsDatasetCollection</a></td>
@@ -493,36 +505,16 @@
 <td>A image channel</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Column/">Column</a></td>
-<td>A column</td>
-</tr>
-<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MetricsObject/">MetricsObject</a></td>
 <td>A base object for all microscope-metrics objects.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Image/">Image</a></td>
-<td>A base object for all microscope-metrics images</td>
+<td>A microscope-metrics image</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ImageAsNumpy/">ImageAsNumpy</a></td>
-<td>An image as a numpy array in TZYXC order</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ImageInline/">ImageInline</a></td>
-<td>A base object for all microscope-metrics images that are stored as arrays in line</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Image2D/">Image2D</a></td>
-<td>A 2D image in YX order</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Image5D/">Image5D</a></td>
-<td>A 5D image in TZYXC order</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ImageMask/">ImageMask</a></td>
-<td>A base object for all microscope-metrics masks</td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ImageMask/">ImageMask</a></td>
+<td>A mask image. Either a binary image or a label image</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="KeyValues/">KeyValues</a></td>
@@ -650,15 +642,7 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Table/">Table</a></td>
-<td>A table</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TableAsDict/">TableAsDict</a></td>
-<td>A table inlined in a metrics dataset</td>
-</tr>
-<tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="TableAsPandasDF/">TableAsPandasDF</a></td>
-<td>A table as a Pandas DataFrame</td>
+<td>A microscope-metrics table</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Tag/">Tag</a></td>
@@ -717,11 +701,15 @@
 </tr>
 <tr>
 <td><a href="argolight_b_image/">argolight_b_image</a></td>
-<td>Input parameter: image of the argolight b pattern provided as a 5D numpy arra...</td>
+<td>Input parameter: image of the argolight b pattern in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="argolight_e_image/">argolight_e_image</a></td>
-<td>Image of the argolight e pattern provided as a 5D numpy array in the order TZ...</td>
+<td>Image of the argolight e pattern provided in the order TZYXC</td>
+</tr>
+<tr>
+<td><a href="array_data/">array_data</a></td>
+<td>A non-required slot for non-serializable array data object</td>
 </tr>
 <tr>
 <td><a href="author/">author</a></td>
@@ -737,7 +725,7 @@
 </tr>
 <tr>
 <td><a href="bead_crops/">bead_crops</a></td>
-<td>The crops of the beads provided as a 5D numpy array in the order TZYXC</td>
+<td>The crops of the beads provided in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="bead_properties/">bead_properties</a></td>
@@ -872,8 +860,20 @@
 <td></td>
 </tr>
 <tr>
-<td><a href="columns/">columns</a></td>
-<td>A list of the columns of the table</td>
+<td><a href="column_descriptions/">column_descriptions</a></td>
+<td>The descriptions of the columns</td>
+</tr>
+<tr>
+<td><a href="column_names/">column_names</a></td>
+<td>The names of the columns</td>
+</tr>
+<tr>
+<td><a href="column_series/">column_series</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="column_source_objects/">column_source_objects</a></td>
+<td>The source objects of the columns</td>
 </tr>
 <tr>
 <td><a href="comment/">comment</a></td>
@@ -912,10 +912,6 @@
 <td>Input parameter: the proportion of the image to be considered as corner or ce...</td>
 </tr>
 <tr>
-<td><a href="data/">data</a></td>
-<td></td>
-</tr>
-<tr>
 <td><a href="data_uri/">data_uri</a></td>
 <td>The URI of the object data</td>
 </tr>
@@ -934,10 +930,6 @@
 <tr>
 <td><a href="description/">description</a></td>
 <td>A human readable description of an entity</td>
-</tr>
-<tr>
-<td><a href="df/">df</a></td>
-<td>A Pandas DataFrame object</td>
 </tr>
 <tr>
 <td><a href="discarded_bead_centers_lateral_edge/">discarded_bead_centers_lateral_edge</a></td>
@@ -973,7 +965,7 @@
 </tr>
 <tr>
 <td><a href="field_illumination_image/">field_illumination_image</a></td>
-<td>Input parameter: homogeneity image provided as a numpy array in the order TZY...</td>
+<td>Input parameter: homogeneity image provided in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="fill_color/">fill_color</a></td>
@@ -1377,7 +1369,7 @@
 </tr>
 <tr>
 <td><a href="psf_beads_images/">psf_beads_images</a></td>
-<td>The image containing the beads provided as a 5D numpy array in the order TZYX...</td>
+<td>The image containing the beads provided in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="r/">r</a></td>
@@ -1564,10 +1556,6 @@
 <td>A list of URLs linking to the images that were used as a source</td>
 </tr>
 <tr>
-<td><a href="source_uri/">source_uri</a></td>
-<td>The URI of the source of the column</td>
-</tr>
-<tr>
 <td><a href="spots_centers_of_mass/">spots_centers_of_mass</a></td>
 <td>Centers of mass of the argolight spots provided as a list of ROIs</td>
 </tr>
@@ -1581,7 +1569,7 @@
 </tr>
 <tr>
 <td><a href="spots_labels_image/">spots_labels_image</a></td>
-<td>Labels image of the argolight segmented spots provided as a 5D numpy array in...</td>
+<td>Labels image of the argolight segmented spots provided in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="spots_properties/">spots_properties</a></td>
@@ -1610,6 +1598,10 @@
 <tr>
 <td><a href="t/">t</a></td>
 <td>The t coordinate of the shape</td>
+</tr>
+<tr>
+<td><a href="table_data/">table_data</a></td>
+<td>A non-required slot for non-serializable table data object</td>
 </tr>
 <tr>
 <td><a href="text/">text</a></td>
