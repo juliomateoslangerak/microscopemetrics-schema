@@ -218,28 +218,18 @@
 
           TableAsDict --&gt; Column : columns
 
-      TableAsDict : data_uri
-
       TableAsDict : description
 
       TableAsDict : name
 
-      TableAsDict : omero_host
-
-      TableAsDict : omero_object_id
-
-      TableAsDict : omero_object_type
-
-          TableAsDict --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      TableAsDict : omero_port
+      TableAsDict : table_url
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../Table/">Table</a><ul>
 <li><strong>TableAsDict</strong></li>
 </ul>
@@ -267,45 +257,21 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
+<td><a href="../table_url/">table_url</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td>An URL linking to the table</td>
+<td><a href="../Table/">Table</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -340,18 +306,6 @@
 <td><a href="./">TableAsDict</a></td>
 </tr>
 <tr>
-<td><a href="../ProfilesIntensity/">ProfilesIntensity</a></td>
-<td><a href="../intensity_profiles_table/">intensity_profiles_table</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
-<td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
-<td><a href="../measurements_table/">measurements_table</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
 <td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
 <td><a href="../bead_properties/">bead_properties</a></td>
 <td>range</td>
@@ -378,18 +332,6 @@
 <tr>
 <td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
 <td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a></td>
-<td><a href="../intensity_profiles_table/">intensity_profiles_table</a></td>
-<td>range</td>
-<td><a href="./">TableAsDict</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a></td>
-<td><a href="../measurements_table/">measurements_table</a></td>
 <td>range</td>
 <td><a href="./">TableAsDict</a></td>
 </tr>
@@ -438,7 +380,7 @@ attributes:
     range: Column
     required: true
     inlined: true
-    inlined_as_list: false
+    inlined_as_list: true
 
 </code></pre>
 </details>
@@ -463,60 +405,21 @@ attributes:
     range: Column
     required: true
     inlined: true
-    inlined_as_list: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    inlined_as_list: true
+  table_url:
+    name: table_url
+    description: An URL linking to the table
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
-    alias: data_uri
+    multivalued: false
+    alias: table_url
     owner: TableAsDict
     domain_of:
-    - DataReference
+    - Table
     range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: TableAsDict
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: TableAsDict
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: TableAsDict
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: TableAsDict
-    domain_of:
-    - DataReference
-    range: integer
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -525,11 +428,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -537,6 +441,7 @@ attributes:
     owner: TableAsDict
     domain_of:
     - NamedObject
+    - Roi
     - Tag
     range: string
     required: false

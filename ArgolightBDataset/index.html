@@ -220,6 +220,10 @@
 
           ArgolightBDataset --&gt; ArgolightBInput : input
 
+      ArgolightBDataset : linked_objects
+
+          ArgolightBDataset --&gt; DataReference : linked_objects
+
       ArgolightBDataset : microscope
 
           ArgolightBDataset --&gt; Microscope : microscope
@@ -342,6 +346,12 @@
 <td><a href="../omero_object_id/">omero_object_id</a></td>
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../linked_objects/">linked_objects</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked objects</td>
 <td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
@@ -547,6 +557,18 @@ attributes:
     domain_of:
     - DataReference
     range: integer
+  linked_objects:
+    name: linked_objects
+    description: A list of linked objects
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_objects
+    owner: ArgolightBDataset
+    domain_of:
+    - DataReference
+    range: DataReference
+    inlined: true
   name:
     name: name
     description: The human readable name of an entity

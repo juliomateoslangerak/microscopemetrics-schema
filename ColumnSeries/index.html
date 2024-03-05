@@ -210,7 +210,7 @@
 
       ColumnSeries : column_source_objects
 
-          ColumnSeries --&gt; MetricsObject : column_source_objects
+          ColumnSeries --&gt; DataReference : column_source_objects
 
 
 </div>
@@ -240,7 +240,7 @@
 </tr>
 <tr>
 <td><a href="../column_source_objects/">column_source_objects</a></td>
-<td>0..* <br/> <a href="../MetricsObject/">MetricsObject</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>The source objects of the columns</td>
 <td>direct</td>
 </tr>
@@ -321,7 +321,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    range: MetricsObject
+    range: DataReference
     required: false
 
 </code></pre>
@@ -368,7 +368,7 @@ attributes:
     owner: ColumnSeries
     domain_of:
     - ColumnSeries
-    range: MetricsObject
+    range: DataReference
     required: false
 
 </code></pre>
