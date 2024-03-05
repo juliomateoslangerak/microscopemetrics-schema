@@ -46,13 +46,13 @@ classes:
         multivalued: false
         inlined: false
       intensity_profiles:
-        range: TableAsDict
+        range: Table
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
         multivalued: true
         inlined: false
       intensity_map:
-        range: ImageAsNumpy
+        range: Image
         description: >-
           Intensity map of the field illumination
         multivalued: true
@@ -178,9 +178,9 @@ classes:
 slots:
   # Inputs
   field_illumination_image:
-    range: ImageAsNumpy
+    range: Image
     description: >-
-      Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts
+      Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts
       multiple channels, the T and Z dimensions are expected to be 1.
     required: true
     multivalued: true

@@ -22,6 +22,14 @@ classes:
   MetaObject:
     class_uri: linkml:Any
 
+  ArrayData:
+    is_a: MetaObject
+    description: A non serializable array data object
+
+  TableData:
+    is_a: MetaObject
+    description: A non serializable table data object
+
   NamedObject:
     description: An object with a name and a description
     abstract: true
@@ -29,24 +37,13 @@ classes:
       - name
       - description
 
-  MetricsObject:
-    is_a: NamedObject
-    abstract: true
-    description: A base object for all microscope-metrics objects.
-    unique_keys:
-      omero_uri:
-        description: A metrics object is uniquely identified by a combination of its OMERO attributes
-        unique_key_slots:
-          - omero_host
-          - omero_port
-          - omero_object_type
-          - omero_object_id
+  DataReference:
+    description: A reference to a data resource
+    mixin: true
     attributes:
       data_uri:
         range: string
         description: The URI of the object data
-        required: true
-        string_serialization: "omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}"
       omero_host:
         range: string
         description: The host of the OMERO server
@@ -59,32 +56,20 @@ classes:
       omero_object_id:
         range: integer
         description: The ID of the OMERO object
-#      omero_reference:
-#        range: OMEROReference
-#        description: The reference to the OMERO object
-#        required: false
-#        multivalued: false
+    unique_keys:
+      omero_reference:
+        description: A metrics object is uniquely identified by a combination of its OMERO attributes
+        unique_key_slots:
+          - omero_host
+          - omero_object_type
+          - omero_object_id
 
-  OMEROReference:
-    description: A reference to an OMERO object
-    attributes:
-      host:
-        range: string
-        description: The host of the OMERO server
-        required: true
-      port:
-        range: integer
-        description: The port of the OMERO server
-        required: false
-        ifabsent: int(4064)
-      object_type:
-        range: OMEROObjectTypeEnum
-        description: The type of the OMERO object
-        required: true
-      object_id:
-        range: integer
-        description: The ID of the OMERO object
-        required: true
+  MetricsObject:
+    is_a: NamedObject
+    mixins:
+      - DataReference
+    abstract: true
+    description: A base object for all microscope-metrics objects.
 
   MicroscopeCollection:
     description: A collection of microscopes
@@ -230,7 +215,7 @@ classes:
       experimenter:
         range: Experimenter
         description: The experimenter that performed the imaging experiment
-        multivalued: true
+        multivalued: false
       acquisition_datetime:
         range: datetime
         description: The datetime of the acquisition
@@ -312,8 +297,7 @@ classes:
 
   Image:
     is_a: MetricsObject
-    description: A base object for all microscope-metrics images
-    abstract: true
+    description: A microscope-metrics image
     slots:
       - source_image_uri
       - voxel_size_x_micron
@@ -324,67 +308,13 @@ classes:
       - shape_z
       - shape_c
       - shape_t
-
-  ImageAsNumpy:
-    is_a: Image
-    description: An image as a numpy array in TZYXC order
-    attributes:
-      data:
-        range: MetaObject
-
-  ImageInline:
-    is_a: Image
-    description: A base object for all microscope-metrics images that are stored as arrays in line
-    abstract: true
+      - time_series
+      - channel_series
+      - array_data
 
   ImageMask:
-    is_a: ImageInline
-    description: A base object for all microscope-metrics masks
-    attributes:
-      data:
-        implements:
-          - linkml:elements
-        range: boolean
-        multivalued: true
-        required: true
-
-  Image2D:
-    is_a: ImageInline
-    description: A 2D image in YX order
-    implements:
-      - linkml:TwoDimensionalArray
-      - linkml:RowOrderedArray
-    attributes:
-      data:
-        implements:
-          - linkml:elements
-        range: float
-        multivalued: true
-        required: true
-
-  Image5D:
-    is_a: ImageInline
-    description: A 5D image in TZYXC order
-    implements:
-      - linkml:FiveDimensionalArray
-      - linkml:RowOrderedArray
-    attributes:
-      time_series:
-        range: TimeSeries
-        implements:
-          - linkml:axis0
-        required: false
-      channel_series:
-        range: ChannelSeries
-        implements:
-          - linkml:axis4
-        required: false
-      data:
-        implements:
-          - linkml:elements
-        range: float
-        multivalued: true
-        required: true
+    is_a: Image
+    description: A mask image. Either a binary image or a label image
 
   ChannelSeries:
     description: A series whose values represent channel
@@ -418,6 +348,27 @@ classes:
         required: true
         unit:
           ucum_code: s
+
+  ColumnSeries:
+    description: A series whose values represent column
+    implements:
+      - linkml:OneDimensionalSeries
+    attributes:
+      column_names:
+        range: string
+        description: The names of the columns
+        multivalued: true
+        required: true
+      column_descriptions:
+        range: string
+        description: The descriptions of the columns
+        multivalued: true
+        required: false
+      column_source_objects:
+        range: MetricsObject
+        description: The source objects of the columns
+        multivalued: true
+        required: false
 
   Roi:
     is_a: MetricsObject
@@ -713,7 +664,7 @@ classes:
       Intended to be used with ROIs.
     attributes:
       intensity_profiles_table:
-        range: TableAsDict
+        range: Table
         description: Linked table of profiles
         required: true
         multivalued: false
@@ -726,7 +677,7 @@ classes:
       Intended to be used with ROIs.
     attributes:
       measurements_table:
-        range: TableAsDict
+        range: Table
         description: Linked table of measurements
         required: true
         multivalued: false
@@ -755,45 +706,10 @@ classes:
 
   Table:
     is_a: MetricsObject
-    description: A table
-    abstract: true
-
-  TableAsPandasDF:
-    is_a: Table
-    description: A table as a Pandas DataFrame
-    attributes:
-      df:
-        range: MetaObject
-        description: A Pandas DataFrame object
-        required: true
-        multivalued: false
-
-  TableAsDict:
-    is_a: Table
-    abstract: true
-    description: A table inlined in a metrics dataset
-    attributes:
-      columns:
-        range: Column
-        description: A list of the columns of the table
-        required: true
-        multivalued: true
-        inlined: true
-        inlined_as_list: false
-
-  Column:
-    is_a: NamedObject
-    description: A column
-    attributes:
-      source_uri:
-        range: string
-        description: The URI of the source of the column
-        required: false
-      values:
-        range: string
-        description: The values of the column
-        required: false
-        multivalued: true
+    description: A microscope-metrics table
+    slots:
+      - column_series
+      - table_data
 
 
 slots:
@@ -807,6 +723,31 @@ slots:
     description: A human readable description of an entity
     required: false
     multivalued: false
+  array_data:
+    range: ArrayData
+    description: A non-required slot for non-serializable array data object
+    required: false
+    multivalued: false
+  table_data:
+    range: TableData
+    description: A non-required slot for non-serializable table data object
+    required: false
+    multivalued: false
+  time_series:
+    range: TimeSeries
+    implements:
+      - linkml:axis0
+    required: false
+  channel_series:
+    range: ChannelSeries
+    implements:
+      - linkml:axis4
+    required: false
+  column_series:
+    range: ColumnSeries
+    implements:
+      - linkml:axis1
+    required: true
   source_image_uri:
     range: string
     description: A list of URLs linking to the images that were used as a source

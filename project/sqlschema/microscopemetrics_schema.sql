@@ -3,7 +3,7 @@
 CREATE TABLE "ArgolightBCentersOfMass" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -18,28 +18,10 @@ CREATE TABLE "ArgolightBCentersOfMass" (
 	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, image, points, lines, rectangles, ellipses, polygons, masks)
 );
 
-CREATE TABLE "ArgolightBDataset" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	microscope TEXT NOT NULL, 
-	sample TEXT, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	input TEXT, 
-	output TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output)
-);
-
 CREATE TABLE "ArgolightBDistanceKeyValues" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -74,7 +56,7 @@ CREATE TABLE "ArgolightBInput" (
 CREATE TABLE "ArgolightBIntensityKeyValues" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -111,24 +93,6 @@ CREATE TABLE "ArgolightBOutput" (
 	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, spots_labels_image, spots_centers_of_mass, intensity_key_values, distance_key_values, spots_properties, spots_distances)
 );
 
-CREATE TABLE "ArgolightEDataset" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	microscope TEXT NOT NULL, 
-	sample TEXT, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	input TEXT, 
-	output TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output)
-);
-
 CREATE TABLE "ArgolightEInput" (
 	argolight_e_image TEXT NOT NULL, 
 	bit_depth INTEGER, 
@@ -142,7 +106,7 @@ CREATE TABLE "ArgolightEInput" (
 CREATE TABLE "ArgolightEKeyValues" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -196,18 +160,17 @@ CREATE TABLE "Color" (
 	PRIMARY KEY (r, g, b, alpha)
 );
 
-CREATE TABLE "Column" (
-	name TEXT, 
-	description TEXT, 
-	source_uri TEXT, 
-	"values" TEXT, 
-	PRIMARY KEY (name, description, source_uri, "values")
+CREATE TABLE "ColumnSeries" (
+	column_names TEXT NOT NULL, 
+	column_descriptions TEXT, 
+	column_source_objects TEXT, 
+	PRIMARY KEY (column_names, column_descriptions, column_source_objects)
 );
 
 CREATE TABLE "Ellipse" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -234,7 +197,7 @@ CREATE TABLE "Experimenter" (
 CREATE TABLE "FieldIlluminationCentersFitted" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -252,7 +215,7 @@ CREATE TABLE "FieldIlluminationCentersFitted" (
 CREATE TABLE "FieldIlluminationCentersGeometric" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -270,7 +233,7 @@ CREATE TABLE "FieldIlluminationCentersGeometric" (
 CREATE TABLE "FieldIlluminationCentersMaxIntensity" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -288,7 +251,7 @@ CREATE TABLE "FieldIlluminationCentersMaxIntensity" (
 CREATE TABLE "FieldIlluminationCentersOfMass" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -306,7 +269,7 @@ CREATE TABLE "FieldIlluminationCentersOfMass" (
 CREATE TABLE "FieldIlluminationCornersIntensities" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -322,24 +285,6 @@ CREATE TABLE "FieldIlluminationCornersIntensities" (
 	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, image, points, lines, rectangles, ellipses, polygons, masks, measurements_table)
 );
 
-CREATE TABLE "FieldIlluminationDataset" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	microscope TEXT NOT NULL, 
-	sample TEXT, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	input TEXT, 
-	output TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output)
-);
-
 CREATE TABLE "FieldIlluminationInput" (
 	field_illumination_image TEXT NOT NULL, 
 	bit_depth INTEGER, 
@@ -353,7 +298,7 @@ CREATE TABLE "FieldIlluminationInput" (
 CREATE TABLE "FieldIlluminationKeyValues" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -427,7 +372,7 @@ CREATE TABLE "FieldIlluminationOutput" (
 CREATE TABLE "FieldIlluminationProfilesIntensity" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -449,31 +394,10 @@ CREATE TABLE "HarmonizedMetricsDatasetCollection" (
 	PRIMARY KEY (datasets, dataset_class)
 );
 
-CREATE TABLE "Image2D" (
+CREATE TABLE "Image" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	source_image_uri TEXT, 
-	voxel_size_x_micron FLOAT, 
-	voxel_size_y_micron FLOAT, 
-	voxel_size_z_micron FLOAT, 
-	shape_x INTEGER NOT NULL, 
-	shape_y INTEGER NOT NULL, 
-	shape_z INTEGER NOT NULL, 
-	shape_c INTEGER NOT NULL, 
-	shape_t INTEGER NOT NULL, 
-	data FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, data)
-);
-
-CREATE TABLE "Image5D" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -489,35 +413,14 @@ CREATE TABLE "Image5D" (
 	shape_t INTEGER NOT NULL, 
 	time_series TEXT, 
 	channel_series TEXT, 
-	data FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, data)
-);
-
-CREATE TABLE "ImageAsNumpy" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	source_image_uri TEXT, 
-	voxel_size_x_micron FLOAT, 
-	voxel_size_y_micron FLOAT, 
-	voxel_size_z_micron FLOAT, 
-	shape_x INTEGER NOT NULL, 
-	shape_y INTEGER NOT NULL, 
-	shape_z INTEGER NOT NULL, 
-	shape_c INTEGER NOT NULL, 
-	shape_t INTEGER NOT NULL, 
-	data TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, data)
+	array_data TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, array_data)
 );
 
 CREATE TABLE "ImageMask" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -531,14 +434,16 @@ CREATE TABLE "ImageMask" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	data BOOLEAN NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, data)
+	time_series TEXT, 
+	channel_series TEXT, 
+	array_data TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, source_image_uri, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, array_data)
 );
 
 CREATE TABLE "Line" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -559,7 +464,7 @@ CREATE TABLE "Line" (
 CREATE TABLE "Mask" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -576,24 +481,6 @@ CREATE TABLE "Mask" (
 	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, z, c, t, fill_color, stroke_color, stroke_width, y, x, mask)
 );
 
-CREATE TABLE "MetricsDataset" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	microscope TEXT NOT NULL, 
-	sample TEXT, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	input TEXT NOT NULL, 
-	output TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output)
-);
-
 CREATE TABLE "MetricsDatasetCollection" (
 	datasets TEXT NOT NULL, 
 	PRIMARY KEY (datasets)
@@ -602,7 +489,7 @@ CREATE TABLE "MetricsDatasetCollection" (
 CREATE TABLE "Microscope" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -631,7 +518,7 @@ CREATE TABLE "OMEROReference" (
 CREATE TABLE "Point" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -650,7 +537,7 @@ CREATE TABLE "Point" (
 CREATE TABLE "Polygon" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -678,7 +565,7 @@ CREATE TABLE "Protocol" (
 CREATE TABLE "PSFBeadsCenters" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -691,24 +578,6 @@ CREATE TABLE "PSFBeadsCenters" (
 	polygons TEXT, 
 	masks TEXT, 
 	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, image, points, lines, rectangles, ellipses, polygons, masks)
-);
-
-CREATE TABLE "PSFBeadsDataset" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT NOT NULL, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(7), 
-	omero_object_id INTEGER, 
-	microscope TEXT NOT NULL, 
-	sample TEXT, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	input TEXT, 
-	output TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output)
 );
 
 CREATE TABLE "PSFBeadsInput" (
@@ -728,7 +597,7 @@ CREATE TABLE "PSFBeadsInput" (
 CREATE TABLE "PSFBeadsKeyValues" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -804,7 +673,7 @@ CREATE TABLE "PSFBeadsOutput" (
 CREATE TABLE "Rectangle" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -825,7 +694,7 @@ CREATE TABLE "Rectangle" (
 CREATE TABLE "Roi" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
@@ -840,16 +709,17 @@ CREATE TABLE "Roi" (
 	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, image, points, lines, rectangles, ellipses, polygons, masks)
 );
 
-CREATE TABLE "TableAsPandasDF" (
+CREATE TABLE "Table" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT NOT NULL, 
+	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
 	omero_object_type VARCHAR(7), 
 	omero_object_id INTEGER, 
-	df TEXT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, df)
+	column_series TEXT NOT NULL, 
+	table_data TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, column_series, table_data)
 );
 
 CREATE TABLE "TimeSeries" (
@@ -863,6 +733,44 @@ CREATE TABLE "Vertex" (
 	PRIMARY KEY (x, y)
 );
 
+CREATE TABLE "ArgolightBDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_uri TEXT, 
+	omero_host TEXT, 
+	omero_port INTEGER, 
+	omero_object_type VARCHAR(7), 
+	omero_object_id INTEGER, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
+);
+
+CREATE TABLE "ArgolightEDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_uri TEXT, 
+	omero_host TEXT, 
+	omero_port INTEGER, 
+	omero_object_type VARCHAR(7), 
+	omero_object_id INTEGER, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
+);
+
 CREATE TABLE "Comment" (
 	datetime DATETIME NOT NULL, 
 	author TEXT, 
@@ -870,6 +778,63 @@ CREATE TABLE "Comment" (
 	text TEXT NOT NULL, 
 	PRIMARY KEY (datetime, author, comment_type, text), 
 	FOREIGN KEY(author) REFERENCES "Experimenter" (orcid)
+);
+
+CREATE TABLE "FieldIlluminationDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_uri TEXT, 
+	omero_host TEXT, 
+	omero_port INTEGER, 
+	omero_object_type VARCHAR(7), 
+	omero_object_id INTEGER, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
+);
+
+CREATE TABLE "MetricsDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_uri TEXT, 
+	omero_host TEXT, 
+	omero_port INTEGER, 
+	omero_object_type VARCHAR(7), 
+	omero_object_id INTEGER, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input TEXT NOT NULL, 
+	output TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
+);
+
+CREATE TABLE "PSFBeadsDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_uri TEXT, 
+	omero_host TEXT, 
+	omero_port INTEGER, 
+	omero_object_type VARCHAR(7), 
+	omero_object_id INTEGER, 
+	microscope TEXT NOT NULL, 
+	sample TEXT, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input TEXT, 
+	output TEXT, 
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, microscope, sample, experimenter, acquisition_datetime, processed, input, output), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
 );
 
 CREATE TABLE "Sample" (

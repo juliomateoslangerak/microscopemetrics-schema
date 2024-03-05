@@ -83,8 +83,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "ArgolightBCentersOfMass",
             "type": "object"
@@ -118,10 +117,7 @@
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "input": {
                     "$ref": "#/$defs/ArgolightBInput"
@@ -164,8 +160,7 @@
             },
             "required": [
                 "microscope",
-                "processed",
-                "data_uri"
+                "processed"
             ],
             "then": {
                 "properties": {
@@ -281,9 +276,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "ArgolightBDistanceKeyValues",
             "type": "object"
         },
@@ -292,8 +284,8 @@
             "description": "",
             "properties": {
                 "argolight_b_image": {
-                    "$ref": "#/$defs/ImageAsNumpy",
-                    "description": "Input parameter: image of the argolight b pattern provided as a 5D numpy array in the order TZYXC"
+                    "$ref": "#/$defs/Image",
+                    "description": "Input parameter: image of the argolight b pattern in the order TZYXC"
                 },
                 "bit_depth": {
                     "description": "Detector bit depth",
@@ -469,9 +461,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "ArgolightBIntensityKeyValues",
             "type": "object"
         },
@@ -536,15 +525,15 @@
                     "type": "array"
                 },
                 "spots_distances": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Table of distances between argolight spots"
                 },
                 "spots_labels_image": {
-                    "$ref": "#/$defs/ImageAsNumpy",
-                    "description": "Labels image of the argolight segmented spots provided as a 5D numpy array in the order TZYXC. Image intensities correspond to ROI labels"
+                    "$ref": "#/$defs/ImageMask",
+                    "description": "Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels"
                 },
                 "spots_properties": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Table of properties of the argolight spots"
                 },
                 "warnings": {
@@ -592,10 +581,7 @@
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "input": {
                     "$ref": "#/$defs/ArgolightEInput"
@@ -638,8 +624,7 @@
             },
             "required": [
                 "microscope",
-                "processed",
-                "data_uri"
+                "processed"
             ],
             "then": {
                 "properties": {
@@ -657,8 +642,8 @@
             "description": "",
             "properties": {
                 "argolight_e_image": {
-                    "$ref": "#/$defs/ImageAsNumpy",
-                    "description": "Image of the argolight e pattern provided as a 5D numpy array in the order TZYXC"
+                    "$ref": "#/$defs/Image",
+                    "description": "Image of the argolight e pattern provided in the order TZYXC"
                 },
                 "bit_depth": {
                     "description": "Detector bit depth",
@@ -805,9 +790,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "ArgolightEKeyValues",
             "type": "object"
         },
@@ -827,7 +809,7 @@
                     "type": "array"
                 },
                 "intensity_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Intensity profiles of the argolight lines provided as tables. One table per channel"
                 },
                 "key_measurements": {
@@ -885,6 +867,12 @@
                 "processing_datetime"
             ],
             "title": "ArgolightEOutput",
+            "type": "object"
+        },
+        "ArrayData": {
+            "additionalProperties": false,
+            "description": "A non serializable array data object",
+            "title": "ArrayData",
             "type": "object"
         },
         "Channel": {
@@ -965,31 +953,36 @@
             "title": "Color",
             "type": "object"
         },
-        "Column": {
+        "ColumnSeries": {
             "additionalProperties": false,
-            "description": "A column",
+            "description": "A series whose values represent column",
             "properties": {
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "source_uri": {
-                    "description": "The URI of the source of the column",
-                    "type": "string"
-                },
-                "values": {
-                    "description": "The values of the column",
+                "column_descriptions": {
+                    "description": "The descriptions of the columns",
                     "items": {
                         "type": "string"
                     },
                     "type": "array"
+                },
+                "column_names": {
+                    "description": "The names of the columns",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "column_source_objects": {
+                    "description": "The source objects of the columns",
+                    "items": {
+                        "$ref": "#/$defs/MetricsObject"
+                    },
+                    "type": "array"
                 }
             },
-            "title": "Column",
+            "required": [
+                "column_names"
+            ],
+            "title": "ColumnSeries",
             "type": "object"
         },
         "Comment": {
@@ -1109,8 +1102,7 @@
                 "x",
                 "y",
                 "x_rad",
-                "y_rad",
-                "data_uri"
+                "y_rad"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -1218,8 +1210,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationCentersFitted",
             "type": "object"
@@ -1307,8 +1298,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationCentersGeometric",
             "type": "object"
@@ -1396,8 +1386,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationCentersMaxIntensity",
             "type": "object"
@@ -1485,8 +1474,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationCentersOfMass",
             "type": "object"
@@ -1532,7 +1520,7 @@
                     "type": "array"
                 },
                 "measurements_table": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Linked table of measurements"
                 },
                 "name": {
@@ -1579,8 +1567,7 @@
             },
             "required": [
                 "measurements_table",
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationCornersIntensities",
             "type": "object"
@@ -1614,10 +1601,7 @@
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "input": {
                     "$ref": "#/$defs/FieldIlluminationInput"
@@ -1660,8 +1644,7 @@
             },
             "required": [
                 "microscope",
-                "processed",
-                "data_uri"
+                "processed"
             ],
             "then": {
                 "properties": {
@@ -1691,9 +1674,9 @@
                     "type": "number"
                 },
                 "field_illumination_image": {
-                    "description": "Input parameter: homogeneity image provided as a numpy array in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
+                    "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
                     "items": {
-                        "$ref": "#/$defs/ImageAsNumpy"
+                        "$ref": "#/$defs/Image"
                     },
                     "type": "array"
                 },
@@ -2081,9 +2064,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "FieldIlluminationKeyValues",
             "type": "object"
         },
@@ -2105,14 +2085,14 @@
                 "intensity_map": {
                     "description": "Intensity map of the field illumination",
                     "items": {
-                        "$ref": "#/$defs/ImageAsNumpy"
+                        "$ref": "#/$defs/Image"
                     },
                     "type": "array"
                 },
                 "intensity_profiles": {
                     "description": "Intensity profiles for the field illumination analysis in the different directions",
                     "items": {
-                        "$ref": "#/$defs/TableAsDict"
+                        "$ref": "#/$defs/Table"
                     },
                     "type": "array"
                 },
@@ -2232,7 +2212,7 @@
                     "type": "array"
                 },
                 "intensity_profiles_table": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Linked table of profiles"
                 },
                 "lines": {
@@ -2293,8 +2273,7 @@
             },
             "required": [
                 "intensity_profiles_table",
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "FieldIlluminationProfilesIntensity",
             "type": "object"
@@ -2322,108 +2301,16 @@
             "title": "HarmonizedMetricsDatasetCollection",
             "type": "object"
         },
-        "Image2D": {
+        "Image": {
             "additionalProperties": false,
-            "description": "A 2D image in YX order",
+            "description": "A microscope-metrics image",
             "properties": {
-                "data": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
+                "array_data": {
+                    "$ref": "#/$defs/ArrayData",
+                    "description": "A non-required slot for non-serializable array data object"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "shape_c": {
-                    "description": "The shape of the image in the c dimension",
-                    "type": "integer"
-                },
-                "shape_t": {
-                    "description": "The shape of the image in the t dimension",
-                    "type": "integer"
-                },
-                "shape_x": {
-                    "description": "The shape of the image in the x dimension",
-                    "type": "integer"
-                },
-                "shape_y": {
-                    "description": "The shape of the image in the y dimension",
-                    "type": "integer"
-                },
-                "shape_z": {
-                    "description": "The shape of the image in the z dimension",
-                    "type": "integer"
-                },
-                "source_image_uri": {
-                    "description": "A list of URLs linking to the images that were used as a source",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "voxel_size_x_micron": {
-                    "description": "The physical size in the voxel in the x dimension in microns",
-                    "type": "number"
-                },
-                "voxel_size_y_micron": {
-                    "description": "The physical size in the voxel in the y dimension in microns",
-                    "type": "number"
-                },
-                "voxel_size_z_micron": {
-                    "description": "The physical size in the voxel in the z dimension in microns",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "data",
-                "shape_x",
-                "shape_y",
-                "shape_z",
-                "shape_c",
-                "shape_t",
-                "data_uri"
-            ],
-            "title": "Image2D",
-            "type": "object"
-        },
-        "Image5D": {
-            "additionalProperties": false,
-            "description": "A 5D image in TZYXC order",
-            "properties": {
                 "channel_series": {
                     "$ref": "#/$defs/ChannelSeries"
-                },
-                "data": {
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
                 },
                 "data_uri": {
                     "description": "The URI of the object data",
@@ -2497,112 +2384,25 @@
                 }
             },
             "required": [
-                "data",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t",
-                "data_uri"
+                "shape_t"
             ],
-            "title": "Image5D",
-            "type": "object"
-        },
-        "ImageAsNumpy": {
-            "additionalProperties": false,
-            "description": "An image as a numpy array in TZYXC order",
-            "properties": {
-                "data": {
-                    "$ref": "#/$defs/MetaObject"
-                },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "shape_c": {
-                    "description": "The shape of the image in the c dimension",
-                    "type": "integer"
-                },
-                "shape_t": {
-                    "description": "The shape of the image in the t dimension",
-                    "type": "integer"
-                },
-                "shape_x": {
-                    "description": "The shape of the image in the x dimension",
-                    "type": "integer"
-                },
-                "shape_y": {
-                    "description": "The shape of the image in the y dimension",
-                    "type": "integer"
-                },
-                "shape_z": {
-                    "description": "The shape of the image in the z dimension",
-                    "type": "integer"
-                },
-                "source_image_uri": {
-                    "description": "A list of URLs linking to the images that were used as a source",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "voxel_size_x_micron": {
-                    "description": "The physical size in the voxel in the x dimension in microns",
-                    "type": "number"
-                },
-                "voxel_size_y_micron": {
-                    "description": "The physical size in the voxel in the y dimension in microns",
-                    "type": "number"
-                },
-                "voxel_size_z_micron": {
-                    "description": "The physical size in the voxel in the z dimension in microns",
-                    "type": "number"
-                }
-            },
-            "required": [
-                "shape_x",
-                "shape_y",
-                "shape_z",
-                "shape_c",
-                "shape_t",
-                "data_uri"
-            ],
-            "title": "ImageAsNumpy",
+            "title": "Image",
             "type": "object"
         },
         "ImageMask": {
             "additionalProperties": false,
-            "description": "A base object for all microscope-metrics masks",
+            "description": "A mask image. Either a binary image or a label image",
             "properties": {
-                "data": {
-                    "items": {
-                        "type": "boolean"
-                    },
-                    "type": "array"
+                "array_data": {
+                    "$ref": "#/$defs/ArrayData",
+                    "description": "A non-required slot for non-serializable array data object"
+                },
+                "channel_series": {
+                    "$ref": "#/$defs/ChannelSeries"
                 },
                 "data_uri": {
                     "description": "The URI of the object data",
@@ -2659,6 +2459,9 @@
                     },
                     "type": "array"
                 },
+                "time_series": {
+                    "$ref": "#/$defs/TimeSeries"
+                },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
                     "type": "number"
@@ -2673,13 +2476,11 @@
                 }
             },
             "required": [
-                "data",
                 "shape_x",
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t",
-                "data_uri"
+                "shape_t"
             ],
             "title": "ImageMask",
             "type": "object"
@@ -2761,8 +2562,7 @@
                 "x1",
                 "y1",
                 "x2",
-                "y2",
-                "data_uri"
+                "y2"
             ],
             "title": "Line",
             "type": "object"
@@ -2838,8 +2638,7 @@
             },
             "required": [
                 "y",
-                "x",
-                "data_uri"
+                "x"
             ],
             "title": "Mask",
             "type": "object"
@@ -2885,10 +2684,7 @@
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "input": {
                     "$ref": "#/$defs/MetricsInput",
@@ -2934,8 +2730,7 @@
             "required": [
                 "microscope",
                 "processed",
-                "input",
-                "data_uri"
+                "input"
             ],
             "then": {
                 "properties": {
@@ -3022,9 +2817,6 @@
                     "description": "The type of the microscope"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "Microscope",
             "type": "object"
         },
@@ -3181,8 +2973,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "PSFBeadsCenters",
             "type": "object"
@@ -3216,10 +3007,7 @@
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
+                    "type": "string"
                 },
                 "input": {
                     "$ref": "#/$defs/PSFBeadsInput"
@@ -3262,8 +3050,7 @@
             },
             "required": [
                 "microscope",
-                "processed",
-                "data_uri"
+                "processed"
             ],
             "then": {
                 "properties": {
@@ -3301,9 +3088,9 @@
                     "type": "number"
                 },
                 "psf_beads_images": {
-                    "description": "The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.",
+                    "description": "The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
                     "items": {
-                        "$ref": "#/$defs/ImageAsNumpy"
+                        "$ref": "#/$defs/Image"
                     },
                     "type": "array"
                 },
@@ -3649,9 +3436,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "data_uri"
-            ],
             "title": "PSFBeadsKeyValues",
             "type": "object"
         },
@@ -3667,26 +3451,26 @@
                     "type": "array"
                 },
                 "bead_crops": {
-                    "description": "The crops of the beads provided as a 5D numpy array in the order TZYXC. One crop will be provided per bead correctly detected.",
+                    "description": "The crops of the beads provided in the order TZYXC. One crop will be provided per bead correctly detected.",
                     "items": {
-                        "$ref": "#/$defs/ImageAsNumpy"
+                        "$ref": "#/$defs/Image"
                     },
                     "type": "array"
                 },
                 "bead_properties": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "Properties associated with the analysis of the beads."
                 },
                 "bead_x_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits."
                 },
                 "bead_y_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits."
                 },
                 "bead_z_profiles": {
-                    "$ref": "#/$defs/TableAsDict",
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits."
                 },
                 "comment": {
@@ -3866,8 +3650,7 @@
             },
             "required": [
                 "y",
-                "x",
-                "data_uri"
+                "x"
             ],
             "title": "Point",
             "type": "object"
@@ -3942,8 +3725,7 @@
             },
             "required": [
                 "vertexes",
-                "is_open",
-                "data_uri"
+                "is_open"
             ],
             "title": "Polygon",
             "type": "object"
@@ -4060,8 +3842,7 @@
                 "x",
                 "y",
                 "w",
-                "h",
-                "data_uri"
+                "h"
             ],
             "title": "Rectangle",
             "type": "object"
@@ -4149,8 +3930,7 @@
                 }
             },
             "required": [
-                "image",
-                "data_uri"
+                "image"
             ],
             "title": "Roi",
             "type": "object"
@@ -4183,10 +3963,13 @@
             "title": "Sample",
             "type": "object"
         },
-        "TableAsPandasDF": {
+        "Table": {
             "additionalProperties": false,
-            "description": "A table as a Pandas DataFrame",
+            "description": "A microscope-metrics table",
             "properties": {
+                "column_series": {
+                    "$ref": "#/$defs/ColumnSeries"
+                },
                 "data_uri": {
                     "description": "The URI of the object data",
                     "type": "string"
@@ -4194,10 +3977,6 @@
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
-                },
-                "df": {
-                    "$ref": "#/$defs/MetaObject",
-                    "description": "A Pandas DataFrame object"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -4218,13 +3997,22 @@
                 "omero_port": {
                     "description": "The port of the OMERO server",
                     "type": "integer"
+                },
+                "table_data": {
+                    "$ref": "#/$defs/TableData",
+                    "description": "A non-required slot for non-serializable table data object"
                 }
             },
             "required": [
-                "df",
-                "data_uri"
+                "column_series"
             ],
-            "title": "TableAsPandasDF",
+            "title": "Table",
+            "type": "object"
+        },
+        "TableData": {
+            "additionalProperties": false,
+            "description": "A non serializable table data object",
+            "title": "TableData",
             "type": "object"
         },
         "TimeSeries": {
@@ -4296,10 +4084,7 @@
         },
         "experimenter": {
             "description": "The experimenter that performed the imaging experiment",
-            "items": {
-                "type": "string"
-            },
-            "type": "array"
+            "type": "string"
         },
         "input": {
             "$ref": "#/$defs/MetricsInput",
@@ -4345,8 +4130,7 @@
     "required": [
         "microscope",
         "processed",
-        "input",
-        "data_uri"
+        "input"
     ],
     "then": {
         "properties": {

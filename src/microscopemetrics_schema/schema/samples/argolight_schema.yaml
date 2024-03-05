@@ -69,9 +69,9 @@ classes:
     is_a: MetricsOutput
     attributes:
       spots_labels_image:  # TODO: consider making this a mask ROI
-        range: ImageAsNumpy
+        range: ImageMask
         description: >-
-          Labels image of the argolight segmented spots provided as a 5D numpy array in the order TZYXC.
+          Labels image of the argolight segmented spots provided in the order TZYXC.
           Image intensities correspond to ROI labels
         required: false
         multivalued: false
@@ -95,13 +95,13 @@ classes:
         required: false
         multivalued: false
       spots_properties:
-        range: TableAsDict
+        range: Table
         description: >-
           Table of properties of the argolight spots
         required: false
         multivalued: false
       spots_distances:
-        range: TableAsDict
+        range: Table
         description: >-
           Table of distances between argolight spots
         required: false
@@ -183,7 +183,7 @@ classes:
         multivalued: false
         inlined: false
       intensity_profiles:
-        range: TableAsDict
+        range: Table
         description: >-
           Intensity profiles of the argolight lines provided as tables. One table per channel
         multivalued: false
@@ -207,9 +207,9 @@ classes:
 slots:
   # Argolight B inputs
   argolight_b_image:
-    range: ImageAsNumpy
+    range: Image
     description: >-
-      Input parameter: image of the argolight b pattern provided as a 5D numpy array in the order TZYXC
+      Input parameter: image of the argolight b pattern in the order TZYXC
     required: true
     multivalued: false
     inlined: false
@@ -346,9 +346,9 @@ slots:
 
   # Argolight E inputs
   argolight_e_image:
-    range: ImageAsNumpy
+    range: Image
     description: >-
-      Image of the argolight e pattern provided as a 5D numpy array in the order TZYXC
+      Image of the argolight e pattern provided in the order TZYXC
     required: true
     multivalued: false
     inlined: false

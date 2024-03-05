@@ -61,9 +61,9 @@ classes:
     is_a: MetricsOutput
     attributes:
       bead_crops:
-        range: ImageAsNumpy
+        range: Image
         description: >-
-          The crops of the beads provided as a 5D numpy array in the order TZYXC.
+          The crops of the beads provided in the order TZYXC.
           One crop will be provided per bead correctly detected.
         multivalued: true
         inlined: false
@@ -147,25 +147,25 @@ classes:
         multivalued: False
         inlined: false
       bead_properties:
-        range: TableAsDict
+        range: Table
         description: >-
           Properties associated with the analysis of the beads.
         multivalued: false
         inlined: false
       bead_z_profiles:
-        range: TableAsDict
+        range: Table
         description: >-
           The intensity profiles along the z axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: false
       bead_y_profiles:
-        range: TableAsDict
+        range: Table
         description: >-
           The intensity profiles along the y axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: false
       bead_x_profiles:
-        range: TableAsDict
+        range: Table
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
         multivalued: false
@@ -223,9 +223,9 @@ classes:
 slots:
   # Inputs
   psf_beads_images:
-    range: ImageAsNumpy
+    range: Image
     description: >-
-      The image containing the beads provided as a 5D numpy array in the order TZYXC.
+      The image containing the beads provided in the order TZYXC.
       More than one image can be provided if the image conditions are the same.
     required: true
     multivalued: true

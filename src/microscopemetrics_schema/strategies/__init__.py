@@ -198,7 +198,7 @@ def st_mm_dataset(
 
 # Data sources
 @st.composite
-def st_mm_image_as_numpy(
+def st_mm_image(
     draw,
     name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
