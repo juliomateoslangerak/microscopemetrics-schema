@@ -256,7 +256,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../Shape/">Shape</a><ul>
 <li><strong>Rectangle</strong></li>
 </ul>
@@ -339,33 +339,33 @@
 </tr>
 <tr>
 <td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../omero_host/">omero_host</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The host of the OMERO server</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../omero_port/">omero_port</a></td>
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The port of the OMERO server</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../omero_object_type/">omero_object_type</a></td>
 <td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
 <td>The type of the OMERO object</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../omero_object_id/">omero_object_id</a></td>
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The ID of the OMERO object</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -647,13 +647,11 @@ attributes:
     description: The URI of the object data
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
     alias: data_uri
     owner: Rectangle
     domain_of:
-    - MetricsObject
+    - DataReference
     range: string
-    required: true
   omero_host:
     name: omero_host
     description: The host of the OMERO server
@@ -662,7 +660,7 @@ attributes:
     alias: omero_host
     owner: Rectangle
     domain_of:
-    - MetricsObject
+    - DataReference
     range: string
   omero_port:
     name: omero_port
@@ -672,7 +670,7 @@ attributes:
     alias: omero_port
     owner: Rectangle
     domain_of:
-    - MetricsObject
+    - DataReference
     range: integer
   omero_object_type:
     name: omero_object_type
@@ -682,7 +680,7 @@ attributes:
     alias: omero_object_type
     owner: Rectangle
     domain_of:
-    - MetricsObject
+    - DataReference
     range: OMEROObjectTypeEnum
   omero_object_id:
     name: omero_object_id
@@ -692,7 +690,7 @@ attributes:
     alias: omero_object_id
     owner: Rectangle
     domain_of:
-    - MetricsObject
+    - DataReference
     range: integer
   name:
     name: name

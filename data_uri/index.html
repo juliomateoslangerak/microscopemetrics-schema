@@ -362,6 +362,11 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../DataReference/">DataReference</a></td>
+<td>A reference to a data resource</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 <td>A base object for all microscope-metrics objects</td>
 <td>no</td>
@@ -530,12 +535,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../String/">String</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -549,13 +549,11 @@
 description: The URI of the object data
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-string_serialization: omero://{omero_host}:{omero_port}/{omero_object_type}/{omero_object_id}
 alias: data_uri
-owner: MetricsObject
+owner: DataReference
 domain_of:
-- MetricsObject
+- DataReference
 range: string
-required: true
 
 </code></pre>
 
