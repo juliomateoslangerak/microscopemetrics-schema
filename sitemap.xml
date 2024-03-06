@@ -2186,6 +2186,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/source_images/</loc>
+         <lastmod>2024-03-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/source_object/</loc>
          <lastmod>2024-03-06</lastmod>
          <changefreq>daily</changefreq>

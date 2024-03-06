@@ -253,9 +253,9 @@
 
       Image : shape_z
 
-      Image : source_image
+      Image : source_images
 
-          Image --&gt; DataReference : source_image
+          Image --&gt; DataReference : source_images
 
       Image : time_series
 
@@ -354,7 +354,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../source_image/">source_image</a></td>
+<td><a href="../source_images/">source_images</a></td>
 <td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of references linking to the images that were used as a source</td>
 <td>direct</td>
@@ -507,7 +507,7 @@ slots:
 - shape_t
 - time_series
 - channel_series
-- source_image
+- source_images
 - array_data
 
 </code></pre>
@@ -642,13 +642,13 @@ attributes:
     - Image
     range: ChannelSeries
     required: false
-  source_image:
-    name: source_image
+  source_images:
+    name: source_images
     description: A list of references linking to the images that were used as a source
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: source_image
+    alias: source_images
     owner: Image
     domain_of:
     - Image
