@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/roi_centers_max_intensity/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/source_object/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: roi_centers_max_intensity - microscopemetrics-schema</title>
+        <title>Slot: source_object - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-roi_centers_max_intensity" class="md-skip">
+        <a href="#slot-source_object" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: roi_centers_max_intensity
+              Slot: source_object
             
           </span>
         </div>
@@ -310,15 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/roi_centers_max_intensity.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/source_object.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-roi_centers_max_intensity">Slot: roi_centers_max_intensity</h1>
-<p><em>Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/roi_centers_max_intensity">microscopemetrics_schema:roi_centers_max_intensity</a></p>
+<h1 id="slot-source_object">Slot: source_object</h1>
+<p><em>The source object of the column</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/source_object">microscopemetrics_schema:source_object</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -332,20 +332,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td></td>
+<td><a href="../Column/">Column</a></td>
+<td>Attributes of a column</td>
 <td>no</td>
 </tr>
 </tbody>
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../DataReference/">DataReference</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -355,18 +350,17 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: roi_centers_max_intensity
-description: Point ROIs marking the maximum intensity of the area of maximum illumination.
-  One point per channel.
+<pre><code class="language-yaml">name: source_object
+description: The source object of the column
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
-multivalued: true
-alias: roi_centers_max_intensity
-owner: FieldIlluminationOutput
+multivalued: false
+alias: source_object
+owner: Column
 domain_of:
-- FieldIlluminationOutput
-range: FieldIlluminationCentersMaxIntensity
-inlined: true
+- Column
+range: DataReference
+required: false
 
 </code></pre>
 

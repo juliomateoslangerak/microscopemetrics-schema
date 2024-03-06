@@ -200,17 +200,13 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-columnseries">Class: ColumnSeries</h1>
-<p><em>A series whose values represent column</em></p>
+<p><em>A series of columns</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/ColumnSeries">microscopemetrics_schema:ColumnSeries</a></p>
 <div class="mermaid"> classDiagram
     class ColumnSeries
-      ColumnSeries : column_descriptions
+      ColumnSeries : columns
 
-      ColumnSeries : column_names
-
-      ColumnSeries : column_source_objects
-
-          ColumnSeries --&gt; DataReference : column_source_objects
+          ColumnSeries --&gt; Column : columns
 
 
 </div>
@@ -227,21 +223,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../column_names/">column_names</a></td>
-<td>1..* <br/> <a href="../String/">String</a></td>
-<td>The names of the columns</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../column_descriptions/">column_descriptions</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>The descriptions of the columns</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../column_source_objects/">column_source_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>The source objects of the columns</td>
+<td><a href="../columns/">columns</a></td>
+<td>1..* <br/> <a href="../Column/">Column</a></td>
+<td></td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -294,78 +278,44 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: ColumnSeries
-description: A series whose values represent column
+implements:
+- linkml:OneDimensionalSeries
+description: A series of columns
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 attributes:
-  column_names:
-    name: column_names
-    description: The names of the columns
+  columns:
+    name: columns
+    implements:
+    - linkml:elements
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    range: string
+    range: Column
     required: true
-  column_descriptions:
-    name: column_descriptions
-    description: The descriptions of the columns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    range: string
-    required: false
-  column_source_objects:
-    name: column_source_objects
-    description: The source objects of the columns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    range: DataReference
-    required: false
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: ColumnSeries
-description: A series whose values represent column
+implements:
+- linkml:OneDimensionalSeries
+description: A series of columns
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 attributes:
-  column_names:
-    name: column_names
-    description: The names of the columns
+  columns:
+    name: columns
+    implements:
+    - linkml:elements
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    alias: column_names
+    alias: columns
     owner: ColumnSeries
     domain_of:
     - ColumnSeries
-    range: string
+    range: Column
     required: true
-  column_descriptions:
-    name: column_descriptions
-    description: The descriptions of the columns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: column_descriptions
-    owner: ColumnSeries
-    domain_of:
-    - ColumnSeries
-    range: string
-    required: false
-  column_source_objects:
-    name: column_source_objects
-    description: The source objects of the columns
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: column_source_objects
-    owner: ColumnSeries
-    domain_of:
-    - ColumnSeries
-    range: DataReference
-    required: false
 
 </code></pre>
 </details>
