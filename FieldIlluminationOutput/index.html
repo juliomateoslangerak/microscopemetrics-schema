@@ -453,6 +453,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: true
     range: Table
+    inlined: true
+    inlined_as_list: true
   intensity_maps:
     name: intensity_maps
     description: Intensity map of the field illumination
@@ -470,6 +472,7 @@ attributes:
     multivalued: true
     range: FieldIlluminationProfilesIntensity
     inlined: true
+    inlined_as_list: true
   roi_corners:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
@@ -488,6 +491,7 @@ attributes:
     multivalued: true
     range: FieldIlluminationCentersOfMass
     inlined: true
+    inlined_as_list: true
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -497,6 +501,7 @@ attributes:
     multivalued: true
     range: FieldIlluminationCentersGeometric
     inlined: true
+    inlined_as_list: true
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -506,6 +511,7 @@ attributes:
     multivalued: true
     range: FieldIlluminationCentersFitted
     inlined: true
+    inlined_as_list: true
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -515,6 +521,7 @@ attributes:
     multivalued: true
     range: FieldIlluminationCentersMaxIntensity
     inlined: true
+    inlined_as_list: true
 
 </code></pre>
 </details>
@@ -548,6 +555,8 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: Table
+    inlined: true
+    inlined_as_list: true
   intensity_maps:
     name: intensity_maps
     description: Intensity map of the field illumination
@@ -573,6 +582,7 @@ attributes:
     - FieldIlluminationOutput
     range: FieldIlluminationProfilesIntensity
     inlined: true
+    inlined_as_list: true
   roi_corners:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
@@ -599,6 +609,7 @@ attributes:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersOfMass
     inlined: true
+    inlined_as_list: true
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -612,6 +623,7 @@ attributes:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersGeometric
     inlined: true
+    inlined_as_list: true
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -625,6 +637,7 @@ attributes:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersFitted
     inlined: true
+    inlined_as_list: true
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -638,6 +651,7 @@ attributes:
     - FieldIlluminationOutput
     range: FieldIlluminationCentersMaxIntensity
     inlined: true
+    inlined_as_list: true
   processing_application:
     name: processing_application
     description: The application used to process the dataset
