@@ -240,27 +240,27 @@
 
       FieldIlluminationOutput : roi_centers_fitted
 
-          FieldIlluminationOutput --&gt; FieldIlluminationCentersFitted : roi_centers_fitted
+          FieldIlluminationOutput --&gt; Roi : roi_centers_fitted
 
       FieldIlluminationOutput : roi_centers_geometric
 
-          FieldIlluminationOutput --&gt; FieldIlluminationCentersGeometric : roi_centers_geometric
+          FieldIlluminationOutput --&gt; Roi : roi_centers_geometric
 
       FieldIlluminationOutput : roi_centers_max_intensity
 
-          FieldIlluminationOutput --&gt; FieldIlluminationCentersMaxIntensity : roi_centers_max_intensity
+          FieldIlluminationOutput --&gt; Roi : roi_centers_max_intensity
 
       FieldIlluminationOutput : roi_centers_of_mass
 
-          FieldIlluminationOutput --&gt; FieldIlluminationCentersOfMass : roi_centers_of_mass
+          FieldIlluminationOutput --&gt; Roi : roi_centers_of_mass
 
       FieldIlluminationOutput : roi_corners
 
-          FieldIlluminationOutput --&gt; FieldIlluminationCornersIntensities : roi_corners
+          FieldIlluminationOutput --&gt; Roi : roi_corners
 
       FieldIlluminationOutput : roi_profiles
 
-          FieldIlluminationOutput --&gt; FieldIlluminationProfilesIntensity : roi_profiles
+          FieldIlluminationOutput --&gt; Roi : roi_profiles
 
       FieldIlluminationOutput : warnings
 
@@ -304,37 +304,37 @@
 </tr>
 <tr>
 <td><a href="../roi_profiles/">roi_profiles</a></td>
-<td>0..* <br/> <a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>line ROIs used to compute the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../roi_corners/">roi_corners</a></td>
-<td>0..1 <br/> <a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a></td>
+<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
 <td>Rectangular ROIs used to compute the corner intensities</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
-<td>0..* <br/> <a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>Point ROIs marking the center of mass of the area of maximum illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
-<td>0..* <br/> <a href="../FieldIlluminationCentersGeometric/">FieldIlluminationCentersGeometric</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>Point ROIs marking the geometric center of the area of maximum illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
-<td>0..* <br/> <a href="../FieldIlluminationCentersFitted/">FieldIlluminationCentersFitted</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>Point ROIs marking the fitted center of the area of maximum illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
-<td>0..* <br/> <a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>Point ROIs marking the maximum intensity of the area of maximum illumination</td>
 <td>direct</td>
 </tr>
@@ -453,6 +453,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     multivalued: true
     range: Table
+    inlined: true
+    inlined_as_list: true
   intensity_maps:
     name: intensity_maps
     description: Intensity map of the field illumination
@@ -460,13 +462,15 @@ attributes:
     rank: 1000
     multivalued: true
     range: Image
+    inlined: true
+    inlined_as_list: true
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: FieldIlluminationProfilesIntensity
+    range: Roi
   roi_corners:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
@@ -474,7 +478,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    range: FieldIlluminationCornersIntensities
+    range: Roi
   roi_centers_of_mass:
     name: roi_centers_of_mass
     description: Point ROIs marking the center of mass of the area of maximum illumination.
@@ -483,7 +487,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: FieldIlluminationCentersOfMass
+    range: Roi
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -491,7 +495,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: FieldIlluminationCentersGeometric
+    range: Roi
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -499,7 +503,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: FieldIlluminationCentersFitted
+    range: Roi
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -507,7 +511,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
-    range: FieldIlluminationCentersMaxIntensity
+    range: Roi
 
 </code></pre>
 </details>
@@ -541,6 +545,8 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: Table
+    inlined: true
+    inlined_as_list: true
   intensity_maps:
     name: intensity_maps
     description: Intensity map of the field illumination
@@ -552,6 +558,8 @@ attributes:
     domain_of:
     - FieldIlluminationOutput
     range: Image
+    inlined: true
+    inlined_as_list: true
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
@@ -562,7 +570,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationProfilesIntensity
+    range: Roi
   roi_corners:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
@@ -574,7 +582,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationCornersIntensities
+    range: Roi
   roi_centers_of_mass:
     name: roi_centers_of_mass
     description: Point ROIs marking the center of mass of the area of maximum illumination.
@@ -587,7 +595,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationCentersOfMass
+    range: Roi
   roi_centers_geometric:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
@@ -599,7 +607,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationCentersGeometric
+    range: Roi
   roi_centers_fitted:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
@@ -611,7 +619,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationCentersFitted
+    range: Roi
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
@@ -623,7 +631,7 @@ attributes:
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationCentersMaxIntensity
+    range: Roi
   processing_application:
     name: processing_application
     description: The application used to process the dataset
