@@ -42,6 +42,7 @@ classes:
     mixin: true
     attributes:
       data_uri:
+        # TODO: make required and compose the URI from OMERO attributes if absent
         range: string
         description: The URI of the object data
       omero_host:
@@ -59,7 +60,10 @@ classes:
       linked_objects:
         range: DataReference
         description: A list of linked objects
+        required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
     unique_keys:
       omero_reference:
         description: A metrics object is uniquely identified by a combination of its OMERO attributes
@@ -382,26 +386,36 @@ classes:
         description: A list of points included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
       lines:
         range: Line
         description: A list of lines included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
       rectangles:
         range: Rectangle
         description: A list of rectangles included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
       ellipses:
         range: Ellipse
         description: A list of ellipses included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
       polygons:
         range: Polygon
         description: A list of polygons included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
       masks:
         range: Mask
         description: A list of masks included in the ROI
@@ -409,7 +423,7 @@ classes:
         multivalued: true
 
   Shape:
-    is_a: MetricsObject
+    is_a: NamedObject
     description: A shape
     abstract: true
     attributes:

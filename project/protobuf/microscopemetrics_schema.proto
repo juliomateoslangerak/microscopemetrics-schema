@@ -219,12 +219,6 @@ message Ellipse
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -400,12 +394,6 @@ message Line
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -422,12 +410,6 @@ message Mask
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -489,12 +471,6 @@ message Point
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -509,12 +485,6 @@ message Polygon
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -532,23 +502,6 @@ message Protocol
   string version = 0
  repeated  experimenter authors = 0
   string url = 0
- }
-message PSFBeadsCenters
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
  }
 // A PSF beads dataset
 message PSFBeadsDataset
@@ -643,14 +596,14 @@ message PSFBeadsOutput
  repeated  string errors = 0
   comment comment = 0
  repeated  image beadCrops = 0
- repeated  pSFBeadsCenters analyzedBeadCenters = 0
- repeated  pSFBeadsCenters discardedBeadCentersLateralEdge = 0
- repeated  pSFBeadsCenters discardedBeadCentersSelfProximity = 0
- repeated  pSFBeadsCenters consideredBeadCentersAxialEdge = 0
- repeated  pSFBeadsCenters consideredBeadCentersIntensityOutlier = 0
- repeated  pSFBeadsCenters consideredBeadCentersZFitQuality = 0
- repeated  pSFBeadsCenters consideredBeadCentersYFitQuality = 0
- repeated  pSFBeadsCenters consideredBeadCentersXFitQuality = 0
+ repeated  roi analyzedBeadCenters = 0
+ repeated  roi discardedBeadCentersLateralEdge = 0
+ repeated  roi discardedBeadCentersSelfProximity = 0
+ repeated  roi consideredBeadCentersAxialEdge = 0
+ repeated  roi consideredBeadCentersIntensityOutlier = 0
+ repeated  roi consideredBeadCentersZFitQuality = 0
+ repeated  roi consideredBeadCentersYFitQuality = 0
+ repeated  roi consideredBeadCentersXFitQuality = 0
   pSFBeadsKeyValues keyValues = 0
   table beadProperties = 0
   table beadZProfiles = 0
@@ -662,12 +615,6 @@ message Rectangle
  {
   string name = 0
   string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0

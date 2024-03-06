@@ -178,12 +178,6 @@ CREATE TABLE "ColumnSeries" (
 CREATE TABLE "Ellipse" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -194,7 +188,7 @@ CREATE TABLE "Ellipse" (
 	y FLOAT NOT NULL, 
 	x_rad FLOAT NOT NULL, 
 	y_rad FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, x, y, x_rad, y_rad)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, x, y, x_rad, y_rad)
 );
 
 CREATE TABLE "Experimenter" (
@@ -343,12 +337,6 @@ CREATE TABLE "ImageMask" (
 CREATE TABLE "Line" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -359,18 +347,12 @@ CREATE TABLE "Line" (
 	y1 FLOAT NOT NULL, 
 	x2 FLOAT NOT NULL, 
 	y2 FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, x1, y1, x2, y2)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, x1, y1, x2, y2)
 );
 
 CREATE TABLE "Mask" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -380,7 +362,7 @@ CREATE TABLE "Mask" (
 	y INTEGER NOT NULL, 
 	x INTEGER NOT NULL, 
 	mask TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, y, x, mask)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, y, x, mask)
 );
 
 CREATE TABLE "MetricsDatasetCollection" (
@@ -413,12 +395,6 @@ CREATE TABLE "MicroscopeCollection" (
 CREATE TABLE "Point" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -427,18 +403,12 @@ CREATE TABLE "Point" (
 	stroke_width INTEGER, 
 	y FLOAT NOT NULL, 
 	x FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, y, x)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, y, x)
 );
 
 CREATE TABLE "Polygon" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -447,7 +417,7 @@ CREATE TABLE "Polygon" (
 	stroke_width INTEGER, 
 	vertexes TEXT NOT NULL, 
 	is_open BOOLEAN NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, vertexes, is_open)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, vertexes, is_open)
 );
 
 CREATE TABLE "Protocol" (
@@ -457,24 +427,6 @@ CREATE TABLE "Protocol" (
 	authors TEXT, 
 	url TEXT NOT NULL, 
 	PRIMARY KEY (url)
-);
-
-CREATE TABLE "PSFBeadsCenters" (
-	name TEXT, 
-	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
-	points TEXT, 
-	lines TEXT, 
-	rectangles TEXT, 
-	ellipses TEXT, 
-	polygons TEXT, 
-	masks TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, points, lines, rectangles, ellipses, polygons, masks)
 );
 
 CREATE TABLE "PSFBeadsInput" (
@@ -571,12 +523,6 @@ CREATE TABLE "PSFBeadsOutput" (
 CREATE TABLE "Rectangle" (
 	name TEXT, 
 	description TEXT, 
-	data_uri TEXT, 
-	omero_host TEXT, 
-	omero_port INTEGER, 
-	omero_object_type VARCHAR(10), 
-	omero_object_id INTEGER, 
-	linked_objects TEXT, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -587,7 +533,7 @@ CREATE TABLE "Rectangle" (
 	y FLOAT NOT NULL, 
 	w FLOAT NOT NULL, 
 	h FLOAT NOT NULL, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, z, c, t, fill_color, stroke_color, stroke_width, x, y, w, h)
+	PRIMARY KEY (name, description, z, c, t, fill_color, stroke_color, stroke_width, x, y, w, h)
 );
 
 CREATE TABLE "Roi" (

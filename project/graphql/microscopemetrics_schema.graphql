@@ -253,12 +253,6 @@ type Ellipse
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -449,12 +443,6 @@ type Line
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -471,12 +459,6 @@ type Mask
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -576,12 +558,6 @@ type Point
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -596,12 +572,6 @@ type Polygon
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -624,24 +594,6 @@ type Protocol
     version: String!
     authors: [Experimenter]
     url: String!
-  }
-
-type PSFBeadsCenters implements CentersMaxIntensity
-  {
-    name: String
-    description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
   }
 
 type PSFBeadsDataset
@@ -739,14 +691,14 @@ type PSFBeadsOutput
     errors: [String]
     comment: Comment
     beadCrops: [Image]
-    analyzedBeadCenters: [PSFBeadsCenters]
-    discardedBeadCentersLateralEdge: [PSFBeadsCenters]
-    discardedBeadCentersSelfProximity: [PSFBeadsCenters]
-    consideredBeadCentersAxialEdge: [PSFBeadsCenters]
-    consideredBeadCentersIntensityOutlier: [PSFBeadsCenters]
-    consideredBeadCentersZFitQuality: [PSFBeadsCenters]
-    consideredBeadCentersYFitQuality: [PSFBeadsCenters]
-    consideredBeadCentersXFitQuality: [PSFBeadsCenters]
+    analyzedBeadCenters: [Roi]
+    discardedBeadCentersLateralEdge: [Roi]
+    discardedBeadCentersSelfProximity: [Roi]
+    consideredBeadCentersAxialEdge: [Roi]
+    consideredBeadCentersIntensityOutlier: [Roi]
+    consideredBeadCentersZFitQuality: [Roi]
+    consideredBeadCentersYFitQuality: [Roi]
+    consideredBeadCentersXFitQuality: [Roi]
     keyValues: PSFBeadsKeyValues
     beadProperties: Table
     beadZProfiles: Table
@@ -758,12 +710,6 @@ type Rectangle
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
@@ -811,12 +757,6 @@ interface Shape
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
     z: Float
     c: Integer
     t: Integer
