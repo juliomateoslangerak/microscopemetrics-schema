@@ -249,6 +249,10 @@
 
       ImageMask : shape_z
 
+      ImageMask : source_image
+
+          ImageMask --&gt; DataReference : source_image
+
       ImageMask : time_series
 
           ImageMask --&gt; TimeSeries : time_series
@@ -343,6 +347,12 @@
 <td><a href="../channel_series/">channel_series</a></td>
 <td>0..1 <br/> <a href="../ChannelSeries/">ChannelSeries</a></td>
 <td></td>
+<td><a href="../Image/">Image</a></td>
+</tr>
+<tr>
+<td><a href="../source_image/">source_image</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of references linking to the images that were used as a source</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
@@ -590,6 +600,18 @@ attributes:
     domain_of:
     - Image
     range: ChannelSeries
+    required: false
+  source_image:
+    name: source_image
+    description: A list of references linking to the images that were used as a source
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: source_image
+    owner: ImageMask
+    domain_of:
+    - Image
+    range: DataReference
     required: false
   array_data:
     name: array_data
