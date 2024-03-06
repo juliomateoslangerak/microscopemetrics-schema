@@ -215,11 +215,21 @@
 
           ImageAsNumpy --&gt; MetaObject : data
 
+      ImageAsNumpy : data_uri
+
       ImageAsNumpy : description
 
-      ImageAsNumpy : image_url
-
       ImageAsNumpy : name
+
+      ImageAsNumpy : omero_host
+
+      ImageAsNumpy : omero_object_id
+
+      ImageAsNumpy : omero_object_type
+
+          ImageAsNumpy --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      ImageAsNumpy : omero_port
 
       ImageAsNumpy : shape_c
 
@@ -231,7 +241,7 @@
 
       ImageAsNumpy : shape_z
 
-      ImageAsNumpy : source_image_url
+      ImageAsNumpy : source_image_uri
 
       ImageAsNumpy : voxel_size_x_micron
 
@@ -244,7 +254,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../Image/">Image</a><ul>
 <li><strong>ImageAsNumpy</strong></li>
 </ul>
@@ -272,13 +282,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../image_url/">image_url</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>An URL linking to the image</td>
-<td><a href="../Image/">Image</a></td>
-</tr>
-<tr>
-<td><a href="../source_image_url/">source_image_url</a></td>
+<td><a href="../source_image_uri/">source_image_uri</a></td>
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>A list of URLs linking to the images that were used as a source</td>
 <td><a href="../Image/">Image</a></td>
@@ -332,15 +336,45 @@
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
+<td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
+<td>A human readable description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -389,6 +423,12 @@
 <tr>
 <td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
 <td><a href="../field_illumination_image/">field_illumination_image</a></td>
+<td>range</td>
+<td><a href="./">ImageAsNumpy</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../intensity_map/">intensity_map</a></td>
 <td>range</td>
 <td><a href="./">ImageAsNumpy</a></td>
 </tr>
@@ -454,26 +494,13 @@ attributes:
     - Image2D
     - Image5D
     range: MetaObject
-  image_url:
-    name: image_url
-    description: An URL linking to the image
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    alias: image_url
-    owner: ImageAsNumpy
-    domain_of:
-    - Image
-    range: string
-    required: true
-  source_image_url:
-    name: source_image_url
+  source_image_uri:
+    name: source_image_uri
     description: A list of URLs linking to the images that were used as a source
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: source_image_url
+    alias: source_image_uri
     owner: ImageAsNumpy
     domain_of:
     - Image
@@ -578,9 +605,59 @@ attributes:
     - Image
     range: integer
     required: true
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: data_uri
+    owner: ImageAsNumpy
+    domain_of:
+    - DataReference
+    range: string
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_host
+    owner: ImageAsNumpy
+    domain_of:
+    - DataReference
+    range: string
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_port
+    owner: ImageAsNumpy
+    domain_of:
+    - DataReference
+    range: integer
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: ImageAsNumpy
+    domain_of:
+    - DataReference
+    range: OMEROObjectTypeEnum
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: ImageAsNumpy
+    domain_of:
+    - DataReference
+    range: integer
   name:
     name: name
-    description: The name of an entity
+    description: The human readable name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -589,12 +666,11 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
-    - Column
     range: string
     required: false
   description:
     name: description
-    description: A description of an entity
+    description: A human readable description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -602,7 +678,6 @@ attributes:
     owner: ImageAsNumpy
     domain_of:
     - NamedObject
-    - Roi
     - Tag
     range: string
     required: false

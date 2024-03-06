@@ -332,28 +332,48 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../Roi/">Roi</a></td>
 <td>A ROI (Region Of Interest)</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RoiMassCenters/">RoiMassCenters</a></td>
-<td>Point ROIs marking the center of mass of detected objects</td>
+<td><a href="../PSFBeadsCenters/">PSFBeadsCenters</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></td>
-<td>Point ROIs marking the geometric center of detected objects</td>
+<td><a href="../FieldIlluminationProfilesIntensity/">FieldIlluminationProfilesIntensity</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RoiProfiles/">RoiProfiles</a></td>
-<td>line ROIs where profiles were computed</td>
+<td><a href="../FieldIlluminationCornersIntensities/">FieldIlluminationCornersIntensities</a></td>
+<td></td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
-<td>ROIs delimiting where measurements were performed</td>
+<td><a href="../FieldIlluminationCentersOfMass/">FieldIlluminationCentersOfMass</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationCentersGeometric/">FieldIlluminationCentersGeometric</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationCentersFitted/">FieldIlluminationCentersFitted</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationCentersMaxIntensity/">FieldIlluminationCentersMaxIntensity</a></td>
+<td></td>
 <td>no</td>
 </tr>
 </tbody>
@@ -365,6 +385,9 @@
 </li>
 <li>
 <p>Multivalued: True</p>
+</li>
+<li>
+<p>Required: True</p>
 </li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -385,7 +408,7 @@ owner: Roi
 domain_of:
 - Roi
 range: Image
-required: false
+required: true
 inlined: false
 
 </code></pre>

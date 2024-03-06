@@ -215,7 +215,6 @@
       MetricsObject &lt;|-- MetricsDataset
       MetricsObject &lt;|-- Image
       MetricsObject &lt;|-- Roi
-      MetricsObject &lt;|-- Shape
       MetricsObject &lt;|-- KeyValues
       MetricsObject &lt;|-- Tag
       MetricsObject &lt;|-- Table
@@ -251,7 +250,6 @@
 <li><a href="../MetricsDataset/">MetricsDataset</a></li>
 <li><a href="../Image/">Image</a></li>
 <li><a href="../Roi/">Roi</a></li>
-<li><a href="../Shape/">Shape</a></li>
 <li><a href="../KeyValues/">KeyValues</a></li>
 <li><a href="../Tag/">Tag</a></li>
 <li><a href="../Table/">Table</a></li>
@@ -430,6 +428,9 @@ attributes:
     domain_of:
     - DataReference
     range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
   name:
     name: name
     description: The human readable name of an entity

@@ -390,48 +390,6 @@
 <td><a href="./">DataReference</a></td>
 </tr>
 <tr>
-<td><a href="../Shape/">Shape</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Point/">Point</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Line/">Line</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Rectangle/">Rectangle</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Ellipse/">Ellipse</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Polygon/">Polygon</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../Mask/">Mask</a></td>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>range</td>
-<td><a href="./">DataReference</a></td>
-</tr>
-<tr>
 <td><a href="../KeyValues/">KeyValues</a></td>
 <td><a href="../linked_objects/">linked_objects</a></td>
 <td>range</td>
@@ -551,6 +509,9 @@ attributes:
     rank: 1000
     multivalued: true
     range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
 unique_keys:
   omero_reference:
     unique_key_name: omero_reference
@@ -631,6 +592,9 @@ attributes:
     domain_of:
     - DataReference
     range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
 unique_keys:
   omero_reference:
     unique_key_name: omero_reference

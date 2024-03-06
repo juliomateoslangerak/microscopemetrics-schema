@@ -213,33 +213,17 @@
 
       Mask : c
 
-      Mask : data_uri
-
       Mask : description
 
       Mask : fill_color
 
           Mask --&gt; Color : fill_color
 
-      Mask : linked_objects
-
-          Mask --&gt; DataReference : linked_objects
-
       Mask : mask
 
           Mask --&gt; ImageMask : mask
 
       Mask : name
-
-      Mask : omero_host
-
-      Mask : omero_object_id
-
-      Mask : omero_object_type
-
-          Mask --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      Mask : omero_port
 
       Mask : stroke_color
 
@@ -260,11 +244,8 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../Shape/">Shape</a><ul>
 <li><strong>Mask</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -334,42 +315,6 @@
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The stroke width of the shape</td>
 <td><a href="../Shape/">Shape</a></td>
-</tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -588,67 +533,6 @@ attributes:
     - Shape
     range: integer
     required: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: data_uri
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: linked_objects
-    owner: Mask
-    domain_of:
-    - DataReference
-    range: DataReference
   name:
     name: name
     description: The human readable name of an entity
