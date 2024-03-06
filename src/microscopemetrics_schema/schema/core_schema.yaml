@@ -316,6 +316,7 @@ classes:
       - shape_t
       - time_series
       - channel_series
+      - source_image
       - array_data
 
   ImageMask:
@@ -740,9 +741,9 @@ slots:
   column_series:
     range: ColumnSeries
     required: true
-  source_image_uri:
-    range: string
-    description: A list of URLs linking to the images that were used as a source
+  source_image:
+    range: DataReference
+    description: A list of references linking to the images that were used as a source
     required: false
     multivalued: true
   shape_x:

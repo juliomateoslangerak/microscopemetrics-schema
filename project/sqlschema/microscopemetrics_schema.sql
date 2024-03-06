@@ -307,8 +307,9 @@ CREATE TABLE "Image" (
 	shape_t INTEGER NOT NULL, 
 	time_series TEXT, 
 	channel_series TEXT, 
+	source_image TEXT, 
 	array_data TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, array_data)
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, source_image, array_data)
 );
 
 CREATE TABLE "ImageMask" (
@@ -330,8 +331,9 @@ CREATE TABLE "ImageMask" (
 	shape_t INTEGER NOT NULL, 
 	time_series TEXT, 
 	channel_series TEXT, 
+	source_image TEXT, 
 	array_data TEXT, 
-	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, array_data)
+	PRIMARY KEY (name, description, data_uri, omero_host, omero_port, omero_object_type, omero_object_id, linked_objects, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, source_image, array_data)
 );
 
 CREATE TABLE "Line" (

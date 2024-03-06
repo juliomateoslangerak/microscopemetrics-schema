@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-06T14:31:01
+# Generation date: 2024-03-06T15:18:32
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -566,6 +566,7 @@ class Image(MetricsObject):
     voxel_size_z_micron: Optional[float] = None
     time_series: Optional[Union[dict, "TimeSeries"]] = None
     channel_series: Optional[Union[dict, "ChannelSeries"]] = None
+    source_image: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
     array_data: Optional[Union[dict, ArrayData]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -608,6 +609,10 @@ class Image(MetricsObject):
 
         if self.channel_series is not None and not isinstance(self.channel_series, ChannelSeries):
             self.channel_series = ChannelSeries(**as_dict(self.channel_series))
+
+        if not isinstance(self.source_image, list):
+            self.source_image = [self.source_image] if self.source_image is not None else []
+        self.source_image = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.source_image]
 
         if self.array_data is not None and not isinstance(self.array_data, ArrayData):
             self.array_data = ArrayData()
@@ -2580,8 +2585,8 @@ slots.channel_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_se
 slots.column_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_series'], name="column_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_series'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.column_series, domain=None, range=Union[dict, ColumnSeries])
 
-slots.source_image_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image_uri'], name="source_image_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image_uri'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.source_image_uri, domain=None, range=Optional[Union[str, List[str]]])
+slots.source_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image'], name="source_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.source_image, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
 
 slots.shape_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_x'], name="shape_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.shape_x, domain=None, range=int)

@@ -401,6 +401,7 @@ type Image
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
+    sourceImage: [DataReference]
     arrayData: ArrayData
   }
 
@@ -424,6 +425,7 @@ type ImageMask
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
+    sourceImage: [DataReference]
     arrayData: ArrayData
   }
 

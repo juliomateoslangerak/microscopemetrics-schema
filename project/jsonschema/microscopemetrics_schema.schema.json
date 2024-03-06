@@ -1863,6 +1863,13 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
+                "source_image": {
+                    "description": "A list of references linking to the images that were used as a source",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "time_series": {
                     "$ref": "#/$defs/TimeSeries"
                 },
@@ -1954,6 +1961,13 @@
                 "shape_z": {
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
+                },
+                "source_image": {
+                    "description": "A list of references linking to the images that were used as a source",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "time_series": {
                     "$ref": "#/$defs/TimeSeries"

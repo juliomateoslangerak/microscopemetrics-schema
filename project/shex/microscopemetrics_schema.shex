@@ -655,6 +655,8 @@ CLOSED {
              @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/TimeSeries> ? ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_series>
              @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ChannelSeries> ? ;
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_image>
+             @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> * ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/array_data>
              @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ArrayData> ?
           ) ;
