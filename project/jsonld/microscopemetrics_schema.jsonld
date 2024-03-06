@@ -528,11 +528,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "source_image",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_image",
+      "name": "source_images",
+      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_images",
       "description": "A list of references linking to the images that were used as a source",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_image",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_images",
       "multivalued": true,
       "owner": "Image",
       "domain_of": [
@@ -540,6 +540,7 @@
       ],
       "range": "DataReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5239,7 +5240,7 @@
         "shape_t",
         "time_series",
         "channel_series",
-        "source_image",
+        "source_images",
         "array_data"
       ],
       "slot_usage": {},
@@ -5271,7 +5272,7 @@
         "shape_t",
         "time_series",
         "channel_series",
-        "source_image",
+        "source_images",
         "array_data"
       ],
       "slot_usage": {},
@@ -6906,7 +6907,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-06T15:18:26",
+  "generation_date": "2024-03-06T16:14:45",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

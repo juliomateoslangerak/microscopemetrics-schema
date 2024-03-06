@@ -1863,7 +1863,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image": {
+                "source_images": {
                     "description": "A list of references linking to the images that were used as a source",
                     "items": {
                         "$ref": "#/$defs/DataReference"
@@ -1962,7 +1962,7 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image": {
+                "source_images": {
                     "description": "A list of references linking to the images that were used as a source",
                     "items": {
                         "$ref": "#/$defs/DataReference"

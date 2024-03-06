@@ -364,7 +364,7 @@ message Image
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
- repeated  dataReference sourceImage = 0
+ repeated  dataReference sourceImages = 0
   arrayData arrayData = 0
  }
 // A mask image. Either a binary image or a label image
@@ -388,7 +388,7 @@ message ImageMask
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
- repeated  dataReference sourceImage = 0
+ repeated  dataReference sourceImages = 0
   arrayData arrayData = 0
  }
 // A line as defined by x1, y1, x2, y2 coordinates
