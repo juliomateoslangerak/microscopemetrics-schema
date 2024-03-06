@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-05T11:52:47
+# Generation date: 2024-03-06T02:46:01
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -116,6 +116,7 @@ class DataReference(YAMLRoot):
     omero_port: Optional[int] = None
     omero_object_type: Optional[Union[str, "OMEROObjectTypeEnum"]] = None
     omero_object_id: Optional[int] = None
+    linked_objects: Optional[Union[Union[dict, "DataReference"], List[Union[dict, "DataReference"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.data_uri is not None and not isinstance(self.data_uri, str):
@@ -132,6 +133,10 @@ class DataReference(YAMLRoot):
 
         if self.omero_object_id is not None and not isinstance(self.omero_object_id, int):
             self.omero_object_id = int(self.omero_object_id)
+
+        if not isinstance(self.linked_objects, list):
+            self.linked_objects = [self.linked_objects] if self.linked_objects is not None else []
+        self.linked_objects = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.linked_objects]
 
         super().__post_init__(**kwargs)
 
@@ -153,6 +158,7 @@ class MetricsObject(NamedObject):
     omero_port: Optional[int] = None
     omero_object_type: Optional[Union[str, "OMEROObjectTypeEnum"]] = None
     omero_object_id: Optional[int] = None
+    linked_objects: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.data_uri is not None and not isinstance(self.data_uri, str):
@@ -170,44 +176,9 @@ class MetricsObject(NamedObject):
         if self.omero_object_id is not None and not isinstance(self.omero_object_id, int):
             self.omero_object_id = int(self.omero_object_id)
 
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class OMEROReference(YAMLRoot):
-    """
-    A reference to an OMERO object
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/OMEROReference"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/OMEROReference"
-    class_name: ClassVar[str] = "OMEROReference"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.OMEROReference
-
-    host: str = None
-    object_type: Union[str, "OMEROObjectTypeEnum"] = None
-    object_id: int = None
-    port: Optional[int] = 4064
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.host):
-            self.MissingRequiredField("host")
-        if not isinstance(self.host, str):
-            self.host = str(self.host)
-
-        if self._is_empty(self.object_type):
-            self.MissingRequiredField("object_type")
-        if not isinstance(self.object_type, OMEROObjectTypeEnum):
-            self.object_type = OMEROObjectTypeEnum(self.object_type)
-
-        if self._is_empty(self.object_id):
-            self.MissingRequiredField("object_id")
-        if not isinstance(self.object_id, int):
-            self.object_id = int(self.object_id)
-
-        if self.port is not None and not isinstance(self.port, int):
-            self.port = int(self.port)
+        if not isinstance(self.linked_objects, list):
+            self.linked_objects = [self.linked_objects] if self.linked_objects is not None else []
+        self.linked_objects = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.linked_objects]
 
         super().__post_init__(**kwargs)
 
@@ -590,7 +561,6 @@ class Image(MetricsObject):
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
-    source_image_uri: Optional[Union[str, List[str]]] = empty_list()
     voxel_size_x_micron: Optional[float] = None
     voxel_size_y_micron: Optional[float] = None
     voxel_size_z_micron: Optional[float] = None
@@ -623,10 +593,6 @@ class Image(MetricsObject):
             self.MissingRequiredField("shape_t")
         if not isinstance(self.shape_t, int):
             self.shape_t = int(self.shape_t)
-
-        if not isinstance(self.source_image_uri, list):
-            self.source_image_uri = [self.source_image_uri] if self.source_image_uri is not None else []
-        self.source_image_uri = [v if isinstance(v, str) else str(v) for v in self.source_image_uri]
 
         if self.voxel_size_x_micron is not None and not isinstance(self.voxel_size_x_micron, float):
             self.voxel_size_x_micron = float(self.voxel_size_x_micron)
@@ -743,7 +709,7 @@ class TimeSeries(YAMLRoot):
 @dataclass
 class ColumnSeries(YAMLRoot):
     """
-    A series whose values represent column
+    A series of columns
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -752,24 +718,35 @@ class ColumnSeries(YAMLRoot):
     class_name: ClassVar[str] = "ColumnSeries"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ColumnSeries
 
-    column_names: Union[str, List[str]] = None
-    column_descriptions: Optional[Union[str, List[str]]] = empty_list()
-    column_source_objects: Optional[Union[Union[dict, MetricsObject], List[Union[dict, MetricsObject]]]] = empty_list()
+    columns: Union[Union[dict, "Column"], List[Union[dict, "Column"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.column_names):
-            self.MissingRequiredField("column_names")
-        if not isinstance(self.column_names, list):
-            self.column_names = [self.column_names] if self.column_names is not None else []
-        self.column_names = [v if isinstance(v, str) else str(v) for v in self.column_names]
+        if self._is_empty(self.columns):
+            self.MissingRequiredField("columns")
+        if not isinstance(self.columns, list):
+            self.columns = [self.columns] if self.columns is not None else []
+        self.columns = [v if isinstance(v, Column) else Column(**as_dict(v)) for v in self.columns]
 
-        if not isinstance(self.column_descriptions, list):
-            self.column_descriptions = [self.column_descriptions] if self.column_descriptions is not None else []
-        self.column_descriptions = [v if isinstance(v, str) else str(v) for v in self.column_descriptions]
+        super().__post_init__(**kwargs)
 
-        if not isinstance(self.column_source_objects, list):
-            self.column_source_objects = [self.column_source_objects] if self.column_source_objects is not None else []
-        self.column_source_objects = [v if isinstance(v, MetricsObject) else MetricsObject(**as_dict(v)) for v in self.column_source_objects]
+
+@dataclass
+class Column(NamedObject):
+    """
+    Attributes of a column
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Column"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Column"
+    class_name: ClassVar[str] = "Column"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Column
+
+    source_object: Optional[Union[dict, DataReference]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.source_object is not None and not isinstance(self.source_object, DataReference):
+            self.source_object = DataReference(**as_dict(self.source_object))
 
         super().__post_init__(**kwargs)
 
@@ -786,7 +763,6 @@ class Roi(MetricsObject):
     class_name: ClassVar[str] = "Roi"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Roi
 
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
     points: Optional[Union[Union[dict, "Point"], List[Union[dict, "Point"]]]] = empty_list()
     lines: Optional[Union[Union[dict, "Line"], List[Union[dict, "Line"]]]] = empty_list()
     rectangles: Optional[Union[Union[dict, "Rectangle"], List[Union[dict, "Rectangle"]]]] = empty_list()
@@ -795,10 +771,6 @@ class Roi(MetricsObject):
     masks: Optional[Union[Union[dict, "Mask"], List[Union[dict, "Mask"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.image):
-            self.MissingRequiredField("image")
-        self._normalize_inlined_as_dict(slot_name="image", slot_type=Image, key_name="shape_x", keyed=False)
-
         self._normalize_inlined_as_dict(slot_name="points", slot_type=Point, key_name="y", keyed=False)
 
         self._normalize_inlined_as_dict(slot_name="lines", slot_type=Line, key_name="x1", keyed=False)
@@ -1025,9 +997,7 @@ class Polygon(Shape):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
-        if not isinstance(self.vertexes, list):
-            self.vertexes = [self.vertexes] if self.vertexes is not None else []
-        self.vertexes = [v if isinstance(v, Vertex) else Vertex(**as_dict(v)) for v in self.vertexes]
+        self._normalize_inlined_as_dict(slot_name="vertexes", slot_type=Vertex, key_name="x", keyed=False)
 
         if self._is_empty(self.is_open):
             self.MissingRequiredField("is_open")
@@ -1198,12 +1168,10 @@ class ProfilesIntensity(YAMLRoot):
     class_name: ClassVar[str] = "ProfilesIntensity"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ProfilesIntensity
 
-    intensity_profiles_table: Union[dict, "Table"] = None
+    intensity_profiles_table: Optional[Union[dict, "Table"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.intensity_profiles_table):
-            self.MissingRequiredField("intensity_profiles_table")
-        if not isinstance(self.intensity_profiles_table, Table):
+        if self.intensity_profiles_table is not None and not isinstance(self.intensity_profiles_table, Table):
             self.intensity_profiles_table = Table(**as_dict(self.intensity_profiles_table))
 
         super().__post_init__(**kwargs)
@@ -1221,12 +1189,10 @@ class RoiMeasurements(YAMLRoot):
     class_name: ClassVar[str] = "RoiMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.RoiMeasurements
 
-    measurements_table: Union[dict, "Table"] = None
+    measurements_table: Optional[Union[dict, "Table"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.measurements_table):
-            self.MissingRequiredField("measurements_table")
-        if not isinstance(self.measurements_table, Table):
+        if self.measurements_table is not None and not isinstance(self.measurements_table, Table):
             self.measurements_table = Table(**as_dict(self.measurements_table))
 
         super().__post_init__(**kwargs)
@@ -1344,7 +1310,9 @@ class FieldIlluminationInput(MetricsInput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.field_illumination_image):
             self.MissingRequiredField("field_illumination_image")
-        self._normalize_inlined_as_dict(slot_name="field_illumination_image", slot_type=Image, key_name="shape_x", keyed=False)
+        if not isinstance(self.field_illumination_image, list):
+            self.field_illumination_image = [self.field_illumination_image] if self.field_illumination_image is not None else []
+        self.field_illumination_image = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.field_illumination_image]
 
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
@@ -1386,123 +1354,51 @@ class FieldIlluminationOutput(MetricsOutput):
     processing_datetime: Union[str, XSDDateTime] = None
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
-    intensity_map: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
-    roi_profiles: Optional[Union[Union[dict, "FieldIlluminationProfilesIntensity"], List[Union[dict, "FieldIlluminationProfilesIntensity"]]]] = empty_list()
-    roi_corners: Optional[Union[dict, "FieldIlluminationCornersIntensities"]] = None
-    roi_centers_of_mass: Optional[Union[Union[dict, "FieldIlluminationCentersOfMass"], List[Union[dict, "FieldIlluminationCentersOfMass"]]]] = empty_list()
-    roi_centers_geometric: Optional[Union[Union[dict, "FieldIlluminationCentersGeometric"], List[Union[dict, "FieldIlluminationCentersGeometric"]]]] = empty_list()
-    roi_centers_fitted: Optional[Union[Union[dict, "FieldIlluminationCentersFitted"], List[Union[dict, "FieldIlluminationCentersFitted"]]]] = empty_list()
-    roi_centers_max_intensity: Optional[Union[Union[dict, "FieldIlluminationCentersMaxIntensity"], List[Union[dict, "FieldIlluminationCentersMaxIntensity"]]]] = empty_list()
+    intensity_maps: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    roi_profiles: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    roi_corners: Optional[Union[dict, Roi]] = None
+    roi_centers_of_mass: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    roi_centers_geometric: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    roi_centers_fitted: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    roi_centers_max_intensity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
             self.key_values = FieldIlluminationKeyValues(**as_dict(self.key_values))
 
-        self._normalize_inlined_as_dict(slot_name="intensity_profiles", slot_type=Table, key_name="column_series", keyed=False)
+        if not isinstance(self.intensity_profiles, list):
+            self.intensity_profiles = [self.intensity_profiles] if self.intensity_profiles is not None else []
+        self.intensity_profiles = [v if isinstance(v, Table) else Table(**as_dict(v)) for v in self.intensity_profiles]
 
-        self._normalize_inlined_as_dict(slot_name="intensity_map", slot_type=Image, key_name="shape_x", keyed=False)
+        if not isinstance(self.intensity_maps, list):
+            self.intensity_maps = [self.intensity_maps] if self.intensity_maps is not None else []
+        self.intensity_maps = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.intensity_maps]
 
-        self._normalize_inlined_as_dict(slot_name="roi_profiles", slot_type=FieldIlluminationProfilesIntensity, key_name="image", keyed=False)
+        if not isinstance(self.roi_profiles, list):
+            self.roi_profiles = [self.roi_profiles] if self.roi_profiles is not None else []
+        self.roi_profiles = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_profiles]
 
-        if self.roi_corners is not None and not isinstance(self.roi_corners, FieldIlluminationCornersIntensities):
-            self.roi_corners = FieldIlluminationCornersIntensities(**as_dict(self.roi_corners))
+        if self.roi_corners is not None and not isinstance(self.roi_corners, Roi):
+            self.roi_corners = Roi(**as_dict(self.roi_corners))
 
-        self._normalize_inlined_as_dict(slot_name="roi_centers_of_mass", slot_type=FieldIlluminationCentersOfMass, key_name="image", keyed=False)
+        if not isinstance(self.roi_centers_of_mass, list):
+            self.roi_centers_of_mass = [self.roi_centers_of_mass] if self.roi_centers_of_mass is not None else []
+        self.roi_centers_of_mass = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_centers_of_mass]
 
-        self._normalize_inlined_as_dict(slot_name="roi_centers_geometric", slot_type=FieldIlluminationCentersGeometric, key_name="image", keyed=False)
+        if not isinstance(self.roi_centers_geometric, list):
+            self.roi_centers_geometric = [self.roi_centers_geometric] if self.roi_centers_geometric is not None else []
+        self.roi_centers_geometric = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_centers_geometric]
 
-        self._normalize_inlined_as_dict(slot_name="roi_centers_fitted", slot_type=FieldIlluminationCentersFitted, key_name="image", keyed=False)
+        if not isinstance(self.roi_centers_fitted, list):
+            self.roi_centers_fitted = [self.roi_centers_fitted] if self.roi_centers_fitted is not None else []
+        self.roi_centers_fitted = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_centers_fitted]
 
-        self._normalize_inlined_as_dict(slot_name="roi_centers_max_intensity", slot_type=FieldIlluminationCentersMaxIntensity, key_name="image", keyed=False)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class FieldIlluminationProfilesIntensity(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationProfilesIntensity"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationProfilesIntensity"
-    class_name: ClassVar[str] = "FieldIlluminationProfilesIntensity"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationProfilesIntensity
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    intensity_profiles_table: Union[dict, Table] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.intensity_profiles_table):
-            self.MissingRequiredField("intensity_profiles_table")
-        if not isinstance(self.intensity_profiles_table, Table):
-            self.intensity_profiles_table = Table(**as_dict(self.intensity_profiles_table))
+        if not isinstance(self.roi_centers_max_intensity, list):
+            self.roi_centers_max_intensity = [self.roi_centers_max_intensity] if self.roi_centers_max_intensity is not None else []
+        self.roi_centers_max_intensity = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_centers_max_intensity]
 
         super().__post_init__(**kwargs)
 
-
-@dataclass
-class FieldIlluminationCornersIntensities(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationCornersIntensities"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationCornersIntensities"
-    class_name: ClassVar[str] = "FieldIlluminationCornersIntensities"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCornersIntensities
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    measurements_table: Union[dict, Table] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.measurements_table):
-            self.MissingRequiredField("measurements_table")
-        if not isinstance(self.measurements_table, Table):
-            self.measurements_table = Table(**as_dict(self.measurements_table))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class FieldIlluminationCentersOfMass(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationCentersOfMass"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationCentersOfMass"
-    class_name: ClassVar[str] = "FieldIlluminationCentersOfMass"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersOfMass
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-
-@dataclass
-class FieldIlluminationCentersGeometric(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationCentersGeometric"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationCentersGeometric"
-    class_name: ClassVar[str] = "FieldIlluminationCentersGeometric"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersGeometric
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-
-@dataclass
-class FieldIlluminationCentersFitted(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationCentersFitted"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationCentersFitted"
-    class_name: ClassVar[str] = "FieldIlluminationCentersFitted"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersFitted
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-
-@dataclass
-class FieldIlluminationCentersMaxIntensity(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity"
-    class_name: ClassVar[str] = "FieldIlluminationCentersMaxIntensity"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationCentersMaxIntensity
-
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class FieldIlluminationKeyValues(KeyValues):
@@ -1854,21 +1750,37 @@ class PSFBeadsOutput(MetricsOutput):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         self._normalize_inlined_as_dict(slot_name="bead_crops", slot_type=Image, key_name="shape_x", keyed=False)
 
-        self._normalize_inlined_as_dict(slot_name="analyzed_bead_centers", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.analyzed_bead_centers, list):
+            self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
+        self.analyzed_bead_centers = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.analyzed_bead_centers]
 
-        self._normalize_inlined_as_dict(slot_name="discarded_bead_centers_lateral_edge", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.discarded_bead_centers_lateral_edge, list):
+            self.discarded_bead_centers_lateral_edge = [self.discarded_bead_centers_lateral_edge] if self.discarded_bead_centers_lateral_edge is not None else []
+        self.discarded_bead_centers_lateral_edge = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.discarded_bead_centers_lateral_edge]
 
-        self._normalize_inlined_as_dict(slot_name="discarded_bead_centers_self_proximity", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.discarded_bead_centers_self_proximity, list):
+            self.discarded_bead_centers_self_proximity = [self.discarded_bead_centers_self_proximity] if self.discarded_bead_centers_self_proximity is not None else []
+        self.discarded_bead_centers_self_proximity = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.discarded_bead_centers_self_proximity]
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_axial_edge", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.considered_bead_centers_axial_edge, list):
+            self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
+        self.considered_bead_centers_axial_edge = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.considered_bead_centers_axial_edge]
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_intensity_outlier", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.considered_bead_centers_intensity_outlier, list):
+            self.considered_bead_centers_intensity_outlier = [self.considered_bead_centers_intensity_outlier] if self.considered_bead_centers_intensity_outlier is not None else []
+        self.considered_bead_centers_intensity_outlier = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.considered_bead_centers_intensity_outlier]
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_z_fit_quality", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.considered_bead_centers_z_fit_quality, list):
+            self.considered_bead_centers_z_fit_quality = [self.considered_bead_centers_z_fit_quality] if self.considered_bead_centers_z_fit_quality is not None else []
+        self.considered_bead_centers_z_fit_quality = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.considered_bead_centers_z_fit_quality]
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_y_fit_quality", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.considered_bead_centers_y_fit_quality, list):
+            self.considered_bead_centers_y_fit_quality = [self.considered_bead_centers_y_fit_quality] if self.considered_bead_centers_y_fit_quality is not None else []
+        self.considered_bead_centers_y_fit_quality = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.considered_bead_centers_y_fit_quality]
 
-        self._normalize_inlined_as_dict(slot_name="considered_bead_centers_x_fit_quality", slot_type=PSFBeadsCenters, key_name="image", keyed=False)
+        if not isinstance(self.considered_bead_centers_x_fit_quality, list):
+            self.considered_bead_centers_x_fit_quality = [self.considered_bead_centers_x_fit_quality] if self.considered_bead_centers_x_fit_quality is not None else []
+        self.considered_bead_centers_x_fit_quality = [v if isinstance(v, PSFBeadsCenters) else PSFBeadsCenters(**as_dict(v)) for v in self.considered_bead_centers_x_fit_quality]
 
         if self.key_values is not None and not isinstance(self.key_values, PSFBeadsKeyValues):
             self.key_values = PSFBeadsKeyValues(**as_dict(self.key_values))
@@ -1888,7 +1800,6 @@ class PSFBeadsOutput(MetricsOutput):
         super().__post_init__(**kwargs)
 
 
-@dataclass
 class PSFBeadsCenters(Roi):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -1897,7 +1808,6 @@ class PSFBeadsCenters(Roi):
     class_name: ClassVar[str] = "PSFBeadsCenters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsCenters
 
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class PSFBeadsKeyValues(KeyValues):
@@ -2226,7 +2136,9 @@ class ArgolightBOutput(MetricsOutput):
         if self.spots_labels_image is not None and not isinstance(self.spots_labels_image, ImageMask):
             self.spots_labels_image = ImageMask(**as_dict(self.spots_labels_image))
 
-        self._normalize_inlined_as_dict(slot_name="spots_centers_of_mass", slot_type=ArgolightBCentersOfMass, key_name="image", keyed=False)
+        if not isinstance(self.spots_centers_of_mass, list):
+            self.spots_centers_of_mass = [self.spots_centers_of_mass] if self.spots_centers_of_mass is not None else []
+        self.spots_centers_of_mass = [v if isinstance(v, ArgolightBCentersOfMass) else ArgolightBCentersOfMass(**as_dict(v)) for v in self.spots_centers_of_mass]
 
         if self.intensity_key_values is not None and not isinstance(self.intensity_key_values, ArgolightBIntensityKeyValues):
             self.intensity_key_values = ArgolightBIntensityKeyValues(**as_dict(self.intensity_key_values))
@@ -2243,7 +2155,6 @@ class ArgolightBOutput(MetricsOutput):
         super().__post_init__(**kwargs)
 
 
-@dataclass
 class ArgolightBCentersOfMass(Roi):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2252,7 +2163,6 @@ class ArgolightBCentersOfMass(Roi):
     class_name: ClassVar[str] = "ArgolightBCentersOfMass"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBCentersOfMass
 
-    image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
 @dataclass
 class ArgolightBIntensityKeyValues(KeyValues):
@@ -2482,7 +2392,9 @@ class ArgolightEOutput(MetricsOutput):
     intensity_profiles: Optional[Union[dict, Table]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        self._normalize_inlined_as_dict(slot_name="peaks_rois", slot_type=Roi, key_name="image", keyed=False)
+        if not isinstance(self.peaks_rois, list):
+            self.peaks_rois = [self.peaks_rois] if self.peaks_rois is not None else []
+        self.peaks_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.peaks_rois]
 
         if self.key_measurements is not None and not isinstance(self.key_measurements, ArgolightEKeyValues):
             self.key_measurements = ArgolightEKeyValues(**as_dict(self.key_measurements))
@@ -2623,6 +2535,15 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     GROUP = PermissibleValue(
         text="GROUP",
         description="A group")
+    TABLE = PermissibleValue(
+        text="TABLE",
+        description="A table")
+    KEY_VALUES = PermissibleValue(
+        text="KEY_VALUES",
+        description="A set of key-value pairs")
+    ROI = PermissibleValue(
+        text="ROI",
+        description="A region of interest")
 
     _defn = EnumDefinition(
         name="OMEROObjectTypeEnum",
@@ -3098,17 +3019,8 @@ slots.dataReference__omero_object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core
 slots.dataReference__omero_object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_id'], name="dataReference__omero_object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_id'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__omero_object_id, domain=None, range=Optional[int])
 
-slots.oMEROReference__host = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/host'], name="oMEROReference__host", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/host'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__host, domain=None, range=str)
-
-slots.oMEROReference__port = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/port'], name="oMEROReference__port", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/port'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__port, domain=None, range=Optional[int])
-
-slots.oMEROReference__object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/object_type'], name="oMEROReference__object_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/object_type'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__object_type, domain=None, range=Union[str, "OMEROObjectTypeEnum"])
-
-slots.oMEROReference__object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/object_id'], name="oMEROReference__object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/object_id'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.oMEROReference__object_id, domain=None, range=int)
+slots.dataReference__linked_objects = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/linked_objects'], name="dataReference__linked_objects", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/linked_objects'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__linked_objects, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
 
 slots.microscopeCollection__microscopes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscopes'], name="microscopeCollection__microscopes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscopes'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[dict, Microscope], List[Union[dict, Microscope]]])
@@ -3218,17 +3130,11 @@ slots.channelSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/val
 slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="timeSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.timeSeries__values, domain=None, range=Union[float, List[float]])
 
-slots.columnSeries__column_names = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_names'], name="columnSeries__column_names", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_names'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.columnSeries__column_names, domain=None, range=Union[str, List[str]])
+slots.columnSeries__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/columns'], name="columnSeries__columns", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/columns'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.columnSeries__columns, domain=None, range=Union[Union[dict, Column], List[Union[dict, Column]]])
 
-slots.columnSeries__column_descriptions = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_descriptions'], name="columnSeries__column_descriptions", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_descriptions'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.columnSeries__column_descriptions, domain=None, range=Optional[Union[str, List[str]]])
-
-slots.columnSeries__column_source_objects = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_source_objects'], name="columnSeries__column_source_objects", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_source_objects'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.columnSeries__column_source_objects, domain=None, range=Optional[Union[Union[dict, MetricsObject], List[Union[dict, MetricsObject]]]])
-
-slots.roi__image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image'], name="roi__image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roi__image, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
+slots.column__source_object = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_object'], name="column__source_object", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_object'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__source_object, domain=None, range=Optional[Union[dict, DataReference]])
 
 slots.roi__points = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/points'], name="roi__points", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/points'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roi__points, domain=None, range=Optional[Union[Union[dict, Point], List[Union[dict, Point]]]])
@@ -3342,10 +3248,10 @@ slots.color__alpha = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/alpha'], nam
                    model_uri=MICROSCOPEMETRICS_SCHEMA.color__alpha, domain=None, range=Optional[int])
 
 slots.profilesIntensity__intensity_profiles_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/intensity_profiles_table'], name="profilesIntensity__intensity_profiles_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/intensity_profiles_table'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.profilesIntensity__intensity_profiles_table, domain=None, range=Union[dict, Table])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profilesIntensity__intensity_profiles_table, domain=None, range=Optional[Union[dict, Table]])
 
 slots.roiMeasurements__measurements_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/measurements_table'], name="roiMeasurements__measurements_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/measurements_table'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Union[dict, Table])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Optional[Union[dict, Table]])
 
 slots.tag__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], name="tag__text", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/text'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tag__text, domain=None, range=str)
@@ -3365,26 +3271,26 @@ slots.fieldIlluminationOutput__key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['s
 slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_profiles'], name="fieldIlluminationOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], List[Union[dict, Table]]]])
 
-slots.fieldIlluminationOutput__intensity_map = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map'], name="fieldIlluminationOutput__intensity_map", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_map, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
+slots.fieldIlluminationOutput__intensity_maps = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_maps'], name="fieldIlluminationOutput__intensity_maps", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_maps'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_maps, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
 
 slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, FieldIlluminationProfilesIntensity], List[Union[dict, FieldIlluminationProfilesIntensity]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_corners'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[dict, FieldIlluminationCornersIntensities]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[dict, Roi]])
 
 slots.fieldIlluminationOutput__roi_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_of_mass'], name="fieldIlluminationOutput__roi_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_of_mass'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersOfMass], List[Union[dict, FieldIlluminationCentersOfMass]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_centers_geometric = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_geometric'], name="fieldIlluminationOutput__roi_centers_geometric", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_geometric'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_geometric, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersGeometric], List[Union[dict, FieldIlluminationCentersGeometric]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_geometric, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_centers_fitted = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_fitted'], name="fieldIlluminationOutput__roi_centers_fitted", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_fitted'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_fitted, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersFitted], List[Union[dict, FieldIlluminationCentersFitted]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_fitted, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_max_intensity'], name="fieldIlluminationOutput__roi_centers_max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_max_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[dict, FieldIlluminationCentersMaxIntensity], List[Union[dict, FieldIlluminationCentersMaxIntensity]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Optional[Union[dict, PSFBeadsInput]])

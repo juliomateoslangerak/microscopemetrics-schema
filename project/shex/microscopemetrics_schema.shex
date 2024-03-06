@@ -338,14 +338,21 @@ CLOSED {
     )
 }
 
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ColumnSeries> CLOSED {
-    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ColumnSeries_tes> ( 
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_names> @linkml:String + ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_descriptions> @linkml:String
-          * ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_source_objects>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> *
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> CLOSED {
+    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column_tes> ( 
+          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject_tes> ;
+          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject> ] ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_object>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ?
        ) ;
+       rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> ] ?
+    )
+}
+
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ColumnSeries> CLOSED {
+    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ColumnSeries_tes>
+       <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/columns>
+       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> + ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ColumnSeries> ] ?
     )
 }
@@ -374,8 +381,13 @@ CLOSED {
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ?
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#TABLE>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#KEY_VALUES>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#ROI> ] ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_objects>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> *
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ] ?
     )
@@ -398,88 +410,6 @@ CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Experimenter_tes>
        <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/name> @linkml:String ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Experimenter> ]
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersFitted>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersFitted_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersFitted_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersFitted> ] ?
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersFitted>
-          ] ?
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersGeometric>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersGeometric_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersGeometric_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersGeometric> ] ?
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersGeometric>
-          ] ?
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersMaxIntensity_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersMaxIntensity> ] ?
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity>
-          ] ?
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersOfMass>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersOfMass_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersOfMass_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/CentersOfMass> ] ?
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersOfMass>
-          ] ?
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCornersIntensities>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCornersIntensities_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/measurements_table>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table>
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCornersIntensities>
-          ] ?
     )
 }
 
@@ -669,48 +599,24 @@ CLOSED {
           ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_profiles>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> * ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_map>
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_maps>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_profiles>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationProfilesIntensity>
-          * ;
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_corners>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCornersIntensities>
-          ? ;
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_centers_of_mass>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersOfMass>
-          * ;
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_centers_geometric>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersGeometric>
-          * ;
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> * ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_centers_fitted>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersFitted>
-          * ;
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> * ;
 
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_centers_max_intensity>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity>
-          *
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> *
        ) ;
        rdf:type [
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationOutput>
-          ] ?
-    )
-}
-
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationProfilesIntensity>
-CLOSED {
-    ( 
-       $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationProfilesIntensity_tes>
-       (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ProfilesIntensity_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ProfilesIntensity> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/intensity_profiles_table>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table>
-       ) ;
-       rdf:type [
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationProfilesIntensity>
           ] ?
     )
 }
@@ -734,8 +640,6 @@ CLOSED {
        (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image_tes> ( 
              &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
              rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_image_uri> @linkml:String
-             * ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_x_micron>
              @linkml:Float ? ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_y_micron>
@@ -899,8 +803,13 @@ CLOSED {
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ?
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#TABLE>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#KEY_VALUES>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#ROI> ] ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_objects>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> *
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ?
     )
@@ -964,6 +873,7 @@ CLOSED {
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject>  (
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Channel> OR
+    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Protocol> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Sample>
@@ -975,21 +885,6 @@ CLOSED {
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/description> @linkml:String ?
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject> ] ?
-    )
-}
-
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROReference> CLOSED {
-    (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROReference_tes> ( 
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/host> @linkml:String ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/port> @linkml:Integer ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/object_type> [
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP> ] ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/object_id> @linkml:Integer
-       ) ;
-       rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROReference> ] ?
     )
 }
 
@@ -1019,7 +914,7 @@ CLOSED {
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ProfilesIntensity> {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ProfilesIntensity_tes>
        <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/intensity_profiles_table>
-       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> ;
+       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> ? ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ProfilesIntensity> ] ?
     )
 }
@@ -1321,8 +1216,6 @@ CLOSED {
        (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi_tes> ( 
              &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
              rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/image>
-             @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> + ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/points>
              @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Point> * ;
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/lines>
@@ -1340,25 +1233,13 @@ CLOSED {
        )
     } OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema/ArgolightBCentersOfMass> OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersFitted>
-    OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersGeometric>
-    OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersMaxIntensity>
-    OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCentersOfMass>
-    OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationCornersIntensities>
-    OR
-    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationProfilesIntensity>
-    OR
     @<https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsCenters>
 )
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements> {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements_tes>
        <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/measurements_table>
-       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> ;
+       @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> ? ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/RoiMeasurements> ] ?
     )
 }

@@ -19,17 +19,17 @@
                     },
                     "type": "array"
                 },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "lines": {
                     "description": "A list of lines included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Line"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -82,9 +82,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "image"
-            ],
             "title": "ArgolightBCentersOfMass",
             "type": "object"
         },
@@ -121,6 +118,13 @@
                 },
                 "input": {
                     "$ref": "#/$defs/ArgolightBInput"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
@@ -198,6 +202,13 @@
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "mad_3d_dist": {
                     "description": "Median absolute deviation of the 3D distances between spots for each permutation of channel A and B",
@@ -358,6 +369,7 @@
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {
+                        "minimum": 0,
                         "type": "integer"
                     },
                     "type": "array"
@@ -395,6 +407,13 @@
                     "description": "ROI number of the least intense spot for each channel",
                     "items": {
                         "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -586,6 +605,13 @@
                 "input": {
                     "$ref": "#/$defs/ArgolightEInput"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
                     "description": "The microscope that was used to acquire the dataset"
@@ -693,6 +719,7 @@
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {
+                        "minimum": 0,
                         "type": "integer"
                     },
                     "type": "array"
@@ -710,6 +737,13 @@
                     "items": {
                         "minimum": 0,
                         "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -953,34 +987,39 @@
             "title": "Color",
             "type": "object"
         },
+        "Column": {
+            "additionalProperties": false,
+            "description": "Attributes of a column",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "source_object": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "The source object of the column"
+                }
+            },
+            "title": "Column",
+            "type": "object"
+        },
         "ColumnSeries": {
             "additionalProperties": false,
-            "description": "A series whose values represent column",
+            "description": "A series of columns",
             "properties": {
-                "column_descriptions": {
-                    "description": "The descriptions of the columns",
+                "columns": {
                     "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "column_names": {
-                    "description": "The names of the columns",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "column_source_objects": {
-                    "description": "The source objects of the columns",
-                    "items": {
-                        "$ref": "#/$defs/MetricsObject"
+                        "$ref": "#/$defs/Column"
                     },
                     "type": "array"
                 }
             },
             "required": [
-                "column_names"
+                "columns"
             ],
             "title": "ColumnSeries",
             "type": "object"
@@ -1044,6 +1083,13 @@
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -1127,451 +1173,6 @@
             "title": "Experimenter",
             "type": "object"
         },
-        "FieldIlluminationCentersFitted": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "image"
-            ],
-            "title": "FieldIlluminationCentersFitted",
-            "type": "object"
-        },
-        "FieldIlluminationCentersGeometric": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "image"
-            ],
-            "title": "FieldIlluminationCentersGeometric",
-            "type": "object"
-        },
-        "FieldIlluminationCentersMaxIntensity": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "image"
-            ],
-            "title": "FieldIlluminationCentersMaxIntensity",
-            "type": "object"
-        },
-        "FieldIlluminationCentersOfMass": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "image"
-            ],
-            "title": "FieldIlluminationCentersOfMass",
-            "type": "object"
-        },
-        "FieldIlluminationCornersIntensities": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "measurements_table": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Linked table of measurements"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "measurements_table",
-                "image"
-            ],
-            "title": "FieldIlluminationCornersIntensities",
-            "type": "object"
-        },
         "FieldIlluminationDataset": {
             "additionalProperties": false,
             "description": "A field illumination dataset",
@@ -1605,6 +1206,13 @@
                 },
                 "input": {
                     "$ref": "#/$defs/FieldIlluminationInput"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
@@ -1899,6 +1507,7 @@
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {
+                        "minimum": 0,
                         "type": "integer"
                     },
                     "type": "array"
@@ -1910,6 +1519,13 @@
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "max_intensity": {
                     "description": "The maximum intensity of the center of illumination",
@@ -2082,7 +1698,7 @@
                     },
                     "type": "array"
                 },
-                "intensity_map": {
+                "intensity_maps": {
                     "description": "Intensity map of the field illumination",
                     "items": {
                         "$ref": "#/$defs/Image"
@@ -2133,39 +1749,39 @@
                 "roi_centers_fitted": {
                     "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
                     "items": {
-                        "$ref": "#/$defs/FieldIlluminationCentersFitted"
+                        "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "roi_centers_geometric": {
                     "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
                     "items": {
-                        "$ref": "#/$defs/FieldIlluminationCentersGeometric"
+                        "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "roi_centers_max_intensity": {
                     "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
                     "items": {
-                        "$ref": "#/$defs/FieldIlluminationCentersMaxIntensity"
+                        "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "roi_centers_of_mass": {
                     "description": "Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.",
                     "items": {
-                        "$ref": "#/$defs/FieldIlluminationCentersOfMass"
+                        "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "roi_corners": {
-                    "$ref": "#/$defs/FieldIlluminationCornersIntensities",
+                    "$ref": "#/$defs/Roi",
                     "description": "Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images."
                 },
                 "roi_profiles": {
                     "description": "line ROIs used to compute the intensity profiles",
                     "items": {
-                        "$ref": "#/$defs/FieldIlluminationProfilesIntensity"
+                        "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
@@ -2183,99 +1799,6 @@
                 "processing_datetime"
             ],
             "title": "FieldIlluminationOutput",
-            "type": "object"
-        },
-        "FieldIlluminationProfilesIntensity": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
-                "intensity_profiles_table": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Linked table of profiles"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "intensity_profiles_table",
-                "image"
-            ],
-            "title": "FieldIlluminationProfilesIntensity",
             "type": "object"
         },
         "HarmonizedMetricsDatasetCollection": {
@@ -2320,6 +1843,13 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
@@ -2359,13 +1889,6 @@
                 "shape_z": {
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
-                },
-                "source_image_uri": {
-                    "description": "A list of URLs linking to the images that were used as a source",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
                 },
                 "time_series": {
                     "$ref": "#/$defs/TimeSeries"
@@ -2412,6 +1935,13 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
@@ -2451,13 +1981,6 @@
                 "shape_z": {
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
-                },
-                "source_image_uri": {
-                    "description": "A list of URLs linking to the images that were used as a source",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
                 },
                 "time_series": {
                     "$ref": "#/$defs/TimeSeries"
@@ -2504,6 +2027,13 @@
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -2586,6 +2116,13 @@
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "mask": {
                     "$ref": "#/$defs/ImageMask",
@@ -2690,6 +2227,13 @@
                     "$ref": "#/$defs/MetricsInput",
                     "description": "The input of the analysis"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
                     "description": "The microscope that was used to acquire the dataset"
@@ -2780,6 +2324,13 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "manufacturer": {
                     "description": "The manufacturer of the microscope",
                     "type": "string"
@@ -2856,39 +2407,13 @@
                 "IMAGE",
                 "DATASET",
                 "PROJECT",
-                "GROUP"
+                "GROUP",
+                "TABLE",
+                "KEY_VALUES",
+                "ROI"
             ],
             "title": "OMEROObjectTypeEnum",
             "type": "string"
-        },
-        "OMEROReference": {
-            "additionalProperties": false,
-            "description": "A reference to an OMERO object",
-            "properties": {
-                "host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "host",
-                "object_type",
-                "object_id"
-            ],
-            "title": "OMEROReference",
-            "type": "object"
         },
         "PSFBeadsCenters": {
             "additionalProperties": false,
@@ -2909,17 +2434,17 @@
                     },
                     "type": "array"
                 },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "lines": {
                     "description": "A list of lines included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Line"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -2972,9 +2497,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "image"
-            ],
             "title": "PSFBeadsCenters",
             "type": "object"
         },
@@ -3011,6 +2533,13 @@
                 },
                 "input": {
                     "$ref": "#/$defs/PSFBeadsInput"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
@@ -3137,6 +2666,7 @@
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {
+                        "minimum": 0,
                         "type": "integer"
                     },
                     "type": "array"
@@ -3209,6 +2739,13 @@
                     "description": "Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -3603,6 +3140,13 @@
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
@@ -3678,6 +3222,13 @@
                 "is_open": {
                     "description": "Is the polygon open. By default, it is closed (false)",
                     "type": "boolean"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -3789,6 +3340,13 @@
                     "description": "The height of the rectangle",
                     "type": "number"
                 },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
@@ -3866,17 +3424,17 @@
                     },
                     "type": "array"
                 },
-                "image": {
-                    "description": "The image or images to which the ROI is applied",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "lines": {
                     "description": "A list of lines included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Line"
+                    },
+                    "type": "array"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
                     },
                     "type": "array"
                 },
@@ -3929,9 +3487,6 @@
                     "type": "array"
                 }
             },
-            "required": [
-                "image"
-            ],
             "title": "Roi",
             "type": "object"
         },
@@ -3977,6 +3532,13 @@
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
+                },
+                "linked_objects": {
+                    "description": "A list of linked objects",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -4089,6 +3651,13 @@
         "input": {
             "$ref": "#/$defs/MetricsInput",
             "description": "The input of the analysis"
+        },
+        "linked_objects": {
+            "description": "A list of linked objects",
+            "items": {
+                "$ref": "#/$defs/DataReference"
+            },
+            "type": "array"
         },
         "microscope": {
             "$ref": "#/$defs/Microscope",

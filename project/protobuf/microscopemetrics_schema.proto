@@ -7,7 +7,7 @@ message ArgolightBCentersOfMass
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
- repeated  image image = 0
+ repeated  dataReference linkedObjects = 0
  repeated  point points = 0
  repeated  line lines = 0
  repeated  rectangle rectangles = 0
@@ -25,6 +25,7 @@ message ArgolightBDataset
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscope microscope = 0
   sample sample = 0
   experimenter experimenter = 0
@@ -42,6 +43,7 @@ message ArgolightBDistanceKeyValues
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  integer channelA = 0
  repeated  integer channelB = 0
  repeated  float mean3dDist = 0
@@ -75,6 +77,7 @@ message ArgolightBIntensityKeyValues
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfSpots = 0
  repeated  float intensityMaxSpot = 0
@@ -117,6 +120,7 @@ message ArgolightEDataset
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscope microscope = 0
   sample sample = 0
   experimenter experimenter = 0
@@ -143,6 +147,7 @@ message ArgolightEKeyValues
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  integer channelNr = 0
  repeated  integer focusSlice = 0
  repeated  float rayleighResolutionPixels = 0
@@ -189,12 +194,17 @@ message Color
   integer b = 0
   integer alpha = 0
  }
-// A series whose values represent column
+// Attributes of a column
+message Column
+ {
+  string name = 0
+  string description = 0
+  dataReference sourceObject = 0
+ }
+// A series of columns
 message ColumnSeries
  {
- repeated  string columnNames = 0
- repeated  string columnDescriptions = 0
- repeated  metricsObject columnSourceObjects = 0
+ repeated  column columns = 0
  }
 // A comment
 message Comment
@@ -214,6 +224,7 @@ message Ellipse
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -231,92 +242,6 @@ message Experimenter
   string name = 0
   string orcid = 0
  }
-message FieldIlluminationCentersFitted
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
- }
-message FieldIlluminationCentersGeometric
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
- }
-message FieldIlluminationCentersMaxIntensity
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
- }
-message FieldIlluminationCentersOfMass
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
- }
-message FieldIlluminationCornersIntensities
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
-  table measurementsTable = 0
- }
 // A field illumination dataset
 message FieldIlluminationDataset
  {
@@ -327,6 +252,7 @@ message FieldIlluminationDataset
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscope microscope = 0
   sample sample = 0
   experimenter experimenter = 0
@@ -353,6 +279,7 @@ message FieldIlluminationKeyValues
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  integer channelNr = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
@@ -408,31 +335,13 @@ message FieldIlluminationOutput
   comment comment = 0
   fieldIlluminationKeyValues keyValues = 0
  repeated  table intensityProfiles = 0
- repeated  image intensityMap = 0
- repeated  fieldIlluminationProfilesIntensity roiProfiles = 0
-  fieldIlluminationCornersIntensities roiCorners = 0
- repeated  fieldIlluminationCentersOfMass roiCentersOfMass = 0
- repeated  fieldIlluminationCentersGeometric roiCentersGeometric = 0
- repeated  fieldIlluminationCentersFitted roiCentersFitted = 0
- repeated  fieldIlluminationCentersMaxIntensity roiCentersMaxIntensity = 0
- }
-message FieldIlluminationProfilesIntensity
- {
-  string name = 0
-  string description = 0
-  string dataUri = 0
-  string omeroHost = 0
-  integer omeroPort = 0
-  oMEROObjectTypeEnum omeroObjectType = 0
-  integer omeroObjectId = 0
- repeated  image image = 0
- repeated  point points = 0
- repeated  line lines = 0
- repeated  rectangle rectangles = 0
- repeated  ellipse ellipses = 0
- repeated  polygon polygons = 0
- repeated  mask masks = 0
-  table intensityProfilesTable = 0
+ repeated  image intensityMaps = 0
+ repeated  roi roiProfiles = 0
+  roi roiCorners = 0
+ repeated  roi roiCentersOfMass = 0
+ repeated  roi roiCentersGeometric = 0
+ repeated  roi roiCentersFitted = 0
+ repeated  roi roiCentersMaxIntensity = 0
  }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
@@ -450,7 +359,7 @@ message Image
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
- repeated  string sourceImageUri = 0
+ repeated  dataReference linkedObjects = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -473,7 +382,7 @@ message ImageMask
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
- repeated  string sourceImageUri = 0
+ repeated  dataReference linkedObjects = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -496,6 +405,7 @@ message Line
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -517,6 +427,7 @@ message Mask
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -537,6 +448,7 @@ message MetricsDataset
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscope microscope = 0
   sample sample = 0
   experimenter experimenter = 0
@@ -560,6 +472,7 @@ message Microscope
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscopeTypeEnum type = 0
   string manufacturer = 0
   string model = 0
@@ -571,14 +484,6 @@ message MicroscopeCollection
  {
  repeated  microscope microscopes = 0
  }
-// A reference to an OMERO object
-message OMEROReference
- {
-  string host = 0
-  integer port = 0
-  oMEROObjectTypeEnum objectType = 0
-  integer objectId = 0
- }
 // A point as defined by x and y coordinates
 message Point
  {
@@ -589,6 +494,7 @@ message Point
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -608,6 +514,7 @@ message Polygon
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -635,7 +542,7 @@ message PSFBeadsCenters
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
- repeated  image image = 0
+ repeated  dataReference linkedObjects = 0
  repeated  point points = 0
  repeated  line lines = 0
  repeated  rectangle rectangles = 0
@@ -653,6 +560,7 @@ message PSFBeadsDataset
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   microscope microscope = 0
   sample sample = 0
   experimenter experimenter = 0
@@ -683,6 +591,7 @@ message PSFBeadsKeyValues
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
  repeated  integer nrOfBeadsDiscardedLateralEdge = 0
@@ -758,6 +667,7 @@ message Rectangle
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   float z = 0
   integer c = 0
   integer t = 0
@@ -779,7 +689,7 @@ message Roi
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
- repeated  image image = 0
+ repeated  dataReference linkedObjects = 0
  repeated  point points = 0
  repeated  line lines = 0
  repeated  rectangle rectangles = 0
@@ -805,6 +715,7 @@ message Table
   integer omeroPort = 0
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
   columnSeries columnSeries = 0
   tableData tableData = 0
  }

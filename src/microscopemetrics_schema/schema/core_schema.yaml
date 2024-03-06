@@ -56,6 +56,10 @@ classes:
       omero_object_id:
         range: integer
         description: The ID of the OMERO object
+      linked_objects:
+        range: DataReference
+        description: A list of linked objects
+        multivalued: true
     unique_keys:
       omero_reference:
         description: A metrics object is uniquely identified by a combination of its OMERO attributes
@@ -184,7 +188,6 @@ classes:
         description: The datasets of the collection
         required: true
         multivalued: true
-        inlined: false
 
   HarmonizedMetricsDatasetCollection:
     is_a: MetricsDatasetCollection
@@ -299,7 +302,6 @@ classes:
     is_a: MetricsObject
     description: A microscope-metrics image
     slots:
-      - source_image_uri
       - voxel_size_x_micron
       - voxel_size_y_micron
       - voxel_size_z_micron
@@ -350,78 +352,61 @@ classes:
           ucum_code: s
 
   ColumnSeries:
-    description: A series whose values represent column
+    description: A series of columns
     implements:
       - linkml:OneDimensionalSeries
     attributes:
-      column_names:
-        range: string
-        description: The names of the columns
+      columns:
+        range: Column
         multivalued: true
+        implements:
+          - linkml:elements
         required: true
-      column_descriptions:
-        range: string
-        description: The descriptions of the columns
-        multivalued: true
+
+  Column:
+    is_a: NamedObject
+    description: Attributes of a column
+    attributes:
+      source_object:
+        range: DataReference
+        description: The source object of the column
         required: false
-      column_source_objects:
-        range: MetricsObject
-        description: The source objects of the columns
-        multivalued: true
-        required: false
+        multivalued: false
 
   Roi:
     is_a: MetricsObject
     description: A ROI (Region Of Interest). Collection of shapes and an image to which they are applied
     attributes:
-      image:
-        range: Image
-        description: The image or images to which the ROI is applied
-        required: true
-        multivalued: true
-        inlined: false
       points:
         range: Point
         description: A list of points included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
       lines:
         range: Line
         description: A list of lines included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
       rectangles:
         range: Rectangle
         description: A list of rectangles included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
       ellipses:
         range: Ellipse
         description: A list of ellipses included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
       polygons:
         range: Polygon
         description: A list of polygons included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
       masks:
         range: Mask
         description: A list of masks included in the ROI
         required: false
         multivalued: true
-        inlined: true
-        inlined_as_list: false
 
   Shape:
     is_a: MetricsObject
@@ -554,8 +539,6 @@ classes:
         description: A list of vertexes defining the polygon
         multivalued: true
         required: true
-        inlined: true
-        inlined_as_list: true
       is_open:
         range: boolean
         description: Is the polygon open. By default, it is closed (false)
@@ -595,7 +578,6 @@ classes:
         range: ImageMask
         description: The mask image
         multivalued: false
-        inlined: true
 
   Color:
     description: A color as defined by RGB values and an optional alpha value
@@ -666,9 +648,8 @@ classes:
       intensity_profiles_table:
         range: Table
         description: Linked table of profiles
-        required: true
+        required: false
         multivalued: false
-        inlined: true
 
   RoiMeasurements:
     mixin: true
@@ -679,9 +660,8 @@ classes:
       measurements_table:
         range: Table
         description: Linked table of measurements
-        required: true
+        required: false
         multivalued: false
-        inlined: true
 
   KeyValues:
     is_a: MetricsObject
@@ -745,8 +725,6 @@ slots:
     required: false
   column_series:
     range: ColumnSeries
-    implements:
-      - linkml:axis1
     required: true
   source_image_uri:
     range: string
@@ -811,6 +789,7 @@ slots:
     description: >-
       The channel number to which the measurements apply
     multivalued: true
+    minimum_value: 0
   bit_depth:
     range: integer
     description: >-
@@ -877,3 +856,9 @@ enums:
         description: A project
       GROUP:
         description: A group
+      TABLE:
+        description: A table
+      KEY_VALUES:
+        description: A set of key-value pairs
+      ROI:
+        description: A region of interest
