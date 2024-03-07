@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-07T11:13:48
+# Generation date: 2024-03-07T14:56:22
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -49,30 +49,6 @@ class ExperimenterOrcid(extended_str):
 
 
 MetaObject = Any
-
-class ArrayData(MetaObject):
-    """
-    A non serializable array data object
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/ArrayData"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/ArrayData"
-    class_name: ClassVar[str] = "ArrayData"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArrayData
-
-
-class TableData(MetaObject):
-    """
-    A non serializable table data object
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/TableData"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/TableData"
-    class_name: ClassVar[str] = "TableData"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.TableData
-
 
 @dataclass
 class NamedObject(YAMLRoot):
@@ -567,7 +543,7 @@ class Image(MetricsObject):
     time_series: Optional[Union[dict, "TimeSeries"]] = None
     channel_series: Optional[Union[dict, "ChannelSeries"]] = None
     source_images: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
-    array_data: Optional[Union[dict, ArrayData]] = None
+    array_data: Optional[Union[dict, MetaObject]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.shape_x):
@@ -613,9 +589,6 @@ class Image(MetricsObject):
         if not isinstance(self.source_images, list):
             self.source_images = [self.source_images] if self.source_images is not None else []
         self.source_images = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.source_images]
-
-        if self.array_data is not None and not isinstance(self.array_data, ArrayData):
-            self.array_data = ArrayData()
 
         super().__post_init__(**kwargs)
 
@@ -1265,16 +1238,13 @@ class Table(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Table
 
     column_series: Union[dict, ColumnSeries] = None
-    table_data: Optional[Union[dict, TableData]] = None
+    table_data: Optional[Union[dict, MetaObject]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.column_series):
             self.MissingRequiredField("column_series")
         if not isinstance(self.column_series, ColumnSeries):
             self.column_series = ColumnSeries(**as_dict(self.column_series))
-
-        if self.table_data is not None and not isinstance(self.table_data, TableData):
-            self.table_data = TableData()
 
         super().__post_init__(**kwargs)
 
@@ -2571,10 +2541,10 @@ slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description']
                    model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
 slots.array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.array_data, domain=None, range=Optional[Union[dict, ArrayData]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.array_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
 slots.table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.table_data, domain=None, range=Optional[Union[dict, TableData]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
 slots.time_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/time_series'], name="time_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/time_series'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.time_series, domain=None, range=Optional[Union[dict, TimeSeries]])

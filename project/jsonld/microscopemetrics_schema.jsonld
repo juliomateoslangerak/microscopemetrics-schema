@@ -463,7 +463,7 @@
       "domain_of": [
         "Image"
       ],
-      "range": "ArrayData",
+      "range": "MetaObject",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -477,7 +477,7 @@
       "domain_of": [
         "Table"
       ],
-      "range": "TableData",
+      "range": "MetaObject",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4627,26 +4627,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "ArrayData",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ArrayData",
-      "description": "A non serializable array data object",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "is_a": "MetaObject",
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ArrayData",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "TableData",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/TableData",
-      "description": "A non serializable table data object",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "is_a": "MetaObject",
-      "slot_usage": {},
-      "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/TableData",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "NamedObject",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject",
       "description": "An object with a name and a description",
@@ -6907,7 +6887,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-07T11:13:42",
+  "generation_date": "2024-03-07T14:56:16",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

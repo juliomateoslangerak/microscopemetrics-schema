@@ -22,14 +22,6 @@ classes:
   MetaObject:
     class_uri: linkml:Any
 
-  ArrayData:
-    is_a: MetaObject
-    description: A non serializable array data object
-
-  TableData:
-    is_a: MetaObject
-    description: A non serializable table data object
-
   NamedObject:
     description: An object with a name and a description
     abstract: true
@@ -719,12 +711,12 @@ slots:
     required: false
     multivalued: false
   array_data:
-    range: ArrayData
+    range: MetaObject
     description: A non-required slot for non-serializable array data object
     required: false
     multivalued: false
   table_data:
-    range: TableData
+    range: MetaObject
     description: A non-required slot for non-serializable table data object
     required: false
     multivalued: false

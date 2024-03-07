@@ -365,7 +365,7 @@ message Image
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
  repeated  dataReference sourceImages = 0
-  arrayData arrayData = 0
+  metaObject arrayData = 0
  }
 // A mask image. Either a binary image or a label image
 message ImageMask
@@ -389,7 +389,7 @@ message ImageMask
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
  repeated  dataReference sourceImages = 0
-  arrayData arrayData = 0
+  metaObject arrayData = 0
  }
 // A line as defined by x1, y1, x2, y2 coordinates
 message Line
@@ -666,7 +666,7 @@ message Table
   integer omeroObjectId = 0
  repeated  dataReference linkedObjects = 0
   columnSeries columnSeries = 0
-  tableData tableData = 0
+  metaObject tableData = 0
  }
 // A series whose values represent time
 message TimeSeries

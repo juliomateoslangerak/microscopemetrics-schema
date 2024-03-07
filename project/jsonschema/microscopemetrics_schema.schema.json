@@ -903,12 +903,6 @@
             "title": "ArgolightEOutput",
             "type": "object"
         },
-        "ArrayData": {
-            "additionalProperties": false,
-            "description": "A non serializable array data object",
-            "title": "ArrayData",
-            "type": "object"
-        },
         "Channel": {
             "additionalProperties": false,
             "description": "A image channel",
@@ -1802,7 +1796,7 @@
             "description": "A microscope-metrics image",
             "properties": {
                 "array_data": {
-                    "$ref": "#/$defs/ArrayData",
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
@@ -1901,7 +1895,7 @@
             "description": "A mask image. Either a binary image or a label image",
             "properties": {
                 "array_data": {
-                    "$ref": "#/$defs/ArrayData",
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
@@ -3328,7 +3322,7 @@
                     "type": "integer"
                 },
                 "table_data": {
-                    "$ref": "#/$defs/TableData",
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable table data object"
                 }
             },
@@ -3336,12 +3330,6 @@
                 "column_series"
             ],
             "title": "Table",
-            "type": "object"
-        },
-        "TableData": {
-            "additionalProperties": false,
-            "description": "A non serializable table data object",
-            "title": "TableData",
             "type": "object"
         },
         "TimeSeries": {

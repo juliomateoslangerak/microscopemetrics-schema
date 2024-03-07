@@ -178,10 +178,6 @@ type ArgolightEOutput
     intensityProfiles: Table
   }
 
-type ArrayData
-  {
-  }
-
 interface CentersFitted
   {
   }
@@ -402,7 +398,7 @@ type Image
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
     sourceImages: [DataReference]
-    arrayData: ArrayData
+    arrayData: MetaObject
   }
 
 type ImageMask
@@ -426,7 +422,7 @@ type ImageMask
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
     sourceImages: [DataReference]
-    arrayData: ArrayData
+    arrayData: MetaObject
   }
 
 interface KeyValues
@@ -778,11 +774,7 @@ type Table
     omeroObjectId: Integer
     linkedObjects: [DataReference]
     columnSeries: ColumnSeries!
-    tableData: TableData
-  }
-
-type TableData
-  {
+    tableData: MetaObject
   }
 
 interface Tag
