@@ -237,7 +237,7 @@
 
       Table : table_data
 
-          Table --&gt; TableData : table_data
+          Table --&gt; MetaObject : table_data
 
 
 </div>
@@ -270,7 +270,7 @@
 </tr>
 <tr>
 <td><a href="../table_data/">table_data</a></td>
-<td>0..1 <br/> <a href="../TableData/">TableData</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
 <td>A non-required slot for non-serializable table data object</td>
 <td>direct</td>
 </tr>
@@ -462,7 +462,7 @@ attributes:
     owner: Table
     domain_of:
     - Table
-    range: TableData
+    range: MetaObject
     required: false
   data_uri:
     name: data_uri

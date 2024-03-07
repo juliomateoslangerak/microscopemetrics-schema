@@ -213,7 +213,7 @@
 
       ImageMask : array_data
 
-          ImageMask --&gt; ArrayData : array_data
+          ImageMask --&gt; MetaObject : array_data
 
       ImageMask : channel_series
 
@@ -357,7 +357,7 @@
 </tr>
 <tr>
 <td><a href="../array_data/">array_data</a></td>
-<td>0..1 <br/> <a href="../ArrayData/">ArrayData</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
 <td>A non-required slot for non-serializable array data object</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
@@ -625,7 +625,7 @@ attributes:
     owner: ImageMask
     domain_of:
     - Image
-    range: ArrayData
+    range: MetaObject
     required: false
   data_uri:
     name: data_uri

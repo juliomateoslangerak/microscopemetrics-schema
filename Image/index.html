@@ -217,7 +217,7 @@
 
       Image : array_data
 
-          Image --&gt; ArrayData : array_data
+          Image --&gt; MetaObject : array_data
 
       Image : channel_series
 
@@ -361,7 +361,7 @@
 </tr>
 <tr>
 <td><a href="../array_data/">array_data</a></td>
-<td>0..1 <br/> <a href="../ArrayData/">ArrayData</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
 <td>A non-required slot for non-serializable array data object</td>
 <td>direct</td>
 </tr>
@@ -666,7 +666,7 @@ attributes:
     owner: Image
     domain_of:
     - Image
-    range: ArrayData
+    range: MetaObject
     required: false
   data_uri:
     name: data_uri
