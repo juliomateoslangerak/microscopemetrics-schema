@@ -548,7 +548,7 @@ def st_mm_roi(
 @st.composite
 def st_mm_field_illumination_input(
     draw,
-    field_illumination_image=st_mm_image(),
+    field_illumination_image=st.lists(st_mm_image(), min_size=1, max_size=3),
     bit_depth=st.sampled_from([8, 10, 11, 12, 15, 16, 32]),
     saturation_threshold=st.floats(min_value=0.01, max_value=0.05),
     corner_fraction=st.floats(min_value=0.02, max_value=0.3),
