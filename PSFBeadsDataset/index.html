@@ -208,7 +208,9 @@
 
       PSFBeadsDataset : acquisition_datetime
 
-      PSFBeadsDataset : data_uri
+      PSFBeadsDataset : comment
+
+          PSFBeadsDataset --&gt; Comment : comment
 
       PSFBeadsDataset : description
 
@@ -220,31 +222,21 @@
 
           PSFBeadsDataset --&gt; PSFBeadsInput : input
 
-      PSFBeadsDataset : linked_objects
-
-          PSFBeadsDataset --&gt; DataReference : linked_objects
-
       PSFBeadsDataset : microscope
 
           PSFBeadsDataset --&gt; Microscope : microscope
 
       PSFBeadsDataset : name
 
-      PSFBeadsDataset : omero_host
-
-      PSFBeadsDataset : omero_object_id
-
-      PSFBeadsDataset : omero_object_type
-
-          PSFBeadsDataset --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      PSFBeadsDataset : omero_port
-
       PSFBeadsDataset : output
 
           PSFBeadsDataset --&gt; PSFBeadsOutput : output
 
       PSFBeadsDataset : processed
+
+      PSFBeadsDataset : processing_datetime
+
+      PSFBeadsDataset : processing_log
 
       PSFBeadsDataset : sample
 
@@ -255,11 +247,8 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../MetricsDataset/">MetricsDataset</a><ul>
 <li><strong>PSFBeadsDataset</strong></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -278,7 +267,7 @@
 <tbody>
 <tr>
 <td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
+<td>1..1 <br/> <a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -302,7 +291,7 @@
 </tr>
 <tr>
 <td><a href="../experimenter/">experimenter</a></td>
-<td>0..1 <br/> <a href="../Experimenter/">Experimenter</a></td>
+<td>0..* <br/> <a href="../Experimenter/">Experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
@@ -319,51 +308,33 @@
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
+<td><a href="../processing_datetime/">processing_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the processing by microscope-metrics</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+</tr>
+<tr>
+<td><a href="../processing_log/">processing_log</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td>The log of the processing by microscope-metrics</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td><a href="../comment/">comment</a></td>
+<td>0..* <br/> <a href="../Comment/">Comment</a></td>
+<td>A human readable comment about the dataset</td>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -404,11 +375,40 @@ attributes:
   input:
     name: input
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    multivalued: false
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
     range: PSFBeadsInput
+    required: true
+    inlined: true
   output:
     name: output
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    multivalued: false
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
     range: PSFBeadsOutput
+    required: false
+    inlined: true
+rules:
+- preconditions:
+    slot_conditions:
+      processed:
+        name: processed
+        equals_number: 1
+  postconditions:
+    slot_conditions:
+      output:
+        name: output
+        required: true
 
 </code></pre>
 </details>
@@ -422,27 +422,33 @@ attributes:
   input:
     name: input
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    multivalued: false
     alias: input
     owner: PSFBeadsDataset
     domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    - MetricsDataset
-    - PSFBeadsDataset
-    - FieldIlluminationDataset
     range: PSFBeadsInput
+    required: true
+    inlined: true
   output:
     name: output
     from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
+    multivalued: false
     alias: output
     owner: PSFBeadsDataset
     domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    - MetricsDataset
-    - PSFBeadsDataset
-    - FieldIlluminationDataset
     range: PSFBeadsOutput
+    required: false
+    inlined: true
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
@@ -455,6 +461,7 @@ attributes:
     - MetricsDataset
     range: Microscope
     required: true
+    inlined: false
   sample:
     name: sample
     description: The sample that was imaged
@@ -466,17 +473,19 @@ attributes:
     domain_of:
     - MetricsDataset
     range: Sample
+    inlined: false
   experimenter:
     name: experimenter
     description: The experimenter that performed the imaging experiment
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
+    multivalued: true
     alias: experimenter
     owner: PSFBeadsDataset
     domain_of:
     - MetricsDataset
     range: Experimenter
+    inlined: false
   acquisition_datetime:
     name: acquisition_datetime
     description: The datetime of the acquisition
@@ -501,73 +510,44 @@ attributes:
     - MetricsDataset
     range: boolean
     required: true
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
+  processing_datetime:
+    name: processing_datetime
+    description: The datetime of the processing by microscope-metrics
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    alias: data_uri
+    multivalued: false
+    alias: processing_datetime
     owner: PSFBeadsDataset
     domain_of:
-    - DataReference
+    - MetricsDataset
+    range: datetime
+  processing_log:
+    name: processing_log
+    description: The log of the processing by microscope-metrics
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: processing_log
+    owner: PSFBeadsDataset
+    domain_of:
+    - MetricsDataset
     range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
+  comment:
+    name: comment
+    description: A human readable comment about the dataset
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: PSFBeadsDataset
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: PSFBeadsDataset
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: PSFBeadsDataset
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: PSFBeadsDataset
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
     multivalued: true
-    alias: linked_objects
+    alias: comment
     owner: PSFBeadsDataset
     domain_of:
-    - DataReference
-    range: DataReference
+    - Microscope
+    - MetricsDataset
+    range: Comment
     required: false
     inlined: true
-    inlined_as_list: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -576,11 +556,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -588,9 +569,22 @@ attributes:
     owner: PSFBeadsDataset
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
+rules:
+- preconditions:
+    slot_conditions:
+      processed:
+        name: processed
+        equals_number: 1
+  postconditions:
+    slot_conditions:
+      output:
+        name: output
+        required: true
 
 </code></pre>
 </details>

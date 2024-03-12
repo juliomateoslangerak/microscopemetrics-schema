@@ -331,13 +331,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Image/">Image</a></td>
-<td>A microscope-metrics image</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ImageMask/">ImageMask</a></td>
-<td>A mask image</td>
+<td><a href="../Image5D/">Image5D</a></td>
+<td>A 5D image in TZYXC order</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -360,8 +355,9 @@ implements:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 alias: channel_series
+owner: Image5D
 domain_of:
-- Image
+- Image5D
 range: ChannelSeries
 required: false
 

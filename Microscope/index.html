@@ -209,19 +209,15 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Microscope">microscopemetrics_schema:Microscope</a></p>
 <div class="mermaid"> classDiagram
     class Microscope
-      MetricsObject &lt;|-- Microscope
+      Device &lt;|-- Microscope
 
-      Microscope : comments
+      Microscope : comment
 
-          Microscope --&gt; Comment : comments
-
-      Microscope : data_uri
+          Microscope --&gt; Comment : comment
 
       Microscope : description
 
-      Microscope : linked_objects
-
-          Microscope --&gt; DataReference : linked_objects
+      Microscope : id
 
       Microscope : manufacturer
 
@@ -229,29 +225,24 @@
 
       Microscope : name
 
-      Microscope : omero_host
-
-      Microscope : omero_object_id
-
-      Microscope : omero_object_type
-
-          Microscope --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      Microscope : omero_port
-
       Microscope : serial_number
 
       Microscope : type
 
-          Microscope --&gt; MicroscopeTypeEnum : type
+          Microscope --&gt; MicroscopeType : type
+
+      Microscope : url
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../Device/">Device</a><ul>
 <li><strong>Microscope</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -269,8 +260,14 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../id/">id</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The unique identifier for an entity</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../type/">type</a></td>
-<td>0..1 <br/> <a href="../MicroscopeTypeEnum/">MicroscopeTypeEnum</a></td>
+<td>0..1 <br/> <a href="../MicroscopeType/">MicroscopeType</a></td>
 <td>The type of the microscope</td>
 <td>direct</td>
 </tr>
@@ -293,57 +290,27 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../comments/">comments</a></td>
-<td>0..* <br/> <a href="../Comment/">Comment</a></td>
-<td>A list of comments linked to the microscope</td>
+<td><a href="../url/">url</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URL where the microscope can be found</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td><a href="../comment/">comment</a></td>
+<td>0..* <br/> <a href="../Comment/">Comment</a></td>
+<td>A human readable comment about the microscope</td>
+<td>direct</td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -360,25 +327,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td><a href="../microscope/">microscope</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
-<td><a href="../microscope/">microscope</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
-<td><a href="../MicroscopeCollection/">MicroscopeCollection</a></td>
-<td><a href="../microscopes/">microscopes</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td><a href="../microscope/">microscope</a></td>
+<td>range</td>
+<td><a href="./">Microscope</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
 <td><a href="../microscope/">microscope</a></td>
 <td>range</td>
 <td><a href="./">Microscope</a></td>
@@ -390,7 +345,13 @@
 <td><a href="./">Microscope</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
+<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
+<td><a href="../microscope/">microscope</a></td>
+<td>range</td>
+<td><a href="./">Microscope</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
 <td><a href="../microscope/">microscope</a></td>
 <td>range</td>
 <td><a href="./">Microscope</a></td>
@@ -428,20 +389,27 @@
 <pre><code class="language-yaml">name: Microscope
 description: A microscope
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
+is_a: Device
+slots:
+- id
 attributes:
   type:
     name: type
     description: The type of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    range: MicroscopeTypeEnum
+    domain_of:
+    - Microscope
+    - Sample
+    range: MicroscopeType
     required: false
   manufacturer:
     name: manufacturer
     description: The manufacturer of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
   model:
@@ -449,6 +417,8 @@ attributes:
     description: The model of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
   serial_number:
@@ -456,16 +426,33 @@ attributes:
     description: The serial number of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
-  comments:
-    name: comments
-    description: A list of comments linked to the microscope
+  url:
+    name: url
+    description: The URL where the microscope can be found
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    domain_of:
+    - Microscope
+    - Protocol
+    range: string
+    required: false
+  comment:
+    name: comment
+    description: A human readable comment about the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Microscope
+    - MetricsDataset
     range: Comment
     required: false
+    inlined: true
 
 </code></pre>
 </details>
@@ -474,7 +461,7 @@ attributes:
 <pre><code class="language-yaml">name: Microscope
 description: A microscope
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: MetricsObject
+is_a: Device
 attributes:
   type:
     name: type
@@ -486,7 +473,7 @@ attributes:
     domain_of:
     - Microscope
     - Sample
-    range: MicroscopeTypeEnum
+    range: MicroscopeType
     required: false
   manufacturer:
     name: manufacturer
@@ -521,85 +508,50 @@ attributes:
     - Microscope
     range: string
     required: false
-  comments:
-    name: comments
-    description: A list of comments linked to the microscope
+  url:
+    name: url
+    description: The URL where the microscope can be found
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
-    alias: comments
+    multivalued: false
+    alias: url
     owner: Microscope
     domain_of:
     - Microscope
-    range: Comment
+    - Protocol
+    range: string
     required: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: data_uri
-    owner: Microscope
-    domain_of:
-    - DataReference
-    range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: Microscope
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: Microscope
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: Microscope
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: Microscope
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
+  comment:
+    name: comment
+    description: A human readable comment about the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    alias: linked_objects
+    alias: comment
     owner: Microscope
     domain_of:
-    - DataReference
-    range: DataReference
+    - Microscope
+    - MetricsDataset
+    range: Comment
     required: false
     inlined: true
-    inlined_as_list: true
+  id:
+    name: id
+    description: The unique identifier for an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: id
+    owner: Microscope
+    domain_of:
+    - Microscope
+    - Tag
+    range: string
+    required: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -608,11 +560,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -620,7 +573,9 @@ attributes:
     owner: Microscope
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 

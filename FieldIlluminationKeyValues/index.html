@@ -222,49 +222,41 @@
 
       FieldIlluminationKeyValues : bottom_right_intensity_ratio
 
-      FieldIlluminationKeyValues : center_fitted_distance_relative
-
-      FieldIlluminationKeyValues : center_fitted_x
-
-      FieldIlluminationKeyValues : center_fitted_x_relative
-
-      FieldIlluminationKeyValues : center_fitted_y
-
-      FieldIlluminationKeyValues : center_fitted_y_relative
-
-      FieldIlluminationKeyValues : center_geometric_distance_relative
-
-      FieldIlluminationKeyValues : center_geometric_x
-
-      FieldIlluminationKeyValues : center_geometric_x_relative
-
-      FieldIlluminationKeyValues : center_geometric_y
-
-      FieldIlluminationKeyValues : center_geometric_y_relative
-
-      FieldIlluminationKeyValues : center_of_mass_distance_relative
-
-      FieldIlluminationKeyValues : center_of_mass_x
-
-      FieldIlluminationKeyValues : center_of_mass_x_relative
-
-      FieldIlluminationKeyValues : center_of_mass_y
-
-      FieldIlluminationKeyValues : center_of_mass_y_relative
-
       FieldIlluminationKeyValues : center_region_area_fraction
 
       FieldIlluminationKeyValues : center_region_intensity_fraction
 
+      FieldIlluminationKeyValues : centroid_distance_relative
+
+      FieldIlluminationKeyValues : centroid_fitted_distance_relative
+
+      FieldIlluminationKeyValues : centroid_fitted_x
+
+      FieldIlluminationKeyValues : centroid_fitted_x_relative
+
+      FieldIlluminationKeyValues : centroid_fitted_y
+
+      FieldIlluminationKeyValues : centroid_fitted_y_relative
+
+      FieldIlluminationKeyValues : centroid_weighted_distance_relative
+
+      FieldIlluminationKeyValues : centroid_weighted_x
+
+      FieldIlluminationKeyValues : centroid_weighted_x_relative
+
+      FieldIlluminationKeyValues : centroid_weighted_y
+
+      FieldIlluminationKeyValues : centroid_weighted_y_relative
+
+      FieldIlluminationKeyValues : centroid_x
+
+      FieldIlluminationKeyValues : centroid_x_relative
+
+      FieldIlluminationKeyValues : centroid_y
+
+      FieldIlluminationKeyValues : centroid_y_relative
+
       FieldIlluminationKeyValues : channel_nr
-
-      FieldIlluminationKeyValues : data_uri
-
-      FieldIlluminationKeyValues : description
-
-      FieldIlluminationKeyValues : linked_objects
-
-          FieldIlluminationKeyValues --&gt; DataReference : linked_objects
 
       FieldIlluminationKeyValues : max_intensity
 
@@ -290,18 +282,6 @@
 
       FieldIlluminationKeyValues : middle_right_intensity_ratio
 
-      FieldIlluminationKeyValues : name
-
-      FieldIlluminationKeyValues : omero_host
-
-      FieldIlluminationKeyValues : omero_object_id
-
-      FieldIlluminationKeyValues : omero_object_type
-
-          FieldIlluminationKeyValues --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      FieldIlluminationKeyValues : omero_port
-
       FieldIlluminationKeyValues : top_center_intensity_mean
 
       FieldIlluminationKeyValues : top_center_intensity_ratio
@@ -318,14 +298,8 @@
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../KeyValues/">KeyValues</a><ul>
 <li><strong>FieldIlluminationKeyValues</strong></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -359,91 +333,91 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_y/">center_of_mass_y</a></td>
+<td><a href="../centroid_weighted_y/">centroid_weighted_y</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the center of mass of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_y_relative/">center_of_mass_y_relative</a></td>
+<td><a href="../centroid_weighted_y_relative/">centroid_weighted_y_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the center of mass of the center of illumination r...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_x/">center_of_mass_x</a></td>
+<td><a href="../centroid_weighted_x/">centroid_weighted_x</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the center of mass of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_x_relative/">center_of_mass_x_relative</a></td>
+<td><a href="../centroid_weighted_x_relative/">centroid_weighted_x_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the center of mass of the center of illumination r...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_of_mass_distance_relative/">center_of_mass_distance_relative</a></td>
+<td><a href="../centroid_weighted_distance_relative/">centroid_weighted_distance_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The relative distance of the centers of mass to the center of the image</td>
+<td>The relative distance of the weighted centroid to the center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_geometric_y/">center_geometric_y</a></td>
+<td><a href="../centroid_y/">centroid_y</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the geometric center of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_geometric_y_relative/">center_geometric_y_relative</a></td>
+<td><a href="../centroid_y_relative/">centroid_y_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the geometric center of the center of illumination...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_geometric_x/">center_geometric_x</a></td>
+<td><a href="../centroid_x/">centroid_x</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the geometric center of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_geometric_x_relative/">center_geometric_x_relative</a></td>
+<td><a href="../centroid_x_relative/">centroid_x_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the geometric center of the center of illumination...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_geometric_distance_relative/">center_geometric_distance_relative</a></td>
+<td><a href="../centroid_distance_relative/">centroid_distance_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>The relative distance of the geometric center to the center of the image</td>
+<td>The relative distance of the centroid to the center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_fitted_y/">center_fitted_y</a></td>
+<td><a href="../centroid_fitted_y/">centroid_fitted_y</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_fitted_y_relative/">center_fitted_y_relative</a></td>
+<td><a href="../centroid_fitted_y_relative/">centroid_fitted_y_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_fitted_x/">center_fitted_x</a></td>
+<td><a href="../centroid_fitted_x/">centroid_fitted_x</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_fitted_x_relative/">center_fitted_x_relative</a></td>
+<td><a href="../centroid_fitted_x_relative/">centroid_fitted_x_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../center_fitted_distance_relative/">center_fitted_distance_relative</a></td>
+<td><a href="../centroid_fitted_distance_relative/">centroid_fitted_distance_relative</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative distance of the fitted center of illumination to the center of t...</td>
 <td>direct</td>
@@ -592,54 +566,6 @@
 <td>The mean intensity of the bottom-right of the image  divided by the maximum i...</td>
 <td>direct</td>
 </tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
-<tr>
-<td><a href="../description/">description</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
-<td><a href="../NamedObject/">NamedObject</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="usages">Usages</h2>
@@ -696,21 +622,21 @@ slots:
 - channel_nr
 - center_region_intensity_fraction
 - center_region_area_fraction
-- center_of_mass_y
-- center_of_mass_y_relative
-- center_of_mass_x
-- center_of_mass_x_relative
-- center_of_mass_distance_relative
-- center_geometric_y
-- center_geometric_y_relative
-- center_geometric_x
-- center_geometric_x_relative
-- center_geometric_distance_relative
-- center_fitted_y
-- center_fitted_y_relative
-- center_fitted_x
-- center_fitted_x_relative
-- center_fitted_distance_relative
+- centroid_weighted_y
+- centroid_weighted_y_relative
+- centroid_weighted_x
+- centroid_weighted_x_relative
+- centroid_weighted_distance_relative
+- centroid_y
+- centroid_y_relative
+- centroid_x
+- centroid_x_relative
+- centroid_distance_relative
+- centroid_fitted_y
+- centroid_fitted_y_relative
+- centroid_fitted_x
+- centroid_fitted_x_relative
+- centroid_fitted_distance_relative
 - max_intensity
 - max_intensity_pos_y
 - max_intensity_pos_y_relative
@@ -753,19 +679,17 @@ attributes:
     alias: channel_nr
     owner: FieldIlluminationKeyValues
     domain_of:
+    - FieldIlluminationKeyValues
+    - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyValues
-    - FieldIlluminationKeyValues
     range: integer
-    minimum_value: 0
   center_region_intensity_fraction:
     name: center_region_intensity_fraction
     description: The fraction of the upper intensity range occupied by the center
       of illumination region. That is, a value of 0.1 means that the center of illumination
       occupies the top 10% of the intensity range. microscope-metrics tries to adapt
       the threshold of this intensity so that the area occupied is not too large.
-      One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -774,13 +698,13 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.0
+    maximum_value: 1.0
   center_region_area_fraction:
     name: center_region_area_fraction
     description: The fraction of the area occupied by the center of illumination region.
       If the centre upper intensity fraction is 0.1, that means that the center of
-      illumination occupies 10% of the area of the image. One value per channel.
+      illumination occupies 10% of the area of the image.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -789,213 +713,213 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
-  center_of_mass_y:
-    name: center_of_mass_y
+    minimum_value: 0.0
+    maximum_value: 1.0
+  centroid_weighted_y:
+    name: centroid_weighted_y
     description: The y coordinate of the center of mass of the center of illumination
-      region. In pixels. One value per channel.
+      region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_y
+    alias: centroid_weighted_y
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_of_mass_y_relative:
-    name: center_of_mass_y_relative
+  centroid_weighted_y_relative:
+    name: centroid_weighted_y_relative
     description: The relative y position of the center of mass of the center of illumination
       region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0
-      is center and 1.0 is lower edge. One value per channel.
+      is center and 1.0 is lower edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_y_relative
+    alias: centroid_weighted_y_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_of_mass_x:
-    name: center_of_mass_x
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_weighted_x:
+    name: centroid_weighted_x
     description: The x coordinate of the center of mass of the center of illumination
-      region. In pixels. One value per channel.
+      region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_x
+    alias: centroid_weighted_x
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_of_mass_x_relative:
-    name: center_of_mass_x_relative
+  centroid_weighted_x_relative:
+    name: centroid_weighted_x_relative
     description: The relative x position of the center of mass of the center of illumination
       region.  Relative to the image size along that axis. -1.0 is left edge, 0.0
-      is center and 1.0 is right edge. One value per channel.
+      is center and 1.0 is right edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_x_relative
+    alias: centroid_weighted_x_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_of_mass_distance_relative:
-    name: center_of_mass_distance_relative
-    description: The relative distance of the centers of mass to the center of the
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_weighted_distance_relative:
+    name: centroid_weighted_distance_relative
+    description: The relative distance of the weighted centroid to the center of the
       image. Relative to the distance to  an image corner. 0.0 is centered and 1.0
-      at a distance equal to the the corner of the image. One value per channel.
+      at a distance equal to the the corner of the image.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_of_mass_distance_relative
+    alias: centroid_weighted_distance_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
-  center_geometric_y:
-    name: center_geometric_y
+    minimum_value: 0.0
+    maximum_value: 1.0
+  centroid_y:
+    name: centroid_y
     description: The y coordinate of the geometric center of the center of illumination
-      region. In pixels. One value per channel.
+      region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_geometric_y
+    alias: centroid_y
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_geometric_y_relative:
-    name: center_geometric_y_relative
+  centroid_y_relative:
+    name: centroid_y_relative
     description: The relative y position of the geometric center of the center of
       illumination region.  Relative to the image size along that axis. -1.0 is upper
-      edge, 0.0 is center and 1.0 is lower edge. One value per channel.
+      edge, 0.0 is center and 1.0 is lower edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_geometric_y_relative
+    alias: centroid_y_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_geometric_x:
-    name: center_geometric_x
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_x:
+    name: centroid_x
     description: The x coordinate of the geometric center of the center of illumination
       region. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_geometric_x
+    alias: centroid_x
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_geometric_x_relative:
-    name: center_geometric_x_relative
+  centroid_x_relative:
+    name: centroid_x_relative
     description: The relative x position of the geometric center of the center of
       illumination region.  Relative to the image size along that axis. -1.0 is left
       edge, 0.0 is center and 1.0 is right edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_geometric_x_relative
+    alias: centroid_x_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_geometric_distance_relative:
-    name: center_geometric_distance_relative
-    description: The relative distance of the geometric center to the center of the
-      image. Relative to the distance to  an image corner. 0.0 is centered and 1.0
-      at a distance equal to the the corner of the image.
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_distance_relative:
+    name: centroid_distance_relative
+    description: The relative distance of the centroid to the center of the image.
+      Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance
+      equal to the the corner of the image.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_geometric_distance_relative
+    alias: centroid_distance_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
-  center_fitted_y:
-    name: center_fitted_y
+    minimum_value: 0.0
+    maximum_value: 1.0
+  centroid_fitted_y:
+    name: centroid_fitted_y
     description: The y coordinate of the fitted center of illumination. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_fitted_y
+    alias: centroid_fitted_y
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_fitted_y_relative:
-    name: center_fitted_y_relative
+  centroid_fitted_y_relative:
+    name: centroid_fitted_y_relative
     description: The relative y position of the fitted center of illumination.  Relative
       to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0
       is lower edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_fitted_y_relative
+    alias: centroid_fitted_y_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_fitted_x:
-    name: center_fitted_x
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_fitted_x:
+    name: centroid_fitted_x
     description: The x coordinate of the fitted center of illumination. In pixels
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_fitted_x
+    alias: centroid_fitted_x
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  center_fitted_x_relative:
-    name: center_fitted_x_relative
+  centroid_fitted_x_relative:
+    name: centroid_fitted_x_relative
     description: The relative x position of the fitted center of illumination.  Relative
       to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0
       is right edge.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_fitted_x_relative
+    alias: centroid_fitted_x_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
-  center_fitted_distance_relative:
-    name: center_fitted_distance_relative
+    minimum_value: -1.0
+    maximum_value: 1.0
+  centroid_fitted_distance_relative:
+    name: centroid_fitted_distance_relative
     description: The relative distance of the fitted center of illumination to the
       center of the image. Relative to the distance to  an image corner. 0.0 is centered
       and 1.0 at a distance equal to the the corner of the image.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: center_fitted_distance_relative
+    alias: centroid_fitted_distance_relative
     owner: FieldIlluminationKeyValues
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.0
+    maximum_value: 1.0
   max_intensity:
     name: max_intensity
     description: The maximum intensity of the center of illumination
@@ -1032,8 +956,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
+    minimum_value: -1.0
+    maximum_value: 1.0
   max_intensity_pos_x:
     name: max_intensity_pos_x
     description: The x coordinate of the maximum intensity of the center of illumination.
@@ -1059,8 +983,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1
-    maximum_value: 1
+    minimum_value: -1.0
+    maximum_value: 1.0
   max_intensity_distance_relative:
     name: max_intensity_distance_relative
     description: The relative distance of the maximum intensity to the center of the
@@ -1074,8 +998,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.0
+    maximum_value: 1.0
   top_left_intensity_mean:
     name: top_left_intensity_mean
     description: The mean intensity of the top-left corner of the image
@@ -1283,96 +1207,6 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: data_uri
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: linked_objects
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - DataReference
-    range: DataReference
-    required: false
-    inlined: true
-    inlined_as_list: true
-  name:
-    name: name
-    description: The human readable name of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: name
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - NamedObject
-    - Experimenter
-    range: string
-    required: false
-  description:
-    name: description
-    description: A human readable description of an entity
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: description
-    owner: FieldIlluminationKeyValues
-    domain_of:
-    - NamedObject
-    - Tag
-    range: string
-    required: false
 
 </code></pre>
 </details>

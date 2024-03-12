@@ -332,12 +332,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
+<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -347,7 +342,12 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -380,10 +380,10 @@ rank: 1000
 multivalued: false
 alias: bit_depth
 domain_of:
+- FieldIlluminationInput
+- PSFBeadsInput
 - ArgolightBInput
 - ArgolightEInput
-- PSFBeadsInput
-- FieldIlluminationInput
 range: integer
 minimum_value: 1
 maximum_value: 64

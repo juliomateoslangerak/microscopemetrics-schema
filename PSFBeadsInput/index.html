@@ -220,7 +220,7 @@
 
       PSFBeadsInput : psf_beads_images
 
-          PSFBeadsInput --&gt; Image : psf_beads_images
+          PSFBeadsInput --&gt; ImageAsNumpy : psf_beads_images
 
       PSFBeadsInput : saturation_threshold
 
@@ -254,8 +254,8 @@
 <tbody>
 <tr>
 <td><a href="../psf_beads_images/">psf_beads_images</a></td>
-<td>1..* <br/> <a href="../Image/">Image</a></td>
-<td>The image containing the beads provided in the order TZYXC</td>
+<td>1..* <br/> <a href="../ImageAsNumpy/">ImageAsNumpy</a></td>
+<td>The image containing the beads provided as a 5D numpy array in the order TZYX...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -382,8 +382,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
   sigma_y:
     name: sigma_y
@@ -391,8 +391,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
   sigma_x:
     name: sigma_x
@@ -400,8 +400,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
 
 </code></pre>
@@ -418,8 +418,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
   sigma_y:
     name: sigma_y
@@ -427,8 +427,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
   sigma_x:
     name: sigma_x
@@ -436,14 +436,15 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     required: true
 attributes:
   psf_beads_images:
     name: psf_beads_images
-    description: The image containing the beads provided in the order TZYXC. More
-      than one image can be provided if the image conditions are the same.
+    description: The image containing the beads provided as a 5D numpy array in the
+      order TZYXC. More than one image can be provided if the image conditions are
+      the same.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -451,10 +452,9 @@ attributes:
     owner: PSFBeadsInput
     domain_of:
     - PSFBeadsInput
-    range: Image
+    range: ImageAsNumpy
     required: true
     inlined: true
-    inlined_as_list: true
   bit_depth:
     name: bit_depth
     description: Detector bit depth
@@ -464,10 +464,10 @@ attributes:
     alias: bit_depth
     owner: PSFBeadsInput
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -483,13 +483,13 @@ attributes:
     alias: saturation_threshold
     owner: PSFBeadsInput
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     range: float
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.0
+    maximum_value: 1.0
   min_lateral_distance_factor:
     name: min_lateral_distance_factor
     description: Minimal distance that has to separate laterally the beads represented
@@ -503,8 +503,8 @@ attributes:
     - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 10
-    maximum_value: 30
+    minimum_value: 10.0
+    maximum_value: 30.0
   sigma_z:
     name: sigma_z
     description: Gaussian smoothing sigma to be applied to the image in the Z axis
@@ -515,8 +515,8 @@ attributes:
     alias: sigma_z
     owner: PSFBeadsInput
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     range: float
     required: true
   sigma_y:
@@ -529,8 +529,8 @@ attributes:
     alias: sigma_y
     owner: PSFBeadsInput
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     range: float
     required: true
   sigma_x:
@@ -543,8 +543,8 @@ attributes:
     alias: sigma_x
     owner: PSFBeadsInput
     domain_of:
-    - ArgolightBInput
     - PSFBeadsInput
+    - ArgolightBInput
     range: float
     required: true
   snr_threshold:

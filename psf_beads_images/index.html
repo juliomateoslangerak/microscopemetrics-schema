@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-psf_beads_images">Slot: psf_beads_images</h1>
-<p><em>The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.</em></p>
+<p><em>The image containing the beads provided as a 5D numpy array in the order TZYXC. More than one image can be provided if the image conditions are the same.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/psf_beads_images">microscopemetrics_schema:psf_beads_images</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -341,7 +341,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Image/">Image</a></p>
+<p>Range: <a href="../ImageAsNumpy/">ImageAsNumpy</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -359,18 +359,17 @@
 <details>
 
 <pre><code class="language-yaml">name: psf_beads_images
-description: The image containing the beads provided in the order TZYXC. More than
-  one image can be provided if the image conditions are the same.
+description: The image containing the beads provided as a 5D numpy array in the order
+  TZYXC. More than one image can be provided if the image conditions are the same.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
 alias: psf_beads_images
 domain_of:
 - PSFBeadsInput
-range: Image
+range: ImageAsNumpy
 required: true
 inlined: true
-inlined_as_list: true
 
 </code></pre>
 

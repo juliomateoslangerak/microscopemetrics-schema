@@ -205,43 +205,25 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-image">Class: Image</h1>
-<p><em>A microscope-metrics image</em></p>
+<p><em>A base object for all microscope-metrics images</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Image">microscopemetrics_schema:Image</a></p>
 <div class="mermaid"> classDiagram
     class Image
       MetricsObject &lt;|-- Image
 
 
-      Image &lt;|-- ImageMask
+      Image &lt;|-- ImageAsNumpy
+      Image &lt;|-- ImageInline
 
-
-      Image : array_data
-
-          Image --&gt; MetaObject : array_data
-
-      Image : channel_series
-
-          Image --&gt; ChannelSeries : channel_series
-
-      Image : data_uri
 
       Image : description
 
-      Image : linked_objects
-
-          Image --&gt; DataReference : linked_objects
+      Image : image_url
 
       Image : name
-
-      Image : omero_host
-
-      Image : omero_object_id
-
-      Image : omero_object_type
-
-          Image --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      Image : omero_port
 
       Image : shape_c
 
@@ -253,13 +235,7 @@
 
       Image : shape_z
 
-      Image : source_images
-
-          Image --&gt; DataReference : source_images
-
-      Image : time_series
-
-          Image --&gt; TimeSeries : time_series
+      Image : source_image_url
 
       Image : voxel_size_x_micron
 
@@ -272,9 +248,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>Image</strong><ul>
-<li><a href="../ImageMask/">ImageMask</a></li>
+<li><a href="../ImageAsNumpy/">ImageAsNumpy</a></li>
+<li><a href="../ImageInline/">ImageInline</a></li>
 </ul>
 </li>
 </ul>
@@ -293,6 +270,18 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../image_url/">image_url</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>An URL linking to the image</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../source_image_url/">source_image_url</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>A list of URLs linking to the images that were used as a source</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../voxel_size_x_micron/">voxel_size_x_micron</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
@@ -342,75 +331,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../time_series/">time_series</a></td>
-<td>0..1 <br/> <a href="../TimeSeries/">TimeSeries</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../channel_series/">channel_series</a></td>
-<td>0..1 <br/> <a href="../ChannelSeries/">ChannelSeries</a></td>
-<td></td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../source_images/">source_images</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of references linking to the images that were used as a source</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../array_data/">array_data</a></td>
-<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
-<td>A non-required slot for non-serializable array data object</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The human readable name of an entity</td>
+<td>The name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A human readable description of an entity</td>
+<td>A description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -427,38 +356,32 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td><a href="../argolight_b_image/">argolight_b_image</a></td>
+<td><a href="../Roi/">Roi</a></td>
+<td><a href="../image/">image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td><a href="../argolight_e_image/">argolight_e_image</a></td>
+<td><a href="../RoiMassCenters/">RoiMassCenters</a></td>
+<td><a href="../image/">image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
-<td><a href="../psf_beads_images/">psf_beads_images</a></td>
+<td><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></td>
+<td><a href="../image/">image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
-<td><a href="../bead_crops/">bead_crops</a></td>
+<td><a href="../RoiProfiles/">RoiProfiles</a></td>
+<td><a href="../image/">image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td><a href="../field_illumination_image/">field_illumination_image</a></td>
-<td>range</td>
-<td><a href="./">Image</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../intensity_maps/">intensity_maps</a></td>
+<td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
+<td><a href="../image/">image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -493,10 +416,13 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: Image
-description: A microscope-metrics image
+description: A base object for all microscope-metrics images
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
+abstract: true
 slots:
+- image_url
+- source_image_url
 - voxel_size_x_micron
 - voxel_size_y_micron
 - voxel_size_z_micron
@@ -505,20 +431,42 @@ slots:
 - shape_z
 - shape_c
 - shape_t
-- time_series
-- channel_series
-- source_images
-- array_data
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: Image
-description: A microscope-metrics image
+description: A base object for all microscope-metrics images
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
+abstract: true
 attributes:
+  image_url:
+    name: image_url
+    description: An URL linking to the image
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    identifier: true
+    alias: image_url
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+    required: true
+  source_image_url:
+    name: source_image_url
+    description: A list of URLs linking to the images that were used as a source
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: source_image_url
+    owner: Image
+    domain_of:
+    - Image
+    range: string
+    required: false
   voxel_size_x_micron:
     name: voxel_size_x_micron
     description: The physical size in the voxel in the x dimension in microns
@@ -618,123 +566,9 @@ attributes:
     - Image
     range: integer
     required: true
-  time_series:
-    name: time_series
-    implements:
-    - linkml:axis0
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    alias: time_series
-    owner: Image
-    domain_of:
-    - Image
-    range: TimeSeries
-    required: false
-  channel_series:
-    name: channel_series
-    implements:
-    - linkml:axis4
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    alias: channel_series
-    owner: Image
-    domain_of:
-    - Image
-    range: ChannelSeries
-    required: false
-  source_images:
-    name: source_images
-    description: A list of references linking to the images that were used as a source
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: source_images
-    owner: Image
-    domain_of:
-    - Image
-    range: DataReference
-    required: false
-    inlined: true
-    inlined_as_list: true
-  array_data:
-    name: array_data
-    description: A non-required slot for non-serializable array data object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    alias: array_data
-    owner: Image
-    domain_of:
-    - Image
-    range: MetaObject
-    required: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: data_uri
-    owner: Image
-    domain_of:
-    - DataReference
-    range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: Image
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: Image
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: Image
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: Image
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: linked_objects
-    owner: Image
-    domain_of:
-    - DataReference
-    range: DataReference
-    required: false
-    inlined: true
-    inlined_as_list: true
   name:
     name: name
-    description: The human readable name of an entity
+    description: The name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -743,11 +577,12 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
+    - Column
     range: string
     required: false
   description:
     name: description
-    description: A human readable description of an entity
+    description: A description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -755,7 +590,9 @@ attributes:
     owner: Image
     domain_of:
     - NamedObject
+    - Roi
     - Tag
+    - Column
     range: string
     required: false
 
