@@ -1,15 +1,13 @@
 # Configuration of generators (defaults illustrated)
 ---
 generator_args:
-## Deploying the excel generator is depending on shemasheets and this in turn python 3.9 which does not work with OMERO
-#  excel:
-#    mergeimports: true
+  excel:
+    mergeimports: true
   owl:
     mergeimports: true
     metaclasses: true
     type_objects: true
-    # throws 'Cannot handle metadata profile: rdfs'
-    # metadata_profile: rdfs
+    metadata_profile: rdfs
   markdown:
     mergeimports: true
   graphql:
