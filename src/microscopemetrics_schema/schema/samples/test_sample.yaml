@@ -1,0 +1,87 @@
+# This schema is for testing purposes only
+# It provides a sample schema for testing the schema validation
+# with an example of all the classes defined in the core schema
+# It will not be imported in the deployed schema
+
+id: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/test_sample.yaml
+name: microscopemetrics_samples_test_schema
+prefixes:
+#  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
+#imports:
+#  - metrics:types
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+
+default_range: string
+
+
+classes:
+  SuperClass:
+    description: A superclass for testing
+    abstract: true
+    attributes:
+      url:
+        description: The URL of the superclass
+        identifier: true
+      name:
+        description: The name of the superclass
+        required: true
+        multivalued: false
+      description:
+        description: The description of the superclass
+        required: false
+        multivalued: false
+
+  SubClass:
+    is_a: SuperClass
+    description: A subclass for testing
+    attributes:
+      values:
+        range: integer
+        required: true
+      data_object_single_value:
+        range: DataObject
+        required: true
+        multivalued: false
+      data_object_multivalued_inlined_as_dict:
+        range: DataObject
+        required: true
+        multivalued: true
+        inlined: true
+        inlined_as_list: false
+      data_object_multivalued_inlined_as_list:
+        range: DataObject
+        required: true
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      data_object_multivalued_not_inlined:
+        range: DataObject
+        required: true
+        multivalued: true
+        inlined: false
+
+  DataObject:
+    description: A class for testing
+    attributes:
+      id:
+        description: The ID of the data object
+        identifier: true
+      not_inlined_field:
+        range: float
+        required: true
+        multivalued: true
+        inlined: false
+#      inlined_as_dict_field:
+#        range: float
+#        required: true
+#        multivalued: true
+#        inlined: true
+#        inlined_as_list: false
+#      inlined_as_list_field:
+#        range: float
+#        required: true
+#        multivalued: true
+#        inlined: true
+#        inlined_as_list: true

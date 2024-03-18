@@ -5,8 +5,27 @@ from dataclasses import fields
 from ..datamodel import microscopemetrics_schema as mm_schema
 
 
+# Common
 @st.composite
-def st_mm_microscope(
+def st_mm_data_reference(
+    draw,
+    data_uri=st.uuids(),
+    omero_host=st.from_regex(r"omero[0-9]{1,2}.example.org", fullmatch=True),
+    omero_port=st.integers(min_value=4063, max_value=4064),
+    omero_object_type=st.sampled_from(["IMAGE", "DATASET", "PROJECT"]),
+    omero_object_id=st.integers(min_value=1),
+) -> mm_schema.DataReference:
+    return mm_schema.DataReference(
+        data_uri=draw(data_uri),
+        omero_host=draw(omero_host),
+        omero_port=draw(omero_port),
+        omero_object_type=draw(omero_object_type),
+        omero_object_id=draw(omero_object_id),
+    )
+
+
+@st.composite
+def st_mm_metrics_object(
     draw,
     name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
@@ -14,7 +33,24 @@ def st_mm_microscope(
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
-    id=st.uuids(),
+    data_reference=st_mm_data_reference(),
+) -> mm_schema.MetricsObject:
+    data_reference = draw(data_reference)
+    return mm_schema.MetricsObject(
+        name=draw(name),
+        description=draw(description),
+        data_uri=data_reference.data_uri,
+        omero_host=data_reference.omero_host,
+        omero_port=data_reference.omero_port,
+        omero_object_type=data_reference.omero_object_type,
+        omero_object_id=data_reference.omero_object_id,
+    )
+
+
+@st.composite
+def st_mm_microscope(
+    draw,
+    metrics_object=st_mm_metrics_object(),
     type=st.sampled_from(["WIDE-FIELD", "CONFOCAL", "STED", "3D-SIM", "OTHER"]),
     manufacturer=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
@@ -25,17 +61,20 @@ def st_mm_microscope(
     serial_number=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
-    url=st.uuids(),
 ) -> mm_schema.Microscope:
+    metrics_object = draw(metrics_object)
     return mm_schema.Microscope(
-        name=draw(name),
-        description=draw(description),
-        id=draw(id),
+        name=metrics_object.name,
+        description=metrics_object.description,
+        data_uri=metrics_object.data_uri,
+        omero_host=metrics_object.omero_host,
+        omero_port=metrics_object.omero_port,
+        omero_object_type=metrics_object.omero_object_type,
+        omero_object_id=metrics_object.omero_object_id,
         type=draw(type),
         manufacturer=draw(manufacturer),
         model=draw(model),
         serial_number=draw(serial_number),
-        url=draw(url),
     )
 
 
@@ -104,6 +143,7 @@ def st_mm_sample(
 def st_mm_comment(
     draw,
     datetime=st.datetimes(),
+    author=st_mm_experimenter(),
     text=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
@@ -111,6 +151,7 @@ def st_mm_comment(
 ) -> mm_schema.Comment:
     return mm_schema.Comment(
         datetime=draw(datetime),
+        author=draw(author),
         comment_type=draw(comment_type),
         text=draw(text),
     )
@@ -119,7 +160,7 @@ def st_mm_comment(
 @st.composite
 def st_mm_input(
     draw,
-    input=st.just(mm_schema.MetricsInput()),
+    input=st.just(mm_schema.MetricsInput(input_data=None)),
 ) -> mm_schema.MetricsInput:
     return draw(input)
 
@@ -127,83 +168,85 @@ def st_mm_input(
 @st.composite
 def st_mm_output(
     draw,
-    output=st.just(mm_schema.MetricsOutput()),
+    processing_application=st.just("MicroscopeMetrics"),
+    processing_version=st.just("0.1.0"),
+    processing_entity=st.just("MicroscopeMetricsAnalysis"),
+    processing_datetime=st.datetimes(),
+    processing_log=st.text(),
+    warnings=st.lists(st.text(), max_size=5),
+    errors=st.lists(st.text(), max_size=5),
+    comment=st_mm_comment(),
 ) -> mm_schema.MetricsOutput:
-    return draw(output)
+    return mm_schema.MetricsOutput(
+        processing_application=draw(processing_application),
+        processing_version=draw(processing_version),
+        processing_entity=draw(processing_entity),
+        processing_datetime=draw(processing_datetime),
+        processing_log=draw(processing_log),
+        warnings=draw(warnings),
+        errors=draw(errors),
+        comment=draw(comment),
+    )
 
 
 @st.composite
 def st_mm_dataset(
     draw,
     target_class=None,
-    name=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
-    ),
-    description=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
-    ),
+    metrics_object=st_mm_metrics_object(),
     microscope=st_mm_microscope(),
     sample=st_mm_sample(),
     experimenter=st_mm_experimenter(),
     acquisition_datetime=st.datetimes(),
     processed=st.booleans(),
-    processing_datetime=st.just(None),
-    processing_log=st.just(None),
-    comment=st.just(None),
     input=st_mm_input(),
     output=st_mm_output(),
 ) -> mm_schema.MetricsDataset:
+    metrics_object = draw(metrics_object)
     processed = draw(processed)
-    if processed:
-        processing_datetime = st.datetimes()
-        processing_log = st.text(
-            alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
-        )
-        comment = st.lists(st_mm_comment(), min_size=1, max_size=2)
-
+    output = draw(output) if processed else None
+    
     if target_class is None:
         return mm_schema.MetricsDataset(
-            name=draw(name),
-            description=draw(description),
+            name=metrics_object.name,
+            description=metrics_object.description,
+            data_uri=metrics_object.data_uri,
+            omero_host=metrics_object.omero_host,
+            omero_port=metrics_object.omero_port,
+            omero_object_type=metrics_object.omero_object_type,
+            omero_object_id=metrics_object.omero_object_id,
             microscope=draw(microscope),
             sample=draw(sample),
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
-            processing_datetime=draw(processing_datetime),
-            processing_log=draw(processing_log),
-            comment=draw(comment),
             input=draw(input),
-            output=draw(output),
+            output=output,
         )
     else:
         return target_class(
-            name=draw(name),
-            description=draw(description),
+            name=metrics_object.name,
+            description=metrics_object.description,
+            data_uri=metrics_object.data_uri,
+            omero_host=metrics_object.omero_host,
+            omero_port=metrics_object.omero_port,
+            omero_object_type=metrics_object.omero_object_type,
+            omero_object_id=metrics_object.omero_object_id,
             microscope=draw(microscope),
             sample=draw(sample),
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
-            processing_datetime=draw(processing_datetime),
-            processing_log=draw(processing_log),
-            comment=draw(comment),
             input=draw(input),
-            output=draw(output),
+            output=output,
         )
 
 
 # Data sources
 @st.composite
-def st_mm_image_as_numpy(
+def st_mm_image(
     draw,
-    name=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
-    ),
-    description=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
-    ),
-    image_url=st.uuids(),
+    metrics_object=st_mm_metrics_object(),
     voxel_size_xy_micron=st.floats(min_value=0.1, max_value=1.0),
     voxel_size_z_micron=st.floats(min_value=0.3, max_value=3.0),
     shape=st.tuples(
@@ -214,7 +257,9 @@ def st_mm_image_as_numpy(
         st.integers(min_value=1, max_value=5),  # C
     ),
     data=None,
-) -> mm_schema.ImageAsNumpy:
+) -> mm_schema.Image:
+    metrics_object = draw(metrics_object)
+
     if data is None:
         shape = draw(shape)
     else:
@@ -227,10 +272,14 @@ def st_mm_image_as_numpy(
 
     voxel_size_xy_micron = draw(voxel_size_xy_micron)
 
-    return mm_schema.ImageAsNumpy(
-        name=draw(name),
-        description=draw(description),
-        image_url=draw(image_url),
+    return mm_schema.Image(
+        name=metrics_object.name,
+        description=metrics_object.description,
+        data_uri=metrics_object.data_uri,
+        omero_host=metrics_object.omero_host,
+        omero_port=metrics_object.omero_port,
+        omero_object_type=metrics_object.omero_object_type,
+        omero_object_id=metrics_object.omero_object_id,
         voxel_size_x_micron=voxel_size_xy_micron,
         voxel_size_y_micron=voxel_size_xy_micron,
         voxel_size_z_micron=draw(voxel_size_z_micron),
@@ -239,7 +288,7 @@ def st_mm_image_as_numpy(
         shape_y=shape[2],
         shape_x=shape[3],
         shape_c=shape[4],
-        data=data,
+        array_data=data,
     )
 
 
@@ -257,9 +306,10 @@ def st_mm_color(
 @st.composite
 def st_mm_point(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -270,7 +320,8 @@ def st_mm_point(
     y=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Point:
     return mm_schema.Point(
-        label=draw(label),
+        name=draw(name),
+        description=draw(description),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -285,9 +336,10 @@ def st_mm_point(
 @st.composite
 def st_mm_line(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -300,7 +352,8 @@ def st_mm_line(
     y2=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Line:
     return mm_schema.Line(
-        label=draw(label),
+        name=draw(name),
+        description=draw(description),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -317,9 +370,10 @@ def st_mm_line(
 @st.composite
 def st_mm_rectangle(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -332,7 +386,8 @@ def st_mm_rectangle(
     h=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Rectangle:
     return mm_schema.Rectangle(
-        label=draw(label),
+        name=draw(name),
+        description=draw(description),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -349,9 +404,10 @@ def st_mm_rectangle(
 @st.composite
 def st_mm_ellipse(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -364,7 +420,8 @@ def st_mm_ellipse(
     y_rad=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Ellipse:
     return mm_schema.Ellipse(
-        label=draw(label),
+        name=draw(name),
+        description=draw(description),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -390,9 +447,10 @@ def st_mm_vertex(
 @st.composite
 def st_mm_polygon(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -405,7 +463,8 @@ def st_mm_polygon(
     is_open=st.booleans(),
 ) -> mm_schema.Polygon:
     return mm_schema.Polygon(
-        label=draw(label),
+        name=draw(name),
+        description=draw(description),
         z=draw(z),
         c=draw(c),
         t=draw(t),
@@ -420,9 +479,10 @@ def st_mm_polygon(
 @st.composite
 def st_mm_shape(
     draw,
-    label=st.text(
+    name=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    description=st.text(alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256),
     z=st.floats(min_value=0.0, max_value=30.0),
     c=st.integers(min_value=0, max_value=5),
     t=st.integers(min_value=0, max_value=5),
@@ -431,7 +491,8 @@ def st_mm_shape(
     stroke_width=st.integers(min_value=1, max_value=5),
 ) -> mm_schema.Shape:
     params = {
-        "label": label,
+        "name": name,
+        "description": description,
         "z": z,
         "c": c,
         "t": t,
@@ -442,14 +503,11 @@ def st_mm_shape(
 
     shape = st.one_of(
         [
-            strategy
-            for strategy in [
-                st_mm_point(**params),
-                st_mm_line(**params),
-                st_mm_rectangle(**params),
-                st_mm_ellipse(**params),
-                st_mm_polygon(**params),
-            ]
+            st_mm_point(**params),
+            st_mm_line(**params),
+            st_mm_rectangle(**params),
+            st_mm_ellipse(**params),
+            st_mm_polygon(**params),
         ]
     )
 
@@ -459,22 +517,30 @@ def st_mm_shape(
 @st.composite
 def st_mm_roi(
     draw,
-    label=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
-    ),
-    description=st.text(
-        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
-    ),
-    image=st.lists(st.uuids(), min_size=1, max_size=5),
+    metrics_object=st_mm_metrics_object(),
+    images=st.lists(st_mm_image(), min_size=1, max_size=2),
     shapes=st.lists(
-        st_mm_shape(), min_size=1, max_size=5, unique_by=lambda shape: shape.label
+        st_mm_shape(), min_size=1, max_size=5, unique_by=lambda shape: shape.name
     ),
 ) -> mm_schema.Roi:
+    shapes = draw(shapes)
+    metrics_object = draw(metrics_object)
+    images = draw(images)
+    image_links = [mm_schema.DataReference(data_uri=image.data_uri) for image in images]
     return mm_schema.Roi(
-        label=draw(label),
-        description=draw(description),
-        image=draw(image),
-        shapes=draw(shapes),
+        name=metrics_object.name,
+        description=metrics_object.description,
+        data_uri=metrics_object.data_uri,
+        omero_host=metrics_object.omero_host,
+        omero_port=metrics_object.omero_port,
+        omero_object_type=metrics_object.omero_object_type,
+        omero_object_id=metrics_object.omero_object_id,
+        linked_objects=image_links,
+        points=[shape for shape in shapes if isinstance(shape, mm_schema.Point)],
+        lines=[shape for shape in shapes if isinstance(shape, mm_schema.Line)],
+        rectangles=[shape for shape in shapes if isinstance(shape, mm_schema.Rectangle)],
+        ellipses=[shape for shape in shapes if isinstance(shape, mm_schema.Ellipse)],
+        polygons=[shape for shape in shapes if isinstance(shape, mm_schema.Polygon)],
     )
 
 
@@ -510,7 +576,7 @@ def st_mm_tag(
 @st.composite
 def st_mm_field_illumination_input(
     draw,
-    field_illumination_image=st_mm_image_as_numpy(),
+    field_illumination_image=st.lists(st_mm_image(), min_size=1, max_size=3),
     bit_depth=st.sampled_from([8, 10, 11, 12, 15, 16, 32]),
     saturation_threshold=st.floats(min_value=0.01, max_value=0.05),
     corner_fraction=st.floats(min_value=0.02, max_value=0.3),
@@ -530,12 +596,21 @@ def st_mm_field_illumination_input(
 @st.composite
 def st_mm_field_illumination_output(
     draw,
-    output=st.just(
-        mm_schema.FieldIlluminationOutput()
+    output=st_mm_output(
+        processing_entity=st.just("FieldIlluminationAnalysis"),
     ),
 ) -> mm_schema.FieldIlluminationOutput:
-    return draw(output)
-
+    mm_output = draw(output)
+    return mm_schema.FieldIlluminationOutput(
+        processing_application=mm_output.processing_application,
+        processing_version=mm_output.processing_version,
+        processing_entity=mm_output.processing_entity,
+        processing_datetime=mm_output.processing_datetime,
+        processing_log=mm_output.processing_log,
+        warnings=mm_output.warnings,
+        errors=mm_output.errors,
+        comment=mm_output.comment,
+    )
 
 @st.composite
 def st_mm_field_illumination_unprocessed_dataset(
@@ -566,7 +641,7 @@ def st_mm_field_illumination_processed_dataset(
 @st.composite
 def st_mm_psf_beads_input(
     draw,
-    psf_beads_images=st_mm_image_as_numpy(),
+    psf_beads_images=st_mm_image(),
     min_lateral_distance_factor=st.floats(min_value=15.0, max_value=25.0),
     sigma_z=st.floats(min_value=0.7, max_value=2.0),
     sigma_y=st.floats(min_value=0.7, max_value=2.0),
@@ -590,11 +665,21 @@ def st_mm_psf_beads_input(
 @st.composite
 def st_mm_psf_beads_output(
     draw,
-    output=st.just(
-        mm_schema.PSFBeadsOutput()
+    output=st_mm_output(
+        processing_entity=st.just("PSFBeadsAnalysis"),
     ),
 ) -> mm_schema.PSFBeadsOutput:
-    return draw(output)
+    mm_output = draw(output)
+    return mm_schema.PSFBeadsOutput(
+        processing_application=mm_output.processing_application,
+        processing_version=mm_output.processing_version,
+        processing_entity=mm_output.processing_entity,
+        processing_datetime=mm_output.processing_datetime,
+        processing_log=mm_output.processing_log,
+        warnings=mm_output.warnings,
+        errors=mm_output.errors,
+        comment=mm_output.comment,
+    )
 
 
 @st.composite
