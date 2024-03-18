@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-center_region_intensity_fraction">Slot: center_region_intensity_fraction</h1>
-<p><em>The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large.</em></p>
+<p><em>The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/center_region_intensity_fraction">microscopemetrics_schema:center_region_intensity_fraction</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -365,7 +365,7 @@
 description: The fraction of the upper intensity range occupied by the center of illumination
   region. That is, a value of 0.1 means that the center of illumination occupies the
   top 10% of the intensity range. microscope-metrics tries to adapt the threshold
-  of this intensity so that the area occupied is not too large.
+  of this intensity so that the area occupied is not too large. One value per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
@@ -373,8 +373,8 @@ alias: center_region_intensity_fraction
 domain_of:
 - FieldIlluminationKeyValues
 range: float
-minimum_value: 0.0
-maximum_value: 1.0
+minimum_value: 0
+maximum_value: 1
 
 </code></pre>
 

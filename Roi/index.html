@@ -209,32 +209,68 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/Roi">microscopemetrics_schema:Roi</a></p>
 <div class="mermaid"> classDiagram
     class Roi
-      Roi &lt;|-- RoiMassCenters
-      Roi &lt;|-- RoiGeometricCenters
-      Roi &lt;|-- RoiProfiles
-      Roi &lt;|-- RoiMeasurements
+      MetricsObject &lt;|-- Roi
+
+
+      Roi &lt;|-- ArgolightBCentersOfMass
+
+
+      Roi : data_uri
 
       Roi : description
 
-      Roi : image
+      Roi : ellipses
 
-          Roi --&gt; Image : image
+          Roi --&gt; Ellipse : ellipses
 
-      Roi : label
+      Roi : lines
 
-      Roi : shapes
+          Roi --&gt; Line : lines
 
-          Roi --&gt; Shape : shapes
+      Roi : linked_objects
+
+          Roi --&gt; DataReference : linked_objects
+
+      Roi : masks
+
+          Roi --&gt; Mask : masks
+
+      Roi : name
+
+      Roi : omero_host
+
+      Roi : omero_object_id
+
+      Roi : omero_object_type
+
+          Roi --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      Roi : omero_port
+
+      Roi : points
+
+          Roi --&gt; Point : points
+
+      Roi : polygons
+
+          Roi --&gt; Polygon : polygons
+
+      Roi : rectangles
+
+          Roi --&gt; Rectangle : rectangles
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
+<li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><strong>Roi</strong><ul>
-<li><a href="../RoiMassCenters/">RoiMassCenters</a></li>
-<li><a href="../RoiGeometricCenters/">RoiGeometricCenters</a></li>
-<li><a href="../RoiProfiles/">RoiProfiles</a></li>
-<li><a href="../RoiMeasurements/">RoiMeasurements</a></li>
+<li><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a> [ <a href="../CentersOfMass/">CentersOfMass</a>]</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -250,28 +286,88 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../label/">label</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The label of the ROI</td>
+<td><a href="../points/">points</a></td>
+<td>0..* <br/> <a href="../Point/">Point</a></td>
+<td>A list of points included in the ROI</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../lines/">lines</a></td>
+<td>0..* <br/> <a href="../Line/">Line</a></td>
+<td>A list of lines included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../rectangles/">rectangles</a></td>
+<td>0..* <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>A list of rectangles included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../ellipses/">ellipses</a></td>
+<td>0..* <br/> <a href="../Ellipse/">Ellipse</a></td>
+<td>A list of ellipses included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../polygons/">polygons</a></td>
+<td>0..* <br/> <a href="../Polygon/">Polygon</a></td>
+<td>A list of polygons included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../masks/">masks</a></td>
+<td>0..* <br/> <a href="../Mask/">Mask</a></td>
+<td>A list of masks included in the ROI</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../linked_objects/">linked_objects</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked objects</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The human readable name of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of the ROI</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../image/">image</a></td>
-<td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>The image or images to which the ROI is applied</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../shapes/">shapes</a></td>
-<td>0..* <br/> <a href="../Shape/">Shape</a></td>
-<td></td>
-<td>direct</td>
+<td>A human readable description of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -289,6 +385,90 @@
 <tr>
 <td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
 <td><a href="../peaks_rois/">peaks_rois</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../analyzed_bead_centers/">analyzed_bead_centers</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../discarded_bead_centers_lateral_edge/">discarded_bead_centers_lateral_edge</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../discarded_bead_centers_self_proximity/">discarded_bead_centers_self_proximity</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../considered_bead_centers_axial_edge/">considered_bead_centers_axial_edge</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../considered_bead_centers_intensity_outlier/">considered_bead_centers_intensity_outlier</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../considered_bead_centers_z_fit_quality/">considered_bead_centers_z_fit_quality</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../considered_bead_centers_y_fit_quality/">considered_bead_centers_y_fit_quality</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../considered_bead_centers_x_fit_quality/">considered_bead_centers_x_fit_quality</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_profiles/">roi_profiles</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_corners/">roi_corners</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -326,56 +506,66 @@
 description: A ROI (Region Of Interest). Collection of shapes and an image to which
   they are applied
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 attributes:
-  label:
-    name: label
-    description: The label of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    identifier: true
-    domain_of:
-    - Roi
-    - Shape
-    range: string
-    required: true
-  description:
-    name: description
-    description: A description of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: false
-    domain_of:
-    - NamedObject
-    - Roi
-    - Tag
-    - Column
-    range: string
-    required: false
-  image:
-    name: image
-    description: The image or images to which the ROI is applied
+  points:
+    name: points
+    description: A list of points included in the ROI
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
-    range: Image
+    range: Point
     required: false
-    inlined: false
-  shapes:
-    name: shapes
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    domain_of:
-    - Roi
-    - RoiMassCenters
-    - RoiGeometricCenters
-    - RoiProfiles
-    - RoiMeasurements
-    range: Shape
     inlined: true
-    inlined_as_list: false
+    inlined_as_list: true
+  lines:
+    name: lines
+    description: A list of lines included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Line
+    required: false
+    inlined: true
+    inlined_as_list: true
+  rectangles:
+    name: rectangles
+    description: A list of rectangles included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Rectangle
+    required: false
+    inlined: true
+    inlined_as_list: true
+  ellipses:
+    name: ellipses
+    description: A list of ellipses included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Ellipse
+    required: false
+    inlined: true
+    inlined_as_list: true
+  polygons:
+    name: polygons
+    description: A list of polygons included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Polygon
+    required: false
+    inlined: true
+    inlined_as_list: true
+  masks:
+    name: masks
+    description: A list of masks included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    range: Mask
+    required: false
 
 </code></pre>
 </details>
@@ -385,64 +575,180 @@ attributes:
 description: A ROI (Region Of Interest). Collection of shapes and an image to which
   they are applied
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 attributes:
-  label:
-    name: label
-    description: The label of the ROI
+  points:
+    name: points
+    description: A list of points included in the ROI
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
-    identifier: true
-    alias: label
+    multivalued: true
+    alias: points
     owner: Roi
     domain_of:
     - Roi
-    - Shape
+    range: Point
+    required: false
+    inlined: true
+    inlined_as_list: true
+  lines:
+    name: lines
+    description: A list of lines included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: lines
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Line
+    required: false
+    inlined: true
+    inlined_as_list: true
+  rectangles:
+    name: rectangles
+    description: A list of rectangles included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: rectangles
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Rectangle
+    required: false
+    inlined: true
+    inlined_as_list: true
+  ellipses:
+    name: ellipses
+    description: A list of ellipses included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: ellipses
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Ellipse
+    required: false
+    inlined: true
+    inlined_as_list: true
+  polygons:
+    name: polygons
+    description: A list of polygons included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: polygons
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Polygon
+    required: false
+    inlined: true
+    inlined_as_list: true
+  masks:
+    name: masks
+    description: A list of masks included in the ROI
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: masks
+    owner: Roi
+    domain_of:
+    - Roi
+    range: Mask
+    required: false
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: data_uri
+    owner: Roi
+    domain_of:
+    - DataReference
     range: string
-    required: true
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_host
+    owner: Roi
+    domain_of:
+    - DataReference
+    range: string
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_port
+    owner: Roi
+    domain_of:
+    - DataReference
+    range: integer
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: Roi
+    domain_of:
+    - DataReference
+    range: OMEROObjectTypeEnum
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: Roi
+    domain_of:
+    - DataReference
+    range: integer
+  linked_objects:
+    name: linked_objects
+    description: A list of linked objects
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_objects
+    owner: Roi
+    domain_of:
+    - DataReference
+    range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
+  name:
+    name: name
+    description: The human readable name of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: name
+    owner: Roi
+    domain_of:
+    - NamedObject
+    - Experimenter
+    range: string
+    required: false
   description:
     name: description
-    description: A description of the ROI
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    description: A human readable description of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
     multivalued: false
     alias: description
     owner: Roi
     domain_of:
     - NamedObject
-    - Roi
     - Tag
-    - Column
     range: string
     required: false
-  image:
-    name: image
-    description: The image or images to which the ROI is applied
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: image
-    owner: Roi
-    domain_of:
-    - Roi
-    range: Image
-    required: false
-    inlined: false
-  shapes:
-    name: shapes
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: shapes
-    owner: Roi
-    domain_of:
-    - Roi
-    - RoiMassCenters
-    - RoiGeometricCenters
-    - RoiProfiles
-    - RoiMeasurements
-    range: Shape
-    inlined: true
-    inlined_as_list: false
 
 </code></pre>
 </details>

@@ -652,10 +652,10 @@ attributes:
     alias: channel_nr
     owner: PSFBeadsKeyMeasurements
     domain_of:
-    - FieldIlluminationKeyValues
-    - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
+    - PSFBeadsKeyMeasurements
+    - FieldIlluminationKeyValues
     range: integer
   nr_of_beads_analyzed:
     name: nr_of_beads_analyzed
@@ -708,7 +708,7 @@ attributes:
   nr_of_beads_considered_intensity_outlier:
     name: nr_of_beads_considered_intensity_outlier
     description: Number of beads considered as being too intense and potentially represent
-      a cluster of beads. These beads have a robust z-score over the requested threshold.
+      a cluster of beads. These beads have a z-score over the requested threshold.
       Measurements on these beads are not averaged into the key measurements. One
       value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema

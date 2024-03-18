@@ -345,22 +345,22 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></td>
-<td></td>
-<td>no</td>
-</tr>
-<tr>
 <td><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></td>
 <td></td>
 <td>no</td>
 </tr>
 <tr>
 <td><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../PSFBeadsKeyValues/">PSFBeadsKeyValues</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -373,6 +373,9 @@
 </li>
 <li>
 <p>Multivalued: True</p>
+</li>
+<li>
+<p>Minimum Value: 0</p>
 </li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -390,11 +393,12 @@ rank: 1000
 multivalued: true
 alias: channel_nr
 domain_of:
-- FieldIlluminationKeyValues
-- PSFBeadsKeyMeasurements
 - ArgolightBIntensityKeyValues
 - ArgolightEKeyValues
+- PSFBeadsKeyValues
+- FieldIlluminationKeyValues
 range: integer
+minimum_value: 0
 
 </code></pre>
 

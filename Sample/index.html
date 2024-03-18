@@ -256,13 +256,13 @@
 <tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The name of an entity</td>
+<td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
-<td>A description of an entity</td>
+<td>A human readable description of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
@@ -279,13 +279,19 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
 <td><a href="../sample/">sample</a></td>
 <td>range</td>
 <td><a href="./">Sample</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
+<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
+<td><a href="../sample/">sample</a></td>
+<td>range</td>
+<td><a href="./">Sample</a></td>
+</tr>
+<tr>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
 <td><a href="../sample/">sample</a></td>
 <td>range</td>
 <td><a href="./">Sample</a></td>
@@ -297,13 +303,7 @@
 <td><a href="./">Sample</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td><a href="../sample/">sample</a></td>
-<td>range</td>
-<td><a href="./">Sample</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
+<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
 <td><a href="../sample/">sample</a></td>
 <td>range</td>
 <td><a href="./">Sample</a></td>
@@ -347,10 +347,6 @@ attributes:
     name: type
     description: The type of the sample
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    identifier: true
-    domain_of:
-    - Microscope
-    - Sample
     range: string
     required: true
   protocol:
@@ -359,8 +355,6 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - Sample
     range: Protocol
     required: true
     inlined: false
@@ -378,7 +372,6 @@ attributes:
     name: type
     description: The type of the sample
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    identifier: true
     alias: type
     owner: Sample
     domain_of:
@@ -401,7 +394,7 @@ attributes:
     inlined: false
   name:
     name: name
-    description: The name of an entity
+    description: The human readable name of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -410,12 +403,11 @@ attributes:
     domain_of:
     - NamedObject
     - Experimenter
-    - Column
     range: string
     required: false
   description:
     name: description
-    description: A description of an entity
+    description: A human readable description of an entity
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: false
@@ -423,9 +415,7 @@ attributes:
     owner: Sample
     domain_of:
     - NamedObject
-    - Roi
     - Tag
-    - Column
     range: string
     required: false
 

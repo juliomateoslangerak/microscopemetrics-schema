@@ -207,22 +207,52 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/KeyValues">microscopemetrics_schema:KeyValues</a></p>
 <div class="mermaid"> classDiagram
     class KeyValues
-      KeyValues &lt;|-- FieldIlluminationKeyValues
-      KeyValues &lt;|-- PSFBeadsKeyMeasurements
+      MetricsObject &lt;|-- KeyValues
+
+
       KeyValues &lt;|-- ArgolightBIntensityKeyValues
       KeyValues &lt;|-- ArgolightBDistanceKeyValues
       KeyValues &lt;|-- ArgolightEKeyValues
+      KeyValues &lt;|-- PSFBeadsKeyValues
+      KeyValues &lt;|-- FieldIlluminationKeyValues
+
+
+      KeyValues : data_uri
+
+      KeyValues : description
+
+      KeyValues : linked_objects
+
+          KeyValues --&gt; DataReference : linked_objects
+
+      KeyValues : name
+
+      KeyValues : omero_host
+
+      KeyValues : omero_object_id
+
+      KeyValues : omero_object_type
+
+          KeyValues --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      KeyValues : omero_port
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
+<li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><strong>KeyValues</strong><ul>
-<li><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></li>
-<li><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></li>
 <li><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></li>
 <li><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></li>
 <li><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></li>
+<li><a href="../PSFBeadsKeyValues/">PSFBeadsKeyValues</a></li>
+<li><a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -238,10 +268,52 @@
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td><a href="../data_uri/">data_uri</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The URI of the object data</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../linked_objects/">linked_objects</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked objects</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The human readable name of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human readable description of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -276,6 +348,7 @@
 <pre><code class="language-yaml">name: KeyValues
 description: A collection of key-value pairs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 abstract: true
 
 </code></pre>
@@ -285,7 +358,99 @@ abstract: true
 <pre><code class="language-yaml">name: KeyValues
 description: A collection of key-value pairs
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+is_a: MetricsObject
 abstract: true
+attributes:
+  data_uri:
+    name: data_uri
+    description: The URI of the object data
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: data_uri
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: string
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_host
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: string
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_port
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: integer
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: OMEROObjectTypeEnum
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: integer
+  linked_objects:
+    name: linked_objects
+    description: A list of linked objects
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_objects
+    owner: KeyValues
+    domain_of:
+    - DataReference
+    range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
+  name:
+    name: name
+    description: The human readable name of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: name
+    owner: KeyValues
+    domain_of:
+    - NamedObject
+    - Experimenter
+    range: string
+    required: false
+  description:
+    name: description
+    description: A human readable description of an entity
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: description
+    owner: KeyValues
+    domain_of:
+    - NamedObject
+    - Tag
+    range: string
+    required: false
 
 </code></pre>
 </details>

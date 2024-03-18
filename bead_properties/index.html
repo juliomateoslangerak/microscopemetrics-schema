@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-bead_properties">Slot: bead_properties</h1>
-<p><em>Properties associated with the analysis of the beads. This properties include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio</em></p>
+<p><em>Properties associated with the analysis of the beads.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/bead_properties">microscopemetrics_schema:bead_properties</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -340,7 +340,7 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../TableAsDict/">TableAsDict</a></li>
+<li>Range: <a href="../Table/">Table</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -351,11 +351,7 @@
 <details>
 
 <pre><code class="language-yaml">name: bead_properties
-description: 'Properties associated with the analysis of the beads. This properties
-  include: dataset_id image_id roi_id channel_nr fit_parameters z_fit_rss y_fit_rss
-  x_fit_rss considered_bad_z_fit considered_bad_y_fit considered_bad_x_fit resolution_fwhm_z_pixels
-  resolution_fwhm_y_pixels resolution_fwhm_x_pixels resolution_fwhm_z_microns resolution_fwhm_y_microns
-  resolution_fwhm_x_microns resolution_lateral_asymmetry_ratio'
+description: Properties associated with the analysis of the beads.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: false
@@ -363,8 +359,9 @@ alias: bead_properties
 owner: PSFBeadsOutput
 domain_of:
 - PSFBeadsOutput
-range: TableAsDict
+range: Table
 inlined: true
+inlined_as_list: true
 
 </code></pre>
 
