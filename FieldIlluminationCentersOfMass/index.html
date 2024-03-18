@@ -219,13 +219,13 @@
 
           FieldIlluminationCentersOfMass --&gt; Ellipse : ellipses
 
-      FieldIlluminationCentersOfMass : image
-
-          FieldIlluminationCentersOfMass --&gt; Image : image
-
       FieldIlluminationCentersOfMass : lines
 
           FieldIlluminationCentersOfMass --&gt; Line : lines
+
+      FieldIlluminationCentersOfMass : linked_objects
+
+          FieldIlluminationCentersOfMass --&gt; DataReference : linked_objects
 
       FieldIlluminationCentersOfMass : masks
 
@@ -281,12 +281,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../image/">image</a></td>
-<td>1..* <br/> <a href="../Image/">Image</a></td>
-<td>The image or images to which the ROI is applied</td>
-<td><a href="../Roi/">Roi</a></td>
-</tr>
 <tr>
 <td><a href="../points/">points</a></td>
 <td>0..* <br/> <a href="../Point/">Point</a></td>
@@ -351,6 +345,12 @@
 <td><a href="../omero_object_id/">omero_object_id</a></td>
 <td>0..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../linked_objects/">linked_objects</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked objects</td>
 <td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
@@ -430,19 +430,6 @@ is_a: Roi
 mixins:
 - CentersOfMass
 attributes:
-  image:
-    name: image
-    description: The image or images to which the ROI is applied
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: true
-    alias: image
-    owner: FieldIlluminationCentersOfMass
-    domain_of:
-    - Roi
-    range: Image
-    required: true
-    inlined: false
   points:
     name: points
     description: A list of points included in the ROI
@@ -455,8 +442,6 @@ attributes:
     - Roi
     range: Point
     required: false
-    inlined: true
-    inlined_as_list: false
   lines:
     name: lines
     description: A list of lines included in the ROI
@@ -469,8 +454,6 @@ attributes:
     - Roi
     range: Line
     required: false
-    inlined: true
-    inlined_as_list: false
   rectangles:
     name: rectangles
     description: A list of rectangles included in the ROI
@@ -483,8 +466,6 @@ attributes:
     - Roi
     range: Rectangle
     required: false
-    inlined: true
-    inlined_as_list: false
   ellipses:
     name: ellipses
     description: A list of ellipses included in the ROI
@@ -497,8 +478,6 @@ attributes:
     - Roi
     range: Ellipse
     required: false
-    inlined: true
-    inlined_as_list: false
   polygons:
     name: polygons
     description: A list of polygons included in the ROI
@@ -511,8 +490,6 @@ attributes:
     - Roi
     range: Polygon
     required: false
-    inlined: true
-    inlined_as_list: false
   masks:
     name: masks
     description: A list of masks included in the ROI
@@ -525,8 +502,6 @@ attributes:
     - Roi
     range: Mask
     required: false
-    inlined: true
-    inlined_as_list: false
   data_uri:
     name: data_uri
     description: The URI of the object data
@@ -577,6 +552,17 @@ attributes:
     domain_of:
     - DataReference
     range: integer
+  linked_objects:
+    name: linked_objects
+    description: A list of linked objects
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_objects
+    owner: FieldIlluminationCentersOfMass
+    domain_of:
+    - DataReference
+    range: DataReference
   name:
     name: name
     description: The human readable name of an entity

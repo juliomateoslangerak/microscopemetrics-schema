@@ -360,18 +360,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td><a href="../microscope/">microscope</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
-<td><a href="../microscope/">microscope</a></td>
-<td>range</td>
-<td><a href="./">Microscope</a></td>
-</tr>
-<tr>
 <td><a href="../MicroscopeCollection/">MicroscopeCollection</a></td>
 <td><a href="../microscopes/">microscopes</a></td>
 <td>range</td>
@@ -384,13 +372,25 @@
 <td><a href="./">Microscope</a></td>
 </tr>
 <tr>
+<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
+<td><a href="../microscope/">microscope</a></td>
+<td>range</td>
+<td><a href="./">Microscope</a></td>
+</tr>
+<tr>
 <td><a href="../PSFBeadsDataset/">PSFBeadsDataset</a></td>
 <td><a href="../microscope/">microscope</a></td>
 <td>range</td>
 <td><a href="./">Microscope</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
+<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
+<td><a href="../microscope/">microscope</a></td>
+<td>range</td>
+<td><a href="./">Microscope</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
 <td><a href="../microscope/">microscope</a></td>
 <td>range</td>
 <td><a href="./">Microscope</a></td>
@@ -435,6 +435,9 @@ attributes:
     description: The type of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
+    - Sample
     range: MicroscopeTypeEnum
     required: false
   manufacturer:
@@ -442,6 +445,8 @@ attributes:
     description: The manufacturer of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
   model:
@@ -449,6 +454,8 @@ attributes:
     description: The model of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
   serial_number:
@@ -456,6 +463,8 @@ attributes:
     description: The serial number of the microscope
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Microscope
     range: string
     required: false
   comments:
@@ -464,6 +473,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Microscope
     range: Comment
     required: false
 

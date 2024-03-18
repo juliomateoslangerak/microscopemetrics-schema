@@ -444,14 +444,22 @@ attributes:
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
     multivalued: false
+    domain_of:
+    - FieldIlluminationOutput
+    - PSFBeadsOutput
     range: FieldIlluminationKeyValues
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
       directions
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
+    - ArgolightEOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -461,6 +469,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Image
     inlined: true
     inlined_as_list: true
@@ -470,6 +480,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
   roi_corners:
     name: roi_corners
@@ -478,6 +490,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
   roi_centers_of_mass:
     name: roi_centers_of_mass
@@ -487,6 +501,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
   roi_centers_geometric:
     name: roi_centers_geometric
@@ -495,6 +511,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
   roi_centers_fitted:
     name: roi_centers_fitted
@@ -503,6 +521,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
   roi_centers_max_intensity:
     name: roi_centers_max_intensity
@@ -511,6 +531,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - FieldIlluminationOutput
     range: Roi
 
 </code></pre>
@@ -526,24 +548,26 @@ attributes:
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
     multivalued: false
     alias: key_values
     owner: FieldIlluminationOutput
     domain_of:
-    - PSFBeadsOutput
     - FieldIlluminationOutput
+    - PSFBeadsOutput
     range: FieldIlluminationKeyValues
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
       directions
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
     multivalued: true
     alias: intensity_profiles
     owner: FieldIlluminationOutput
     domain_of:
-    - ArgolightEOutput
     - FieldIlluminationOutput
+    - ArgolightEOutput
     range: Table
     inlined: true
     inlined_as_list: true

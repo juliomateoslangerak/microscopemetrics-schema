@@ -383,8 +383,38 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td><a href="../peaks_rois/">peaks_rois</a></td>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_profiles/">roi_profiles</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_corners/">roi_corners</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -437,38 +467,8 @@
 <td><a href="./">Roi</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_profiles/">roi_profiles</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_corners/">roi_corners</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
+<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
+<td><a href="../peaks_rois/">peaks_rois</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -514,6 +514,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Point
     required: false
     inlined: true
@@ -524,6 +526,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Line
     required: false
     inlined: true
@@ -534,6 +538,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Rectangle
     required: false
     inlined: true
@@ -544,6 +550,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Ellipse
     required: false
     inlined: true
@@ -554,6 +562,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Polygon
     required: false
     inlined: true
@@ -564,6 +574,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Roi
     range: Mask
     required: false
 
