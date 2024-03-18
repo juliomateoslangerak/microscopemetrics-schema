@@ -547,28 +547,46 @@ def st_mm_roi(
 @st.composite
 def st_mm_key_values(
     draw,
+    metrics_object=st_mm_metrics_object(),
     key_values=st.dictionaries(
         max_size=10,
-        keys=st.text(),
+        keys=st.text(min_size=1, max_size=32),
         values=st.one_of(st.text(), st.integers(), st.floats())
     )
 ) -> mm_schema.KeyValues:
+    metrics_object = draw(metrics_object)
+    key_values = draw(key_values)
     return mm_schema.KeyValues(
-        **draw(key_values)
+        name=metrics_object.name,
+        description=metrics_object.description,
+        data_uri=metrics_object.data_uri,
+        omero_host=metrics_object.omero_host,
+        omero_port=metrics_object.omero_port,
+        omero_object_type=metrics_object.omero_object_type,
+        omero_object_id=metrics_object.omero_object_id,
+        # TODO: Add a check for the key_values
     )
 
 
 @st.composite
 def st_mm_tag(
     draw,
-    id=st.integers(min_value=1, max_value=1000),
+    metrics_object=st_mm_metrics_object(),
     text=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
 ) -> mm_schema.Tag:
+    metrics_object = draw(metrics_object)
+    text = draw(text)
     return mm_schema.Tag(
-        id=draw(id),
-        text=draw(text),
+        name=metrics_object.name,
+        description=metrics_object.description,
+        data_uri=metrics_object.data_uri,
+        omero_host=metrics_object.omero_host,
+        omero_port=metrics_object.omero_port,
+        omero_object_type=metrics_object.omero_object_type,
+        omero_object_id=metrics_object.omero_object_id,
+        text=text,
     )
 
 
