@@ -306,7 +306,7 @@ type FieldIlluminationKeyValues
     omeroObjectType: OMEROObjectTypeEnum
     omeroObjectId: Integer
     linkedObjects: [DataReference]
-    channelNr: [Integer]
+    channelName: [String]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
     centerOfMassY: [Float]

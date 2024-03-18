@@ -274,7 +274,7 @@ message FieldIlluminationKeyValues
   oMEROObjectTypeEnum omeroObjectType = 0
   integer omeroObjectId = 0
  repeated  dataReference linkedObjects = 0
- repeated  integer channelNr = 0
+ repeated  string channelName = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
  repeated  float centerOfMassY = 0

@@ -71,8 +71,8 @@ output:
     omero_port: 4064
     omero_object_type: "KEY_VALUES"
     omero_object_id: 430000000
-    channel_nr:
-    - 0
+    channel_name:
+    - DAPI
     center_region_intensity_fraction:
     - 0.8548346166225148
     center_region_area_fraction:

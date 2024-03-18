@@ -456,7 +456,7 @@ CLOSED {
        $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues_tes>
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_name> @linkml:String * ;
 
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_region_intensity_fraction>
           @linkml:Float * ;

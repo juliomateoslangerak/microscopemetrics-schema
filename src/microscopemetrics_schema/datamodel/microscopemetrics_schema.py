@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-18T16:04:47
+# Generation date: 2024-03-19T00:10:36
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1394,7 +1394,7 @@ class FieldIlluminationKeyValues(KeyValues):
     class_name: ClassVar[str] = "FieldIlluminationKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyValues
 
-    channel_nr: Optional[Union[int, List[int]]] = empty_list()
+    channel_name: Optional[Union[str, List[str]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_of_mass_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1438,9 +1438,9 @@ class FieldIlluminationKeyValues(KeyValues):
     bottom_right_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel_nr, list):
-            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
-        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
+        if not isinstance(self.channel_name, list):
+            self.channel_name = [self.channel_name] if self.channel_name is not None else []
+        self.channel_name = [v if isinstance(v, str) else str(v) for v in self.channel_name]
 
         if not isinstance(self.center_region_intensity_fraction, list):
             self.center_region_intensity_fraction = [self.center_region_intensity_fraction] if self.center_region_intensity_fraction is not None else []
@@ -2590,6 +2590,9 @@ slots.emission_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/em
 
 slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_nr'], name="channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_nr'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel_nr, domain=None, range=Optional[Union[int, List[int]]])
+
+slots.channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_name'], name="channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_name'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_name, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])

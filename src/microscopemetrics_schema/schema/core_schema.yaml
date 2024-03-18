@@ -799,6 +799,11 @@ slots:
       The channel number to which the measurements apply
     multivalued: true
     minimum_value: 0
+  channel_name:
+    range: string
+    description: >-
+      The channel name to which the measurements apply
+    multivalued: true
   bit_depth:
     range: integer
     description: >-
