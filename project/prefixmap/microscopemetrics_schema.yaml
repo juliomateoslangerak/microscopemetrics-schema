@@ -5,9 +5,6 @@
    "MetaObject": {
       "@id": "linkml:Any"
    },
-   "PSFBeadsCenters": {
-      "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsCenters"
-   },
    "PSFBeadsDataset": {
       "@id": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset"
    },

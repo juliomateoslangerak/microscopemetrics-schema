@@ -1,7 +1,13 @@
 name: "ExampleMetricsDataset"
 description: "This is an example MetricsDataset."
 data_uri: "https://example.org/metrics/1"
-microscope: "an id for the microscope"
+microscope:
+  name: "My microscope"
+  description: "A nice microscope"
+  type: "3D-SIM"
+  manufacturer: "Applied Precision"
+  model: "OMX-V4"
+  serial_number: "654321"
 sample:
   name: "ExampleSample"
   type: "Sample"
@@ -14,8 +20,8 @@ sample:
         orcid: "https://orcid.org/0000-0000-0000-0001"
     url: "https://example.org/protocol/1"
 experimenter:
-  - name: "Jane Smith"
-    orcid: "https://orcid.org/0000-0000-0000-0002"
+  name: "Jane Smith"
+  orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_datetime: "2024-01-15T12:00:00"
 processed: false
 input: ""

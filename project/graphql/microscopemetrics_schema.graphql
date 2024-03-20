@@ -2,8 +2,12 @@ type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
     description: String
-    dataUri: String!
-    image: [Image]
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     points: [Point]
     lines: [Line]
     rectangles: [Rectangle]
@@ -16,10 +20,15 @@ type ArgolightBDataset
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     microscope: Microscope!
     sample: Sample
-    experimenter: [Experimenter]
+    experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     input: ArgolightBInput
@@ -30,7 +39,12 @@ type ArgolightBDistanceKeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     channelA: [Integer]
     channelB: [Integer]
     mean3dDist: [Float]
@@ -45,7 +59,7 @@ type ArgolightBDistanceKeyValues
 
 type ArgolightBInput
   {
-    argolightBImage: ImageAsNumpy!
+    argolightBImage: Image!
     bitDepth: Integer
     saturationThreshold: Float!
     spotsDistance: Float!
@@ -61,7 +75,12 @@ type ArgolightBIntensityKeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     channelNr: [Integer]
     nrOfSpots: [Integer]
     intensityMaxSpot: [Float]
@@ -85,22 +104,27 @@ type ArgolightBOutput
     warnings: [String]
     errors: [String]
     comment: Comment
-    spotsLabelsImage: ImageAsNumpy
+    spotsLabelsImage: ImageMask
     spotsCentersOfMass: [ArgolightBCentersOfMass]
     intensityKeyValues: ArgolightBIntensityKeyValues
     distanceKeyValues: ArgolightBDistanceKeyValues
-    spotsProperties: TableAsDict
-    spotsDistances: TableAsDict
+    spotsProperties: Table
+    spotsDistances: Table
   }
 
 type ArgolightEDataset
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     microscope: Microscope!
     sample: Sample
-    experimenter: [Experimenter]
+    experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     input: ArgolightEInput
@@ -109,7 +133,7 @@ type ArgolightEDataset
 
 type ArgolightEInput
   {
-    argolightEImage: ImageAsNumpy!
+    argolightEImage: Image!
     bitDepth: Integer
     saturationThreshold: Float!
     orientationAxis: Integer!
@@ -121,7 +145,12 @@ type ArgolightEKeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     channelNr: [Integer]
     focusSlice: [Integer]
     rayleighResolutionPixels: [Float]
@@ -146,7 +175,7 @@ type ArgolightEOutput
     comment: Comment
     peaksRois: [Roi]
     keyMeasurements: ArgolightEKeyValues
-    intensityProfiles: TableAsDict
+    intensityProfiles: Table
   }
 
 interface CentersFitted
@@ -190,23 +219,36 @@ type Column
   {
     name: String
     description: String
-    sourceUri: String
-    values: [String]
+    sourceObject: DataReference
+  }
+
+type ColumnSeries
+  {
+    columns: [Column]!
   }
 
 type Comment
   {
     datetime: Datetime!
     author: Experimenter
-    commentType: CommentTypes!
+    commentType: CommentTypesEnum!
     text: String!
+  }
+
+interface DataReference
+  {
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
   }
 
 type Ellipse
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -225,85 +267,19 @@ type Experimenter
     orcid: String!
   }
 
-type FieldIlluminationCentersFitted implements CentersFitted
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
-type FieldIlluminationCentersGeometric implements CentersGeometric
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
-type FieldIlluminationCentersMaxIntensity implements CentersMaxIntensity
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
-type FieldIlluminationCentersOfMass implements CentersOfMass
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
-type FieldIlluminationCornersIntensities implements RoiMeasurements
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-    measurementsTable: TableAsDict!
-  }
-
 type FieldIlluminationDataset
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     microscope: Microscope!
     sample: Sample
-    experimenter: [Experimenter]
+    experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     input: FieldIlluminationInput
@@ -312,7 +288,7 @@ type FieldIlluminationDataset
 
 type FieldIlluminationInput
   {
-    fieldIlluminationImage: [ImageAsNumpy]!
+    fieldIlluminationImage: [Image]!
     bitDepth: Integer
     saturationThreshold: Float!
     cornerFraction: Float!
@@ -324,7 +300,12 @@ type FieldIlluminationKeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     channelNr: [Integer]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
@@ -380,29 +361,14 @@ type FieldIlluminationOutput
     errors: [String]
     comment: Comment
     keyValues: FieldIlluminationKeyValues
-    intensityProfiles: [TableAsDict]
-    intensityMap: [ImageAsNumpy]
-    roiProfiles: [FieldIlluminationProfilesIntensity]
-    roiCorners: FieldIlluminationCornersIntensities
-    roiCentersOfMass: [FieldIlluminationCentersOfMass]
-    roiCentersGeometric: [FieldIlluminationCentersGeometric]
-    roiCentersFitted: [FieldIlluminationCentersFitted]
-    roiCentersMaxIntensity: [FieldIlluminationCentersMaxIntensity]
-  }
-
-type FieldIlluminationProfilesIntensity implements ProfilesIntensity
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-    intensityProfilesTable: TableAsDict!
+    intensityProfiles: [Table]
+    intensityMaps: [Image]
+    roiProfiles: [Roi]
+    roiCorners: Roi
+    roiCentersOfMass: [Roi]
+    roiCentersGeometric: [Roi]
+    roiCentersFitted: [Roi]
+    roiCentersMaxIntensity: [Roi]
   }
 
 type HarmonizedMetricsDatasetCollection
@@ -411,45 +377,16 @@ type HarmonizedMetricsDatasetCollection
     datasetClass: String!
   }
 
-interface Image
+type Image
   {
     name: String
     description: String
-    dataUri: String!
-    sourceImageUri: [String]
-    voxelSizeXMicron: Float
-    voxelSizeYMicron: Float
-    voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
-  }
-
-type Image2D
-  {
-    name: String
-    description: String
-    dataUri: String!
-    sourceImageUri: [String]
-    voxelSizeXMicron: Float
-    voxelSizeYMicron: Float
-    voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
-    data: [Float]!
-  }
-
-type Image5D
-  {
-    name: String
-    description: String
-    dataUri: String!
-    sourceImageUri: [String]
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -460,48 +397,20 @@ type Image5D
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    data: [Float]!
-  }
-
-type ImageAsNumpy
-  {
-    name: String
-    description: String
-    dataUri: String!
-    sourceImageUri: [String]
-    voxelSizeXMicron: Float
-    voxelSizeYMicron: Float
-    voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
-    data: MetaObject
-  }
-
-interface ImageInline
-  {
-    name: String
-    description: String
-    dataUri: String!
-    sourceImageUri: [String]
-    voxelSizeXMicron: Float
-    voxelSizeYMicron: Float
-    voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
+    sourceImages: [DataReference]
+    arrayData: MetaObject
   }
 
 type ImageMask
   {
     name: String
     description: String
-    dataUri: String!
-    sourceImageUri: [String]
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -510,21 +419,28 @@ type ImageMask
     shapeZ: Integer!
     shapeC: Integer!
     shapeT: Integer!
-    data: [Boolean]!
+    timeSeries: TimeSeries
+    channelSeries: ChannelSeries
+    sourceImages: [DataReference]
+    arrayData: MetaObject
   }
 
 interface KeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
   }
 
 type Line
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -541,7 +457,6 @@ type Mask
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -561,10 +476,15 @@ type MetricsDataset
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     microscope: Microscope!
     sample: Sample
-    experimenter: [Experimenter]
+    experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     input: MetricsInput!
@@ -580,11 +500,16 @@ interface MetricsInput
   {
   }
 
-interface MetricsObject
+type MetricsObject implements DataReference
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
   }
 
 interface MetricsOutput
@@ -603,8 +528,13 @@ type Microscope
   {
     name: String
     description: String
-    dataUri: String!
-    type: MicroscopeType
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
+    type: MicroscopeTypeEnum
     manufacturer: String
     model: String
     serialNumber: String
@@ -626,7 +556,6 @@ type Point
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -641,7 +570,6 @@ type Polygon
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -654,7 +582,7 @@ type Polygon
 
 interface ProfilesIntensity
   {
-    intensityProfilesTable: TableAsDict!
+    intensityProfilesTable: Table
   }
 
 type Protocol
@@ -666,28 +594,19 @@ type Protocol
     url: String!
   }
 
-type PSFBeadsCenters implements CentersMaxIntensity
-  {
-    name: String
-    description: String
-    dataUri: String!
-    image: [Image]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
 type PSFBeadsDataset
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     microscope: Microscope!
     sample: Sample
-    experimenter: [Experimenter]
+    experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     input: PSFBeadsInput
@@ -696,7 +615,7 @@ type PSFBeadsDataset
 
 type PSFBeadsInput
   {
-    psfBeadsImages: [ImageAsNumpy]!
+    psfBeadsImages: [Image]!
     bitDepth: Integer
     saturationThreshold: Float
     minLateralDistanceFactor: Float!
@@ -712,7 +631,12 @@ type PSFBeadsKeyValues
   {
     name: String
     description: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
     nrOfBeadsDiscardedLateralEdge: [Integer]
@@ -764,27 +688,26 @@ type PSFBeadsOutput
     warnings: [String]
     errors: [String]
     comment: Comment
-    beadCrops: [ImageAsNumpy]
-    analyzedBeadCenters: [PSFBeadsCenters]
-    discardedBeadCentersLateralEdge: [PSFBeadsCenters]
-    discardedBeadCentersSelfProximity: [PSFBeadsCenters]
-    consideredBeadCentersAxialEdge: [PSFBeadsCenters]
-    consideredBeadCentersIntensityOutlier: [PSFBeadsCenters]
-    consideredBeadCentersZFitQuality: [PSFBeadsCenters]
-    consideredBeadCentersYFitQuality: [PSFBeadsCenters]
-    consideredBeadCentersXFitQuality: [PSFBeadsCenters]
+    beadCrops: [Image]
+    analyzedBeadCenters: [Roi]
+    discardedBeadCentersLateralEdge: [Roi]
+    discardedBeadCentersSelfProximity: [Roi]
+    consideredBeadCentersAxialEdge: [Roi]
+    consideredBeadCentersIntensityOutlier: [Roi]
+    consideredBeadCentersZFitQuality: [Roi]
+    consideredBeadCentersYFitQuality: [Roi]
+    consideredBeadCentersXFitQuality: [Roi]
     keyValues: PSFBeadsKeyValues
-    beadProperties: TableAsDict
-    beadZProfiles: TableAsDict
-    beadYProfiles: TableAsDict
-    beadXProfiles: TableAsDict
+    beadProperties: Table
+    beadZProfiles: Table
+    beadYProfiles: Table
+    beadXProfiles: Table
   }
 
 type Rectangle
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -801,8 +724,12 @@ type Roi
   {
     name: String
     description: String
-    dataUri: String!
-    image: [Image]
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     points: [Point]
     lines: [Line]
     rectangles: [Rectangle]
@@ -813,7 +740,7 @@ type Roi
 
 interface RoiMeasurements
   {
-    measurementsTable: TableAsDict!
+    measurementsTable: Table
   }
 
 type Sample
@@ -828,7 +755,6 @@ interface Shape
   {
     name: String
     description: String
-    dataUri: String!
     z: Float
     c: Integer
     t: Integer
@@ -837,33 +763,29 @@ interface Shape
     strokeWidth: Integer
   }
 
-interface Table
+type Table
   {
     name: String
     description: String
-    dataUri: String!
-  }
-
-interface TableAsDict
-  {
-    name: String
-    description: String
-    dataUri: String!
-    columns: [Column]!
-  }
-
-type TableAsPandasDF
-  {
-    name: String
-    description: String
-    dataUri: String!
-    df: MetaObject!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
+    columnSeries: ColumnSeries!
+    tableData: MetaObject
   }
 
 interface Tag
   {
     name: String
-    dataUri: String!
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     text: String!
     description: String
   }
