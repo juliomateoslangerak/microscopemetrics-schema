@@ -318,13 +318,18 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
-<td>A base object on which microscope-metrics runs the analysis</td>
+<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
+<td>An Argolight sample pattern B dataset</td>
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
-<td>A field illumination dataset</td>
+<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
+<td>An Argolight sample pattern E dataset</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../MetricsDataset/">MetricsDataset</a></td>
+<td>A base object on which microscope-metrics runs the analysis</td>
 <td>no</td>
 </tr>
 <tr>
@@ -333,13 +338,8 @@
 <td>no</td>
 </tr>
 <tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td>An Argolight sample pattern B dataset</td>
-<td>no</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
-<td>An Argolight sample pattern E dataset</td>
+<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
+<td>A field illumination dataset</td>
 <td>no</td>
 </tr>
 </tbody>
@@ -355,11 +355,11 @@
 <pre><code class="language-yaml">name: output
 alias: output
 domain_of:
-- MetricsDataset
-- FieldIlluminationDataset
-- PSFBeadsDataset
 - ArgolightBDataset
 - ArgolightEDataset
+- MetricsDataset
+- PSFBeadsDataset
+- FieldIlluminationDataset
 range: string
 
 </code></pre>

@@ -382,8 +382,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
   sigma_y:
     name: sigma_y
@@ -391,8 +391,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
   sigma_x:
     name: sigma_x
@@ -400,8 +400,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
 
 </code></pre>
@@ -418,8 +418,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
   sigma_y:
     name: sigma_y
@@ -427,8 +427,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
   sigma_x:
     name: sigma_x
@@ -436,8 +436,8 @@ slot_usage:
       prior to bead detection. Does not apply to resolution measurements
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
 attributes:
   psf_beads_images:
@@ -464,10 +464,10 @@ attributes:
     alias: bit_depth
     owner: PSFBeadsInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -483,13 +483,13 @@ attributes:
     alias: saturation_threshold
     owner: PSFBeadsInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   min_lateral_distance_factor:
     name: min_lateral_distance_factor
     description: Minimal distance that has to separate laterally the beads represented
@@ -503,8 +503,8 @@ attributes:
     - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 10.0
-    maximum_value: 30.0
+    minimum_value: 10
+    maximum_value: 30
   sigma_z:
     name: sigma_z
     description: Gaussian smoothing sigma to be applied to the image in the Z axis
@@ -515,8 +515,8 @@ attributes:
     alias: sigma_z
     owner: PSFBeadsInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
   sigma_y:
@@ -529,8 +529,8 @@ attributes:
     alias: sigma_y
     owner: PSFBeadsInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
   sigma_x:
@@ -543,8 +543,8 @@ attributes:
     alias: sigma_x
     owner: PSFBeadsInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
   snr_threshold:

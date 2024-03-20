@@ -256,7 +256,7 @@
 
       FieldIlluminationKeyValues : center_region_intensity_fraction
 
-      FieldIlluminationKeyValues : channel_name
+      FieldIlluminationKeyValues : channel_nr
 
       FieldIlluminationKeyValues : data_uri
 
@@ -341,9 +341,9 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel_name/">channel_name</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
-<td>The channel name to which the measurements apply</td>
+<td><a href="../channel_nr/">channel_nr</a></td>
+<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>The channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -693,7 +693,7 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 slots:
-- channel_name
+- channel_nr
 - center_region_intensity_fraction
 - center_region_area_fraction
 - center_of_mass_y
@@ -744,17 +744,21 @@ slots:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: KeyValues
 attributes:
-  channel_name:
-    name: channel_name
-    description: The channel name to which the measurements apply
+  channel_nr:
+    name: channel_nr
+    description: The channel number to which the measurements apply
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: channel_name
+    alias: channel_nr
     owner: FieldIlluminationKeyValues
     domain_of:
+    - ArgolightBIntensityKeyValues
+    - ArgolightEKeyValues
+    - PSFBeadsKeyValues
     - FieldIlluminationKeyValues
-    range: string
+    range: integer
+    minimum_value: 0
   center_region_intensity_fraction:
     name: center_region_intensity_fraction
     description: The fraction of the upper intensity range occupied by the center
@@ -770,8 +774,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_region_area_fraction:
     name: center_region_area_fraction
     description: The fraction of the area occupied by the center of illumination region.
@@ -785,8 +789,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_of_mass_y:
     name: center_of_mass_y
     description: The y coordinate of the center of mass of the center of illumination
@@ -812,8 +816,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_of_mass_x:
     name: center_of_mass_x
     description: The x coordinate of the center of mass of the center of illumination
@@ -839,8 +843,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_of_mass_distance_relative:
     name: center_of_mass_distance_relative
     description: The relative distance of the centers of mass to the center of the
@@ -854,8 +858,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_geometric_y:
     name: center_geometric_y
     description: The y coordinate of the geometric center of the center of illumination
@@ -881,8 +885,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_geometric_x:
     name: center_geometric_x
     description: The x coordinate of the geometric center of the center of illumination
@@ -908,8 +912,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_geometric_distance_relative:
     name: center_geometric_distance_relative
     description: The relative distance of the geometric center to the center of the
@@ -923,8 +927,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_fitted_y:
     name: center_fitted_y
     description: The y coordinate of the fitted center of illumination. In pixels
@@ -949,8 +953,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_fitted_x:
     name: center_fitted_x
     description: The x coordinate of the fitted center of illumination. In pixels
@@ -975,8 +979,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_fitted_distance_relative:
     name: center_fitted_distance_relative
     description: The relative distance of the fitted center of illumination to the
@@ -990,8 +994,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   max_intensity:
     name: max_intensity
     description: The maximum intensity of the center of illumination
@@ -1028,8 +1032,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   max_intensity_pos_x:
     name: max_intensity_pos_x
     description: The x coordinate of the maximum intensity of the center of illumination.
@@ -1055,8 +1059,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   max_intensity_distance_relative:
     name: max_intensity_distance_relative
     description: The relative distance of the maximum intensity to the center of the
@@ -1070,8 +1074,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   top_left_intensity_mean:
     name: top_left_intensity_mean
     description: The mean intensity of the top-left corner of the image
