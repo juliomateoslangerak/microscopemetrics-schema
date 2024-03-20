@@ -181,10 +181,10 @@ message Channel
   float excitationWavelengthNm = 0
   float emissionWavelengthNm = 0
  }
-// A series whose values represent channel
+// A series representing channels
 message ChannelSeries
  {
- repeated  channel values = 0
+ repeated  channel channels = 0
  }
 // A color as defined by RGB values and an optional alpha value
 message Color
@@ -340,6 +340,14 @@ message FieldIlluminationOutput
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  metricsDataset datasets = 0
   string datasetClass = 0
  }
@@ -444,6 +452,14 @@ message MetricsDataset
 // A collection of microscope-metrics datasets
 message MetricsDatasetCollection
  {
+  string name = 0
+  string description = 0
+  string dataUri = 0
+  string omeroHost = 0
+  integer omeroPort = 0
+  oMEROObjectTypeEnum omeroObjectType = 0
+  integer omeroObjectId = 0
+ repeated  dataReference linkedObjects = 0
  repeated  metricsDataset datasets = 0
  }
 // A microscope

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-19T00:10:36
+# Generation date: 2024-03-20T23:46:37
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -351,7 +351,7 @@ class Comment(YAMLRoot):
 
 
 @dataclass
-class MetricsDatasetCollection(YAMLRoot):
+class MetricsDatasetCollection(MetricsObject):
     """
     A collection of microscope-metrics datasets
     """
@@ -614,7 +614,7 @@ class ImageMask(Image):
 @dataclass
 class ChannelSeries(YAMLRoot):
     """
-    A series whose values represent channel
+    A series representing channels
     """
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -623,14 +623,14 @@ class ChannelSeries(YAMLRoot):
     class_name: ClassVar[str] = "ChannelSeries"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChannelSeries
 
-    values: Union[Union[dict, "Channel"], List[Union[dict, "Channel"]]] = None
+    channels: Union[Union[dict, "Channel"], List[Union[dict, "Channel"]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.values):
-            self.MissingRequiredField("values")
-        if not isinstance(self.values, list):
-            self.values = [self.values] if self.values is not None else []
-        self.values = [v if isinstance(v, Channel) else Channel(**as_dict(v)) for v in self.values]
+        if self._is_empty(self.channels):
+            self.MissingRequiredField("channels")
+        if not isinstance(self.channels, list):
+            self.channels = [self.channels] if self.channels is not None else []
+        self.channels = [v if isinstance(v, Channel) else Channel(**as_dict(v)) for v in self.channels]
 
         super().__post_init__(**kwargs)
 
@@ -3107,8 +3107,8 @@ slots.metricsOutput__errors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/err
 slots.metricsOutput__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="metricsOutput__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__comment, domain=None, range=Optional[Union[dict, Comment]])
 
-slots.channelSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="channelSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__values, domain=None, range=Union[Union[dict, Channel], List[Union[dict, Channel]]])
+slots.channelSeries__channels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channels'], name="channelSeries__channels", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channels'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__channels, domain=None, range=Union[Union[dict, Channel], List[Union[dict, Channel]]])
 
 slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values'], name="timeSeries__values", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/values'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.timeSeries__values, domain=None, range=Union[float, List[float]])

@@ -312,7 +312,7 @@ CLOSED {
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ChannelSeries> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ChannelSeries_tes>
-       <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/values>
+       <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channels>
        @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Channel> + ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ChannelSeries> ] ?
     )
@@ -746,9 +746,12 @@ CLOSED {
 
 <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection>  (
     CLOSED {
-       (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection_tes>
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datasets>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> + ;
+       (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection_tes> ( 
+             &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
+             rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/datasets>
+             @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> +
+          ) ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection>
              ] ?
        )
@@ -773,6 +776,7 @@ CLOSED {
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDataset> OR
+    @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsDatasetCollection> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Microscope> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> OR
     @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table> OR

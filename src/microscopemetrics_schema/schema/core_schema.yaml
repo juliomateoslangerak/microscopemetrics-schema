@@ -177,6 +177,7 @@ classes:
         multivalued: false
 
   MetricsDatasetCollection:
+    is_a: MetricsObject
     description: A collection of microscope-metrics datasets
     attributes:
       datasets:

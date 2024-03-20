@@ -204,7 +204,7 @@ type Channel
 
 type ChannelSeries
   {
-    values: [Channel]!
+    channels: [Channel]!
   }
 
 type Color
@@ -373,6 +373,14 @@ type FieldIlluminationOutput
 
 type HarmonizedMetricsDatasetCollection
   {
+    name: String
+    description: String
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     datasets: [MetricsDataset]!
     datasetClass: String!
   }
@@ -493,6 +501,14 @@ type MetricsDataset
 
 type MetricsDatasetCollection
   {
+    name: String
+    description: String
+    dataUri: String
+    omeroHost: String
+    omeroPort: Integer
+    omeroObjectType: OMEROObjectTypeEnum
+    omeroObjectId: Integer
+    linkedObjects: [DataReference]
     datasets: [MetricsDataset]!
   }
 
