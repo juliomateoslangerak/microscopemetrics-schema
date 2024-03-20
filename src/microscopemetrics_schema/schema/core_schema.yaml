@@ -359,11 +359,11 @@ classes:
 #        required: true
 #
   ChannelSeries:
-    description: A series whose values represent channel
+    description: A series representing channels
     implements:
       - linkml:OneDimensionalSeries
     attributes:
-      values:
+      channels:
         range: Channel
         multivalued: true
         implements:
