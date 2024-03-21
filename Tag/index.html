@@ -229,8 +229,6 @@
 
       Tag : omero_port
 
-      Tag : text
-
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -254,12 +252,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../text/">text</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
-<td>The text of the tag</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../description/">description</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
@@ -304,7 +296,7 @@
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The human readable name of an entity</td>
 <td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
@@ -343,14 +335,14 @@ description: A tag
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
 abstract: true
-attributes:
-  text:
-    name: text
-    description: The text of the tag
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: false
-    range: string
+slot_usage:
+  name:
+    name: name
+    domain_of:
+    - NamedObject
+    - Experimenter
     required: true
+attributes:
   description:
     name: description
     description: The description of the tag
@@ -368,19 +360,14 @@ description: A tag
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
 abstract: true
-attributes:
-  text:
-    name: text
-    description: The text of the tag
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    multivalued: false
-    alias: text
-    owner: Tag
+slot_usage:
+  name:
+    name: name
     domain_of:
-    - Comment
-    - Tag
-    range: string
+    - NamedObject
+    - Experimenter
     required: true
+attributes:
   description:
     name: description
     description: The description of the tag
@@ -469,7 +456,7 @@ attributes:
     - NamedObject
     - Experimenter
     range: string
-    required: false
+    required: true
 
 </code></pre>
 </details>
