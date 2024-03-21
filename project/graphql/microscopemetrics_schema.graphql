@@ -795,15 +795,14 @@ type Table
 
 interface Tag
   {
-    name: String
     dataUri: String
     omeroHost: String
     omeroPort: Integer
     omeroObjectType: OMEROObjectTypeEnum
     omeroObjectId: Integer
     linkedObjects: [DataReference]
-    text: String!
     description: String
+    name: String!
   }
 
 type TimeSeries

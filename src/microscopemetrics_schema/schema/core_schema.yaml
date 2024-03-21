@@ -681,16 +681,14 @@ classes:
     description: A tag
     abstract: true
     attributes:
-      text:
-        range: string
-        description: The text of the tag
-        required: true
-        multivalued: false
       description:
         range: string
         description: The description of the tag
         required: false
         multivalued: false
+    slot_usage:
+      name:
+        required: true
 
   Table:
     is_a: MetricsObject
