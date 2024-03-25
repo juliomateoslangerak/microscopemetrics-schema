@@ -185,6 +185,8 @@ classes:
         description: The datasets of the collection
         required: true
         multivalued: true
+        inlined: true
+        inlined_as_list: true
 
   HarmonizedMetricsDatasetCollection:
     is_a: MetricsDatasetCollection
