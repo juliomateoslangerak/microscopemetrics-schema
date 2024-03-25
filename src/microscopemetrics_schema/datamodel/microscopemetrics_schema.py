@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-21T20:16:55
+# Generation date: 2024-03-25T10:39:07
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -367,7 +367,9 @@ class MetricsDatasetCollection(MetricsObject):
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.datasets):
             self.MissingRequiredField("datasets")
-        self._normalize_inlined_as_dict(slot_name="datasets", slot_type=MetricsDataset, key_name="microscope", keyed=False)
+        if not isinstance(self.datasets, list):
+            self.datasets = [self.datasets] if self.datasets is not None else []
+        self.datasets = [v if isinstance(v, MetricsDataset) else MetricsDataset(**as_dict(v)) for v in self.datasets]
 
         super().__post_init__(**kwargs)
 
