@@ -44,6 +44,7 @@ input:
     shape_z: 20
     shape_c: 4
     shape_t: 1
+    acquisition_datetime: "2024-01-15T00:00:00Z"
   spots_distance: 40.0
   saturation_threshold: 0.01
   sigma_z: 1.0
@@ -82,6 +83,7 @@ output:
     shape_z: 20
     shape_c: 4
     shape_t: 1
+    acquisition_datetime: "2024-01-15T00:00:00Z"
   spots_centers_of_mass:
   - name: centers_ch00
     description: "A description"

@@ -1829,6 +1829,11 @@
             "additionalProperties": false,
             "description": "A microscope-metrics image",
             "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "array_data": {
                     "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
@@ -1919,7 +1924,8 @@
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "acquisition_datetime"
             ],
             "title": "Image",
             "type": "object"
@@ -1928,6 +1934,11 @@
             "additionalProperties": false,
             "description": "A mask image. Either a binary image or a label image",
             "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "array_data": {
                     "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
@@ -2018,7 +2029,8 @@
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t"
+                "shape_t",
+                "acquisition_datetime"
             ],
             "title": "ImageMask",
             "type": "object"

@@ -300,19 +300,77 @@ classes:
   Image:
     is_a: MetricsObject
     description: A microscope-metrics image
-    slots:
-      - voxel_size_x_micron
-      - voxel_size_y_micron
-      - voxel_size_z_micron
-      - shape_x
-      - shape_y
-      - shape_z
-      - shape_c
-      - shape_t
-      - time_series
-      - channel_series
-      - source_images
-      - array_data
+    attributes:
+      voxel_size_x_micron:
+        range: float
+        description: The physical size in the voxel in the x dimension in microns
+        required: false
+        multivalued: false
+      voxel_size_y_micron:
+        range: float
+        description: The physical size in the voxel in the y dimension in microns
+        required: false
+        multivalued: false
+      voxel_size_z_micron:
+        range: float
+        description: The physical size in the voxel in the z dimension in microns
+        required: false
+        multivalued: false
+      shape_x:
+        range: integer
+        description: The shape of the image in the x dimension
+        required: true
+        multivalued: false
+      shape_y:
+        range: integer
+        description: The shape of the image in the y dimension
+        required: true
+        multivalued: false
+      shape_z:
+        range: integer
+        description: The shape of the image in the z dimension
+        required: true
+        multivalued: false
+        ifabsent: int(1)
+      shape_c:
+        range: integer
+        description: The shape of the image in the c dimension
+        required: true
+        multivalued: false
+        ifabsent: int(1)
+      shape_t:
+        range: integer
+        description: The shape of the image in the t dimension
+        required: true
+        multivalued: false
+        ifabsent: int(1)
+      time_series:
+        range: TimeSeries
+        implements:
+          - linkml:axis0
+        required: false
+      channel_series:
+        range: ChannelSeries
+        implements:
+          - linkml:axis4
+        required: false
+      acquisition_datetime:
+        range: datetime
+        description: The datetime of the acquisition
+        required: true
+        multivalued: false
+      source_images:
+        range: DataReference
+        description: A list of references linking to the images that were used as a source
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      array_data:
+        range: MetaObject
+        description: A non-required slot for non-serializable array data object
+        required: false
+        multivalued: false
 
   ImageMask:
     is_a: Image
@@ -711,79 +769,14 @@ slots:
     description: A human readable description of an entity
     required: false
     multivalued: false
-  array_data:
-    range: MetaObject
-    description: A non-required slot for non-serializable array data object
-    required: false
-    multivalued: false
   table_data:
     range: MetaObject
     description: A non-required slot for non-serializable table data object
     required: false
     multivalued: false
-  time_series:
-    range: TimeSeries
-    implements:
-      - linkml:axis0
-    required: false
-  channel_series:
-    range: ChannelSeries
-    implements:
-      - linkml:axis4
-    required: false
   column_series:
     range: ColumnSeries
     required: true
-  source_images:
-    range: DataReference
-    description: A list of references linking to the images that were used as a source
-    required: false
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-  shape_x:
-    range: integer
-    description: The shape of the image in the x dimension
-    required: true
-    multivalued: false
-  shape_y:
-    range: integer
-    description: The shape of the image in the y dimension
-    required: true
-    multivalued: false
-  shape_z:
-    range: integer
-    description: The shape of the image in the z dimension
-    required: true
-    multivalued: false
-    ifabsent: int(1)
-  shape_c:
-    range: integer
-    description: The shape of the image in the c dimension
-    required: true
-    multivalued: false
-    ifabsent: int(1)
-  shape_t:
-    range: integer
-    description: The shape of the image in the t dimension
-    required: true
-    multivalued: false
-    ifabsent: int(1)
-  voxel_size_x_micron:
-    range: float
-    description: The physical size in the voxel in the x dimension in microns
-    required: false
-    multivalued: false
-  voxel_size_y_micron:
-    range: float
-    description: The physical size in the voxel in the y dimension in microns
-    required: false
-    multivalued: false
-  voxel_size_z_micron:
-    range: float
-    description: The physical size in the voxel in the z dimension in microns
-    required: false
-    multivalued: false
   excitation_wavelength_nm:
     range: float
     description: The excitation wavelength in nm
@@ -869,7 +862,7 @@ enums:
         description: A dataset
       PROJECT:
         description: A project
-      GROUP:
+      EXPERIMENTERGROUP:
         description: A group
       TABLE:
         description: A table

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-25T10:39:07
+# Generation date: 2024-03-29T16:11:31
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -536,6 +536,7 @@ class Image(MetricsObject):
 
     shape_x: int = None
     shape_y: int = None
+    acquisition_datetime: Union[str, XSDDateTime] = None
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
@@ -573,6 +574,11 @@ class Image(MetricsObject):
         if not isinstance(self.shape_t, int):
             self.shape_t = int(self.shape_t)
 
+        if self._is_empty(self.acquisition_datetime):
+            self.MissingRequiredField("acquisition_datetime")
+        if not isinstance(self.acquisition_datetime, XSDDateTime):
+            self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
+
         if self.voxel_size_x_micron is not None and not isinstance(self.voxel_size_x_micron, float):
             self.voxel_size_x_micron = float(self.voxel_size_x_micron)
 
@@ -609,6 +615,7 @@ class ImageMask(Image):
 
     shape_x: int = None
     shape_y: int = None
+    acquisition_datetime: Union[str, XSDDateTime] = None
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
@@ -2542,47 +2549,11 @@ slots.name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="name",
 slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
-slots.array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.array_data, domain=None, range=Optional[Union[dict, MetaObject]])
-
 slots.table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
-slots.time_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/time_series'], name="time_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/time_series'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.time_series, domain=None, range=Optional[Union[dict, TimeSeries]])
-
-slots.channel_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_series'], name="channel_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_series'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_series, domain=None, range=Optional[Union[dict, ChannelSeries]])
-
 slots.column_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_series'], name="column_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_series'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.column_series, domain=None, range=Union[dict, ColumnSeries])
-
-slots.source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_images'], name="source_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_images'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.source_images, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
-
-slots.shape_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_x'], name="shape_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_x, domain=None, range=int)
-
-slots.shape_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_y'], name="shape_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_y, domain=None, range=int)
-
-slots.shape_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_z'], name="shape_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_z, domain=None, range=int)
-
-slots.shape_c = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_c'], name="shape_c", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_c'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_c, domain=None, range=int)
-
-slots.shape_t = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_t'], name="shape_t", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_t'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.shape_t, domain=None, range=int)
-
-slots.voxel_size_x_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_x_micron'], name="voxel_size_x_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_x_micron'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_x_micron, domain=None, range=Optional[float])
-
-slots.voxel_size_y_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_y_micron'], name="voxel_size_y_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_y_micron'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_y_micron, domain=None, range=Optional[float])
-
-slots.voxel_size_z_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_z_micron'], name="voxel_size_z_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_z_micron'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.voxel_size_z_micron, domain=None, range=Optional[float])
 
 slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/excitation_wavelength_nm'], name="excitation_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/excitation_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.excitation_wavelength_nm, domain=None, range=Optional[float])
@@ -3108,6 +3079,45 @@ slots.metricsOutput__errors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/err
 
 slots.metricsOutput__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="metricsOutput__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__comment, domain=None, range=Optional[Union[dict, Comment]])
+
+slots.image__voxel_size_x_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_x_micron'], name="image__voxel_size_x_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_x_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__voxel_size_x_micron, domain=None, range=Optional[float])
+
+slots.image__voxel_size_y_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_y_micron'], name="image__voxel_size_y_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_y_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__voxel_size_y_micron, domain=None, range=Optional[float])
+
+slots.image__voxel_size_z_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/voxel_size_z_micron'], name="image__voxel_size_z_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/voxel_size_z_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__voxel_size_z_micron, domain=None, range=Optional[float])
+
+slots.image__shape_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_x'], name="image__shape_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__shape_x, domain=None, range=int)
+
+slots.image__shape_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_y'], name="image__shape_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__shape_y, domain=None, range=int)
+
+slots.image__shape_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_z'], name="image__shape_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__shape_z, domain=None, range=int)
+
+slots.image__shape_c = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_c'], name="image__shape_c", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_c'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__shape_c, domain=None, range=int)
+
+slots.image__shape_t = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/shape_t'], name="image__shape_t", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/shape_t'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__shape_t, domain=None, range=int)
+
+slots.image__time_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/time_series'], name="image__time_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/time_series'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__time_series, domain=None, range=Optional[Union[dict, TimeSeries]])
+
+slots.image__channel_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_series'], name="image__channel_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_series'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__channel_series, domain=None, range=Optional[Union[dict, ChannelSeries]])
+
+slots.image__acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_datetime'], name="image__acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__acquisition_datetime, domain=None, range=Union[str, XSDDateTime])
+
+slots.image__source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_images'], name="image__source_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__source_images, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
+
+slots.image__array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="image__array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__array_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
 slots.channelSeries__channels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channels'], name="channelSeries__channels", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__channels, domain=None, range=Union[Union[dict, Channel], List[Union[dict, Channel]]])

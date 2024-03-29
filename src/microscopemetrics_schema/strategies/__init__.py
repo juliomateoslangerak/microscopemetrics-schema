@@ -256,6 +256,7 @@ def st_mm_image(
         st.integers(min_value=256, max_value=1024),  # X
         st.integers(min_value=1, max_value=5),  # C
     ),
+    acquisition_datetime=st.datetimes(),
     data=None,
 ) -> mm_schema.Image:
     metrics_object = draw(metrics_object)
@@ -289,6 +290,7 @@ def st_mm_image(
         shape_x=shape[3],
         shape_c=shape[4],
         array_data=data,
+        acquisition_datetime=draw(acquisition_datetime),
     )
 
 

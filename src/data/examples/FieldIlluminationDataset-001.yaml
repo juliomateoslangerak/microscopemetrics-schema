@@ -44,6 +44,7 @@ input:
     shape_z: 20
     shape_c: 3
     shape_t: 1
+    acquisition_datetime: "2024-01-15T00:00:00Z"
   bit_depth: 12
   saturation_threshold: 0.01
   corner_fraction: 0.1
@@ -194,6 +195,7 @@ output:
       shape_z: 1
       shape_c: 1
       shape_t: 1
+      acquisition_datetime: "2024-01-15T00:00:00Z"
       linked_objects:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"

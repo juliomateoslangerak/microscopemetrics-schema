@@ -454,20 +454,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "array_data",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/array_data",
-      "description": "A non-required slot for non-serializable array data object",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/array_data",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "MetaObject",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "table_data",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_data",
       "description": "A non-required slot for non-serializable table data object",
@@ -478,38 +464,6 @@
         "Table"
       ],
       "range": "MetaObject",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "time_series",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/time_series",
-      "implements": [
-        "linkml:axis0"
-      ],
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/time_series",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "TimeSeries",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "channel_series",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_series",
-      "implements": [
-        "linkml:axis4"
-      ],
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_series",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "ChannelSeries",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -525,134 +479,6 @@
       "range": "ColumnSeries",
       "required": true,
       "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "source_images",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_images",
-      "description": "A list of references linking to the images that were used as a source",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_images",
-      "multivalued": true,
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "DataReference",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape_x",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_x",
-      "description": "The shape of the image in the x dimension",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_x",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape_y",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_y",
-      "description": "The shape of the image in the y dimension",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_y",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape_z",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_z",
-      "description": "The shape of the image in the z dimension",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_z",
-      "ifabsent": "int(1)",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape_c",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_c",
-      "description": "The shape of the image in the c dimension",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_c",
-      "ifabsent": "int(1)",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape_t",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_t",
-      "description": "The shape of the image in the t dimension",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_t",
-      "ifabsent": "int(1)",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "voxel_size_x_micron",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_x_micron",
-      "description": "The physical size in the voxel in the x dimension in microns",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_x_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "voxel_size_y_micron",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_y_micron",
-      "description": "The physical size in the voxel in the y dimension in microns",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_y_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "voxel_size_z_micron",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_z_micron",
-      "description": "The physical size in the voxel in the z dimension in microns",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_z_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
       "@type": "SlotDefinition"
     },
     {
@@ -3182,6 +3008,194 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "image__voxel_size_x_micron",
+      "description": "The physical size in the voxel in the x dimension in microns",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_x_micron",
+      "alias": "voxel_size_x_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__voxel_size_y_micron",
+      "description": "The physical size in the voxel in the y dimension in microns",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_y_micron",
+      "alias": "voxel_size_y_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__voxel_size_z_micron",
+      "description": "The physical size in the voxel in the z dimension in microns",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/voxel_size_z_micron",
+      "alias": "voxel_size_z_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__shape_x",
+      "description": "The shape of the image in the x dimension",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_x",
+      "alias": "shape_x",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__shape_y",
+      "description": "The shape of the image in the y dimension",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_y",
+      "alias": "shape_y",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__shape_z",
+      "description": "The shape of the image in the z dimension",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_z",
+      "ifabsent": "int(1)",
+      "alias": "shape_z",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__shape_c",
+      "description": "The shape of the image in the c dimension",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_c",
+      "ifabsent": "int(1)",
+      "alias": "shape_c",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__shape_t",
+      "description": "The shape of the image in the t dimension",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/shape_t",
+      "ifabsent": "int(1)",
+      "alias": "shape_t",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__time_series",
+      "implements": [
+        "linkml:axis0"
+      ],
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/time_series",
+      "alias": "time_series",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "TimeSeries",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__channel_series",
+      "implements": [
+        "linkml:axis4"
+      ],
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/channel_series",
+      "alias": "channel_series",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "ChannelSeries",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__acquisition_datetime",
+      "description": "The datetime of the acquisition",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "alias": "acquisition_datetime",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "datetime",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__source_images",
+      "description": "A list of references linking to the images that were used as a source",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_images",
+      "multivalued": true,
+      "alias": "source_images",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "DataReference",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image__array_data",
+      "description": "A non-required slot for non-serializable array data object",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/array_data",
+      "alias": "array_data",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "MetaObject",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "channelSeries__channels",
       "implements": [
         "linkml:elements"
@@ -5248,20 +5262,117 @@
         "dataReference__omero_object_type",
         "dataReference__omero_object_id",
         "dataReference__linked_objects",
-        "voxel_size_x_micron",
-        "voxel_size_y_micron",
-        "voxel_size_z_micron",
-        "shape_x",
-        "shape_y",
-        "shape_z",
-        "shape_c",
-        "shape_t",
-        "time_series",
-        "channel_series",
-        "source_images",
-        "array_data"
+        "image__voxel_size_x_micron",
+        "image__voxel_size_y_micron",
+        "image__voxel_size_z_micron",
+        "image__shape_x",
+        "image__shape_y",
+        "image__shape_z",
+        "image__shape_c",
+        "image__shape_t",
+        "image__time_series",
+        "image__channel_series",
+        "image__acquisition_datetime",
+        "image__source_images",
+        "image__array_data"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "voxel_size_x_micron",
+          "description": "The physical size in the voxel in the x dimension in microns",
+          "range": "float",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "voxel_size_y_micron",
+          "description": "The physical size in the voxel in the y dimension in microns",
+          "range": "float",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "voxel_size_z_micron",
+          "description": "The physical size in the voxel in the z dimension in microns",
+          "range": "float",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "shape_x",
+          "description": "The shape of the image in the x dimension",
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "shape_y",
+          "description": "The shape of the image in the y dimension",
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "shape_z",
+          "description": "The shape of the image in the z dimension",
+          "ifabsent": "int(1)",
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "shape_c",
+          "description": "The shape of the image in the c dimension",
+          "ifabsent": "int(1)",
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "shape_t",
+          "description": "The shape of the image in the t dimension",
+          "ifabsent": "int(1)",
+          "range": "integer",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "time_series",
+          "implements": [
+            "linkml:axis0"
+          ],
+          "range": "TimeSeries",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "channel_series",
+          "implements": [
+            "linkml:axis4"
+          ],
+          "range": "ChannelSeries",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "acquisition_datetime",
+          "description": "The datetime of the acquisition",
+          "range": "datetime",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_images",
+          "description": "A list of references linking to the images that were used as a source",
+          "multivalued": true,
+          "range": "DataReference",
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "array_data",
+          "description": "A non-required slot for non-serializable array data object",
+          "range": "MetaObject",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image",
       "@type": "ClassDefinition"
     },
@@ -5280,18 +5391,19 @@
         "dataReference__omero_object_type",
         "dataReference__omero_object_id",
         "dataReference__linked_objects",
-        "voxel_size_x_micron",
-        "voxel_size_y_micron",
-        "voxel_size_z_micron",
-        "shape_x",
-        "shape_y",
-        "shape_z",
-        "shape_c",
-        "shape_t",
-        "time_series",
-        "channel_series",
-        "source_images",
-        "array_data"
+        "image__voxel_size_x_micron",
+        "image__voxel_size_y_micron",
+        "image__voxel_size_z_micron",
+        "image__shape_x",
+        "image__shape_y",
+        "image__shape_z",
+        "image__shape_c",
+        "image__shape_t",
+        "image__time_series",
+        "image__channel_series",
+        "image__acquisition_datetime",
+        "image__source_images",
+        "image__array_data"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/ImageMask",
@@ -6917,7 +7029,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-25T10:39:01",
+  "generation_date": "2024-03-29T16:11:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

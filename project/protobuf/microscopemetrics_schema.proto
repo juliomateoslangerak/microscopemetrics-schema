@@ -372,6 +372,7 @@ message Image
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
+  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
@@ -396,6 +397,7 @@ message ImageMask
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
+  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
