@@ -274,19 +274,6 @@
     Identifier and Mapping Information
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -317,7 +304,6 @@
 
 
 <h1 id="slot-acquisition_datetime">Slot: acquisition_datetime</h1>
-<p><em>The datetime of the acquisition</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/acquisition_datetime">microscopemetrics_schema:acquisition_datetime</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -347,6 +333,16 @@
 <td>no</td>
 </tr>
 <tr>
+<td><a href="../Image/">Image</a></td>
+<td>A microscope-metrics image</td>
+<td>no</td>
+</tr>
+<tr>
+<td><a href="../ImageMask/">ImageMask</a></td>
+<td>A mask image</td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../PSFBeadsDataset/">PSFBeadsDataset</a></td>
 <td>A PSF beads dataset</td>
 <td>no</td>
@@ -360,31 +356,18 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../datetime/">datetime</a></p>
-</li>
-<li>
-<p>Required: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
-</ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: acquisition_datetime
-description: The datetime of the acquisition
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-rank: 1000
-multivalued: false
 alias: acquisition_datetime
 domain_of:
 - MetricsDataset
-range: datetime
-required: true
+- Image
+range: string
 
 </code></pre>
 
