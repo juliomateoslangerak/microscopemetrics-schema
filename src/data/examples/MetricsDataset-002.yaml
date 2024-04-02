@@ -1,6 +1,7 @@
 name: "ExampleMetricsDataset"
 description: "This is an example MetricsDataset."
-data_uri: "https://example.org/metrics/1"
+data_reference:
+  data_uri: "https://omero.example.org/datasets/42"
 microscope:
   name: "My microscope"
   description: "A nice microscope"

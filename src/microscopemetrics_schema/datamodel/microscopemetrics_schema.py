@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-03-29T16:11:31
+# Generation date: 2024-04-02T14:40:05
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -92,7 +92,6 @@ class DataReference(YAMLRoot):
     omero_port: Optional[int] = None
     omero_object_type: Optional[Union[str, "OMEROObjectTypeEnum"]] = None
     omero_object_id: Optional[int] = None
-    linked_objects: Optional[Union[Union[dict, "DataReference"], List[Union[dict, "DataReference"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.data_uri is not None and not isinstance(self.data_uri, str):
@@ -109,10 +108,6 @@ class DataReference(YAMLRoot):
 
         if self.omero_object_id is not None and not isinstance(self.omero_object_id, int):
             self.omero_object_id = int(self.omero_object_id)
-
-        if not isinstance(self.linked_objects, list):
-            self.linked_objects = [self.linked_objects] if self.linked_objects is not None else []
-        self.linked_objects = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.linked_objects]
 
         super().__post_init__(**kwargs)
 
@@ -129,32 +124,16 @@ class MetricsObject(NamedObject):
     class_name: ClassVar[str] = "MetricsObject"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsObject
 
-    data_uri: Optional[str] = None
-    omero_host: Optional[str] = None
-    omero_port: Optional[int] = None
-    omero_object_type: Optional[Union[str, "OMEROObjectTypeEnum"]] = None
-    omero_object_id: Optional[int] = None
-    linked_objects: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
+    data_reference: Optional[Union[dict, DataReference]] = None
+    linked_references: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.data_uri is not None and not isinstance(self.data_uri, str):
-            self.data_uri = str(self.data_uri)
+        if self.data_reference is not None and not isinstance(self.data_reference, DataReference):
+            self.data_reference = DataReference(**as_dict(self.data_reference))
 
-        if self.omero_host is not None and not isinstance(self.omero_host, str):
-            self.omero_host = str(self.omero_host)
-
-        if self.omero_port is not None and not isinstance(self.omero_port, int):
-            self.omero_port = int(self.omero_port)
-
-        if self.omero_object_type is not None and not isinstance(self.omero_object_type, OMEROObjectTypeEnum):
-            self.omero_object_type = OMEROObjectTypeEnum(self.omero_object_type)
-
-        if self.omero_object_id is not None and not isinstance(self.omero_object_id, int):
-            self.omero_object_id = int(self.omero_object_id)
-
-        if not isinstance(self.linked_objects, list):
-            self.linked_objects = [self.linked_objects] if self.linked_objects is not None else []
-        self.linked_objects = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.linked_objects]
+        if not isinstance(self.linked_references, list):
+            self.linked_references = [self.linked_references] if self.linked_references is not None else []
+        self.linked_references = [v if isinstance(v, DataReference) else DataReference(**as_dict(v)) for v in self.linked_references]
 
         super().__post_init__(**kwargs)
 
@@ -729,11 +708,11 @@ class Column(NamedObject):
     class_name: ClassVar[str] = "Column"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Column
 
-    source_object: Optional[Union[dict, DataReference]] = None
+    source_reference: Optional[Union[dict, DataReference]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.source_object is not None and not isinstance(self.source_object, DataReference):
-            self.source_object = DataReference(**as_dict(self.source_object))
+        if self.source_reference is not None and not isinstance(self.source_reference, DataReference):
+            self.source_reference = DataReference(**as_dict(self.source_reference))
 
         super().__post_init__(**kwargs)
 
@@ -2521,8 +2500,8 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     PROJECT = PermissibleValue(
         text="PROJECT",
         description="A project")
-    GROUP = PermissibleValue(
-        text="GROUP",
+    EXPERIMENTERGROUP = PermissibleValue(
+        text="EXPERIMENTERGROUP",
         description="A group")
     TABLE = PermissibleValue(
         text="TABLE",
@@ -2975,8 +2954,11 @@ slots.dataReference__omero_object_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core
 slots.dataReference__omero_object_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/omero_object_id'], name="dataReference__omero_object_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/omero_object_id'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__omero_object_id, domain=None, range=Optional[int])
 
-slots.dataReference__linked_objects = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/linked_objects'], name="dataReference__linked_objects", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/linked_objects'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__linked_objects, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
+slots.metricsObject__data_reference = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_reference'], name="metricsObject__data_reference", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_reference'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__data_reference, domain=None, range=Optional[Union[dict, DataReference]])
+
+slots.metricsObject__linked_references = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/linked_references'], name="metricsObject__linked_references", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/linked_references'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsObject__linked_references, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])
 
 slots.microscopeCollection__microscopes = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscopes'], name="microscopeCollection__microscopes", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscopes'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.microscopeCollection__microscopes, domain=None, range=Union[Union[dict, Microscope], List[Union[dict, Microscope]]])
@@ -3128,8 +3110,8 @@ slots.timeSeries__values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/values
 slots.columnSeries__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/columns'], name="columnSeries__columns", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/columns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.columnSeries__columns, domain=None, range=Union[Union[dict, Column], List[Union[dict, Column]]])
 
-slots.column__source_object = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_object'], name="column__source_object", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_object'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__source_object, domain=None, range=Optional[Union[dict, DataReference]])
+slots.column__source_reference = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_reference'], name="column__source_reference", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_reference'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.column__source_reference, domain=None, range=Optional[Union[dict, DataReference]])
 
 slots.roi__points = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/points'], name="roi__points", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/points'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roi__points, domain=None, range=Optional[Union[Union[dict, Point], List[Union[dict, Point]]]])

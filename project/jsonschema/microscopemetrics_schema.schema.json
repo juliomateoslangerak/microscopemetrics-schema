@@ -4,9 +4,9 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -26,8 +26,8 @@
                     },
                     "type": "array"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -43,22 +43,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "points": {
                     "description": "A list of points included in the ROI",
@@ -104,9 +88,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -119,8 +103,8 @@
                 "input": {
                     "$ref": "#/$defs/ArgolightBInput"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -133,22 +117,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "output": {
                     "$ref": "#/$defs/ArgolightBOutput"
@@ -195,16 +163,16 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -255,22 +223,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "std_3d_dist": {
                     "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
@@ -374,9 +326,9 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -410,8 +362,8 @@
                     },
                     "type": "array"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -455,22 +407,6 @@
                         "type": "integer"
                     },
                     "type": "array"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "std_mean_intensity": {
                     "description": "Standard deviation of all spots integrated intensity for each channel",
@@ -590,9 +526,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -605,8 +541,8 @@
                 "input": {
                     "$ref": "#/$defs/ArgolightEInput"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -619,22 +555,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "output": {
                     "$ref": "#/$defs/ArgolightEOutput"
@@ -724,9 +644,9 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -740,8 +660,8 @@
                     },
                     "type": "array"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -750,22 +670,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "peak_height_A": {
                     "description": "Height of first peak in the intensity profiles. One value per channel",
@@ -993,7 +897,7 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "source_object": {
+                "source_reference": {
                     "$ref": "#/$defs/DataReference",
                     "description": "The source object of the column"
                 }
@@ -1057,6 +961,34 @@
             ],
             "title": "CommentTypesEnum",
             "type": "string"
+        },
+        "DataReference": {
+            "additionalProperties": false,
+            "description": "A reference to a data resource",
+            "properties": {
+                "data_uri": {
+                    "description": "The URI of the object data",
+                    "type": "string"
+                },
+                "omero_host": {
+                    "description": "The host of the OMERO server",
+                    "type": "string"
+                },
+                "omero_object_id": {
+                    "description": "The ID of the OMERO object",
+                    "type": "integer"
+                },
+                "omero_object_type": {
+                    "$ref": "#/$defs/OMEROObjectTypeEnum",
+                    "description": "The type of the OMERO object"
+                },
+                "omero_port": {
+                    "description": "The port of the OMERO server",
+                    "type": "integer"
+                }
+            },
+            "title": "DataReference",
+            "type": "object"
         },
         "Ellipse": {
             "additionalProperties": false,
@@ -1159,9 +1091,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -1174,8 +1106,8 @@
                 "input": {
                     "$ref": "#/$defs/FieldIlluminationInput"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -1188,22 +1120,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "output": {
                     "$ref": "#/$defs/FieldIlluminationOutput"
@@ -1478,16 +1394,16 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -1586,22 +1502,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
@@ -1771,9 +1671,9 @@
             "additionalProperties": false,
             "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
             "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "dataset_class": {
                     "description": "The class of the datasets in the collection",
@@ -1790,8 +1690,8 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -1800,22 +1700,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 }
             },
             "required": [
@@ -1841,16 +1725,16 @@
                 "channel_series": {
                     "$ref": "#/$defs/ChannelSeries"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -1859,22 +1743,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -1946,16 +1814,16 @@
                 "channel_series": {
                     "$ref": "#/$defs/ChannelSeries"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -1964,22 +1832,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -2184,9 +2036,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -2200,8 +2052,8 @@
                     "$ref": "#/$defs/MetricsInput",
                     "description": "The input of the analysis"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -2214,22 +2066,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "output": {
                     "$ref": "#/$defs/MetricsOutput",
@@ -2264,9 +2100,9 @@
             "additionalProperties": false,
             "description": "A collection of microscope-metrics datasets",
             "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "datasets": {
                     "description": "The datasets of the collection",
@@ -2279,8 +2115,8 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -2289,22 +2125,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 }
             },
             "required": [
@@ -2324,16 +2144,16 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -2350,22 +2170,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "serial_number": {
                     "description": "The serial number of the microscope",
@@ -2415,7 +2219,7 @@
                 "IMAGE",
                 "DATASET",
                 "PROJECT",
-                "GROUP",
+                "EXPERIMENTERGROUP",
                 "TABLE",
                 "KEY_VALUES",
                 "ROI"
@@ -2442,9 +2246,9 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -2457,8 +2261,8 @@
                 "input": {
                     "$ref": "#/$defs/PSFBeadsInput"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -2471,22 +2275,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "output": {
                     "$ref": "#/$defs/PSFBeadsOutput"
@@ -2594,9 +2382,9 @@
                     },
                     "type": "array"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -2665,8 +2453,8 @@
                     },
                     "type": "array"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -2731,22 +2519,6 @@
                         "type": "integer"
                     },
                     "type": "array"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "resolution_mean_fwhm_lateral_asymmetry_ratio": {
                     "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
@@ -3251,9 +3023,9 @@
             "additionalProperties": false,
             "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
             "properties": {
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -3273,8 +3045,8 @@
                     },
                     "type": "array"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -3290,22 +3062,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "points": {
                     "description": "A list of points included in the ROI",
@@ -3367,16 +3123,16 @@
                 "column_series": {
                     "$ref": "#/$defs/ColumnSeries"
                 },
-                "data_uri": {
-                    "description": "The URI of the object data",
-                    "type": "string"
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "linked_objects": {
-                    "description": "A list of linked objects",
+                "linked_references": {
+                    "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
@@ -3385,22 +3141,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "omero_host": {
-                    "description": "The host of the OMERO server",
-                    "type": "string"
-                },
-                "omero_object_id": {
-                    "description": "The ID of the OMERO object",
-                    "type": "integer"
-                },
-                "omero_object_type": {
-                    "$ref": "#/$defs/OMEROObjectTypeEnum",
-                    "description": "The type of the OMERO object"
-                },
-                "omero_port": {
-                    "description": "The port of the OMERO server",
-                    "type": "integer"
                 },
                 "table_data": {
                     "$ref": "#/$defs/MetaObject",
@@ -3472,9 +3212,9 @@
             "format": "date-time",
             "type": "string"
         },
-        "data_uri": {
-            "description": "The URI of the object data",
-            "type": "string"
+        "data_reference": {
+            "$ref": "#/$defs/DataReference",
+            "description": "A reference to the data"
         },
         "description": {
             "description": "A human readable description of an entity",
@@ -3488,8 +3228,8 @@
             "$ref": "#/$defs/MetricsInput",
             "description": "The input of the analysis"
         },
-        "linked_objects": {
-            "description": "A list of linked objects",
+        "linked_references": {
+            "description": "A list of linked references",
             "items": {
                 "$ref": "#/$defs/DataReference"
             },
@@ -3502,22 +3242,6 @@
         "name": {
             "description": "The human readable name of an entity",
             "type": "string"
-        },
-        "omero_host": {
-            "description": "The host of the OMERO server",
-            "type": "string"
-        },
-        "omero_object_id": {
-            "description": "The ID of the OMERO object",
-            "type": "integer"
-        },
-        "omero_object_type": {
-            "$ref": "#/$defs/OMEROObjectTypeEnum",
-            "description": "The type of the OMERO object"
-        },
-        "omero_port": {
-            "description": "The port of the OMERO server",
-            "type": "integer"
         },
         "output": {
             "$ref": "#/$defs/MetricsOutput",

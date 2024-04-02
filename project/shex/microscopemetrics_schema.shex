@@ -333,7 +333,7 @@ CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column_tes> ( 
           &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_object>
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_reference>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ?
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Column> ] ?
@@ -363,7 +363,7 @@ CLOSED {
     )
 }
 
-<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> {
+<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference_tes> ( 
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/data_uri> @linkml:String ? ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_host> @linkml:String ? ;
@@ -372,13 +372,11 @@ CLOSED {
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP>
+             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#EXPERIMENTERGROUP>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#TABLE>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#KEY_VALUES>
              <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#ROI> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_objects>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> *
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ?
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ] ?
     )
@@ -789,21 +787,9 @@ CLOSED {
     (  $<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject_tes> ( 
           &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/NamedObject> ] ? ;
-          &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference_tes> ;
-          rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/data_uri> @linkml:String ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_host> @linkml:String ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_port> @linkml:Integer ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_type> [
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#GROUP>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#TABLE>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#KEY_VALUES>
-             <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#ROI> ] ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/omero_object_id> @linkml:Integer ? ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_objects>
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/data_reference>
+          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> ? ;
+          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_references>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference> *
        ) ;
        rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject> ] ?

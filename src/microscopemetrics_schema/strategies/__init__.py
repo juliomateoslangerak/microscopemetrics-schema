@@ -1,6 +1,4 @@
 from hypothesis import strategies as st
-from hypothesis import assume
-from dataclasses import fields
 
 from ..datamodel import microscopemetrics_schema as mm_schema
 
@@ -35,15 +33,10 @@ def st_mm_metrics_object(
     ),
     data_reference=st_mm_data_reference(),
 ) -> mm_schema.MetricsObject:
-    data_reference = draw(data_reference)
     return mm_schema.MetricsObject(
         name=draw(name),
         description=draw(description),
-        data_uri=data_reference.data_uri,
-        omero_host=data_reference.omero_host,
-        omero_port=data_reference.omero_port,
-        omero_object_type=data_reference.omero_object_type,
-        omero_object_id=data_reference.omero_object_id,
+        data_reference=draw(data_reference),
     )
 
 
@@ -61,16 +54,13 @@ def st_mm_microscope(
     serial_number=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
+    data_reference=st_mm_data_reference(),
 ) -> mm_schema.Microscope:
     metrics_object = draw(metrics_object)
     return mm_schema.Microscope(
         name=metrics_object.name,
         description=metrics_object.description,
-        data_uri=metrics_object.data_uri,
-        omero_host=metrics_object.omero_host,
-        omero_port=metrics_object.omero_port,
-        omero_object_type=metrics_object.omero_object_type,
-        omero_object_id=metrics_object.omero_object_id,
+        data_reference=draw(data_reference),
         type=draw(type),
         manufacturer=draw(manufacturer),
         model=draw(model),
@@ -210,11 +200,7 @@ def st_mm_dataset(
         return mm_schema.MetricsDataset(
             name=metrics_object.name,
             description=metrics_object.description,
-            data_uri=metrics_object.data_uri,
-            omero_host=metrics_object.omero_host,
-            omero_port=metrics_object.omero_port,
-            omero_object_type=metrics_object.omero_object_type,
-            omero_object_id=metrics_object.omero_object_id,
+            data_reference=metrics_object.data_reference,
             microscope=draw(microscope),
             sample=draw(sample),
             experimenter=draw(experimenter),
@@ -227,11 +213,7 @@ def st_mm_dataset(
         return target_class(
             name=metrics_object.name,
             description=metrics_object.description,
-            data_uri=metrics_object.data_uri,
-            omero_host=metrics_object.omero_host,
-            omero_port=metrics_object.omero_port,
-            omero_object_type=metrics_object.omero_object_type,
-            omero_object_id=metrics_object.omero_object_id,
+            data_reference=metrics_object.data_reference,
             microscope=draw(microscope),
             sample=draw(sample),
             experimenter=draw(experimenter),
@@ -276,11 +258,7 @@ def st_mm_image(
     return mm_schema.Image(
         name=metrics_object.name,
         description=metrics_object.description,
-        data_uri=metrics_object.data_uri,
-        omero_host=metrics_object.omero_host,
-        omero_port=metrics_object.omero_port,
-        omero_object_type=metrics_object.omero_object_type,
-        omero_object_id=metrics_object.omero_object_id,
+        data_reference=metrics_object.data_reference,
         voxel_size_x_micron=voxel_size_xy_micron,
         voxel_size_y_micron=voxel_size_xy_micron,
         voxel_size_z_micron=draw(voxel_size_z_micron),
@@ -528,16 +506,12 @@ def st_mm_roi(
     shapes = draw(shapes)
     metrics_object = draw(metrics_object)
     images = draw(images)
-    image_links = [mm_schema.DataReference(data_uri=image.data_uri) for image in images]
+    image_links = [image.data_reference for image in images]
     return mm_schema.Roi(
         name=metrics_object.name,
         description=metrics_object.description,
-        data_uri=metrics_object.data_uri,
-        omero_host=metrics_object.omero_host,
-        omero_port=metrics_object.omero_port,
-        omero_object_type=metrics_object.omero_object_type,
-        omero_object_id=metrics_object.omero_object_id,
-        linked_objects=image_links,
+        data_reference=metrics_object.data_reference,
+        linked_references=image_links,
         points=[shape for shape in shapes if isinstance(shape, mm_schema.Point)],
         lines=[shape for shape in shapes if isinstance(shape, mm_schema.Line)],
         rectangles=[shape for shape in shapes if isinstance(shape, mm_schema.Rectangle)],
@@ -558,15 +532,11 @@ def st_mm_key_values(
 ) -> mm_schema.KeyValues:
     metrics_object = draw(metrics_object)
     key_values = draw(key_values)
+    # NOTE: key values cannot be added arbitrarily as they are not part of the schema
     return mm_schema.KeyValues(
         name=metrics_object.name,
         description=metrics_object.description,
-        data_uri=metrics_object.data_uri,
-        omero_host=metrics_object.omero_host,
-        omero_port=metrics_object.omero_port,
-        omero_object_type=metrics_object.omero_object_type,
-        omero_object_id=metrics_object.omero_object_id,
-        # TODO: Add a check for the key_values
+        data_reference=metrics_object.data_reference,
     )
 
 
@@ -579,11 +549,7 @@ def st_mm_tag(
     return mm_schema.Tag(
         name=metrics_object.name,
         description=metrics_object.description,
-        data_uri=metrics_object.data_uri,
-        omero_host=metrics_object.omero_host,
-        omero_port=metrics_object.omero_port,
-        omero_object_type=metrics_object.omero_object_type,
-        omero_object_id=metrics_object.omero_object_id,
+        data_reference=metrics_object.data_reference,
     )
 
 

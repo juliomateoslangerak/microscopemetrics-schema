@@ -2,12 +2,8 @@ type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     points: [Point]
     lines: [Line]
     rectangles: [Rectangle]
@@ -20,12 +16,8 @@ type ArgolightBDataset
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     microscope: Microscope!
     sample: Sample
     experimenter: Experimenter
@@ -39,12 +31,8 @@ type ArgolightBDistanceKeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     channelA: [Integer]
     channelB: [Integer]
     mean3dDist: [Float]
@@ -75,12 +63,8 @@ type ArgolightBIntensityKeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     channelNr: [Integer]
     nrOfSpots: [Integer]
     intensityMaxSpot: [Float]
@@ -116,12 +100,8 @@ type ArgolightEDataset
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     microscope: Microscope!
     sample: Sample
     experimenter: Experimenter
@@ -145,12 +125,8 @@ type ArgolightEKeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     channelNr: [Integer]
     focusSlice: [Integer]
     rayleighResolutionPixels: [Float]
@@ -219,7 +195,7 @@ type Column
   {
     name: String
     description: String
-    sourceObject: DataReference
+    sourceReference: DataReference
   }
 
 type ColumnSeries
@@ -235,14 +211,13 @@ type Comment
     text: String!
   }
 
-interface DataReference
+type DataReference
   {
     dataUri: String
     omeroHost: String
     omeroPort: Integer
     omeroObjectType: OMEROObjectTypeEnum
     omeroObjectId: Integer
-    linkedObjects: [DataReference]
   }
 
 type Ellipse
@@ -271,12 +246,8 @@ type FieldIlluminationDataset
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     microscope: Microscope!
     sample: Sample
     experimenter: Experimenter
@@ -300,12 +271,8 @@ type FieldIlluminationKeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     channelName: [String]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
@@ -375,12 +342,8 @@ type HarmonizedMetricsDatasetCollection
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     datasets: [MetricsDataset]!
     datasetClass: String!
   }
@@ -389,12 +352,8 @@ type Image
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -414,12 +373,8 @@ type ImageMask
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -439,12 +394,8 @@ interface KeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
   }
 
 type Line
@@ -486,12 +437,8 @@ type MetricsDataset
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     microscope: Microscope!
     sample: Sample
     experimenter: Experimenter
@@ -505,12 +452,8 @@ type MetricsDatasetCollection
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     datasets: [MetricsDataset]!
   }
 
@@ -518,16 +461,12 @@ interface MetricsInput
   {
   }
 
-type MetricsObject implements DataReference
+interface MetricsObject
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
   }
 
 interface MetricsOutput
@@ -546,12 +485,8 @@ type Microscope
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     type: MicroscopeTypeEnum
     manufacturer: String
     model: String
@@ -616,12 +551,8 @@ type PSFBeadsDataset
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     microscope: Microscope!
     sample: Sample
     experimenter: Experimenter
@@ -649,12 +580,8 @@ type PSFBeadsKeyValues
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
     nrOfBeadsDiscardedLateralEdge: [Integer]
@@ -742,12 +669,8 @@ type Roi
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     points: [Point]
     lines: [Line]
     rectangles: [Rectangle]
@@ -785,24 +708,16 @@ type Table
   {
     name: String
     description: String
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     columnSeries: ColumnSeries!
     tableData: MetaObject
   }
 
 interface Tag
   {
-    dataUri: String
-    omeroHost: String
-    omeroPort: Integer
-    omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
-    linkedObjects: [DataReference]
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     description: String
     name: String!
   }

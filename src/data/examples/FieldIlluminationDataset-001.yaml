@@ -1,10 +1,11 @@
 name: "ExampleFieldIlluminationDataset"
 description: "Description of the example dataset."
-data_uri: "https://omero.example.org/datasets/42"
-omero_host: "omero.example.org"
-omero_port: 4064
-omero_object_type: "DATASET"
-omero_object_id: 42
+data_reference:
+  data_uri: "https://omero.example.org/datasets/42"
+  omero_host: "omero.example.org"
+  omero_port: 4064
+  omero_object_type: "DATASET"
+  omero_object_id: 42
 microscope:
   name: "My microscope"
   description: "A nice microscope"
@@ -31,11 +32,12 @@ processed: true
 input:
   field_illumination_image:
     name: "ExampleImage"
-    data_uri: "https://omero.example.org/image/420"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "IMAGE"
-    omero_object_id: 420
+    data_reference:
+      data_uri: "https://omero.example.org/image/420"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "IMAGE"
+      omero_object_id: 420
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -67,11 +69,12 @@ output:
     comment_type: "OTHER"
     text: "This dataset is for testing purposes only."
   key_values:
-    data_uri: "https://omero.example.org/datasets/430000000"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "KEY_VALUES"
-    omero_object_id: 430000000
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/430000000"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "KEY_VALUES"
+      omero_object_id: 430000000
     channel_name:
     - DAPI
     center_region_intensity_fraction:
@@ -159,44 +162,46 @@ output:
   intensity_profiles:
     - name: intensity_profiles
       description: "Intensity profiles"
-      data_uri: "https://omero.example.org/datasets/4200"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "TABLE"
-      omero_object_id: 4200
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/4200"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "TABLE"
+        omero_object_id: 4200
       column_series:
         columns:
           - name: ch00_leftTop_to_rightBottom
             description: "Intensity profile from top left to bottom right"
-            source_object:
+            source_reference:
               data_uri: "https://omero.example.org/datasets/42000"
           - name: ch00_leftBottom_to_rightTop
             description: "Intensity profile from bottom left to top right"
-            source_object:
+            source_reference:
               data_uri: "https://omero.example.org/datasets/42000"
           - name: ch00_center_horizontal
             description: "Intensity profile from center horizontal"
-            source_object:
+            source_reference:
               data_uri: "https://omero.example.org/datasets/42000"
           - name: ch00_center_vertical
             description: "Intensity profile from center vertical"
-            source_object:
+            source_reference:
               data_uri: "https://omero.example.org/datasets/42000"
   intensity_maps:
     - name: image_name_intensity_map
       description: Intensity map of image_name
-      data_uri: "https://omero.example.org/datasets/42000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "IMAGE"
-      omero_object_id: 42000
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/42000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "IMAGE"
+        omero_object_id: 42000
       shape_x: 64
       shape_y: 64
       shape_z: 1
       shape_c: 1
       shape_t: 1
       acquisition_datetime: "2024-01-15T00:00:00Z"
-      linked_objects:
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064
@@ -206,12 +211,13 @@ output:
   roi_profiles:
     - name: Intensity profiles ROI
       description: ROIs used to compute the intensity profiles
-      data_uri: "https://omero.example.org/datasets/420000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "ROI"
-      omero_object_id: 420000
-      linked_objects:
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/420000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "ROI"
+        omero_object_id: 420000
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064
@@ -265,12 +271,13 @@ output:
   roi_corners:
     name: Corner ROIs
     description: ROIs used to compute the corner intensities
-    data_uri: "https://omero.example.org/datasets/4200000"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "ROI"
-    omero_object_id: 4200000
-    linked_objects:
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/4200000"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "ROI"
+      omero_object_id: 4200000
+    linked_references:
       - data_uri: "https://omero.example.org/image/420"
         omero_host: "omero.example.org"
         omero_port: 4064
@@ -379,12 +386,13 @@ output:
   roi_centers_of_mass:
     - name: Weighted centers ROIs
       description: Detected centers of illumination
-      data_uri: "https://omero.example.org/datasets/42000000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "ROI"
-      omero_object_id: 42000000
-      linked_objects:
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/42000000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "ROI"
+        omero_object_id: 42000000
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064
@@ -424,12 +432,13 @@ output:
   roi_centers_geometric:
     - name: Geometric centers ROIs
       description: Detected centers of illumination
-      data_uri: "https://omero.example.org/datasets/420000000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "ROI"
-      omero_object_id: 420000000
-      linked_objects:
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/420000000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "ROI"
+        omero_object_id: 420000000
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064
@@ -469,12 +478,13 @@ output:
   roi_centers_fitted:
     - name: Fitted centers ROIs
       description: Detected centers of illumination
-      data_uri: "https://omero.example.org/datasets/4200000000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "ROI"
-      omero_object_id: 4200000000
-      linked_objects:
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/4200000000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "ROI"
+        omero_object_id: 4200000000
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064
@@ -514,12 +524,13 @@ output:
   roi_centers_max_intensity:
     - name: max intensity centers ROIs
       description: Detected centers of illumination
-      data_uri: "https://omero.example.org/datasets/42000000000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "ROI"
-      omero_object_id: 42000000000
-      linked_objects:
+      data_reference:
+        data_uri: "https://omero.example.org/datasets/42000000000"
+        omero_host: "omero.example.org"
+        omero_port: 4064
+        omero_object_type: "ROI"
+        omero_object_id: 42000000000
+      linked_references:
         - data_uri: "https://omero.example.org/image/420"
           omero_host: "omero.example.org"
           omero_port: 4064

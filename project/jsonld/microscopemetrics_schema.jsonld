@@ -408,7 +408,7 @@
           "description": "A project"
         },
         {
-          "text": "GROUP",
+          "text": "EXPERIMENTERGROUP",
           "description": "A group"
         },
         {
@@ -2511,15 +2511,29 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "dataReference__linked_objects",
-      "description": "A list of linked objects",
+      "name": "metricsObject__data_reference",
+      "description": "A reference to the data",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_objects",
-      "multivalued": true,
-      "alias": "linked_objects",
-      "owner": "DataReference",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/data_reference",
+      "alias": "data_reference",
+      "owner": "MetricsObject",
       "domain_of": [
-        "DataReference"
+        "MetricsObject"
+      ],
+      "range": "DataReference",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "metricsObject__linked_references",
+      "description": "A list of linked references",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/linked_references",
+      "multivalued": true,
+      "alias": "linked_references",
+      "owner": "MetricsObject",
+      "domain_of": [
+        "MetricsObject"
       ],
       "range": "DataReference",
       "inlined": true,
@@ -3253,11 +3267,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "column__source_object",
+      "name": "column__source_reference",
       "description": "The source object of the column",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_object",
-      "alias": "source_object",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/source_reference",
+      "alias": "source_reference",
       "owner": "Column",
       "domain_of": [
         "Column"
@@ -4678,14 +4692,12 @@
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference",
       "description": "A reference to a data resource",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "mixin": true,
       "slots": [
         "dataReference__data_uri",
         "dataReference__omero_host",
         "dataReference__omero_port",
         "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects"
+        "dataReference__omero_object_id"
       ],
       "slot_usage": {},
       "attributes": [
@@ -4718,15 +4730,6 @@
           "description": "The ID of the OMERO object",
           "range": "integer",
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "linked_objects",
-          "description": "A list of linked objects",
-          "multivalued": true,
-          "range": "DataReference",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/DataReference",
@@ -4751,20 +4754,30 @@
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
       "is_a": "NamedObject",
       "abstract": true,
-      "mixins": [
-        "DataReference"
-      ],
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects"
+        "metricsObject__data_reference",
+        "metricsObject__linked_references"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "data_reference",
+          "description": "A reference to the data",
+          "range": "DataReference",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "linked_references",
+          "description": "A list of linked references",
+          "multivalued": true,
+          "range": "DataReference",
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsObject",
       "@type": "ClassDefinition"
     },
@@ -4799,12 +4812,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "microscope__type",
         "microscope__manufacturer",
         "microscope__model",
@@ -5003,12 +5012,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDatasetCollection__datasets"
       ],
       "slot_usage": {},
@@ -5036,12 +5041,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDatasetCollection__datasets",
         "harmonizedMetricsDatasetCollection__dataset_class"
       ],
@@ -5067,12 +5068,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
@@ -5256,12 +5253,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "image__voxel_size_x_micron",
         "image__voxel_size_y_micron",
         "image__voxel_size_z_micron",
@@ -5385,12 +5378,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "image__voxel_size_x_micron",
         "image__voxel_size_y_micron",
         "image__voxel_size_z_micron",
@@ -5519,12 +5508,12 @@
       "slots": [
         "name",
         "description",
-        "column__source_object"
+        "column__source_reference"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "source_object",
+          "name": "source_reference",
           "description": "The source object of the column",
           "range": "DataReference",
           "@type": "SlotDefinition"
@@ -5542,12 +5531,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "roi__points",
         "roi__lines",
         "roi__rectangles",
@@ -6137,12 +6122,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects"
+        "metricsObject__data_reference",
+        "metricsObject__linked_references"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/KeyValues",
@@ -6156,12 +6137,8 @@
       "is_a": "MetricsObject",
       "abstract": true,
       "slots": [
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "tag__description",
         "Tag_name"
       ],
@@ -6186,12 +6163,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "column_series",
         "table_data"
       ],
@@ -6208,12 +6181,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
@@ -6358,12 +6327,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "channel_name",
         "center_region_intensity_fraction",
         "center_region_area_fraction",
@@ -6420,12 +6385,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
@@ -6635,12 +6596,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "channel_nr",
         "nr_of_beads_analyzed",
         "nr_of_beads_discarded_lateral_edge",
@@ -6694,12 +6651,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
@@ -6820,12 +6773,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "roi__points",
         "roi__lines",
         "roi__rectangles",
@@ -6845,12 +6794,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "channel_nr",
         "nr_of_spots",
         "intensity_max_spot",
@@ -6875,12 +6820,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "channel_A",
         "channel_B",
         "mean_3d_dist",
@@ -6905,12 +6846,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "metricsDataset__microscope",
         "metricsDataset__sample",
         "metricsDataset__experimenter",
@@ -7003,12 +6940,8 @@
       "slots": [
         "name",
         "description",
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id",
-        "dataReference__linked_objects",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "channel_nr",
         "focus_slice",
         "rayleigh_resolution_pixels",
@@ -7029,7 +6962,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-03-29T16:11:25",
+  "generation_date": "2024-04-02T14:39:59",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

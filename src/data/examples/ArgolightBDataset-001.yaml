@@ -1,10 +1,11 @@
 name: an analysis
 description: a description
-data_uri: "https://omero.example.org/datasets/42"
-omero_host: "omero.example.org"
-omero_port: 4064
-omero_object_type: "DATASET"
-omero_object_id: 42
+data_reference:
+  data_uri: "https://omero.example.org/datasets/42"
+  omero_host: "omero.example.org"
+  omero_port: 4064
+  omero_object_type: "DATASET"
+  omero_object_id: 42
 microscope:
   name: "My microscope"
   description: "A nice microscope"
@@ -31,11 +32,12 @@ processed: true
 input:
   argolight_b_image:
     name: "ExampleImage1"
-    data_uri: "https://omero.example.org/image/420"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "IMAGE"
-    omero_object_id: 420
+    data_reference:
+      data_uri: "https://omero.example.org/image/420"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "IMAGE"
+      omero_object_id: 420
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -70,11 +72,12 @@ output:
   spots_labels_image:
     name: "ExampleImage2"
     description: "A description"
-    data_uri: "https://omero.example.org/image/4200"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "IMAGE"
-    omero_object_id: 4200
+    data_reference:
+      data_uri: "https://omero.example.org/image/4200"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "IMAGE"
+      omero_object_id: 4200
     voxel_size_x_micron: 0.1
     voxel_size_y_micron: 0.1
     voxel_size_z_micron: 0.5
@@ -87,12 +90,13 @@ output:
   spots_centers_of_mass:
   - name: centers_ch00
     description: "A description"
-    data_uri: "https://omero.example.org/datasets/42000000"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "ROI"
-    omero_object_id: 42000000
-    linked_objects:
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/42000000"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "ROI"
+      omero_object_id: 42000000
+    linked_references:
       - data_uri: "https://omero.example.org/image/420"
         omero_host: "omero.example.org"
         omero_port: 4064
@@ -118,12 +122,13 @@ output:
         y: 331.52382367429965
         x: 565.8485400820957
   - name: centers_ch01
-    data_uri: "https://omero.example.org/datasets/42000001"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "ROI"
-    omero_object_id: 42000001
-    linked_objects:
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/42000001"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "ROI"
+      omero_object_id: 42000001
+    linked_references:
       - data_uri: "https://omero.example.org/image/420"
         omero_host: "omero.example.org"
         omero_port: 4064
@@ -149,12 +154,13 @@ output:
         y: 331.3135843290152
         x: 939.0926222226675
   - name: centers_ch02
-    data_uri: "https://omero.example.org/datasets/42000002"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "ROI"
-    omero_object_id: 42000002
-    linked_objects:
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/42000002"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "ROI"
+      omero_object_id: 42000002
+    linked_references:
       - data_uri: "https://omero.example.org/image/420"
         omero_host: "omero.example.org"
         omero_port: 4064
@@ -180,12 +186,13 @@ output:
         y: 578.0450556915916
         x: 563.5824001844902
   - name: centers_ch03
-    data_uri: "https://omero.example.org/datasets/42000003"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "ROI"
-    omero_object_id: 42000003
-    linked_objects:
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/42000003"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "ROI"
+      omero_object_id: 42000003
+    linked_references:
       - data_uri: "https://omero.example.org/image/420"
         omero_host: "omero.example.org"
         omero_port: 4064
@@ -211,11 +218,12 @@ output:
         y: 452.0893971334971
         x: 814.884756952773
   intensity_key_values:
-    data_uri: "https://omero.example.org/datasets/420000000"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "KEY_VALUES"
-    omero_object_id: 420000000
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/420000000"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "KEY_VALUES"
+      omero_object_id: 420000000
     channel_nr:
     - 0
     - 1
@@ -272,11 +280,12 @@ output:
     - 0.0061887156750419885
     - 0.0001869727167799876
   distance_key_values:
-    data_uri: "https://omero.example.org/datasets/4200000000"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "KEY_VALUES"
-    omero_object_id: 4200000000
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/4200000000"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "KEY_VALUES"
+      omero_object_id: 4200000000
     channel_A:
     - 0
     - 0
@@ -450,125 +459,127 @@ output:
   spots_properties:
     name: spots_properties
     description: "A description"
-    data_uri: "https://omero.example.org/datasets/4200"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "TABLE"
-    omero_object_id: 4200
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/4200"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "TABLE"
+      omero_object_id: 4200
     column_series:
       columns:
         - name: channel_nr
           description: "Channel number"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: mask_labels
           description: "Mask label"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: volume
           description: "Volume"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: roi_volume_units
           description: "Volume units"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: max_intensity
           description: "Maximum intensity"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: min_intensity
           description: "Minimum intensity"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: mean_intensity
           description: "Mean intensity"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: integrated_intensity
           description: "Integrated intensity"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: std_intensity
           description: "Standard deviation of intensity"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: z_weighted_centroid
           description: "Z weighted centroid"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: y_weighted_centroid
           description: "Y weighted centroid"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: x_weighted_centroid
           description: "X weighted centroid"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
 
   spots_distances:
     name: spots_distances
     description: "A description"
-    data_uri: "https://omero.example.org/datasets/4201"
-    omero_host: "omero.example.org"
-    omero_port: 4064
-    omero_object_type: "TABLE"
-    omero_object_id: 4201
+    data_reference:
+      data_uri: "https://omero.example.org/datasets/4201"
+      omero_host: "omero.example.org"
+      omero_port: 4064
+      omero_object_type: "TABLE"
+      omero_object_id: 4201
     column_series:
       columns:
         - name: channel_a
           description: "Channel A"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: channel_b
           description: "Channel B"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: z_coord_a
           description: "Z coordinate A"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: y_coord_a
           description: "Y coordinate A"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: x_coord_a
           description: "X coordinate A"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: z_coord_b
           description: "Z coordinate B"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: y_coord_b
           description: "Y coordinate B"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: x_coord_b
           description: "X coordinate B"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: z_dist
           description: "Z distance"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: y_dist
           description: "Y distance"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: x_dist
           description: "X distance"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: dist_3d
           description: "3D distance"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: label_a
           description: "Label A"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
         - name: label_b
           description: "Label B"
-          source_object:
+          source_reference:
             data_uri: "https://omero.example.org/datasets/420"
