@@ -215,9 +215,9 @@
 
       Column : name
 
-      Column : source_object
+      Column : source_reference
 
-          Column --&gt; DataReference : source_object
+          Column --&gt; DataReference : source_reference
 
 
 </div>
@@ -240,7 +240,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../source_object/">source_object</a></td>
+<td><a href="../source_reference/">source_reference</a></td>
 <td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
 <td>The source object of the column</td>
 <td>direct</td>
@@ -311,8 +311,8 @@ description: Attributes of a column
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: NamedObject
 attributes:
-  source_object:
-    name: source_object
+  source_reference:
+    name: source_reference
     description: The source object of the column
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
@@ -329,13 +329,13 @@ description: Attributes of a column
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: NamedObject
 attributes:
-  source_object:
-    name: source_object
+  source_reference:
+    name: source_reference
     description: The source object of the column
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    alias: source_object
+    alias: source_reference
     owner: Column
     domain_of:
     - Column

@@ -225,25 +225,17 @@
 
           Image --&gt; ChannelSeries : channel_series
 
-      Image : data_uri
+      Image : data_reference
+
+          Image --&gt; DataReference : data_reference
 
       Image : description
 
-      Image : linked_objects
+      Image : linked_references
 
-          Image --&gt; DataReference : linked_objects
+          Image --&gt; DataReference : linked_references
 
       Image : name
-
-      Image : omero_host
-
-      Image : omero_object_id
-
-      Image : omero_object_type
-
-          Image --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      Image : omero_port
 
       Image : shape_c
 
@@ -274,7 +266,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>Image</strong><ul>
 <li><a href="../ImageMask/">ImageMask</a></li>
 </ul>
@@ -374,40 +366,16 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td><a href="../data_reference/">data_reference</a></td>
+<td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A reference to the data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../linked_objects/">linked_objects</a></td>
+<td><a href="../linked_references/">linked_references</a></td>
 <td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
-<td>A list of linked objects</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td>A list of linked references</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -784,66 +752,28 @@ attributes:
     - Image
     range: MetaObject
     required: false
-  data_uri:
-    name: data_uri
-    description: The URI of the object data
+  data_reference:
+    name: data_reference
+    description: A reference to the data
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    alias: data_uri
+    multivalued: false
+    alias: data_reference
     owner: Image
     domain_of:
-    - DataReference
-    range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: Image
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: Image
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: Image
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: Image
-    domain_of:
-    - DataReference
-    range: integer
-  linked_objects:
-    name: linked_objects
-    description: A list of linked objects
+    - MetricsObject
+    range: DataReference
+    required: false
+  linked_references:
+    name: linked_references
+    description: A list of linked references
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    alias: linked_objects
+    alias: linked_references
     owner: Image
     domain_of:
-    - DataReference
+    - MetricsObject
     range: DataReference
     required: false
     inlined: true
