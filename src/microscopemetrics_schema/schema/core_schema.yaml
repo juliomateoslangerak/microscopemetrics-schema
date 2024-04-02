@@ -31,7 +31,6 @@ classes:
 
   DataReference:
     description: A reference to a data resource
-    mixin: true
     attributes:
       data_uri:
         # TODO: make required and compose the URI from OMERO attributes if absent
@@ -49,13 +48,6 @@ classes:
       omero_object_id:
         range: integer
         description: The ID of the OMERO object
-      linked_objects:
-        range: DataReference
-        description: A list of linked objects
-        required: false
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
     unique_keys:
       omero_reference:
         description: A metrics object is uniquely identified by a combination of its OMERO attributes
@@ -66,10 +58,21 @@ classes:
 
   MetricsObject:
     is_a: NamedObject
-    mixins:
-      - DataReference
     abstract: true
     description: A base object for all microscope-metrics objects.
+    attributes:
+      data_reference:
+        range: DataReference
+        description: A reference to the data
+        required: false
+        multivalued: false
+      linked_references:
+        range: DataReference
+        description: A list of linked references
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
 
   MicroscopeCollection:
     description: A collection of microscopes
@@ -425,7 +428,7 @@ classes:
     is_a: NamedObject
     description: Attributes of a column
     attributes:
-      source_object:
+      source_reference:
         range: DataReference
         description: The source object of the column
         required: false
