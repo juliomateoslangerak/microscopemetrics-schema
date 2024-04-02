@@ -865,11 +865,19 @@ enums:
         description: A dataset
       PROJECT:
         description: A project
-      EXPERIMENTERGROUP:
+      GROUP:
         description: A group
+      EXPERIMENTER:
+        description: An experimenter
       TABLE:
         description: A table
       KEY_VALUES:
         description: A set of key-value pairs
+      TAG:
+        description: A tag
+      COMMENT:
+        description: A comment
       ROI:
         description: A region of interest
+      FILE:
+        description: A file

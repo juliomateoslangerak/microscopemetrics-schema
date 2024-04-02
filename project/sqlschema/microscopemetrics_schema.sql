@@ -163,7 +163,7 @@ CREATE TABLE "DataReference" (
 	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
-	omero_object_type VARCHAR(17), 
+	omero_object_type VARCHAR(12), 
 	omero_object_id INTEGER, 
 	PRIMARY KEY (data_uri, omero_host, omero_port, omero_object_type, omero_object_id)
 );

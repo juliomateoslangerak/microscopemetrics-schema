@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-02T14:40:05
+# Generation date: 2024-04-02T23:31:47
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -2500,18 +2500,30 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     PROJECT = PermissibleValue(
         text="PROJECT",
         description="A project")
-    EXPERIMENTERGROUP = PermissibleValue(
-        text="EXPERIMENTERGROUP",
+    GROUP = PermissibleValue(
+        text="GROUP",
         description="A group")
+    EXPERIMENTER = PermissibleValue(
+        text="EXPERIMENTER",
+        description="An experimenter")
     TABLE = PermissibleValue(
         text="TABLE",
         description="A table")
     KEY_VALUES = PermissibleValue(
         text="KEY_VALUES",
         description="A set of key-value pairs")
+    TAG = PermissibleValue(
+        text="TAG",
+        description="A tag")
+    COMMENT = PermissibleValue(
+        text="COMMENT",
+        description="A comment")
     ROI = PermissibleValue(
         text="ROI",
         description="A region of interest")
+    FILE = PermissibleValue(
+        text="FILE",
+        description="A file")
 
     _defn = EnumDefinition(
         name="OMEROObjectTypeEnum",

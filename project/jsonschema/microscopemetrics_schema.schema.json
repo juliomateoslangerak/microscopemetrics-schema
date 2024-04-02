@@ -2219,10 +2219,14 @@
                 "IMAGE",
                 "DATASET",
                 "PROJECT",
-                "EXPERIMENTERGROUP",
+                "GROUP",
+                "EXPERIMENTER",
                 "TABLE",
                 "KEY_VALUES",
-                "ROI"
+                "TAG",
+                "COMMENT",
+                "ROI",
+                "FILE"
             ],
             "title": "OMEROObjectTypeEnum",
             "type": "string"
