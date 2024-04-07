@@ -397,9 +397,21 @@
 description: A microscope-metrics table
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsObject
-slots:
-- column_series
-- table_data
+attributes:
+  column_series:
+    name: column_series
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    range: ColumnSeries
+    required: true
+  table_data:
+    name: table_data
+    description: A non-required slot for non-serializable table data object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    range: MetaObject
+    required: false
 
 </code></pre>
 </details>
@@ -412,7 +424,7 @@ is_a: MetricsObject
 attributes:
   column_series:
     name: column_series
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     alias: column_series
     owner: Table
@@ -423,7 +435,7 @@ attributes:
   table_data:
     name: table_data
     description: A non-required slot for non-serializable table data object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
     alias: table_data
