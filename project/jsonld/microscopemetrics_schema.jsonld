@@ -470,34 +470,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "table_data",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_data",
-      "description": "A non-required slot for non-serializable table data object",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_data",
-      "owner": "Table",
-      "domain_of": [
-        "Table"
-      ],
-      "range": "MetaObject",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "column_series",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_series",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_series",
-      "owner": "Table",
-      "domain_of": [
-        "Table"
-      ],
-      "range": "ColumnSeries",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "excitation_wavelength_nm",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/excitation_wavelength_nm",
       "description": "The excitation wavelength in nm",
@@ -3881,6 +3853,34 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "table__column_series",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/column_series",
+      "alias": "column_series",
+      "owner": "Table",
+      "domain_of": [
+        "Table"
+      ],
+      "range": "ColumnSeries",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "table__table_data",
+      "description": "A non-required slot for non-serializable table data object",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/table_data",
+      "alias": "table_data",
+      "owner": "Table",
+      "domain_of": [
+        "Table"
+      ],
+      "range": "MetaObject",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "fieldIlluminationDataset__input",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/input",
@@ -6184,10 +6184,24 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "column_series",
-        "table_data"
+        "table__column_series",
+        "table__table_data"
       ],
       "slot_usage": {},
+      "attributes": [
+        {
+          "name": "column_series",
+          "range": "ColumnSeries",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "table_data",
+          "description": "A non-required slot for non-serializable table data object",
+          "range": "MetaObject",
+          "@type": "SlotDefinition"
+        }
+      ],
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Table",
       "@type": "ClassDefinition"
     },
@@ -6981,7 +6995,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-04-07T09:50:36",
+  "generation_date": "2024-04-07T16:31:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

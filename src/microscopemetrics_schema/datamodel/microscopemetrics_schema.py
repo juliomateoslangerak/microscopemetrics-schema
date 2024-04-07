@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-07T09:50:42
+# Generation date: 2024-04-07T16:31:14
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -2540,12 +2540,6 @@ slots.name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="name",
 slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
-slots.table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.table_data, domain=None, range=Optional[Union[dict, MetaObject]])
-
-slots.column_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_series'], name="column_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_series'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.column_series, domain=None, range=Union[dict, ColumnSeries])
-
 slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/excitation_wavelength_nm'], name="excitation_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/excitation_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.excitation_wavelength_nm, domain=None, range=Optional[float])
 
@@ -3244,6 +3238,12 @@ slots.roiMeasurements__measurements_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['c
 
 slots.tag__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="tag__description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tag__description, domain=None, range=Optional[str])
+
+slots.table__column_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/column_series'], name="table__column_series", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/column_series'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.table__column_series, domain=None, range=Union[dict, ColumnSeries])
+
+slots.table__table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table__table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.table__table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
 slots.fieldIlluminationDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/input'], name="fieldIlluminationDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input, domain=None, range=Optional[Union[dict, FieldIlluminationInput]])
