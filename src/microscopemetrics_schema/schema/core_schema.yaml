@@ -865,7 +865,7 @@ enums:
         description: A dataset
       PROJECT:
         description: A project
-      GROUP:
+      EXPERIMENTERGROUP:
         description: A group
       EXPERIMENTER:
         description: An experimenter
