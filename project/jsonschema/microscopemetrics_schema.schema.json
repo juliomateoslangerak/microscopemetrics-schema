@@ -2219,7 +2219,7 @@
                 "IMAGE",
                 "DATASET",
                 "PROJECT",
-                "GROUP",
+                "EXPERIMENTERGROUP",
                 "EXPERIMENTER",
                 "TABLE",
                 "KEY_VALUES",
@@ -2317,7 +2317,7 @@
                     "minimum": 1,
                     "type": "integer"
                 },
-                "fitting_rss_threshold": {
+                "fitting_r2_threshold": {
                     "description": "Threshold for the residual sum of squares of the fit to be considered good.",
                     "type": "number"
                 },
@@ -2368,7 +2368,7 @@
                 "sigma_y",
                 "sigma_x",
                 "snr_threshold",
-                "fitting_rss_threshold",
+                "fitting_r2_threshold",
                 "intensity_robust_z_score_threshold"
             ],
             "title": "PSFBeadsInput",
@@ -2394,63 +2394,63 @@
                     "description": "A human readable description of an entity",
                     "type": "string"
                 },
-                "fit_rss_x_mean": {
+                "fit_r2_x_mean": {
                     "description": "Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_x_median": {
+                "fit_r2_x_median": {
                     "description": "Median residual sum of squares in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_x_std": {
+                "fit_r2_x_std": {
                     "description": "Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_y_mean": {
+                "fit_r2_y_mean": {
                     "description": "Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_y_median": {
+                "fit_r2_y_median": {
                     "description": "Median residual sum of squares in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_y_std": {
+                "fit_r2_y_std": {
                     "description": "Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_z_mean": {
+                "fit_r2_z_mean": {
                     "description": "Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_z_median": {
+                "fit_r2_z_median": {
                     "description": "Median residual sum of squares in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
-                "fit_rss_z_std": {
+                "fit_r2_z_std": {
                     "description": "Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
@@ -2728,21 +2728,21 @@
                     "type": "array"
                 },
                 "considered_bead_centers_x_fit_quality": {
-                    "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  RSS over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "considered_bead_centers_y_fit_quality": {
-                    "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  RSS over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
                     "type": "array"
                 },
                 "considered_bead_centers_z_fit_quality": {
-                    "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  RSS over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+                    "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },

@@ -408,7 +408,7 @@
           "description": "A project"
         },
         {
-          "text": "GROUP",
+          "text": "EXPERIMENTERGROUP",
           "description": "A group"
         },
         {
@@ -1325,12 +1325,12 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fitting_rss_threshold",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fitting_rss_threshold",
+      "name": "fitting_r2_threshold",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fitting_r2_threshold",
       "description": "Threshold for the residual sum of squares of the fit to be considered good.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fitting_rss_threshold",
-      "ifabsent": "float(1.0)",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fitting_r2_threshold",
+      "ifabsent": "float(0.85)",
       "owner": "PSFBeadsInput",
       "domain_of": [
         "PSFBeadsInput"
@@ -1467,11 +1467,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_z_mean",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_mean",
+      "name": "fit_r2_z_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_mean",
       "description": "Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_mean",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_mean",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1481,11 +1481,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_z_median",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_median",
+      "name": "fit_r2_z_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_median",
       "description": "Median residual sum of squares in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_median",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_median",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1495,11 +1495,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_z_std",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_std",
+      "name": "fit_r2_z_std",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_std",
       "description": "Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_z_std",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_z_std",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1509,11 +1509,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_y_mean",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_mean",
+      "name": "fit_r2_y_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_mean",
       "description": "Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_mean",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_mean",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1523,11 +1523,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_y_median",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_median",
+      "name": "fit_r2_y_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_median",
       "description": "Median residual sum of squares in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_median",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_median",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1537,11 +1537,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_y_std",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_std",
+      "name": "fit_r2_y_std",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_std",
       "description": "Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_y_std",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_y_std",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1551,11 +1551,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_x_mean",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_mean",
+      "name": "fit_r2_x_mean",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_mean",
       "description": "Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_mean",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_mean",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1565,11 +1565,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_x_median",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_median",
+      "name": "fit_r2_x_median",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_median",
       "description": "Median residual sum of squares in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_median",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_median",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -1579,11 +1579,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_rss_x_std",
-      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_std",
+      "name": "fit_r2_x_std",
+      "definition_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_std",
       "description": "Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_rss_x_std",
+      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/fit_r2_x_std",
       "multivalued": true,
       "owner": "PSFBeadsKeyValues",
       "domain_of": [
@@ -4165,7 +4165,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  RSS over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centers_z_fit_quality",
       "multivalued": true,
@@ -4181,7 +4181,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  RSS over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centers_y_fit_quality",
       "multivalued": true,
@@ -4197,7 +4197,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  RSS over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/considered_bead_centers_x_fit_quality",
       "multivalued": true,
@@ -6458,7 +6458,7 @@
         "PSFBeadsInput_sigma_y",
         "PSFBeadsInput_sigma_x",
         "snr_threshold",
-        "fitting_rss_threshold",
+        "fitting_r2_threshold",
         "intensity_robust_z_score_threshold"
       ],
       "slot_usage": {},
@@ -6552,7 +6552,7 @@
         },
         {
           "name": "considered_bead_centers_z_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  RSS over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in z not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6561,7 +6561,7 @@
         },
         {
           "name": "considered_bead_centers_y_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  RSS over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6570,7 +6570,7 @@
         },
         {
           "name": "considered_bead_centers_x_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  RSS over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in x not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6640,15 +6640,15 @@
         "nr_of_beads_considered_bad_z_fit",
         "nr_of_beads_considered_bad_y_fit",
         "nr_of_beads_considered_bad_x_fit",
-        "fit_rss_z_mean",
-        "fit_rss_z_median",
-        "fit_rss_z_std",
-        "fit_rss_y_mean",
-        "fit_rss_y_median",
-        "fit_rss_y_std",
-        "fit_rss_x_mean",
-        "fit_rss_x_median",
-        "fit_rss_x_std",
+        "fit_r2_z_mean",
+        "fit_r2_z_median",
+        "fit_r2_z_std",
+        "fit_r2_y_mean",
+        "fit_r2_y_median",
+        "fit_r2_y_std",
+        "fit_r2_x_mean",
+        "fit_r2_x_median",
+        "fit_r2_x_std",
         "resolution_mean_fwhm_z_pixels",
         "resolution_median_fwhm_z_pixels",
         "resolution_std_fwhm_z_pixels",
@@ -6995,7 +6995,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-10T18:16:22",
   "source_file_size": 787,
-  "generation_date": "2024-04-07T16:31:09",
+  "generation_date": "2024-04-17T10:17:11",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

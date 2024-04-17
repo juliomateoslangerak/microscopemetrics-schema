@@ -163,7 +163,7 @@ CREATE TABLE "DataReference" (
 	data_uri TEXT, 
 	omero_host TEXT, 
 	omero_port INTEGER, 
-	omero_object_type VARCHAR(12), 
+	omero_object_type VARCHAR(17), 
 	omero_object_id INTEGER, 
 	PRIMARY KEY (data_uri, omero_host, omero_port, omero_object_type, omero_object_id)
 );
@@ -427,9 +427,9 @@ CREATE TABLE "PSFBeadsInput" (
 	sigma_y FLOAT NOT NULL, 
 	sigma_x FLOAT NOT NULL, 
 	snr_threshold FLOAT NOT NULL, 
-	fitting_rss_threshold FLOAT NOT NULL, 
+	fitting_r2_threshold FLOAT NOT NULL, 
 	intensity_robust_z_score_threshold FLOAT NOT NULL, 
-	PRIMARY KEY (psf_beads_images, bit_depth, saturation_threshold, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold, fitting_rss_threshold, intensity_robust_z_score_threshold)
+	PRIMARY KEY (psf_beads_images, bit_depth, saturation_threshold, min_lateral_distance_factor, sigma_z, sigma_y, sigma_x, snr_threshold, fitting_r2_threshold, intensity_robust_z_score_threshold)
 );
 
 CREATE TABLE "PSFBeadsKeyValues" (
@@ -446,15 +446,15 @@ CREATE TABLE "PSFBeadsKeyValues" (
 	nr_of_beads_considered_bad_z_fit INTEGER, 
 	nr_of_beads_considered_bad_y_fit INTEGER, 
 	nr_of_beads_considered_bad_x_fit INTEGER, 
-	fit_rss_z_mean FLOAT, 
-	fit_rss_z_median FLOAT, 
-	fit_rss_z_std FLOAT, 
-	fit_rss_y_mean FLOAT, 
-	fit_rss_y_median FLOAT, 
-	fit_rss_y_std FLOAT, 
-	fit_rss_x_mean FLOAT, 
-	fit_rss_x_median FLOAT, 
-	fit_rss_x_std FLOAT, 
+	fit_r2_z_mean FLOAT, 
+	fit_r2_z_median FLOAT, 
+	fit_r2_z_std FLOAT, 
+	fit_r2_y_mean FLOAT, 
+	fit_r2_y_median FLOAT, 
+	fit_r2_y_std FLOAT, 
+	fit_r2_x_mean FLOAT, 
+	fit_r2_x_median FLOAT, 
+	fit_r2_x_std FLOAT, 
 	resolution_mean_fwhm_z_pixels FLOAT, 
 	resolution_median_fwhm_z_pixels FLOAT, 
 	resolution_std_fwhm_z_pixels FLOAT, 
@@ -476,7 +476,7 @@ CREATE TABLE "PSFBeadsKeyValues" (
 	resolution_mean_fwhm_lateral_asymmetry_ratio FLOAT, 
 	resolution_median_fwhm_lateral_asymmetry_ratio FLOAT, 
 	resolution_std_fwhm_lateral_asymmetry_ratio FLOAT, 
-	PRIMARY KEY (name, description, data_reference, linked_references, channel_nr, nr_of_beads_analyzed, nr_of_beads_discarded_lateral_edge, nr_of_beads_discarded_self_proximity, nr_of_beads_considered_axial_edge, nr_of_beads_considered_intensity_outlier, nr_of_beads_considered_bad_z_fit, nr_of_beads_considered_bad_y_fit, nr_of_beads_considered_bad_x_fit, fit_rss_z_mean, fit_rss_z_median, fit_rss_z_std, fit_rss_y_mean, fit_rss_y_median, fit_rss_y_std, fit_rss_x_mean, fit_rss_x_median, fit_rss_x_std, resolution_mean_fwhm_z_pixels, resolution_median_fwhm_z_pixels, resolution_std_fwhm_z_pixels, resolution_mean_fwhm_y_pixels, resolution_median_fwhm_y_pixels, resolution_std_fwhm_y_pixels, resolution_mean_fwhm_x_pixels, resolution_median_fwhm_x_pixels, resolution_std_fwhm_x_pixels, resolution_mean_fwhm_z_microns, resolution_median_fwhm_z_microns, resolution_std_fwhm_z_microns, resolution_mean_fwhm_y_microns, resolution_median_fwhm_y_microns, resolution_std_fwhm_y_microns, resolution_mean_fwhm_x_microns, resolution_median_fwhm_x_microns, resolution_std_fwhm_x_microns, resolution_mean_fwhm_lateral_asymmetry_ratio, resolution_median_fwhm_lateral_asymmetry_ratio, resolution_std_fwhm_lateral_asymmetry_ratio)
+	PRIMARY KEY (name, description, data_reference, linked_references, channel_nr, nr_of_beads_analyzed, nr_of_beads_discarded_lateral_edge, nr_of_beads_discarded_self_proximity, nr_of_beads_considered_axial_edge, nr_of_beads_considered_intensity_outlier, nr_of_beads_considered_bad_z_fit, nr_of_beads_considered_bad_y_fit, nr_of_beads_considered_bad_x_fit, fit_r2_z_mean, fit_r2_z_median, fit_r2_z_std, fit_r2_y_mean, fit_r2_y_median, fit_r2_y_std, fit_r2_x_mean, fit_r2_x_median, fit_r2_x_std, resolution_mean_fwhm_z_pixels, resolution_median_fwhm_z_pixels, resolution_std_fwhm_z_pixels, resolution_mean_fwhm_y_pixels, resolution_median_fwhm_y_pixels, resolution_std_fwhm_y_pixels, resolution_mean_fwhm_x_pixels, resolution_median_fwhm_x_pixels, resolution_std_fwhm_x_pixels, resolution_mean_fwhm_z_microns, resolution_median_fwhm_z_microns, resolution_std_fwhm_z_microns, resolution_mean_fwhm_y_microns, resolution_median_fwhm_y_microns, resolution_std_fwhm_y_microns, resolution_mean_fwhm_x_microns, resolution_median_fwhm_x_microns, resolution_std_fwhm_x_microns, resolution_mean_fwhm_lateral_asymmetry_ratio, resolution_median_fwhm_lateral_asymmetry_ratio, resolution_std_fwhm_lateral_asymmetry_ratio)
 );
 
 CREATE TABLE "PSFBeadsOutput" (

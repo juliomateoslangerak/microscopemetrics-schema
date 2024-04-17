@@ -628,7 +628,7 @@ def st_mm_psf_beads_input(
     sigma_y=st.floats(min_value=0.7, max_value=2.0),
     sigma_x=st.floats(min_value=0.7, max_value=2.0),
     snr_threshold=st.just(10.0),
-    fitting_rss_threshold=st.just(20.0),
+    fitting_r2_threshold=st.just(20.0),
     intensity_robust_z_score_threshold=st.just(3.0),
 ) -> mm_schema.PSFBeadsInput:
     return mm_schema.PSFBeadsInput(
@@ -638,7 +638,7 @@ def st_mm_psf_beads_input(
         sigma_y=draw(sigma_y),
         sigma_x=draw(sigma_x),
         snr_threshold=draw(snr_threshold),
-        fitting_rss_threshold=draw(fitting_rss_threshold),
+        fitting_r2_threshold=draw(fitting_r2_threshold),
         intensity_robust_z_score_threshold=draw(intensity_robust_z_score_threshold),
     )
 

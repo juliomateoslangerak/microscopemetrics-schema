@@ -501,7 +501,7 @@ message PSFBeadsInput
   float sigmaY = 0
   float sigmaX = 0
   float snrThreshold = 0
-  float fittingRssThreshold = 0
+  float fittingR2Threshold = 0
   float intensityRobustZScoreThreshold = 0
  }
 message PSFBeadsKeyValues
@@ -519,15 +519,15 @@ message PSFBeadsKeyValues
  repeated  integer nrOfBeadsConsideredBadZFit = 0
  repeated  integer nrOfBeadsConsideredBadYFit = 0
  repeated  integer nrOfBeadsConsideredBadXFit = 0
- repeated  float fitRssZMean = 0
- repeated  float fitRssZMedian = 0
- repeated  float fitRssZStd = 0
- repeated  float fitRssYMean = 0
- repeated  float fitRssYMedian = 0
- repeated  float fitRssYStd = 0
- repeated  float fitRssXMean = 0
- repeated  float fitRssXMedian = 0
- repeated  float fitRssXStd = 0
+ repeated  float fitR2ZMean = 0
+ repeated  float fitR2ZMedian = 0
+ repeated  float fitR2ZStd = 0
+ repeated  float fitR2YMean = 0
+ repeated  float fitR2YMedian = 0
+ repeated  float fitR2YStd = 0
+ repeated  float fitR2XMean = 0
+ repeated  float fitR2XMedian = 0
+ repeated  float fitR2XStd = 0
  repeated  float resolutionMeanFwhmZPixels = 0
  repeated  float resolutionMedianFwhmZPixels = 0
  repeated  float resolutionStdFwhmZPixels = 0
