@@ -212,7 +212,7 @@
 
       PSFBeadsInput : bit_depth
 
-      PSFBeadsInput : fitting_rss_threshold
+      PSFBeadsInput : fitting_r2_threshold
 
       PSFBeadsInput : intensity_robust_z_score_threshold
 
@@ -301,7 +301,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fitting_rss_threshold/">fitting_rss_threshold</a></td>
+<td><a href="../fitting_r2_threshold/">fitting_r2_threshold</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Threshold for the residual sum of squares of the fit to be considered good</td>
 <td>direct</td>
@@ -373,7 +373,7 @@ slots:
 - sigma_y
 - sigma_x
 - snr_threshold
-- fitting_rss_threshold
+- fitting_r2_threshold
 - intensity_robust_z_score_threshold
 slot_usage:
   sigma_z:
@@ -559,14 +559,14 @@ attributes:
     - PSFBeadsInput
     range: float
     required: true
-  fitting_rss_threshold:
-    name: fitting_rss_threshold
+  fitting_r2_threshold:
+    name: fitting_r2_threshold
     description: Threshold for the residual sum of squares of the fit to be considered
       good.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     ifabsent: float(1.0)
-    alias: fitting_rss_threshold
+    alias: fitting_r2_threshold
     owner: PSFBeadsInput
     domain_of:
     - PSFBeadsInput

@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/considered_bead_centers_y_fit_quality/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/fit_r2_x_median/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: considered_bead_centers_y_fit_quality - microscopemetrics-schema</title>
+        <title>Slot: fit_r2_x_median - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-considered_bead_centers_y_fit_quality" class="md-skip">
+        <a href="#slot-fit_r2_x_median" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: considered_bead_centers_y_fit_quality
+              Slot: fit_r2_x_median
             
           </span>
         </div>
@@ -310,15 +310,15 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/considered_bead_centers_y_fit_quality.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/fit_r2_x_median.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-considered_bead_centers_y_fit_quality">Slot: considered_bead_centers_y_fit_quality</h1>
-<p><em>The centers of the beads detected but considered as the fit quality in y was not good enough.  R^2 over requested threshold. Measurements in y not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/considered_bead_centers_y_fit_quality">microscopemetrics_schema:considered_bead_centers_y_fit_quality</a></p>
+<h1 id="slot-fit_r2_x_median">Slot: fit_r2_x_median</h1>
+<p><em>Median residual sum of squares in the x axis for the analyzed beads. One value per channel.</em></p>
+<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/fit_r2_x_median">microscopemetrics_schema:fit_r2_x_median</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -332,7 +332,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td><a href="../PSFBeadsKeyValues/">PSFBeadsKeyValues</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -341,7 +341,7 @@
 <h2 id="properties">Properties</h2>
 <ul>
 <li>
-<p>Range: <a href="../Roi/">Roi</a></p>
+<p>Range: <a href="../Float/">Float</a></p>
 </li>
 <li>
 <p>Multivalued: True</p>
@@ -355,20 +355,16 @@
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
-<pre><code class="language-yaml">name: considered_bead_centers_y_fit_quality
-description: The centers of the beads detected but considered as the fit quality in
-  y was not good enough.  R^2 over requested threshold. Measurements in y not considered
-  for the dataset analysis. One point will be provided per bead. One ROI per channel.
+<pre><code class="language-yaml">name: fit_r2_x_median
+description: Median residual sum of squares in the x axis for the analyzed beads.
+  One value per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true
-alias: considered_bead_centers_y_fit_quality
-owner: PSFBeadsOutput
+alias: fit_r2_x_median
 domain_of:
-- PSFBeadsOutput
-range: Roi
-inlined: true
-inlined_as_list: true
+- PSFBeadsKeyValues
+range: float
 
 </code></pre>
 

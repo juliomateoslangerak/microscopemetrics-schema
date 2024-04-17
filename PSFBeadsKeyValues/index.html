@@ -218,23 +218,23 @@
 
       PSFBeadsKeyValues : description
 
-      PSFBeadsKeyValues : fit_rss_x_mean
+      PSFBeadsKeyValues : fit_r2_x_mean
 
-      PSFBeadsKeyValues : fit_rss_x_median
+      PSFBeadsKeyValues : fit_r2_x_median
 
-      PSFBeadsKeyValues : fit_rss_x_std
+      PSFBeadsKeyValues : fit_r2_x_std
 
-      PSFBeadsKeyValues : fit_rss_y_mean
+      PSFBeadsKeyValues : fit_r2_y_mean
 
-      PSFBeadsKeyValues : fit_rss_y_median
+      PSFBeadsKeyValues : fit_r2_y_median
 
-      PSFBeadsKeyValues : fit_rss_y_std
+      PSFBeadsKeyValues : fit_r2_y_std
 
-      PSFBeadsKeyValues : fit_rss_z_mean
+      PSFBeadsKeyValues : fit_r2_z_mean
 
-      PSFBeadsKeyValues : fit_rss_z_median
+      PSFBeadsKeyValues : fit_r2_z_median
 
-      PSFBeadsKeyValues : fit_rss_z_std
+      PSFBeadsKeyValues : fit_r2_z_std
 
       PSFBeadsKeyValues : linked_references
 
@@ -381,55 +381,55 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_mean/">fit_rss_z_mean</a></td>
+<td><a href="../fit_r2_z_mean/">fit_r2_z_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the z axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_median/">fit_rss_z_median</a></td>
+<td><a href="../fit_r2_z_median/">fit_r2_z_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the z axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_std/">fit_rss_z_std</a></td>
+<td><a href="../fit_r2_z_std/">fit_r2_z_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the z axis for the analy...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_mean/">fit_rss_y_mean</a></td>
+<td><a href="../fit_r2_y_mean/">fit_r2_y_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the y axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_median/">fit_rss_y_median</a></td>
+<td><a href="../fit_r2_y_median/">fit_r2_y_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the y axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_std/">fit_rss_y_std</a></td>
+<td><a href="../fit_r2_y_std/">fit_r2_y_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the y axis for the analy...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_mean/">fit_rss_x_mean</a></td>
+<td><a href="../fit_r2_x_mean/">fit_r2_x_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the x axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_median/">fit_rss_x_median</a></td>
+<td><a href="../fit_r2_x_median/">fit_r2_x_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the x axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_std/">fit_rss_x_std</a></td>
+<td><a href="../fit_r2_x_std/">fit_r2_x_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the x axis for the analy...</td>
 <td>direct</td>
@@ -646,15 +646,15 @@ slots:
 - nr_of_beads_considered_bad_z_fit
 - nr_of_beads_considered_bad_y_fit
 - nr_of_beads_considered_bad_x_fit
-- fit_rss_z_mean
-- fit_rss_z_median
-- fit_rss_z_std
-- fit_rss_y_mean
-- fit_rss_y_median
-- fit_rss_y_std
-- fit_rss_x_mean
-- fit_rss_x_median
-- fit_rss_x_std
+- fit_r2_z_mean
+- fit_r2_z_median
+- fit_r2_z_std
+- fit_r2_y_mean
+- fit_r2_y_median
+- fit_r2_y_std
+- fit_r2_x_mean
+- fit_r2_x_median
+- fit_r2_x_std
 - resolution_mean_fwhm_z_pixels
 - resolution_median_fwhm_z_pixels
 - resolution_std_fwhm_z_pixels
@@ -800,110 +800,110 @@ attributes:
     domain_of:
     - PSFBeadsKeyValues
     range: integer
-  fit_rss_z_mean:
-    name: fit_rss_z_mean
+  fit_r2_z_mean:
+    name: fit_r2_z_mean
     description: Mean residual sum of squares in the z axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_mean
+    alias: fit_r2_z_mean
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_z_median:
-    name: fit_rss_z_median
+  fit_r2_z_median:
+    name: fit_r2_z_median
     description: Median residual sum of squares in the z axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_median
+    alias: fit_r2_z_median
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_z_std:
-    name: fit_rss_z_std
+  fit_r2_z_std:
+    name: fit_r2_z_std
     description: Standard deviation of the residual sum of squares in the z axis for
       the analyzed beads. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_std
+    alias: fit_r2_z_std
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_y_mean:
-    name: fit_rss_y_mean
+  fit_r2_y_mean:
+    name: fit_r2_y_mean
     description: Mean residual sum of squares in the y axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_mean
+    alias: fit_r2_y_mean
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_y_median:
-    name: fit_rss_y_median
+  fit_r2_y_median:
+    name: fit_r2_y_median
     description: Median residual sum of squares in the y axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_median
+    alias: fit_r2_y_median
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_y_std:
-    name: fit_rss_y_std
+  fit_r2_y_std:
+    name: fit_r2_y_std
     description: Standard deviation of the residual sum of squares in the y axis for
       the analyzed beads. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_std
+    alias: fit_r2_y_std
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_x_mean:
-    name: fit_rss_x_mean
+  fit_r2_x_mean:
+    name: fit_r2_x_mean
     description: Mean residual sum of squares in the x axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_mean
+    alias: fit_r2_x_mean
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_x_median:
-    name: fit_rss_x_median
+  fit_r2_x_median:
+    name: fit_r2_x_median
     description: Median residual sum of squares in the x axis for the analyzed beads.
       One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_median
+    alias: fit_r2_x_median
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: float
-  fit_rss_x_std:
-    name: fit_rss_x_std
+  fit_r2_x_std:
+    name: fit_r2_x_std
     description: Standard deviation of the residual sum of squares in the x axis for
       the analyzed beads. One value per channel.
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_std
+    alias: fit_r2_x_std
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
