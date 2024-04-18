@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-17T10:17:16
+# Generation date: 2024-04-18T10:08:36
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1639,7 +1639,7 @@ class PSFBeadsInput(MetricsInput):
     sigma_y: float = 1.0
     sigma_x: float = 1.0
     snr_threshold: float = 10.0
-    fitting_r2_threshold: float = 0.85
+    fitting_r2_threshold: float = 0.95
     intensity_robust_z_score_threshold: float = 3.0
     bit_depth: Optional[int] = None
     saturation_threshold: Optional[float] = 0.01
