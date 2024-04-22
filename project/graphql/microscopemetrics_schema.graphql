@@ -328,7 +328,6 @@ type FieldIlluminationOutput
     comment: Comment
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: [Table]
-    intensityMaps: [Image]
     roiProfiles: [Roi]
     roiCorners: Roi
     roiCentersOfMass: [Roi]

@@ -185,27 +185,6 @@ output:
             description: "Intensity profile from center vertical"
             source_reference:
               data_uri: "https://omero.example.org/datasets/42000"
-  intensity_maps:
-    - name: image_name_intensity_map
-      description: Intensity map of image_name
-      data_reference:
-        data_uri: "https://omero.example.org/datasets/42000"
-        omero_host: "omero.example.org"
-        omero_port: 4064
-        omero_object_type: "IMAGE"
-        omero_object_id: 42000
-      shape_x: 64
-      shape_y: 64
-      shape_z: 1
-      shape_c: 1
-      shape_t: 1
-      acquisition_datetime: "2024-01-15T00:00:00Z"
-      linked_references:
-        - data_uri: "https://omero.example.org/image/420"
-          omero_host: "omero.example.org"
-          omero_port: 4064
-          omero_object_type: "IMAGE"
-          omero_object_id: 420
 
   roi_profiles:
     - name: Intensity profiles ROI

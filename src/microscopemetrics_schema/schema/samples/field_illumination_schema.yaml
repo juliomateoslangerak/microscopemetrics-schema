@@ -50,13 +50,6 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      intensity_maps:
-        range: Image
-        description: >-
-          Intensity map of the field illumination
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       roi_profiles:
         range: Roi
         description: line ROIs used to compute the intensity profiles

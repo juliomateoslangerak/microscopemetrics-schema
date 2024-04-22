@@ -3920,22 +3920,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fieldIlluminationOutput__intensity_maps",
-      "description": "Intensity map of the field illumination",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_maps",
-      "multivalued": true,
-      "alias": "intensity_maps",
-      "owner": "FieldIlluminationOutput",
-      "domain_of": [
-        "FieldIlluminationOutput"
-      ],
-      "range": "Image",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "fieldIlluminationOutput__roi_profiles",
       "description": "line ROIs used to compute the intensity profiles",
       "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
@@ -6270,7 +6254,6 @@
         "metricsOutput__comment",
         "fieldIlluminationOutput__key_values",
         "fieldIlluminationOutput__intensity_profiles",
-        "fieldIlluminationOutput__intensity_maps",
         "fieldIlluminationOutput__roi_profiles",
         "fieldIlluminationOutput__roi_corners",
         "fieldIlluminationOutput__roi_centers_of_mass",
@@ -6292,15 +6275,6 @@
           "description": "Intensity profiles for the field illumination analysis in the different directions",
           "multivalued": true,
           "range": "Table",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "intensity_maps",
-          "description": "Intensity map of the field illumination",
-          "multivalued": true,
-          "range": "Image",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7000,7 +6974,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-22T15:00:45",
+  "generation_date": "2024-04-22T15:06:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

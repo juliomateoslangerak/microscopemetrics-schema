@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-22T15:00:52
+# Generation date: 2024-04-22T15:06:24
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1321,7 +1321,6 @@ class FieldIlluminationOutput(MetricsOutput):
     processing_datetime: Union[str, XSDDateTime] = None
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
-    intensity_maps: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
     roi_profiles: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_corners: Optional[Union[dict, Roi]] = None
     roi_centers_of_mass: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -1337,10 +1336,6 @@ class FieldIlluminationOutput(MetricsOutput):
         if not isinstance(self.intensity_profiles, list):
             self.intensity_profiles = [self.intensity_profiles] if self.intensity_profiles is not None else []
         self.intensity_profiles = [v if isinstance(v, Table) else Table(**as_dict(v)) for v in self.intensity_profiles]
-
-        if not isinstance(self.intensity_maps, list):
-            self.intensity_maps = [self.intensity_maps] if self.intensity_maps is not None else []
-        self.intensity_maps = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.intensity_maps]
 
         if not isinstance(self.roi_profiles, list):
             self.roi_profiles = [self.roi_profiles] if self.roi_profiles is not None else []
@@ -3252,9 +3247,6 @@ slots.fieldIlluminationOutput__key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['s
 
 slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_profiles'], name="fieldIlluminationOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], List[Union[dict, Table]]]])
-
-slots.fieldIlluminationOutput__intensity_maps = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_maps'], name="fieldIlluminationOutput__intensity_maps", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_maps'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_maps, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
 
 slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])

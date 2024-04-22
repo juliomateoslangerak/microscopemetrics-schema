@@ -1557,13 +1557,6 @@
                     },
                     "type": "array"
                 },
-                "intensity_maps": {
-                    "description": "Intensity map of the field illumination",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "intensity_profiles": {
                     "description": "Intensity profiles for the field illumination analysis in the different directions",
                     "items": {

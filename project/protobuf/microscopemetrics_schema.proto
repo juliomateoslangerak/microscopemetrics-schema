@@ -305,7 +305,6 @@ message FieldIlluminationOutput
   comment comment = 0
   fieldIlluminationKeyValues keyValues = 0
  repeated  table intensityProfiles = 0
- repeated  image intensityMaps = 0
  repeated  roi roiProfiles = 0
   roi roiCorners = 0
  repeated  roi roiCentersOfMass = 0
