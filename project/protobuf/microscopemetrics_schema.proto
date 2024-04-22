@@ -243,7 +243,6 @@ message FieldIlluminationInput
   float saturationThreshold = 0
   float cornerFraction = 0
   float sigma = 0
-  integer intensityMapSize = 0
  }
 message FieldIlluminationKeyValues
  {

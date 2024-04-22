@@ -562,7 +562,6 @@ def st_mm_field_illumination_input(
     saturation_threshold=st.floats(min_value=0.01, max_value=0.05),
     corner_fraction=st.floats(min_value=0.02, max_value=0.3),
     sigma=st.floats(min_value=2.0, max_value=4.0),
-    intensity_map_size=st.integers(min_value=32, max_value=512),
 ) -> mm_schema.FieldIlluminationInput:
     return mm_schema.FieldIlluminationInput(
         field_illumination_image=draw(field_illumination_image),
@@ -570,7 +569,6 @@ def st_mm_field_illumination_input(
         saturation_threshold=draw(saturation_threshold),
         corner_fraction=draw(corner_fraction),
         sigma=draw(sigma),
-        intensity_map_size=draw(intensity_map_size),
     )
 
 

@@ -1171,12 +1171,6 @@
                     },
                     "type": "array"
                 },
-                "intensity_map_size": {
-                    "description": "Input parameter: the size of the output intensity map in pixels",
-                    "maximum": 512,
-                    "minimum": 32,
-                    "type": "integer"
-                },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1,
@@ -1194,8 +1188,7 @@
                 "field_illumination_image",
                 "saturation_threshold",
                 "corner_fraction",
-                "sigma",
-                "intensity_map_size"
+                "sigma"
             ],
             "title": "FieldIlluminationInput",
             "type": "object"

@@ -31,7 +31,6 @@ classes:
       - saturation_threshold
       - corner_fraction
       - sigma
-      - intensity_map_size
     slot_usage:
       saturation_threshold:
         required: true
@@ -169,15 +168,6 @@ slots:
     ifabsent: float(5.0)
     minimum_value: 2.0
     maximum_value: 8.0
-  intensity_map_size:
-    range: integer
-    description: >-
-      Input parameter: the size of the output intensity map in pixels
-    required: true
-    multivalued: false
-    ifabsent: int(64)
-    minimum_value: 32
-    maximum_value: 512
 
   # Outputs
   center_region_intensity_fraction:

@@ -264,7 +264,6 @@ type FieldIlluminationInput
     saturationThreshold: Float!
     cornerFraction: Float!
     sigma: Float!
-    intensityMapSize: Integer!
   }
 
 type FieldIlluminationKeyValues

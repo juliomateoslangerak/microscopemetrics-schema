@@ -657,23 +657,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "intensity_map_size",
-      "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_map_size",
-      "description": "Input parameter: the size of the output intensity map in pixels",
-      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_map_size",
-      "ifabsent": "int(64)",
-      "owner": "FieldIlluminationInput",
-      "domain_of": [
-        "FieldIlluminationInput"
-      ],
-      "range": "integer",
-      "required": true,
-      "minimum_value": 32,
-      "maximum_value": 512,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "center_region_intensity_fraction",
       "definition_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/center_region_intensity_fraction",
       "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
@@ -6250,8 +6233,7 @@
         "bit_depth",
         "FieldIlluminationInput_saturation_threshold",
         "corner_fraction",
-        "sigma",
-        "intensity_map_size"
+        "sigma"
       ],
       "slot_usage": {},
       "class_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInput",
@@ -6993,9 +6975,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-02-10T18:16:22",
+  "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-18T10:08:31",
+  "generation_date": "2024-04-22T14:47:02",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

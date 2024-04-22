@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-18T10:08:36
+# Generation date: 2024-04-22T14:47:08
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1277,7 +1277,6 @@ class FieldIlluminationInput(MetricsInput):
     saturation_threshold: float = 0.01
     corner_fraction: float = 0.1
     sigma: float = 5.0
-    intensity_map_size: int = 64
     bit_depth: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1301,11 +1300,6 @@ class FieldIlluminationInput(MetricsInput):
             self.MissingRequiredField("sigma")
         if not isinstance(self.sigma, float):
             self.sigma = float(self.sigma)
-
-        if self._is_empty(self.intensity_map_size):
-            self.MissingRequiredField("intensity_map_size")
-        if not isinstance(self.intensity_map_size, int):
-            self.intensity_map_size = int(self.intensity_map_size)
 
         if self.bit_depth is not None and not isinstance(self.bit_depth, int):
             self.bit_depth = int(self.bit_depth)
@@ -2575,9 +2569,6 @@ slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumin
 
 slots.sigma = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/sigma'], name="sigma", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/sigma'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma, domain=None, range=float)
-
-slots.intensity_map_size = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/intensity_map_size'], name="intensity_map_size", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/intensity_map_size'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_map_size, domain=None, range=int)
 
 slots.center_region_intensity_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/center_region_intensity_fraction'], name="center_region_intensity_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/center_region_intensity_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_region_intensity_fraction, domain=None, range=Optional[Union[float, List[float]]])

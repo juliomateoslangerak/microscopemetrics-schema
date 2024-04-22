@@ -196,8 +196,7 @@ CREATE TABLE "FieldIlluminationInput" (
 	saturation_threshold FLOAT NOT NULL, 
 	corner_fraction FLOAT NOT NULL, 
 	sigma FLOAT NOT NULL, 
-	intensity_map_size INTEGER NOT NULL, 
-	PRIMARY KEY (field_illumination_image, bit_depth, saturation_threshold, corner_fraction, sigma, intensity_map_size)
+	PRIMARY KEY (field_illumination_image, bit_depth, saturation_threshold, corner_fraction, sigma)
 );
 
 CREATE TABLE "FieldIlluminationKeyValues" (

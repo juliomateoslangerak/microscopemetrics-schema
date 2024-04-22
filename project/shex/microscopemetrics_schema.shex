@@ -441,9 +441,7 @@ CLOSED {
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/corner_fraction>
           @linkml:Float ;
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/sigma>
-          @linkml:Float ;
-          <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/intensity_map_size>
-          @linkml:Integer
+          @linkml:Float
        ) ;
        rdf:type [
           <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInput>
