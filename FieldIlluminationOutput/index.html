@@ -216,10 +216,6 @@
 
       FieldIlluminationOutput : errors
 
-      FieldIlluminationOutput : intensity_maps
-
-          FieldIlluminationOutput --&gt; Image : intensity_maps
-
       FieldIlluminationOutput : intensity_profiles
 
           FieldIlluminationOutput --&gt; Table : intensity_profiles
@@ -298,12 +294,6 @@
 <td><a href="../intensity_profiles/">intensity_profiles</a></td>
 <td>0..* <br/> <a href="../Table/">Table</a></td>
 <td>Intensity profiles for the field illumination analysis in the different direc...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../intensity_maps/">intensity_maps</a></td>
-<td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>Intensity map of the field illumination</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -465,15 +455,6 @@ attributes:
     range: Table
     inlined: true
     inlined_as_list: true
-  intensity_maps:
-    name: intensity_maps
-    description: Intensity map of the field illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: true
-    range: Image
-    inlined: true
-    inlined_as_list: true
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
@@ -563,19 +544,6 @@ attributes:
     - ArgolightEOutput
     - FieldIlluminationOutput
     range: Table
-    inlined: true
-    inlined_as_list: true
-  intensity_maps:
-    name: intensity_maps
-    description: Intensity map of the field illumination
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
-    rank: 1000
-    multivalued: true
-    alias: intensity_maps
-    owner: FieldIlluminationOutput
-    domain_of:
-    - FieldIlluminationOutput
-    range: Image
     inlined: true
     inlined_as_list: true
   roi_profiles:
