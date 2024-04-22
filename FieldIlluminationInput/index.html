@@ -218,8 +218,6 @@
 
           FieldIlluminationInput --&gt; Image : field_illumination_image
 
-      FieldIlluminationInput : intensity_map_size
-
       FieldIlluminationInput : saturation_threshold
 
       FieldIlluminationInput : sigma
@@ -272,12 +270,6 @@
 <td><a href="../sigma/">sigma</a></td>
 <td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Input parameter: the sigma for the smoothing gaussian filter to be applied pr...</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../intensity_map_size/">intensity_map_size</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>Input parameter: the size of the output intensity map in pixels</td>
 <td>direct</td>
 </tr>
 </tbody>
@@ -338,7 +330,6 @@ slots:
 - saturation_threshold
 - corner_fraction
 - sigma
-- intensity_map_size
 slot_usage:
   saturation_threshold:
     name: saturation_threshold
@@ -450,21 +441,6 @@ attributes:
     required: true
     minimum_value: 2
     maximum_value: 8
-  intensity_map_size:
-    name: intensity_map_size
-    description: 'Input parameter: the size of the output intensity map in pixels'
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: false
-    ifabsent: int(64)
-    alias: intensity_map_size
-    owner: FieldIlluminationInput
-    domain_of:
-    - FieldIlluminationInput
-    range: integer
-    required: true
-    minimum_value: 32
-    maximum_value: 512
 
 </code></pre>
 </details>
