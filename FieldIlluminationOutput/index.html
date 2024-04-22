@@ -238,6 +238,10 @@
 
       FieldIlluminationOutput : processing_version
 
+      FieldIlluminationOutput : roi_center_region
+
+          FieldIlluminationOutput --&gt; Roi : roi_center_region
+
       FieldIlluminationOutput : roi_centers_fitted
 
           FieldIlluminationOutput --&gt; Roi : roi_centers_fitted
@@ -336,6 +340,12 @@
 <td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
 <td>0..* <br/> <a href="../Roi/">Roi</a></td>
 <td>Point ROIs marking the maximum intensity of the area of maximum illumination</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../roi_center_region/">roi_center_region</a></td>
+<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>Mask ROIs marking the area of maximum illumination</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -512,6 +522,14 @@ attributes:
     rank: 1000
     multivalued: true
     range: Roi
+  roi_center_region:
+    name: roi_center_region
+    description: Mask ROIs marking the area of maximum illumination. One mask per
+      channel.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
+    multivalued: true
+    range: Roi
 
 </code></pre>
 </details>
@@ -628,6 +646,18 @@ attributes:
     rank: 1000
     multivalued: true
     alias: roi_centers_max_intensity
+    owner: FieldIlluminationOutput
+    domain_of:
+    - FieldIlluminationOutput
+    range: Roi
+  roi_center_region:
+    name: roi_center_region
+    description: Mask ROIs marking the area of maximum illumination. One mask per
+      channel.
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema
+    rank: 1000
+    multivalued: true
+    alias: roi_center_region
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput

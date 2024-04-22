@@ -2131,6 +2131,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/roi_center_region/</loc>
+         <lastmod>2024-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/roi_centers_fitted/</loc>
          <lastmod>2024-04-22</lastmod>
          <changefreq>daily</changefreq>
