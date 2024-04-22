@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-22T14:47:08
+# Generation date: 2024-04-22T15:00:52
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1328,6 +1328,7 @@ class FieldIlluminationOutput(MetricsOutput):
     roi_centers_geometric: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_centers_fitted: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_centers_max_intensity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    roi_center_region: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.key_values is not None and not isinstance(self.key_values, FieldIlluminationKeyValues):
@@ -1363,6 +1364,10 @@ class FieldIlluminationOutput(MetricsOutput):
         if not isinstance(self.roi_centers_max_intensity, list):
             self.roi_centers_max_intensity = [self.roi_centers_max_intensity] if self.roi_centers_max_intensity is not None else []
         self.roi_centers_max_intensity = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_centers_max_intensity]
+
+        if not isinstance(self.roi_center_region, list):
+            self.roi_center_region = [self.roi_center_region] if self.roi_center_region is not None else []
+        self.roi_center_region = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_center_region]
 
         super().__post_init__(**kwargs)
 
@@ -3268,6 +3273,9 @@ slots.fieldIlluminationOutput__roi_centers_fitted = Slot(uri=MICROSCOPEMETRICS_S
 
 slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_centers_max_intensity'], name="fieldIlluminationOutput__roi_centers_max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_centers_max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
+
+slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_center_region'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Optional[Union[dict, PSFBeadsInput]])

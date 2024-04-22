@@ -267,7 +267,8 @@ CREATE TABLE "FieldIlluminationOutput" (
 	roi_centers_geometric TEXT, 
 	roi_centers_fitted TEXT, 
 	roi_centers_max_intensity TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, key_values, intensity_profiles, intensity_maps, roi_profiles, roi_corners, roi_centers_of_mass, roi_centers_geometric, roi_centers_fitted, roi_centers_max_intensity)
+	roi_center_region TEXT, 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, key_values, intensity_profiles, intensity_maps, roi_profiles, roi_corners, roi_centers_of_mass, roi_centers_geometric, roi_centers_fitted, roi_centers_max_intensity, roi_center_region)
 );
 
 CREATE TABLE "HarmonizedMetricsDatasetCollection" (

@@ -4025,6 +4025,21 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "fieldIlluminationOutput__roi_center_region",
+      "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
+      "from_schema": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/field_illumination_schema/roi_center_region",
+      "multivalued": true,
+      "alias": "roi_center_region",
+      "owner": "FieldIlluminationOutput",
+      "domain_of": [
+        "FieldIlluminationOutput"
+      ],
+      "range": "Roi",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "pSFBeadsDataset__input",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
       "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/input",
@@ -6261,7 +6276,8 @@
         "fieldIlluminationOutput__roi_centers_of_mass",
         "fieldIlluminationOutput__roi_centers_geometric",
         "fieldIlluminationOutput__roi_centers_fitted",
-        "fieldIlluminationOutput__roi_centers_max_intensity"
+        "fieldIlluminationOutput__roi_centers_max_intensity",
+        "fieldIlluminationOutput__roi_center_region"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6326,6 +6342,13 @@
         {
           "name": "roi_centers_max_intensity",
           "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
+          "multivalued": true,
+          "range": "Roi",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "roi_center_region",
+          "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
           "multivalued": true,
           "range": "Roi",
           "@type": "SlotDefinition"
@@ -6977,7 +7000,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-22T14:47:02",
+  "generation_date": "2024-04-22T15:00:45",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

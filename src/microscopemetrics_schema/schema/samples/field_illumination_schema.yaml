@@ -91,6 +91,12 @@ classes:
           Point ROIs marking the maximum intensity of the area of maximum illumination.
           One point per channel.
         multivalued: true
+      roi_center_region:
+        range: Roi
+        description: >-
+          Mask ROIs marking the area of maximum illumination.
+          One mask per channel.
+        multivalued: true
 
   FieldIlluminationKeyValues:
     is_a: KeyValues

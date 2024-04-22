@@ -1605,6 +1605,13 @@
                     },
                     "type": "array"
                 },
+                "roi_center_region": {
+                    "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
+                    "items": {
+                        "$ref": "#/$defs/Roi"
+                    },
+                    "type": "array"
+                },
                 "roi_centers_fitted": {
                     "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
                     "items": {

@@ -335,6 +335,7 @@ type FieldIlluminationOutput
     roiCentersGeometric: [Roi]
     roiCentersFitted: [Roi]
     roiCentersMaxIntensity: [Roi]
+    roiCenterRegion: [Roi]
   }
 
 type HarmonizedMetricsDatasetCollection

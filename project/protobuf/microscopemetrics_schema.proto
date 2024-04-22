@@ -312,6 +312,7 @@ message FieldIlluminationOutput
  repeated  roi roiCentersGeometric = 0
  repeated  roi roiCentersFitted = 0
  repeated  roi roiCentersMaxIntensity = 0
+ repeated  roi roiCenterRegion = 0
  }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
