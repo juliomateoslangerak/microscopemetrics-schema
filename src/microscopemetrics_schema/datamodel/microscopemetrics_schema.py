@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-23T10:58:40
+# Generation date: 2024-04-23T13:43:21
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -757,7 +757,9 @@ class Roi(MetricsObject):
             self.polygons = [self.polygons] if self.polygons is not None else []
         self.polygons = [v if isinstance(v, Polygon) else Polygon(**as_dict(v)) for v in self.polygons]
 
-        self._normalize_inlined_as_dict(slot_name="masks", slot_type=Mask, key_name="y", keyed=False)
+        if not isinstance(self.masks, list):
+            self.masks = [self.masks] if self.masks is not None else []
+        self.masks = [v if isinstance(v, Mask) else Mask(**as_dict(v)) for v in self.masks]
 
         super().__post_init__(**kwargs)
 

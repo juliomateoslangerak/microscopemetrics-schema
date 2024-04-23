@@ -3345,6 +3345,7 @@
       ],
       "range": "Mask",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5577,6 +5578,8 @@
           "description": "A list of masks included in the ROI",
           "multivalued": true,
           "range": "Mask",
+          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -6948,7 +6951,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-23T10:58:34",
+  "generation_date": "2024-04-23T13:43:15",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

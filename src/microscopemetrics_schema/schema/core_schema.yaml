@@ -480,6 +480,8 @@ classes:
         description: A list of masks included in the ROI
         required: false
         multivalued: true
+        inlined: true
+        inlined_as_list: true
 
   Shape:
     is_a: NamedObject
