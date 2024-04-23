@@ -1109,9 +1109,6 @@ CLOSED {
        (  &<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsOutput_tes> ;
           rdf:type [ <https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/MetricsOutput> ] ? ;
 
-          <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/bead_crops>
-          @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Image> * ;
-
           <https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/analyzed_bead_centers>
           @<https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema/Roi> * ;
 

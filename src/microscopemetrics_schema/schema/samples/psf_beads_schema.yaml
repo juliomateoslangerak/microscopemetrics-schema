@@ -60,14 +60,6 @@ classes:
   PSFBeadsOutput:
     is_a: MetricsOutput
     attributes:
-      bead_crops:
-        range: Image
-        description: >-
-          The crops of the beads provided in the order TZYXC.
-          One crop will be provided per bead correctly detected.
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       analyzed_bead_centers:
         range: Roi
         description: >-

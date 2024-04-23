@@ -632,7 +632,6 @@ type PSFBeadsOutput
     warnings: [String]
     errors: [String]
     comment: Comment
-    beadCrops: [Image]
     analyzedBeadCenters: [Roi]
     discardedBeadCentersLateralEdge: [Roi]
     discardedBeadCentersSelfProximity: [Roi]

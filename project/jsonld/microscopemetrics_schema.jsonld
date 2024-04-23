@@ -4050,22 +4050,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__bead_crops",
-      "description": "The crops of the beads provided in the order TZYXC. One crop will be provided per bead correctly detected.",
-      "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
-      "slot_uri": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/bead_crops",
-      "multivalued": true,
-      "alias": "bead_crops",
-      "owner": "PSFBeadsOutput",
-      "domain_of": [
-        "PSFBeadsOutput"
-      ],
-      "range": "Image",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "pSFBeadsOutput__analyzed_bead_centers",
       "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
       "from_schema": "https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml",
@@ -6458,7 +6442,6 @@
         "metricsOutput__warnings",
         "metricsOutput__errors",
         "metricsOutput__comment",
-        "pSFBeadsOutput__bead_crops",
         "pSFBeadsOutput__analyzed_bead_centers",
         "pSFBeadsOutput__discarded_bead_centers_lateral_edge",
         "pSFBeadsOutput__discarded_bead_centers_self_proximity",
@@ -6475,15 +6458,6 @@
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "bead_crops",
-          "description": "The crops of the beads provided in the order TZYXC. One crop will be provided per bead correctly detected.",
-          "multivalued": true,
-          "range": "Image",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "analyzed_bead_centers",
           "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
@@ -6974,7 +6948,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-22T15:06:17",
+  "generation_date": "2024-04-23T10:58:34",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

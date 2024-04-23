@@ -487,7 +487,6 @@ CREATE TABLE "PSFBeadsOutput" (
 	warnings TEXT, 
 	errors TEXT, 
 	comment TEXT, 
-	bead_crops TEXT, 
 	analyzed_bead_centers TEXT, 
 	discarded_bead_centers_lateral_edge TEXT, 
 	discarded_bead_centers_self_proximity TEXT, 
@@ -501,7 +500,7 @@ CREATE TABLE "PSFBeadsOutput" (
 	bead_z_profiles TEXT, 
 	bead_y_profiles TEXT, 
 	bead_x_profiles TEXT, 
-	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, bead_crops, analyzed_bead_centers, discarded_bead_centers_lateral_edge, discarded_bead_centers_self_proximity, considered_bead_centers_axial_edge, considered_bead_centers_intensity_outlier, considered_bead_centers_z_fit_quality, considered_bead_centers_y_fit_quality, considered_bead_centers_x_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles)
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, comment, analyzed_bead_centers, discarded_bead_centers_lateral_edge, discarded_bead_centers_self_proximity, considered_bead_centers_axial_edge, considered_bead_centers_intensity_outlier, considered_bead_centers_z_fit_quality, considered_bead_centers_y_fit_quality, considered_bead_centers_x_fit_quality, key_values, bead_properties, bead_z_profiles, bead_y_profiles, bead_x_profiles)
 );
 
 CREATE TABLE "Rectangle" (

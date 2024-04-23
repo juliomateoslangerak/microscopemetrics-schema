@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-22T15:06:24
+# Generation date: 2024-04-23T10:58:40
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -1701,7 +1701,6 @@ class PSFBeadsOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
-    bead_crops: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     discarded_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     discarded_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -1717,10 +1716,6 @@ class PSFBeadsOutput(MetricsOutput):
     bead_x_profiles: Optional[Union[dict, Table]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.bead_crops, list):
-            self.bead_crops = [self.bead_crops] if self.bead_crops is not None else []
-        self.bead_crops = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.bead_crops]
-
         if not isinstance(self.analyzed_bead_centers, list):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
         self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
@@ -3274,9 +3269,6 @@ slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset
 
 slots.pSFBeadsDataset__output = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__output", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
-
-slots.pSFBeadsOutput__bead_crops = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_crops", curie=None,
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_crops, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
 
 slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__analyzed_bead_centers", curie=None,
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])

@@ -2679,13 +2679,6 @@
                     },
                     "type": "array"
                 },
-                "bead_crops": {
-                    "description": "The crops of the beads provided in the order TZYXC. One crop will be provided per bead correctly detected.",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "bead_properties": {
                     "$ref": "#/$defs/Table",
                     "description": "Properties associated with the analysis of the beads."
