@@ -8,7 +8,7 @@ readme = "README.md"
 include = ["README.md", "src/microscopemetrics_schema/schema", "project"]
 
 [tool.poetry.dependencies]
-python = ">=3.8.10 <4"
+python = ">=3.10.12 <4"
 linkml-runtime = "^1.6.3"
 
 [tool.poetry.group.dev.dependencies]
@@ -17,7 +17,7 @@ mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^0.6.0"
 hypothesis = "^6"
 black = "^24"
-#schemasheets = "^0.1.14" # schemasheets is preventing the use of python 3.8 as a development dependency it should not be a requirement for deployment
+schemasheets = "^0.1.14"
 
 [tool.poetry-dynamic-versioning]
 enable = false
