@@ -214,10 +214,6 @@
 
           PSFBeadsOutput --&gt; Roi : analyzed_bead_centers
 
-      PSFBeadsOutput : bead_crops
-
-          PSFBeadsOutput --&gt; Image : bead_crops
-
       PSFBeadsOutput : bead_properties
 
           PSFBeadsOutput --&gt; Table : bead_properties
@@ -304,12 +300,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../bead_crops/">bead_crops</a></td>
-<td>0..* <br/> <a href="../Image/">Image</a></td>
-<td>The crops of the beads provided in the order TZYXC</td>
-<td>direct</td>
-</tr>
 <tr>
 <td><a href="../analyzed_bead_centers/">analyzed_bead_centers</a></td>
 <td>0..* <br/> <a href="../Roi/">Roi</a></td>
@@ -489,16 +479,6 @@
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsOutput
 attributes:
-  bead_crops:
-    name: bead_crops
-    description: The crops of the beads provided in the order TZYXC. One crop will
-      be provided per bead correctly detected.
-    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
-    rank: 1000
-    multivalued: true
-    range: Image
-    inlined: true
-    inlined_as_list: true
   analyzed_bead_centers:
     name: analyzed_bead_centers
     description: The centers of the beads that have been analyzed. One point shape
@@ -645,20 +625,6 @@ attributes:
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 is_a: MetricsOutput
 attributes:
-  bead_crops:
-    name: bead_crops
-    description: The crops of the beads provided in the order TZYXC. One crop will
-      be provided per bead correctly detected.
-    from_schema: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml
-    rank: 1000
-    multivalued: true
-    alias: bead_crops
-    owner: PSFBeadsOutput
-    domain_of:
-    - PSFBeadsOutput
-    range: Image
-    inlined: true
-    inlined_as_list: true
   analyzed_bead_centers:
     name: analyzed_bead_centers
     description: The centers of the beads that have been analyzed. One point shape
