@@ -385,8 +385,6 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - ArgolightEOutput
     range: Roi
   key_measurements:
     name: key_measurements
@@ -394,18 +392,14 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - ArgolightEOutput
     range: ArgolightEKeyValues
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles of the argolight lines provided as tables. One
       table per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
-    domain_of:
-    - FieldIlluminationOutput
-    - ArgolightEOutput
     range: Table
 
 </code></pre>
@@ -443,12 +437,13 @@ attributes:
     description: Intensity profiles of the argolight lines provided as tables. One
       table per channel
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
     alias: intensity_profiles
     owner: ArgolightEOutput
     domain_of:
-    - FieldIlluminationOutput
     - ArgolightEOutput
+    - FieldIlluminationOutput
     range: Table
   processing_application:
     name: processing_application

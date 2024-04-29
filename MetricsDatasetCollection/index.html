@@ -254,7 +254,7 @@
 <tbody>
 <tr>
 <td><a href="../datasets/">datasets</a></td>
-<td>1..* <br/> <a href="../MetricsDataset/">MetricsDataset</a></td>
+<td>0..* <br/> <a href="../MetricsDataset/">MetricsDataset</a></td>
 <td>The datasets of the collection</td>
 <td>direct</td>
 </tr>
@@ -323,10 +323,7 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsDatasetCollection
     range: MetricsDataset
-    required: true
     inlined: true
     inlined_as_list: true
 
@@ -350,7 +347,6 @@ attributes:
     domain_of:
     - MetricsDatasetCollection
     range: MetricsDataset
-    required: true
     inlined: true
     inlined_as_list: true
   data_reference:

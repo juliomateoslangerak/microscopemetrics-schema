@@ -379,10 +379,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
   sigma_z:
     name: sigma_z
@@ -390,33 +390,33 @@ slot_usage:
     multivalued: false
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
 
 </code></pre>
 </details>
@@ -429,10 +429,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
   sigma_z:
     name: sigma_z
@@ -440,33 +440,33 @@ slot_usage:
     multivalued: false
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
 attributes:
   argolight_b_image:
     name: argolight_b_image
@@ -489,10 +489,10 @@ attributes:
     alias: bit_depth
     owner: ArgolightBInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -508,14 +508,14 @@ attributes:
     alias: saturation_threshold
     owner: ArgolightBInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   spots_distance:
     name: spots_distance
     description: 'Input parameter: distance between argolight spots'
@@ -538,12 +538,12 @@ attributes:
     alias: sigma_z
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
@@ -554,12 +554,12 @@ attributes:
     alias: sigma_y
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
@@ -570,12 +570,12 @@ attributes:
     alias: sigma_x
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   lower_threshold_correction_factors:
     name: lower_threshold_correction_factors
     description: 'Input parameter: correction factor for the lower thresholds.  Must
