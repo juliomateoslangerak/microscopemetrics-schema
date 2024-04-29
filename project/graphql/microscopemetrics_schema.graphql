@@ -343,7 +343,7 @@ type HarmonizedMetricsDatasetCollection
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    datasets: [MetricsDataset]!
+    datasets: [MetricsDataset]
     datasetClass: String!
   }
 
@@ -453,7 +453,7 @@ type MetricsDatasetCollection
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    datasets: [MetricsDataset]!
+    datasets: [MetricsDataset]
   }
 
 interface MetricsInput

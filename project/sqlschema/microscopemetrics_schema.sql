@@ -275,7 +275,7 @@ CREATE TABLE "HarmonizedMetricsDatasetCollection" (
 	description TEXT, 
 	data_reference TEXT, 
 	linked_references TEXT, 
-	datasets TEXT NOT NULL, 
+	datasets TEXT, 
 	dataset_class TEXT NOT NULL, 
 	PRIMARY KEY (name, description, data_reference, linked_references, datasets, dataset_class)
 );
@@ -358,7 +358,7 @@ CREATE TABLE "MetricsDatasetCollection" (
 	description TEXT, 
 	data_reference TEXT, 
 	linked_references TEXT, 
-	datasets TEXT NOT NULL, 
+	datasets TEXT, 
 	PRIMARY KEY (name, description, data_reference, linked_references, datasets)
 );
 

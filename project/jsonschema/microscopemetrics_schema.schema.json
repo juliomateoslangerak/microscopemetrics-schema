@@ -1696,8 +1696,7 @@
                 }
             },
             "required": [
-                "dataset_class",
-                "datasets"
+                "dataset_class"
             ],
             "title": "HarmonizedMetricsDatasetCollection",
             "type": "object"
@@ -2120,9 +2119,6 @@
                     "type": "string"
                 }
             },
-            "required": [
-                "datasets"
-            ],
             "title": "MetricsDatasetCollection",
             "type": "object"
         },

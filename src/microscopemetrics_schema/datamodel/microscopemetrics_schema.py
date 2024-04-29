@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-23T13:43:21
+# Generation date: 2024-04-29T14:52:50
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -341,11 +341,9 @@ class MetricsDatasetCollection(MetricsObject):
     class_name: ClassVar[str] = "MetricsDatasetCollection"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDatasetCollection
 
-    datasets: Union[Union[dict, "MetricsDataset"], List[Union[dict, "MetricsDataset"]]] = None
+    datasets: Optional[Union[Union[dict, "MetricsDataset"], List[Union[dict, "MetricsDataset"]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.datasets):
-            self.MissingRequiredField("datasets")
         if not isinstance(self.datasets, list):
             self.datasets = [self.datasets] if self.datasets is not None else []
         self.datasets = [v if isinstance(v, MetricsDataset) else MetricsDataset(**as_dict(v)) for v in self.datasets]
@@ -366,7 +364,6 @@ class HarmonizedMetricsDatasetCollection(MetricsDatasetCollection):
     class_name: ClassVar[str] = "HarmonizedMetricsDatasetCollection"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HarmonizedMetricsDatasetCollection
 
-    datasets: Union[Union[dict, "MetricsDataset"], List[Union[dict, "MetricsDataset"]]] = None
     dataset_class: str = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -3006,7 +3003,7 @@ slots.comment__text = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/text'], nam
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__text, domain=None, range=str)
 
 slots.metricsDatasetCollection__datasets = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/datasets'], name="metricsDatasetCollection__datasets", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/datasets'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDatasetCollection__datasets, domain=None, range=Union[Union[dict, MetricsDataset], List[Union[dict, MetricsDataset]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDatasetCollection__datasets, domain=None, range=Optional[Union[Union[dict, MetricsDataset], List[Union[dict, MetricsDataset]]]])
 
 slots.harmonizedMetricsDatasetCollection__dataset_class = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/dataset_class'], name="harmonizedMetricsDatasetCollection__dataset_class", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/dataset_class'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.harmonizedMetricsDatasetCollection__dataset_class, domain=None, range=str)

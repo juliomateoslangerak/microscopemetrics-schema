@@ -2761,7 +2761,6 @@
         "MetricsDatasetCollection"
       ],
       "range": "MetricsDataset",
-      "required": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -5007,7 +5006,6 @@
           "description": "The datasets of the collection",
           "multivalued": true,
           "range": "MetricsDataset",
-          "required": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6951,7 +6949,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-23T13:43:15",
+  "generation_date": "2024-04-29T14:52:43",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
