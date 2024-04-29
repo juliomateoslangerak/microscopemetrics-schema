@@ -212,10 +212,10 @@
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/MetricsOutput">microscopemetrics_schema:MetricsOutput</a></p>
 <div class="mermaid"> classDiagram
     class MetricsOutput
+      MetricsOutput &lt;|-- FieldIlluminationOutput
+      MetricsOutput &lt;|-- PSFBeadsOutput
       MetricsOutput &lt;|-- ArgolightBOutput
       MetricsOutput &lt;|-- ArgolightEOutput
-      MetricsOutput &lt;|-- PSFBeadsOutput
-      MetricsOutput &lt;|-- FieldIlluminationOutput
 
       MetricsOutput : comment
 
@@ -240,10 +240,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>MetricsOutput</strong><ul>
+<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
+<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
 <li><a href="../ArgolightBOutput/">ArgolightBOutput</a></li>
 <li><a href="../ArgolightEOutput/">ArgolightEOutput</a></li>
-<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
-<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
 </ul>
 </li>
 </ul>
@@ -366,6 +366,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: true
   processing_version:
@@ -374,6 +376,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: true
   processing_entity:
@@ -382,6 +386,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   processing_datetime:
@@ -390,6 +396,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: datetime
     required: true
   processing_log:
@@ -398,6 +406,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   warnings:
@@ -406,6 +416,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   errors:
@@ -414,6 +426,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   comment:
@@ -422,6 +436,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: Comment
     required: false
 

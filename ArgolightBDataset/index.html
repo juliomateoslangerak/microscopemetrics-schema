@@ -373,12 +373,22 @@ attributes:
   input:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    rank: 1000
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
     range: ArgolightBInput
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    rank: 1000
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
     range: ArgolightBOutput
 
 </code></pre>
@@ -394,28 +404,26 @@ attributes:
   input:
     name: input
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    rank: 1000
     alias: input
     owner: ArgolightBDataset
     domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    - MetricsDataset
-    - PSFBeadsDataset
-    - FieldIlluminationDataset
     range: ArgolightBInput
   output:
     name: output
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/samples/argolight_schema
-    rank: 1000
     alias: output
     owner: ArgolightBDataset
     domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    - MetricsDataset
-    - PSFBeadsDataset
-    - FieldIlluminationDataset
     range: ArgolightBOutput
   microscope:
     name: microscope

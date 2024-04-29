@@ -343,10 +343,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     required: true
 
 </code></pre>
@@ -360,10 +360,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     required: true
 attributes:
   argolight_e_image:
@@ -387,10 +387,10 @@ attributes:
     alias: bit_depth
     owner: ArgolightEInput
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -406,14 +406,14 @@ attributes:
     alias: saturation_threshold
     owner: ArgolightEInput
     domain_of:
+    - FieldIlluminationInput
+    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
-    - PSFBeadsInput
-    - FieldIlluminationInput
     range: float
     required: true
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.0
+    maximum_value: 1.0
   orientation_axis:
     name: orientation_axis
     description: Axis along which resolution is being measured. 1=Y, 2=X
@@ -441,8 +441,8 @@ attributes:
     - ArgolightEInput
     range: float
     required: true
-    minimum_value: 0
-    maximum_value: 1
+    minimum_value: 0.1
+    maximum_value: 1.0
   prominence_threshold:
     name: prominence_threshold
     description: Peak prominence used as a threshold to distinguish two peaks.  Defaults
@@ -457,8 +457,8 @@ attributes:
     - ArgolightEInput
     range: float
     required: true
-    minimum_value: 0
-    maximum_value: 0
+    minimum_value: 0.1
+    maximum_value: 0.99
 
 </code></pre>
 </details>

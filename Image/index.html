@@ -403,14 +403,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td><a href="../argolight_b_image/">argolight_b_image</a></td>
-<td>range</td>
-<td><a href="./">Image</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td><a href="../argolight_e_image/">argolight_e_image</a></td>
+<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td><a href="../field_illumination_image/">field_illumination_image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -421,8 +415,14 @@
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td><a href="../field_illumination_image/">field_illumination_image</a></td>
+<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td><a href="../argolight_b_image/">argolight_b_image</a></td>
+<td>range</td>
+<td><a href="./">Image</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
+<td><a href="../argolight_e_image/">argolight_e_image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -467,6 +467,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   voxel_size_y_micron:
@@ -475,6 +477,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   voxel_size_z_micron:
@@ -483,6 +487,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   shape_x:
@@ -491,6 +497,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_y:
@@ -499,6 +507,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_z:
@@ -508,6 +518,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_c:
@@ -517,6 +529,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_t:
@@ -526,6 +540,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   time_series:
@@ -534,6 +550,8 @@ attributes:
     - linkml:axis0
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Image
     range: TimeSeries
     required: false
   channel_series:
@@ -542,6 +560,8 @@ attributes:
     - linkml:axis4
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Image
     range: ChannelSeries
     required: false
   acquisition_datetime:
@@ -549,6 +569,9 @@ attributes:
     description: The datetime of the acquisition
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - MetricsDataset
+    - Image
     range: datetime
     required: true
   source_images:
@@ -557,6 +580,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Image
     range: DataReference
     required: false
     inlined: true
@@ -567,6 +592,8 @@ attributes:
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: MetaObject
     required: false
 
