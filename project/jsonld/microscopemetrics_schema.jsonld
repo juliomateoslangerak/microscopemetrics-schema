@@ -436,7 +436,7 @@
           "description": "A region of interest"
         },
         {
-          "text": "FILE",
+          "text": "FILEANNOTATION",
           "description": "A file"
         }
       ]
@@ -559,8 +559,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +635,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.01,
+      "maximum_value": 0.49,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +652,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2,
-      "maximum_value": 8,
+      "minimum_value": 2.0,
+      "maximum_value": 8.0,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +668,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +684,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +714,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +744,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +760,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +790,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +820,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +836,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +866,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +896,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +912,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +956,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +986,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1002,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1288,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10,
-      "maximum_value": 30,
+      "minimum_value": 10.0,
+      "maximum_value": 30.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2268,8 +2268,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.1,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2285,8 +2285,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.1,
+      "maximum_value": 0.99,
       "@type": "SlotDefinition"
     },
     {
@@ -4469,8 +4469,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4551,8 +4551,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4573,8 +4573,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 5,
+      "minimum_value": 0.0,
+      "maximum_value": 5.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4595,8 +4595,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4617,8 +4617,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4639,8 +4639,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     }
   ],
@@ -6949,7 +6949,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-02-05T12:00:47",
   "source_file_size": 787,
-  "generation_date": "2024-04-29T14:52:43",
+  "generation_date": "2024-04-30T12:10:56",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

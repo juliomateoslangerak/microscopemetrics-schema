@@ -880,5 +880,5 @@ enums:
         description: A comment
       ROI:
         description: A region of interest
-      FILE:
+      FILEANNOTATION:
         description: A file

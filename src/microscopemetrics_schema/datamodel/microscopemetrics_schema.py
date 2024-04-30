@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-29T14:52:50
+# Generation date: 2024-04-30T12:11:02
 # Schema: microscopemetrics-schema
 #
 # id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
@@ -2509,8 +2509,8 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     ROI = PermissibleValue(
         text="ROI",
         description="A region of interest")
-    FILE = PermissibleValue(
-        text="FILE",
+    FILEANNOTATION = PermissibleValue(
+        text="FILEANNOTATION",
         description="A file")
 
     _defn = EnumDefinition(
