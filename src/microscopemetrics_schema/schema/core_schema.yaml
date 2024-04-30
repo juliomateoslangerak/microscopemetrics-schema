@@ -1,4 +1,4 @@
-id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
 name: microscopemetrics_core_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/

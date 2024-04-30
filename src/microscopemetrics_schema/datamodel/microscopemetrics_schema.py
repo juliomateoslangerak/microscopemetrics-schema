@@ -1,8 +1,8 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-04-30T12:11:02
+# Generation date: 2024-04-30T13:42:55
 # Schema: microscopemetrics-schema
 #
-# id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+# id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 # description: A schema for microscope-metrics, a python package for microscope QC
 # license: GNU GPL v3.0
 
@@ -33,7 +33,7 @@ dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 # Namespaces
 EXAMPLE = CurieNamespace('example', 'https://example.org/')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
-MICROSCOPEMETRICS_SCHEMA = CurieNamespace('microscopemetrics_schema', 'https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/')
+MICROSCOPEMETRICS_SCHEMA = CurieNamespace('microscopemetrics_schema', 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/')
 DEFAULT_ = MICROSCOPEMETRICS_SCHEMA
 
 
@@ -1597,8 +1597,8 @@ class PSFBeadsDataset(MetricsDataset):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsDataset")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/PSFBeadsDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/PSFBeadsDataset"
     class_name: ClassVar[str] = "PSFBeadsDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset
 
@@ -1621,8 +1621,8 @@ class PSFBeadsDataset(MetricsDataset):
 class PSFBeadsInput(MetricsInput):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsInput")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/PSFBeadsInput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/PSFBeadsInput"
     class_name: ClassVar[str] = "PSFBeadsInput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
 
@@ -1692,8 +1692,8 @@ class PSFBeadsInput(MetricsInput):
 class PSFBeadsOutput(MetricsOutput):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsOutput")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/PSFBeadsOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/PSFBeadsOutput"
     class_name: ClassVar[str] = "PSFBeadsOutput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsOutput
 
@@ -1769,8 +1769,8 @@ class PSFBeadsOutput(MetricsOutput):
 class PSFBeadsKeyValues(KeyValues):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/data_schema/samples/argolight_schema.yaml/PSFBeadsKeyValues")
-    class_class_curie: ClassVar[str] = None
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/PSFBeadsKeyValues"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/PSFBeadsKeyValues"
     class_name: ClassVar[str] = "PSFBeadsKeyValues"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyValues
 
@@ -1970,457 +1970,6 @@ class PSFBeadsKeyValues(KeyValues):
         if not isinstance(self.resolution_std_fwhm_lateral_asymmetry_ratio, list):
             self.resolution_std_fwhm_lateral_asymmetry_ratio = [self.resolution_std_fwhm_lateral_asymmetry_ratio] if self.resolution_std_fwhm_lateral_asymmetry_ratio is not None else []
         self.resolution_std_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.resolution_std_fwhm_lateral_asymmetry_ratio]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightBDataset(MetricsDataset):
-    """
-    An Argolight sample pattern B dataset. This pattern consists of an array of circles
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBDataset"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBDataset"
-    class_name: ClassVar[str] = "ArgolightBDataset"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDataset
-
-    microscope: Union[dict, Microscope] = None
-    processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "ArgolightBInput"]] = None
-    output: Optional[Union[dict, "ArgolightBOutput"]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, ArgolightBInput):
-            self.input = ArgolightBInput(**as_dict(self.input))
-
-        if self.output is not None and not isinstance(self.output, ArgolightBOutput):
-            self.output = ArgolightBOutput(**as_dict(self.output))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightBInput(MetricsInput):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBInput"
-    class_name: ClassVar[str] = "ArgolightBInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBInput
-
-    argolight_b_image: Union[dict, Image] = None
-    spots_distance: float = None
-    saturation_threshold: float = 0.01
-    sigma_z: float = 1.0
-    sigma_y: float = 3.0
-    sigma_x: float = 3.0
-    bit_depth: Optional[int] = None
-    lower_threshold_correction_factors: Optional[Union[float, List[float]]] = empty_list()
-    upper_threshold_correction_factors: Optional[Union[float, List[float]]] = empty_list()
-    remove_center_cross: Optional[Union[bool, Bool]] = False
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.argolight_b_image):
-            self.MissingRequiredField("argolight_b_image")
-        if not isinstance(self.argolight_b_image, Image):
-            self.argolight_b_image = Image(**as_dict(self.argolight_b_image))
-
-        if self._is_empty(self.saturation_threshold):
-            self.MissingRequiredField("saturation_threshold")
-        if not isinstance(self.saturation_threshold, float):
-            self.saturation_threshold = float(self.saturation_threshold)
-
-        if self._is_empty(self.spots_distance):
-            self.MissingRequiredField("spots_distance")
-        if not isinstance(self.spots_distance, float):
-            self.spots_distance = float(self.spots_distance)
-
-        if self._is_empty(self.sigma_z):
-            self.MissingRequiredField("sigma_z")
-        if not isinstance(self.sigma_z, float):
-            self.sigma_z = float(self.sigma_z)
-
-        if self._is_empty(self.sigma_y):
-            self.MissingRequiredField("sigma_y")
-        if not isinstance(self.sigma_y, float):
-            self.sigma_y = float(self.sigma_y)
-
-        if self._is_empty(self.sigma_x):
-            self.MissingRequiredField("sigma_x")
-        if not isinstance(self.sigma_x, float):
-            self.sigma_x = float(self.sigma_x)
-
-        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
-            self.bit_depth = int(self.bit_depth)
-
-        if not isinstance(self.lower_threshold_correction_factors, list):
-            self.lower_threshold_correction_factors = [self.lower_threshold_correction_factors] if self.lower_threshold_correction_factors is not None else []
-        self.lower_threshold_correction_factors = [v if isinstance(v, float) else float(v) for v in self.lower_threshold_correction_factors]
-
-        if not isinstance(self.upper_threshold_correction_factors, list):
-            self.upper_threshold_correction_factors = [self.upper_threshold_correction_factors] if self.upper_threshold_correction_factors is not None else []
-        self.upper_threshold_correction_factors = [v if isinstance(v, float) else float(v) for v in self.upper_threshold_correction_factors]
-
-        if self.remove_center_cross is not None and not isinstance(self.remove_center_cross, Bool):
-            self.remove_center_cross = Bool(self.remove_center_cross)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightBOutput(MetricsOutput):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBOutput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBOutput"
-    class_name: ClassVar[str] = "ArgolightBOutput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBOutput
-
-    processing_application: Union[str, List[str]] = None
-    processing_version: Union[str, List[str]] = None
-    processing_datetime: Union[str, XSDDateTime] = None
-    spots_labels_image: Optional[Union[dict, ImageMask]] = None
-    spots_centers_of_mass: Optional[Union[Union[dict, "ArgolightBCentersOfMass"], List[Union[dict, "ArgolightBCentersOfMass"]]]] = empty_list()
-    intensity_key_values: Optional[Union[dict, "ArgolightBIntensityKeyValues"]] = None
-    distance_key_values: Optional[Union[dict, "ArgolightBDistanceKeyValues"]] = None
-    spots_properties: Optional[Union[dict, Table]] = None
-    spots_distances: Optional[Union[dict, Table]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.spots_labels_image is not None and not isinstance(self.spots_labels_image, ImageMask):
-            self.spots_labels_image = ImageMask(**as_dict(self.spots_labels_image))
-
-        if not isinstance(self.spots_centers_of_mass, list):
-            self.spots_centers_of_mass = [self.spots_centers_of_mass] if self.spots_centers_of_mass is not None else []
-        self.spots_centers_of_mass = [v if isinstance(v, ArgolightBCentersOfMass) else ArgolightBCentersOfMass(**as_dict(v)) for v in self.spots_centers_of_mass]
-
-        if self.intensity_key_values is not None and not isinstance(self.intensity_key_values, ArgolightBIntensityKeyValues):
-            self.intensity_key_values = ArgolightBIntensityKeyValues(**as_dict(self.intensity_key_values))
-
-        if self.distance_key_values is not None and not isinstance(self.distance_key_values, ArgolightBDistanceKeyValues):
-            self.distance_key_values = ArgolightBDistanceKeyValues(**as_dict(self.distance_key_values))
-
-        if self.spots_properties is not None and not isinstance(self.spots_properties, Table):
-            self.spots_properties = Table(**as_dict(self.spots_properties))
-
-        if self.spots_distances is not None and not isinstance(self.spots_distances, Table):
-            self.spots_distances = Table(**as_dict(self.spots_distances))
-
-        super().__post_init__(**kwargs)
-
-
-class ArgolightBCentersOfMass(Roi):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBCentersOfMass"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBCentersOfMass"
-    class_name: ClassVar[str] = "ArgolightBCentersOfMass"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBCentersOfMass
-
-
-@dataclass
-class ArgolightBIntensityKeyValues(KeyValues):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBIntensityKeyValues"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBIntensityKeyValues"
-    class_name: ClassVar[str] = "ArgolightBIntensityKeyValues"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBIntensityKeyValues
-
-    channel_nr: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_spots: Optional[Union[int, List[int]]] = empty_list()
-    intensity_max_spot: Optional[Union[float, List[float]]] = empty_list()
-    intensity_max_spot_roi: Optional[Union[int, List[int]]] = empty_list()
-    intensity_min_spot: Optional[Union[float, List[float]]] = empty_list()
-    intensity_min_spot_roi: Optional[Union[int, List[int]]] = empty_list()
-    mean_intensity: Optional[Union[float, List[float]]] = empty_list()
-    median_intensity: Optional[Union[float, List[float]]] = empty_list()
-    std_mean_intensity: Optional[Union[float, List[float]]] = empty_list()
-    mad_mean_intensity: Optional[Union[float, List[float]]] = empty_list()
-    min_max_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel_nr, list):
-            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
-        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
-
-        if not isinstance(self.nr_of_spots, list):
-            self.nr_of_spots = [self.nr_of_spots] if self.nr_of_spots is not None else []
-        self.nr_of_spots = [v if isinstance(v, int) else int(v) for v in self.nr_of_spots]
-
-        if not isinstance(self.intensity_max_spot, list):
-            self.intensity_max_spot = [self.intensity_max_spot] if self.intensity_max_spot is not None else []
-        self.intensity_max_spot = [v if isinstance(v, float) else float(v) for v in self.intensity_max_spot]
-
-        if not isinstance(self.intensity_max_spot_roi, list):
-            self.intensity_max_spot_roi = [self.intensity_max_spot_roi] if self.intensity_max_spot_roi is not None else []
-        self.intensity_max_spot_roi = [v if isinstance(v, int) else int(v) for v in self.intensity_max_spot_roi]
-
-        if not isinstance(self.intensity_min_spot, list):
-            self.intensity_min_spot = [self.intensity_min_spot] if self.intensity_min_spot is not None else []
-        self.intensity_min_spot = [v if isinstance(v, float) else float(v) for v in self.intensity_min_spot]
-
-        if not isinstance(self.intensity_min_spot_roi, list):
-            self.intensity_min_spot_roi = [self.intensity_min_spot_roi] if self.intensity_min_spot_roi is not None else []
-        self.intensity_min_spot_roi = [v if isinstance(v, int) else int(v) for v in self.intensity_min_spot_roi]
-
-        if not isinstance(self.mean_intensity, list):
-            self.mean_intensity = [self.mean_intensity] if self.mean_intensity is not None else []
-        self.mean_intensity = [v if isinstance(v, float) else float(v) for v in self.mean_intensity]
-
-        if not isinstance(self.median_intensity, list):
-            self.median_intensity = [self.median_intensity] if self.median_intensity is not None else []
-        self.median_intensity = [v if isinstance(v, float) else float(v) for v in self.median_intensity]
-
-        if not isinstance(self.std_mean_intensity, list):
-            self.std_mean_intensity = [self.std_mean_intensity] if self.std_mean_intensity is not None else []
-        self.std_mean_intensity = [v if isinstance(v, float) else float(v) for v in self.std_mean_intensity]
-
-        if not isinstance(self.mad_mean_intensity, list):
-            self.mad_mean_intensity = [self.mad_mean_intensity] if self.mad_mean_intensity is not None else []
-        self.mad_mean_intensity = [v if isinstance(v, float) else float(v) for v in self.mad_mean_intensity]
-
-        if not isinstance(self.min_max_intensity_ratio, list):
-            self.min_max_intensity_ratio = [self.min_max_intensity_ratio] if self.min_max_intensity_ratio is not None else []
-        self.min_max_intensity_ratio = [v if isinstance(v, float) else float(v) for v in self.min_max_intensity_ratio]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightBDistanceKeyValues(KeyValues):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBDistanceKeyValues"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBDistanceKeyValues"
-    class_name: ClassVar[str] = "ArgolightBDistanceKeyValues"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBDistanceKeyValues
-
-    channel_A: Optional[Union[int, List[int]]] = empty_list()
-    channel_B: Optional[Union[int, List[int]]] = empty_list()
-    mean_3d_dist: Optional[Union[float, List[float]]] = empty_list()
-    median_3d_dist: Optional[Union[float, List[float]]] = empty_list()
-    std_3d_dist: Optional[Union[float, List[float]]] = empty_list()
-    mad_3d_dist: Optional[Union[float, List[float]]] = empty_list()
-    mean_z_dist: Optional[Union[float, List[float]]] = empty_list()
-    median_z_dist: Optional[Union[float, List[float]]] = empty_list()
-    std_z_dist: Optional[Union[float, List[float]]] = empty_list()
-    mad_z_dist: Optional[Union[float, List[float]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel_A, list):
-            self.channel_A = [self.channel_A] if self.channel_A is not None else []
-        self.channel_A = [v if isinstance(v, int) else int(v) for v in self.channel_A]
-
-        if not isinstance(self.channel_B, list):
-            self.channel_B = [self.channel_B] if self.channel_B is not None else []
-        self.channel_B = [v if isinstance(v, int) else int(v) for v in self.channel_B]
-
-        if not isinstance(self.mean_3d_dist, list):
-            self.mean_3d_dist = [self.mean_3d_dist] if self.mean_3d_dist is not None else []
-        self.mean_3d_dist = [v if isinstance(v, float) else float(v) for v in self.mean_3d_dist]
-
-        if not isinstance(self.median_3d_dist, list):
-            self.median_3d_dist = [self.median_3d_dist] if self.median_3d_dist is not None else []
-        self.median_3d_dist = [v if isinstance(v, float) else float(v) for v in self.median_3d_dist]
-
-        if not isinstance(self.std_3d_dist, list):
-            self.std_3d_dist = [self.std_3d_dist] if self.std_3d_dist is not None else []
-        self.std_3d_dist = [v if isinstance(v, float) else float(v) for v in self.std_3d_dist]
-
-        if not isinstance(self.mad_3d_dist, list):
-            self.mad_3d_dist = [self.mad_3d_dist] if self.mad_3d_dist is not None else []
-        self.mad_3d_dist = [v if isinstance(v, float) else float(v) for v in self.mad_3d_dist]
-
-        if not isinstance(self.mean_z_dist, list):
-            self.mean_z_dist = [self.mean_z_dist] if self.mean_z_dist is not None else []
-        self.mean_z_dist = [v if isinstance(v, float) else float(v) for v in self.mean_z_dist]
-
-        if not isinstance(self.median_z_dist, list):
-            self.median_z_dist = [self.median_z_dist] if self.median_z_dist is not None else []
-        self.median_z_dist = [v if isinstance(v, float) else float(v) for v in self.median_z_dist]
-
-        if not isinstance(self.std_z_dist, list):
-            self.std_z_dist = [self.std_z_dist] if self.std_z_dist is not None else []
-        self.std_z_dist = [v if isinstance(v, float) else float(v) for v in self.std_z_dist]
-
-        if not isinstance(self.mad_z_dist, list):
-            self.mad_z_dist = [self.mad_z_dist] if self.mad_z_dist is not None else []
-        self.mad_z_dist = [v if isinstance(v, float) else float(v) for v in self.mad_z_dist]
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightEDataset(MetricsDataset):
-    """
-    An Argolight sample pattern E dataset.
-    It contains resolution data on the axis indicated:
-    - axis 1 = Y resolution = lines along X axis
-    - axis 2 = X resolution = lines along Y axis
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEDataset"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEDataset"
-    class_name: ClassVar[str] = "ArgolightEDataset"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEDataset
-
-    microscope: Union[dict, Microscope] = None
-    processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "ArgolightEInput"]] = None
-    output: Optional[Union[dict, "ArgolightEOutput"]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, ArgolightEInput):
-            self.input = ArgolightEInput(**as_dict(self.input))
-
-        if self.output is not None and not isinstance(self.output, ArgolightEOutput):
-            self.output = ArgolightEOutput(**as_dict(self.output))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightEInput(MetricsInput):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEInput"
-    class_name: ClassVar[str] = "ArgolightEInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInput
-
-    argolight_e_image: Union[dict, Image] = None
-    orientation_axis: int = None
-    saturation_threshold: float = 0.01
-    measured_band: float = 0.4
-    prominence_threshold: float = 0.264
-    bit_depth: Optional[int] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.argolight_e_image):
-            self.MissingRequiredField("argolight_e_image")
-        if not isinstance(self.argolight_e_image, Image):
-            self.argolight_e_image = Image(**as_dict(self.argolight_e_image))
-
-        if self._is_empty(self.saturation_threshold):
-            self.MissingRequiredField("saturation_threshold")
-        if not isinstance(self.saturation_threshold, float):
-            self.saturation_threshold = float(self.saturation_threshold)
-
-        if self._is_empty(self.orientation_axis):
-            self.MissingRequiredField("orientation_axis")
-        if not isinstance(self.orientation_axis, int):
-            self.orientation_axis = int(self.orientation_axis)
-
-        if self._is_empty(self.measured_band):
-            self.MissingRequiredField("measured_band")
-        if not isinstance(self.measured_band, float):
-            self.measured_band = float(self.measured_band)
-
-        if self._is_empty(self.prominence_threshold):
-            self.MissingRequiredField("prominence_threshold")
-        if not isinstance(self.prominence_threshold, float):
-            self.prominence_threshold = float(self.prominence_threshold)
-
-        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
-            self.bit_depth = int(self.bit_depth)
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightEOutput(MetricsOutput):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEOutput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEOutput"
-    class_name: ClassVar[str] = "ArgolightEOutput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEOutput
-
-    processing_application: Union[str, List[str]] = None
-    processing_version: Union[str, List[str]] = None
-    processing_datetime: Union[str, XSDDateTime] = None
-    peaks_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
-    key_measurements: Optional[Union[dict, "ArgolightEKeyValues"]] = None
-    intensity_profiles: Optional[Union[dict, Table]] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.peaks_rois, list):
-            self.peaks_rois = [self.peaks_rois] if self.peaks_rois is not None else []
-        self.peaks_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.peaks_rois]
-
-        if self.key_measurements is not None and not isinstance(self.key_measurements, ArgolightEKeyValues):
-            self.key_measurements = ArgolightEKeyValues(**as_dict(self.key_measurements))
-
-        if self.intensity_profiles is not None and not isinstance(self.intensity_profiles, Table):
-            self.intensity_profiles = Table(**as_dict(self.intensity_profiles))
-
-        super().__post_init__(**kwargs)
-
-
-@dataclass
-class ArgolightEKeyValues(KeyValues):
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEKeyValues"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEKeyValues"
-    class_name: ClassVar[str] = "ArgolightEKeyValues"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEKeyValues
-
-    channel_nr: Optional[Union[int, List[int]]] = empty_list()
-    focus_slice: Optional[Union[int, List[int]]] = empty_list()
-    rayleigh_resolution_pixels: Optional[Union[float, List[float]]] = empty_list()
-    rayleigh_resolution_microns: Optional[Union[float, List[float]]] = empty_list()
-    peak_position_A: Optional[Union[float, List[float]]] = empty_list()
-    peak_position_B: Optional[Union[float, List[float]]] = empty_list()
-    peak_height_A: Optional[Union[float, List[float]]] = empty_list()
-    peak_height_B: Optional[Union[float, List[float]]] = empty_list()
-    peak_prominence_A: Optional[Union[float, List[float]]] = empty_list()
-    peak_prominence_B: Optional[Union[float, List[float]]] = empty_list()
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if not isinstance(self.channel_nr, list):
-            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
-        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
-
-        if not isinstance(self.focus_slice, list):
-            self.focus_slice = [self.focus_slice] if self.focus_slice is not None else []
-        self.focus_slice = [v if isinstance(v, int) else int(v) for v in self.focus_slice]
-
-        if not isinstance(self.rayleigh_resolution_pixels, list):
-            self.rayleigh_resolution_pixels = [self.rayleigh_resolution_pixels] if self.rayleigh_resolution_pixels is not None else []
-        self.rayleigh_resolution_pixels = [v if isinstance(v, float) else float(v) for v in self.rayleigh_resolution_pixels]
-
-        if not isinstance(self.rayleigh_resolution_microns, list):
-            self.rayleigh_resolution_microns = [self.rayleigh_resolution_microns] if self.rayleigh_resolution_microns is not None else []
-        self.rayleigh_resolution_microns = [v if isinstance(v, float) else float(v) for v in self.rayleigh_resolution_microns]
-
-        if not isinstance(self.peak_position_A, list):
-            self.peak_position_A = [self.peak_position_A] if self.peak_position_A is not None else []
-        self.peak_position_A = [v if isinstance(v, float) else float(v) for v in self.peak_position_A]
-
-        if not isinstance(self.peak_position_B, list):
-            self.peak_position_B = [self.peak_position_B] if self.peak_position_B is not None else []
-        self.peak_position_B = [v if isinstance(v, float) else float(v) for v in self.peak_position_B]
-
-        if not isinstance(self.peak_height_A, list):
-            self.peak_height_A = [self.peak_height_A] if self.peak_height_A is not None else []
-        self.peak_height_A = [v if isinstance(v, float) else float(v) for v in self.peak_height_A]
-
-        if not isinstance(self.peak_height_B, list):
-            self.peak_height_B = [self.peak_height_B] if self.peak_height_B is not None else []
-        self.peak_height_B = [v if isinstance(v, float) else float(v) for v in self.peak_height_B]
-
-        if not isinstance(self.peak_prominence_A, list):
-            self.peak_prominence_A = [self.peak_prominence_A] if self.peak_prominence_A is not None else []
-        self.peak_prominence_A = [v if isinstance(v, float) else float(v) for v in self.peak_prominence_A]
-
-        if not isinstance(self.peak_prominence_B, list):
-            self.peak_prominence_B = [self.peak_prominence_B] if self.peak_prominence_B is not None else []
-        self.peak_prominence_B = [v if isinstance(v, float) else float(v) for v in self.peak_prominence_B]
 
         super().__post_init__(**kwargs)
 
@@ -2687,248 +2236,134 @@ slots.bottom_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/f
 slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/bottom_right_intensity_ratio'], name="bottom_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/bottom_right_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.psf_beads_images = Slot(uri="str(uriorcurie)", name="psf_beads_images", curie=None,
+slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/psf_beads_images'], name="psf_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/psf_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
-slots.min_lateral_distance_factor = Slot(uri="str(uriorcurie)", name="min_lateral_distance_factor", curie=None,
+slots.min_lateral_distance_factor = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/min_lateral_distance_factor'], name="min_lateral_distance_factor", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/min_lateral_distance_factor'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
 
-slots.snr_threshold = Slot(uri="str(uriorcurie)", name="snr_threshold", curie=None,
+slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/snr_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
 
-slots.fitting_r2_threshold = Slot(uri="str(uriorcurie)", name="fitting_r2_threshold", curie=None,
+slots.fitting_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fitting_r2_threshold'], name="fitting_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fitting_r2_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_r2_threshold, domain=None, range=float)
 
-slots.intensity_robust_z_score_threshold = Slot(uri="str(uriorcurie)", name="intensity_robust_z_score_threshold", curie=None,
+slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
 
-slots.nr_of_beads_analyzed = Slot(uri="str(uriorcurie)", name="nr_of_beads_analyzed", curie=None,
+slots.nr_of_beads_analyzed = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_analyzed'], name="nr_of_beads_analyzed", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_analyzed'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_analyzed, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_lateral_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_lateral_edge", curie=None,
+slots.nr_of_beads_discarded_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_discarded_lateral_edge'], name="nr_of_beads_discarded_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_discarded_lateral_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_lateral_edge, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_self_proximity = Slot(uri="str(uriorcurie)", name="nr_of_beads_discarded_self_proximity", curie=None,
+slots.nr_of_beads_discarded_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_discarded_self_proximity'], name="nr_of_beads_discarded_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_discarded_self_proximity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_considered_axial_edge = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_axial_edge", curie=None,
+slots.nr_of_beads_considered_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_considered_axial_edge'], name="nr_of_beads_considered_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_considered_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_axial_edge, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_considered_intensity_outlier = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_intensity_outlier", curie=None,
+slots.nr_of_beads_considered_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_considered_intensity_outlier'], name="nr_of_beads_considered_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_considered_intensity_outlier'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_intensity_outlier, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_considered_bad_z_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_z_fit", curie=None,
+slots.nr_of_beads_considered_bad_z_fit = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_considered_bad_z_fit'], name="nr_of_beads_considered_bad_z_fit", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_considered_bad_z_fit'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_z_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_considered_bad_y_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_y_fit", curie=None,
+slots.nr_of_beads_considered_bad_y_fit = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_considered_bad_y_fit'], name="nr_of_beads_considered_bad_y_fit", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_considered_bad_y_fit'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_y_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_considered_bad_x_fit = Slot(uri="str(uriorcurie)", name="nr_of_beads_considered_bad_x_fit", curie=None,
+slots.nr_of_beads_considered_bad_x_fit = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_beads_considered_bad_x_fit'], name="nr_of_beads_considered_bad_x_fit", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_beads_considered_bad_x_fit'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_bad_x_fit, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.fit_r2_z_mean = Slot(uri="str(uriorcurie)", name="fit_r2_z_mean", curie=None,
+slots.fit_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_z_mean'], name="fit_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_z_median = Slot(uri="str(uriorcurie)", name="fit_r2_z_median", curie=None,
+slots.fit_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_z_median'], name="fit_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_z_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_z_std = Slot(uri="str(uriorcurie)", name="fit_r2_z_std", curie=None,
+slots.fit_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_z_std'], name="fit_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_z_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_mean = Slot(uri="str(uriorcurie)", name="fit_r2_y_mean", curie=None,
+slots.fit_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_y_mean'], name="fit_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_y_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_median = Slot(uri="str(uriorcurie)", name="fit_r2_y_median", curie=None,
+slots.fit_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_y_median'], name="fit_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_y_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_std = Slot(uri="str(uriorcurie)", name="fit_r2_y_std", curie=None,
+slots.fit_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_y_std'], name="fit_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_y_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_mean = Slot(uri="str(uriorcurie)", name="fit_r2_x_mean", curie=None,
+slots.fit_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_x_mean'], name="fit_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_median = Slot(uri="str(uriorcurie)", name="fit_r2_x_median", curie=None,
+slots.fit_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_x_median'], name="fit_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_x_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_std = Slot(uri="str(uriorcurie)", name="fit_r2_x_std", curie=None,
+slots.fit_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/fit_r2_x_std'], name="fit_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/fit_r2_x_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_pixels", curie=None,
+slots.resolution_mean_fwhm_z_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_z_pixels'], name="resolution_mean_fwhm_z_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_z_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_pixels", curie=None,
+slots.resolution_median_fwhm_z_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_z_pixels'], name="resolution_median_fwhm_z_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_z_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_z_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_z_pixels", curie=None,
+slots.resolution_std_fwhm_z_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_z_pixels'], name="resolution_std_fwhm_z_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_z_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_z_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_pixels", curie=None,
+slots.resolution_mean_fwhm_y_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_y_pixels'], name="resolution_mean_fwhm_y_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_y_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_pixels", curie=None,
+slots.resolution_median_fwhm_y_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_y_pixels'], name="resolution_median_fwhm_y_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_y_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_y_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_y_pixels", curie=None,
+slots.resolution_std_fwhm_y_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_y_pixels'], name="resolution_std_fwhm_y_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_y_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_y_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_pixels", curie=None,
+slots.resolution_mean_fwhm_x_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_x_pixels'], name="resolution_mean_fwhm_x_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_x_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_pixels", curie=None,
+slots.resolution_median_fwhm_x_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_x_pixels'], name="resolution_median_fwhm_x_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_x_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_x_pixels = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_x_pixels", curie=None,
+slots.resolution_std_fwhm_x_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_x_pixels'], name="resolution_std_fwhm_x_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_x_pixels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_x_pixels, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_z_microns", curie=None,
+slots.resolution_mean_fwhm_z_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_z_microns'], name="resolution_mean_fwhm_z_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_z_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_z_microns", curie=None,
+slots.resolution_median_fwhm_z_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_z_microns'], name="resolution_median_fwhm_z_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_z_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_z_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_z_microns", curie=None,
+slots.resolution_std_fwhm_z_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_z_microns'], name="resolution_std_fwhm_z_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_z_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_z_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_y_microns", curie=None,
+slots.resolution_mean_fwhm_y_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_y_microns'], name="resolution_mean_fwhm_y_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_y_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_y_microns", curie=None,
+slots.resolution_median_fwhm_y_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_y_microns'], name="resolution_median_fwhm_y_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_y_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_y_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_y_microns", curie=None,
+slots.resolution_std_fwhm_y_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_y_microns'], name="resolution_std_fwhm_y_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_y_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_y_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_x_microns", curie=None,
+slots.resolution_mean_fwhm_x_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_x_microns'], name="resolution_mean_fwhm_x_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_x_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_x_microns", curie=None,
+slots.resolution_median_fwhm_x_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_x_microns'], name="resolution_median_fwhm_x_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_x_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_x_microns = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_x_microns", curie=None,
+slots.resolution_std_fwhm_x_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_x_microns'], name="resolution_std_fwhm_x_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_x_microns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_x_microns, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_mean_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_mean_fwhm_lateral_asymmetry_ratio", curie=None,
+slots.resolution_mean_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_mean_fwhm_lateral_asymmetry_ratio'], name="resolution_mean_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_mean_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_mean_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_median_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_median_fwhm_lateral_asymmetry_ratio", curie=None,
+slots.resolution_median_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_median_fwhm_lateral_asymmetry_ratio'], name="resolution_median_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_median_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_median_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.resolution_std_fwhm_lateral_asymmetry_ratio = Slot(uri="str(uriorcurie)", name="resolution_std_fwhm_lateral_asymmetry_ratio", curie=None,
+slots.resolution_std_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/resolution_std_fwhm_lateral_asymmetry_ratio'], name="resolution_std_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/resolution_std_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.resolution_std_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.argolight_b_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_b_image'], name="argolight_b_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_b_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_b_image, domain=None, range=Union[dict, Image])
-
-slots.spots_distance = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distance'], name="spots_distance", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distance'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.spots_distance, domain=None, range=float)
-
-slots.lower_threshold_correction_factors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/lower_threshold_correction_factors'], name="lower_threshold_correction_factors", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/lower_threshold_correction_factors'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.lower_threshold_correction_factors, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.upper_threshold_correction_factors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/upper_threshold_correction_factors'], name="upper_threshold_correction_factors", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/upper_threshold_correction_factors'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.upper_threshold_correction_factors, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.remove_center_cross = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/remove_center_cross'], name="remove_center_cross", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/remove_center_cross'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.remove_center_cross, domain=None, range=Optional[Union[bool, Bool]])
-
-slots.nr_of_spots = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/nr_of_spots'], name="nr_of_spots", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/nr_of_spots'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_spots, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.intensity_max_spot = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_max_spot'], name="intensity_max_spot", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_max_spot'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_spot, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.intensity_max_spot_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_max_spot_roi'], name="intensity_max_spot_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_max_spot_roi'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_spot_roi, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.intensity_min_spot = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_min_spot'], name="intensity_min_spot", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_min_spot'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_min_spot, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.intensity_min_spot_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_min_spot_roi'], name="intensity_min_spot_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_min_spot_roi'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_min_spot_roi, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.mean_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mean_intensity'], name="mean_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mean_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mean_intensity, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.median_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/median_intensity'], name="median_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/median_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.median_intensity, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.std_mean_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/std_mean_intensity'], name="std_mean_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/std_mean_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.std_mean_intensity, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.mad_mean_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mad_mean_intensity'], name="mad_mean_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mad_mean_intensity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mad_mean_intensity, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.min_max_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/min_max_intensity_ratio'], name="min_max_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/min_max_intensity_ratio'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_max_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.channel_A = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/channel_A'], name="channel_A", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/channel_A'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_A, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.channel_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/channel_B'], name="channel_B", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/channel_B'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_B, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.mean_3d_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mean_3d_dist'], name="mean_3d_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mean_3d_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mean_3d_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.median_3d_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/median_3d_dist'], name="median_3d_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/median_3d_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.median_3d_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.std_3d_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/std_3d_dist'], name="std_3d_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/std_3d_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.std_3d_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.mad_3d_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mad_3d_dist'], name="mad_3d_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mad_3d_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mad_3d_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.mean_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mean_z_dist'], name="mean_z_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mean_z_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mean_z_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.median_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/median_z_dist'], name="median_z_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/median_z_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.median_z_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.std_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/std_z_dist'], name="std_z_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/std_z_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.std_z_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.mad_z_dist = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/mad_z_dist'], name="mad_z_dist", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/mad_z_dist'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.mad_z_dist, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.argolight_e_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/argolight_e_image'], name="argolight_e_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/argolight_e_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolight_e_image, domain=None, range=Union[dict, Image])
-
-slots.orientation_axis = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/orientation_axis'], name="orientation_axis", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/orientation_axis'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.orientation_axis, domain=None, range=int)
-
-slots.measured_band = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/measured_band'], name="measured_band", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/measured_band'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.measured_band, domain=None, range=float)
-
-slots.prominence_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/prominence_threshold'], name="prominence_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/prominence_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.prominence_threshold, domain=None, range=float)
-
-slots.focus_slice = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/focus_slice'], name="focus_slice", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/focus_slice'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.focus_slice, domain=None, range=Optional[Union[int, List[int]]])
-
-slots.rayleigh_resolution_pixels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/rayleigh_resolution_pixels'], name="rayleigh_resolution_pixels", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/rayleigh_resolution_pixels'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.rayleigh_resolution_pixels, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.rayleigh_resolution_microns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/rayleigh_resolution_microns'], name="rayleigh_resolution_microns", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/rayleigh_resolution_microns'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.rayleigh_resolution_microns, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_position_A = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_position_A'], name="peak_position_A", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_position_A'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_position_A, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_position_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_position_B'], name="peak_position_B", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_position_B'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_position_B, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_height_A = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_height_A'], name="peak_height_A", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_height_A'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_height_A, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_height_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_height_B'], name="peak_height_B", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_height_B'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_height_B, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_prominence_A = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_prominence_A'], name="peak_prominence_A", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_prominence_A'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_prominence_A, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.peak_prominence_B = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peak_prominence_B'], name="peak_prominence_B", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peak_prominence_B'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.peak_prominence_B, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.dataReference__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="dataReference__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__data_uri, domain=None, range=Optional[str])
@@ -3263,89 +2698,50 @@ slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEME
 slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_center_region'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsDataset__input = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__input", curie=None,
+slots.pSFBeadsDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="pSFBeadsDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Optional[Union[dict, PSFBeadsInput]])
 
-slots.pSFBeadsDataset__output = Slot(uri="str(uriorcurie)", name="pSFBeadsDataset__output", curie=None,
+slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
 
-slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__analyzed_bead_centers", curie=None,
+slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centers_lateral_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centers_lateral_edge", curie=None,
+slots.pSFBeadsOutput__discarded_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/discarded_bead_centers_lateral_edge'], name="pSFBeadsOutput__discarded_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/discarded_bead_centers_lateral_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centers_self_proximity = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__discarded_bead_centers_self_proximity", curie=None,
+slots.pSFBeadsOutput__discarded_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/discarded_bead_centers_self_proximity'], name="pSFBeadsOutput__discarded_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/discarded_bead_centers_self_proximity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=None,
+slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/considered_bead_centers_axial_edge'], name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/considered_bead_centers_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=None,
+slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/considered_bead_centers_intensity_outlier'], name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/considered_bead_centers_intensity_outlier'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=None,
+slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/considered_bead_centers_z_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/considered_bead_centers_z_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=None,
+slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/considered_bead_centers_y_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/considered_bead_centers_y_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=None,
+slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/considered_bead_centers_x_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/considered_bead_centers_x_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__key_values = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__key_values", curie=None,
+slots.pSFBeadsOutput__key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/key_values'], name="pSFBeadsOutput__key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/key_values'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_values, domain=None, range=Optional[Union[dict, PSFBeadsKeyValues]])
 
-slots.pSFBeadsOutput__bead_properties = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_properties", curie=None,
+slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/bead_properties'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_z_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_z_profiles", curie=None,
+slots.pSFBeadsOutput__bead_z_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/bead_z_profiles'], name="pSFBeadsOutput__bead_z_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/bead_z_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_z_profiles, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_y_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_y_profiles", curie=None,
+slots.pSFBeadsOutput__bead_y_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/bead_y_profiles'], name="pSFBeadsOutput__bead_y_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/bead_y_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_y_profiles, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_x_profiles = Slot(uri="str(uriorcurie)", name="pSFBeadsOutput__bead_x_profiles", curie=None,
+slots.pSFBeadsOutput__bead_x_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/bead_x_profiles'], name="pSFBeadsOutput__bead_x_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/bead_x_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_x_profiles, domain=None, range=Optional[Union[dict, Table]])
-
-slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Optional[Union[dict, ArgolightBInput]])
-
-slots.argolightBDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/output'], name="argolightBDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/output'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__output, domain=None, range=Optional[Union[dict, ArgolightBOutput]])
-
-slots.argolightBOutput__spots_labels_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_labels_image'], name="argolightBOutput__spots_labels_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_labels_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_labels_image, domain=None, range=Optional[Union[dict, ImageMask]])
-
-slots.argolightBOutput__spots_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_centers_of_mass'], name="argolightBOutput__spots_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_centers_of_mass'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_centers_of_mass, domain=None, range=Optional[Union[Union[dict, ArgolightBCentersOfMass], List[Union[dict, ArgolightBCentersOfMass]]]])
-
-slots.argolightBOutput__intensity_key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_key_values'], name="argolightBOutput__intensity_key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_key_values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__intensity_key_values, domain=None, range=Optional[Union[dict, ArgolightBIntensityKeyValues]])
-
-slots.argolightBOutput__distance_key_values = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/distance_key_values'], name="argolightBOutput__distance_key_values", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/distance_key_values'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__distance_key_values, domain=None, range=Optional[Union[dict, ArgolightBDistanceKeyValues]])
-
-slots.argolightBOutput__spots_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_properties'], name="argolightBOutput__spots_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_properties'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_properties, domain=None, range=Optional[Union[dict, Table]])
-
-slots.argolightBOutput__spots_distances = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distances'], name="argolightBOutput__spots_distances", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distances'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_distances, domain=None, range=Optional[Union[dict, Table]])
-
-slots.argolightEDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightEDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__input, domain=None, range=Optional[Union[dict, ArgolightEInput]])
-
-slots.argolightEDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/output'], name="argolightEDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/output'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__output, domain=None, range=Optional[Union[dict, ArgolightEOutput]])
-
-slots.argolightEOutput__peaks_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/peaks_rois'], name="argolightEOutput__peaks_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/peaks_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__peaks_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
-
-slots.argolightEOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/key_measurements'], name="argolightEOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/key_measurements'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__key_measurements, domain=None, range=Optional[Union[dict, ArgolightEKeyValues]])
-
-slots.argolightEOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/intensity_profiles'], name="argolightEOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/intensity_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__intensity_profiles, domain=None, range=Optional[Union[dict, Table]])
 
 slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)
@@ -3361,18 +2757,3 @@ slots.PSFBeadsInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sig
 
 slots.PSFBeadsInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="PSFBeadsInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_x, domain=PSFBeadsInput, range=float)
-
-slots.ArgolightBInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightBInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_saturation_threshold, domain=ArgolightBInput, range=float)
-
-slots.ArgolightBInput_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="ArgolightBInput_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_z, domain=ArgolightBInput, range=float)
-
-slots.ArgolightBInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="ArgolightBInput_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_y, domain=ArgolightBInput, range=float)
-
-slots.ArgolightBInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="ArgolightBInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_x, domain=ArgolightBInput, range=float)
-
-slots.ArgolightEInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightEInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightEInput_saturation_threshold, domain=ArgolightEInput, range=float)

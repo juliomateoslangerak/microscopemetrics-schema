@@ -1,5 +1,5 @@
 ---
-id: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 name: microscopemetrics-schema
 title: microscopemetrics-schema
 description: |-
@@ -9,7 +9,7 @@ see_also:
   - https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 
 prefixes:
-  microscopemetrics_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/
+  microscopemetrics_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/
   linkml: https://w3id.org/linkml/
 #  biolink: https://w3id.org/biolink/
 #  schema: http://schema.org/

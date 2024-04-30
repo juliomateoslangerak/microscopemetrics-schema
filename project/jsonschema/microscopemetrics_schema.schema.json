@@ -3177,7 +3177,7 @@
             "type": "object"
         }
     },
-    "$id": "https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema",
+    "$id": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "A base object on which microscope-metrics runs the analysis",
