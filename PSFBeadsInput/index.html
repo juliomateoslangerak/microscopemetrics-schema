@@ -336,7 +336,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
+<li>from schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -362,7 +362,7 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: PSFBeadsInput
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsInput
 slots:
 - psf_beads_images
@@ -409,7 +409,7 @@ slot_usage:
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: PSFBeadsInput
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsInput
 slot_usage:
   sigma_z:
@@ -444,7 +444,7 @@ attributes:
     name: psf_beads_images
     description: The image containing the beads provided in the order TZYXC. More
       than one image can be provided if the image conditions are the same.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
     alias: psf_beads_images
@@ -458,7 +458,7 @@ attributes:
   bit_depth:
     name: bit_depth
     description: Detector bit depth
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: false
     alias: bit_depth
@@ -476,7 +476,7 @@ attributes:
     description: Tolerated saturation threshold. If the amount of saturated pixels
       is above this threshold,  the image is considered as saturated and the analysis
       is not performed.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: false
     ifabsent: float(0.01)
@@ -494,7 +494,7 @@ attributes:
     name: min_lateral_distance_factor
     description: Minimal distance that has to separate laterally the beads represented
       as the  number of times the FWHM of the beads.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(20)
     alias: min_lateral_distance_factor
@@ -509,7 +509,7 @@ attributes:
     name: sigma_z
     description: Gaussian smoothing sigma to be applied to the image in the Z axis
       prior to bead detection. Does not apply to resolution measurements
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(1.0)
     alias: sigma_z
@@ -523,7 +523,7 @@ attributes:
     name: sigma_y
     description: Gaussian smoothing sigma to be applied to the image in teh Y axis
       prior to bead detection. Does not apply to resolution measurements
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(1.0)
     alias: sigma_y
@@ -537,7 +537,7 @@ attributes:
     name: sigma_x
     description: Gaussian smoothing sigma to be applied to the image in the X axis
       prior to bead detection. Does not apply to resolution measurements
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(1.0)
     alias: sigma_x
@@ -550,7 +550,7 @@ attributes:
   snr_threshold:
     name: snr_threshold
     description: Signal to noise ratio threshold to be used for bead detection.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(10.0)
     alias: snr_threshold
@@ -563,7 +563,7 @@ attributes:
     name: fitting_r2_threshold
     description: Threshold for the residual sum of squares of the fit to be considered
       good.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(0.95)
     alias: fitting_r2_threshold
@@ -576,7 +576,7 @@ attributes:
     name: intensity_robust_z_score_threshold
     description: Threshold for the robust z-score of the intensity of the bead to
       be considered good.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     ifabsent: float(3.0)
     alias: intensity_robust_z_score_threshold
