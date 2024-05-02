@@ -1,3 +1,154 @@
+message ArgolightBCentersOfMass
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+// An Argolight sample pattern B dataset. This pattern consists of an array of circles
+message ArgolightBDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  microscope microscope = 0
+  sample sample = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  argolightBInput input = 0
+  argolightBOutput output = 0
+ }
+message ArgolightBDistanceKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelA = 0
+ repeated  integer channelB = 0
+ repeated  float mean3dDist = 0
+ repeated  float median3dDist = 0
+ repeated  float std3dDist = 0
+ repeated  float mad3dDist = 0
+ repeated  float meanZDist = 0
+ repeated  float medianZDist = 0
+ repeated  float stdZDist = 0
+ repeated  float madZDist = 0
+ }
+message ArgolightBInput
+ {
+  image argolightBImage = 0
+  integer bitDepth = 0
+  float saturationThreshold = 0
+  float spotsDistance = 0
+  float sigmaZ = 0
+  float sigmaY = 0
+  float sigmaX = 0
+ repeated  float lowerThresholdCorrectionFactors = 0
+ repeated  float upperThresholdCorrectionFactors = 0
+  boolean removeCenterCross = 0
+ }
+message ArgolightBIntensityKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelNr = 0
+ repeated  integer nrOfSpots = 0
+ repeated  float intensityMaxSpot = 0
+ repeated  integer intensityMaxSpotRoi = 0
+ repeated  float intensityMinSpot = 0
+ repeated  integer intensityMinSpotRoi = 0
+ repeated  float meanIntensity = 0
+ repeated  float medianIntensity = 0
+ repeated  float stdMeanIntensity = 0
+ repeated  float madMeanIntensity = 0
+ repeated  float minMaxIntensityRatio = 0
+ }
+message ArgolightBOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  comment comment = 0
+  imageMask spotsLabelsImage = 0
+ repeated  argolightBCentersOfMass spotsCentersOfMass = 0
+  argolightBIntensityKeyValues intensityKeyValues = 0
+  argolightBDistanceKeyValues distanceKeyValues = 0
+  table spotsProperties = 0
+  table spotsDistances = 0
+ }
+// An Argolight sample pattern E dataset.
+// It contains resolution data on the axis indicated:
+// - axis 1 = Y resolution = lines along X axis
+// - axis 2 = X resolution = lines along Y axis
+message ArgolightEDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  microscope microscope = 0
+  sample sample = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  argolightEInput input = 0
+  argolightEOutput output = 0
+ }
+message ArgolightEInput
+ {
+  image argolightEImage = 0
+  integer bitDepth = 0
+  float saturationThreshold = 0
+  integer orientationAxis = 0
+  float measuredBand = 0
+  float prominenceThreshold = 0
+ }
+message ArgolightEKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelNr = 0
+ repeated  integer focusSlice = 0
+ repeated  float rayleighResolutionPixels = 0
+ repeated  float rayleighResolutionMicrons = 0
+ repeated  float peakPositionA = 0
+ repeated  float peakPositionB = 0
+ repeated  float peakHeightA = 0
+ repeated  float peakHeightB = 0
+ repeated  float peakProminenceA = 0
+ repeated  float peakProminenceB = 0
+ }
+message ArgolightEOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  comment comment = 0
+ repeated  roi peaksRois = 0
+  argolightEKeyValues keyMeasurements = 0
+  table intensityProfiles = 0
+ }
 // A image channel
 message Channel
  {

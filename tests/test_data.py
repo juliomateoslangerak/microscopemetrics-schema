@@ -6,6 +6,7 @@ import unittest
 from linkml_runtime.loaders import yaml_loader
 from microscopemetrics_schema.datamodel.microscopemetrics_schema import (
     MetricsDataset,
+    PSFBeadsDataset,
     FieldIlluminationDataset,
     ArgolightBDataset,
 )

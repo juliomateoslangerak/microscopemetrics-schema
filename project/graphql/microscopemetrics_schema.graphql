@@ -1,3 +1,159 @@
+type ArgolightBCentersOfMass implements CentersOfMass
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    points: [Point]
+    lines: [Line]
+    rectangles: [Rectangle]
+    ellipses: [Ellipse]
+    polygons: [Polygon]
+    masks: [Mask]
+  }
+
+type ArgolightBDataset
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    microscope: Microscope!
+    sample: Sample
+    experimenter: Experimenter
+    acquisitionDatetime: Datetime
+    processed: Boolean!
+    input: ArgolightBInput
+    output: ArgolightBOutput
+  }
+
+type ArgolightBDistanceKeyValues
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    channelA: [Integer]
+    channelB: [Integer]
+    mean3dDist: [Float]
+    median3dDist: [Float]
+    std3dDist: [Float]
+    mad3dDist: [Float]
+    meanZDist: [Float]
+    medianZDist: [Float]
+    stdZDist: [Float]
+    madZDist: [Float]
+  }
+
+type ArgolightBInput
+  {
+    argolightBImage: Image!
+    bitDepth: Integer
+    saturationThreshold: Float!
+    spotsDistance: Float!
+    sigmaZ: Float!
+    sigmaY: Float!
+    sigmaX: Float!
+    lowerThresholdCorrectionFactors: [Float]
+    upperThresholdCorrectionFactors: [Float]
+    removeCenterCross: Boolean
+  }
+
+type ArgolightBIntensityKeyValues
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    channelNr: [Integer]
+    nrOfSpots: [Integer]
+    intensityMaxSpot: [Float]
+    intensityMaxSpotRoi: [Integer]
+    intensityMinSpot: [Float]
+    intensityMinSpotRoi: [Integer]
+    meanIntensity: [Float]
+    medianIntensity: [Float]
+    stdMeanIntensity: [Float]
+    madMeanIntensity: [Float]
+    minMaxIntensityRatio: [Float]
+  }
+
+type ArgolightBOutput
+  {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: Comment
+    spotsLabelsImage: ImageMask
+    spotsCentersOfMass: [ArgolightBCentersOfMass]
+    intensityKeyValues: ArgolightBIntensityKeyValues
+    distanceKeyValues: ArgolightBDistanceKeyValues
+    spotsProperties: Table
+    spotsDistances: Table
+  }
+
+type ArgolightEDataset
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    microscope: Microscope!
+    sample: Sample
+    experimenter: Experimenter
+    acquisitionDatetime: Datetime
+    processed: Boolean!
+    input: ArgolightEInput
+    output: ArgolightEOutput
+  }
+
+type ArgolightEInput
+  {
+    argolightEImage: Image!
+    bitDepth: Integer
+    saturationThreshold: Float!
+    orientationAxis: Integer!
+    measuredBand: Float!
+    prominenceThreshold: Float!
+  }
+
+type ArgolightEKeyValues
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    channelNr: [Integer]
+    focusSlice: [Integer]
+    rayleighResolutionPixels: [Float]
+    rayleighResolutionMicrons: [Float]
+    peakPositionA: [Float]
+    peakPositionB: [Float]
+    peakHeightA: [Float]
+    peakHeightB: [Float]
+    peakProminenceA: [Float]
+    peakProminenceB: [Float]
+  }
+
+type ArgolightEOutput
+  {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    comment: Comment
+    peaksRois: [Roi]
+    keyMeasurements: ArgolightEKeyValues
+    intensityProfiles: Table
+  }
+
 interface CentersFitted
   {
   }
