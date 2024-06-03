@@ -293,6 +293,17 @@ classes:
         description: The errors of the processing by microscope-metrics
         required: false
         multivalued: true
+      validated:
+        range: boolean
+        description: Has the dataset been validated by a human
+        required: true
+        ifabsent: false
+        multivalued: false
+      validation_datetime:
+        range: datetime
+        description: The datetime of the validation
+        required: false
+        multivalued: false
       comment:
         range: Comment
         description: A human readable comment about the dataset
