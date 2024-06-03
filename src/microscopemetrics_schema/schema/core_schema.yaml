@@ -370,7 +370,7 @@ classes:
       acquisition_datetime:
         range: datetime
         description: The datetime of the acquisition
-        required: true
+        required: false
         multivalued: false
       source_images:
         range: DataReference

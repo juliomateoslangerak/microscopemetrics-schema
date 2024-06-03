@@ -2978,6 +2978,34 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "metricsOutput__validated",
+      "description": "Has the dataset been validated by a human",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validated",
+      "ifabsent": "False",
+      "alias": "validated",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "metricsOutput__validation_datetime",
+      "description": "The datetime of the validation",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validation_datetime",
+      "alias": "validation_datetime",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "metricsOutput__comment",
       "description": "A human readable comment about the dataset",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -3146,7 +3174,6 @@
         "Image"
       ],
       "range": "datetime",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5162,6 +5189,8 @@
         "metricsOutput__processing_log",
         "metricsOutput__warnings",
         "metricsOutput__errors",
+        "metricsOutput__validated",
+        "metricsOutput__validation_datetime",
         "metricsOutput__comment"
       ],
       "slot_usage": {},
@@ -5214,6 +5243,20 @@
           "description": "The errors of the processing by microscope-metrics",
           "multivalued": true,
           "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "validated",
+          "description": "Has the dataset been validated by a human",
+          "ifabsent": "False",
+          "range": "boolean",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "validation_datetime",
+          "description": "The datetime of the validation",
+          "range": "datetime",
           "@type": "SlotDefinition"
         },
         {
@@ -5329,7 +5372,6 @@
           "name": "acquisition_datetime",
           "description": "The datetime of the acquisition",
           "range": "datetime",
-          "required": true,
           "@type": "SlotDefinition"
         },
         {
@@ -6236,6 +6278,8 @@
         "metricsOutput__processing_log",
         "metricsOutput__warnings",
         "metricsOutput__errors",
+        "metricsOutput__validated",
+        "metricsOutput__validation_datetime",
         "metricsOutput__comment",
         "fieldIlluminationOutput__key_values",
         "fieldIlluminationOutput__intensity_profiles",
@@ -6442,6 +6486,8 @@
         "metricsOutput__processing_log",
         "metricsOutput__warnings",
         "metricsOutput__errors",
+        "metricsOutput__validated",
+        "metricsOutput__validation_datetime",
         "metricsOutput__comment",
         "pSFBeadsOutput__analyzed_bead_centers",
         "pSFBeadsOutput__discarded_bead_centers_lateral_edge",
@@ -6698,6 +6744,8 @@
         "metricsOutput__processing_log",
         "metricsOutput__warnings",
         "metricsOutput__errors",
+        "metricsOutput__validated",
+        "metricsOutput__validation_datetime",
         "metricsOutput__comment",
         "argolightBOutput__spots_labels_image",
         "argolightBOutput__spots_centers_of_mass",
@@ -6889,6 +6937,8 @@
         "metricsOutput__processing_log",
         "metricsOutput__warnings",
         "metricsOutput__errors",
+        "metricsOutput__validated",
+        "metricsOutput__validation_datetime",
         "metricsOutput__comment",
         "argolightEOutput__peaks_rois",
         "argolightEOutput__key_measurements",
@@ -6949,7 +6999,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-05-02T15:10:50",
+  "generation_date": "2024-06-03T15:11:45",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

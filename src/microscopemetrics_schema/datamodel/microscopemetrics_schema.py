@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-05-02T15:10:55
+# Generation date: 2024-06-03T15:11:51
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -453,10 +453,12 @@ class MetricsOutput(YAMLRoot):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
     processing_entity: Optional[Union[str, List[str]]] = empty_list()
     processing_log: Optional[str] = None
     warnings: Optional[Union[str, List[str]]] = empty_list()
     errors: Optional[Union[str, List[str]]] = empty_list()
+    validation_datetime: Optional[Union[str, XSDDateTime]] = None
     comment: Optional[Union[dict, Comment]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -477,6 +479,11 @@ class MetricsOutput(YAMLRoot):
         if not isinstance(self.processing_datetime, XSDDateTime):
             self.processing_datetime = XSDDateTime(self.processing_datetime)
 
+        if self._is_empty(self.validated):
+            self.MissingRequiredField("validated")
+        if not isinstance(self.validated, Bool):
+            self.validated = Bool(self.validated)
+
         if not isinstance(self.processing_entity, list):
             self.processing_entity = [self.processing_entity] if self.processing_entity is not None else []
         self.processing_entity = [v if isinstance(v, str) else str(v) for v in self.processing_entity]
@@ -491,6 +498,9 @@ class MetricsOutput(YAMLRoot):
         if not isinstance(self.errors, list):
             self.errors = [self.errors] if self.errors is not None else []
         self.errors = [v if isinstance(v, str) else str(v) for v in self.errors]
+
+        if self.validation_datetime is not None and not isinstance(self.validation_datetime, XSDDateTime):
+            self.validation_datetime = XSDDateTime(self.validation_datetime)
 
         if self.comment is not None and not isinstance(self.comment, Comment):
             self.comment = Comment(**as_dict(self.comment))
@@ -512,7 +522,6 @@ class Image(MetricsObject):
 
     shape_x: int = None
     shape_y: int = None
-    acquisition_datetime: Union[str, XSDDateTime] = None
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
@@ -521,6 +530,7 @@ class Image(MetricsObject):
     voxel_size_z_micron: Optional[float] = None
     time_series: Optional[Union[dict, "TimeSeries"]] = None
     channel_series: Optional[Union[dict, "ChannelSeries"]] = None
+    acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
     source_images: Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]] = empty_list()
     array_data: Optional[Union[dict, MetaObject]] = None
 
@@ -550,11 +560,6 @@ class Image(MetricsObject):
         if not isinstance(self.shape_t, int):
             self.shape_t = int(self.shape_t)
 
-        if self._is_empty(self.acquisition_datetime):
-            self.MissingRequiredField("acquisition_datetime")
-        if not isinstance(self.acquisition_datetime, XSDDateTime):
-            self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
-
         if self.voxel_size_x_micron is not None and not isinstance(self.voxel_size_x_micron, float):
             self.voxel_size_x_micron = float(self.voxel_size_x_micron)
 
@@ -569,6 +574,9 @@ class Image(MetricsObject):
 
         if self.channel_series is not None and not isinstance(self.channel_series, ChannelSeries):
             self.channel_series = ChannelSeries(**as_dict(self.channel_series))
+
+        if self.acquisition_datetime is not None and not isinstance(self.acquisition_datetime, XSDDateTime):
+            self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
 
         if not isinstance(self.source_images, list):
             self.source_images = [self.source_images] if self.source_images is not None else []
@@ -591,7 +599,6 @@ class ImageMask(Image):
 
     shape_x: int = None
     shape_y: int = None
-    acquisition_datetime: Union[str, XSDDateTime] = None
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
@@ -1318,6 +1325,7 @@ class FieldIlluminationOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
     key_values: Optional[Union[dict, "FieldIlluminationKeyValues"]] = None
     intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
     roi_profiles: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -1700,6 +1708,7 @@ class PSFBeadsOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     discarded_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     discarded_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -2081,6 +2090,7 @@ class ArgolightBOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
     spots_labels_image: Optional[Union[dict, ImageMask]] = None
     spots_centers_of_mass: Optional[Union[Union[dict, "ArgolightBCentersOfMass"], List[Union[dict, "ArgolightBCentersOfMass"]]]] = empty_list()
     intensity_key_values: Optional[Union[dict, "ArgolightBIntensityKeyValues"]] = None
@@ -2343,6 +2353,7 @@ class ArgolightEOutput(MetricsOutput):
     processing_application: Union[str, List[str]] = None
     processing_version: Union[str, List[str]] = None
     processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
     peaks_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     key_measurements: Optional[Union[dict, "ArgolightEKeyValues"]] = None
     intensity_profiles: Optional[Union[dict, Table]] = None
@@ -3050,6 +3061,12 @@ slots.metricsOutput__warnings = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/w
 slots.metricsOutput__errors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/errors'], name="metricsOutput__errors", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/errors'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__errors, domain=None, range=Optional[Union[str, List[str]]])
 
+slots.metricsOutput__validated = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/validated'], name="metricsOutput__validated", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/validated'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__validated, domain=None, range=Union[bool, Bool])
+
+slots.metricsOutput__validation_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/validation_datetime'], name="metricsOutput__validation_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/validation_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__validation_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
 slots.metricsOutput__comment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comment'], name="metricsOutput__comment", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/comment'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsOutput__comment, domain=None, range=Optional[Union[dict, Comment]])
 
@@ -3084,7 +3101,7 @@ slots.image__channel_series = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/cha
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image__channel_series, domain=None, range=Optional[Union[dict, ChannelSeries]])
 
 slots.image__acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_datetime'], name="image__acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_datetime'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__acquisition_datetime, domain=None, range=Union[str, XSDDateTime])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image__acquisition_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.image__source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_images'], name="image__source_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image__source_images, domain=None, range=Optional[Union[Union[dict, DataReference], List[Union[dict, DataReference]]]])

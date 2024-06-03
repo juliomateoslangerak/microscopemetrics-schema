@@ -491,6 +491,15 @@
                     "$ref": "#/$defs/Table",
                     "description": "Table of properties of the argolight spots"
                 },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
@@ -502,7 +511,8 @@
             "required": [
                 "processing_application",
                 "processing_version",
-                "processing_datetime"
+                "processing_datetime",
+                "validated"
             ],
             "title": "ArgolightBOutput",
             "type": "object"
@@ -791,6 +801,15 @@
                     },
                     "type": "array"
                 },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
@@ -802,7 +821,8 @@
             "required": [
                 "processing_application",
                 "processing_version",
-                "processing_datetime"
+                "processing_datetime",
+                "validated"
             ],
             "title": "ArgolightEOutput",
             "type": "object"
@@ -1644,6 +1664,15 @@
                     },
                     "type": "array"
                 },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
@@ -1655,7 +1684,8 @@
             "required": [
                 "processing_application",
                 "processing_version",
-                "processing_datetime"
+                "processing_datetime",
+                "validated"
             ],
             "title": "FieldIlluminationOutput",
             "type": "object"
@@ -1784,8 +1814,7 @@
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t",
-                "acquisition_datetime"
+                "shape_t"
             ],
             "title": "Image",
             "type": "object"
@@ -1873,8 +1902,7 @@
                 "shape_y",
                 "shape_z",
                 "shape_c",
-                "shape_t",
-                "acquisition_datetime"
+                "shape_t"
             ],
             "title": "ImageMask",
             "type": "object"
@@ -2785,6 +2813,15 @@
                     },
                     "type": "array"
                 },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
@@ -2796,7 +2833,8 @@
             "required": [
                 "processing_application",
                 "processing_version",
-                "processing_datetime"
+                "processing_datetime",
+                "validated"
             ],
             "title": "PSFBeadsOutput",
             "type": "object"

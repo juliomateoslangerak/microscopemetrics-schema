@@ -83,6 +83,8 @@ message ArgolightBOutput
   string processingLog = 0
  repeated  string warnings = 0
  repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
   comment comment = 0
   imageMask spotsLabelsImage = 0
  repeated  argolightBCentersOfMass spotsCentersOfMass = 0
@@ -144,6 +146,8 @@ message ArgolightEOutput
   string processingLog = 0
  repeated  string warnings = 0
  repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
   comment comment = 0
  repeated  roi peaksRois = 0
   argolightEKeyValues keyMeasurements = 0
@@ -302,6 +306,8 @@ message FieldIlluminationOutput
   string processingLog = 0
  repeated  string warnings = 0
  repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
   comment comment = 0
   fieldIlluminationKeyValues keyValues = 0
  repeated  table intensityProfiles = 0
@@ -558,6 +564,8 @@ message PSFBeadsOutput
   string processingLog = 0
  repeated  string warnings = 0
  repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
   comment comment = 0
  repeated  roi analyzedBeadCenters = 0
  repeated  roi discardedBeadCentersLateralEdge = 0

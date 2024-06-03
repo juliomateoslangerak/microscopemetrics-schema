@@ -650,7 +650,7 @@ CLOSED {
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series>
              @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ChannelSeries> ? ;
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime>
-             @linkml:Datetime ;
+             @linkml:Datetime ? ;
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_images>
              @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/DataReference> * ;
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/array_data>
@@ -818,6 +818,9 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_log> @linkml:String ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/warnings> @linkml:String * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/errors> @linkml:String * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validated> @linkml:Boolean ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validation_datetime>
+          @linkml:Datetime ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment> ?
        ) ;

@@ -99,6 +99,8 @@
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: comment_id Description: A human readable comment about the dataset
 -- # Class: "Image" Description: "A microscope-metrics image"
 --     * Slot: id Description: 
@@ -324,6 +326,8 @@
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_values_id Description: Key-Value pairs containing the Key measurements for the field illumination analysis
 --     * Slot: roi_corners_id Description: Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
 --     * Slot: comment_id Description: A human readable comment about the dataset
@@ -359,6 +363,8 @@
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_values_id Description: The key measurements of the PSF beads analysis.
 --     * Slot: bead_properties_id Description: Properties associated with the analysis of the beads.
 --     * Slot: bead_z_profiles_id Description: The intensity profiles along the z axis of the analyzed beads as well as the fits.
@@ -396,6 +402,8 @@
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: spots_labels_image_id Description: Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels
 --     * Slot: intensity_key_values_id Description: Key Intensity Measurements on Argolight spots
 --     * Slot: distance_key_values_id Description: Key Distance Measurements on Argolight spots
@@ -441,6 +449,8 @@
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: Key Measurements on Argolight E images
 --     * Slot: intensity_profiles_id Description: Intensity profiles of the argolight lines provided as tables. One table per channel
 --     * Slot: comment_id Description: A human readable comment about the dataset
@@ -1062,7 +1072,7 @@ CREATE TABLE "Image" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	acquisition_datetime DATETIME NOT NULL, 
+	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
 	"FieldIlluminationInput_id" INTEGER, 
@@ -1089,7 +1099,7 @@ CREATE TABLE "ImageMask" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	acquisition_datetime DATETIME NOT NULL, 
+	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
 	time_series_id INTEGER, 
@@ -1224,6 +1234,8 @@ CREATE TABLE "FieldIlluminationOutput" (
 	id INTEGER NOT NULL, 
 	processing_datetime DATETIME NOT NULL, 
 	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
 	key_values_id INTEGER, 
 	roi_corners_id INTEGER, 
 	comment_id INTEGER, 
@@ -1277,6 +1289,8 @@ CREATE TABLE "PSFBeadsOutput" (
 	id INTEGER NOT NULL, 
 	processing_datetime DATETIME NOT NULL, 
 	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
 	key_values_id INTEGER, 
 	bead_properties_id INTEGER, 
 	bead_z_profiles_id INTEGER, 
@@ -1336,6 +1350,8 @@ CREATE TABLE "ArgolightBOutput" (
 	id INTEGER NOT NULL, 
 	processing_datetime DATETIME NOT NULL, 
 	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
 	spots_labels_image_id INTEGER, 
 	intensity_key_values_id INTEGER, 
 	distance_key_values_id INTEGER, 
@@ -1409,6 +1425,8 @@ CREATE TABLE "ArgolightEOutput" (
 	id INTEGER NOT NULL, 
 	processing_datetime DATETIME NOT NULL, 
 	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
 	key_measurements_id INTEGER, 
 	intensity_profiles_id INTEGER, 
 	comment_id INTEGER, 
@@ -2497,6 +2515,8 @@ CREATE TABLE "MetricsOutput" (
 	id INTEGER NOT NULL, 
 	processing_datetime DATETIME NOT NULL, 
 	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
 	comment_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)

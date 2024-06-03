@@ -87,6 +87,8 @@ type ArgolightBOutput
     processingLog: String
     warnings: [String]
     errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
     comment: Comment
     spotsLabelsImage: ImageMask
     spotsCentersOfMass: [ArgolightBCentersOfMass]
@@ -148,6 +150,8 @@ type ArgolightEOutput
     processingLog: String
     warnings: [String]
     errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
     comment: Comment
     peaksRois: [Roi]
     keyMeasurements: ArgolightEKeyValues
@@ -325,6 +329,8 @@ type FieldIlluminationOutput
     processingLog: String
     warnings: [String]
     errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
     comment: Comment
     keyValues: FieldIlluminationKeyValues
     intensityProfiles: [Table]
@@ -363,7 +369,7 @@ type Image
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    acquisitionDatetime: Datetime!
+    acquisitionDatetime: Datetime
     sourceImages: [DataReference]
     arrayData: MetaObject
   }
@@ -384,7 +390,7 @@ type ImageMask
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    acquisitionDatetime: Datetime!
+    acquisitionDatetime: Datetime
     sourceImages: [DataReference]
     arrayData: MetaObject
   }
@@ -477,6 +483,8 @@ interface MetricsOutput
     processingLog: String
     warnings: [String]
     errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
     comment: Comment
   }
 
@@ -631,6 +639,8 @@ type PSFBeadsOutput
     processingLog: String
     warnings: [String]
     errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
     comment: Comment
     analyzedBeadCenters: [Roi]
     discardedBeadCentersLateralEdge: [Roi]
