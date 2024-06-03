@@ -349,7 +349,7 @@
 </tr>
 <tr>
 <td><a href="../acquisition_datetime/">acquisition_datetime</a></td>
-<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
 <td>The datetime of the acquisition</td>
 <td>direct</td>
 </tr>
@@ -573,7 +573,7 @@ attributes:
     - MetricsDataset
     - Image
     range: datetime
-    required: true
+    required: false
   source_images:
     name: source_images
     description: A list of references linking to the images that were used as a source
@@ -740,7 +740,7 @@ attributes:
     - MetricsDataset
     - Image
     range: datetime
-    required: true
+    required: false
   source_images:
     name: source_images
     description: A list of references linking to the images that were used as a source
