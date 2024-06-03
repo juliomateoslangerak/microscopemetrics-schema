@@ -233,6 +233,10 @@
 
       MetricsOutput : processing_version
 
+      MetricsOutput : validated
+
+      MetricsOutput : validation_datetime
+
       MetricsOutput : warnings
 
 
@@ -298,6 +302,18 @@
 <td><a href="../errors/">errors</a></td>
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>The errors of the processing by microscope-metrics</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../validated/">validated</a></td>
+<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Has the dataset been validated by a human</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../validation_datetime/">validation_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the validation</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -430,6 +446,27 @@ attributes:
     - MetricsOutput
     range: string
     required: false
+  validated:
+    name: validated
+    description: Has the dataset been validated by a human
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    ifabsent: 'False'
+    domain_of:
+    - MetricsOutput
+    range: boolean
+    required: true
+  validation_datetime:
+    name: validation_datetime
+    description: The datetime of the validation
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    domain_of:
+    - MetricsOutput
+    range: datetime
+    required: false
   comment:
     name: comment
     description: A human readable comment about the dataset
@@ -533,6 +570,31 @@ attributes:
     domain_of:
     - MetricsOutput
     range: string
+    required: false
+  validated:
+    name: validated
+    description: Has the dataset been validated by a human
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    ifabsent: 'False'
+    alias: validated
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: boolean
+    required: true
+  validation_datetime:
+    name: validation_datetime
+    description: The datetime of the validation
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: validation_datetime
+    owner: MetricsOutput
+    domain_of:
+    - MetricsOutput
+    range: datetime
     required: false
   comment:
     name: comment

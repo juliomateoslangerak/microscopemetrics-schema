@@ -278,6 +278,10 @@
 
       PSFBeadsOutput : processing_version
 
+      PSFBeadsOutput : validated
+
+      PSFBeadsOutput : validation_datetime
+
       PSFBeadsOutput : warnings
 
 
@@ -418,6 +422,18 @@
 <td><a href="../errors/">errors</a></td>
 <td>0..* <br/> <a href="../String/">String</a></td>
 <td>The errors of the processing by microscope-metrics</td>
+<td><a href="../MetricsOutput/">MetricsOutput</a></td>
+</tr>
+<tr>
+<td><a href="../validated/">validated</a></td>
+<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>Has the dataset been validated by a human</td>
+<td><a href="../MetricsOutput/">MetricsOutput</a></td>
+</tr>
+<tr>
+<td><a href="../validation_datetime/">validation_datetime</a></td>
+<td>0..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>The datetime of the validation</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
@@ -923,6 +939,31 @@ attributes:
     domain_of:
     - MetricsOutput
     range: string
+    required: false
+  validated:
+    name: validated
+    description: Has the dataset been validated by a human
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    ifabsent: 'False'
+    alias: validated
+    owner: PSFBeadsOutput
+    domain_of:
+    - MetricsOutput
+    range: boolean
+    required: true
+  validation_datetime:
+    name: validation_datetime
+    description: The datetime of the validation
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: validation_datetime
+    owner: PSFBeadsOutput
+    domain_of:
+    - MetricsOutput
+    range: datetime
     required: false
   comment:
     name: comment
