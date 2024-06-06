@@ -591,8 +591,8 @@ type PSFBeadsKeyValues
     linkedReferences: [DataReference]
     channelNr: [Integer]
     nrOfBeadsAnalyzed: [Integer]
-    nrOfBeadsDiscardedLateralEdge: [Integer]
-    nrOfBeadsDiscardedSelfProximity: [Integer]
+    nrOfBeadsConsideredLateralEdge: [Integer]
+    nrOfBeadsConsideredSelfProximity: [Integer]
     nrOfBeadsConsideredAxialEdge: [Integer]
     nrOfBeadsConsideredIntensityOutlier: [Integer]
     nrOfBeadsConsideredBadZFit: [Integer]
@@ -643,8 +643,8 @@ type PSFBeadsOutput
     validationDatetime: Datetime
     comment: Comment
     analyzedBeadCenters: [Roi]
-    discardedBeadCentersLateralEdge: [Roi]
-    discardedBeadCentersSelfProximity: [Roi]
+    consideredBeadCentersLateralEdge: [Roi]
+    consideredBeadCentersSelfProximity: [Roi]
     consideredBeadCentersAxialEdge: [Roi]
     consideredBeadCentersIntensityOutlier: [Roi]
     consideredBeadCentersZFitQuality: [Roi]

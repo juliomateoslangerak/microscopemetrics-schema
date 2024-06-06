@@ -672,12 +672,12 @@
 -- # Class: "PSFBeadsKeyValues_nr_of_beads_analyzed" Description: ""
 --     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
 --     * Slot: nr_of_beads_analyzed Description: Number of beads analyzed. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_discarded_lateral_edge" Description: ""
+-- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_lateral_edge" Description: ""
 --     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_discarded_lateral_edge Description: Number of beads discarded for being too close to the edge of the image. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_discarded_self_proximity" Description: ""
+--     * Slot: nr_of_beads_considered_lateral_edge Description: Number of beads considered for being too close to the edge of the image. One value per channel.
+-- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_self_proximity" Description: ""
 --     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_discarded_self_proximity Description: Number of beads discarded for being too close to another bead. One value per channel.
+--     * Slot: nr_of_beads_considered_self_proximity Description: Number of beads considered for being too close to another bead. One value per channel.
 -- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_axial_edge" Description: ""
 --     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
 --     * Slot: nr_of_beads_considered_axial_edge Description: Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.
@@ -2017,16 +2017,16 @@ CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_analyzed" (
 	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_analyzed), 
 	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_discarded_lateral_edge" (
+CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_lateral_edge" (
 	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_discarded_lateral_edge INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_discarded_lateral_edge), 
+	nr_of_beads_considered_lateral_edge INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_lateral_edge), 
 	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_discarded_self_proximity" (
+CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_self_proximity" (
 	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_discarded_self_proximity INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_discarded_self_proximity), 
+	nr_of_beads_considered_self_proximity INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_self_proximity), 
 	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
 );
 CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_axial_edge" (

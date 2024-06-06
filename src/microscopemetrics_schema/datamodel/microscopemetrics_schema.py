@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-03T15:11:51
+# Generation date: 2024-06-06T23:13:02
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1710,8 +1710,8 @@ class PSFBeadsOutput(MetricsOutput):
     processing_datetime: Union[str, XSDDateTime] = None
     validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
-    discarded_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
-    discarded_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_intensity_outlier: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_z_fit_quality: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -1728,13 +1728,13 @@ class PSFBeadsOutput(MetricsOutput):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
         self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
 
-        if not isinstance(self.discarded_bead_centers_lateral_edge, list):
-            self.discarded_bead_centers_lateral_edge = [self.discarded_bead_centers_lateral_edge] if self.discarded_bead_centers_lateral_edge is not None else []
-        self.discarded_bead_centers_lateral_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.discarded_bead_centers_lateral_edge]
+        if not isinstance(self.considered_bead_centers_lateral_edge, list):
+            self.considered_bead_centers_lateral_edge = [self.considered_bead_centers_lateral_edge] if self.considered_bead_centers_lateral_edge is not None else []
+        self.considered_bead_centers_lateral_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_lateral_edge]
 
-        if not isinstance(self.discarded_bead_centers_self_proximity, list):
-            self.discarded_bead_centers_self_proximity = [self.discarded_bead_centers_self_proximity] if self.discarded_bead_centers_self_proximity is not None else []
-        self.discarded_bead_centers_self_proximity = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.discarded_bead_centers_self_proximity]
+        if not isinstance(self.considered_bead_centers_self_proximity, list):
+            self.considered_bead_centers_self_proximity = [self.considered_bead_centers_self_proximity] if self.considered_bead_centers_self_proximity is not None else []
+        self.considered_bead_centers_self_proximity = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_self_proximity]
 
         if not isinstance(self.considered_bead_centers_axial_edge, list):
             self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
@@ -1785,8 +1785,8 @@ class PSFBeadsKeyValues(KeyValues):
 
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_analyzed: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_beads_discarded_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
-    nr_of_beads_discarded_self_proximity: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_lateral_edge: Optional[Union[int, List[int]]] = empty_list()
+    nr_of_beads_considered_self_proximity: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_axial_edge: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_intensity_outlier: Optional[Union[int, List[int]]] = empty_list()
     nr_of_beads_considered_bad_z_fit: Optional[Union[int, List[int]]] = empty_list()
@@ -1832,13 +1832,13 @@ class PSFBeadsKeyValues(KeyValues):
             self.nr_of_beads_analyzed = [self.nr_of_beads_analyzed] if self.nr_of_beads_analyzed is not None else []
         self.nr_of_beads_analyzed = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_analyzed]
 
-        if not isinstance(self.nr_of_beads_discarded_lateral_edge, list):
-            self.nr_of_beads_discarded_lateral_edge = [self.nr_of_beads_discarded_lateral_edge] if self.nr_of_beads_discarded_lateral_edge is not None else []
-        self.nr_of_beads_discarded_lateral_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_lateral_edge]
+        if not isinstance(self.nr_of_beads_considered_lateral_edge, list):
+            self.nr_of_beads_considered_lateral_edge = [self.nr_of_beads_considered_lateral_edge] if self.nr_of_beads_considered_lateral_edge is not None else []
+        self.nr_of_beads_considered_lateral_edge = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_lateral_edge]
 
-        if not isinstance(self.nr_of_beads_discarded_self_proximity, list):
-            self.nr_of_beads_discarded_self_proximity = [self.nr_of_beads_discarded_self_proximity] if self.nr_of_beads_discarded_self_proximity is not None else []
-        self.nr_of_beads_discarded_self_proximity = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_discarded_self_proximity]
+        if not isinstance(self.nr_of_beads_considered_self_proximity, list):
+            self.nr_of_beads_considered_self_proximity = [self.nr_of_beads_considered_self_proximity] if self.nr_of_beads_considered_self_proximity is not None else []
+        self.nr_of_beads_considered_self_proximity = [v if isinstance(v, int) else int(v) for v in self.nr_of_beads_considered_self_proximity]
 
         if not isinstance(self.nr_of_beads_considered_axial_edge, list):
             self.nr_of_beads_considered_axial_edge = [self.nr_of_beads_considered_axial_edge] if self.nr_of_beads_considered_axial_edge is not None else []
@@ -2716,11 +2716,11 @@ slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['sa
 slots.nr_of_beads_analyzed = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_analyzed'], name="nr_of_beads_analyzed", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_analyzed'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_analyzed, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_discarded_lateral_edge'], name="nr_of_beads_discarded_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_discarded_lateral_edge'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_lateral_edge, domain=None, range=Optional[Union[int, List[int]]])
+slots.nr_of_beads_considered_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_considered_lateral_edge'], name="nr_of_beads_considered_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_considered_lateral_edge'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_lateral_edge, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.nr_of_beads_discarded_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_discarded_self_proximity'], name="nr_of_beads_discarded_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_discarded_self_proximity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_discarded_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
+slots.nr_of_beads_considered_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_considered_self_proximity'], name="nr_of_beads_considered_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_considered_self_proximity'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_self_proximity, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.nr_of_beads_considered_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/nr_of_beads_considered_axial_edge'], name="nr_of_beads_considered_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/nr_of_beads_considered_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_beads_considered_axial_edge, domain=None, range=Optional[Union[int, List[int]]])
@@ -3289,11 +3289,11 @@ slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_b
 slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/discarded_bead_centers_lateral_edge'], name="pSFBeadsOutput__discarded_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/discarded_bead_centers_lateral_edge'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
+slots.pSFBeadsOutput__considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bead_centers_lateral_edge'], name="pSFBeadsOutput__considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bead_centers_lateral_edge'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__discarded_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/discarded_bead_centers_self_proximity'], name="pSFBeadsOutput__discarded_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/discarded_bead_centers_self_proximity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__discarded_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
+slots.pSFBeadsOutput__considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bead_centers_self_proximity'], name="pSFBeadsOutput__considered_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bead_centers_self_proximity'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bead_centers_axial_edge'], name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bead_centers_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])

@@ -517,8 +517,8 @@ message PSFBeadsKeyValues
  repeated  dataReference linkedReferences = 0
  repeated  integer channelNr = 0
  repeated  integer nrOfBeadsAnalyzed = 0
- repeated  integer nrOfBeadsDiscardedLateralEdge = 0
- repeated  integer nrOfBeadsDiscardedSelfProximity = 0
+ repeated  integer nrOfBeadsConsideredLateralEdge = 0
+ repeated  integer nrOfBeadsConsideredSelfProximity = 0
  repeated  integer nrOfBeadsConsideredAxialEdge = 0
  repeated  integer nrOfBeadsConsideredIntensityOutlier = 0
  repeated  integer nrOfBeadsConsideredBadZFit = 0
@@ -568,8 +568,8 @@ message PSFBeadsOutput
   datetime validationDatetime = 0
   comment comment = 0
  repeated  roi analyzedBeadCenters = 0
- repeated  roi discardedBeadCentersLateralEdge = 0
- repeated  roi discardedBeadCentersSelfProximity = 0
+ repeated  roi consideredBeadCentersLateralEdge = 0
+ repeated  roi consideredBeadCentersSelfProximity = 0
  repeated  roi consideredBeadCentersAxialEdge = 0
  repeated  roi consideredBeadCentersIntensityOutlier = 0
  repeated  roi consideredBeadCentersZFitQuality = 0
