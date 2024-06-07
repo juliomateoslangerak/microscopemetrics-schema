@@ -515,8 +515,6 @@ message PSFBeadsKeyMeasurements
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  columnSeries columnSeries = 0
-  metaObject tableData = 0
  repeated  integer channelNr = 0
  repeated  integer consideredValidCount = 0
  repeated  integer consideredSelfProximityCount = 0

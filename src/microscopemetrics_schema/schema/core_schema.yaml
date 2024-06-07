@@ -754,7 +754,7 @@ classes:
     abstract: true
 
   KeyMeasurements:
-    is_a: Table
+    is_a: KeyValues
     description: A table of key measurements
     abstract: true
 

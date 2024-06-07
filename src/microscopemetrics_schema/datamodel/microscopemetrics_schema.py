@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-07T18:36:31
+# Generation date: 2024-06-07T21:41:48
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1192,6 +1192,18 @@ class KeyValues(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
 
 
+class KeyMeasurements(KeyValues):
+    """
+    A table of key measurements
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/KeyMeasurements"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/KeyMeasurements"
+    class_name: ClassVar[str] = "KeyMeasurements"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
+
+
 @dataclass
 class Tag(MetricsObject):
     """
@@ -1242,20 +1254,6 @@ class Table(MetricsObject):
 
         super().__post_init__(**kwargs)
 
-
-@dataclass
-class KeyMeasurements(Table):
-    """
-    A table of key measurements
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/KeyMeasurements"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/KeyMeasurements"
-    class_name: ClassVar[str] = "KeyMeasurements"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
-
-    column_series: Union[dict, ColumnSeries] = None
 
 @dataclass
 class FieldIlluminationDataset(MetricsDataset):
@@ -1797,7 +1795,6 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
 
-    column_series: Union[dict, ColumnSeries] = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     considered_valid_count: Optional[Union[int, List[int]]] = empty_list()
     considered_self_proximity_count: Optional[Union[int, List[int]]] = empty_list()
