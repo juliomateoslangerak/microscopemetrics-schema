@@ -753,6 +753,11 @@ classes:
     description: A collection of key-value pairs
     abstract: true
 
+  KeyMeasurements:
+    is_a: Table
+    description: A table of key measurements
+    abstract: true
+
   Tag:
     is_a: MetricsObject
     description: A tag
