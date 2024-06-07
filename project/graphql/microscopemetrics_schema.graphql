@@ -395,6 +395,16 @@ type ImageMask
     arrayData: MetaObject
   }
 
+interface KeyMeasurements
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    columnSeries: ColumnSeries!
+    tableData: MetaObject
+  }
+
 interface KeyValues
   {
     name: String
@@ -583,21 +593,32 @@ type PSFBeadsInput
     intensityRobustZScoreThreshold: Float!
   }
 
-type PSFBeadsKeyValues
+type PSFBeadsKeyMeasurements
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    columnSeries: ColumnSeries!
+    tableData: MetaObject
     channelNr: [Integer]
-    nrOfBeadsAnalyzed: [Integer]
-    nrOfBeadsDiscardedLateralEdge: [Integer]
-    nrOfBeadsDiscardedSelfProximity: [Integer]
-    nrOfBeadsConsideredAxialEdge: [Integer]
-    nrOfBeadsConsideredIntensityOutlier: [Integer]
-    nrOfBeadsConsideredBadZFit: [Integer]
-    nrOfBeadsConsideredBadYFit: [Integer]
-    nrOfBeadsConsideredBadXFit: [Integer]
+    consideredValidCount: [Integer]
+    consideredSelfProximityCount: [Integer]
+    consideredLateralEdgeCount: [Integer]
+    consideredAxialEdgeCount: [Integer]
+    consideredIntensityOutlierCount: [Integer]
+    consideredBadZFitCount: [Integer]
+    consideredBadYFitCount: [Integer]
+    consideredBadXFitCount: [Integer]
+    intensityMaxMean: [Float]
+    intensityMaxMedian: [Float]
+    intensityMaxStd: [Float]
+    intensityMinMean: [Float]
+    intensityMinMedian: [Float]
+    intensityMinStd: [Float]
+    intensityStdMean: [Float]
+    intensityStdMedian: [Float]
+    intensityStdStd: [Float]
     fitR2ZMean: [Float]
     fitR2ZMedian: [Float]
     fitR2ZStd: [Float]
@@ -607,27 +628,27 @@ type PSFBeadsKeyValues
     fitR2XMean: [Float]
     fitR2XMedian: [Float]
     fitR2XStd: [Float]
-    resolutionMeanFwhmZPixels: [Float]
-    resolutionMedianFwhmZPixels: [Float]
-    resolutionStdFwhmZPixels: [Float]
-    resolutionMeanFwhmYPixels: [Float]
-    resolutionMedianFwhmYPixels: [Float]
-    resolutionStdFwhmYPixels: [Float]
-    resolutionMeanFwhmXPixels: [Float]
-    resolutionMedianFwhmXPixels: [Float]
-    resolutionStdFwhmXPixels: [Float]
-    resolutionMeanFwhmZMicrons: [Float]
-    resolutionMedianFwhmZMicrons: [Float]
-    resolutionStdFwhmZMicrons: [Float]
-    resolutionMeanFwhmYMicrons: [Float]
-    resolutionMedianFwhmYMicrons: [Float]
-    resolutionStdFwhmYMicrons: [Float]
-    resolutionMeanFwhmXMicrons: [Float]
-    resolutionMedianFwhmXMicrons: [Float]
-    resolutionStdFwhmXMicrons: [Float]
-    resolutionMeanFwhmLateralAsymmetryRatio: [Float]
-    resolutionMedianFwhmLateralAsymmetryRatio: [Float]
-    resolutionStdFwhmLateralAsymmetryRatio: [Float]
+    fwhmPixelZMean: [Float]
+    fwhmPixelZMedian: [Float]
+    fwhmPixelZStd: [Float]
+    fwhmPixelYMean: [Float]
+    fwhmPixelYMedian: [Float]
+    fwhmPixelYStd: [Float]
+    fwhmPixelXMean: [Float]
+    fwhmPixelXMedian: [Float]
+    fwhmPixelXStd: [Float]
+    fwhmMicronZMean: [Float]
+    fwhmMicronZMedian: [Float]
+    fwhmMicronZStd: [Float]
+    fwhmMicronYMean: [Float]
+    fwhmMicronYMedian: [Float]
+    fwhmMicronYStd: [Float]
+    fwhmMicronXMean: [Float]
+    fwhmMicronXMedian: [Float]
+    fwhmMicronXStd: [Float]
+    fwhmLateralAsymmetryRatioMean: [Float]
+    fwhmLateralAsymmetryRatioMedian: [Float]
+    fwhmLateralAsymmetryRatioStd: [Float]
   }
 
 type PSFBeadsOutput
@@ -650,7 +671,7 @@ type PSFBeadsOutput
     consideredBeadCentersZFitQuality: [Roi]
     consideredBeadCentersYFitQuality: [Roi]
     consideredBeadCentersXFitQuality: [Roi]
-    keyValues: PSFBeadsKeyValues
+    keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
     beadZProfiles: Table
     beadYProfiles: Table

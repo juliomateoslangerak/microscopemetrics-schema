@@ -20,12 +20,13 @@
 --     * Slot: ImageMask_id Description: Autocreated FK slot
 --     * Slot: Roi_id Description: Autocreated FK slot
 --     * Slot: KeyValues_id Description: Autocreated FK slot
+--     * Slot: KeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: Tag_id Description: Autocreated FK slot
 --     * Slot: Table_id Description: Autocreated FK slot
 --     * Slot: FieldIlluminationDataset_id Description: Autocreated FK slot
 --     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsDataset_id Description: Autocreated FK slot
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: ArgolightBDataset_id Description: Autocreated FK slot
 --     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
@@ -291,6 +292,13 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "KeyMeasurements" Description: "A table of key measurements"
+--     * Slot: id Description: 
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: column_series_id Description: 
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
+--     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Tag" Description: "A tag"
 --     * Slot: id Description: 
 --     * Slot: description Description: The description of the tag
@@ -365,16 +373,18 @@
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: key_values_id Description: The key measurements of the PSF beads analysis.
+--     * Slot: key_measurements_id Description: The key measurements of the PSF beads analysis.
 --     * Slot: bead_properties_id Description: Properties associated with the analysis of the beads.
 --     * Slot: bead_z_profiles_id Description: The intensity profiles along the z axis of the analyzed beads as well as the fits.
 --     * Slot: bead_y_profiles_id Description: The intensity profiles along the y axis of the analyzed beads as well as the fits.
 --     * Slot: bead_x_profiles_id Description: The intensity profiles along the x axis of the analyzed beads as well as the fits.
 --     * Slot: comment_id Description: A human readable comment about the dataset
--- # Class: "PSFBeadsKeyValues" Description: ""
+-- # Class: "PSFBeadsKeyMeasurements" Description: ""
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: column_series_id Description: 
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ArgolightBDataset" Description: "An Argolight sample pattern B dataset. This pattern consists of an array of circles"
 --     * Slot: id Description: 
@@ -666,123 +676,150 @@
 -- # Class: "PSFBeadsOutput_errors" Description: ""
 --     * Slot: PSFBeadsOutput_id Description: Autocreated FK slot
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "PSFBeadsKeyValues_channel_nr" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_channel_nr" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: channel_nr Description: The channel number to which the measurements apply
--- # Class: "PSFBeadsKeyValues_nr_of_beads_analyzed" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_analyzed Description: Number of beads analyzed. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_discarded_lateral_edge" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_discarded_lateral_edge Description: Number of beads discarded for being too close to the edge of the image. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_discarded_self_proximity" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_discarded_self_proximity Description: Number of beads discarded for being too close to another bead. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_axial_edge" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_considered_axial_edge Description: Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_intensity_outlier" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_considered_intensity_outlier Description: Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_bad_z_fit" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_considered_bad_z_fit Description: Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_bad_y_fit" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_considered_bad_y_fit Description: Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
--- # Class: "PSFBeadsKeyValues_nr_of_beads_considered_bad_x_fit" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_beads_considered_bad_x_fit Description: Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_z_mean" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_considered_valid_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_valid_count Description: Number of beads analyzed. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_self_proximity_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_self_proximity_count Description: Number of beads discarded for being too close to another bead. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_lateral_edge_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_lateral_edge_count Description: Number of beads discarded for being too close to the edge of the image. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_axial_edge_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_axial_edge_count Description: Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_intensity_outlier_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_intensity_outlier_count Description: Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_bad_z_fit_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_bad_z_fit_count Description: Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_bad_y_fit_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_bad_y_fit_count Description: Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_considered_bad_x_fit_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: considered_bad_x_fit_count Description: Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_max_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_max_mean Description: Mean maximum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_max_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_max_median Description: Median maximum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_max_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_max_std Description: Standard deviation of the maximum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_min_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_min_mean Description: Mean minimum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_min_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_min_median Description: Median minimum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_min_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_min_std Description: Standard deviation of the minimum intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_std_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_std_mean Description: Mean standard deviation of the intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_std_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_std_median Description: Median standard deviation of the intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_intensity_std_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: intensity_std_std Description: Standard deviation of the standard deviation of the intensity of the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_z_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_z_mean Description: Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_z_median" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_z_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_z_median Description: Median residual sum of squares in the z axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_z_std" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_z_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_z_std Description: Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_y_mean" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_y_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_y_mean Description: Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_y_median" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_y_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_y_median Description: Median residual sum of squares in the y axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_y_std" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_y_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_y_std Description: Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_x_mean" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_x_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_x_mean Description: Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_x_median" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_x_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_x_median Description: Median residual sum of squares in the x axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_fit_r2_x_std" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
+-- # Class: "PSFBeadsKeyMeasurements_fit_r2_x_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: fit_r2_x_std Description: Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_z_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_z_pixels Description: Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_z_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_z_pixels Description: Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_z_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_z_pixels Description: Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_y_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_y_pixels Description: Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_y_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_y_pixels Description: Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_y_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_y_pixels Description: Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_x_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_x_pixels Description: Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_x_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_x_pixels Description: Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_x_pixels" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_x_pixels Description: Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_z_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_z_microns Description: Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_z_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_z_microns Description: Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_z_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_z_microns Description: Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_y_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_y_microns Description: Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_y_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_y_microns Description: Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_y_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_y_microns Description: Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_x_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_x_microns Description: Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_x_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_x_microns Description: Median FWHM for the analyzed beads in the X axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_x_microns" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_x_microns Description: Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_mean_fwhm_lateral_asymmetry_ratio" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_mean_fwhm_lateral_asymmetry_ratio Description: Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_median_fwhm_lateral_asymmetry_ratio" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_median_fwhm_lateral_asymmetry_ratio Description: Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
--- # Class: "PSFBeadsKeyValues_resolution_std_fwhm_lateral_asymmetry_ratio" Description: ""
---     * Slot: PSFBeadsKeyValues_id Description: Autocreated FK slot
---     * Slot: resolution_std_fwhm_lateral_asymmetry_ratio Description: Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_z_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_z_mean Description: Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_z_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_z_median Description: Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_z_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_z_std Description: Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_y_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_y_mean Description: Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_y_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_y_median Description: Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_y_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_y_std Description: Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_x_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_x_mean Description: Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_x_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_x_median Description: Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_pixel_x_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_pixel_x_std Description: Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_z_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_z_mean Description: Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_z_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_z_median Description: Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_z_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_z_std Description: Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_y_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_y_mean Description: Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_y_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_y_median Description: Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_y_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_y_std Description: Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_x_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_x_mean Description: Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_x_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_x_median Description: Median FWHM for the analyzed beads in the X axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_micron_x_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_micron_x_std Description: Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_mean" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_lateral_asymmetry_ratio_mean Description: Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_median" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_lateral_asymmetry_ratio_median Description: Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: fwhm_lateral_asymmetry_ratio_std Description: Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
 -- # Class: "ArgolightBInput_lower_threshold_correction_factors" Description: ""
 --     * Slot: ArgolightBInput_id Description: Autocreated FK slot
 --     * Slot: lower_threshold_correction_factors Description: Input parameter: correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal
@@ -945,12 +982,13 @@ CREATE TABLE "DataReference" (
 	"ImageMask_id" INTEGER, 
 	"Roi_id" INTEGER, 
 	"KeyValues_id" INTEGER, 
+	"KeyMeasurements_id" INTEGER, 
 	"Tag_id" INTEGER, 
 	"Table_id" INTEGER, 
 	"FieldIlluminationDataset_id" INTEGER, 
 	"FieldIlluminationKeyValues_id" INTEGER, 
 	"PSFBeadsDataset_id" INTEGER, 
-	"PSFBeadsKeyValues_id" INTEGER, 
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	"ArgolightBDataset_id" INTEGER, 
 	"ArgolightBCentersOfMass_id" INTEGER, 
 	"ArgolightBIntensityKeyValues_id" INTEGER, 
@@ -968,12 +1006,13 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("ImageMask_id") REFERENCES "ImageMask" (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
 	FOREIGN KEY("KeyValues_id") REFERENCES "KeyValues" (id), 
+	FOREIGN KEY("KeyMeasurements_id") REFERENCES "KeyMeasurements" (id), 
 	FOREIGN KEY("Tag_id") REFERENCES "Tag" (id), 
 	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
 	FOREIGN KEY("FieldIlluminationDataset_id") REFERENCES "FieldIlluminationDataset" (id), 
 	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id), 
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY("ArgolightBDataset_id") REFERENCES "ArgolightBDataset" (id), 
 	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id), 
@@ -1180,6 +1219,18 @@ CREATE TABLE "KeyValues" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
+CREATE TABLE "KeyMeasurements" (
+	id INTEGER NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	column_series_id INTEGER NOT NULL, 
+	table_data_id INTEGER, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(column_series_id) REFERENCES "ColumnSeries" (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
 CREATE TABLE "Tag" (
 	id INTEGER NOT NULL, 
 	description TEXT, 
@@ -1291,26 +1342,30 @@ CREATE TABLE "PSFBeadsOutput" (
 	processing_log TEXT, 
 	validated BOOLEAN NOT NULL, 
 	validation_datetime DATETIME, 
-	key_values_id INTEGER, 
+	key_measurements_id INTEGER, 
 	bead_properties_id INTEGER, 
 	bead_z_profiles_id INTEGER, 
 	bead_y_profiles_id INTEGER, 
 	bead_x_profiles_id INTEGER, 
 	comment_id INTEGER, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(key_values_id) REFERENCES "PSFBeadsKeyValues" (id), 
+	FOREIGN KEY(key_measurements_id) REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY(bead_properties_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(bead_z_profiles_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(bead_y_profiles_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(bead_x_profiles_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues" (
+CREATE TABLE "PSFBeadsKeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	column_series_id INTEGER NOT NULL, 
+	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY(column_series_id) REFERENCES "ColumnSeries" (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "ArgolightBDataset" (
@@ -2005,239 +2060,293 @@ CREATE TABLE "PSFBeadsOutput_errors" (
 	PRIMARY KEY ("PSFBeadsOutput_id", errors), 
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_channel_nr" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_channel_nr" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	channel_nr INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", channel_nr), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", channel_nr), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_analyzed" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_analyzed INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_analyzed), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_valid_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_valid_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_valid_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_discarded_lateral_edge" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_discarded_lateral_edge INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_discarded_lateral_edge), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_self_proximity_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_self_proximity_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_self_proximity_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_discarded_self_proximity" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_discarded_self_proximity INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_discarded_self_proximity), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_lateral_edge_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_lateral_edge_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_lateral_edge_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_axial_edge" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_considered_axial_edge INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_axial_edge), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_axial_edge_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_axial_edge_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_axial_edge_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_intensity_outlier" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_considered_intensity_outlier INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_intensity_outlier), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_intensity_outlier_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_intensity_outlier_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_intensity_outlier_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_bad_z_fit" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_considered_bad_z_fit INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_bad_z_fit), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_bad_z_fit_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_bad_z_fit_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_bad_z_fit_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_bad_y_fit" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_considered_bad_y_fit INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_bad_y_fit), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_bad_y_fit_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_bad_y_fit_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_bad_y_fit_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_nr_of_beads_considered_bad_x_fit" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	nr_of_beads_considered_bad_x_fit INTEGER, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", nr_of_beads_considered_bad_x_fit), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_considered_bad_x_fit_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	considered_bad_x_fit_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_bad_x_fit_count), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_z_mean" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_max_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_max_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_max_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_max_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_max_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_max_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_max_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_max_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_max_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_min_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_min_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_min_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_min_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_min_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_min_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_min_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_min_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_min_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_std_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_std_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_std_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_std_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_std_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_std_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_intensity_std_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	intensity_std_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_std_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_z_mean FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_z_mean), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_z_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_z_median" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_z_median FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_z_median), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_z_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_z_std" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_z_std FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_z_std), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_z_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_y_mean" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_y_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_y_mean FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_y_mean), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_y_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_y_median" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_y_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_y_median FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_y_median), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_y_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_y_std" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_y_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_y_std FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_y_std), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_y_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_x_mean" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_x_mean FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_x_mean), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_x_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_x_median" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_x_median FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_x_median), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_x_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_fit_r2_x_std" (
-	"PSFBeadsKeyValues_id" INTEGER, 
+CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	fit_r2_x_std FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", fit_r2_x_std), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_x_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_z_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_z_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_z_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_z_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_z_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_z_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_z_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_z_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_z_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_z_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_z_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_z_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_z_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_z_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_z_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_z_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_z_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_z_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_y_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_y_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_y_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_y_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_y_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_y_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_y_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_y_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_y_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_y_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_y_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_y_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_y_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_y_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_y_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_y_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_y_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_y_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_x_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_x_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_x_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_x_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_x_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_x_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_x_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_x_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_x_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_x_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_x_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_x_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_x_pixels" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_x_pixels FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_x_pixels), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_x_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_pixel_x_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_pixel_x_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_z_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_z_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_z_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_z_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_z_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_z_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_z_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_z_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_z_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_z_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_z_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_z_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_z_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_z_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_z_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_z_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_z_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_z_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_y_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_y_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_y_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_y_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_y_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_y_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_y_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_y_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_y_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_y_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_y_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_y_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_y_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_y_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_y_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_y_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_y_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_y_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_x_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_x_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_x_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_x_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_x_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_x_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_x_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_x_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_x_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_x_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_x_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_x_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_x_microns" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_x_microns FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_x_microns), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_x_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_micron_x_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_x_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_mean_fwhm_lateral_asymmetry_ratio" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_mean_fwhm_lateral_asymmetry_ratio FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_mean_fwhm_lateral_asymmetry_ratio), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_mean" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_lateral_asymmetry_ratio_mean FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_lateral_asymmetry_ratio_mean), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_median_fwhm_lateral_asymmetry_ratio" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_median_fwhm_lateral_asymmetry_ratio FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_median_fwhm_lateral_asymmetry_ratio), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_median" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_lateral_asymmetry_ratio_median FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_lateral_asymmetry_ratio_median), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "PSFBeadsKeyValues_resolution_std_fwhm_lateral_asymmetry_ratio" (
-	"PSFBeadsKeyValues_id" INTEGER, 
-	resolution_std_fwhm_lateral_asymmetry_ratio FLOAT, 
-	PRIMARY KEY ("PSFBeadsKeyValues_id", resolution_std_fwhm_lateral_asymmetry_ratio), 
-	FOREIGN KEY("PSFBeadsKeyValues_id") REFERENCES "PSFBeadsKeyValues" (id)
+CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_lateral_asymmetry_ratio_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	fwhm_lateral_asymmetry_ratio_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_lateral_asymmetry_ratio_std), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
 CREATE TABLE "ArgolightBInput_lower_threshold_correction_factors" (
 	"ArgolightBInput_id" INTEGER, 
