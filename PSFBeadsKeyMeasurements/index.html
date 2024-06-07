@@ -214,11 +214,11 @@
 
       PSFBeadsKeyMeasurements : considered_axial_edge_count
 
-      PSFBeadsKeyMeasurements : considered_bad_x_fit_count
+      PSFBeadsKeyMeasurements : considered_bad_fit_x_count
 
-      PSFBeadsKeyMeasurements : considered_bad_y_fit_count
+      PSFBeadsKeyMeasurements : considered_bad_fit_y_count
 
-      PSFBeadsKeyMeasurements : considered_bad_z_fit_count
+      PSFBeadsKeyMeasurements : considered_bad_fit_z_count
 
       PSFBeadsKeyMeasurements : considered_intensity_outlier_count
 
@@ -384,19 +384,19 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../considered_bad_z_fit_count/">considered_bad_z_fit_count</a></td>
+<td><a href="../considered_bad_fit_z_count/">considered_bad_fit_z_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the z axis</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../considered_bad_y_fit_count/">considered_bad_y_fit_count</a></td>
+<td><a href="../considered_bad_fit_y_count/">considered_bad_fit_y_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the y axis</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../considered_bad_x_fit_count/">considered_bad_x_fit_count</a></td>
+<td><a href="../considered_bad_fit_x_count/">considered_bad_fit_x_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the x axis</td>
 <td>direct</td>
@@ -718,9 +718,9 @@ slots:
 - considered_lateral_edge_count
 - considered_axial_edge_count
 - considered_intensity_outlier_count
-- considered_bad_z_fit_count
-- considered_bad_y_fit_count
-- considered_bad_x_fit_count
+- considered_bad_fit_z_count
+- considered_bad_fit_y_count
+- considered_bad_fit_x_count
 - intensity_max_mean
 - intensity_max_median
 - intensity_max_std
@@ -845,41 +845,41 @@ attributes:
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  considered_bad_z_fit_count:
-    name: considered_bad_z_fit_count
+  considered_bad_fit_z_count:
+    name: considered_bad_fit_z_count
     description: Number of beads considered as having a bad fit quality in the z axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: considered_bad_z_fit_count
+    alias: considered_bad_fit_z_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  considered_bad_y_fit_count:
-    name: considered_bad_y_fit_count
+  considered_bad_fit_y_count:
+    name: considered_bad_fit_y_count
     description: Number of beads considered as having a bad fit quality in the y axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: considered_bad_y_fit_count
+    alias: considered_bad_fit_y_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  considered_bad_x_fit_count:
-    name: considered_bad_x_fit_count
+  considered_bad_fit_x_count:
+    name: considered_bad_fit_x_count
     description: Number of beads considered as having a bad fit quality in the x axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: considered_bad_x_fit_count
+    alias: considered_bad_fit_x_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
