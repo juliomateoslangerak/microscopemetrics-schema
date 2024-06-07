@@ -211,6 +211,10 @@
     class Table
       MetricsObject &lt;|-- Table
 
+
+      Table &lt;|-- KeyMeasurements
+
+
       Table : column_series
 
           Table --&gt; ColumnSeries : column_series
@@ -237,7 +241,10 @@
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
-<li><strong>Table</strong></li>
+<li><strong>Table</strong><ul>
+<li><a href="../KeyMeasurements/">KeyMeasurements</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

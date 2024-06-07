@@ -525,10 +525,6 @@
 <td>None</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsKeyValues/">PSFBeadsKeyValues</a></td>
-<td>None</td>
-</tr>
-<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MetricsDataset/">MetricsDataset</a></td>
 <td>A base object on which microscope-metrics runs the analysis</td>
 </tr>
@@ -583,6 +579,14 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Table/">Table</a></td>
 <td>A microscope-metrics table</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="KeyMeasurements/">KeyMeasurements</a></td>
+<td>A table of key measurements</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></td>
+<td>None</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Tag/">Tag</a></td>
@@ -848,20 +852,28 @@
 <td>A list of comments linked to the microscope</td>
 </tr>
 <tr>
+<td><a href="considered_axial_edge_count/">considered_axial_edge_count</a></td>
+<td>Number of beads considered as being too close to the top and or bottom of the...</td>
+</tr>
+<tr>
+<td><a href="considered_bad_x_fit_count/">considered_bad_x_fit_count</a></td>
+<td>Number of beads considered as having a bad fit quality in the x axis</td>
+</tr>
+<tr>
+<td><a href="considered_bad_y_fit_count/">considered_bad_y_fit_count</a></td>
+<td>Number of beads considered as having a bad fit quality in the y axis</td>
+</tr>
+<tr>
+<td><a href="considered_bad_z_fit_count/">considered_bad_z_fit_count</a></td>
+<td>Number of beads considered as having a bad fit quality in the z axis</td>
+</tr>
+<tr>
 <td><a href="considered_bead_centers_axial_edge/">considered_bead_centers_axial_edge</a></td>
 <td>The centers of the beads detected but considered as too close to the top and ...</td>
 </tr>
 <tr>
 <td><a href="considered_bead_centers_intensity_outlier/">considered_bead_centers_intensity_outlier</a></td>
 <td>The centers of the beads detected but considered as being too intense and pot...</td>
-</tr>
-<tr>
-<td><a href="considered_bead_centers_lateral_edge/">considered_bead_centers_lateral_edge</a></td>
-<td>The centers of the beads detected but considered as too close to the edge of ...</td>
-</tr>
-<tr>
-<td><a href="considered_bead_centers_self_proximity/">considered_bead_centers_self_proximity</a></td>
-<td>The centers of the beads detected but considered as too close to another bead</td>
 </tr>
 <tr>
 <td><a href="considered_bead_centers_x_fit_quality/">considered_bead_centers_x_fit_quality</a></td>
@@ -874,6 +886,22 @@
 <tr>
 <td><a href="considered_bead_centers_z_fit_quality/">considered_bead_centers_z_fit_quality</a></td>
 <td>The centers of the beads detected but considered as the fit quality in z was ...</td>
+</tr>
+<tr>
+<td><a href="considered_intensity_outlier_count/">considered_intensity_outlier_count</a></td>
+<td>Number of beads considered as being too intense and potentially represent a c...</td>
+</tr>
+<tr>
+<td><a href="considered_lateral_edge_count/">considered_lateral_edge_count</a></td>
+<td>Number of beads discarded for being too close to the edge of the image</td>
+</tr>
+<tr>
+<td><a href="considered_self_proximity_count/">considered_self_proximity_count</a></td>
+<td>Number of beads discarded for being too close to another bead</td>
+</tr>
+<tr>
+<td><a href="considered_valid_count/">considered_valid_count</a></td>
+<td>Number of beads analyzed</td>
 </tr>
 <tr>
 <td><a href="corner_fraction/">corner_fraction</a></td>
@@ -902,6 +930,14 @@
 <tr>
 <td><a href="description/">description</a></td>
 <td>A human readable description of an entity</td>
+</tr>
+<tr>
+<td><a href="discarded_bead_centers_lateral_edge/">discarded_bead_centers_lateral_edge</a></td>
+<td>The centers of the beads detected but discarded as too close to the edge of t...</td>
+</tr>
+<tr>
+<td><a href="discarded_bead_centers_self_proximity/">discarded_bead_centers_self_proximity</a></td>
+<td>The centers of the beads detected but discarded as too close to another bead</td>
 </tr>
 <tr>
 <td><a href="distance_key_values/">distance_key_values</a></td>
@@ -980,6 +1016,90 @@
 <td>Z position at which focus has been measured</td>
 </tr>
 <tr>
+<td><a href="fwhm_lateral_asymmetry_ratio_mean/">fwhm_lateral_asymmetry_ratio_mean</a></td>
+<td>Mean lateral FWHM asymmetry ratio for the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="fwhm_lateral_asymmetry_ratio_median/">fwhm_lateral_asymmetry_ratio_median</a></td>
+<td>Median lateral FWHM asymmetry ratio for the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="fwhm_lateral_asymmetry_ratio_std/">fwhm_lateral_asymmetry_ratio_std</a></td>
+<td>Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_x_mean/">fwhm_micron_x_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the X axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_x_median/">fwhm_micron_x_median</a></td>
+<td>Median FWHM for the analyzed beads in the X axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_x_std/">fwhm_micron_x_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the X axis in micron...</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_y_mean/">fwhm_micron_y_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the Y axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_y_median/">fwhm_micron_y_median</a></td>
+<td>Median FWHM for the analyzed beads in the Y axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_y_std/">fwhm_micron_y_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the Y axis in micron...</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_z_mean/">fwhm_micron_z_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the Z axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_z_median/">fwhm_micron_z_median</a></td>
+<td>Median FWHM for the analyzed beads in the Z axis in microns</td>
+</tr>
+<tr>
+<td><a href="fwhm_micron_z_std/">fwhm_micron_z_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the Z axis in micron...</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_x_mean/">fwhm_pixel_x_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the X axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_x_median/">fwhm_pixel_x_median</a></td>
+<td>Median FWHM for the analyzed beads in the X axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_x_std/">fwhm_pixel_x_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the X axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_y_mean/">fwhm_pixel_y_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the Y axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_y_median/">fwhm_pixel_y_median</a></td>
+<td>Median FWHM for the analyzed beads in the Y axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_y_std/">fwhm_pixel_y_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_z_mean/">fwhm_pixel_z_mean</a></td>
+<td>Mean FWHM for the analyzed beads in the Z axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_z_median/">fwhm_pixel_z_median</a></td>
+<td>Median FWHM for the analyzed beads in the Z axis in pixels</td>
+</tr>
+<tr>
+<td><a href="fwhm_pixel_z_std/">fwhm_pixel_z_std</a></td>
+<td>Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels</td>
+</tr>
+<tr>
 <td><a href="g/">g</a></td>
 <td>The green value of the color</td>
 </tr>
@@ -996,6 +1116,14 @@
 <td>Key Intensity Measurements on Argolight spots</td>
 </tr>
 <tr>
+<td><a href="intensity_max_mean/">intensity_max_mean</a></td>
+<td>Mean maximum intensity of the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="intensity_max_median/">intensity_max_median</a></td>
+<td>Median maximum intensity of the analyzed beads</td>
+</tr>
+<tr>
 <td><a href="intensity_max_spot/">intensity_max_spot</a></td>
 <td>Integrated intensity of the most intense spot for each channel</td>
 </tr>
@@ -1004,12 +1132,28 @@
 <td>ROI number of the most intense spot for each channel</td>
 </tr>
 <tr>
+<td><a href="intensity_max_std/">intensity_max_std</a></td>
+<td>Standard deviation of the maximum intensity of the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="intensity_min_mean/">intensity_min_mean</a></td>
+<td>Mean minimum intensity of the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="intensity_min_median/">intensity_min_median</a></td>
+<td>Median minimum intensity of the analyzed beads</td>
+</tr>
+<tr>
 <td><a href="intensity_min_spot/">intensity_min_spot</a></td>
 <td>Integrated intensity of the least intense spot for each channel</td>
 </tr>
 <tr>
 <td><a href="intensity_min_spot_roi/">intensity_min_spot_roi</a></td>
 <td>ROI number of the least intense spot for each channel</td>
+</tr>
+<tr>
+<td><a href="intensity_min_std/">intensity_min_std</a></td>
+<td>Standard deviation of the minimum intensity of the analyzed beads</td>
 </tr>
 <tr>
 <td><a href="intensity_profiles/">intensity_profiles</a></td>
@@ -1024,12 +1168,24 @@
 <td>Threshold for the robust z-score of the intensity of the bead to be considere...</td>
 </tr>
 <tr>
+<td><a href="intensity_std_mean/">intensity_std_mean</a></td>
+<td>Mean standard deviation of the intensity of the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="intensity_std_median/">intensity_std_median</a></td>
+<td>Median standard deviation of the intensity of the analyzed beads</td>
+</tr>
+<tr>
+<td><a href="intensity_std_std/">intensity_std_std</a></td>
+<td>Standard deviation of the standard deviation of the intensity of the analyzed...</td>
+</tr>
+<tr>
 <td><a href="is_open/">is_open</a></td>
 <td>Is the polygon open</td>
 </tr>
 <tr>
 <td><a href="key_measurements/">key_measurements</a></td>
-<td>Key Measurements on Argolight E images</td>
+<td>The key measurements of the PSF beads analysis</td>
 </tr>
 <tr>
 <td><a href="key_values/">key_values</a></td>
@@ -1176,38 +1332,6 @@
 <td>The human readable name of an entity</td>
 </tr>
 <tr>
-<td><a href="nr_of_beads_analyzed/">nr_of_beads_analyzed</a></td>
-<td>Number of beads analyzed</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_axial_edge/">nr_of_beads_considered_axial_edge</a></td>
-<td>Number of beads considered as being too close to the top and or bottom of the...</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_bad_x_fit/">nr_of_beads_considered_bad_x_fit</a></td>
-<td>Number of beads considered as having a bad fit quality in the x axis</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_bad_y_fit/">nr_of_beads_considered_bad_y_fit</a></td>
-<td>Number of beads considered as having a bad fit quality in the y axis</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_bad_z_fit/">nr_of_beads_considered_bad_z_fit</a></td>
-<td>Number of beads considered as having a bad fit quality in the z axis</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_intensity_outlier/">nr_of_beads_considered_intensity_outlier</a></td>
-<td>Number of beads considered as being too intense and potentially represent a c...</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_lateral_edge/">nr_of_beads_considered_lateral_edge</a></td>
-<td>Number of beads considered for being too close to the edge of the image</td>
-</tr>
-<tr>
-<td><a href="nr_of_beads_considered_self_proximity/">nr_of_beads_considered_self_proximity</a></td>
-<td>Number of beads considered for being too close to another bead</td>
-</tr>
-<tr>
 <td><a href="nr_of_spots/">nr_of_spots</a></td>
 <td>Number of argolight spots detected for each channel</td>
 </tr>
@@ -1330,90 +1454,6 @@
 <tr>
 <td><a href="remove_center_cross/">remove_center_cross</a></td>
 <td>Input parameter: remove the center cross found in some Argolight patterns</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_lateral_asymmetry_ratio/">resolution_mean_fwhm_lateral_asymmetry_ratio</a></td>
-<td>Mean lateral FWHM asymmetry ratio for the analyzed beads</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_x_microns/">resolution_mean_fwhm_x_microns</a></td>
-<td>Mean FWHM for the analyzed beads in the X axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_x_pixels/">resolution_mean_fwhm_x_pixels</a></td>
-<td>Mean FWHM for the analyzed beads in the X axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_y_microns/">resolution_mean_fwhm_y_microns</a></td>
-<td>Mean FWHM for the analyzed beads in the Y axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_y_pixels/">resolution_mean_fwhm_y_pixels</a></td>
-<td>Mean FWHM for the analyzed beads in the Y axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_z_microns/">resolution_mean_fwhm_z_microns</a></td>
-<td>Mean FWHM for the analyzed beads in the Z axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_mean_fwhm_z_pixels/">resolution_mean_fwhm_z_pixels</a></td>
-<td>Mean FWHM for the analyzed beads in the Z axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_lateral_asymmetry_ratio/">resolution_median_fwhm_lateral_asymmetry_ratio</a></td>
-<td>Median lateral FWHM asymmetry ratio for the analyzed beads</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_x_microns/">resolution_median_fwhm_x_microns</a></td>
-<td>Median FWHM for the analyzed beads in the X axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_x_pixels/">resolution_median_fwhm_x_pixels</a></td>
-<td>Median FWHM for the analyzed beads in the X axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_y_microns/">resolution_median_fwhm_y_microns</a></td>
-<td>Median FWHM for the analyzed beads in the Y axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_y_pixels/">resolution_median_fwhm_y_pixels</a></td>
-<td>Median FWHM for the analyzed beads in the Y axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_z_microns/">resolution_median_fwhm_z_microns</a></td>
-<td>Median FWHM for the analyzed beads in the Z axis in microns</td>
-</tr>
-<tr>
-<td><a href="resolution_median_fwhm_z_pixels/">resolution_median_fwhm_z_pixels</a></td>
-<td>Median FWHM for the analyzed beads in the Z axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_lateral_asymmetry_ratio/">resolution_std_fwhm_lateral_asymmetry_ratio</a></td>
-<td>Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_x_microns/">resolution_std_fwhm_x_microns</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the X axis in micron...</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_x_pixels/">resolution_std_fwhm_x_pixels</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the X axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_y_microns/">resolution_std_fwhm_y_microns</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the Y axis in micron...</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_y_pixels/">resolution_std_fwhm_y_pixels</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_z_microns/">resolution_std_fwhm_z_microns</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the Z axis in micron...</td>
-</tr>
-<tr>
-<td><a href="resolution_std_fwhm_z_pixels/">resolution_std_fwhm_z_pixels</a></td>
-<td>Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels</td>
 </tr>
 <tr>
 <td><a href="roi_center_region/">roi_center_region</a></td>

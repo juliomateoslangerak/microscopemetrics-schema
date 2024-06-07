@@ -205,95 +205,142 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"></path></svg>
 </a>
 <h1 id="class-psfbeadskeymeasurements">Class: PSFBeadsKeyMeasurements</h1>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/PSFBeadsKeyMeasurements">microscopemetrics_schema:PSFBeadsKeyMeasurements</a></p>
+<p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PSFBeadsKeyMeasurements">microscopemetrics_schema:PSFBeadsKeyMeasurements</a></p>
 <div class="mermaid"> classDiagram
     class PSFBeadsKeyMeasurements
-      KeyValues &lt;|-- PSFBeadsKeyMeasurements
+      KeyMeasurements &lt;|-- PSFBeadsKeyMeasurements
 
       PSFBeadsKeyMeasurements : channel_nr
 
-      PSFBeadsKeyMeasurements : fit_rss_x_mean
+      PSFBeadsKeyMeasurements : column_series
 
-      PSFBeadsKeyMeasurements : fit_rss_x_median
+          PSFBeadsKeyMeasurements --&gt; ColumnSeries : column_series
 
-      PSFBeadsKeyMeasurements : fit_rss_x_std
+      PSFBeadsKeyMeasurements : considered_axial_edge_count
 
-      PSFBeadsKeyMeasurements : fit_rss_y_mean
+      PSFBeadsKeyMeasurements : considered_bad_x_fit_count
 
-      PSFBeadsKeyMeasurements : fit_rss_y_median
+      PSFBeadsKeyMeasurements : considered_bad_y_fit_count
 
-      PSFBeadsKeyMeasurements : fit_rss_y_std
+      PSFBeadsKeyMeasurements : considered_bad_z_fit_count
 
-      PSFBeadsKeyMeasurements : fit_rss_z_mean
+      PSFBeadsKeyMeasurements : considered_intensity_outlier_count
 
-      PSFBeadsKeyMeasurements : fit_rss_z_median
+      PSFBeadsKeyMeasurements : considered_lateral_edge_count
 
-      PSFBeadsKeyMeasurements : fit_rss_z_std
+      PSFBeadsKeyMeasurements : considered_self_proximity_count
 
-      PSFBeadsKeyMeasurements : nr_of_beads_analyzed
+      PSFBeadsKeyMeasurements : considered_valid_count
 
-      PSFBeadsKeyMeasurements : nr_of_beads_considered_axial_edge
+      PSFBeadsKeyMeasurements : data_reference
 
-      PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_x_fit
+          PSFBeadsKeyMeasurements --&gt; DataReference : data_reference
 
-      PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_y_fit
+      PSFBeadsKeyMeasurements : description
 
-      PSFBeadsKeyMeasurements : nr_of_beads_considered_bad_z_fit
+      PSFBeadsKeyMeasurements : fit_r2_x_mean
 
-      PSFBeadsKeyMeasurements : nr_of_beads_considered_intensity_outlier
+      PSFBeadsKeyMeasurements : fit_r2_x_median
 
-      PSFBeadsKeyMeasurements : nr_of_beads_discarded_lateral_edge
+      PSFBeadsKeyMeasurements : fit_r2_x_std
 
-      PSFBeadsKeyMeasurements : nr_of_beads_discarded_self_proximity
+      PSFBeadsKeyMeasurements : fit_r2_y_mean
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_lateral_asymmetry_ratio
+      PSFBeadsKeyMeasurements : fit_r2_y_median
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_x_microns
+      PSFBeadsKeyMeasurements : fit_r2_y_std
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_x_pixels
+      PSFBeadsKeyMeasurements : fit_r2_z_mean
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_y_microns
+      PSFBeadsKeyMeasurements : fit_r2_z_median
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_y_pixels
+      PSFBeadsKeyMeasurements : fit_r2_z_std
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_z_microns
+      PSFBeadsKeyMeasurements : fwhm_lateral_asymmetry_ratio_mean
 
-      PSFBeadsKeyMeasurements : resolution_mean_fwhm_z_pixels
+      PSFBeadsKeyMeasurements : fwhm_lateral_asymmetry_ratio_median
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_lateral_asymmetry_ratio
+      PSFBeadsKeyMeasurements : fwhm_lateral_asymmetry_ratio_std
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_x_microns
+      PSFBeadsKeyMeasurements : fwhm_micron_x_mean
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_x_pixels
+      PSFBeadsKeyMeasurements : fwhm_micron_x_median
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_y_microns
+      PSFBeadsKeyMeasurements : fwhm_micron_x_std
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_y_pixels
+      PSFBeadsKeyMeasurements : fwhm_micron_y_mean
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_z_microns
+      PSFBeadsKeyMeasurements : fwhm_micron_y_median
 
-      PSFBeadsKeyMeasurements : resolution_median_fwhm_z_pixels
+      PSFBeadsKeyMeasurements : fwhm_micron_y_std
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_lateral_asymmetry_ratio
+      PSFBeadsKeyMeasurements : fwhm_micron_z_mean
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_x_microns
+      PSFBeadsKeyMeasurements : fwhm_micron_z_median
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_x_pixels
+      PSFBeadsKeyMeasurements : fwhm_micron_z_std
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_y_microns
+      PSFBeadsKeyMeasurements : fwhm_pixel_x_mean
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_y_pixels
+      PSFBeadsKeyMeasurements : fwhm_pixel_x_median
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_z_microns
+      PSFBeadsKeyMeasurements : fwhm_pixel_x_std
 
-      PSFBeadsKeyMeasurements : resolution_std_fwhm_z_pixels
+      PSFBeadsKeyMeasurements : fwhm_pixel_y_mean
+
+      PSFBeadsKeyMeasurements : fwhm_pixel_y_median
+
+      PSFBeadsKeyMeasurements : fwhm_pixel_y_std
+
+      PSFBeadsKeyMeasurements : fwhm_pixel_z_mean
+
+      PSFBeadsKeyMeasurements : fwhm_pixel_z_median
+
+      PSFBeadsKeyMeasurements : fwhm_pixel_z_std
+
+      PSFBeadsKeyMeasurements : intensity_max_mean
+
+      PSFBeadsKeyMeasurements : intensity_max_median
+
+      PSFBeadsKeyMeasurements : intensity_max_std
+
+      PSFBeadsKeyMeasurements : intensity_min_mean
+
+      PSFBeadsKeyMeasurements : intensity_min_median
+
+      PSFBeadsKeyMeasurements : intensity_min_std
+
+      PSFBeadsKeyMeasurements : intensity_std_mean
+
+      PSFBeadsKeyMeasurements : intensity_std_median
+
+      PSFBeadsKeyMeasurements : intensity_std_std
+
+      PSFBeadsKeyMeasurements : linked_references
+
+          PSFBeadsKeyMeasurements --&gt; DataReference : linked_references
+
+      PSFBeadsKeyMeasurements : name
+
+      PSFBeadsKeyMeasurements : table_data
+
+          PSFBeadsKeyMeasurements --&gt; MetaObject : table_data
 
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
-<li><a href="../KeyValues/">KeyValues</a><ul>
+<li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../Table/">Table</a><ul>
+<li><a href="../KeyMeasurements/">KeyMeasurements</a><ul>
 <li><strong>PSFBeadsKeyMeasurements</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -315,232 +362,322 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_analyzed/">nr_of_beads_analyzed</a></td>
+<td><a href="../considered_valid_count/">considered_valid_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads analyzed</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_discarded_lateral_edge/">nr_of_beads_discarded_lateral_edge</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads discarded for being too close to the edge of the image</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../nr_of_beads_discarded_self_proximity/">nr_of_beads_discarded_self_proximity</a></td>
+<td><a href="../considered_self_proximity_count/">considered_self_proximity_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads discarded for being too close to another bead</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_axial_edge/">nr_of_beads_considered_axial_edge</a></td>
+<td><a href="../considered_lateral_edge_count/">considered_lateral_edge_count</a></td>
+<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>Number of beads discarded for being too close to the edge of the image</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../considered_axial_edge_count/">considered_axial_edge_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as being too close to the top and or bottom of the...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_intensity_outlier/">nr_of_beads_considered_intensity_outlier</a></td>
+<td><a href="../considered_intensity_outlier_count/">considered_intensity_outlier_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as being too intense and potentially represent a c...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_bad_z_fit/">nr_of_beads_considered_bad_z_fit</a></td>
+<td><a href="../considered_bad_z_fit_count/">considered_bad_z_fit_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the z axis</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_bad_y_fit/">nr_of_beads_considered_bad_y_fit</a></td>
+<td><a href="../considered_bad_y_fit_count/">considered_bad_y_fit_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the y axis</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_bad_x_fit/">nr_of_beads_considered_bad_x_fit</a></td>
+<td><a href="../considered_bad_x_fit_count/">considered_bad_x_fit_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of beads considered as having a bad fit quality in the x axis</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_mean/">fit_rss_z_mean</a></td>
+<td><a href="../intensity_max_mean/">intensity_max_mean</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Mean maximum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_max_median/">intensity_max_median</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Median maximum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_max_std/">intensity_max_std</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Standard deviation of the maximum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_min_mean/">intensity_min_mean</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Mean minimum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_min_median/">intensity_min_median</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Median minimum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_min_std/">intensity_min_std</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Standard deviation of the minimum intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_std_mean/">intensity_std_mean</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Mean standard deviation of the intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_std_median/">intensity_std_median</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Median standard deviation of the intensity of the analyzed beads</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../intensity_std_std/">intensity_std_std</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>Standard deviation of the standard deviation of the intensity of the analyzed...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../fit_r2_z_mean/">fit_r2_z_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the z axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_median/">fit_rss_z_median</a></td>
+<td><a href="../fit_r2_z_median/">fit_r2_z_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the z axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_z_std/">fit_rss_z_std</a></td>
+<td><a href="../fit_r2_z_std/">fit_r2_z_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the z axis for the analy...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_mean/">fit_rss_y_mean</a></td>
+<td><a href="../fit_r2_y_mean/">fit_r2_y_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the y axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_median/">fit_rss_y_median</a></td>
+<td><a href="../fit_r2_y_median/">fit_r2_y_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the y axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_y_std/">fit_rss_y_std</a></td>
+<td><a href="../fit_r2_y_std/">fit_r2_y_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the y axis for the analy...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_mean/">fit_rss_x_mean</a></td>
+<td><a href="../fit_r2_x_mean/">fit_r2_x_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean residual sum of squares in the x axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_median/">fit_rss_x_median</a></td>
+<td><a href="../fit_r2_x_median/">fit_r2_x_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median residual sum of squares in the x axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../fit_rss_x_std/">fit_rss_x_std</a></td>
+<td><a href="../fit_r2_x_std/">fit_r2_x_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the residual sum of squares in the x axis for the analy...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_z_pixels/">resolution_mean_fwhm_z_pixels</a></td>
+<td><a href="../fwhm_pixel_z_mean/">fwhm_pixel_z_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the Z axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_z_pixels/">resolution_median_fwhm_z_pixels</a></td>
+<td><a href="../fwhm_pixel_z_median/">fwhm_pixel_z_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the Z axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_z_pixels/">resolution_std_fwhm_z_pixels</a></td>
+<td><a href="../fwhm_pixel_z_std/">fwhm_pixel_z_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_y_pixels/">resolution_mean_fwhm_y_pixels</a></td>
+<td><a href="../fwhm_pixel_y_mean/">fwhm_pixel_y_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the Y axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_y_pixels/">resolution_median_fwhm_y_pixels</a></td>
+<td><a href="../fwhm_pixel_y_median/">fwhm_pixel_y_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the Y axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_y_pixels/">resolution_std_fwhm_y_pixels</a></td>
+<td><a href="../fwhm_pixel_y_std/">fwhm_pixel_y_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_x_pixels/">resolution_mean_fwhm_x_pixels</a></td>
+<td><a href="../fwhm_pixel_x_mean/">fwhm_pixel_x_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the X axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_x_pixels/">resolution_median_fwhm_x_pixels</a></td>
+<td><a href="../fwhm_pixel_x_median/">fwhm_pixel_x_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the X axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_x_pixels/">resolution_std_fwhm_x_pixels</a></td>
+<td><a href="../fwhm_pixel_x_std/">fwhm_pixel_x_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the X axis in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_z_microns/">resolution_mean_fwhm_z_microns</a></td>
+<td><a href="../fwhm_micron_z_mean/">fwhm_micron_z_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the Z axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_z_microns/">resolution_median_fwhm_z_microns</a></td>
+<td><a href="../fwhm_micron_z_median/">fwhm_micron_z_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the Z axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_z_microns/">resolution_std_fwhm_z_microns</a></td>
+<td><a href="../fwhm_micron_z_std/">fwhm_micron_z_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the Z axis in micron...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_y_microns/">resolution_mean_fwhm_y_microns</a></td>
+<td><a href="../fwhm_micron_y_mean/">fwhm_micron_y_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the Y axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_y_microns/">resolution_median_fwhm_y_microns</a></td>
+<td><a href="../fwhm_micron_y_median/">fwhm_micron_y_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the Y axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_y_microns/">resolution_std_fwhm_y_microns</a></td>
+<td><a href="../fwhm_micron_y_std/">fwhm_micron_y_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the Y axis in micron...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_x_microns/">resolution_mean_fwhm_x_microns</a></td>
+<td><a href="../fwhm_micron_x_mean/">fwhm_micron_x_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean FWHM for the analyzed beads in the X axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_x_microns/">resolution_median_fwhm_x_microns</a></td>
+<td><a href="../fwhm_micron_x_median/">fwhm_micron_x_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median FWHM for the analyzed beads in the X axis in microns</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_x_microns/">resolution_std_fwhm_x_microns</a></td>
+<td><a href="../fwhm_micron_x_std/">fwhm_micron_x_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the FWHM for the analyzed beads in the X axis in micron...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_mean_fwhm_lateral_asymmetry_ratio/">resolution_mean_fwhm_lateral_asymmetry_ratio</a></td>
+<td><a href="../fwhm_lateral_asymmetry_ratio_mean/">fwhm_lateral_asymmetry_ratio_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean lateral FWHM asymmetry ratio for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_median_fwhm_lateral_asymmetry_ratio/">resolution_median_fwhm_lateral_asymmetry_ratio</a></td>
+<td><a href="../fwhm_lateral_asymmetry_ratio_median/">fwhm_lateral_asymmetry_ratio_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median lateral FWHM asymmetry ratio for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../resolution_std_fwhm_lateral_asymmetry_ratio/">resolution_std_fwhm_lateral_asymmetry_ratio</a></td>
+<td><a href="../fwhm_lateral_asymmetry_ratio_std/">fwhm_lateral_asymmetry_ratio_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../column_series/">column_series</a></td>
+<td>1..1 <br/> <a href="../ColumnSeries/">ColumnSeries</a></td>
+<td></td>
+<td><a href="../Table/">Table</a></td>
+</tr>
+<tr>
+<td><a href="../table_data/">table_data</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
+<td>A non-required slot for non-serializable table data object</td>
+<td><a href="../Table/">Table</a></td>
+</tr>
+<tr>
+<td><a href="../data_reference/">data_reference</a></td>
+<td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A reference to the data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../linked_references/">linked_references</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked references</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../name/">name</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The human readable name of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
+</tr>
+<tr>
+<td><a href="../description/">description</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>A human readable description of an entity</td>
+<td><a href="../NamedObject/">NamedObject</a></td>
 </tr>
 </tbody>
 </table>
@@ -557,7 +694,7 @@
 <tbody>
 <tr>
 <td><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></td>
-<td><a href="../key_values/">key_values</a></td>
+<td><a href="../key_measurements/">key_measurements</a></td>
 <td>range</td>
 <td><a href="./">PSFBeadsKeyMeasurements</a></td>
 </tr>
@@ -566,7 +703,7 @@
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
+<li>from schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema</li>
 </ul>
 <h2 id="mappings">Mappings</h2>
 <table>
@@ -592,532 +729,719 @@
 <h3 id="direct">Direct</h3>
 <details>
 <pre><code class="language-yaml">name: PSFBeadsKeyMeasurements
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: KeyValues
+from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+is_a: KeyMeasurements
 slots:
 - channel_nr
-- nr_of_beads_analyzed
-- nr_of_beads_discarded_lateral_edge
-- nr_of_beads_discarded_self_proximity
-- nr_of_beads_considered_axial_edge
-- nr_of_beads_considered_intensity_outlier
-- nr_of_beads_considered_bad_z_fit
-- nr_of_beads_considered_bad_y_fit
-- nr_of_beads_considered_bad_x_fit
-- fit_rss_z_mean
-- fit_rss_z_median
-- fit_rss_z_std
-- fit_rss_y_mean
-- fit_rss_y_median
-- fit_rss_y_std
-- fit_rss_x_mean
-- fit_rss_x_median
-- fit_rss_x_std
-- resolution_mean_fwhm_z_pixels
-- resolution_median_fwhm_z_pixels
-- resolution_std_fwhm_z_pixels
-- resolution_mean_fwhm_y_pixels
-- resolution_median_fwhm_y_pixels
-- resolution_std_fwhm_y_pixels
-- resolution_mean_fwhm_x_pixels
-- resolution_median_fwhm_x_pixels
-- resolution_std_fwhm_x_pixels
-- resolution_mean_fwhm_z_microns
-- resolution_median_fwhm_z_microns
-- resolution_std_fwhm_z_microns
-- resolution_mean_fwhm_y_microns
-- resolution_median_fwhm_y_microns
-- resolution_std_fwhm_y_microns
-- resolution_mean_fwhm_x_microns
-- resolution_median_fwhm_x_microns
-- resolution_std_fwhm_x_microns
-- resolution_mean_fwhm_lateral_asymmetry_ratio
-- resolution_median_fwhm_lateral_asymmetry_ratio
-- resolution_std_fwhm_lateral_asymmetry_ratio
+- considered_valid_count
+- considered_self_proximity_count
+- considered_lateral_edge_count
+- considered_axial_edge_count
+- considered_intensity_outlier_count
+- considered_bad_z_fit_count
+- considered_bad_y_fit_count
+- considered_bad_x_fit_count
+- intensity_max_mean
+- intensity_max_median
+- intensity_max_std
+- intensity_min_mean
+- intensity_min_median
+- intensity_min_std
+- intensity_std_mean
+- intensity_std_median
+- intensity_std_std
+- fit_r2_z_mean
+- fit_r2_z_median
+- fit_r2_z_std
+- fit_r2_y_mean
+- fit_r2_y_median
+- fit_r2_y_std
+- fit_r2_x_mean
+- fit_r2_x_median
+- fit_r2_x_std
+- fwhm_pixel_z_mean
+- fwhm_pixel_z_median
+- fwhm_pixel_z_std
+- fwhm_pixel_y_mean
+- fwhm_pixel_y_median
+- fwhm_pixel_y_std
+- fwhm_pixel_x_mean
+- fwhm_pixel_x_median
+- fwhm_pixel_x_std
+- fwhm_micron_z_mean
+- fwhm_micron_z_median
+- fwhm_micron_z_std
+- fwhm_micron_y_mean
+- fwhm_micron_y_median
+- fwhm_micron_y_std
+- fwhm_micron_x_mean
+- fwhm_micron_x_median
+- fwhm_micron_x_std
+- fwhm_lateral_asymmetry_ratio_mean
+- fwhm_lateral_asymmetry_ratio_median
+- fwhm_lateral_asymmetry_ratio_std
 
 </code></pre>
 </details>
 <h3 id="induced">Induced</h3>
 <details>
 <pre><code class="language-yaml">name: PSFBeadsKeyMeasurements
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-is_a: KeyValues
+from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+is_a: KeyMeasurements
 attributes:
   channel_nr:
     name: channel_nr
     description: The channel number to which the measurements apply
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
     alias: channel_nr
     owner: PSFBeadsKeyMeasurements
     domain_of:
-    - FieldIlluminationKeyValues
     - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
     range: integer
-  nr_of_beads_analyzed:
-    name: nr_of_beads_analyzed
+    minimum_value: 0
+  considered_valid_count:
+    name: considered_valid_count
     description: Number of beads analyzed. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_analyzed
+    alias: considered_valid_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_discarded_lateral_edge:
-    name: nr_of_beads_discarded_lateral_edge
-    description: Number of beads discarded for being too close to the edge of the
-      image. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: nr_of_beads_discarded_lateral_edge
-    owner: PSFBeadsKeyMeasurements
-    domain_of:
-    - PSFBeadsKeyMeasurements
-    range: integer
-  nr_of_beads_discarded_self_proximity:
-    name: nr_of_beads_discarded_self_proximity
+  considered_self_proximity_count:
+    name: considered_self_proximity_count
     description: Number of beads discarded for being too close to another bead. One
       value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_discarded_self_proximity
+    alias: considered_self_proximity_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_considered_axial_edge:
-    name: nr_of_beads_considered_axial_edge
+  considered_lateral_edge_count:
+    name: considered_lateral_edge_count
+    description: Number of beads discarded for being too close to the edge of the
+      image. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: considered_lateral_edge_count
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: integer
+  considered_axial_edge_count:
+    name: considered_axial_edge_count
     description: Number of beads considered as being too close to the top and or bottom
       of the image. These beads are not considered for the z axis FWHM measurements.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_axial_edge
+    alias: considered_axial_edge_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_considered_intensity_outlier:
-    name: nr_of_beads_considered_intensity_outlier
+  considered_intensity_outlier_count:
+    name: considered_intensity_outlier_count
     description: Number of beads considered as being too intense and potentially represent
       a cluster of beads. These beads have a robust z-score over the requested threshold.
       Measurements on these beads are not averaged into the key measurements. One
       value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_intensity_outlier
+    alias: considered_intensity_outlier_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_considered_bad_z_fit:
-    name: nr_of_beads_considered_bad_z_fit
+  considered_bad_z_fit_count:
+    name: considered_bad_z_fit_count
     description: Number of beads considered as having a bad fit quality in the z axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_bad_z_fit
+    alias: considered_bad_z_fit_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_considered_bad_y_fit:
-    name: nr_of_beads_considered_bad_y_fit
+  considered_bad_y_fit_count:
+    name: considered_bad_y_fit_count
     description: Number of beads considered as having a bad fit quality in the y axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_bad_y_fit
+    alias: considered_bad_y_fit_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  nr_of_beads_considered_bad_x_fit:
-    name: nr_of_beads_considered_bad_x_fit
+  considered_bad_x_fit_count:
+    name: considered_bad_x_fit_count
     description: Number of beads considered as having a bad fit quality in the x axis.
       The fitting meassureemnts are  not averaged into the key measurements. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_bad_x_fit
+    alias: considered_bad_x_fit_count
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: integer
-  fit_rss_z_mean:
-    name: fit_rss_z_mean
+  intensity_max_mean:
+    name: intensity_max_mean
+    description: Mean maximum intensity of the analyzed beads. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_max_mean
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_max_median:
+    name: intensity_max_median
+    description: Median maximum intensity of the analyzed beads. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_max_median
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_max_std:
+    name: intensity_max_std
+    description: Standard deviation of the maximum intensity of the analyzed beads.
+      One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_max_std
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_min_mean:
+    name: intensity_min_mean
+    description: Mean minimum intensity of the analyzed beads. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_min_mean
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_min_median:
+    name: intensity_min_median
+    description: Median minimum intensity of the analyzed beads. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_min_median
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_min_std:
+    name: intensity_min_std
+    description: Standard deviation of the minimum intensity of the analyzed beads.
+      One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_min_std
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_std_mean:
+    name: intensity_std_mean
+    description: Mean standard deviation of the intensity of the analyzed beads. One
+      value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_std_mean
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_std_median:
+    name: intensity_std_median
+    description: Median standard deviation of the intensity of the analyzed beads.
+      One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_std_median
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  intensity_std_std:
+    name: intensity_std_std
+    description: Standard deviation of the standard deviation of the intensity of
+      the analyzed beads. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: intensity_std_std
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+  fit_r2_z_mean:
+    name: fit_r2_z_mean
     description: Mean residual sum of squares in the z axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_mean
+    alias: fit_r2_z_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_z_median:
-    name: fit_rss_z_median
+  fit_r2_z_median:
+    name: fit_r2_z_median
     description: Median residual sum of squares in the z axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_median
+    alias: fit_r2_z_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_z_std:
-    name: fit_rss_z_std
+  fit_r2_z_std:
+    name: fit_r2_z_std
     description: Standard deviation of the residual sum of squares in the z axis for
       the analyzed beads. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_z_std
+    alias: fit_r2_z_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_y_mean:
-    name: fit_rss_y_mean
+  fit_r2_y_mean:
+    name: fit_r2_y_mean
     description: Mean residual sum of squares in the y axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_mean
+    alias: fit_r2_y_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_y_median:
-    name: fit_rss_y_median
+  fit_r2_y_median:
+    name: fit_r2_y_median
     description: Median residual sum of squares in the y axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_median
+    alias: fit_r2_y_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_y_std:
-    name: fit_rss_y_std
+  fit_r2_y_std:
+    name: fit_r2_y_std
     description: Standard deviation of the residual sum of squares in the y axis for
       the analyzed beads. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_y_std
+    alias: fit_r2_y_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_x_mean:
-    name: fit_rss_x_mean
+  fit_r2_x_mean:
+    name: fit_r2_x_mean
     description: Mean residual sum of squares in the x axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_mean
+    alias: fit_r2_x_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_x_median:
-    name: fit_rss_x_median
+  fit_r2_x_median:
+    name: fit_r2_x_median
     description: Median residual sum of squares in the x axis for the analyzed beads.
       One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_median
+    alias: fit_r2_x_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  fit_rss_x_std:
-    name: fit_rss_x_std
+  fit_r2_x_std:
+    name: fit_r2_x_std
     description: Standard deviation of the residual sum of squares in the x axis for
       the analyzed beads. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: fit_rss_x_std
+    alias: fit_r2_x_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_z_pixels:
-    name: resolution_mean_fwhm_z_pixels
+  fwhm_pixel_z_mean:
+    name: fwhm_pixel_z_mean
     description: Mean FWHM for the analyzed beads in the Z axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_z_pixels
+    alias: fwhm_pixel_z_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_z_pixels:
-    name: resolution_median_fwhm_z_pixels
+  fwhm_pixel_z_median:
+    name: fwhm_pixel_z_median
     description: Median FWHM for the analyzed beads in the Z axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_z_pixels
+    alias: fwhm_pixel_z_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_z_pixels:
-    name: resolution_std_fwhm_z_pixels
+  fwhm_pixel_z_std:
+    name: fwhm_pixel_z_std
     description: Standard deviation of the FWHM for the analyzed beads in the Z axis
       in pixels. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_z_pixels
+    alias: fwhm_pixel_z_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_y_pixels:
-    name: resolution_mean_fwhm_y_pixels
+  fwhm_pixel_y_mean:
+    name: fwhm_pixel_y_mean
     description: Mean FWHM for the analyzed beads in the Y axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_y_pixels
+    alias: fwhm_pixel_y_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_y_pixels:
-    name: resolution_median_fwhm_y_pixels
+  fwhm_pixel_y_median:
+    name: fwhm_pixel_y_median
     description: Median FWHM for the analyzed beads in the Y axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_y_pixels
+    alias: fwhm_pixel_y_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_y_pixels:
-    name: resolution_std_fwhm_y_pixels
+  fwhm_pixel_y_std:
+    name: fwhm_pixel_y_std
     description: Standard deviation of the FWHM for the analyzed beads in the Y axis
       in pixels. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_y_pixels
+    alias: fwhm_pixel_y_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_x_pixels:
-    name: resolution_mean_fwhm_x_pixels
+  fwhm_pixel_x_mean:
+    name: fwhm_pixel_x_mean
     description: Mean FWHM for the analyzed beads in the X axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_x_pixels
+    alias: fwhm_pixel_x_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_x_pixels:
-    name: resolution_median_fwhm_x_pixels
+  fwhm_pixel_x_median:
+    name: fwhm_pixel_x_median
     description: Median FWHM for the analyzed beads in the X axis in pixels. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_x_pixels
+    alias: fwhm_pixel_x_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_x_pixels:
-    name: resolution_std_fwhm_x_pixels
+  fwhm_pixel_x_std:
+    name: fwhm_pixel_x_std
     description: Standard deviation of the FWHM for the analyzed beads in the X axis
       in pixels. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_x_pixels
+    alias: fwhm_pixel_x_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_z_microns:
-    name: resolution_mean_fwhm_z_microns
+  fwhm_micron_z_mean:
+    name: fwhm_micron_z_mean
     description: Mean FWHM for the analyzed beads in the Z axis in microns. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_z_microns
+    alias: fwhm_micron_z_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_z_microns:
-    name: resolution_median_fwhm_z_microns
+  fwhm_micron_z_median:
+    name: fwhm_micron_z_median
     description: Median FWHM for the analyzed beads in the Z axis in microns. One
       value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_z_microns
+    alias: fwhm_micron_z_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_z_microns:
-    name: resolution_std_fwhm_z_microns
+  fwhm_micron_z_std:
+    name: fwhm_micron_z_std
     description: Standard deviation of the FWHM for the analyzed beads in the Z axis
       in microns. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_z_microns
+    alias: fwhm_micron_z_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_y_microns:
-    name: resolution_mean_fwhm_y_microns
+  fwhm_micron_y_mean:
+    name: fwhm_micron_y_mean
     description: Mean FWHM for the analyzed beads in the Y axis in microns. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_y_microns
+    alias: fwhm_micron_y_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_y_microns:
-    name: resolution_median_fwhm_y_microns
+  fwhm_micron_y_median:
+    name: fwhm_micron_y_median
     description: Median FWHM for the analyzed beads in the Y axis in microns. One
       value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_y_microns
+    alias: fwhm_micron_y_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_y_microns:
-    name: resolution_std_fwhm_y_microns
+  fwhm_micron_y_std:
+    name: fwhm_micron_y_std
     description: Standard deviation of the FWHM for the analyzed beads in the Y axis
       in microns. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_y_microns
+    alias: fwhm_micron_y_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_x_microns:
-    name: resolution_mean_fwhm_x_microns
+  fwhm_micron_x_mean:
+    name: fwhm_micron_x_mean
     description: Mean FWHM for the analyzed beads in the X axis in microns. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_x_microns
+    alias: fwhm_micron_x_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_x_microns:
-    name: resolution_median_fwhm_x_microns
+  fwhm_micron_x_median:
+    name: fwhm_micron_x_median
     description: Median FWHM for the analyzed beads in the X axis in microns. One
       value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_x_microns
+    alias: fwhm_micron_x_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_x_microns:
-    name: resolution_std_fwhm_x_microns
+  fwhm_micron_x_std:
+    name: fwhm_micron_x_std
     description: Standard deviation of the FWHM for the analyzed beads in the X axis
       in microns. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_x_microns
+    alias: fwhm_micron_x_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_mean_fwhm_lateral_asymmetry_ratio:
-    name: resolution_mean_fwhm_lateral_asymmetry_ratio
+  fwhm_lateral_asymmetry_ratio_mean:
+    name: fwhm_lateral_asymmetry_ratio_mean
     description: Mean lateral FWHM asymmetry ratio for the analyzed beads. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_mean_fwhm_lateral_asymmetry_ratio
+    alias: fwhm_lateral_asymmetry_ratio_mean
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_median_fwhm_lateral_asymmetry_ratio:
-    name: resolution_median_fwhm_lateral_asymmetry_ratio
+  fwhm_lateral_asymmetry_ratio_median:
+    name: fwhm_lateral_asymmetry_ratio_median
     description: Median lateral FWHM asymmetry ratio for the analyzed beads. One value
       per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_median_fwhm_lateral_asymmetry_ratio
+    alias: fwhm_lateral_asymmetry_ratio_median
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
-  resolution_std_fwhm_lateral_asymmetry_ratio:
-    name: resolution_std_fwhm_lateral_asymmetry_ratio
+  fwhm_lateral_asymmetry_ratio_std:
+    name: fwhm_lateral_asymmetry_ratio_std
     description: Standard deviation of the lateral FWHM asymmetry ratio for the analyzed
       beads. One value per channel.
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: resolution_std_fwhm_lateral_asymmetry_ratio
+    alias: fwhm_lateral_asymmetry_ratio_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
+  column_series:
+    name: column_series
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: column_series
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - Table
+    range: ColumnSeries
+    required: true
+  table_data:
+    name: table_data
+    description: A non-required slot for non-serializable table data object
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: table_data
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - Table
+    range: MetaObject
+    required: false
+  data_reference:
+    name: data_reference
+    description: A reference to the data
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: data_reference
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - MetricsObject
+    range: DataReference
+    required: false
+  linked_references:
+    name: linked_references
+    description: A list of linked references
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_references
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - MetricsObject
+    range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
+  name:
+    name: name
+    description: The human readable name of an entity
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: name
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - NamedObject
+    - Experimenter
+    range: string
+    required: false
+  description:
+    name: description
+    description: A human readable description of an entity
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: false
+    alias: description
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - NamedObject
+    - Tag
+    range: string
+    required: false
 
 </code></pre>
 </details>

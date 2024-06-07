@@ -254,9 +254,9 @@
 
       PSFBeadsKeyValues : nr_of_beads_considered_intensity_outlier
 
-      PSFBeadsKeyValues : nr_of_beads_considered_lateral_edge
+      PSFBeadsKeyValues : nr_of_beads_discarded_lateral_edge
 
-      PSFBeadsKeyValues : nr_of_beads_considered_self_proximity
+      PSFBeadsKeyValues : nr_of_beads_discarded_self_proximity
 
       PSFBeadsKeyValues : resolution_mean_fwhm_lateral_asymmetry_ratio
 
@@ -339,15 +339,15 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_lateral_edge/">nr_of_beads_considered_lateral_edge</a></td>
+<td><a href="../nr_of_beads_discarded_lateral_edge/">nr_of_beads_discarded_lateral_edge</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads considered for being too close to the edge of the image</td>
+<td>Number of beads discarded for being too close to the edge of the image</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../nr_of_beads_considered_self_proximity/">nr_of_beads_considered_self_proximity</a></td>
+<td><a href="../nr_of_beads_discarded_self_proximity/">nr_of_beads_discarded_self_proximity</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads considered for being too close to another bead</td>
+<td>Number of beads discarded for being too close to another bead</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -639,8 +639,8 @@ is_a: KeyValues
 slots:
 - channel_nr
 - nr_of_beads_analyzed
-- nr_of_beads_considered_lateral_edge
-- nr_of_beads_considered_self_proximity
+- nr_of_beads_discarded_lateral_edge
+- nr_of_beads_discarded_self_proximity
 - nr_of_beads_considered_axial_edge
 - nr_of_beads_considered_intensity_outlier
 - nr_of_beads_considered_bad_z_fit
@@ -710,26 +710,26 @@ attributes:
     domain_of:
     - PSFBeadsKeyValues
     range: integer
-  nr_of_beads_considered_lateral_edge:
-    name: nr_of_beads_considered_lateral_edge
-    description: Number of beads considered for being too close to the edge of the
+  nr_of_beads_discarded_lateral_edge:
+    name: nr_of_beads_discarded_lateral_edge
+    description: Number of beads discarded for being too close to the edge of the
       image. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_lateral_edge
+    alias: nr_of_beads_discarded_lateral_edge
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
     range: integer
-  nr_of_beads_considered_self_proximity:
-    name: nr_of_beads_considered_self_proximity
-    description: Number of beads considered for being too close to another bead. One
+  nr_of_beads_discarded_self_proximity:
+    name: nr_of_beads_discarded_self_proximity
+    description: Number of beads discarded for being too close to another bead. One
       value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
-    alias: nr_of_beads_considered_self_proximity
+    alias: nr_of_beads_discarded_self_proximity
     owner: PSFBeadsKeyValues
     domain_of:
     - PSFBeadsKeyValues
