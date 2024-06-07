@@ -207,15 +207,11 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyMeasurements">microscopemetrics_schema:KeyMeasurements</a></p>
 <div class="mermaid"> classDiagram
     class KeyMeasurements
-      Table &lt;|-- KeyMeasurements
+      KeyValues &lt;|-- KeyMeasurements
 
 
       KeyMeasurements &lt;|-- PSFBeadsKeyMeasurements
 
-
-      KeyMeasurements : column_series
-
-          KeyMeasurements --&gt; ColumnSeries : column_series
 
       KeyMeasurements : data_reference
 
@@ -229,17 +225,13 @@
 
       KeyMeasurements : name
 
-      KeyMeasurements : table_data
-
-          KeyMeasurements --&gt; MetaObject : table_data
-
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
-<li><a href="../Table/">Table</a><ul>
+<li><a href="../KeyValues/">KeyValues</a><ul>
 <li><strong>KeyMeasurements</strong><ul>
 <li><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></li>
 </ul>
@@ -262,18 +254,6 @@
 </tr>
 </thead>
 <tbody>
-<tr>
-<td><a href="../column_series/">column_series</a></td>
-<td>1..1 <br/> <a href="../ColumnSeries/">ColumnSeries</a></td>
-<td></td>
-<td><a href="../Table/">Table</a></td>
-</tr>
-<tr>
-<td><a href="../table_data/">table_data</a></td>
-<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
-<td>A non-required slot for non-serializable table data object</td>
-<td><a href="../Table/">Table</a></td>
-</tr>
 <tr>
 <td><a href="../data_reference/">data_reference</a></td>
 <td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
@@ -331,7 +311,7 @@
 <pre><code class="language-yaml">name: KeyMeasurements
 description: A table of key measurements
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-is_a: Table
+is_a: KeyValues
 abstract: true
 
 </code></pre>
@@ -341,31 +321,9 @@ abstract: true
 <pre><code class="language-yaml">name: KeyMeasurements
 description: A table of key measurements
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-is_a: Table
+is_a: KeyValues
 abstract: true
 attributes:
-  column_series:
-    name: column_series
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: column_series
-    owner: KeyMeasurements
-    domain_of:
-    - Table
-    range: ColumnSeries
-    required: true
-  table_data:
-    name: table_data
-    description: A non-required slot for non-serializable table data object
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
-    multivalued: false
-    alias: table_data
-    owner: KeyMeasurements
-    domain_of:
-    - Table
-    range: MetaObject
-    required: false
   data_reference:
     name: data_reference
     description: A reference to the data
