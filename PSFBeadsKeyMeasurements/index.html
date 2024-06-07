@@ -370,13 +370,13 @@
 <tr>
 <td><a href="../considered_self_proximity_count/">considered_self_proximity_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads discarded for being too close to another bead</td>
+<td>Number of beads considered for being too close to another bead</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_lateral_edge_count/">considered_lateral_edge_count</a></td>
 <td>0..* <br/> <a href="../Integer/">Integer</a></td>
-<td>Number of beads discarded for being too close to the edge of the image</td>
+<td>Number of beads considered for being too close to the edge of the image</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -816,7 +816,7 @@ attributes:
     range: integer
   considered_self_proximity_count:
     name: considered_self_proximity_count
-    description: Number of beads discarded for being too close to another bead. One
+    description: Number of beads considered for being too close to another bead. One
       value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
@@ -828,7 +828,7 @@ attributes:
     range: integer
   considered_lateral_edge_count:
     name: considered_lateral_edge_count
-    description: Number of beads discarded for being too close to the edge of the
+    description: Number of beads considered for being too close to the edge of the
       image. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
