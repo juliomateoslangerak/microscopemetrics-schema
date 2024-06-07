@@ -2410,21 +2410,21 @@
                     },
                     "type": "array"
                 },
-                "considered_bad_x_fit_count": {
+                "considered_bad_fit_x_count": {
                     "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
                     "type": "array"
                 },
-                "considered_bad_y_fit_count": {
+                "considered_bad_fit_y_count": {
                     "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
                     "type": "array"
                 },
-                "considered_bad_z_fit_count": {
+                "considered_bad_fit_z_count": {
                     "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"

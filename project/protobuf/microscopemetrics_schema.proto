@@ -521,9 +521,9 @@ message PSFBeadsKeyMeasurements
  repeated  integer consideredLateralEdgeCount = 0
  repeated  integer consideredAxialEdgeCount = 0
  repeated  integer consideredIntensityOutlierCount = 0
- repeated  integer consideredBadZFitCount = 0
- repeated  integer consideredBadYFitCount = 0
- repeated  integer consideredBadXFitCount = 0
+ repeated  integer consideredBadFitZCount = 0
+ repeated  integer consideredBadFitYCount = 0
+ repeated  integer consideredBadFitXCount = 0
  repeated  float intensityMaxMean = 0
  repeated  float intensityMaxMedian = 0
  repeated  float intensityMaxStd = 0

@@ -448,9 +448,9 @@ CREATE TABLE "PSFBeadsKeyMeasurements" (
 	considered_lateral_edge_count INTEGER, 
 	considered_axial_edge_count INTEGER, 
 	considered_intensity_outlier_count INTEGER, 
-	considered_bad_z_fit_count INTEGER, 
-	considered_bad_y_fit_count INTEGER, 
-	considered_bad_x_fit_count INTEGER, 
+	considered_bad_fit_z_count INTEGER, 
+	considered_bad_fit_y_count INTEGER, 
+	considered_bad_fit_x_count INTEGER, 
 	intensity_max_mean FLOAT, 
 	intensity_max_median FLOAT, 
 	intensity_max_std FLOAT, 
@@ -490,7 +490,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements" (
 	fwhm_lateral_asymmetry_ratio_mean FLOAT, 
 	fwhm_lateral_asymmetry_ratio_median FLOAT, 
 	fwhm_lateral_asymmetry_ratio_std FLOAT, 
-	PRIMARY KEY (name, description, data_reference, linked_references, channel_nr, considered_valid_count, considered_self_proximity_count, considered_lateral_edge_count, considered_axial_edge_count, considered_intensity_outlier_count, considered_bad_z_fit_count, considered_bad_y_fit_count, considered_bad_x_fit_count, intensity_max_mean, intensity_max_median, intensity_max_std, intensity_min_mean, intensity_min_median, intensity_min_std, intensity_std_mean, intensity_std_median, intensity_std_std, fit_r2_z_mean, fit_r2_z_median, fit_r2_z_std, fit_r2_y_mean, fit_r2_y_median, fit_r2_y_std, fit_r2_x_mean, fit_r2_x_median, fit_r2_x_std, fwhm_pixel_z_mean, fwhm_pixel_z_median, fwhm_pixel_z_std, fwhm_pixel_y_mean, fwhm_pixel_y_median, fwhm_pixel_y_std, fwhm_pixel_x_mean, fwhm_pixel_x_median, fwhm_pixel_x_std, fwhm_micron_z_mean, fwhm_micron_z_median, fwhm_micron_z_std, fwhm_micron_y_mean, fwhm_micron_y_median, fwhm_micron_y_std, fwhm_micron_x_mean, fwhm_micron_x_median, fwhm_micron_x_std, fwhm_lateral_asymmetry_ratio_mean, fwhm_lateral_asymmetry_ratio_median, fwhm_lateral_asymmetry_ratio_std)
+	PRIMARY KEY (name, description, data_reference, linked_references, channel_nr, considered_valid_count, considered_self_proximity_count, considered_lateral_edge_count, considered_axial_edge_count, considered_intensity_outlier_count, considered_bad_fit_z_count, considered_bad_fit_y_count, considered_bad_fit_x_count, intensity_max_mean, intensity_max_median, intensity_max_std, intensity_min_mean, intensity_min_median, intensity_min_std, intensity_std_mean, intensity_std_median, intensity_std_std, fit_r2_z_mean, fit_r2_z_median, fit_r2_z_std, fit_r2_y_mean, fit_r2_y_median, fit_r2_y_std, fit_r2_x_mean, fit_r2_x_median, fit_r2_x_std, fwhm_pixel_z_mean, fwhm_pixel_z_median, fwhm_pixel_z_std, fwhm_pixel_y_mean, fwhm_pixel_y_median, fwhm_pixel_y_std, fwhm_pixel_x_mean, fwhm_pixel_x_median, fwhm_pixel_x_std, fwhm_micron_z_mean, fwhm_micron_z_median, fwhm_micron_z_std, fwhm_micron_y_mean, fwhm_micron_y_median, fwhm_micron_y_std, fwhm_micron_x_mean, fwhm_micron_x_median, fwhm_micron_x_std, fwhm_lateral_asymmetry_ratio_mean, fwhm_lateral_asymmetry_ratio_median, fwhm_lateral_asymmetry_ratio_std)
 );
 
 CREATE TABLE "PSFBeadsOutput" (
