@@ -579,8 +579,8 @@ message PSFBeadsOutput
   datetime validationDatetime = 0
   comment comment = 0
  repeated  roi analyzedBeadCenters = 0
- repeated  roi discardedBeadCentersLateralEdge = 0
- repeated  roi discardedBeadCentersSelfProximity = 0
+ repeated  roi consideredBeadCentersLateralEdge = 0
+ repeated  roi consideredBeadCentersSelfProximity = 0
  repeated  roi consideredBeadCentersAxialEdge = 0
  repeated  roi consideredBeadCentersIntensityOutlier = 0
  repeated  roi consideredBeadCentersZFitQuality = 0

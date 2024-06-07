@@ -664,8 +664,8 @@ type PSFBeadsOutput
     validationDatetime: Datetime
     comment: Comment
     analyzedBeadCenters: [Roi]
-    discardedBeadCentersLateralEdge: [Roi]
-    discardedBeadCentersSelfProximity: [Roi]
+    consideredBeadCentersLateralEdge: [Roi]
+    consideredBeadCentersSelfProximity: [Roi]
     consideredBeadCentersAxialEdge: [Roi]
     consideredBeadCentersIntensityOutlier: [Roi]
     consideredBeadCentersZFitQuality: [Roi]

@@ -684,10 +684,10 @@
 --     * Slot: considered_valid_count Description: Number of beads analyzed. One value per channel.
 -- # Class: "PSFBeadsKeyMeasurements_considered_self_proximity_count" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: considered_self_proximity_count Description: Number of beads discarded for being too close to another bead. One value per channel.
+--     * Slot: considered_self_proximity_count Description: Number of beads considered for being too close to another bead. One value per channel.
 -- # Class: "PSFBeadsKeyMeasurements_considered_lateral_edge_count" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: considered_lateral_edge_count Description: Number of beads discarded for being too close to the edge of the image. One value per channel.
+--     * Slot: considered_lateral_edge_count Description: Number of beads considered for being too close to the edge of the image. One value per channel.
 -- # Class: "PSFBeadsKeyMeasurements_considered_axial_edge_count" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: considered_axial_edge_count Description: Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.
