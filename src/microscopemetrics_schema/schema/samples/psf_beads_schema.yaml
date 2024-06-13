@@ -285,7 +285,7 @@ slots:
     description: >-
       Threshold for the coefficient of determination (R^2) of the fit to be considered good.
     required: true
-    ifabsent: float(0.95)
+    ifabsent: float(0.85)
   intensity_robust_z_score_threshold:
     range: float
     description: >-
