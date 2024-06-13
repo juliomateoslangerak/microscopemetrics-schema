@@ -775,6 +775,7 @@ classes:
   Table:
     is_a: MetricsObject
     description: A microscope-metrics table
+    abstract: true
     attributes:
       column_series:
         range: ColumnSeries
