@@ -212,10 +212,10 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MetricsOutput">microscopemetrics_schema:MetricsOutput</a></p>
 <div class="mermaid"> classDiagram
     class MetricsOutput
+      MetricsOutput &lt;|-- FieldIlluminationOutput
+      MetricsOutput &lt;|-- PSFBeadsOutput
       MetricsOutput &lt;|-- ArgolightBOutput
       MetricsOutput &lt;|-- ArgolightEOutput
-      MetricsOutput &lt;|-- PSFBeadsOutput
-      MetricsOutput &lt;|-- FieldIlluminationOutput
 
       MetricsOutput : comment
 
@@ -244,10 +244,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>MetricsOutput</strong><ul>
+<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
+<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
 <li><a href="../ArgolightBOutput/">ArgolightBOutput</a></li>
 <li><a href="../ArgolightEOutput/">ArgolightEOutput</a></li>
-<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
-<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
 </ul>
 </li>
 </ul>
@@ -317,7 +317,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="../comment/">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td>direct</td>
@@ -382,6 +382,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: true
   processing_version:
@@ -390,6 +392,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: true
   processing_entity:
@@ -398,6 +402,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   processing_datetime:
@@ -406,6 +412,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: datetime
     required: true
   processing_log:
@@ -414,6 +422,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   warnings:
@@ -422,6 +432,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   errors:
@@ -430,6 +442,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MetricsOutput
     range: string
     required: false
   validated:
@@ -439,6 +453,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: 'False'
+    domain_of:
+    - MetricsOutput
     range: boolean
     required: true
   validation_datetime:
@@ -447,6 +463,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: datetime
     required: false
   comment:
@@ -455,6 +473,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - MetricsOutput
     range: Comment
     required: false
 

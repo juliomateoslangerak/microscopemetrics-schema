@@ -211,6 +211,8 @@
     class Column
       NamedObject &lt;|-- Column
 
+      Column : data_type
+
       Column : description
 
       Column : name
@@ -218,6 +220,8 @@
       Column : source_reference
 
           Column --&gt; DataReference : source_reference
+
+      Column : values
 
 
 </div>
@@ -246,6 +250,18 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../data_type/">data_type</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>The data type of the column</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../values/">values</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
+<td>An optional container for the values of the column</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../name/">name</a></td>
 <td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The human readable name of an entity</td>
@@ -271,7 +287,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ColumnSeries/">ColumnSeries</a></td>
+<td><a href="../Table/">Table</a></td>
 <td><a href="../columns/">columns</a></td>
 <td>range</td>
 <td><a href="./">Column</a></td>
@@ -317,7 +333,30 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Column
     range: DataReference
+    required: false
+  data_type:
+    name: data_type
+    description: The data type of the column
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    ifabsent: string(str)
+    domain_of:
+    - Column
+    range: string
+    required: true
+  values:
+    name: values
+    description: An optional container for the values of the column
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    multivalued: true
+    domain_of:
+    - TimeSeries
+    - Column
+    range: string
     required: false
 
 </code></pre>
@@ -340,6 +379,31 @@ attributes:
     domain_of:
     - Column
     range: DataReference
+    required: false
+  data_type:
+    name: data_type
+    description: The data type of the column
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    ifabsent: string(str)
+    alias: data_type
+    owner: Column
+    domain_of:
+    - Column
+    range: string
+    required: true
+  values:
+    name: values
+    description: An optional container for the values of the column
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    multivalued: true
+    alias: values
+    owner: Column
+    domain_of:
+    - TimeSeries
+    - Column
+    range: string
     required: false
   name:
     name: name

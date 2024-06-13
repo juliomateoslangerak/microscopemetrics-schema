@@ -348,13 +348,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td><a href="../Roi/">Roi</a></td>
 <td><a href="../ellipses/">ellipses</a></td>
 <td>range</td>
 <td><a href="./">Ellipse</a></td>
 </tr>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td><a href="../ellipses/">ellipses</a></td>
 <td>range</td>
 <td><a href="./">Ellipse</a></td>
@@ -399,6 +399,12 @@ attributes:
     description: The x coordinate of the bounding box of the ellipse
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
   y:
@@ -406,6 +412,12 @@ attributes:
     description: The y coordinate of the bounding box of the ellipse
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
   x_rad:
@@ -414,6 +426,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Ellipse
     range: float
     required: true
   y_rad:
@@ -422,6 +436,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Ellipse
     range: float
     required: true
 

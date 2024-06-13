@@ -233,6 +233,16 @@
 
       FieldIlluminationCentersFitted : name
 
+      FieldIlluminationCentersFitted : omero_host
+
+      FieldIlluminationCentersFitted : omero_object_id
+
+      FieldIlluminationCentersFitted : omero_object_type
+
+          FieldIlluminationCentersFitted --&gt; OMEROObjectTypeEnum : omero_object_type
+
+      FieldIlluminationCentersFitted : omero_port
+
       FieldIlluminationCentersFitted : points
 
           FieldIlluminationCentersFitted --&gt; Point : points
@@ -250,7 +260,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
 <li><a href="../Roi/">Roi</a><ul>
 <li><strong>FieldIlluminationCentersFitted</strong> [ <a href="../CentersFitted/">CentersFitted</a>]</li>
 </ul>
@@ -272,8 +282,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="image.md">image</a></td>
-<td>0..* <br/> <a href="../Image/">Image</a></td>
+<td><a href="../image/">image</a></td>
+<td>1..* <br/> <a href="../Image/">Image</a></td>
 <td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
@@ -315,9 +325,33 @@
 </tr>
 <tr>
 <td><a href="../data_uri/">data_uri</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the object data</td>
-<td><a href="../MetricsObject/">MetricsObject</a></td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_host/">omero_host</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The host of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_port/">omero_port</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The port of the OMERO server</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_type/">omero_object_type</a></td>
+<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
+<td>The type of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
+</tr>
+<tr>
+<td><a href="../omero_object_id/">omero_object_id</a></td>
+<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>The ID of the OMERO object</td>
+<td><a href="../DataReference/">DataReference</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -407,7 +441,7 @@ attributes:
     domain_of:
     - Roi
     range: Image
-    required: false
+    required: true
     inlined: false
   points:
     name: points
@@ -491,19 +525,58 @@ attributes:
     - Roi
     range: Mask
     required: false
-    inlined: false
+    inlined: true
+    inlined_as_list: false
   data_uri:
     name: data_uri
     description: The URI of the object data
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
-    identifier: true
     alias: data_uri
     owner: FieldIlluminationCentersFitted
     domain_of:
-    - MetricsObject
+    - DataReference
     range: string
-    required: true
+  omero_host:
+    name: omero_host
+    description: The host of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_host
+    owner: FieldIlluminationCentersFitted
+    domain_of:
+    - DataReference
+    range: string
+  omero_port:
+    name: omero_port
+    description: The port of the OMERO server
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_port
+    owner: FieldIlluminationCentersFitted
+    domain_of:
+    - DataReference
+    range: integer
+  omero_object_type:
+    name: omero_object_type
+    description: The type of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_type
+    owner: FieldIlluminationCentersFitted
+    domain_of:
+    - DataReference
+    range: OMEROObjectTypeEnum
+  omero_object_id:
+    name: omero_object_id
+    description: The ID of the OMERO object
+    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
+    rank: 1000
+    alias: omero_object_id
+    owner: FieldIlluminationCentersFitted
+    domain_of:
+    - DataReference
+    range: integer
   name:
     name: name
     description: The human readable name of an entity

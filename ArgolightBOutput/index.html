@@ -367,7 +367,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="../comment/">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -432,6 +432,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ImageMask
     required: false
   spots_centers_of_mass:
@@ -441,6 +443,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBCentersOfMass
     required: false
   intensity_key_values:
@@ -449,6 +453,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBIntensityKeyValues
     required: false
   distance_key_values:
@@ -457,6 +463,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBDistanceKeyValues
     required: false
   spots_properties:
@@ -465,6 +473,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: Table
     required: false
   spots_distances:
@@ -473,6 +483,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: Table
     required: false
 

@@ -210,6 +210,26 @@
     class PSFBeadsKeyMeasurements
       KeyMeasurements &lt;|-- PSFBeadsKeyMeasurements
 
+      PSFBeadsKeyMeasurements : average_bead_fit_r2_x
+
+      PSFBeadsKeyMeasurements : average_bead_fit_r2_y
+
+      PSFBeadsKeyMeasurements : average_bead_fit_r2_z
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_lateral_asymmetry_ratio
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_micron_x
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_micron_y
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_micron_z
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_pixel_x
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_pixel_y
+
+      PSFBeadsKeyMeasurements : average_bead_fwhm_pixel_z
+
       PSFBeadsKeyMeasurements : channel_nr
 
       PSFBeadsKeyMeasurements : considered_axial_edge_count
@@ -458,55 +478,55 @@
 <tr>
 <td><a href="../fit_r2_z_mean/">fit_r2_z_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Mean residual sum of squares in the z axis for the analyzed beads</td>
+<td>Mean coefficient of determination (R^2) in the z axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_z_median/">fit_r2_z_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Median residual sum of squares in the z axis for the analyzed beads</td>
+<td>Median coefficient of determination (R^2) in the z axis for the analyzed bead...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_z_std/">fit_r2_z_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Standard deviation of the residual sum of squares in the z axis for the analy...</td>
+<td>Standard deviation of the coefficient of determination (R^2) in the z axis fo...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_y_mean/">fit_r2_y_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Mean residual sum of squares in the y axis for the analyzed beads</td>
+<td>Mean coefficient of determination (R^2) in the y axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_y_median/">fit_r2_y_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Median residual sum of squares in the y axis for the analyzed beads</td>
+<td>Median coefficient of determination (R^2) in the y axis for the analyzed bead...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_y_std/">fit_r2_y_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Standard deviation of the residual sum of squares in the y axis for the analy...</td>
+<td>Standard deviation of the coefficient of determination (R^2) in the y axis fo...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_x_mean/">fit_r2_x_mean</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Mean residual sum of squares in the x axis for the analyzed beads</td>
+<td>Mean coefficient of determination (R^2) in the x axis for the analyzed beads</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_x_median/">fit_r2_x_median</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Median residual sum of squares in the x axis for the analyzed beads</td>
+<td>Median coefficient of determination (R^2) in the x axis for the analyzed bead...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../fit_r2_x_std/">fit_r2_x_std</a></td>
 <td>0..* <br/> <a href="../Float/">Float</a></td>
-<td>Standard deviation of the residual sum of squares in the x axis for the analy...</td>
+<td>Standard deviation of the coefficient of determination (R^2) in the x axis fo...</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -636,6 +656,66 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../average_bead_fit_r2_z/">average_bead_fit_r2_z</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Average coefficient of determination (R^2) for the fits in the Z axis of the ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fit_r2_y/">average_bead_fit_r2_y</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Average coefficient of determination (R^2) for the fits in the Y axis of the ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fit_r2_x/">average_bead_fit_r2_x</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Average coefficient of determination (R^2) for the fits in the X axis of the ...</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_pixel_z/">average_bead_fwhm_pixel_z</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>FWHM for the average bead in the Z axis in pixels</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_pixel_y/">average_bead_fwhm_pixel_y</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>FWHM for the average bead in the Y axis in pixels</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_pixel_x/">average_bead_fwhm_pixel_x</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>FWHM for the average bead in the X axis in pixels</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_micron_z/">average_bead_fwhm_micron_z</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Average FWHM for the beads in the Z axis in microns</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_micron_y/">average_bead_fwhm_micron_y</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>FWHM for the average bead in the Y axis in microns</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_micron_x/">average_bead_fwhm_micron_x</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>FWHM for the average bead in the X axis in microns</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_fwhm_lateral_asymmetry_ratio/">average_bead_fwhm_lateral_asymmetry_ratio</a></td>
+<td>0..1 <br/> <a href="../Float/">Float</a></td>
+<td>Lateral FWHM asymmetry ratio for the average bead</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../data_reference/">data_reference</a></td>
 <td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A reference to the data</td>
@@ -760,6 +840,16 @@ slots:
 - fwhm_lateral_asymmetry_ratio_mean
 - fwhm_lateral_asymmetry_ratio_median
 - fwhm_lateral_asymmetry_ratio_std
+- average_bead_fit_r2_z
+- average_bead_fit_r2_y
+- average_bead_fit_r2_x
+- average_bead_fwhm_pixel_z
+- average_bead_fwhm_pixel_y
+- average_bead_fwhm_pixel_x
+- average_bead_fwhm_micron_z
+- average_bead_fwhm_micron_y
+- average_bead_fwhm_micron_x
+- average_bead_fwhm_lateral_asymmetry_ratio
 
 </code></pre>
 </details>
@@ -778,9 +868,9 @@ attributes:
     alias: channel_nr
     owner: PSFBeadsKeyMeasurements
     domain_of:
+    - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyMeasurements
     range: integer
     minimum_value: 0
   considered_valid_count:
@@ -990,8 +1080,8 @@ attributes:
     range: float
   fit_r2_z_mean:
     name: fit_r2_z_mean
-    description: Mean residual sum of squares in the z axis for the analyzed beads.
-      One value per channel.
+    description: Mean coefficient of determination (R^2) in the z axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1002,8 +1092,8 @@ attributes:
     range: float
   fit_r2_z_median:
     name: fit_r2_z_median
-    description: Median residual sum of squares in the z axis for the analyzed beads.
-      One value per channel.
+    description: Median coefficient of determination (R^2) in the z axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1014,8 +1104,8 @@ attributes:
     range: float
   fit_r2_z_std:
     name: fit_r2_z_std
-    description: Standard deviation of the residual sum of squares in the z axis for
-      the analyzed beads. One value per channel.
+    description: Standard deviation of the coefficient of determination (R^2) in the
+      z axis for the analyzed beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1026,8 +1116,8 @@ attributes:
     range: float
   fit_r2_y_mean:
     name: fit_r2_y_mean
-    description: Mean residual sum of squares in the y axis for the analyzed beads.
-      One value per channel.
+    description: Mean coefficient of determination (R^2) in the y axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1038,8 +1128,8 @@ attributes:
     range: float
   fit_r2_y_median:
     name: fit_r2_y_median
-    description: Median residual sum of squares in the y axis for the analyzed beads.
-      One value per channel.
+    description: Median coefficient of determination (R^2) in the y axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1050,8 +1140,8 @@ attributes:
     range: float
   fit_r2_y_std:
     name: fit_r2_y_std
-    description: Standard deviation of the residual sum of squares in the y axis for
-      the analyzed beads. One value per channel.
+    description: Standard deviation of the coefficient of determination (R^2) in the
+      y axis for the analyzed beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1062,8 +1152,8 @@ attributes:
     range: float
   fit_r2_x_mean:
     name: fit_r2_x_mean
-    description: Mean residual sum of squares in the x axis for the analyzed beads.
-      One value per channel.
+    description: Mean coefficient of determination (R^2) in the x axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1074,8 +1164,8 @@ attributes:
     range: float
   fit_r2_x_median:
     name: fit_r2_x_median
-    description: Median residual sum of squares in the x axis for the analyzed beads.
-      One value per channel.
+    description: Median coefficient of determination (R^2) in the x axis for the analyzed
+      beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1086,8 +1176,8 @@ attributes:
     range: float
   fit_r2_x_std:
     name: fit_r2_x_std
-    description: Standard deviation of the residual sum of squares in the x axis for
-      the analyzed beads. One value per channel.
+    description: Standard deviation of the coefficient of determination (R^2) in the
+      x axis for the analyzed beads. One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
     multivalued: true
@@ -1348,6 +1438,119 @@ attributes:
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
+  average_bead_fit_r2_z:
+    name: average_bead_fit_r2_z
+    description: Average coefficient of determination (R^2) for the fits in the Z
+      axis of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fit_r2_z
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fit_r2_y:
+    name: average_bead_fit_r2_y
+    description: Average coefficient of determination (R^2) for the fits in the Y
+      axis of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fit_r2_y
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fit_r2_x:
+    name: average_bead_fit_r2_x
+    description: Average coefficient of determination (R^2) for the fits in the X
+      axis of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fit_r2_x
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_pixel_z:
+    name: average_bead_fwhm_pixel_z
+    description: FWHM for the average bead in the Z axis in pixels.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_pixel_z
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_pixel_y:
+    name: average_bead_fwhm_pixel_y
+    description: FWHM for the average bead in the Y axis in pixels.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_pixel_y
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_pixel_x:
+    name: average_bead_fwhm_pixel_x
+    description: FWHM for the average bead in the X axis in pixels.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_pixel_x
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_micron_z:
+    name: average_bead_fwhm_micron_z
+    description: Average FWHM for the beads in the Z axis in microns.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_micron_z
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_micron_y:
+    name: average_bead_fwhm_micron_y
+    description: FWHM for the average bead in the Y axis in microns.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_micron_y
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_micron_x:
+    name: average_bead_fwhm_micron_x
+    description: FWHM for the average bead in the X axis in microns.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_micron_x
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_fwhm_lateral_asymmetry_ratio:
+    name: average_bead_fwhm_lateral_asymmetry_ratio
+    description: Lateral FWHM asymmetry ratio for the average bead.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    alias: average_bead_fwhm_lateral_asymmetry_ratio
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
   data_reference:
     name: data_reference
     description: A reference to the data

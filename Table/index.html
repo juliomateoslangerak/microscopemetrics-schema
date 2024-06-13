@@ -206,14 +206,17 @@
 </a>
 <h1 id="class-table">Class: Table</h1>
 <p><em>A microscope-metrics table</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Table">microscopemetrics_schema:Table</a></p>
 <div class="mermaid"> classDiagram
     class Table
       MetricsObject &lt;|-- Table
 
-      Table : column_series
+      Table : columns
 
-          Table --&gt; ColumnSeries : column_series
+          Table --&gt; Column : columns
 
       Table : data_reference
 
@@ -255,8 +258,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../column_series/">column_series</a></td>
-<td>1..1 <br/> <a href="../ColumnSeries/">ColumnSeries</a></td>
+<td><a href="../columns/">columns</a></td>
+<td>1..* <br/> <a href="../Column/">Column</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -304,24 +307,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_properties/">spots_properties</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_distances/">spots_distances</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
-<tr>
 <td><a href="../ProfilesIntensity/">ProfilesIntensity</a></td>
 <td><a href="../intensity_profiles_table/">intensity_profiles_table</a></td>
 <td>range</td>
@@ -330,6 +315,12 @@
 <tr>
 <td><a href="../RoiMeasurements/">RoiMeasurements</a></td>
 <td><a href="../measurements_table/">measurements_table</a></td>
+<td>range</td>
+<td><a href="./">Table</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../intensity_profiles/">intensity_profiles</a></td>
 <td>range</td>
 <td><a href="./">Table</a></td>
 </tr>
@@ -358,7 +349,19 @@
 <td><a href="./">Table</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
+<td><a href="../spots_properties/">spots_properties</a></td>
+<td>range</td>
+<td><a href="./">Table</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
+<td><a href="../spots_distances/">spots_distances</a></td>
+<td>range</td>
+<td><a href="./">Table</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
 <td><a href="../intensity_profiles/">intensity_profiles</a></td>
 <td>range</td>
 <td><a href="./">Table</a></td>
@@ -397,19 +400,29 @@
 description: A microscope-metrics table
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsObject
+abstract: true
 attributes:
-  column_series:
-    name: column_series
+  columns:
+    name: columns
+    implements:
+    - linkml:elements
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    range: ColumnSeries
+    multivalued: true
+    domain_of:
+    - Table
+    range: Column
     required: true
+    inlined: true
+    inlined_as_list: true
   table_data:
     name: table_data
     description: A non-required slot for non-serializable table data object
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Table
     range: MetaObject
     required: false
 
@@ -421,17 +434,23 @@ attributes:
 description: A microscope-metrics table
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsObject
+abstract: true
 attributes:
-  column_series:
-    name: column_series
+  columns:
+    name: columns
+    implements:
+    - linkml:elements
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    alias: column_series
+    multivalued: true
+    alias: columns
     owner: Table
     domain_of:
     - Table
-    range: ColumnSeries
+    range: Column
     required: true
+    inlined: true
+    inlined_as_list: true
   table_data:
     name: table_data
     description: A non-required slot for non-serializable table data object
