@@ -422,20 +422,6 @@ classes:
         unit:
           ucum_code: s
 
-  ColumnSeries:
-    description: A series of columns
-    implements:
-      - linkml:OneDimensionalSeries
-    attributes:
-      columns:
-        range: Column
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-        implements:
-          - linkml:elements
-        required: true
-
   Column:
     is_a: NamedObject
     description: Attributes of a column
@@ -777,9 +763,14 @@ classes:
     description: A microscope-metrics table
     abstract: true
     attributes:
-      column_series:
-        range: ColumnSeries
+      columns:
+        range: Column
         required: true
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+        implements:
+          - linkml:elements
       table_data:
         range: MetaObject
         description: A non-required slot for non-serializable table data object
