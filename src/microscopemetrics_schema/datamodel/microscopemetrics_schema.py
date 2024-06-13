@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-07T18:36:31
+# Generation date: 2024-06-07T23:24:52
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1192,6 +1192,18 @@ class KeyValues(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
 
 
+class KeyMeasurements(KeyValues):
+    """
+    A table of key measurements
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/KeyMeasurements"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/KeyMeasurements"
+    class_name: ClassVar[str] = "KeyMeasurements"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
+
+
 @dataclass
 class Tag(MetricsObject):
     """
@@ -1242,20 +1254,6 @@ class Table(MetricsObject):
 
         super().__post_init__(**kwargs)
 
-
-@dataclass
-class KeyMeasurements(Table):
-    """
-    A table of key measurements
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/KeyMeasurements"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/KeyMeasurements"
-    class_name: ClassVar[str] = "KeyMeasurements"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
-
-    column_series: Union[dict, ColumnSeries] = None
 
 @dataclass
 class FieldIlluminationDataset(MetricsDataset):
@@ -1797,16 +1795,15 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
 
-    column_series: Union[dict, ColumnSeries] = None
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     considered_valid_count: Optional[Union[int, List[int]]] = empty_list()
     considered_self_proximity_count: Optional[Union[int, List[int]]] = empty_list()
     considered_lateral_edge_count: Optional[Union[int, List[int]]] = empty_list()
     considered_axial_edge_count: Optional[Union[int, List[int]]] = empty_list()
     considered_intensity_outlier_count: Optional[Union[int, List[int]]] = empty_list()
-    considered_bad_z_fit_count: Optional[Union[int, List[int]]] = empty_list()
-    considered_bad_y_fit_count: Optional[Union[int, List[int]]] = empty_list()
-    considered_bad_x_fit_count: Optional[Union[int, List[int]]] = empty_list()
+    considered_bad_fit_z_count: Optional[Union[int, List[int]]] = empty_list()
+    considered_bad_fit_y_count: Optional[Union[int, List[int]]] = empty_list()
+    considered_bad_fit_x_count: Optional[Union[int, List[int]]] = empty_list()
     intensity_max_mean: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_median: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_std: Optional[Union[float, List[float]]] = empty_list()
@@ -1872,17 +1869,17 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
             self.considered_intensity_outlier_count = [self.considered_intensity_outlier_count] if self.considered_intensity_outlier_count is not None else []
         self.considered_intensity_outlier_count = [v if isinstance(v, int) else int(v) for v in self.considered_intensity_outlier_count]
 
-        if not isinstance(self.considered_bad_z_fit_count, list):
-            self.considered_bad_z_fit_count = [self.considered_bad_z_fit_count] if self.considered_bad_z_fit_count is not None else []
-        self.considered_bad_z_fit_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_z_fit_count]
+        if not isinstance(self.considered_bad_fit_z_count, list):
+            self.considered_bad_fit_z_count = [self.considered_bad_fit_z_count] if self.considered_bad_fit_z_count is not None else []
+        self.considered_bad_fit_z_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_fit_z_count]
 
-        if not isinstance(self.considered_bad_y_fit_count, list):
-            self.considered_bad_y_fit_count = [self.considered_bad_y_fit_count] if self.considered_bad_y_fit_count is not None else []
-        self.considered_bad_y_fit_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_y_fit_count]
+        if not isinstance(self.considered_bad_fit_y_count, list):
+            self.considered_bad_fit_y_count = [self.considered_bad_fit_y_count] if self.considered_bad_fit_y_count is not None else []
+        self.considered_bad_fit_y_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_fit_y_count]
 
-        if not isinstance(self.considered_bad_x_fit_count, list):
-            self.considered_bad_x_fit_count = [self.considered_bad_x_fit_count] if self.considered_bad_x_fit_count is not None else []
-        self.considered_bad_x_fit_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_x_fit_count]
+        if not isinstance(self.considered_bad_fit_x_count, list):
+            self.considered_bad_fit_x_count = [self.considered_bad_fit_x_count] if self.considered_bad_fit_x_count is not None else []
+        self.considered_bad_fit_x_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_fit_x_count]
 
         if not isinstance(self.intensity_max_mean, list):
             self.intensity_max_mean = [self.intensity_max_mean] if self.intensity_max_mean is not None else []
@@ -2788,14 +2785,14 @@ slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/p
 slots.considered_intensity_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_intensity_outlier_count'], name="considered_intensity_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_intensity_outlier_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_intensity_outlier_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_z_fit_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_z_fit_count'], name="considered_bad_z_fit_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_z_fit_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_z_fit_count, domain=None, range=Optional[Union[int, List[int]]])
+slots.considered_bad_fit_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_fit_z_count'], name="considered_bad_fit_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_fit_z_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_z_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_y_fit_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_y_fit_count'], name="considered_bad_y_fit_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_y_fit_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_y_fit_count, domain=None, range=Optional[Union[int, List[int]]])
+slots.considered_bad_fit_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_fit_y_count'], name="considered_bad_fit_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_fit_y_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_y_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_x_fit_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_x_fit_count'], name="considered_bad_x_fit_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_x_fit_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_x_fit_count, domain=None, range=Optional[Union[int, List[int]]])
+slots.considered_bad_fit_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_fit_x_count'], name="considered_bad_fit_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_fit_x_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_x_count, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.intensity_max_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/intensity_max_mean'], name="intensity_max_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/intensity_max_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_mean, domain=None, range=Optional[Union[float, List[float]]])

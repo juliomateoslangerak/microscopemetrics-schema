@@ -200,9 +200,9 @@ classes:
       - considered_lateral_edge_count
       - considered_axial_edge_count
       - considered_intensity_outlier_count
-      - considered_bad_z_fit_count
-      - considered_bad_y_fit_count
-      - considered_bad_x_fit_count
+      - considered_bad_fit_z_count
+      - considered_bad_fit_y_count
+      - considered_bad_fit_x_count
       - intensity_max_mean
       - intensity_max_median
       - intensity_max_std
@@ -325,19 +325,19 @@ slots:
       Measurements on these beads are not averaged into the key measurements.
       One value per channel.
     multivalued: true
-  considered_bad_z_fit_count:
+  considered_bad_fit_z_count:
     range: integer
     description: >-
       Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are 
       not averaged into the key measurements. One value per channel.
     multivalued: true
-  considered_bad_y_fit_count:
+  considered_bad_fit_y_count:
     range: integer
     description: >-
       Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are 
       not averaged into the key measurements. One value per channel.
     multivalued: true
-  considered_bad_x_fit_count:
+  considered_bad_fit_x_count:
     range: integer
     description: >-
       Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are 

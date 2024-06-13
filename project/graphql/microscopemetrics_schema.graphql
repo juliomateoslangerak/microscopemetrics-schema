@@ -401,8 +401,6 @@ interface KeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
-    tableData: MetaObject
   }
 
 interface KeyValues
@@ -599,17 +597,15 @@ type PSFBeadsKeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
-    tableData: MetaObject
     channelNr: [Integer]
     consideredValidCount: [Integer]
     consideredSelfProximityCount: [Integer]
     consideredLateralEdgeCount: [Integer]
     consideredAxialEdgeCount: [Integer]
     consideredIntensityOutlierCount: [Integer]
-    consideredBadZFitCount: [Integer]
-    consideredBadYFitCount: [Integer]
-    consideredBadXFitCount: [Integer]
+    consideredBadFitZCount: [Integer]
+    consideredBadFitYCount: [Integer]
+    consideredBadFitXCount: [Integer]
     intensityMaxMean: [Float]
     intensityMaxMedian: [Float]
     intensityMaxStd: [Float]

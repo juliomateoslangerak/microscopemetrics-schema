@@ -559,8 +559,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +635,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.01,
-      "maximum_value": 0.49,
+      "minimum_value": 0,
+      "maximum_value": 0,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +652,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2.0,
-      "maximum_value": 8.0,
+      "minimum_value": 2,
+      "maximum_value": 8,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +668,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +684,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +714,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +744,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +760,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +790,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +820,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +836,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +866,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +896,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +912,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +956,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +986,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1002,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1288,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10.0,
-      "maximum_value": 30.0,
+      "minimum_value": 10,
+      "maximum_value": 30,
       "@type": "SlotDefinition"
     },
     {
@@ -1408,11 +1408,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_z_fit_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_z_fit_count",
+      "name": "considered_bad_fit_z_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_z_count",
       "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_z_fit_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_z_count",
       "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
@@ -1422,11 +1422,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_y_fit_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_y_fit_count",
+      "name": "considered_bad_fit_y_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_y_count",
       "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_y_fit_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_y_count",
       "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
@@ -1436,11 +1436,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_x_fit_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_x_fit_count",
+      "name": "considered_bad_fit_x_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_x_count",
       "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_x_fit_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_x_count",
       "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
@@ -2394,8 +2394,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -2411,8 +2411,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 0.99,
+      "minimum_value": 0,
+      "maximum_value": 0,
       "@type": "SlotDefinition"
     },
     {
@@ -4622,8 +4622,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -4704,8 +4704,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -4726,8 +4726,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 5.0,
+      "minimum_value": 0,
+      "maximum_value": 5,
       "@type": "SlotDefinition"
     },
     {
@@ -4748,8 +4748,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
+      "minimum_value": 0,
+      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -4770,8 +4770,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
+      "minimum_value": 0,
+      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -4792,8 +4792,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     }
   ],
@@ -6288,15 +6288,13 @@
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements",
       "description": "A table of key measurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "Table",
+      "is_a": "KeyValues",
       "abstract": true,
       "slots": [
         "name",
         "description",
         "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "table__column_series",
-        "table__table_data"
+        "metricsObject__linked_references"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements",
@@ -6776,17 +6774,15 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "table__column_series",
-        "table__table_data",
         "channel_nr",
         "considered_valid_count",
         "considered_self_proximity_count",
         "considered_lateral_edge_count",
         "considered_axial_edge_count",
         "considered_intensity_outlier_count",
-        "considered_bad_z_fit_count",
-        "considered_bad_y_fit_count",
-        "considered_bad_x_fit_count",
+        "considered_bad_fit_z_count",
+        "considered_bad_fit_y_count",
+        "considered_bad_fit_x_count",
         "intensity_max_mean",
         "intensity_max_median",
         "intensity_max_std",
@@ -7153,9 +7149,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-04-30T13:02:50",
+  "source_file_date": "2024-05-21T12:26:40",
   "source_file_size": 789,
-  "generation_date": "2024-06-07T18:36:25",
+  "generation_date": "2024-06-07T23:24:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
