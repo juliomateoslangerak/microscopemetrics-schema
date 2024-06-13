@@ -291,7 +291,7 @@ slots:
     description: >-
       Threshold for the robust z-score of the intensity of the bead to be considered good.
     required: true
-    ifabsent: float(3.0)
+    ifabsent: float(2.0)
 
 
   # Outputs
