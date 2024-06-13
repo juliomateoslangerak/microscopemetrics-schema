@@ -114,7 +114,7 @@ classes:
         range: Roi
         description: >-
           The centers of the beads detected but considered as the fit quality in z was not good enough. 
-          Coefficient of determination (R^2) over requested threshold.
+          coefficient of determination (R^2) (R^2) over requested threshold.
           Measurements in z for this bead not considered for the dataset analysis.
           One point will be provided per bead.
           One ROI per channel.
@@ -125,7 +125,7 @@ classes:
         range: Roi
         description: >-
           The centers of the beads detected but considered as the fit quality in y was not good enough. 
-          Coefficient of determination (R^2) over requested threshold.
+          coefficient of determination (R^2) (R^2) over requested threshold.
           Measurements in y for this bead not considered for the dataset analysis.
           One point will be provided per bead.
           One ROI per channel.
@@ -136,7 +136,7 @@ classes:
         range: Roi
         description: >-
           The centers of the beads detected but considered as the fit quality in x was not good enough. 
-          Coefficient of determination (R^2) over requested threshold.
+          coefficient of determination (R^2) (R^2) over requested threshold.
           Measurements in x for this bead not considered for the dataset analysis.
           One point will be provided per bead.
           One ROI per channel.
@@ -175,6 +175,18 @@ classes:
         range: Table
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
+        multivalued: false
+        inlined: true
+        inlined_as_list: true
+      average_bead:
+        range: Image
+        description: >-
+          The average bead image created from all the beads considered valid.
+          The average bead is calculated after aligning the beads in all three axes.
+          This one image contains all the channels.
+          If the analysis does not detect at least two beads in a channel,
+          the average bead for this channel is not calculated.
+        required: false
         multivalued: false
         inlined: true
         inlined_as_list: true
@@ -230,6 +242,16 @@ classes:
       - fwhm_lateral_asymmetry_ratio_mean
       - fwhm_lateral_asymmetry_ratio_median
       - fwhm_lateral_asymmetry_ratio_std
+      - average_bead_fit_r2_z
+      - average_bead_fit_r2_y
+      - average_bead_fit_r2_x
+      - average_bead_fwhm_pixel_z
+      - average_bead_fwhm_pixel_y
+      - average_bead_fwhm_pixel_x
+      - average_bead_fwhm_micron_z
+      - average_bead_fwhm_micron_y
+      - average_bead_fwhm_micron_x
+      - average_bead_fwhm_lateral_asymmetry_ratio
 
 
 slots:
@@ -261,7 +283,7 @@ slots:
   fitting_r2_threshold:
     range: float
     description: >-
-      Threshold for the residual sum of squares of the fit to be considered good.
+      Threshold for the coefficient of determination (R^2) of the fit to be considered good.
     required: true
     ifabsent: float(0.95)
   intensity_robust_z_score_threshold:
@@ -369,47 +391,47 @@ slots:
   fit_r2_z_mean:
     range: float
     description: >-
-      Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.
+      Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_z_median:
     range: float
     description: >-
-      Median residual sum of squares in the z axis for the analyzed beads. One value per channel.
+      Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_z_std:
     range: float
     description: >-
-      Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.
+      Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_y_mean:
     range: float
     description: >-
-      Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.
+      Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_y_median:
     range: float
     description: >-
-      Median residual sum of squares in the y axis for the analyzed beads. One value per channel.
+      Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_y_std:
     range: float
     description: >-
-      Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.
+      Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_x_mean:
     range: float
     description: >-
-      Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.
+      Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_x_median:
     range: float
     description: >-
-      Median residual sum of squares in the x axis for the analyzed beads. One value per channel.
+      Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
     multivalued: true
   fit_r2_x_std:
     range: float
     description: >-
-      Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.
+      Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
     multivalued: true
   fwhm_pixel_z_mean:
     range: float
@@ -516,3 +538,53 @@ slots:
     description: >-
       Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
     multivalued: true
+  average_bead_fit_r2_z:
+    range: float
+    description: >-
+      Average coefficient of determination (R^2) for the fits in the Z axis of the beads.
+    required: false
+  average_bead_fit_r2_y:
+    range: float
+    description: >-
+      Average coefficient of determination (R^2) for the fits in the Y axis of the beads.
+    required: false
+  average_bead_fit_r2_x:
+    range: float
+    description: >-
+      Average coefficient of determination (R^2) for the fits in the X axis of the beads.
+    required: false
+  average_bead_fwhm_pixel_z:
+    range: float
+    description: >-
+      FWHM for the average bead in the Z axis in pixels.
+    required: false
+  average_bead_fwhm_pixel_y:
+    range: float
+    description: >-
+      FWHM for the average bead in the Y axis in pixels.
+    required: false
+  average_bead_fwhm_pixel_x:
+    range: float
+    description: >-
+      FWHM for the average bead in the X axis in pixels.
+    required: false
+  average_bead_fwhm_micron_z:
+    range: float
+    description: >-
+      Average FWHM for the beads in the Z axis in microns.
+    required: false
+  average_bead_fwhm_micron_y:
+    range: float
+    description: >-
+      FWHM for the average bead in the Y axis in microns.
+    required: false
+  average_bead_fwhm_micron_x:
+    range: float
+    description: >-
+      FWHM for the average bead in the X axis in microns.
+    required: false
+  average_bead_fwhm_lateral_asymmetry_ratio:
+    range: float
+    description: >-
+      Lateral FWHM asymmetry ratio for the average bead.
+    required: false
