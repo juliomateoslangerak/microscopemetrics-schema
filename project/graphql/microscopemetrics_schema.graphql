@@ -200,11 +200,8 @@ type Column
     name: String
     description: String
     sourceReference: DataReference
-  }
-
-type ColumnSeries
-  {
-    columns: [Column]!
+    dataType: String!
+    values: [String]
   }
 
 type Comment
@@ -645,6 +642,16 @@ type PSFBeadsKeyMeasurements
     fwhmLateralAsymmetryRatioMean: [Float]
     fwhmLateralAsymmetryRatioMedian: [Float]
     fwhmLateralAsymmetryRatioStd: [Float]
+    averageBeadFitR2Z: Float
+    averageBeadFitR2Y: Float
+    averageBeadFitR2X: Float
+    averageBeadFwhmPixelZ: Float
+    averageBeadFwhmPixelY: Float
+    averageBeadFwhmPixelX: Float
+    averageBeadFwhmMicronZ: Float
+    averageBeadFwhmMicronY: Float
+    averageBeadFwhmMicronX: Float
+    averageBeadFwhmLateralAsymmetryRatio: Float
   }
 
 type PSFBeadsOutput
@@ -672,6 +679,7 @@ type PSFBeadsOutput
     beadZProfiles: Table
     beadYProfiles: Table
     beadXProfiles: Table
+    averageBead: Image
   }
 
 type Rectangle
@@ -729,13 +737,13 @@ interface Shape
     strokeWidth: Integer
   }
 
-type Table
+interface Table
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
+    columns: [Column]!
     tableData: MetaObject
   }
 

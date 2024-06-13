@@ -167,24 +167,23 @@ output:
         omero_port: 4064
         omero_object_type: "TABLE"
         omero_object_id: 4200
-      column_series:
-        columns:
-          - name: ch00_leftTop_to_rightBottom
-            description: "Intensity profile from top left to bottom right"
-            source_reference:
-              data_uri: "https://omero.example.org/datasets/42000"
-          - name: ch00_leftBottom_to_rightTop
-            description: "Intensity profile from bottom left to top right"
-            source_reference:
-              data_uri: "https://omero.example.org/datasets/42000"
-          - name: ch00_center_horizontal
-            description: "Intensity profile from center horizontal"
-            source_reference:
-              data_uri: "https://omero.example.org/datasets/42000"
-          - name: ch00_center_vertical
-            description: "Intensity profile from center vertical"
-            source_reference:
-              data_uri: "https://omero.example.org/datasets/42000"
+      columns:
+        - name: ch00_leftTop_to_rightBottom
+          description: "Intensity profile from top left to bottom right"
+          source_reference:
+            data_uri: "https://omero.example.org/datasets/42000"
+        - name: ch00_leftBottom_to_rightTop
+          description: "Intensity profile from bottom left to top right"
+          source_reference:
+            data_uri: "https://omero.example.org/datasets/42000"
+        - name: ch00_center_horizontal
+          description: "Intensity profile from center horizontal"
+          source_reference:
+            data_uri: "https://omero.example.org/datasets/42000"
+        - name: ch00_center_vertical
+          description: "Intensity profile from center vertical"
+          source_reference:
+            data_uri: "https://omero.example.org/datasets/42000"
 
   roi_profiles:
     - name: Intensity profiles ROI

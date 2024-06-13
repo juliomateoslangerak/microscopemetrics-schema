@@ -431,6 +431,18 @@ classes:
         description: The source object of the column
         required: false
         multivalued: false
+      data_type:
+        # TODO: make an enum
+        range: string
+        description: The data type of the column
+        required: true
+        multivalued: false
+        ifabsent: string(str)
+      values:
+        range: string
+        description: An optional container for the values of the column
+        required: false
+        multivalued: true
 
   Roi:
     is_a: MetricsObject

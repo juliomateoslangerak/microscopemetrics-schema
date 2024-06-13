@@ -559,8 +559,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +635,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.01,
+      "maximum_value": 0.49,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +652,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2,
-      "maximum_value": 8,
+      "minimum_value": 2.0,
+      "maximum_value": 8.0,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +668,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +684,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +714,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +744,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +760,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +790,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +820,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +836,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +866,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +896,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +912,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +956,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +986,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1002,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1288,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10,
-      "maximum_value": 30,
+      "minimum_value": 10.0,
+      "maximum_value": 30.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1310,7 +1310,7 @@
     {
       "name": "fitting_r2_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fitting_r2_threshold",
-      "description": "Threshold for the residual sum of squares of the fit to be considered good.",
+      "description": "Threshold for the coefficient of determination (R^2) of the fit to be considered good.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fitting_r2_threshold",
       "ifabsent": "float(0.95)",
@@ -1578,7 +1578,7 @@
     {
       "name": "fit_r2_z_mean",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_mean",
-      "description": "Mean residual sum of squares in the z axis for the analyzed beads. One value per channel.",
+      "description": "Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_mean",
       "multivalued": true,
@@ -1592,7 +1592,7 @@
     {
       "name": "fit_r2_z_median",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_median",
-      "description": "Median residual sum of squares in the z axis for the analyzed beads. One value per channel.",
+      "description": "Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_median",
       "multivalued": true,
@@ -1606,7 +1606,7 @@
     {
       "name": "fit_r2_z_std",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_std",
-      "description": "Standard deviation of the residual sum of squares in the z axis for the analyzed beads. One value per channel.",
+      "description": "Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_z_std",
       "multivalued": true,
@@ -1620,7 +1620,7 @@
     {
       "name": "fit_r2_y_mean",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_mean",
-      "description": "Mean residual sum of squares in the y axis for the analyzed beads. One value per channel.",
+      "description": "Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_mean",
       "multivalued": true,
@@ -1634,7 +1634,7 @@
     {
       "name": "fit_r2_y_median",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_median",
-      "description": "Median residual sum of squares in the y axis for the analyzed beads. One value per channel.",
+      "description": "Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_median",
       "multivalued": true,
@@ -1648,7 +1648,7 @@
     {
       "name": "fit_r2_y_std",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_std",
-      "description": "Standard deviation of the residual sum of squares in the y axis for the analyzed beads. One value per channel.",
+      "description": "Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_y_std",
       "multivalued": true,
@@ -1662,7 +1662,7 @@
     {
       "name": "fit_r2_x_mean",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_mean",
-      "description": "Mean residual sum of squares in the x axis for the analyzed beads. One value per channel.",
+      "description": "Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_mean",
       "multivalued": true,
@@ -1676,7 +1676,7 @@
     {
       "name": "fit_r2_x_median",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_median",
-      "description": "Median residual sum of squares in the x axis for the analyzed beads. One value per channel.",
+      "description": "Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_median",
       "multivalued": true,
@@ -1690,7 +1690,7 @@
     {
       "name": "fit_r2_x_std",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_std",
-      "description": "Standard deviation of the residual sum of squares in the x axis for the analyzed beads. One value per channel.",
+      "description": "Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fit_r2_x_std",
       "multivalued": true,
@@ -1988,6 +1988,136 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std",
       "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_r2_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z",
+      "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_r2_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y",
+      "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_r2_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x",
+      "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_pixel_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z",
+      "description": "FWHM for the average bead in the Z axis in pixels.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_pixel_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y",
+      "description": "FWHM for the average bead in the Y axis in pixels.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_pixel_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x",
+      "description": "FWHM for the average bead in the X axis in pixels.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_micron_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z",
+      "description": "Average FWHM for the beads in the Z axis in microns.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_micron_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y",
+      "description": "FWHM for the average bead in the Y axis in microns.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_micron_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x",
+      "description": "FWHM for the average bead in the X axis in microns.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fwhm_lateral_asymmetry_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
+      "description": "Lateral FWHM asymmetry ratio for the average bead.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2394,8 +2524,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.1,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2411,8 +2541,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.1,
+      "maximum_value": 0.99,
       "@type": "SlotDefinition"
     },
     {
@@ -3372,25 +3502,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "columnSeries__columns",
-      "implements": [
-        "linkml:elements"
-      ],
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns",
-      "multivalued": true,
-      "alias": "columns",
-      "owner": "ColumnSeries",
-      "domain_of": [
-        "ColumnSeries"
-      ],
-      "range": "Column",
-      "required": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "column__source_reference",
       "description": "The source object of the column",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -3402,6 +3513,35 @@
       ],
       "range": "DataReference",
       "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "column__data_type",
+      "description": "The data type of the column",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_type",
+      "ifabsent": "string(str)",
+      "alias": "data_type",
+      "owner": "Column",
+      "domain_of": [
+        "Column"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "column__values",
+      "description": "An optional container for the values of the column",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values",
+      "multivalued": true,
+      "alias": "values",
+      "owner": "Column",
+      "domain_of": [
+        "Column"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -3989,17 +4129,22 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "table__column_series",
+      "name": "table__columns",
+      "implements": [
+        "linkml:elements"
+      ],
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/column_series",
-      "alias": "column_series",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns",
+      "multivalued": true,
+      "alias": "columns",
       "owner": "Table",
       "domain_of": [
         "Table"
       ],
-      "range": "ColumnSeries",
+      "range": "Column",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4284,7 +4429,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bead_centers_z_fit_quality",
       "multivalued": true,
@@ -4300,7 +4445,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bead_centers_y_fit_quality",
       "multivalued": true,
@@ -4316,7 +4461,7 @@
     },
     {
       "name": "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bead_centers_x_fit_quality",
       "multivalued": true,
@@ -4401,6 +4546,21 @@
         "PSFBeadsOutput"
       ],
       "range": "Table",
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__average_bead",
+      "description": "The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead",
+      "alias": "average_bead",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "Image",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4622,8 +4782,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4704,8 +4864,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4726,8 +4886,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 5,
+      "minimum_value": 0.0,
+      "maximum_value": 5.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4748,8 +4908,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4770,8 +4930,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4792,8 +4952,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     }
   ],
@@ -5623,35 +5783,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "ColumnSeries",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries",
-      "implements": [
-        "linkml:OneDimensionalSeries"
-      ],
-      "description": "A series of columns",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slots": [
-        "columnSeries__columns"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "columns",
-          "implements": [
-            "linkml:elements"
-          ],
-          "multivalued": true,
-          "range": "Column",
-          "required": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "Column",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Column",
       "description": "Attributes of a column",
@@ -5660,7 +5791,9 @@
       "slots": [
         "name",
         "description",
-        "column__source_reference"
+        "column__source_reference",
+        "column__data_type",
+        "column__values"
       ],
       "slot_usage": {},
       "attributes": [
@@ -5668,6 +5801,21 @@
           "name": "source_reference",
           "description": "The source object of the column",
           "range": "DataReference",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "data_type",
+          "description": "The data type of the column",
+          "ifabsent": "string(str)",
+          "range": "string",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "values",
+          "description": "An optional container for the values of the column",
+          "multivalued": true,
+          "range": "string",
           "@type": "SlotDefinition"
         }
       ],
@@ -6331,20 +6479,27 @@
       "description": "A microscope-metrics table",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "MetricsObject",
+      "abstract": true,
       "slots": [
         "name",
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "table__column_series",
+        "table__columns",
         "table__table_data"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "column_series",
-          "range": "ColumnSeries",
+          "name": "columns",
+          "implements": [
+            "linkml:elements"
+          ],
+          "multivalued": true,
+          "range": "Column",
           "required": true,
+          "inlined": true,
+          "inlined_as_list": true,
           "@type": "SlotDefinition"
         },
         {
@@ -6644,7 +6799,8 @@
         "pSFBeadsOutput__bead_properties",
         "pSFBeadsOutput__bead_z_profiles",
         "pSFBeadsOutput__bead_y_profiles",
-        "pSFBeadsOutput__bead_x_profiles"
+        "pSFBeadsOutput__bead_x_profiles",
+        "pSFBeadsOutput__average_bead"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6695,7 +6851,7 @@
         },
         {
           "name": "considered_bead_centers_z_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6704,7 +6860,7 @@
         },
         {
           "name": "considered_bead_centers_y_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6713,7 +6869,7 @@
         },
         {
           "name": "considered_bead_centers_x_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  Coefficient of determination (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "multivalued": true,
           "range": "Roi",
           "inlined": true,
@@ -6756,6 +6912,14 @@
           "name": "bead_x_profiles",
           "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
           "range": "Table",
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "average_bead",
+          "description": "The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated.",
+          "range": "Image",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6821,7 +6985,17 @@
         "fwhm_micron_x_std",
         "fwhm_lateral_asymmetry_ratio_mean",
         "fwhm_lateral_asymmetry_ratio_median",
-        "fwhm_lateral_asymmetry_ratio_std"
+        "fwhm_lateral_asymmetry_ratio_std",
+        "average_bead_fit_r2_z",
+        "average_bead_fit_r2_y",
+        "average_bead_fit_r2_x",
+        "average_bead_fwhm_pixel_z",
+        "average_bead_fwhm_pixel_y",
+        "average_bead_fwhm_pixel_x",
+        "average_bead_fwhm_micron_z",
+        "average_bead_fwhm_micron_y",
+        "average_bead_fwhm_micron_x",
+        "average_bead_fwhm_lateral_asymmetry_ratio"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsKeyMeasurements",
@@ -7149,9 +7323,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-05-21T12:26:40",
+  "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-07T23:24:48",
+  "generation_date": "2024-06-13T10:40:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -335,17 +335,11 @@ CLOSED {
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/NamedObject_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/NamedObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_reference>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/DataReference> ?
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/DataReference> ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_type> @linkml:String ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values> @linkml:String *
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Column> ] ?
-    )
-}
-
-<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries> CLOSED {
-    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries_tes>
-       <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns>
-       @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Column> + ;
-       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries> ] ?
     )
 }
 
@@ -1075,7 +1069,28 @@ CLOSED {
           @linkml:Float * ;
 
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std>
-          @linkml:Float *
+          @linkml:Float * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x>
+          @linkml:Float ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio>
+          @linkml:Float ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsKeyMeasurements>
@@ -1120,7 +1135,9 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_y_profiles>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_x_profiles>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> ?
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsOutput> ] ?
@@ -1210,12 +1227,12 @@ CLOSED {
     )
 }
 
-<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> CLOSED {
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/column_series>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ColumnSeries> ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Column> + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetaObject> ?
        ) ;
