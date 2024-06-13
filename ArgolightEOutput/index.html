@@ -337,7 +337,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -401,27 +401,21 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - ArgolightEOutput
     range: Roi
   key_measurements:
     name: key_measurements
     description: Key Measurements on Argolight E images
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
-    - ArgolightEOutput
     range: ArgolightEKeyValues
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles of the argolight lines provided as tables. One
       table per channel
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
-    domain_of:
-    - FieldIlluminationOutput
-    - ArgolightEOutput
     range: Table
 
 </code></pre>
@@ -447,24 +441,26 @@ attributes:
     name: key_measurements
     description: Key Measurements on Argolight E images
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
     alias: key_measurements
     owner: ArgolightEOutput
     domain_of:
-    - PSFBeadsOutput
     - ArgolightEOutput
+    - PSFBeadsOutput
     range: ArgolightEKeyValues
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles of the argolight lines provided as tables. One
       table per channel
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     multivalued: false
     alias: intensity_profiles
     owner: ArgolightEOutput
     domain_of:
-    - FieldIlluminationOutput
     - ArgolightEOutput
+    - FieldIlluminationOutput
     range: Table
   processing_application:
     name: processing_application

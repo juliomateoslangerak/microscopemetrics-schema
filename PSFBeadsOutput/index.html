@@ -447,7 +447,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -512,8 +512,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -525,8 +523,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -538,8 +534,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -551,8 +545,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -565,8 +557,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -579,8 +569,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -593,8 +581,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -607,8 +593,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -616,11 +600,7 @@ attributes:
     name: key_measurements
     description: The key measurements of the PSF beads analysis.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
-    rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
-    - ArgolightEOutput
     range: PSFBeadsKeyMeasurements
     inlined: true
     inlined_as_list: true
@@ -630,8 +610,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -642,8 +620,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -654,8 +630,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -666,8 +640,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -680,8 +652,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - PSFBeadsOutput
     range: Image
     required: false
     inlined: true
@@ -822,13 +792,12 @@ attributes:
     name: key_measurements
     description: The key measurements of the PSF beads analysis.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
-    rank: 1000
     multivalued: false
     alias: key_measurements
     owner: PSFBeadsOutput
     domain_of:
-    - PSFBeadsOutput
     - ArgolightEOutput
+    - PSFBeadsOutput
     range: PSFBeadsKeyMeasurements
     inlined: true
     inlined_as_list: true
