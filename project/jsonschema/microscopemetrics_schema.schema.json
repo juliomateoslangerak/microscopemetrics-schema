@@ -269,26 +269,26 @@
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma_x": {
                     "description": "Smoothing factor for objects detection in the X axis",
-                    "maximum": 10,
-                    "minimum": 0,
+                    "maximum": 10.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma_y": {
                     "description": "Smoothing factor for objects detection in the Y axis",
-                    "maximum": 10,
-                    "minimum": 0,
+                    "maximum": 10.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma_z": {
                     "description": "Smoothing factor for objects detection in the Z axis",
-                    "maximum": 5,
-                    "minimum": 0,
+                    "maximum": 5.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "spots_distance": {
@@ -609,8 +609,8 @@
                 },
                 "measured_band": {
                     "description": "Fraction of the image across which intensity profiles are measured",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.1,
                     "type": "number"
                 },
                 "orientation_axis": {
@@ -621,14 +621,14 @@
                 },
                 "prominence_threshold": {
                     "description": "Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria",
-                    "maximum": 0,
-                    "minimum": 0,
+                    "maximum": 0.99,
+                    "minimum": 0.1,
                     "type": "number"
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 }
             },
@@ -1177,8 +1177,8 @@
                 },
                 "corner_fraction": {
                     "description": "Input parameter: the proportion of the image to be considered as corner or center",
-                    "maximum": 0,
-                    "minimum": 0,
+                    "maximum": 0.49,
+                    "minimum": 0.01,
                     "type": "number"
                 },
                 "field_illumination_image": {
@@ -1190,14 +1190,14 @@
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma": {
                     "description": "Input parameter: the sigma for the smoothing gaussian filter to be applied prior to analysis",
-                    "maximum": 8,
-                    "minimum": 2,
+                    "maximum": 8.0,
+                    "minimum": 2.0,
                     "type": "number"
                 }
             },
@@ -1259,8 +1259,8 @@
                 "center_fitted_distance_relative": {
                     "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1275,8 +1275,8 @@
                 "center_fitted_x_relative": {
                     "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1291,8 +1291,8 @@
                 "center_fitted_y_relative": {
                     "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1300,8 +1300,8 @@
                 "center_geometric_distance_relative": {
                     "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1316,8 +1316,8 @@
                 "center_geometric_x_relative": {
                     "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1332,8 +1332,8 @@
                 "center_geometric_y_relative": {
                     "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1341,8 +1341,8 @@
                 "center_of_mass_distance_relative": {
                     "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1357,8 +1357,8 @@
                 "center_of_mass_x_relative": {
                     "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1373,8 +1373,8 @@
                 "center_of_mass_y_relative": {
                     "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1382,8 +1382,8 @@
                 "center_region_area_fraction": {
                     "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1391,8 +1391,8 @@
                 "center_region_intensity_fraction": {
                     "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1429,8 +1429,8 @@
                 "max_intensity_distance_relative": {
                     "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1445,8 +1445,8 @@
                 "max_intensity_pos_x_relative": {
                     "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1461,8 +1461,8 @@
                 "max_intensity_pos_y_relative": {
                     "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -2341,8 +2341,8 @@
                 },
                 "min_lateral_distance_factor": {
                     "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
-                    "maximum": 30,
-                    "minimum": 10,
+                    "maximum": 30.0,
+                    "minimum": 10.0,
                     "type": "number"
                 },
                 "psf_beads_images": {
@@ -2354,8 +2354,8 @@
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma_x": {
@@ -2393,44 +2393,74 @@
             "description": "",
             "properties": {
                 "average_bead_fit_r2_x": {
-                    "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads.",
-                    "type": "number"
+                    "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fit_r2_y": {
-                    "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads.",
-                    "type": "number"
+                    "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fit_r2_z": {
-                    "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads.",
-                    "type": "number"
+                    "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_lateral_asymmetry_ratio": {
-                    "description": "Lateral FWHM asymmetry ratio for the average bead.",
-                    "type": "number"
+                    "description": "Lateral FWHM asymmetry ratio for the average bead. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_x": {
-                    "description": "FWHM for the average bead in the X axis in microns.",
-                    "type": "number"
+                    "description": "FWHM for the average bead in the X axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_y": {
-                    "description": "FWHM for the average bead in the Y axis in microns.",
-                    "type": "number"
+                    "description": "FWHM for the average bead in the Y axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_z": {
-                    "description": "Average FWHM for the beads in the Z axis in microns.",
-                    "type": "number"
+                    "description": "Average FWHM for the beads in the Z axis in microns. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_x": {
-                    "description": "FWHM for the average bead in the X axis in pixels.",
-                    "type": "number"
+                    "description": "FWHM for the average bead in the X axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_y": {
-                    "description": "FWHM for the average bead in the Y axis in pixels.",
-                    "type": "number"
+                    "description": "FWHM for the average bead in the Y axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_z": {
-                    "description": "FWHM for the average bead in the Z axis in pixels.",
-                    "type": "number"
+                    "description": "FWHM for the average bead in the Z axis in pixels. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
                 },
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",

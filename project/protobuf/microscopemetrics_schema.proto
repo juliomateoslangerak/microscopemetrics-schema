@@ -1,3 +1,6 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
 message ArgolightBCentersOfMass
  {
   string name = 0
@@ -560,16 +563,16 @@ message PSFBeadsKeyMeasurements
  repeated  float fwhmLateralAsymmetryRatioMean = 0
  repeated  float fwhmLateralAsymmetryRatioMedian = 0
  repeated  float fwhmLateralAsymmetryRatioStd = 0
-  float averageBeadFitR2Z = 0
-  float averageBeadFitR2Y = 0
-  float averageBeadFitR2X = 0
-  float averageBeadFwhmPixelZ = 0
-  float averageBeadFwhmPixelY = 0
-  float averageBeadFwhmPixelX = 0
-  float averageBeadFwhmMicronZ = 0
-  float averageBeadFwhmMicronY = 0
-  float averageBeadFwhmMicronX = 0
-  float averageBeadFwhmLateralAsymmetryRatio = 0
+ repeated  float averageBeadFitR2Z = 0
+ repeated  float averageBeadFitR2Y = 0
+ repeated  float averageBeadFitR2X = 0
+ repeated  float averageBeadFwhmPixelZ = 0
+ repeated  float averageBeadFwhmPixelY = 0
+ repeated  float averageBeadFwhmPixelX = 0
+ repeated  float averageBeadFwhmMicronZ = 0
+ repeated  float averageBeadFwhmMicronY = 0
+ repeated  float averageBeadFwhmMicronX = 0
+ repeated  float averageBeadFwhmLateralAsymmetryRatio = 0
  }
 message PSFBeadsOutput
  {

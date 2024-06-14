@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 BASE <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -1071,26 +1072,26 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std>
           @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y>
-          @linkml:Float ? ;
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x>
-          @linkml:Float ? ;
+          @linkml:Float * ;
 
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio>
-          @linkml:Float ?
+          @linkml:Float *
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsKeyMeasurements>
@@ -1266,5 +1267,4 @@ CLOSED {
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Vertex> ] ?
     )
 }
-
 

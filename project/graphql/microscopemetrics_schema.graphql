@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
@@ -642,16 +643,16 @@ type PSFBeadsKeyMeasurements
     fwhmLateralAsymmetryRatioMean: [Float]
     fwhmLateralAsymmetryRatioMedian: [Float]
     fwhmLateralAsymmetryRatioStd: [Float]
-    averageBeadFitR2Z: Float
-    averageBeadFitR2Y: Float
-    averageBeadFitR2X: Float
-    averageBeadFwhmPixelZ: Float
-    averageBeadFwhmPixelY: Float
-    averageBeadFwhmPixelX: Float
-    averageBeadFwhmMicronZ: Float
-    averageBeadFwhmMicronY: Float
-    averageBeadFwhmMicronX: Float
-    averageBeadFwhmLateralAsymmetryRatio: Float
+    averageBeadFitR2Z: [Float]
+    averageBeadFitR2Y: [Float]
+    averageBeadFitR2X: [Float]
+    averageBeadFwhmPixelZ: [Float]
+    averageBeadFwhmPixelY: [Float]
+    averageBeadFwhmPixelX: [Float]
+    averageBeadFwhmMicronZ: [Float]
+    averageBeadFwhmMicronY: [Float]
+    averageBeadFwhmMicronX: [Float]
+    averageBeadFwhmLateralAsymmetryRatio: [Float]
   }
 
 type PSFBeadsOutput

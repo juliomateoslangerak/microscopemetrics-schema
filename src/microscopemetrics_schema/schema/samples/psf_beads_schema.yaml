@@ -541,50 +541,60 @@ slots:
   average_bead_fit_r2_z:
     range: float
     description: >-
-      Average coefficient of determination (R^2) for the fits in the Z axis of the beads.
+      Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.
     required: false
+    multivalued: true
   average_bead_fit_r2_y:
     range: float
     description: >-
-      Average coefficient of determination (R^2) for the fits in the Y axis of the beads.
+      Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.
     required: false
+    multivalued: true
   average_bead_fit_r2_x:
     range: float
     description: >-
-      Average coefficient of determination (R^2) for the fits in the X axis of the beads.
+      Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_pixel_z:
     range: float
     description: >-
-      FWHM for the average bead in the Z axis in pixels.
+      FWHM for the average bead in the Z axis in pixels. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_pixel_y:
     range: float
     description: >-
-      FWHM for the average bead in the Y axis in pixels.
+      FWHM for the average bead in the Y axis in pixels. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_pixel_x:
     range: float
     description: >-
-      FWHM for the average bead in the X axis in pixels.
+      FWHM for the average bead in the X axis in pixels. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_micron_z:
     range: float
     description: >-
-      Average FWHM for the beads in the Z axis in microns.
+      Average FWHM for the beads in the Z axis in microns. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_micron_y:
     range: float
     description: >-
-      FWHM for the average bead in the Y axis in microns.
+      FWHM for the average bead in the Y axis in microns. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_micron_x:
     range: float
     description: >-
-      FWHM for the average bead in the X axis in microns.
+      FWHM for the average bead in the X axis in microns. One value per channel.
     required: false
+    multivalued: true
   average_bead_fwhm_lateral_asymmetry_ratio:
     range: float
     description: >-
-      Lateral FWHM asymmetry ratio for the average bead.
+      Lateral FWHM asymmetry ratio for the average bead. One value per channel.
     required: false
+    multivalued: true

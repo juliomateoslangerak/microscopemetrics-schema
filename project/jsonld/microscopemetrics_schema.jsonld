@@ -559,8 +559,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +635,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.01,
+      "maximum_value": 0.49,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +652,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2,
-      "maximum_value": 8,
+      "minimum_value": 2.0,
+      "maximum_value": 8.0,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +668,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +684,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +714,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +744,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +760,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +790,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +820,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +836,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +866,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +896,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +912,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +956,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +986,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1002,8 @@
         "FieldIlluminationKeyValues"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1288,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10,
-      "maximum_value": 30,
+      "minimum_value": 10.0,
+      "maximum_value": 30.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1998,9 +1998,10 @@
     {
       "name": "average_bead_fit_r2_z",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z",
-      "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads.",
+      "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_z",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2011,9 +2012,10 @@
     {
       "name": "average_bead_fit_r2_y",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y",
-      "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads.",
+      "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_y",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2024,9 +2026,10 @@
     {
       "name": "average_bead_fit_r2_x",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x",
-      "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads.",
+      "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fit_r2_x",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2037,9 +2040,10 @@
     {
       "name": "average_bead_fwhm_pixel_z",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z",
-      "description": "FWHM for the average bead in the Z axis in pixels.",
+      "description": "FWHM for the average bead in the Z axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_z",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2050,9 +2054,10 @@
     {
       "name": "average_bead_fwhm_pixel_y",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y",
-      "description": "FWHM for the average bead in the Y axis in pixels.",
+      "description": "FWHM for the average bead in the Y axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_y",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2063,9 +2068,10 @@
     {
       "name": "average_bead_fwhm_pixel_x",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x",
-      "description": "FWHM for the average bead in the X axis in pixels.",
+      "description": "FWHM for the average bead in the X axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_pixel_x",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2076,9 +2082,10 @@
     {
       "name": "average_bead_fwhm_micron_z",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z",
-      "description": "Average FWHM for the beads in the Z axis in microns.",
+      "description": "Average FWHM for the beads in the Z axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_z",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2089,9 +2096,10 @@
     {
       "name": "average_bead_fwhm_micron_y",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y",
-      "description": "FWHM for the average bead in the Y axis in microns.",
+      "description": "FWHM for the average bead in the Y axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_y",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2102,9 +2110,10 @@
     {
       "name": "average_bead_fwhm_micron_x",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x",
-      "description": "FWHM for the average bead in the X axis in microns.",
+      "description": "FWHM for the average bead in the X axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_micron_x",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2115,9 +2124,10 @@
     {
       "name": "average_bead_fwhm_lateral_asymmetry_ratio",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
-      "description": "Lateral FWHM asymmetry ratio for the average bead.",
+      "description": "Lateral FWHM asymmetry ratio for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
+      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2524,8 +2534,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.1,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2541,8 +2551,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.1,
+      "maximum_value": 0.99,
       "@type": "SlotDefinition"
     },
     {
@@ -4782,8 +4792,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4864,8 +4874,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4886,8 +4896,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 5,
+      "minimum_value": 0.0,
+      "maximum_value": 5.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4908,8 +4918,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4930,8 +4940,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4952,8 +4962,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     }
   ],
@@ -7323,9 +7333,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-05-21T12:26:40",
+  "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-13T23:01:44",
+  "generation_date": "2024-06-14T15:58:54",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
