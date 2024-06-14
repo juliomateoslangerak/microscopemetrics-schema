@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NamedObject/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: NamedObject - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -207,12 +207,19 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/NamedObject">microscopemetrics_schema:NamedObject</a></p>
 <div class="mermaid"> classDiagram
     class NamedObject
+    click NamedObject href "../NamedObject"
       NamedObject &lt;|-- MetricsObject
+        click MetricsObject href "../MetricsObject"
       NamedObject &lt;|-- Sample
+        click Sample href "../Sample"
       NamedObject &lt;|-- Protocol
+        click Protocol href "../Protocol"
       NamedObject &lt;|-- Channel
+        click Channel href "../Channel"
       NamedObject &lt;|-- Column
+        click Column href "../Column"
       NamedObject &lt;|-- Shape
+        click Shape href "../Shape"
 
       NamedObject : description
 

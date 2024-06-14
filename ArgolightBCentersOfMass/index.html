@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBCentersOfMass/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBCentersOfMass - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,44 +208,87 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBCentersOfMass">microscopemetrics_schema:ArgolightBCentersOfMass</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBCentersOfMass
+    click ArgolightBCentersOfMass href "../ArgolightBCentersOfMass"
       CentersOfMass &lt;|-- ArgolightBCentersOfMass
+        click CentersOfMass href "../CentersOfMass"
       Roi &lt;|-- ArgolightBCentersOfMass
+        click Roi href "../Roi"
 
       ArgolightBCentersOfMass : data_reference
 
-          ArgolightBCentersOfMass --&gt; DataReference : data_reference
+
+
+
+    ArgolightBCentersOfMass --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       ArgolightBCentersOfMass : description
 
       ArgolightBCentersOfMass : ellipses
 
-          ArgolightBCentersOfMass --&gt; Ellipse : ellipses
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Ellipse : ellipses
+    click Ellipse href "../Ellipse"
+
 
       ArgolightBCentersOfMass : lines
 
-          ArgolightBCentersOfMass --&gt; Line : lines
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Line : lines
+    click Line href "../Line"
+
 
       ArgolightBCentersOfMass : linked_references
 
-          ArgolightBCentersOfMass --&gt; DataReference : linked_references
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       ArgolightBCentersOfMass : masks
 
-          ArgolightBCentersOfMass --&gt; Mask : masks
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Mask : masks
+    click Mask href "../Mask"
+
 
       ArgolightBCentersOfMass : name
 
       ArgolightBCentersOfMass : points
 
-          ArgolightBCentersOfMass --&gt; Point : points
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Point : points
+    click Point href "../Point"
+
 
       ArgolightBCentersOfMass : polygons
 
-          ArgolightBCentersOfMass --&gt; Polygon : polygons
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Polygon : polygons
+    click Polygon href "../Polygon"
+
 
       ArgolightBCentersOfMass : rectangles
 
-          ArgolightBCentersOfMass --&gt; Rectangle : rectangles
+
+
+
+    ArgolightBCentersOfMass --&gt; "*" Rectangle : rectangles
+    click Rectangle href "../Rectangle"
+
 
 
 </div>
@@ -275,37 +318,37 @@
 <tbody>
 <tr>
 <td><a href="../points/">points</a></td>
-<td>0..* <br/> <a href="../Point/">Point</a></td>
+<td>* <br/> <a href="../Point/">Point</a></td>
 <td>A list of points included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../lines/">lines</a></td>
-<td>0..* <br/> <a href="../Line/">Line</a></td>
+<td>* <br/> <a href="../Line/">Line</a></td>
 <td>A list of lines included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../rectangles/">rectangles</a></td>
-<td>0..* <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>* <br/> <a href="../Rectangle/">Rectangle</a></td>
 <td>A list of rectangles included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../ellipses/">ellipses</a></td>
-<td>0..* <br/> <a href="../Ellipse/">Ellipse</a></td>
+<td>* <br/> <a href="../Ellipse/">Ellipse</a></td>
 <td>A list of ellipses included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../polygons/">polygons</a></td>
-<td>0..* <br/> <a href="../Polygon/">Polygon</a></td>
+<td>* <br/> <a href="../Polygon/">Polygon</a></td>
 <td>A list of polygons included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
 <tr>
 <td><a href="../masks/">masks</a></td>
-<td>0..* <br/> <a href="../Mask/">Mask</a></td>
+<td>* <br/> <a href="../Mask/">Mask</a></td>
 <td>A list of masks included in the ROI</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
@@ -317,7 +360,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>

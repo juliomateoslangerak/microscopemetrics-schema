@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/saturation_threshold/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
     
     
       
@@ -332,12 +332,17 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
 <td></td>
 <td>yes</td>
 </tr>
 <tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
+<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
 <td></td>
 <td>yes</td>
 </tr>
@@ -345,11 +350,6 @@
 <td><a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
 <td></td>
 <td>no</td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td></td>
-<td>yes</td>
 </tr>
 </tbody>
 </table>
@@ -383,13 +383,13 @@ multivalued: false
 ifabsent: float(0.01)
 alias: saturation_threshold
 domain_of:
+- FieldIlluminationInput
+- PSFBeadsInput
 - ArgolightBInput
 - ArgolightEInput
-- PSFBeadsInput
-- FieldIlluminationInput
 range: float
-minimum_value: 0
-maximum_value: 1
+minimum_value: 0.0
+maximum_value: 1.0
 
 </code></pre>
 

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MicroscopeCollection/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: MicroscopeCollection - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -199,9 +199,15 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MicroscopeCollection">microscopemetrics_schema:MicroscopeCollection</a></p>
 <div class="mermaid"> classDiagram
     class MicroscopeCollection
+    click MicroscopeCollection href "../MicroscopeCollection"
       MicroscopeCollection : microscopes
 
-          MicroscopeCollection --&gt; Microscope : microscopes
+
+
+
+    MicroscopeCollection --&gt; "1..*" Microscope : microscopes
+    click Microscope href "../Microscope"
+
 
 
 </div>
@@ -263,6 +269,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - MicroscopeCollection
     range: Microscope
     required: true
 

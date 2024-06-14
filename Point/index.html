@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Point/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Point - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,7 +209,9 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Point">microscopemetrics_schema:Point</a></p>
 <div class="mermaid"> classDiagram
     class Point
+    click Point href "../Point"
       Shape &lt;|-- Point
+        click Shape href "../Shape"
 
       Point : c
 
@@ -217,13 +219,23 @@
 
       Point : fill_color
 
-          Point --&gt; Color : fill_color
+
+
+
+    Point --&gt; "0..1" Color : fill_color
+    click Color href "../Color"
+
 
       Point : name
 
       Point : stroke_color
 
-          Point --&gt; Color : stroke_color
+
+
+
+    Point --&gt; "0..1" Color : stroke_color
+    click Color href "../Color"
+
 
       Point : stroke_width
 
@@ -260,13 +272,13 @@
 <tbody>
 <tr>
 <td><a href="../y/">y</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the point</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../x/">x</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the point</td>
 <td>direct</td>
 </tr>
@@ -332,13 +344,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td><a href="../Roi/">Roi</a></td>
 <td><a href="../points/">points</a></td>
 <td>range</td>
 <td><a href="./">Point</a></td>
 </tr>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td><a href="../points/">points</a></td>
 <td>range</td>
 <td><a href="./">Point</a></td>
@@ -384,6 +396,12 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
   x:
@@ -392,6 +410,12 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
 

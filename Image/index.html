@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Image/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Image - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,31 +209,54 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Image">microscopemetrics_schema:Image</a></p>
 <div class="mermaid"> classDiagram
     class Image
+    click Image href "../Image"
       MetricsObject &lt;|-- Image
+        click MetricsObject href "../MetricsObject"
 
 
       Image &lt;|-- ImageMask
+        click ImageMask href "../ImageMask"
 
 
       Image : acquisition_datetime
 
       Image : array_data
 
-          Image --&gt; MetaObject : array_data
+
+
+
+    Image --&gt; "0..1" MetaObject : array_data
+    click MetaObject href "../MetaObject"
+
 
       Image : channel_series
 
-          Image --&gt; ChannelSeries : channel_series
+
+
+
+    Image --&gt; "0..1" ChannelSeries : channel_series
+    click ChannelSeries href "../ChannelSeries"
+
 
       Image : data_reference
 
-          Image --&gt; DataReference : data_reference
+
+
+
+    Image --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       Image : description
 
       Image : linked_references
 
-          Image --&gt; DataReference : linked_references
+
+
+
+    Image --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       Image : name
 
@@ -249,11 +272,21 @@
 
       Image : source_images
 
-          Image --&gt; DataReference : source_images
+
+
+
+    Image --&gt; "*" DataReference : source_images
+    click DataReference href "../DataReference"
+
 
       Image : time_series
 
-          Image --&gt; TimeSeries : time_series
+
+
+
+    Image --&gt; "0..1" TimeSeries : time_series
+    click TimeSeries href "../TimeSeries"
+
 
       Image : voxel_size_x_micron
 
@@ -307,31 +340,31 @@
 </tr>
 <tr>
 <td><a href="../shape_x/">shape_x</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the x dimension</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../shape_y/">shape_y</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the y dimension</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../shape_z/">shape_z</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the z dimension</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../shape_c/">shape_c</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the c dimension</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../shape_t/">shape_t</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the t dimension</td>
 <td>direct</td>
 </tr>
@@ -355,7 +388,7 @@
 </tr>
 <tr>
 <td><a href="../source_images/">source_images</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of references linking to the images that were used as a source</td>
 <td>direct</td>
 </tr>
@@ -373,7 +406,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -403,14 +436,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td><a href="../argolight_b_image/">argolight_b_image</a></td>
-<td>range</td>
-<td><a href="./">Image</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td><a href="../argolight_e_image/">argolight_e_image</a></td>
+<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td><a href="../field_illumination_image/">field_illumination_image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -427,8 +454,14 @@
 <td><a href="./">Image</a></td>
 </tr>
 <tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td><a href="../field_illumination_image/">field_illumination_image</a></td>
+<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td><a href="../argolight_b_image/">argolight_b_image</a></td>
+<td>range</td>
+<td><a href="./">Image</a></td>
+</tr>
+<tr>
+<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
+<td><a href="../argolight_e_image/">argolight_e_image</a></td>
 <td>range</td>
 <td><a href="./">Image</a></td>
 </tr>
@@ -473,6 +506,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   voxel_size_y_micron:
@@ -481,6 +516,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   voxel_size_z_micron:
@@ -489,6 +526,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: float
     required: false
   shape_x:
@@ -497,6 +536,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_y:
@@ -505,6 +546,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_z:
@@ -514,6 +557,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_c:
@@ -523,6 +568,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   shape_t:
@@ -532,6 +579,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: int(1)
+    domain_of:
+    - Image
     range: integer
     required: true
   time_series:
@@ -540,6 +589,8 @@ attributes:
     - linkml:axis0
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Image
     range: TimeSeries
     required: false
   channel_series:
@@ -548,6 +599,8 @@ attributes:
     - linkml:axis4
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
+    domain_of:
+    - Image
     range: ChannelSeries
     required: false
   acquisition_datetime:
@@ -555,6 +608,9 @@ attributes:
     description: The datetime of the acquisition
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - MetricsDataset
+    - Image
     range: datetime
     required: false
   source_images:
@@ -563,6 +619,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - Image
     range: DataReference
     required: false
     inlined: true
@@ -573,6 +631,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Image
     range: MetaObject
     required: false
 

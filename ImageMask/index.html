@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ImageMask/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ImageMask - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,27 +209,49 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ImageMask">microscopemetrics_schema:ImageMask</a></p>
 <div class="mermaid"> classDiagram
     class ImageMask
+    click ImageMask href "../ImageMask"
       Image &lt;|-- ImageMask
+        click Image href "../Image"
 
       ImageMask : acquisition_datetime
 
       ImageMask : array_data
 
-          ImageMask --&gt; MetaObject : array_data
+
+
+
+    ImageMask --&gt; "0..1" MetaObject : array_data
+    click MetaObject href "../MetaObject"
+
 
       ImageMask : channel_series
 
-          ImageMask --&gt; ChannelSeries : channel_series
+
+
+
+    ImageMask --&gt; "0..1" ChannelSeries : channel_series
+    click ChannelSeries href "../ChannelSeries"
+
 
       ImageMask : data_reference
 
-          ImageMask --&gt; DataReference : data_reference
+
+
+
+    ImageMask --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       ImageMask : description
 
       ImageMask : linked_references
 
-          ImageMask --&gt; DataReference : linked_references
+
+
+
+    ImageMask --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       ImageMask : name
 
@@ -245,11 +267,21 @@
 
       ImageMask : source_images
 
-          ImageMask --&gt; DataReference : source_images
+
+
+
+    ImageMask --&gt; "*" DataReference : source_images
+    click DataReference href "../DataReference"
+
 
       ImageMask : time_series
 
-          ImageMask --&gt; TimeSeries : time_series
+
+
+
+    ImageMask --&gt; "0..1" TimeSeries : time_series
+    click TimeSeries href "../TimeSeries"
+
 
       ImageMask : voxel_size_x_micron
 
@@ -303,31 +335,31 @@
 </tr>
 <tr>
 <td><a href="../shape_x/">shape_x</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the x dimension</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
 <td><a href="../shape_y/">shape_y</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the y dimension</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
 <td><a href="../shape_z/">shape_z</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the z dimension</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
 <td><a href="../shape_c/">shape_c</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the c dimension</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
 <tr>
 <td><a href="../shape_t/">shape_t</a></td>
-<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1 <br/> <a href="../Integer/">Integer</a></td>
 <td>The shape of the image in the t dimension</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
@@ -351,7 +383,7 @@
 </tr>
 <tr>
 <td><a href="../source_images/">source_images</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of references linking to the images that were used as a source</td>
 <td><a href="../Image/">Image</a></td>
 </tr>
@@ -369,7 +401,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -399,14 +431,14 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_labels_image/">spots_labels_image</a></td>
+<td><a href="../Mask/">Mask</a></td>
+<td><a href="../mask/">mask</a></td>
 <td>range</td>
 <td><a href="./">ImageMask</a></td>
 </tr>
 <tr>
-<td><a href="../Mask/">Mask</a></td>
-<td><a href="mask.md">mask</a></td>
+<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
+<td><a href="../spots_labels_image/">spots_labels_image</a></td>
 <td>range</td>
 <td><a href="./">ImageMask</a></td>
 </tr>

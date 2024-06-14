@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/average_bead_fwhm_pixel_z/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
     
     
       
@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-average_bead_fwhm_pixel_z">Slot: average_bead_fwhm_pixel_z</h1>
-<p><em>FWHM for the average bead in the Z axis in pixels.</em></p>
+<p><em>FWHM for the average bead in the Z axis in pixels. One value per channel.</em></p>
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/average_bead_fwhm_pixel_z">microscopemetrics_schema:average_bead_fwhm_pixel_z</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -340,7 +340,12 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../Float/">Float</a></li>
+<li>
+<p>Range: <a href="../Float/">Float</a></p>
+</li>
+<li>
+<p>Multivalued: True</p>
+</li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
@@ -351,9 +356,10 @@
 <details>
 
 <pre><code class="language-yaml">name: average_bead_fwhm_pixel_z
-description: FWHM for the average bead in the Z axis in pixels.
+description: FWHM for the average bead in the Z axis in pixels. One value per channel.
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 rank: 1000
+multivalued: true
 alias: average_bead_fwhm_pixel_z
 domain_of:
 - PSFBeadsKeyMeasurements

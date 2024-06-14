@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Rectangle/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Rectangle - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,7 +209,9 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Rectangle">microscopemetrics_schema:Rectangle</a></p>
 <div class="mermaid"> classDiagram
     class Rectangle
+    click Rectangle href "../Rectangle"
       Shape &lt;|-- Rectangle
+        click Shape href "../Shape"
 
       Rectangle : c
 
@@ -217,7 +219,12 @@
 
       Rectangle : fill_color
 
-          Rectangle --&gt; Color : fill_color
+
+
+
+    Rectangle --&gt; "0..1" Color : fill_color
+    click Color href "../Color"
+
 
       Rectangle : h
 
@@ -225,7 +232,12 @@
 
       Rectangle : stroke_color
 
-          Rectangle --&gt; Color : stroke_color
+
+
+
+    Rectangle --&gt; "0..1" Color : stroke_color
+    click Color href "../Color"
+
 
       Rectangle : stroke_width
 
@@ -264,25 +276,25 @@
 <tbody>
 <tr>
 <td><a href="../x/">x</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the top left corner of the rectangle</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../y/">y</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the top left corner of the rectangle</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../w/">w</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The width of the rectangle</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../h/">h</a></td>
-<td>1..1 <br/> <a href="../Float/">Float</a></td>
+<td>1 <br/> <a href="../Float/">Float</a></td>
 <td>The height of the rectangle</td>
 <td>direct</td>
 </tr>
@@ -348,13 +360,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td><a href="../Roi/">Roi</a></td>
 <td><a href="../rectangles/">rectangles</a></td>
 <td>range</td>
 <td><a href="./">Rectangle</a></td>
 </tr>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td><a href="../rectangles/">rectangles</a></td>
 <td>range</td>
 <td><a href="./">Rectangle</a></td>
@@ -399,6 +411,12 @@ attributes:
     description: The x coordinate of the top left corner of the rectangle
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
   y:
@@ -406,6 +424,12 @@ attributes:
     description: The y coordinate of the top left corner of the rectangle
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: false
+    domain_of:
+    - Point
+    - Rectangle
+    - Ellipse
+    - Vertex
+    - Mask
     range: float
     required: true
   w:
@@ -414,6 +438,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Rectangle
     range: float
     required: true
   h:
@@ -422,6 +448,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Rectangle
     range: float
     required: true
 
