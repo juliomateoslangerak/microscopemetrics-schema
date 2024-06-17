@@ -24,7 +24,7 @@
 --     * Slot: Tag_id Description: Autocreated FK slot
 --     * Slot: Table_id Description: Autocreated FK slot
 --     * Slot: FieldIlluminationDataset_id Description: Autocreated FK slot
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsDataset_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: ArgolightBDataset_id Description: Autocreated FK slot
@@ -332,10 +332,10 @@
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: key_values_id Description: Key-Value pairs containing the Key measurements for the field illumination analysis
+--     * Slot: key_measurements_id Description: Key-Value pairs containing the Key measurements for the field illumination analysis
 --     * Slot: roi_corners_id Description: Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
 --     * Slot: comment_id Description: A human readable comment about the dataset
--- # Class: "FieldIlluminationKeyValues" Description: ""
+-- # Class: "FieldIlluminationKeyMeasurements" Description: ""
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -533,131 +533,131 @@
 -- # Class: "FieldIlluminationOutput_errors" Description: ""
 --     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "FieldIlluminationKeyValues_channel_name" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_channel_name" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: channel_name Description: The channel name to which the measurements apply
--- # Class: "FieldIlluminationKeyValues_center_region_intensity_fraction" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_region_intensity_fraction" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_region_intensity_fraction Description: The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_region_area_fraction" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_region_area_fraction" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_region_area_fraction Description: The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_of_mass_y" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_of_mass_y" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_of_mass_y Description: The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_of_mass_y_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_of_mass_y_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_of_mass_y_relative Description: The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_of_mass_x" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_of_mass_x" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_of_mass_x Description: The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_of_mass_x_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_of_mass_x_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_of_mass_x_relative Description: The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_of_mass_distance_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_of_mass_distance_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_of_mass_distance_relative Description: The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_geometric_y" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_geometric_y" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_geometric_y Description: The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_geometric_y_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_geometric_y_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_geometric_y_relative Description: The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.
--- # Class: "FieldIlluminationKeyValues_center_geometric_x" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_geometric_x" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_geometric_x Description: The x coordinate of the geometric center of the center of illumination region. In pixels
--- # Class: "FieldIlluminationKeyValues_center_geometric_x_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_geometric_x_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_geometric_x_relative Description: The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
--- # Class: "FieldIlluminationKeyValues_center_geometric_distance_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_geometric_distance_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_geometric_distance_relative Description: The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
--- # Class: "FieldIlluminationKeyValues_center_fitted_y" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_fitted_y" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_fitted_y Description: The y coordinate of the fitted center of illumination. In pixels
--- # Class: "FieldIlluminationKeyValues_center_fitted_y_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_fitted_y_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_fitted_y_relative Description: The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
--- # Class: "FieldIlluminationKeyValues_center_fitted_x" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_fitted_x" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_fitted_x Description: The x coordinate of the fitted center of illumination. In pixels
--- # Class: "FieldIlluminationKeyValues_center_fitted_x_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_fitted_x_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_fitted_x_relative Description: The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
--- # Class: "FieldIlluminationKeyValues_center_fitted_distance_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_fitted_distance_relative Description: The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
--- # Class: "FieldIlluminationKeyValues_max_intensity" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity Description: The maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_max_intensity_pos_y" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity_pos_y" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity_pos_y Description: The y coordinate of the maximum intensity of the center of illumination. In pixels
--- # Class: "FieldIlluminationKeyValues_max_intensity_pos_y_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity_pos_y_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity_pos_y_relative Description: The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
--- # Class: "FieldIlluminationKeyValues_max_intensity_pos_x" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity_pos_x" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity_pos_x Description: The x coordinate of the maximum intensity of the center of illumination. In pixels
--- # Class: "FieldIlluminationKeyValues_max_intensity_pos_x_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity_pos_x_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity_pos_x_relative Description: The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
--- # Class: "FieldIlluminationKeyValues_max_intensity_distance_relative" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_max_intensity_distance_relative" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: max_intensity_distance_relative Description: The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
--- # Class: "FieldIlluminationKeyValues_top_left_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_left_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_left_intensity_mean Description: The mean intensity of the top-left corner of the image
--- # Class: "FieldIlluminationKeyValues_top_left_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_left_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_left_intensity_ratio Description: The mean intensity of the top-left corner of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_top_center_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_center_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_center_intensity_mean Description: The mean intensity of the top-center of the image
--- # Class: "FieldIlluminationKeyValues_top_center_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_center_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_center_intensity_ratio Description: The mean intensity of the top-center of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_top_right_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_right_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_right_intensity_mean Description: The mean intensity of the top-right corner of the image
--- # Class: "FieldIlluminationKeyValues_top_right_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: top_right_intensity_ratio Description: The mean intensity of the top-right corner of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_middle_left_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_left_intensity_mean Description: The mean intensity of the middle-left of the image
--- # Class: "FieldIlluminationKeyValues_middle_left_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_left_intensity_ratio Description: The mean intensity of the middle-left of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_middle_center_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_center_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_center_intensity_mean Description: The mean intensity of the middle-center of the image
--- # Class: "FieldIlluminationKeyValues_middle_center_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_center_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_center_intensity_ratio Description: The mean intensity of the middle-center of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_middle_right_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_right_intensity_mean Description: The mean intensity of the middle-right of the image
--- # Class: "FieldIlluminationKeyValues_middle_right_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_middle_right_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: middle_right_intensity_ratio Description: The mean intensity of the middle-right of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_bottom_left_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_left_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_left_intensity_mean Description: The mean intensity of the bottom-left of the image
--- # Class: "FieldIlluminationKeyValues_bottom_left_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_left_intensity_ratio Description: The mean intensity of the bottom-left of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_bottom_center_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_center_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_center_intensity_mean Description: The mean intensity of the bottom-center of the image
--- # Class: "FieldIlluminationKeyValues_bottom_center_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_center_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_center_intensity_ratio Description: The mean intensity of the bottom-center of the image  divided by the maximum intensity of the center of illumination
--- # Class: "FieldIlluminationKeyValues_bottom_right_intensity_mean" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_right_intensity_mean Description: The mean intensity of the bottom-right of the image
--- # Class: "FieldIlluminationKeyValues_bottom_right_intensity_ratio" Description: ""
---     * Slot: FieldIlluminationKeyValues_id Description: Autocreated FK slot
+-- # Class: "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: bottom_right_intensity_ratio Description: The mean intensity of the bottom-right of the image  divided by the maximum intensity of the center of illumination
 -- # Class: "PSFBeadsOutput_processing_application" Description: ""
 --     * Slot: PSFBeadsOutput_id Description: Autocreated FK slot
@@ -1014,7 +1014,7 @@ CREATE TABLE "DataReference" (
 	"Tag_id" INTEGER, 
 	"Table_id" INTEGER, 
 	"FieldIlluminationDataset_id" INTEGER, 
-	"FieldIlluminationKeyValues_id" INTEGER, 
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	"PSFBeadsDataset_id" INTEGER, 
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	"ArgolightBDataset_id" INTEGER, 
@@ -1038,7 +1038,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("Tag_id") REFERENCES "Tag" (id), 
 	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
 	FOREIGN KEY("FieldIlluminationDataset_id") REFERENCES "FieldIlluminationDataset" (id), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id), 
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY("ArgolightBDataset_id") REFERENCES "ArgolightBDataset" (id), 
@@ -1305,15 +1305,15 @@ CREATE TABLE "FieldIlluminationOutput" (
 	processing_log TEXT, 
 	validated BOOLEAN NOT NULL, 
 	validation_datetime DATETIME, 
-	key_values_id INTEGER, 
+	key_measurements_id INTEGER, 
 	roi_corners_id INTEGER, 
 	comment_id INTEGER, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(key_values_id) REFERENCES "FieldIlluminationKeyValues" (id), 
+	FOREIGN KEY(key_measurements_id) REFERENCES "FieldIlluminationKeyMeasurements" (id), 
 	FOREIGN KEY(roi_corners_id) REFERENCES "Roi" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues" (
+CREATE TABLE "FieldIlluminationKeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -1795,257 +1795,257 @@ CREATE TABLE "FieldIlluminationOutput_errors" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", errors), 
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_channel_name" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_channel_name" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	channel_name TEXT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", channel_name), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", channel_name), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_region_intensity_fraction" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_region_intensity_fraction" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_region_intensity_fraction FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_region_intensity_fraction), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_region_intensity_fraction), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_region_area_fraction" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_region_area_fraction" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_region_area_fraction FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_region_area_fraction), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_region_area_fraction), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_of_mass_y" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_of_mass_y" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_of_mass_y FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_of_mass_y), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_of_mass_y), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_of_mass_y_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_of_mass_y_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_of_mass_y_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_of_mass_y_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_of_mass_y_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_of_mass_x" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_of_mass_x" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_of_mass_x FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_of_mass_x), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_of_mass_x), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_of_mass_x_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_of_mass_x_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_of_mass_x_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_of_mass_x_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_of_mass_x_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_of_mass_distance_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_of_mass_distance_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_of_mass_distance_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_of_mass_distance_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_of_mass_distance_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_geometric_y" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_y" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_geometric_y FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_geometric_y), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_y), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_geometric_y_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_y_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_geometric_y_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_geometric_y_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_y_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_geometric_x" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_x" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_geometric_x FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_geometric_x), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_x), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_geometric_x_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_x_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_geometric_x_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_geometric_x_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_x_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_geometric_distance_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_distance_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_geometric_distance_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_geometric_distance_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_distance_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_fitted_y" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_y" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_fitted_y FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_fitted_y), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_y), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_fitted_y_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_y_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_fitted_y_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_fitted_y_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_y_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_fitted_x" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_x" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_fitted_x FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_fitted_x), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_x), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_fitted_x_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_x_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_fitted_x_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_fitted_x_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_x_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_center_fitted_distance_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_fitted_distance_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", center_fitted_distance_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_distance_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity_pos_y" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity_pos_y" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity_pos_y FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity_pos_y), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity_pos_y), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity_pos_y_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity_pos_y_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity_pos_y_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity_pos_y_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity_pos_y_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity_pos_x" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity_pos_x" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity_pos_x FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity_pos_x), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity_pos_x), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity_pos_x_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity_pos_x_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity_pos_x_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity_pos_x_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity_pos_x_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_max_intensity_distance_relative" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity_distance_relative" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	max_intensity_distance_relative FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", max_intensity_distance_relative), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", max_intensity_distance_relative), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_left_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_left_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_left_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_left_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_left_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_left_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_left_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_left_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_left_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_left_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_center_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_center_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_center_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_center_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_center_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_center_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_center_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_center_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_center_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_center_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_right_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_right_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_right_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_right_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_right_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_top_right_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	top_right_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", top_right_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_right_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_left_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_left_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_left_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_left_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_left_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_left_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_left_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_left_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_center_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_center_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_center_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_center_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_center_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_center_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_center_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_center_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_center_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_center_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_right_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_right_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_right_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_right_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_middle_right_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_middle_right_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	middle_right_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", middle_right_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_right_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_left_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_left_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_left_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_left_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_left_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_left_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_left_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_left_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_left_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_center_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_center_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_center_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_center_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_center_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_center_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_center_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_center_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_center_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_center_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_right_intensity_mean" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_right_intensity_mean FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_right_intensity_mean), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_right_intensity_mean), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
-CREATE TABLE "FieldIlluminationKeyValues_bottom_right_intensity_ratio" (
-	"FieldIlluminationKeyValues_id" INTEGER, 
+CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	bottom_right_intensity_ratio FLOAT, 
-	PRIMARY KEY ("FieldIlluminationKeyValues_id", bottom_right_intensity_ratio), 
-	FOREIGN KEY("FieldIlluminationKeyValues_id") REFERENCES "FieldIlluminationKeyValues" (id)
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_right_intensity_ratio), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
 CREATE TABLE "PSFBeadsOutput_processing_application" (
 	"PSFBeadsOutput_id" INTEGER, 

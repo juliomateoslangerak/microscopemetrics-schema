@@ -1210,7 +1210,7 @@
             "title": "FieldIlluminationInput",
             "type": "object"
         },
-        "FieldIlluminationKeyValues": {
+        "FieldIlluminationKeyMeasurements": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -1556,7 +1556,7 @@
                     "type": "array"
                 }
             },
-            "title": "FieldIlluminationKeyValues",
+            "title": "FieldIlluminationKeyMeasurements",
             "type": "object"
         },
         "FieldIlluminationOutput": {
@@ -1581,8 +1581,8 @@
                     },
                     "type": "array"
                 },
-                "key_values": {
-                    "$ref": "#/$defs/FieldIlluminationKeyValues",
+                "key_measurements": {
+                    "$ref": "#/$defs/FieldIlluminationKeyMeasurements",
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "processing_application": {

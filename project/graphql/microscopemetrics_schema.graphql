@@ -268,7 +268,7 @@ type FieldIlluminationInput
     sigma: Float!
   }
 
-type FieldIlluminationKeyValues
+type FieldIlluminationKeyMeasurements
   {
     name: String
     description: String
@@ -330,7 +330,7 @@ type FieldIlluminationOutput
     validated: Boolean!
     validationDatetime: Datetime
     comment: Comment
-    keyValues: FieldIlluminationKeyValues
+    keyMeasurements: FieldIlluminationKeyMeasurements
     intensityProfiles: [Table]
     roiProfiles: [Roi]
     roiCorners: Roi

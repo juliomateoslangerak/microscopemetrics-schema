@@ -519,9 +519,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_name",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "string",
       "@type": "SlotDefinition"
@@ -663,9 +663,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_region_intensity_fraction",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -679,9 +679,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_region_area_fraction",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -695,9 +695,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_y",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -709,9 +709,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_y_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -725,9 +725,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_x",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -739,9 +739,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_x_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -755,9 +755,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_of_mass_distance_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -771,9 +771,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_geometric_y",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -785,9 +785,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_geometric_y_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -801,9 +801,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_geometric_x",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -815,9 +815,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_geometric_x_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -831,9 +831,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_geometric_distance_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -847,9 +847,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_fitted_y",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -861,9 +861,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_fitted_y_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -877,9 +877,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_fitted_x",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -891,9 +891,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_fitted_x_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -907,9 +907,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/center_fitted_distance_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -923,9 +923,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -937,9 +937,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity_pos_y",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -951,9 +951,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity_pos_y_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -967,9 +967,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity_pos_x",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -981,9 +981,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity_pos_x_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": -1.0,
@@ -997,9 +997,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/max_intensity_distance_relative",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -1013,9 +1013,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_left_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1027,9 +1027,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_left_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1041,9 +1041,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_center_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1055,9 +1055,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_center_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1069,9 +1069,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_right_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1083,9 +1083,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/top_right_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1097,9 +1097,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_left_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1111,9 +1111,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_left_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1125,9 +1125,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_center_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1139,9 +1139,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_center_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1153,9 +1153,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_right_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1167,9 +1167,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/middle_right_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1181,9 +1181,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_left_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1195,9 +1195,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_left_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1209,9 +1209,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_center_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1223,9 +1223,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_center_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1237,9 +1237,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_right_intensity_mean",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -1251,9 +1251,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/bottom_right_intensity_ratio",
       "multivalued": true,
-      "owner": "FieldIlluminationKeyValues",
+      "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
-        "FieldIlluminationKeyValues"
+        "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -4198,16 +4198,16 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fieldIlluminationOutput__key_values",
+      "name": "fieldIlluminationOutput__key_measurements",
       "description": "Key-Value pairs containing the Key measurements for the field illumination analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/key_values",
-      "alias": "key_values",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/key_measurements",
+      "alias": "key_measurements",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "FieldIlluminationKeyValues",
+      "range": "FieldIlluminationKeyMeasurements",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -6589,7 +6589,7 @@
         "metricsOutput__validated",
         "metricsOutput__validation_datetime",
         "metricsOutput__comment",
-        "fieldIlluminationOutput__key_values",
+        "fieldIlluminationOutput__key_measurements",
         "fieldIlluminationOutput__intensity_profiles",
         "fieldIlluminationOutput__roi_profiles",
         "fieldIlluminationOutput__roi_corners",
@@ -6602,9 +6602,9 @@
       "slot_usage": {},
       "attributes": [
         {
-          "name": "key_values",
+          "name": "key_measurements",
           "description": "Key-Value pairs containing the Key measurements for the field illumination analysis",
-          "range": "FieldIlluminationKeyValues",
+          "range": "FieldIlluminationKeyMeasurements",
           "@type": "SlotDefinition"
         },
         {
@@ -6669,10 +6669,10 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "FieldIlluminationKeyValues",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues",
+      "name": "FieldIlluminationKeyMeasurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyMeasurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
-      "is_a": "KeyValues",
+      "is_a": "KeyMeasurements",
       "slots": [
         "name",
         "description",
@@ -6722,7 +6722,7 @@
         "bottom_right_intensity_ratio"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyValues",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationKeyMeasurements",
       "@type": "ClassDefinition"
     },
     {
@@ -7335,7 +7335,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-14T15:58:54",
+  "generation_date": "2024-06-17T14:33:20",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

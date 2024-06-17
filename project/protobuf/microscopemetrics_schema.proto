@@ -248,7 +248,7 @@ message FieldIlluminationInput
   float cornerFraction = 0
   float sigma = 0
  }
-message FieldIlluminationKeyValues
+message FieldIlluminationKeyMeasurements
  {
   string name = 0
   string description = 0
@@ -309,7 +309,7 @@ message FieldIlluminationOutput
   boolean validated = 0
   datetime validationDatetime = 0
   comment comment = 0
-  fieldIlluminationKeyValues keyValues = 0
+  fieldIlluminationKeyMeasurements keyMeasurements = 0
  repeated  table intensityProfiles = 0
  repeated  roi roiProfiles = 0
   roi roiCorners = 0
