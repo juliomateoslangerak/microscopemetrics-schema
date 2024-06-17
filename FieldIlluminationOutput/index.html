@@ -232,13 +232,13 @@
     click Table href "../Table"
 
 
-      FieldIlluminationOutput : key_values
+      FieldIlluminationOutput : key_measurements
 
 
 
 
-    FieldIlluminationOutput --&gt; "0..1" FieldIlluminationKeyValues : key_values
-    click FieldIlluminationKeyValues href "../FieldIlluminationKeyValues"
+    FieldIlluminationOutput --&gt; "0..1" FieldIlluminationKeyMeasurements : key_measurements
+    click FieldIlluminationKeyMeasurements href "../FieldIlluminationKeyMeasurements"
 
 
       FieldIlluminationOutput : processing_application
@@ -341,8 +341,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../key_values/">key_values</a></td>
-<td>0..1 <br/> <a href="../FieldIlluminationKeyValues/">FieldIlluminationKeyValues</a></td>
+<td><a href="../key_measurements/">key_measurements</a></td>
+<td>0..1 <br/> <a href="../FieldIlluminationKeyMeasurements/">FieldIlluminationKeyMeasurements</a></td>
 <td>Key-Value pairs containing the Key measurements for the field illumination an...</td>
 <td>direct</td>
 </tr>
@@ -507,8 +507,8 @@
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsOutput
 attributes:
-  key_values:
-    name: key_values
+  key_measurements:
+    name: key_measurements
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
@@ -516,7 +516,9 @@ attributes:
     multivalued: false
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationKeyValues
+    - PSFBeadsOutput
+    - ArgolightEOutput
+    range: FieldIlluminationKeyMeasurements
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
@@ -609,18 +611,20 @@ attributes:
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsOutput
 attributes:
-  key_values:
-    name: key_values
+  key_measurements:
+    name: key_measurements
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
     rank: 1000
     multivalued: false
-    alias: key_values
+    alias: key_measurements
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    range: FieldIlluminationKeyValues
+    - PSFBeadsOutput
+    - ArgolightEOutput
+    range: FieldIlluminationKeyMeasurements
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
