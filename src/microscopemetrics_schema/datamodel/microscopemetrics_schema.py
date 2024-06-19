@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-19T10:47:11
+# Generation date: 2024-06-19T12:37:20
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1720,9 +1720,9 @@ class PSFBeadsOutput(MetricsOutput):
     considered_bead_centers_x_fit_quality: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     key_measurements: Optional[Union[dict, "PSFBeadsKeyMeasurements"]] = None
     bead_properties: Optional[Union[dict, Table]] = None
-    bead_z_profiles: Optional[Union[dict, Table]] = None
-    bead_y_profiles: Optional[Union[dict, Table]] = None
-    bead_x_profiles: Optional[Union[dict, Table]] = None
+    bead_profiles_z: Optional[Union[dict, Table]] = None
+    bead_profiles_y: Optional[Union[dict, Table]] = None
+    bead_profiles_x: Optional[Union[dict, Table]] = None
     average_bead: Optional[Union[dict, Image]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -1764,14 +1764,14 @@ class PSFBeadsOutput(MetricsOutput):
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
 
-        if self.bead_z_profiles is not None and not isinstance(self.bead_z_profiles, Table):
-            self.bead_z_profiles = Table(**as_dict(self.bead_z_profiles))
+        if self.bead_profiles_z is not None and not isinstance(self.bead_profiles_z, Table):
+            self.bead_profiles_z = Table(**as_dict(self.bead_profiles_z))
 
-        if self.bead_y_profiles is not None and not isinstance(self.bead_y_profiles, Table):
-            self.bead_y_profiles = Table(**as_dict(self.bead_y_profiles))
+        if self.bead_profiles_y is not None and not isinstance(self.bead_profiles_y, Table):
+            self.bead_profiles_y = Table(**as_dict(self.bead_profiles_y))
 
-        if self.bead_x_profiles is not None and not isinstance(self.bead_x_profiles, Table):
-            self.bead_x_profiles = Table(**as_dict(self.bead_x_profiles))
+        if self.bead_profiles_x is not None and not isinstance(self.bead_profiles_x, Table):
+            self.bead_profiles_x = Table(**as_dict(self.bead_profiles_x))
 
         if self.average_bead is not None and not isinstance(self.average_bead, Image):
             self.average_bead = Image(**as_dict(self.average_bead))
@@ -3500,14 +3500,14 @@ slots.pSFBeadsOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samp
 slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_properties'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_z_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_z_profiles'], name="pSFBeadsOutput__bead_z_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_z_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_z_profiles, domain=None, range=Optional[Union[dict, Table]])
+slots.pSFBeadsOutput__bead_profiles_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_profiles_z'], name="pSFBeadsOutput__bead_profiles_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_profiles_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_z, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_y_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_y_profiles'], name="pSFBeadsOutput__bead_y_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_y_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_y_profiles, domain=None, range=Optional[Union[dict, Table]])
+slots.pSFBeadsOutput__bead_profiles_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_profiles_y'], name="pSFBeadsOutput__bead_profiles_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_profiles_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_y, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_x_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_x_profiles'], name="pSFBeadsOutput__bead_x_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_x_profiles'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_x_profiles, domain=None, range=Optional[Union[dict, Table]])
+slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/bead_profiles_x'], name="pSFBeadsOutput__bead_profiles_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/bead_profiles_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_x, domain=None, range=Optional[Union[dict, Table]])
 
 slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])

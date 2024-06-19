@@ -599,9 +599,9 @@ message PSFBeadsOutput
  repeated  roi consideredBeadCentersXFitQuality = 0
   pSFBeadsKeyMeasurements keyMeasurements = 0
   table beadProperties = 0
-  table beadZProfiles = 0
-  table beadYProfiles = 0
-  table beadXProfiles = 0
+  table beadProfilesZ = 0
+  table beadProfilesY = 0
+  table beadProfilesX = 0
   image averageBead = 0
  }
 // A rectangle as defined by x, y coordinates and width, height

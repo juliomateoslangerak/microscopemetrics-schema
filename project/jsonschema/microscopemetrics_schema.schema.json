@@ -2858,21 +2858,21 @@
                     "$ref": "#/$defs/Image",
                     "description": "The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated."
                 },
-                "bead_properties": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Properties associated with the analysis of the beads."
-                },
-                "bead_x_profiles": {
+                "bead_profiles_x": {
                     "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits."
                 },
-                "bead_y_profiles": {
+                "bead_profiles_y": {
                     "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits."
                 },
-                "bead_z_profiles": {
+                "bead_profiles_z": {
                     "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits."
+                },
+                "bead_properties": {
+                    "$ref": "#/$defs/Table",
+                    "description": "Properties associated with the analysis of the beads."
                 },
                 "comment": {
                     "$ref": "#/$defs/Comment",

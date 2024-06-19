@@ -4558,11 +4558,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__bead_z_profiles",
+      "name": "pSFBeadsOutput__bead_profiles_z",
       "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_z_profiles",
-      "alias": "bead_z_profiles",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_profiles_z",
+      "alias": "bead_profiles_z",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -4573,11 +4573,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__bead_y_profiles",
+      "name": "pSFBeadsOutput__bead_profiles_y",
       "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_y_profiles",
-      "alias": "bead_y_profiles",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_profiles_y",
+      "alias": "bead_profiles_y",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -4588,11 +4588,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__bead_x_profiles",
+      "name": "pSFBeadsOutput__bead_profiles_x",
       "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_x_profiles",
-      "alias": "bead_x_profiles",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/bead_profiles_x",
+      "alias": "bead_profiles_x",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -6849,9 +6849,9 @@
         "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
         "pSFBeadsOutput__key_measurements",
         "pSFBeadsOutput__bead_properties",
-        "pSFBeadsOutput__bead_z_profiles",
-        "pSFBeadsOutput__bead_y_profiles",
-        "pSFBeadsOutput__bead_x_profiles",
+        "pSFBeadsOutput__bead_profiles_z",
+        "pSFBeadsOutput__bead_profiles_y",
+        "pSFBeadsOutput__bead_profiles_x",
         "pSFBeadsOutput__average_bead"
       ],
       "slot_usage": {},
@@ -6945,7 +6945,7 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "bead_z_profiles",
+          "name": "bead_profiles_z",
           "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
           "range": "Table",
           "inlined": true,
@@ -6953,7 +6953,7 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "bead_y_profiles",
+          "name": "bead_profiles_y",
           "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
           "range": "Table",
           "inlined": true,
@@ -6961,7 +6961,7 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "bead_x_profiles",
+          "name": "bead_profiles_x",
           "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
           "range": "Table",
           "inlined": true,
@@ -7380,7 +7380,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-19T10:47:08",
+  "generation_date": "2024-06-19T12:37:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

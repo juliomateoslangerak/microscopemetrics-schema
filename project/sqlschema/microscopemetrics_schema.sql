@@ -371,9 +371,9 @@
 --     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: The key measurements of the PSF beads analysis.
 --     * Slot: bead_properties_id Description: Properties associated with the analysis of the beads.
---     * Slot: bead_z_profiles_id Description: The intensity profiles along the z axis of the analyzed beads as well as the fits.
---     * Slot: bead_y_profiles_id Description: The intensity profiles along the y axis of the analyzed beads as well as the fits.
---     * Slot: bead_x_profiles_id Description: The intensity profiles along the x axis of the analyzed beads as well as the fits.
+--     * Slot: bead_profiles_z_id Description: The intensity profiles along the z axis of the analyzed beads as well as the fits.
+--     * Slot: bead_profiles_y_id Description: The intensity profiles along the y axis of the analyzed beads as well as the fits.
+--     * Slot: bead_profiles_x_id Description: The intensity profiles along the x axis of the analyzed beads as well as the fits.
 --     * Slot: average_bead_id Description: The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated.
 --     * Slot: comment_id Description: A human readable comment about the dataset
 -- # Class: "PSFBeadsKeyMeasurements" Description: ""
@@ -1371,17 +1371,17 @@ CREATE TABLE "PSFBeadsOutput" (
 	validation_datetime DATETIME, 
 	key_measurements_id INTEGER, 
 	bead_properties_id INTEGER, 
-	bead_z_profiles_id INTEGER, 
-	bead_y_profiles_id INTEGER, 
-	bead_x_profiles_id INTEGER, 
+	bead_profiles_z_id INTEGER, 
+	bead_profiles_y_id INTEGER, 
+	bead_profiles_x_id INTEGER, 
 	average_bead_id INTEGER, 
 	comment_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(key_measurements_id) REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY(bead_properties_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(bead_z_profiles_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(bead_y_profiles_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(bead_x_profiles_id) REFERENCES "Table" (id), 
+	FOREIGN KEY(bead_profiles_z_id) REFERENCES "Table" (id), 
+	FOREIGN KEY(bead_profiles_y_id) REFERENCES "Table" (id), 
+	FOREIGN KEY(bead_profiles_x_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(average_bead_id) REFERENCES "Image" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );

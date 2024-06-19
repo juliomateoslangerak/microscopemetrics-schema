@@ -680,9 +680,9 @@ type PSFBeadsOutput
     consideredBeadCentersXFitQuality: [Roi]
     keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
-    beadZProfiles: Table
-    beadYProfiles: Table
-    beadXProfiles: Table
+    beadProfilesZ: Table
+    beadProfilesY: Table
+    beadProfilesX: Table
     averageBead: Image
   }
 
