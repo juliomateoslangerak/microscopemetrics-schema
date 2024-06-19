@@ -2136,6 +2136,48 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "average_bead_intensity_max",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_max",
+      "description": "Maximum intensity for the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_max",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_intensity_min",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_min",
+      "description": "Minimum intensity for the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_min",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_intensity_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_std",
+      "description": "Standard deviation of the intensity for the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_std",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "argolight_b_image",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/argolight_b_image",
       "description": "Input parameter: image of the argolight b pattern in the order TZYXC",
@@ -7005,7 +7047,10 @@
         "average_bead_fwhm_micron_z",
         "average_bead_fwhm_micron_y",
         "average_bead_fwhm_micron_x",
-        "average_bead_fwhm_lateral_asymmetry_ratio"
+        "average_bead_fwhm_lateral_asymmetry_ratio",
+        "average_bead_intensity_max",
+        "average_bead_intensity_min",
+        "average_bead_intensity_std"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsKeyMeasurements",
@@ -7335,7 +7380,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-17T14:33:20",
+  "generation_date": "2024-06-19T10:47:08",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -848,6 +848,15 @@
 -- # Class: "PSFBeadsKeyMeasurements_average_bead_fwhm_lateral_asymmetry_ratio" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: average_bead_fwhm_lateral_asymmetry_ratio Description: Lateral FWHM asymmetry ratio for the average bead. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_max" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: average_bead_intensity_max Description: Maximum intensity for the average bead. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_min" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: average_bead_intensity_min Description: Minimum intensity for the average bead. One value per channel.
+-- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_std" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: average_bead_intensity_std Description: Standard deviation of the intensity for the average bead. One value per channel.
 -- # Class: "ArgolightBInput_lower_threshold_correction_factors" Description: ""
 --     * Slot: ArgolightBInput_id Description: Autocreated FK slot
 --     * Slot: lower_threshold_correction_factors Description: Input parameter: correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal
@@ -2423,6 +2432,24 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_fwhm_lateral_asymmetry_ratio"
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	average_bead_fwhm_lateral_asymmetry_ratio FLOAT, 
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_fwhm_lateral_asymmetry_ratio), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_max" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	average_bead_intensity_max FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_max), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_min" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	average_bead_intensity_min FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_min), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_std" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	average_bead_intensity_std FLOAT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_std), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
 CREATE TABLE "ArgolightBInput_lower_threshold_correction_factors" (

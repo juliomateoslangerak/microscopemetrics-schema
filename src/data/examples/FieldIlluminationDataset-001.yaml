@@ -67,7 +67,7 @@ output:
     datetime: "2024-01-15T00:00:00Z"
     comment_type: "OTHER"
     text: "This dataset is for testing purposes only."
-  key_values:
+  key_measurements:
     data_reference:
       data_uri: "https://omero.example.org/datasets/430000000"
       omero_host: "omero.example.org"

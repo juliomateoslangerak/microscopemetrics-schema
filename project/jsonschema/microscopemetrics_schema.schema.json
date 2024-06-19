@@ -2462,6 +2462,27 @@
                     },
                     "type": "array"
                 },
+                "average_bead_intensity_max": {
+                    "description": "Maximum intensity for the average bead. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "average_bead_intensity_min": {
+                    "description": "Minimum intensity for the average bead. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "average_bead_intensity_std": {
+                    "description": "Standard deviation of the intensity for the average bead. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
                     "items": {

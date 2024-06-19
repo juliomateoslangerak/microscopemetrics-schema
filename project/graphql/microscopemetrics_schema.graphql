@@ -653,6 +653,9 @@ type PSFBeadsKeyMeasurements
     averageBeadFwhmMicronY: [Float]
     averageBeadFwhmMicronX: [Float]
     averageBeadFwhmLateralAsymmetryRatio: [Float]
+    averageBeadIntensityMax: [Float]
+    averageBeadIntensityMin: [Float]
+    averageBeadIntensityStd: [Float]
   }
 
 type PSFBeadsOutput

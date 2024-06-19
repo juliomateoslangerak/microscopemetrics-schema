@@ -573,6 +573,9 @@ message PSFBeadsKeyMeasurements
  repeated  float averageBeadFwhmMicronY = 0
  repeated  float averageBeadFwhmMicronX = 0
  repeated  float averageBeadFwhmLateralAsymmetryRatio = 0
+ repeated  float averageBeadIntensityMax = 0
+ repeated  float averageBeadIntensityMin = 0
+ repeated  float averageBeadIntensityStd = 0
  }
 message PSFBeadsOutput
  {
