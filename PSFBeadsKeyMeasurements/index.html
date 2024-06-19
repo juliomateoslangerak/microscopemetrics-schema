@@ -232,6 +232,12 @@
 
       PSFBeadsKeyMeasurements : average_bead_fwhm_pixel_z
 
+      PSFBeadsKeyMeasurements : average_bead_intensity_max
+
+      PSFBeadsKeyMeasurements : average_bead_intensity_min
+
+      PSFBeadsKeyMeasurements : average_bead_intensity_std
+
       PSFBeadsKeyMeasurements : channel_nr
 
       PSFBeadsKeyMeasurements : considered_axial_edge_count
@@ -728,6 +734,24 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../average_bead_intensity_max/">average_bead_intensity_max</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
+<td>Maximum intensity for the average bead</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_intensity_min/">average_bead_intensity_min</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
+<td>Minimum intensity for the average bead</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../average_bead_intensity_std/">average_bead_intensity_std</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
+<td>Standard deviation of the intensity for the average bead</td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../data_reference/">data_reference</a></td>
 <td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A reference to the data</td>
@@ -862,6 +886,9 @@ slots:
 - average_bead_fwhm_micron_y
 - average_bead_fwhm_micron_x
 - average_bead_fwhm_lateral_asymmetry_ratio
+- average_bead_intensity_max
+- average_bead_intensity_min
+- average_bead_intensity_std
 
 </code></pre>
 </details>
@@ -1575,6 +1602,43 @@ attributes:
     rank: 1000
     multivalued: true
     alias: average_bead_fwhm_lateral_asymmetry_ratio
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_intensity_max:
+    name: average_bead_intensity_max
+    description: Maximum intensity for the average bead. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: average_bead_intensity_max
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_intensity_min:
+    name: average_bead_intensity_min
+    description: Minimum intensity for the average bead. One value per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: average_bead_intensity_min
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - PSFBeadsKeyMeasurements
+    range: float
+    required: false
+  average_bead_intensity_std:
+    name: average_bead_intensity_std
+    description: Standard deviation of the intensity for the average bead. One value
+      per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: average_bead_intensity_std
     owner: PSFBeadsKeyMeasurements
     domain_of:
     - PSFBeadsKeyMeasurements
