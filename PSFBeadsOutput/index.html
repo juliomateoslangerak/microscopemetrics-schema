@@ -230,39 +230,39 @@
     click Image href "../Image"
 
 
+      PSFBeadsOutput : bead_profiles_x
+
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_x
+    click Table href "../Table"
+
+
+      PSFBeadsOutput : bead_profiles_y
+
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_y
+    click Table href "../Table"
+
+
+      PSFBeadsOutput : bead_profiles_z
+
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_z
+    click Table href "../Table"
+
+
       PSFBeadsOutput : bead_properties
 
 
 
 
     PSFBeadsOutput --&gt; "0..1" Table : bead_properties
-    click Table href "../Table"
-
-
-      PSFBeadsOutput : bead_x_profiles
-
-
-
-
-    PSFBeadsOutput --&gt; "0..1" Table : bead_x_profiles
-    click Table href "../Table"
-
-
-      PSFBeadsOutput : bead_y_profiles
-
-
-
-
-    PSFBeadsOutput --&gt; "0..1" Table : bead_y_profiles
-    click Table href "../Table"
-
-
-      PSFBeadsOutput : bead_z_profiles
-
-
-
-
-    PSFBeadsOutput --&gt; "0..1" Table : bead_z_profiles
     click Table href "../Table"
 
 
@@ -446,19 +446,19 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../bead_z_profiles/">bead_z_profiles</a></td>
+<td><a href="../bead_profiles_z/">bead_profiles_z</a></td>
 <td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the z axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../bead_y_profiles/">bead_y_profiles</a></td>
+<td><a href="../bead_profiles_y/">bead_profiles_y</a></td>
 <td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the y axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../bead_x_profiles/">bead_x_profiles</a></td>
+<td><a href="../bead_profiles_x/">bead_profiles_x</a></td>
 <td>0..1 <br/> <a href="../Table/">Table</a></td>
 <td>The intensity profiles along the x axis of the analyzed beads as well as the ...</td>
 <td>direct</td>
@@ -712,8 +712,8 @@ attributes:
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_z_profiles:
-    name: bead_z_profiles
+  bead_profiles_z:
+    name: bead_profiles_z
     description: The intensity profiles along the z axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
@@ -724,8 +724,8 @@ attributes:
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_y_profiles:
-    name: bead_y_profiles
+  bead_profiles_y:
+    name: bead_profiles_y
     description: The intensity profiles along the y axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
@@ -736,8 +736,8 @@ attributes:
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_x_profiles:
-    name: bead_x_profiles
+  bead_profiles_x:
+    name: bead_profiles_x
     description: The intensity profiles along the x axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
@@ -922,42 +922,42 @@ attributes:
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_z_profiles:
-    name: bead_z_profiles
+  bead_profiles_z:
+    name: bead_profiles_z
     description: The intensity profiles along the z axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    alias: bead_z_profiles
+    alias: bead_profiles_z
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_y_profiles:
-    name: bead_y_profiles
+  bead_profiles_y:
+    name: bead_profiles_y
     description: The intensity profiles along the y axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    alias: bead_y_profiles
+    alias: bead_profiles_y
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
-  bead_x_profiles:
-    name: bead_x_profiles
+  bead_profiles_x:
+    name: bead_profiles_x
     description: The intensity profiles along the x axis of the analyzed beads as
       well as the fits.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
-    alias: bead_x_profiles
+    alias: bead_profiles_x
     owner: PSFBeadsOutput
     domain_of:
     - PSFBeadsOutput
