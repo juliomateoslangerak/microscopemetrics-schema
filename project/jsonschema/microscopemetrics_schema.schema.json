@@ -1513,6 +1513,10 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "table_data": {
+                    "$ref": "#/$defs/MetaObject",
+                    "description": "A non-required slot for non-serializable table data object"
+                },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
                     "items": {
@@ -2838,6 +2842,10 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
+                },
+                "table_data": {
+                    "$ref": "#/$defs/MetaObject",
+                    "description": "A non-required slot for non-serializable table data object"
                 }
             },
             "title": "PSFBeadsKeyMeasurements",

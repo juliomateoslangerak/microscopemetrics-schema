@@ -295,6 +295,7 @@
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Tag" Description: "A tag"
 --     * Slot: id Description: 
@@ -339,6 +340,7 @@
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PSFBeadsDataset" Description: "A PSF beads dataset"
 --     * Slot: id Description: 
@@ -380,6 +382,7 @@
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ArgolightBDataset" Description: "An Argolight sample pattern B dataset. This pattern consists of an array of circles"
 --     * Slot: id Description: 
@@ -1256,8 +1259,10 @@ CREATE TABLE "KeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "Tag" (
@@ -1326,8 +1331,10 @@ CREATE TABLE "FieldIlluminationKeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "PSFBeadsDataset" (
@@ -1389,8 +1396,10 @@ CREATE TABLE "PSFBeadsKeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "ArgolightBDataset" (

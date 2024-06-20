@@ -274,6 +274,7 @@ type FieldIlluminationKeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    tableData: MetaObject
     channelName: [String]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
@@ -399,6 +400,7 @@ interface KeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    tableData: MetaObject
   }
 
 interface KeyValues
@@ -595,6 +597,7 @@ type PSFBeadsKeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    tableData: MetaObject
     channelNr: [Integer]
     consideredValidCount: [Integer]
     consideredSelfProximityCount: [Integer]

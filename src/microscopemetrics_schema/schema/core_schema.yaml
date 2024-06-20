@@ -755,6 +755,12 @@ classes:
     is_a: KeyValues
     description: A table of key measurements
     abstract: true
+    attributes:
+      table_data:
+        range: MetaObject
+        description: A non-required slot for non-serializable table data object
+        required: false
+        multivalued: false
 
   Tag:
     is_a: MetricsObject

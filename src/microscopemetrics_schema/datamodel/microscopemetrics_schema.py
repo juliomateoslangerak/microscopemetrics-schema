@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-19T12:37:20
+# Generation date: 2024-06-20T11:20:48
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1180,6 +1180,7 @@ class KeyValues(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
 
 
+@dataclass
 class KeyMeasurements(KeyValues):
     """
     A table of key measurements
@@ -1191,6 +1192,7 @@ class KeyMeasurements(KeyValues):
     class_name: ClassVar[str] = "KeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
 
+    table_data: Optional[Union[dict, MetaObject]] = None
 
 @dataclass
 class Tag(MetricsObject):
@@ -3421,6 +3423,9 @@ slots.profilesIntensity__intensity_profiles_table = Slot(uri=MICROSCOPEMETRICS_S
 
 slots.roiMeasurements__measurements_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/measurements_table'], name="roiMeasurements__measurements_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/measurements_table'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Optional[Union[dict, Table]])
+
+slots.keyMeasurements__table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="keyMeasurements__table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.keyMeasurements__table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
 slots.tag__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="tag__description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.tag__description, domain=None, range=Optional[str])

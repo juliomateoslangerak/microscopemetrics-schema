@@ -674,7 +674,9 @@ CLOSED {
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_struct> {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> ] ?
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetaObject> ?
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> ] ?
     )
