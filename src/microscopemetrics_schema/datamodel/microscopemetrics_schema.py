@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-20T11:20:48
+# Generation date: 2024-06-20T18:01:15
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -11,7 +11,6 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
-from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -1799,6 +1798,9 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     considered_bad_fit_z_count: Optional[Union[int, List[int]]] = empty_list()
     considered_bad_fit_y_count: Optional[Union[int, List[int]]] = empty_list()
     considered_bad_fit_x_count: Optional[Union[int, List[int]]] = empty_list()
+    intensity_integrated_mean: Optional[Union[float, List[float]]] = empty_list()
+    intensity_integrated_median: Optional[Union[float, List[float]]] = empty_list()
+    intensity_integrated_std: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_mean: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_median: Optional[Union[float, List[float]]] = empty_list()
     intensity_max_std: Optional[Union[float, List[float]]] = empty_list()
@@ -1848,6 +1850,7 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     average_bead_fwhm_micron_y: Optional[Union[float, List[float]]] = empty_list()
     average_bead_fwhm_micron_x: Optional[Union[float, List[float]]] = empty_list()
     average_bead_fwhm_lateral_asymmetry_ratio: Optional[Union[float, List[float]]] = empty_list()
+    average_bead_intensity_integrated: Optional[Union[float, List[float]]] = empty_list()
     average_bead_intensity_max: Optional[Union[float, List[float]]] = empty_list()
     average_bead_intensity_min: Optional[Union[float, List[float]]] = empty_list()
     average_bead_intensity_std: Optional[Union[float, List[float]]] = empty_list()
@@ -1888,6 +1891,18 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
         if not isinstance(self.considered_bad_fit_x_count, list):
             self.considered_bad_fit_x_count = [self.considered_bad_fit_x_count] if self.considered_bad_fit_x_count is not None else []
         self.considered_bad_fit_x_count = [v if isinstance(v, int) else int(v) for v in self.considered_bad_fit_x_count]
+
+        if not isinstance(self.intensity_integrated_mean, list):
+            self.intensity_integrated_mean = [self.intensity_integrated_mean] if self.intensity_integrated_mean is not None else []
+        self.intensity_integrated_mean = [v if isinstance(v, float) else float(v) for v in self.intensity_integrated_mean]
+
+        if not isinstance(self.intensity_integrated_median, list):
+            self.intensity_integrated_median = [self.intensity_integrated_median] if self.intensity_integrated_median is not None else []
+        self.intensity_integrated_median = [v if isinstance(v, float) else float(v) for v in self.intensity_integrated_median]
+
+        if not isinstance(self.intensity_integrated_std, list):
+            self.intensity_integrated_std = [self.intensity_integrated_std] if self.intensity_integrated_std is not None else []
+        self.intensity_integrated_std = [v if isinstance(v, float) else float(v) for v in self.intensity_integrated_std]
 
         if not isinstance(self.intensity_max_mean, list):
             self.intensity_max_mean = [self.intensity_max_mean] if self.intensity_max_mean is not None else []
@@ -2084,6 +2099,10 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
         if not isinstance(self.average_bead_fwhm_lateral_asymmetry_ratio, list):
             self.average_bead_fwhm_lateral_asymmetry_ratio = [self.average_bead_fwhm_lateral_asymmetry_ratio] if self.average_bead_fwhm_lateral_asymmetry_ratio is not None else []
         self.average_bead_fwhm_lateral_asymmetry_ratio = [v if isinstance(v, float) else float(v) for v in self.average_bead_fwhm_lateral_asymmetry_ratio]
+
+        if not isinstance(self.average_bead_intensity_integrated, list):
+            self.average_bead_intensity_integrated = [self.average_bead_intensity_integrated] if self.average_bead_intensity_integrated is not None else []
+        self.average_bead_intensity_integrated = [v if isinstance(v, float) else float(v) for v in self.average_bead_intensity_integrated]
 
         if not isinstance(self.average_bead_intensity_max, list):
             self.average_bead_intensity_max = [self.average_bead_intensity_max] if self.average_bead_intensity_max is not None else []
@@ -2854,6 +2873,15 @@ slots.considered_bad_fit_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/ps
 slots.considered_bad_fit_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/considered_bad_fit_x_count'], name="considered_bad_fit_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/considered_bad_fit_x_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_x_count, domain=None, range=Optional[Union[int, List[int]]])
 
+slots.intensity_integrated_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/intensity_integrated_mean'], name="intensity_integrated_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/intensity_integrated_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_mean, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.intensity_integrated_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/intensity_integrated_median'], name="intensity_integrated_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/intensity_integrated_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_median, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.intensity_integrated_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/intensity_integrated_std'], name="intensity_integrated_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/intensity_integrated_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_std, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.intensity_max_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/intensity_max_mean'], name="intensity_max_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/intensity_max_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_mean, domain=None, range=Optional[Union[float, List[float]]])
 
@@ -3000,6 +3028,9 @@ slots.average_bead_fwhm_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/ps
 
 slots.average_bead_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio'], name="average_bead_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
+
+slots.average_bead_intensity_integrated = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/average_bead_intensity_integrated'], name="average_bead_intensity_integrated", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/average_bead_intensity_integrated'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_integrated, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.average_bead_intensity_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/average_bead_intensity_max'], name="average_bead_intensity_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/average_bead_intensity_max'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_max, domain=None, range=Optional[Union[float, List[float]]])

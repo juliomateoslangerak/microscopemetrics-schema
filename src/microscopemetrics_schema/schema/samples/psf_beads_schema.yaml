@@ -203,6 +203,9 @@ classes:
       - considered_bad_fit_z_count
       - considered_bad_fit_y_count
       - considered_bad_fit_x_count
+      - intensity_integrated_mean
+      - intensity_integrated_median
+      - intensity_integrated_std
       - intensity_max_mean
       - intensity_max_median
       - intensity_max_std
@@ -252,6 +255,7 @@ classes:
       - average_bead_fwhm_micron_y
       - average_bead_fwhm_micron_x
       - average_bead_fwhm_lateral_asymmetry_ratio
+      - average_bead_intensity_integrated
       - average_bead_intensity_max
       - average_bead_intensity_min
       - average_bead_intensity_std
@@ -345,6 +349,21 @@ slots:
     description: >-
       Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are 
       not averaged into the key measurements. One value per channel.
+    multivalued: true
+  intensity_integrated_mean:
+    range: float
+    description: >-
+      Mean integrated intensity of the analyzed beads. One value per channel.
+    multivalued: true
+  intensity_integrated_median:
+    range: float
+    description: >-
+      Median integrated intensity of the analyzed beads. One value per channel.
+    multivalued: true
+  intensity_integrated_std:
+    range: float
+    description: >-
+      Standard deviation of the integrated intensity of the analyzed beads. One value per channel.
     multivalued: true
   intensity_max_mean:
     range: float
@@ -599,6 +618,12 @@ slots:
     range: float
     description: >-
       Lateral FWHM asymmetry ratio for the average bead. One value per channel.
+    required: false
+    multivalued: true
+  average_bead_intensity_integrated:
+    range: float
+    description: >-
+      Integrated intensity for the average bead. One value per channel.
     required: false
     multivalued: true
   average_bead_intensity_max:

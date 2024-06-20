@@ -1,4 +1,3 @@
-# metamodel_version: 1.7.0
 type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
@@ -607,6 +606,9 @@ type PSFBeadsKeyMeasurements
     consideredBadFitZCount: [Integer]
     consideredBadFitYCount: [Integer]
     consideredBadFitXCount: [Integer]
+    intensityIntegratedMean: [Float]
+    intensityIntegratedMedian: [Float]
+    intensityIntegratedStd: [Float]
     intensityMaxMean: [Float]
     intensityMaxMedian: [Float]
     intensityMaxStd: [Float]
@@ -656,6 +658,7 @@ type PSFBeadsKeyMeasurements
     averageBeadFwhmMicronY: [Float]
     averageBeadFwhmMicronX: [Float]
     averageBeadFwhmLateralAsymmetryRatio: [Float]
+    averageBeadIntensityIntegrated: [Float]
     averageBeadIntensityMax: [Float]
     averageBeadIntensityMin: [Float]
     averageBeadIntensityStd: [Float]

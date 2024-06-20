@@ -1,4 +1,3 @@
-# metamodel_version: 1.7.0
 BASE <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -994,6 +993,12 @@ CLOSED {
           @linkml:Integer * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/considered_bad_fit_x_count>
           @linkml:Integer * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_mean>
+          @linkml:Float * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_median>
+          @linkml:Float * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_std>
+          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_max_mean>
           @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_max_median>
@@ -1095,6 +1100,9 @@ CLOSED {
           @linkml:Float * ;
 
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio>
+          @linkml:Float * ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_integrated>
           @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_max>
           @linkml:Float * ;
@@ -1277,4 +1285,5 @@ CLOSED {
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Vertex> ] ?
     )
 }
+
 

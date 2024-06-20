@@ -1,6 +1,3 @@
- syntax="proto3";
- package
-// metamodel_version: 1.7.0
 message ArgolightBCentersOfMass
  {
   string name = 0
@@ -526,6 +523,9 @@ message PSFBeadsKeyMeasurements
  repeated  integer consideredBadFitZCount = 0
  repeated  integer consideredBadFitYCount = 0
  repeated  integer consideredBadFitXCount = 0
+ repeated  float intensityIntegratedMean = 0
+ repeated  float intensityIntegratedMedian = 0
+ repeated  float intensityIntegratedStd = 0
  repeated  float intensityMaxMean = 0
  repeated  float intensityMaxMedian = 0
  repeated  float intensityMaxStd = 0
@@ -575,6 +575,7 @@ message PSFBeadsKeyMeasurements
  repeated  float averageBeadFwhmMicronY = 0
  repeated  float averageBeadFwhmMicronX = 0
  repeated  float averageBeadFwhmLateralAsymmetryRatio = 0
+ repeated  float averageBeadIntensityIntegrated = 0
  repeated  float averageBeadIntensityMax = 0
  repeated  float averageBeadIntensityMin = 0
  repeated  float averageBeadIntensityStd = 0

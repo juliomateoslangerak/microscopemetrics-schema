@@ -559,8 +559,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +635,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.01,
-      "maximum_value": 0.49,
+      "minimum_value": 0,
+      "maximum_value": 0,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +652,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2.0,
-      "maximum_value": 8.0,
+      "minimum_value": 2,
+      "maximum_value": 8,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +668,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +684,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +714,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +744,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +760,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +790,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +820,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +836,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +866,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +896,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +912,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +956,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +986,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1.0,
-      "maximum_value": 1.0,
+      "minimum_value": -1,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1002,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1288,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10.0,
-      "maximum_value": 30.0,
+      "minimum_value": 10,
+      "maximum_value": 30,
       "@type": "SlotDefinition"
     },
     {
@@ -1447,6 +1447,48 @@
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "intensity_integrated_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_mean",
+      "description": "Mean integrated intensity of the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_mean",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "intensity_integrated_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_median",
+      "description": "Median integrated intensity of the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_median",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "intensity_integrated_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_std",
+      "description": "Standard deviation of the integrated intensity of the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_integrated_std",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
       "@type": "SlotDefinition"
     },
     {
@@ -2136,6 +2178,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "average_bead_intensity_integrated",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_integrated",
+      "description": "Integrated intensity for the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_integrated",
+      "multivalued": true,
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "average_bead_intensity_max",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/average_bead_intensity_max",
       "description": "Maximum intensity for the average bead. One value per channel.",
@@ -2576,8 +2632,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -2593,8 +2649,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 0.99,
+      "minimum_value": 0,
+      "maximum_value": 0,
       "@type": "SlotDefinition"
     },
     {
@@ -4848,8 +4904,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -4930,8 +4986,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     },
     {
@@ -4952,8 +5008,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 5.0,
+      "minimum_value": 0,
+      "maximum_value": 5,
       "@type": "SlotDefinition"
     },
     {
@@ -4974,8 +5030,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
+      "minimum_value": 0,
+      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -4996,8 +5052,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
+      "minimum_value": 0,
+      "maximum_value": 10,
       "@type": "SlotDefinition"
     },
     {
@@ -5018,8 +5074,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
+      "minimum_value": 0,
+      "maximum_value": 1,
       "@type": "SlotDefinition"
     }
   ],
@@ -7024,6 +7080,9 @@
         "considered_bad_fit_z_count",
         "considered_bad_fit_y_count",
         "considered_bad_fit_x_count",
+        "intensity_integrated_mean",
+        "intensity_integrated_median",
+        "intensity_integrated_std",
         "intensity_max_mean",
         "intensity_max_median",
         "intensity_max_std",
@@ -7073,6 +7132,7 @@
         "average_bead_fwhm_micron_y",
         "average_bead_fwhm_micron_x",
         "average_bead_fwhm_lateral_asymmetry_ratio",
+        "average_bead_intensity_integrated",
         "average_bead_intensity_max",
         "average_bead_intensity_min",
         "average_bead_intensity_std"
@@ -7403,9 +7463,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-04-30T13:02:50",
+  "source_file_date": "2024-05-21T12:26:40",
   "source_file_size": 789,
-  "generation_date": "2024-06-20T11:20:46",
+  "generation_date": "2024-06-20T18:01:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
