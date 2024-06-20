@@ -240,6 +240,15 @@
 
       KeyMeasurements : name
 
+      KeyMeasurements : table_data
+
+
+
+
+    KeyMeasurements --&gt; "0..1" MetaObject : table_data
+    click MetaObject href "../MetaObject"
+
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -270,6 +279,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../table_data/">table_data</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
+<td>A non-required slot for non-serializable table data object</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../data_reference/">data_reference</a></td>
 <td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
@@ -329,6 +344,18 @@ description: A table of key measurements
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: KeyValues
 abstract: true
+attributes:
+  table_data:
+    name: table_data
+    description: A non-required slot for non-serializable table data object
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    domain_of:
+    - KeyMeasurements
+    - Table
+    range: MetaObject
+    required: false
 
 </code></pre>
 </details>
@@ -340,6 +367,19 @@ from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-s
 is_a: KeyValues
 abstract: true
 attributes:
+  table_data:
+    name: table_data
+    description: A non-required slot for non-serializable table data object
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: table_data
+    owner: KeyMeasurements
+    domain_of:
+    - KeyMeasurements
+    - Table
+    range: MetaObject
+    required: false
   data_reference:
     name: data_reference
     description: A reference to the data

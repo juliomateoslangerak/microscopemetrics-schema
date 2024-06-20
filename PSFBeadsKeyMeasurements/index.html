@@ -356,6 +356,15 @@
 
       PSFBeadsKeyMeasurements : name
 
+      PSFBeadsKeyMeasurements : table_data
+
+
+
+
+    PSFBeadsKeyMeasurements --&gt; "0..1" MetaObject : table_data
+    click MetaObject href "../MetaObject"
+
+
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
@@ -750,6 +759,12 @@
 <td>* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the intensity for the average bead</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../table_data/">table_data</a></td>
+<td>0..1 <br/> <a href="../MetaObject/">MetaObject</a></td>
+<td>A non-required slot for non-serializable table data object</td>
+<td><a href="../KeyMeasurements/">KeyMeasurements</a></td>
 </tr>
 <tr>
 <td><a href="../data_reference/">data_reference</a></td>
@@ -1643,6 +1658,19 @@ attributes:
     domain_of:
     - PSFBeadsKeyMeasurements
     range: float
+    required: false
+  table_data:
+    name: table_data
+    description: A non-required slot for non-serializable table data object
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: table_data
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - KeyMeasurements
+    - Table
+    range: MetaObject
     required: false
   data_reference:
     name: data_reference
