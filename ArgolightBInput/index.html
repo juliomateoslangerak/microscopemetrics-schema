@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBInput/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBInput - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,18 +208,11 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBInput">microscopemetrics_schema:ArgolightBInput</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBInput
-    click ArgolightBInput href "../ArgolightBInput"
       MetricsInput &lt;|-- ArgolightBInput
-        click MetricsInput href "../MetricsInput"
 
       ArgolightBInput : argolight_b_image
 
-
-
-
-    ArgolightBInput --&gt; "1" Image : argolight_b_image
-    click Image href "../Image"
-
+          ArgolightBInput --&gt; Image : argolight_b_image
 
       ArgolightBInput : bit_depth
 
@@ -261,7 +254,7 @@
 <tbody>
 <tr>
 <td><a href="../argolight_b_image/">argolight_b_image</a></td>
-<td>1 <br/> <a href="../Image/">Image</a></td>
+<td>1..1 <br/> <a href="../Image/">Image</a></td>
 <td>Input parameter: image of the argolight b pattern in the order TZYXC</td>
 <td>direct</td>
 </tr>
@@ -273,43 +266,43 @@
 </tr>
 <tr>
 <td><a href="../saturation_threshold/">saturation_threshold</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Tolerated saturation threshold</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../spots_distance/">spots_distance</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Input parameter: distance between argolight spots</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sigma_z/">sigma_z</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Smoothing factor for objects detection in the Z axis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sigma_y/">sigma_y</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Smoothing factor for objects detection in the Y axis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../sigma_x/">sigma_x</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Smoothing factor for objects detection in the X axis</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../lower_threshold_correction_factors/">lower_threshold_correction_factors</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Input parameter: correction factor for the lower thresholds</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../upper_threshold_correction_factors/">upper_threshold_correction_factors</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Input parameter: correction factor for the upper thresholds</td>
 <td>direct</td>
 </tr>
@@ -386,10 +379,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
   sigma_z:
     name: sigma_z
@@ -397,33 +390,33 @@ slot_usage:
     multivalued: false
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
 
 </code></pre>
 </details>
@@ -436,10 +429,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
   sigma_z:
     name: sigma_z
@@ -447,33 +440,33 @@ slot_usage:
     multivalued: false
     ifabsent: float(1.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
     multivalued: false
     ifabsent: float(3.0)
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
 attributes:
   argolight_b_image:
     name: argolight_b_image
@@ -496,10 +489,10 @@ attributes:
     alias: bit_depth
     owner: ArgolightBInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -515,14 +508,14 @@ attributes:
     alias: saturation_threshold
     owner: ArgolightBInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   spots_distance:
     name: spots_distance
     description: 'Input parameter: distance between argolight spots'
@@ -545,12 +538,12 @@ attributes:
     alias: sigma_z
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 5.0
+    minimum_value: 0
+    maximum_value: 5
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
@@ -561,12 +554,12 @@ attributes:
     alias: sigma_y
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
@@ -577,12 +570,12 @@ attributes:
     alias: sigma_x
     owner: ArgolightBInput
     domain_of:
-    - PSFBeadsInput
     - ArgolightBInput
+    - PSFBeadsInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 10.0
+    minimum_value: 0
+    maximum_value: 10
   lower_threshold_correction_factors:
     name: lower_threshold_correction_factors
     description: 'Input parameter: correction factor for the lower thresholds.  Must

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/FieldIlluminationKeyValues/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: FieldIlluminationKeyValues - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,9 +208,7 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/FieldIlluminationKeyValues">microscopemetrics_schema:FieldIlluminationKeyValues</a></p>
 <div class="mermaid"> classDiagram
     class FieldIlluminationKeyValues
-    click FieldIlluminationKeyValues href "../FieldIlluminationKeyValues"
       KeyValues &lt;|-- FieldIlluminationKeyValues
-        click KeyValues href "../KeyValues"
 
       FieldIlluminationKeyValues : bottom_center_intensity_mean
 
@@ -262,23 +260,13 @@
 
       FieldIlluminationKeyValues : data_reference
 
-
-
-
-    FieldIlluminationKeyValues --&gt; "0..1" DataReference : data_reference
-    click DataReference href "../DataReference"
-
+          FieldIlluminationKeyValues --&gt; DataReference : data_reference
 
       FieldIlluminationKeyValues : description
 
       FieldIlluminationKeyValues : linked_references
 
-
-
-
-    FieldIlluminationKeyValues --&gt; "*" DataReference : linked_references
-    click DataReference href "../DataReference"
-
+          FieldIlluminationKeyValues --&gt; DataReference : linked_references
 
       FieldIlluminationKeyValues : max_intensity
 
@@ -346,253 +334,253 @@
 <tbody>
 <tr>
 <td><a href="../channel_name/">channel_name</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
 <td>The channel name to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_region_intensity_fraction/">center_region_intensity_fraction</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The fraction of the upper intensity range occupied by the center of illuminat...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_region_area_fraction/">center_region_area_fraction</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The fraction of the area occupied by the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_mass_y/">center_of_mass_y</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the center of mass of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_mass_y_relative/">center_of_mass_y_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the center of mass of the center of illumination r...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_mass_x/">center_of_mass_x</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the center of mass of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_mass_x_relative/">center_of_mass_x_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the center of mass of the center of illumination r...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_of_mass_distance_relative/">center_of_mass_distance_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative distance of the centers of mass to the center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_geometric_y/">center_geometric_y</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the geometric center of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_geometric_y_relative/">center_geometric_y_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the geometric center of the center of illumination...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_geometric_x/">center_geometric_x</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the geometric center of the center of illumination region</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_geometric_x_relative/">center_geometric_x_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the geometric center of the center of illumination...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_geometric_distance_relative/">center_geometric_distance_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative distance of the geometric center to the center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_fitted_y/">center_fitted_y</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_fitted_y_relative/">center_fitted_y_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_fitted_x/">center_fitted_x</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_fitted_x_relative/">center_fitted_x_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the fitted center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../center_fitted_distance_relative/">center_fitted_distance_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative distance of the fitted center of illumination to the center of t...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity/">max_intensity</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The maximum intensity of the center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity_pos_y/">max_intensity_pos_y</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the maximum intensity of the center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity_pos_y_relative/">max_intensity_pos_y_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative y position of the maximum intensity of the center of illuminatio...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity_pos_x/">max_intensity_pos_x</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the maximum intensity of the center of illumination</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity_pos_x_relative/">max_intensity_pos_x_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative x position of the maximum intensity of the center of illuminatio...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../max_intensity_distance_relative/">max_intensity_distance_relative</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The relative distance of the maximum intensity to the center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_left_intensity_mean/">top_left_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-left corner of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_left_intensity_ratio/">top_left_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-left corner of the image  divided by the maximu...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_center_intensity_mean/">top_center_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_center_intensity_ratio/">top_center_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-center of the image  divided by the maximum int...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_right_intensity_mean/">top_right_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-right corner of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../top_right_intensity_ratio/">top_right_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the top-right corner of the image  divided by the maxim...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_left_intensity_mean/">middle_left_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-left of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_left_intensity_ratio/">middle_left_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-left of the image  divided by the maximum in...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_center_intensity_mean/">middle_center_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_center_intensity_ratio/">middle_center_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-center of the image  divided by the maximum ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_right_intensity_mean/">middle_right_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../middle_right_intensity_ratio/">middle_right_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the middle-right of the image  divided by the maximum i...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_left_intensity_mean/">bottom_left_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-left of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_left_intensity_ratio/">bottom_left_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-left of the image  divided by the maximum in...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_center_intensity_mean/">bottom_center_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-center of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_center_intensity_ratio/">bottom_center_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-center of the image  divided by the maximum ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_right_intensity_mean/">bottom_right_intensity_mean</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-right of the image</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../bottom_right_intensity_ratio/">bottom_right_intensity_ratio</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>The mean intensity of the bottom-right of the image  divided by the maximum i...</td>
 <td>direct</td>
 </tr>
@@ -604,7 +592,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -750,8 +738,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_region_area_fraction:
     name: center_region_area_fraction
     description: The fraction of the area occupied by the center of illumination region.
@@ -765,8 +753,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_of_mass_y:
     name: center_of_mass_y
     description: The y coordinate of the center of mass of the center of illumination
@@ -792,8 +780,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_of_mass_x:
     name: center_of_mass_x
     description: The x coordinate of the center of mass of the center of illumination
@@ -819,8 +807,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_of_mass_distance_relative:
     name: center_of_mass_distance_relative
     description: The relative distance of the centers of mass to the center of the
@@ -834,8 +822,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_geometric_y:
     name: center_geometric_y
     description: The y coordinate of the geometric center of the center of illumination
@@ -861,8 +849,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_geometric_x:
     name: center_geometric_x
     description: The x coordinate of the geometric center of the center of illumination
@@ -888,8 +876,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_geometric_distance_relative:
     name: center_geometric_distance_relative
     description: The relative distance of the geometric center to the center of the
@@ -903,8 +891,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   center_fitted_y:
     name: center_fitted_y
     description: The y coordinate of the fitted center of illumination. In pixels
@@ -929,8 +917,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_fitted_x:
     name: center_fitted_x
     description: The x coordinate of the fitted center of illumination. In pixels
@@ -955,8 +943,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   center_fitted_distance_relative:
     name: center_fitted_distance_relative
     description: The relative distance of the fitted center of illumination to the
@@ -970,8 +958,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   max_intensity:
     name: max_intensity
     description: The maximum intensity of the center of illumination
@@ -1008,8 +996,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   max_intensity_pos_x:
     name: max_intensity_pos_x
     description: The x coordinate of the maximum intensity of the center of illumination.
@@ -1035,8 +1023,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: -1.0
-    maximum_value: 1.0
+    minimum_value: -1
+    maximum_value: 1
   max_intensity_distance_relative:
     name: max_intensity_distance_relative
     description: The relative distance of the maximum intensity to the center of the
@@ -1050,8 +1038,8 @@ attributes:
     domain_of:
     - FieldIlluminationKeyValues
     range: float
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   top_left_intensity_mean:
     name: top_left_intensity_mean
     description: The mean intensity of the top-left corner of the image

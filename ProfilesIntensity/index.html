@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ProfilesIntensity/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ProfilesIntensity - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -204,15 +204,9 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ProfilesIntensity">microscopemetrics_schema:ProfilesIntensity</a></p>
 <div class="mermaid"> classDiagram
     class ProfilesIntensity
-    click ProfilesIntensity href "../ProfilesIntensity"
       ProfilesIntensity : intensity_profiles_table
 
-
-
-
-    ProfilesIntensity --&gt; "0..1" Table : intensity_profiles_table
-    click Table href "../Table"
-
+          ProfilesIntensity --&gt; Table : intensity_profiles_table
 
 
 </div>
@@ -290,8 +284,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - ProfilesIntensity
     range: Table
     required: false
 

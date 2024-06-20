@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MetricsOutput/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: MetricsOutput - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -212,24 +212,14 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/MetricsOutput">microscopemetrics_schema:MetricsOutput</a></p>
 <div class="mermaid"> classDiagram
     class MetricsOutput
-    click MetricsOutput href "../MetricsOutput"
-      MetricsOutput &lt;|-- FieldIlluminationOutput
-        click FieldIlluminationOutput href "../FieldIlluminationOutput"
-      MetricsOutput &lt;|-- PSFBeadsOutput
-        click PSFBeadsOutput href "../PSFBeadsOutput"
       MetricsOutput &lt;|-- ArgolightBOutput
-        click ArgolightBOutput href "../ArgolightBOutput"
       MetricsOutput &lt;|-- ArgolightEOutput
-        click ArgolightEOutput href "../ArgolightEOutput"
+      MetricsOutput &lt;|-- PSFBeadsOutput
+      MetricsOutput &lt;|-- FieldIlluminationOutput
 
       MetricsOutput : comment
 
-
-
-
-    MetricsOutput --&gt; "0..1" Comment : comment
-    click Comment href "../Comment"
-
+          MetricsOutput --&gt; Comment : comment
 
       MetricsOutput : errors
 
@@ -254,10 +244,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><strong>MetricsOutput</strong><ul>
-<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
-<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
 <li><a href="../ArgolightBOutput/">ArgolightBOutput</a></li>
 <li><a href="../ArgolightEOutput/">ArgolightEOutput</a></li>
+<li><a href="../PSFBeadsOutput/">PSFBeadsOutput</a></li>
+<li><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></li>
 </ul>
 </li>
 </ul>
@@ -286,13 +276,13 @@
 </tr>
 <tr>
 <td><a href="../processing_entity/">processing_entity</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
 <td>The entity that processed the dataset</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../processing_datetime/">processing_datetime</a></td>
-<td>1 <br/> <a href="../datetime/">datetime</a></td>
+<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
 <td>The datetime of the processing by microscope-metrics</td>
 <td>direct</td>
 </tr>
@@ -304,19 +294,19 @@
 </tr>
 <tr>
 <td><a href="../warnings/">warnings</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
 <td>The warnings of the processing by microscope-metrics</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../errors/">errors</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
+<td>0..* <br/> <a href="../String/">String</a></td>
 <td>The errors of the processing by microscope-metrics</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../validated/">validated</a></td>
-<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Has the dataset been validated by a human</td>
 <td>direct</td>
 </tr>
@@ -327,7 +317,7 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../comment/">comment</a></td>
+<td><a href="comment.md">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td>direct</td>
@@ -392,8 +382,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsOutput
     range: string
     required: true
   processing_version:
@@ -402,8 +390,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsOutput
     range: string
     required: true
   processing_entity:
@@ -412,8 +398,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsOutput
     range: string
     required: false
   processing_datetime:
@@ -422,8 +406,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - MetricsOutput
     range: datetime
     required: true
   processing_log:
@@ -432,8 +414,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - MetricsOutput
     range: string
     required: false
   warnings:
@@ -442,8 +422,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsOutput
     range: string
     required: false
   errors:
@@ -452,8 +430,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - MetricsOutput
     range: string
     required: false
   validated:
@@ -463,8 +439,6 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: 'False'
-    domain_of:
-    - MetricsOutput
     range: boolean
     required: true
   validation_datetime:
@@ -473,8 +447,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - MetricsOutput
     range: datetime
     required: false
   comment:
@@ -483,8 +455,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - MetricsOutput
     range: Comment
     required: false
 

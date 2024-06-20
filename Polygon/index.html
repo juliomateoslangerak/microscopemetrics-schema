@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Polygon/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Polygon - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,9 +209,7 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Polygon">microscopemetrics_schema:Polygon</a></p>
 <div class="mermaid"> classDiagram
     class Polygon
-    click Polygon href "../Polygon"
       Shape &lt;|-- Polygon
-        click Shape href "../Shape"
 
       Polygon : c
 
@@ -219,12 +217,7 @@
 
       Polygon : fill_color
 
-
-
-
-    Polygon --&gt; "0..1" Color : fill_color
-    click Color href "../Color"
-
+          Polygon --&gt; Color : fill_color
 
       Polygon : is_open
 
@@ -232,12 +225,7 @@
 
       Polygon : stroke_color
 
-
-
-
-    Polygon --&gt; "0..1" Color : stroke_color
-    click Color href "../Color"
-
+          Polygon --&gt; Color : stroke_color
 
       Polygon : stroke_width
 
@@ -245,12 +233,7 @@
 
       Polygon : vertexes
 
-
-
-
-    Polygon --&gt; "1..*" Vertex : vertexes
-    click Vertex href "../Vertex"
-
+          Polygon --&gt; Vertex : vertexes
 
       Polygon : z
 
@@ -285,7 +268,7 @@
 </tr>
 <tr>
 <td><a href="../is_open/">is_open</a></td>
-<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Is the polygon open</td>
 <td>direct</td>
 </tr>
@@ -351,13 +334,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td><a href="../polygons/">polygons</a></td>
 <td>range</td>
 <td><a href="./">Polygon</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td><a href="../Roi/">Roi</a></td>
 <td><a href="../polygons/">polygons</a></td>
 <td>range</td>
 <td><a href="./">Polygon</a></td>
@@ -404,8 +387,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Polygon
     range: Vertex
     required: true
   is_open:
@@ -415,8 +396,6 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: 'False'
-    domain_of:
-    - Polygon
     range: boolean
     required: true
 

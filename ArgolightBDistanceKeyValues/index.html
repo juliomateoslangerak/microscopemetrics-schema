@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBDistanceKeyValues/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBDistanceKeyValues - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,9 +208,7 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBDistanceKeyValues">microscopemetrics_schema:ArgolightBDistanceKeyValues</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBDistanceKeyValues
-    click ArgolightBDistanceKeyValues href "../ArgolightBDistanceKeyValues"
       KeyValues &lt;|-- ArgolightBDistanceKeyValues
-        click KeyValues href "../KeyValues"
 
       ArgolightBDistanceKeyValues : channel_A
 
@@ -218,23 +216,13 @@
 
       ArgolightBDistanceKeyValues : data_reference
 
-
-
-
-    ArgolightBDistanceKeyValues --&gt; "0..1" DataReference : data_reference
-    click DataReference href "../DataReference"
-
+          ArgolightBDistanceKeyValues --&gt; DataReference : data_reference
 
       ArgolightBDistanceKeyValues : description
 
       ArgolightBDistanceKeyValues : linked_references
 
-
-
-
-    ArgolightBDistanceKeyValues --&gt; "*" DataReference : linked_references
-    click DataReference href "../DataReference"
-
+          ArgolightBDistanceKeyValues --&gt; DataReference : linked_references
 
       ArgolightBDistanceKeyValues : mad_3d_dist
 
@@ -282,61 +270,61 @@
 <tbody>
 <tr>
 <td><a href="../channel_A/">channel_A</a></td>
-<td>* <br/> <a href="../Integer/">Integer</a></td>
+<td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The first channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../channel_B/">channel_B</a></td>
-<td>* <br/> <a href="../Integer/">Integer</a></td>
+<td>0..* <br/> <a href="../Integer/">Integer</a></td>
 <td>The second channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mean_3d_dist/">mean_3d_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean of the 3D distances between spots for each permutation of channel A and ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../median_3d_dist/">median_3d_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median of the 3D distances between spots for each permutation of channel A an...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../std_3d_dist/">std_3d_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the 3D distances between spots for each permutation of ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mad_3d_dist/">mad_3d_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median absolute deviation of the 3D distances between spots for each permutat...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mean_z_dist/">mean_z_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Mean of the Z distances between spots for each permutation of channel A and B</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../median_z_dist/">median_z_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median of the Z distances between spots for each permutation of channel A and...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../std_z_dist/">std_z_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of the Z distances between spots for each permutation of c...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mad_z_dist/">mad_z_dist</a></td>
-<td>* <br/> <a href="../Float/">Float</a></td>
+<td>0..* <br/> <a href="../Float/">Float</a></td>
 <td>Median absolute deviation of the Z distances between spots for each permutati...</td>
 <td>direct</td>
 </tr>
@@ -348,7 +336,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>

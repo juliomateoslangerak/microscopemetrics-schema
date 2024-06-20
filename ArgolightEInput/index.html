@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightEInput/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightEInput - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,18 +208,11 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightEInput">microscopemetrics_schema:ArgolightEInput</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightEInput
-    click ArgolightEInput href "../ArgolightEInput"
       MetricsInput &lt;|-- ArgolightEInput
-        click MetricsInput href "../MetricsInput"
 
       ArgolightEInput : argolight_e_image
 
-
-
-
-    ArgolightEInput --&gt; "1" Image : argolight_e_image
-    click Image href "../Image"
-
+          ArgolightEInput --&gt; Image : argolight_e_image
 
       ArgolightEInput : bit_depth
 
@@ -253,7 +246,7 @@
 <tbody>
 <tr>
 <td><a href="../argolight_e_image/">argolight_e_image</a></td>
-<td>1 <br/> <a href="../Image/">Image</a></td>
+<td>1..1 <br/> <a href="../Image/">Image</a></td>
 <td>Image of the argolight e pattern provided in the order TZYXC</td>
 <td>direct</td>
 </tr>
@@ -265,25 +258,25 @@
 </tr>
 <tr>
 <td><a href="../saturation_threshold/">saturation_threshold</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Tolerated saturation threshold</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../orientation_axis/">orientation_axis</a></td>
-<td>1 <br/> <a href="../Integer/">Integer</a></td>
+<td>1..1 <br/> <a href="../Integer/">Integer</a></td>
 <td>Axis along which resolution is being measured</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../measured_band/">measured_band</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Fraction of the image across which intensity profiles are measured</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../prominence_threshold/">prominence_threshold</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>Peak prominence used as a threshold to distinguish two peaks</td>
 <td>direct</td>
 </tr>
@@ -350,10 +343,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
 
 </code></pre>
@@ -367,10 +360,10 @@ slot_usage:
   saturation_threshold:
     name: saturation_threshold
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     required: true
 attributes:
   argolight_e_image:
@@ -394,10 +387,10 @@ attributes:
     alias: bit_depth
     owner: ArgolightEInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: integer
     minimum_value: 1
     maximum_value: 64
@@ -413,14 +406,14 @@ attributes:
     alias: saturation_threshold
     owner: ArgolightEInput
     domain_of:
-    - FieldIlluminationInput
-    - PSFBeadsInput
     - ArgolightBInput
     - ArgolightEInput
+    - PSFBeadsInput
+    - FieldIlluminationInput
     range: float
     required: true
-    minimum_value: 0.0
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   orientation_axis:
     name: orientation_axis
     description: Axis along which resolution is being measured. 1=Y, 2=X
@@ -448,8 +441,8 @@ attributes:
     - ArgolightEInput
     range: float
     required: true
-    minimum_value: 0.1
-    maximum_value: 1.0
+    minimum_value: 0
+    maximum_value: 1
   prominence_threshold:
     name: prominence_threshold
     description: Peak prominence used as a threshold to distinguish two peaks.  Defaults
@@ -464,8 +457,8 @@ attributes:
     - ArgolightEInput
     range: float
     required: true
-    minimum_value: 0.1
-    maximum_value: 0.99
+    minimum_value: 0
+    maximum_value: 0
 
 </code></pre>
 </details>

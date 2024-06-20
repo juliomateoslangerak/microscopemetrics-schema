@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBDataset/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBDataset - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -204,80 +204,43 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBDataset">microscopemetrics_schema:ArgolightBDataset</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBDataset
-    click ArgolightBDataset href "../ArgolightBDataset"
       MetricsDataset &lt;|-- ArgolightBDataset
-        click MetricsDataset href "../MetricsDataset"
 
       ArgolightBDataset : acquisition_datetime
 
       ArgolightBDataset : data_reference
 
-
-
-
-    ArgolightBDataset --&gt; "0..1" DataReference : data_reference
-    click DataReference href "../DataReference"
-
+          ArgolightBDataset --&gt; DataReference : data_reference
 
       ArgolightBDataset : description
 
       ArgolightBDataset : experimenter
 
-
-
-
-    ArgolightBDataset --&gt; "0..1" Experimenter : experimenter
-    click Experimenter href "../Experimenter"
-
+          ArgolightBDataset --&gt; Experimenter : experimenter
 
       ArgolightBDataset : input
 
-
-
-
-    ArgolightBDataset --&gt; "0..1" ArgolightBInput : input
-    click ArgolightBInput href "../ArgolightBInput"
-
+          ArgolightBDataset --&gt; ArgolightBInput : input
 
       ArgolightBDataset : linked_references
 
-
-
-
-    ArgolightBDataset --&gt; "*" DataReference : linked_references
-    click DataReference href "../DataReference"
-
+          ArgolightBDataset --&gt; DataReference : linked_references
 
       ArgolightBDataset : microscope
 
-
-
-
-    ArgolightBDataset --&gt; "1" Microscope : microscope
-    click Microscope href "../Microscope"
-
+          ArgolightBDataset --&gt; Microscope : microscope
 
       ArgolightBDataset : name
 
       ArgolightBDataset : output
 
-
-
-
-    ArgolightBDataset --&gt; "0..1" ArgolightBOutput : output
-    click ArgolightBOutput href "../ArgolightBOutput"
-
+          ArgolightBDataset --&gt; ArgolightBOutput : output
 
       ArgolightBDataset : processed
 
       ArgolightBDataset : sample
 
-
-
-
-    ArgolightBDataset --&gt; "0..1" Sample : sample
-    click Sample href "../Sample"
-
+          ArgolightBDataset --&gt; Sample : sample
 
 
 </div>
@@ -318,19 +281,19 @@
 <td>direct</td>
 </tr>
 <tr>
-<td><a href="../microscope/">microscope</a></td>
-<td>1 <br/> <a href="../Microscope/">Microscope</a></td>
+<td><a href="microscope.md">microscope</a></td>
+<td>1..1 <br/> <a href="../Microscope/">Microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../sample/">sample</a></td>
+<td><a href="sample.md">sample</a></td>
 <td>0..1 <br/> <a href="../Sample/">Sample</a></td>
 <td>The sample that was imaged</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
-<td><a href="../experimenter/">experimenter</a></td>
+<td><a href="experimenter.md">experimenter</a></td>
 <td>0..1 <br/> <a href="../Experimenter/">Experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
@@ -343,7 +306,7 @@
 </tr>
 <tr>
 <td><a href="../processed/">processed</a></td>
-<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Has the dataset been processed by microscope-metrics</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
@@ -355,7 +318,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -410,22 +373,12 @@ attributes:
   input:
     name: input
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
-    domain_of:
-    - MetricsDataset
-    - FieldIlluminationDataset
-    - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
+    rank: 1000
     range: ArgolightBInput
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
-    domain_of:
-    - MetricsDataset
-    - FieldIlluminationDataset
-    - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
+    rank: 1000
     range: ArgolightBOutput
 
 </code></pre>
@@ -441,26 +394,28 @@ attributes:
   input:
     name: input
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     alias: input
     owner: ArgolightBDataset
     domain_of:
-    - MetricsDataset
-    - FieldIlluminationDataset
-    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
+    - MetricsDataset
+    - PSFBeadsDataset
+    - FieldIlluminationDataset
     range: ArgolightBInput
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    rank: 1000
     alias: output
     owner: ArgolightBDataset
     domain_of:
-    - MetricsDataset
-    - FieldIlluminationDataset
-    - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
+    - MetricsDataset
+    - PSFBeadsDataset
+    - FieldIlluminationDataset
     range: ArgolightBOutput
   microscope:
     name: microscope

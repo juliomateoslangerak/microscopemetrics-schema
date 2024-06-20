@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/FieldIlluminationProfilesIntensity/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: FieldIlluminationProfilesIntensity - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -225,7 +225,7 @@
 
       FieldIlluminationProfilesIntensity : intensity_profiles_table
 
-          FieldIlluminationProfilesIntensity --&gt; Table : intensity_profiles_table
+          FieldIlluminationProfilesIntensity --&gt; TableAsDict : intensity_profiles_table
 
       FieldIlluminationProfilesIntensity : lines
 
@@ -236,16 +236,6 @@
           FieldIlluminationProfilesIntensity --&gt; Mask : masks
 
       FieldIlluminationProfilesIntensity : name
-
-      FieldIlluminationProfilesIntensity : omero_host
-
-      FieldIlluminationProfilesIntensity : omero_object_id
-
-      FieldIlluminationProfilesIntensity : omero_object_type
-
-          FieldIlluminationProfilesIntensity --&gt; OMEROObjectTypeEnum : omero_object_type
-
-      FieldIlluminationProfilesIntensity : omero_port
 
       FieldIlluminationProfilesIntensity : points
 
@@ -264,7 +254,7 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><a href="../MetricsObject/">MetricsObject</a> [ <a href="../DataReference/">DataReference</a>]<ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../Roi/">Roi</a><ul>
 <li><strong>FieldIlluminationProfilesIntensity</strong> [ <a href="../ProfilesIntensity/">ProfilesIntensity</a>]</li>
 </ul>
@@ -287,13 +277,13 @@
 <tbody>
 <tr>
 <td><a href="../intensity_profiles_table/">intensity_profiles_table</a></td>
-<td>1..1 <br/> <a href="../Table/">Table</a></td>
+<td>1..1 <br/> <a href="../TableAsDict/">TableAsDict</a></td>
 <td>Linked table of profiles</td>
 <td><a href="../ProfilesIntensity/">ProfilesIntensity</a></td>
 </tr>
 <tr>
-<td><a href="../image/">image</a></td>
-<td>1..* <br/> <a href="../Image/">Image</a></td>
+<td><a href="image.md">image</a></td>
+<td>0..* <br/> <a href="../Image/">Image</a></td>
 <td>The image or images to which the ROI is applied</td>
 <td><a href="../Roi/">Roi</a></td>
 </tr>
@@ -335,33 +325,9 @@
 </tr>
 <tr>
 <td><a href="../data_uri/">data_uri</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>1..1 <br/> <a href="../String/">String</a></td>
 <td>The URI of the object data</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_host/">omero_host</a></td>
-<td>0..1 <br/> <a href="../String/">String</a></td>
-<td>The host of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_port/">omero_port</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The port of the OMERO server</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_type/">omero_object_type</a></td>
-<td>0..1 <br/> <a href="../OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
-<td>The type of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
-</tr>
-<tr>
-<td><a href="../omero_object_id/">omero_object_id</a></td>
-<td>0..1 <br/> <a href="../Integer/">Integer</a></td>
-<td>The ID of the OMERO object</td>
-<td><a href="../DataReference/">DataReference</a></td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -450,9 +416,9 @@ attributes:
     owner: FieldIlluminationProfilesIntensity
     domain_of:
     - ProfilesIntensity
-    range: Table
+    range: TableAsDict
     required: true
-    inlined: true
+    inlined: false
   image:
     name: image
     description: The image or images to which the ROI is applied
@@ -464,7 +430,7 @@ attributes:
     domain_of:
     - Roi
     range: Image
-    required: true
+    required: false
     inlined: false
   points:
     name: points
@@ -548,58 +514,19 @@ attributes:
     - Roi
     range: Mask
     required: false
-    inlined: true
-    inlined_as_list: false
+    inlined: false
   data_uri:
     name: data_uri
     description: The URI of the object data
     from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
     rank: 1000
+    identifier: true
     alias: data_uri
     owner: FieldIlluminationProfilesIntensity
     domain_of:
-    - DataReference
+    - MetricsObject
     range: string
-  omero_host:
-    name: omero_host
-    description: The host of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_host
-    owner: FieldIlluminationProfilesIntensity
-    domain_of:
-    - DataReference
-    range: string
-  omero_port:
-    name: omero_port
-    description: The port of the OMERO server
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_port
-    owner: FieldIlluminationProfilesIntensity
-    domain_of:
-    - DataReference
-    range: integer
-  omero_object_type:
-    name: omero_object_type
-    description: The type of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_type
-    owner: FieldIlluminationProfilesIntensity
-    domain_of:
-    - DataReference
-    range: OMEROObjectTypeEnum
-  omero_object_id:
-    name: omero_object_id
-    description: The ID of the OMERO object
-    from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: omero_object_id
-    owner: FieldIlluminationProfilesIntensity
-    domain_of:
-    - DataReference
-    range: integer
+    required: true
   name:
     name: name
     description: The human readable name of an entity

@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Roi/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Roi - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,90 +209,47 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Roi">microscopemetrics_schema:Roi</a></p>
 <div class="mermaid"> classDiagram
     class Roi
-    click Roi href "../Roi"
       MetricsObject &lt;|-- Roi
-        click MetricsObject href "../MetricsObject"
 
 
       Roi &lt;|-- ArgolightBCentersOfMass
-        click ArgolightBCentersOfMass href "../ArgolightBCentersOfMass"
 
 
       Roi : data_reference
 
-
-
-
-    Roi --&gt; "0..1" DataReference : data_reference
-    click DataReference href "../DataReference"
-
+          Roi --&gt; DataReference : data_reference
 
       Roi : description
 
       Roi : ellipses
 
-
-
-
-    Roi --&gt; "*" Ellipse : ellipses
-    click Ellipse href "../Ellipse"
-
+          Roi --&gt; Ellipse : ellipses
 
       Roi : lines
 
-
-
-
-    Roi --&gt; "*" Line : lines
-    click Line href "../Line"
-
+          Roi --&gt; Line : lines
 
       Roi : linked_references
 
-
-
-
-    Roi --&gt; "*" DataReference : linked_references
-    click DataReference href "../DataReference"
-
+          Roi --&gt; DataReference : linked_references
 
       Roi : masks
 
-
-
-
-    Roi --&gt; "*" Mask : masks
-    click Mask href "../Mask"
-
+          Roi --&gt; Mask : masks
 
       Roi : name
 
       Roi : points
 
-
-
-
-    Roi --&gt; "*" Point : points
-    click Point href "../Point"
-
+          Roi --&gt; Point : points
 
       Roi : polygons
 
-
-
-
-    Roi --&gt; "*" Polygon : polygons
-    click Polygon href "../Polygon"
-
+          Roi --&gt; Polygon : polygons
 
       Roi : rectangles
 
-
-
-
-    Roi --&gt; "*" Rectangle : rectangles
-    click Rectangle href "../Rectangle"
-
+          Roi --&gt; Rectangle : rectangles
 
 
 </div>
@@ -322,37 +279,37 @@
 <tbody>
 <tr>
 <td><a href="../points/">points</a></td>
-<td>* <br/> <a href="../Point/">Point</a></td>
+<td>0..* <br/> <a href="../Point/">Point</a></td>
 <td>A list of points included in the ROI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../lines/">lines</a></td>
-<td>* <br/> <a href="../Line/">Line</a></td>
+<td>0..* <br/> <a href="../Line/">Line</a></td>
 <td>A list of lines included in the ROI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../rectangles/">rectangles</a></td>
-<td>* <br/> <a href="../Rectangle/">Rectangle</a></td>
+<td>0..* <br/> <a href="../Rectangle/">Rectangle</a></td>
 <td>A list of rectangles included in the ROI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../ellipses/">ellipses</a></td>
-<td>* <br/> <a href="../Ellipse/">Ellipse</a></td>
+<td>0..* <br/> <a href="../Ellipse/">Ellipse</a></td>
 <td>A list of ellipses included in the ROI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../polygons/">polygons</a></td>
-<td>* <br/> <a href="../Polygon/">Polygon</a></td>
+<td>0..* <br/> <a href="../Polygon/">Polygon</a></td>
 <td>A list of polygons included in the ROI</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../masks/">masks</a></td>
-<td>* <br/> <a href="../Mask/">Mask</a></td>
+<td>0..* <br/> <a href="../Mask/">Mask</a></td>
 <td>A list of masks included in the ROI</td>
 <td>direct</td>
 </tr>
@@ -364,7 +321,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -394,44 +351,8 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_profiles/">roi_profiles</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_corners/">roi_corners</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
-<td>range</td>
-<td><a href="./">Roi</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
-<td><a href="../roi_center_region/">roi_center_region</a></td>
+<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
+<td><a href="../peaks_rois/">peaks_rois</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -484,8 +405,44 @@
 <td><a href="./">Roi</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td><a href="../peaks_rois/">peaks_rois</a></td>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_profiles/">roi_profiles</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_corners/">roi_corners</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_of_mass/">roi_centers_of_mass</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_geometric/">roi_centers_geometric</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_fitted/">roi_centers_fitted</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_centers_max_intensity/">roi_centers_max_intensity</a></td>
+<td>range</td>
+<td><a href="./">Roi</a></td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../roi_center_region/">roi_center_region</a></td>
 <td>range</td>
 <td><a href="./">Roi</a></td>
 </tr>
@@ -531,8 +488,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Point
     required: false
     inlined: true
@@ -543,8 +498,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Line
     required: false
     inlined: true
@@ -555,8 +508,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Rectangle
     required: false
     inlined: true
@@ -567,8 +518,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Ellipse
     required: false
     inlined: true
@@ -579,8 +528,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Polygon
     required: false
     inlined: true
@@ -591,8 +538,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: true
-    domain_of:
-    - Roi
     range: Mask
     required: false
     inlined: true

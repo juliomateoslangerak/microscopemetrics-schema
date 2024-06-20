@@ -11,7 +11,7 @@
         <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/center_of_illumination/">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-8.5.10">
     
     
       
@@ -317,7 +317,7 @@
 
 
 <h1 id="slot-center_of_illumination">Slot: center_of_illumination</h1>
-<p><em>Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. One point per channel.</em></p>
+<p><em>Point ROIs marking the center of mass of the area of maximum illumination 90 percentile of the intensity. When the image is very flat, the 99 percentile is used instead. One point per channel.</em></p>
 <p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/center_of_illumination">microscopemetrics_schema:center_of_illumination</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -357,7 +357,8 @@
 
 <pre><code class="language-yaml">name: center_of_illumination
 description: Point ROIs marking the center of mass of the area of maximum illumination
-  90 percentile of the intensity. One point per channel.
+  90 percentile of the intensity. When the image is very flat, the 99 percentile is
+  used instead. One point per channel.
 from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
 rank: 1000
 multivalued: true

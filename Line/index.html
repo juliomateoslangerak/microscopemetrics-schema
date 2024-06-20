@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Line/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Line - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,9 +209,7 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Line">microscopemetrics_schema:Line</a></p>
 <div class="mermaid"> classDiagram
     class Line
-    click Line href "../Line"
       Shape &lt;|-- Line
-        click Shape href "../Shape"
 
       Line : c
 
@@ -219,23 +217,13 @@
 
       Line : fill_color
 
-
-
-
-    Line --&gt; "0..1" Color : fill_color
-    click Color href "../Color"
-
+          Line --&gt; Color : fill_color
 
       Line : name
 
       Line : stroke_color
 
-
-
-
-    Line --&gt; "0..1" Color : stroke_color
-    click Color href "../Color"
-
+          Line --&gt; Color : stroke_color
 
       Line : stroke_width
 
@@ -276,25 +264,25 @@
 <tbody>
 <tr>
 <td><a href="../x1/">x1</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the first point of the line</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../y1/">y1</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the first point of the line</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../x2/">x2</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>The x coordinate of the second point of the line</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../y2/">y2</a></td>
-<td>1 <br/> <a href="../Float/">Float</a></td>
+<td>1..1 <br/> <a href="../Float/">Float</a></td>
 <td>The y coordinate of the second point of the line</td>
 <td>direct</td>
 </tr>
@@ -360,13 +348,13 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../Roi/">Roi</a></td>
+<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td><a href="../lines/">lines</a></td>
 <td>range</td>
 <td><a href="./">Line</a></td>
 </tr>
 <tr>
-<td><a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td><a href="../Roi/">Roi</a></td>
 <td><a href="../lines/">lines</a></td>
 <td>range</td>
 <td><a href="./">Line</a></td>
@@ -412,8 +400,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - Line
     range: float
     required: true
   y1:
@@ -422,8 +408,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - Line
     range: float
     required: true
   x2:
@@ -432,8 +416,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - Line
     range: float
     required: true
   y2:
@@ -442,8 +424,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - Line
     range: float
     required: true
 

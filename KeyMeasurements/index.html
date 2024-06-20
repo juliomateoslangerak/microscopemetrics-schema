@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyMeasurements/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: KeyMeasurements - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -207,47 +207,28 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyMeasurements">microscopemetrics_schema:KeyMeasurements</a></p>
 <div class="mermaid"> classDiagram
     class KeyMeasurements
-    click KeyMeasurements href "../KeyMeasurements"
       KeyValues &lt;|-- KeyMeasurements
-        click KeyValues href "../KeyValues"
 
 
-      KeyMeasurements &lt;|-- FieldIlluminationKeyMeasurements
-        click FieldIlluminationKeyMeasurements href "../FieldIlluminationKeyMeasurements"
       KeyMeasurements &lt;|-- PSFBeadsKeyMeasurements
-        click PSFBeadsKeyMeasurements href "../PSFBeadsKeyMeasurements"
+      KeyMeasurements &lt;|-- FieldIlluminationKeyMeasurements
 
 
       KeyMeasurements : data_reference
 
-
-
-
-    KeyMeasurements --&gt; "0..1" DataReference : data_reference
-    click DataReference href "../DataReference"
-
+          KeyMeasurements --&gt; DataReference : data_reference
 
       KeyMeasurements : description
 
       KeyMeasurements : linked_references
 
-
-
-
-    KeyMeasurements --&gt; "*" DataReference : linked_references
-    click DataReference href "../DataReference"
-
+          KeyMeasurements --&gt; DataReference : linked_references
 
       KeyMeasurements : name
 
       KeyMeasurements : table_data
 
-
-
-
-    KeyMeasurements --&gt; "0..1" MetaObject : table_data
-    click MetaObject href "../MetaObject"
-
+          KeyMeasurements --&gt; MetaObject : table_data
 
 
 </div>
@@ -257,8 +238,8 @@
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><a href="../KeyValues/">KeyValues</a><ul>
 <li><strong>KeyMeasurements</strong><ul>
-<li><a href="../FieldIlluminationKeyMeasurements/">FieldIlluminationKeyMeasurements</a></li>
 <li><a href="../PSFBeadsKeyMeasurements/">PSFBeadsKeyMeasurements</a></li>
+<li><a href="../FieldIlluminationKeyMeasurements/">FieldIlluminationKeyMeasurements</a></li>
 </ul>
 </li>
 </ul>
@@ -293,7 +274,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -351,9 +332,6 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
-    domain_of:
-    - KeyMeasurements
-    - Table
     range: MetaObject
     required: false
 
