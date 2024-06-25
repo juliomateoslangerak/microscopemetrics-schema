@@ -240,6 +240,8 @@
 
       PSFBeadsKeyMeasurements : average_bead_intensity_std
 
+      PSFBeadsKeyMeasurements : channel_name
+
       PSFBeadsKeyMeasurements : channel_nr
 
       PSFBeadsKeyMeasurements : considered_axial_edge_count
@@ -402,6 +404,12 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../channel_name/">channel_name</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>The channel name to which the measurements apply</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../channel_nr/">channel_nr</a></td>
 <td>* <br/> <a href="../Integer/">Integer</a></td>
@@ -875,6 +883,7 @@
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: KeyMeasurements
 slots:
+- channel_name
 - channel_nr
 - considered_valid_count
 - considered_self_proximity_count
@@ -949,6 +958,18 @@ slots:
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: KeyMeasurements
 attributes:
+  channel_name:
+    name: channel_name
+    description: The channel name to which the measurements apply
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: channel_name
+    owner: PSFBeadsKeyMeasurements
+    domain_of:
+    - FieldIlluminationKeyMeasurements
+    - PSFBeadsKeyMeasurements
+    range: string
   channel_nr:
     name: channel_nr
     description: The channel number to which the measurements apply
@@ -958,6 +979,7 @@ attributes:
     alias: channel_nr
     owner: PSFBeadsKeyMeasurements
     domain_of:
+    - Channel
     - FieldIlluminationKeyMeasurements
     - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues

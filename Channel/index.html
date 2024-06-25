@@ -213,6 +213,10 @@
       NamedObject &lt;|-- Channel
         click NamedObject href "../NamedObject"
 
+      Channel : channel_id
+
+      Channel : channel_nr
+
       Channel : description
 
       Channel : emission_wavelength_nm
@@ -241,6 +245,18 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><a href="../channel_nr/">channel_nr</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
+<td>The channel number to which the measurements apply</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../channel_id/">channel_id</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>The channel id to which the measurements apply</td>
+<td>direct</td>
+</tr>
 <tr>
 <td><a href="../excitation_wavelength_nm/">excitation_wavelength_nm</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
@@ -319,6 +335,8 @@ description: A image channel
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: NamedObject
 slots:
+- channel_nr
+- channel_id
 - excitation_wavelength_nm
 - emission_wavelength_nm
 
@@ -331,6 +349,34 @@ description: A image channel
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: NamedObject
 attributes:
+  channel_nr:
+    name: channel_nr
+    description: The channel number to which the measurements apply
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: channel_nr
+    owner: Channel
+    domain_of:
+    - Channel
+    - FieldIlluminationKeyMeasurements
+    - PSFBeadsKeyMeasurements
+    - ArgolightBIntensityKeyValues
+    - ArgolightEKeyValues
+    range: integer
+    minimum_value: 0
+  channel_id:
+    name: channel_id
+    description: The channel id to which the measurements apply
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: channel_id
+    owner: Channel
+    domain_of:
+    - Channel
+    - FieldIlluminationKeyMeasurements
+    range: string
   excitation_wavelength_nm:
     name: excitation_wavelength_nm
     description: The excitation wavelength in nm

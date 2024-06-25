@@ -258,6 +258,8 @@
 
       FieldIlluminationKeyMeasurements : center_region_intensity_fraction
 
+      FieldIlluminationKeyMeasurements : channel_id
+
       FieldIlluminationKeyMeasurements : channel_name
 
       FieldIlluminationKeyMeasurements : channel_nr
@@ -384,6 +386,12 @@
 <td><a href="../channel_nr/">channel_nr</a></td>
 <td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../channel_id/">channel_id</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
+<td>The channel id to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -719,6 +727,7 @@ slots:
 - image_id
 - channel_name
 - channel_nr
+- channel_id
 - center_region_intensity_fraction
 - center_region_area_fraction
 - center_of_mass_y
@@ -802,6 +811,7 @@ attributes:
     owner: FieldIlluminationKeyMeasurements
     domain_of:
     - FieldIlluminationKeyMeasurements
+    - PSFBeadsKeyMeasurements
     range: string
   channel_nr:
     name: channel_nr
@@ -812,12 +822,25 @@ attributes:
     alias: channel_nr
     owner: FieldIlluminationKeyMeasurements
     domain_of:
+    - Channel
     - FieldIlluminationKeyMeasurements
     - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
     range: integer
     minimum_value: 0
+  channel_id:
+    name: channel_id
+    description: The channel id to which the measurements apply
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
+    rank: 1000
+    multivalued: true
+    alias: channel_id
+    owner: FieldIlluminationKeyMeasurements
+    domain_of:
+    - Channel
+    - FieldIlluminationKeyMeasurements
+    range: string
   center_region_intensity_fraction:
     name: center_region_intensity_fraction
     description: The fraction of the upper intensity range occupied by the center
