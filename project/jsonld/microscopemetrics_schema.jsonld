@@ -496,6 +496,34 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "image_name",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_name",
+      "description": "The name of the image where the measurement was taken",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_name",
+      "multivalued": true,
+      "owner": "FieldIlluminationKeyMeasurements",
+      "domain_of": [
+        "FieldIlluminationKeyMeasurements"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "image_id",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_id",
+      "description": "The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_id",
+      "multivalued": true,
+      "owner": "FieldIlluminationKeyMeasurements",
+      "domain_of": [
+        "FieldIlluminationKeyMeasurements"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "channel_nr",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_nr",
       "description": "The channel number to which the measurements apply",
@@ -504,6 +532,7 @@
       "multivalued": true,
       "owner": "ArgolightEKeyValues",
       "domain_of": [
+        "FieldIlluminationKeyMeasurements",
         "PSFBeadsKeyMeasurements",
         "ArgolightBIntensityKeyValues",
         "ArgolightEKeyValues"
@@ -559,8 +588,8 @@
         "ArgolightEInput"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -635,8 +664,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.01,
+      "maximum_value": 0.49,
       "@type": "SlotDefinition"
     },
     {
@@ -652,8 +681,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 2,
-      "maximum_value": 8,
+      "minimum_value": 2.0,
+      "maximum_value": 8.0,
       "@type": "SlotDefinition"
     },
     {
@@ -668,8 +697,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -684,8 +713,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -714,8 +743,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -744,8 +773,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -760,8 +789,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -790,8 +819,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -820,8 +849,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -836,8 +865,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -866,8 +895,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -896,8 +925,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -912,8 +941,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -956,8 +985,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -986,8 +1015,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": -1,
-      "maximum_value": 1,
+      "minimum_value": -1.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1002,8 +1031,8 @@
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -1288,8 +1317,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 10,
-      "maximum_value": 30,
+      "minimum_value": 10.0,
+      "maximum_value": 30.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2632,8 +2661,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.1,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -2649,8 +2678,8 @@
       ],
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 0,
+      "minimum_value": 0.1,
+      "maximum_value": 0.99,
       "@type": "SlotDefinition"
     },
     {
@@ -4904,8 +4933,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -4986,8 +5015,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     },
     {
@@ -5008,8 +5037,8 @@
       "usage_slot_name": "sigma_z",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 5,
+      "minimum_value": 0.0,
+      "maximum_value": 5.0,
       "@type": "SlotDefinition"
     },
     {
@@ -5030,8 +5059,8 @@
       "usage_slot_name": "sigma_y",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -5052,8 +5081,8 @@
       "usage_slot_name": "sigma_x",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 10,
+      "minimum_value": 0.0,
+      "maximum_value": 10.0,
       "@type": "SlotDefinition"
     },
     {
@@ -5074,8 +5103,8 @@
       "usage_slot_name": "saturation_threshold",
       "range": "float",
       "required": true,
-      "minimum_value": 0,
-      "maximum_value": 1,
+      "minimum_value": 0.0,
+      "maximum_value": 1.0,
       "@type": "SlotDefinition"
     }
   ],
@@ -6800,7 +6829,10 @@
         "metricsObject__data_reference",
         "metricsObject__linked_references",
         "keyMeasurements__table_data",
+        "image_name",
+        "image_id",
         "channel_name",
+        "channel_nr",
         "center_region_intensity_fraction",
         "center_region_area_fraction",
         "center_of_mass_y",
@@ -7463,9 +7495,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-05-21T12:26:40",
+  "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-20T18:01:09",
+  "generation_date": "2024-06-25T15:51:21",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -817,6 +817,16 @@ slots:
     description: The emission wavelength in nm
     required: false
     multivalued: false
+  image_name:
+    range: string
+    description: >-
+      The name of the image where the measurement was taken
+    multivalued: true
+  image_id:
+    range: string
+    description: >-
+      The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.
+    multivalued: true
   channel_nr:
     range: integer
     description: >-

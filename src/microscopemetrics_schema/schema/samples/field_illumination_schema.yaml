@@ -94,7 +94,10 @@ classes:
   FieldIlluminationKeyMeasurements:
     is_a: KeyMeasurements
     slots:
+      - image_name
+      - image_id
       - channel_name
+      - channel_nr
       - center_region_intensity_fraction
       - center_region_area_fraction
       - center_of_mass_y

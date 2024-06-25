@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-20T18:01:15
+# Generation date: 2024-06-25T15:51:23
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -11,6 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -1385,7 +1386,10 @@ class FieldIlluminationKeyMeasurements(KeyMeasurements):
     class_name: ClassVar[str] = "FieldIlluminationKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyMeasurements
 
+    image_name: Optional[Union[str, List[str]]] = empty_list()
+    image_id: Optional[Union[str, List[str]]] = empty_list()
     channel_name: Optional[Union[str, List[str]]] = empty_list()
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_of_mass_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1429,9 +1433,21 @@ class FieldIlluminationKeyMeasurements(KeyMeasurements):
     bottom_right_intensity_ratio: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.image_name, list):
+            self.image_name = [self.image_name] if self.image_name is not None else []
+        self.image_name = [v if isinstance(v, str) else str(v) for v in self.image_name]
+
+        if not isinstance(self.image_id, list):
+            self.image_id = [self.image_id] if self.image_id is not None else []
+        self.image_id = [v if isinstance(v, str) else str(v) for v in self.image_id]
+
         if not isinstance(self.channel_name, list):
             self.channel_name = [self.channel_name] if self.channel_name is not None else []
         self.channel_name = [v if isinstance(v, str) else str(v) for v in self.channel_name]
+
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
 
         if not isinstance(self.center_region_intensity_fraction, list):
             self.center_region_intensity_fraction = [self.center_region_intensity_fraction] if self.center_region_intensity_fraction is not None else []
@@ -2680,6 +2696,12 @@ slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/
 
 slots.emission_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/emission_wavelength_nm'], name="emission_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/emission_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.emission_wavelength_nm, domain=None, range=Optional[float])
+
+slots.image_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image_name'], name="image_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image_name'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image_name, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.image_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/image_id'], name="image_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/image_id'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image_id, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_nr'], name="channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_nr'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel_nr, domain=None, range=Optional[Union[int, List[int]]])

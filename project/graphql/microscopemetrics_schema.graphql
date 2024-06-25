@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
@@ -274,7 +275,10 @@ type FieldIlluminationKeyMeasurements
     dataReference: DataReference
     linkedReferences: [DataReference]
     tableData: MetaObject
+    imageName: [String]
+    imageId: [String]
     channelName: [String]
+    channelNr: [Integer]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
     centerOfMassY: [Float]
