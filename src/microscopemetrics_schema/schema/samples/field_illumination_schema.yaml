@@ -98,6 +98,7 @@ classes:
       - image_id
       - channel_name
       - channel_nr
+      - channel_id
       - center_region_intensity_fraction
       - center_region_area_fraction
       - center_of_mass_y
