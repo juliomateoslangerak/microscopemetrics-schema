@@ -210,18 +210,32 @@
 <div class="mermaid"> classDiagram
     class Channel
     click Channel href "../Channel"
-      NamedObject &lt;|-- Channel
-        click NamedObject href "../NamedObject"
+      MetricsObject &lt;|-- Channel
+        click MetricsObject href "../MetricsObject"
 
-      Channel : channel_id
+      Channel : data_reference
 
-      Channel : channel_nr
+
+
+
+    Channel --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       Channel : description
 
       Channel : emission_wavelength_nm
 
       Channel : excitation_wavelength_nm
+
+      Channel : linked_references
+
+
+
+
+    Channel --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       Channel : name
 
@@ -230,7 +244,10 @@
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
+<li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>Channel</strong></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -246,18 +263,6 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../channel_nr/">channel_nr</a></td>
-<td>* <br/> <a href="../Integer/">Integer</a></td>
-<td>The channel number to which the measurements apply</td>
-<td>direct</td>
-</tr>
-<tr>
-<td><a href="../channel_id/">channel_id</a></td>
-<td>* <br/> <a href="../String/">String</a></td>
-<td>The channel id to which the measurements apply</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../excitation_wavelength_nm/">excitation_wavelength_nm</a></td>
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
 <td>The excitation wavelength in nm</td>
@@ -268,6 +273,18 @@
 <td>0..1 <br/> <a href="../Float/">Float</a></td>
 <td>The emission wavelength in nm</td>
 <td>direct</td>
+</tr>
+<tr>
+<td><a href="../data_reference/">data_reference</a></td>
+<td>0..1 <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A reference to the data</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
+</tr>
+<tr>
+<td><a href="../linked_references/">linked_references</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>A list of linked references</td>
+<td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
 <tr>
 <td><a href="../name/">name</a></td>
@@ -333,10 +350,8 @@
 <pre><code class="language-yaml">name: Channel
 description: A image channel
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-is_a: NamedObject
+is_a: MetricsObject
 slots:
-- channel_nr
-- channel_id
 - excitation_wavelength_nm
 - emission_wavelength_nm
 
@@ -347,36 +362,8 @@ slots:
 <pre><code class="language-yaml">name: Channel
 description: A image channel
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-is_a: NamedObject
+is_a: MetricsObject
 attributes:
-  channel_nr:
-    name: channel_nr
-    description: The channel number to which the measurements apply
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: channel_nr
-    owner: Channel
-    domain_of:
-    - Channel
-    - FieldIlluminationKeyMeasurements
-    - PSFBeadsKeyMeasurements
-    - ArgolightBIntensityKeyValues
-    - ArgolightEKeyValues
-    range: integer
-    minimum_value: 0
-  channel_id:
-    name: channel_id
-    description: The channel id to which the measurements apply
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-    rank: 1000
-    multivalued: true
-    alias: channel_id
-    owner: Channel
-    domain_of:
-    - Channel
-    - FieldIlluminationKeyMeasurements
-    range: string
   excitation_wavelength_nm:
     name: excitation_wavelength_nm
     description: The excitation wavelength in nm
@@ -401,6 +388,32 @@ attributes:
     - Channel
     range: float
     required: false
+  data_reference:
+    name: data_reference
+    description: A reference to the data
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: false
+    alias: data_reference
+    owner: Channel
+    domain_of:
+    - MetricsObject
+    range: DataReference
+    required: false
+  linked_references:
+    name: linked_references
+    description: A list of linked references
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    rank: 1000
+    multivalued: true
+    alias: linked_references
+    owner: Channel
+    domain_of:
+    - MetricsObject
+    range: DataReference
+    required: false
+    inlined: true
+    inlined_as_list: true
   name:
     name: name
     description: The human readable name of an entity
