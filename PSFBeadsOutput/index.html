@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PSFBeadsOutput/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: PSFBeadsOutput - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,69 +208,146 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/PSFBeadsOutput">microscopemetrics_schema:PSFBeadsOutput</a></p>
 <div class="mermaid"> classDiagram
     class PSFBeadsOutput
+    click PSFBeadsOutput href "../PSFBeadsOutput"
       MetricsOutput &lt;|-- PSFBeadsOutput
+        click MetricsOutput href "../MetricsOutput"
 
       PSFBeadsOutput : analyzed_bead_centers
 
-          PSFBeadsOutput --&gt; Roi : analyzed_bead_centers
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : analyzed_bead_centers
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : average_bead
 
-          PSFBeadsOutput --&gt; Image : average_bead
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Image : average_bead
+    click Image href "../Image"
+
 
       PSFBeadsOutput : bead_profiles_x
 
-          PSFBeadsOutput --&gt; Table : bead_profiles_x
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_x
+    click Table href "../Table"
+
 
       PSFBeadsOutput : bead_profiles_y
 
-          PSFBeadsOutput --&gt; Table : bead_profiles_y
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_y
+    click Table href "../Table"
+
 
       PSFBeadsOutput : bead_profiles_z
 
-          PSFBeadsOutput --&gt; Table : bead_profiles_z
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_profiles_z
+    click Table href "../Table"
+
 
       PSFBeadsOutput : bead_properties
 
-          PSFBeadsOutput --&gt; Table : bead_properties
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Table : bead_properties
+    click Table href "../Table"
+
 
       PSFBeadsOutput : comment
 
-          PSFBeadsOutput --&gt; Comment : comment
+
+
+
+    PSFBeadsOutput --&gt; "0..1" Comment : comment
+    click Comment href "../Comment"
+
 
       PSFBeadsOutput : considered_bead_centers_axial_edge
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_axial_edge
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_axial_edge
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_intensity_outlier
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_intensity_outlier
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_intensity_outlier
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_lateral_edge
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_lateral_edge
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_lateral_edge
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_self_proximity
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_self_proximity
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_self_proximity
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_x_fit_quality
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_x_fit_quality
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_x_fit_quality
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_y_fit_quality
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_y_fit_quality
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_y_fit_quality
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : considered_bead_centers_z_fit_quality
 
-          PSFBeadsOutput --&gt; Roi : considered_bead_centers_z_fit_quality
+
+
+
+    PSFBeadsOutput --&gt; "*" Roi : considered_bead_centers_z_fit_quality
+    click Roi href "../Roi"
+
 
       PSFBeadsOutput : errors
 
       PSFBeadsOutput : key_measurements
 
-          PSFBeadsOutput --&gt; PSFBeadsKeyMeasurements : key_measurements
+
+
+
+    PSFBeadsOutput --&gt; "0..1" PSFBeadsKeyMeasurements : key_measurements
+    click PSFBeadsKeyMeasurements href "../PSFBeadsKeyMeasurements"
+
 
       PSFBeadsOutput : processing_application
 
@@ -310,49 +387,49 @@
 <tbody>
 <tr>
 <td><a href="../analyzed_bead_centers/">analyzed_bead_centers</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads that have been analyzed</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_lateral_edge/">considered_bead_centers_lateral_edge</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as too close to the edge of ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_self_proximity/">considered_bead_centers_self_proximity</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as too close to another bead</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_axial_edge/">considered_bead_centers_axial_edge</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as too close to the top and ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_intensity_outlier/">considered_bead_centers_intensity_outlier</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as being too intense and pot...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_z_fit_quality/">considered_bead_centers_z_fit_quality</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as the fit quality in z was ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_y_fit_quality/">considered_bead_centers_y_fit_quality</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as the fit quality in y was ...</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../considered_bead_centers_x_fit_quality/">considered_bead_centers_x_fit_quality</a></td>
-<td>0..* <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>The centers of the beads detected but considered as the fit quality in x was ...</td>
 <td>direct</td>
 </tr>
@@ -406,13 +483,13 @@
 </tr>
 <tr>
 <td><a href="../processing_entity/">processing_entity</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The entity that processed the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../processing_datetime/">processing_datetime</a></td>
-<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>1 <br/> <a href="../datetime/">datetime</a></td>
 <td>The datetime of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -424,19 +501,19 @@
 </tr>
 <tr>
 <td><a href="../warnings/">warnings</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The warnings of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../errors/">errors</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The errors of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../validated/">validated</a></td>
-<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Has the dataset been validated by a human</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -447,7 +524,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="../comment/">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -512,6 +589,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -523,6 +602,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -534,6 +615,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -545,6 +628,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -557,6 +642,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -569,6 +656,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -581,6 +670,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -593,6 +684,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - PSFBeadsOutput
     range: Roi
     inlined: true
     inlined_as_list: true
@@ -601,6 +694,10 @@ attributes:
     description: The key measurements of the PSF beads analysis.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     multivalued: false
+    domain_of:
+    - FieldIlluminationOutput
+    - PSFBeadsOutput
+    - ArgolightEOutput
     range: PSFBeadsKeyMeasurements
     inlined: true
     inlined_as_list: true
@@ -610,6 +707,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -620,6 +719,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -630,6 +731,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -640,6 +743,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - PSFBeadsOutput
     range: Table
     inlined: true
     inlined_as_list: true
@@ -652,6 +757,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - PSFBeadsOutput
     range: Image
     required: false
     inlined: true
@@ -796,9 +903,9 @@ attributes:
     alias: key_measurements
     owner: PSFBeadsOutput
     domain_of:
-    - ArgolightEOutput
-    - PSFBeadsOutput
     - FieldIlluminationOutput
+    - PSFBeadsOutput
+    - ArgolightEOutput
     range: PSFBeadsKeyMeasurements
     inlined: true
     inlined_as_list: true

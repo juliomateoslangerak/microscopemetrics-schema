@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightEKeyValues/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightEKeyValues - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,13 +208,20 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightEKeyValues">microscopemetrics_schema:ArgolightEKeyValues</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightEKeyValues
+    click ArgolightEKeyValues href "../ArgolightEKeyValues"
       KeyValues &lt;|-- ArgolightEKeyValues
+        click KeyValues href "../KeyValues"
 
       ArgolightEKeyValues : channel_nr
 
       ArgolightEKeyValues : data_reference
 
-          ArgolightEKeyValues --&gt; DataReference : data_reference
+
+
+
+    ArgolightEKeyValues --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       ArgolightEKeyValues : description
 
@@ -222,7 +229,12 @@
 
       ArgolightEKeyValues : linked_references
 
-          ArgolightEKeyValues --&gt; DataReference : linked_references
+
+
+
+    ArgolightEKeyValues --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       ArgolightEKeyValues : name
 
@@ -270,61 +282,61 @@
 <tbody>
 <tr>
 <td><a href="../channel_nr/">channel_nr</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../focus_slice/">focus_slice</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>Z position at which focus has been measured</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../rayleigh_resolution_pixels/">rayleigh_resolution_pixels</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Rayleigh resolution measured in pixels</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../rayleigh_resolution_microns/">rayleigh_resolution_microns</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Rayleigh resolution measured in microns</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_position_A/">peak_position_A</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Position, in pixels, of first peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_position_B/">peak_position_B</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Position, in pixels, of second peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_height_A/">peak_height_A</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Height of first peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_height_B/">peak_height_B</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Height of second peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_prominence_A/">peak_prominence_A</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Prominence of first peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../peak_prominence_B/">peak_prominence_B</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Prominence of second peak in the intensity profiles</td>
 <td>direct</td>
 </tr>
@@ -336,7 +348,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -433,9 +445,10 @@ attributes:
     alias: channel_nr
     owner: ArgolightEKeyValues
     domain_of:
+    - FieldIlluminationKeyMeasurements
+    - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyMeasurements
     range: integer
     minimum_value: 0
   focus_slice:

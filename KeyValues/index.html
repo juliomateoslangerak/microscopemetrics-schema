@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyValues/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: KeyValues - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -207,24 +207,40 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/KeyValues">microscopemetrics_schema:KeyValues</a></p>
 <div class="mermaid"> classDiagram
     class KeyValues
+    click KeyValues href "../KeyValues"
       MetricsObject &lt;|-- KeyValues
+        click MetricsObject href "../MetricsObject"
 
 
-      KeyValues &lt;|-- ArgolightBIntensityKeyValues
-      KeyValues &lt;|-- ArgolightBDistanceKeyValues
-      KeyValues &lt;|-- ArgolightEKeyValues
       KeyValues &lt;|-- KeyMeasurements
+        click KeyMeasurements href "../KeyMeasurements"
+      KeyValues &lt;|-- ArgolightBIntensityKeyValues
+        click ArgolightBIntensityKeyValues href "../ArgolightBIntensityKeyValues"
+      KeyValues &lt;|-- ArgolightBDistanceKeyValues
+        click ArgolightBDistanceKeyValues href "../ArgolightBDistanceKeyValues"
+      KeyValues &lt;|-- ArgolightEKeyValues
+        click ArgolightEKeyValues href "../ArgolightEKeyValues"
 
 
       KeyValues : data_reference
 
-          KeyValues --&gt; DataReference : data_reference
+
+
+
+    KeyValues --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       KeyValues : description
 
       KeyValues : linked_references
 
-          KeyValues --&gt; DataReference : linked_references
+
+
+
+    KeyValues --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       KeyValues : name
 
@@ -235,10 +251,10 @@
 <li><a href="../NamedObject/">NamedObject</a><ul>
 <li><a href="../MetricsObject/">MetricsObject</a><ul>
 <li><strong>KeyValues</strong><ul>
+<li><a href="../KeyMeasurements/">KeyMeasurements</a></li>
 <li><a href="../ArgolightBIntensityKeyValues/">ArgolightBIntensityKeyValues</a></li>
 <li><a href="../ArgolightBDistanceKeyValues/">ArgolightBDistanceKeyValues</a></li>
 <li><a href="../ArgolightEKeyValues/">ArgolightEKeyValues</a></li>
-<li><a href="../KeyMeasurements/">KeyMeasurements</a></li>
 </ul>
 </li>
 </ul>
@@ -265,7 +281,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>

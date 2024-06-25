@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Column/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Column - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -209,7 +209,9 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Column">microscopemetrics_schema:Column</a></p>
 <div class="mermaid"> classDiagram
     class Column
+    click Column href "../Column"
       NamedObject &lt;|-- Column
+        click NamedObject href "../NamedObject"
 
       Column : data_type
 
@@ -219,7 +221,12 @@
 
       Column : source_reference
 
-          Column --&gt; DataReference : source_reference
+
+
+
+    Column --&gt; "0..1" DataReference : source_reference
+    click DataReference href "../DataReference"
+
 
       Column : values
 
@@ -251,13 +258,13 @@
 </tr>
 <tr>
 <td><a href="../data_type/">data_type</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
 <td>The data type of the column</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../values/">values</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>An optional container for the values of the column</td>
 <td>direct</td>
 </tr>
@@ -333,6 +340,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - Column
     range: DataReference
     required: false
   data_type:
@@ -342,6 +351,8 @@ attributes:
     rank: 1000
     multivalued: false
     ifabsent: string(str)
+    domain_of:
+    - Column
     range: string
     required: true
   values:
@@ -349,6 +360,9 @@ attributes:
     description: An optional container for the values of the column
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     multivalued: true
+    domain_of:
+    - TimeSeries
+    - Column
     range: string
     required: false
 

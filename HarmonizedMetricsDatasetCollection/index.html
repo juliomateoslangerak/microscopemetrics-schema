@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/HarmonizedMetricsDatasetCollection/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: HarmonizedMetricsDatasetCollection - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -204,23 +204,40 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/HarmonizedMetricsDatasetCollection">microscopemetrics_schema:HarmonizedMetricsDatasetCollection</a></p>
 <div class="mermaid"> classDiagram
     class HarmonizedMetricsDatasetCollection
+    click HarmonizedMetricsDatasetCollection href "../HarmonizedMetricsDatasetCollection"
       MetricsDatasetCollection &lt;|-- HarmonizedMetricsDatasetCollection
+        click MetricsDatasetCollection href "../MetricsDatasetCollection"
 
       HarmonizedMetricsDatasetCollection : data_reference
 
-          HarmonizedMetricsDatasetCollection --&gt; DataReference : data_reference
+
+
+
+    HarmonizedMetricsDatasetCollection --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       HarmonizedMetricsDatasetCollection : dataset_class
 
       HarmonizedMetricsDatasetCollection : datasets
 
-          HarmonizedMetricsDatasetCollection --&gt; MetricsDataset : datasets
+
+
+
+    HarmonizedMetricsDatasetCollection --&gt; "*" MetricsDataset : datasets
+    click MetricsDataset href "../MetricsDataset"
+
 
       HarmonizedMetricsDatasetCollection : description
 
       HarmonizedMetricsDatasetCollection : linked_references
 
-          HarmonizedMetricsDatasetCollection --&gt; DataReference : linked_references
+
+
+
+    HarmonizedMetricsDatasetCollection --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       HarmonizedMetricsDatasetCollection : name
 
@@ -252,13 +269,13 @@
 <tbody>
 <tr>
 <td><a href="../dataset_class/">dataset_class</a></td>
-<td>1..1 <br/> <a href="../String/">String</a></td>
+<td>1 <br/> <a href="../String/">String</a></td>
 <td>The class of the datasets in the collection</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../datasets/">datasets</a></td>
-<td>0..* <br/> <a href="../MetricsDataset/">MetricsDataset</a></td>
+<td>* <br/> <a href="../MetricsDataset/">MetricsDataset</a></td>
 <td>The datasets of the collection</td>
 <td><a href="../MetricsDatasetCollection/">MetricsDatasetCollection</a></td>
 </tr>
@@ -270,7 +287,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -328,6 +345,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - HarmonizedMetricsDatasetCollection
     range: string
     required: true
 

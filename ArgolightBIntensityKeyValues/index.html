@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBIntensityKeyValues/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBIntensityKeyValues - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,13 +208,20 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBIntensityKeyValues">microscopemetrics_schema:ArgolightBIntensityKeyValues</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBIntensityKeyValues
+    click ArgolightBIntensityKeyValues href "../ArgolightBIntensityKeyValues"
       KeyValues &lt;|-- ArgolightBIntensityKeyValues
+        click KeyValues href "../KeyValues"
 
       ArgolightBIntensityKeyValues : channel_nr
 
       ArgolightBIntensityKeyValues : data_reference
 
-          ArgolightBIntensityKeyValues --&gt; DataReference : data_reference
+
+
+
+    ArgolightBIntensityKeyValues --&gt; "0..1" DataReference : data_reference
+    click DataReference href "../DataReference"
+
 
       ArgolightBIntensityKeyValues : description
 
@@ -228,7 +235,12 @@
 
       ArgolightBIntensityKeyValues : linked_references
 
-          ArgolightBIntensityKeyValues --&gt; DataReference : linked_references
+
+
+
+    ArgolightBIntensityKeyValues --&gt; "*" DataReference : linked_references
+    click DataReference href "../DataReference"
+
 
       ArgolightBIntensityKeyValues : mad_mean_intensity
 
@@ -272,67 +284,67 @@
 <tbody>
 <tr>
 <td><a href="../channel_nr/">channel_nr</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>The channel number to which the measurements apply</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../nr_of_spots/">nr_of_spots</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>Number of argolight spots detected for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../intensity_max_spot/">intensity_max_spot</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Integrated intensity of the most intense spot for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../intensity_max_spot_roi/">intensity_max_spot_roi</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>ROI number of the most intense spot for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../intensity_min_spot/">intensity_min_spot</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Integrated intensity of the least intense spot for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../intensity_min_spot_roi/">intensity_min_spot_roi</a></td>
-<td>0..* <br/> <a href="../Integer/">Integer</a></td>
+<td>* <br/> <a href="../Integer/">Integer</a></td>
 <td>ROI number of the least intense spot for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mean_intensity/">mean_intensity</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Mean of all spots integrated intensity for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../median_intensity/">median_intensity</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Median of all spots integrated intensity for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../std_mean_intensity/">std_mean_intensity</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Standard deviation of all spots integrated intensity for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../mad_mean_intensity/">mad_mean_intensity</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Median absolute deviation of all spots integrated intensity for each channel</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../min_max_intensity_ratio/">min_max_intensity_ratio</a></td>
-<td>0..* <br/> <a href="../Float/">Float</a></td>
+<td>* <br/> <a href="../Float/">Float</a></td>
 <td>Ratio between the integrated intensities between the most intense and the lea...</td>
 <td>direct</td>
 </tr>
@@ -344,7 +356,7 @@
 </tr>
 <tr>
 <td><a href="../linked_references/">linked_references</a></td>
-<td>0..* <br/> <a href="../DataReference/">DataReference</a></td>
+<td>* <br/> <a href="../DataReference/">DataReference</a></td>
 <td>A list of linked references</td>
 <td><a href="../MetricsObject/">MetricsObject</a></td>
 </tr>
@@ -442,9 +454,10 @@ attributes:
     alias: channel_nr
     owner: ArgolightBIntensityKeyValues
     domain_of:
+    - FieldIlluminationKeyMeasurements
+    - PSFBeadsKeyMeasurements
     - ArgolightBIntensityKeyValues
     - ArgolightEKeyValues
-    - PSFBeadsKeyMeasurements
     range: integer
     minimum_value: 0
   nr_of_spots:

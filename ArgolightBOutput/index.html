@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBOutput/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.5.3, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBOutput - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -208,21 +208,38 @@
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBOutput">microscopemetrics_schema:ArgolightBOutput</a></p>
 <div class="mermaid"> classDiagram
     class ArgolightBOutput
+    click ArgolightBOutput href "../ArgolightBOutput"
       MetricsOutput &lt;|-- ArgolightBOutput
+        click MetricsOutput href "../MetricsOutput"
 
       ArgolightBOutput : comment
 
-          ArgolightBOutput --&gt; Comment : comment
+
+
+
+    ArgolightBOutput --&gt; "0..1" Comment : comment
+    click Comment href "../Comment"
+
 
       ArgolightBOutput : distance_key_values
 
-          ArgolightBOutput --&gt; ArgolightBDistanceKeyValues : distance_key_values
+
+
+
+    ArgolightBOutput --&gt; "0..1" ArgolightBDistanceKeyValues : distance_key_values
+    click ArgolightBDistanceKeyValues href "../ArgolightBDistanceKeyValues"
+
 
       ArgolightBOutput : errors
 
       ArgolightBOutput : intensity_key_values
 
-          ArgolightBOutput --&gt; ArgolightBIntensityKeyValues : intensity_key_values
+
+
+
+    ArgolightBOutput --&gt; "0..1" ArgolightBIntensityKeyValues : intensity_key_values
+    click ArgolightBIntensityKeyValues href "../ArgolightBIntensityKeyValues"
+
 
       ArgolightBOutput : processing_application
 
@@ -236,19 +253,39 @@
 
       ArgolightBOutput : spots_centers_of_mass
 
-          ArgolightBOutput --&gt; ArgolightBCentersOfMass : spots_centers_of_mass
+
+
+
+    ArgolightBOutput --&gt; "*" ArgolightBCentersOfMass : spots_centers_of_mass
+    click ArgolightBCentersOfMass href "../ArgolightBCentersOfMass"
+
 
       ArgolightBOutput : spots_distances
 
-          ArgolightBOutput --&gt; Table : spots_distances
+
+
+
+    ArgolightBOutput --&gt; "0..1" Table : spots_distances
+    click Table href "../Table"
+
 
       ArgolightBOutput : spots_labels_image
 
-          ArgolightBOutput --&gt; ImageMask : spots_labels_image
+
+
+
+    ArgolightBOutput --&gt; "0..1" ImageMask : spots_labels_image
+    click ImageMask href "../ImageMask"
+
 
       ArgolightBOutput : spots_properties
 
-          ArgolightBOutput --&gt; Table : spots_properties
+
+
+
+    ArgolightBOutput --&gt; "0..1" Table : spots_properties
+    click Table href "../Table"
+
 
       ArgolightBOutput : validated
 
@@ -284,7 +321,7 @@
 </tr>
 <tr>
 <td><a href="../spots_centers_of_mass/">spots_centers_of_mass</a></td>
-<td>0..* <br/> <a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
+<td>* <br/> <a href="../ArgolightBCentersOfMass/">ArgolightBCentersOfMass</a></td>
 <td>Centers of mass of the argolight spots provided as a list of ROIs</td>
 <td>direct</td>
 </tr>
@@ -326,13 +363,13 @@
 </tr>
 <tr>
 <td><a href="../processing_entity/">processing_entity</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The entity that processed the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../processing_datetime/">processing_datetime</a></td>
-<td>1..1 <br/> <a href="../datetime/">datetime</a></td>
+<td>1 <br/> <a href="../datetime/">datetime</a></td>
 <td>The datetime of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -344,19 +381,19 @@
 </tr>
 <tr>
 <td><a href="../warnings/">warnings</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The warnings of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../errors/">errors</a></td>
-<td>0..* <br/> <a href="../String/">String</a></td>
+<td>* <br/> <a href="../String/">String</a></td>
 <td>The errors of the processing by microscope-metrics</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
 <td><a href="../validated/">validated</a></td>
-<td>1..1 <br/> <a href="../Boolean/">Boolean</a></td>
+<td>1 <br/> <a href="../Boolean/">Boolean</a></td>
 <td>Has the dataset been validated by a human</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
@@ -367,7 +404,7 @@
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
 </tr>
 <tr>
-<td><a href="comment.md">comment</a></td>
+<td><a href="../comment/">comment</a></td>
 <td>0..1 <br/> <a href="../Comment/">Comment</a></td>
 <td>A human readable comment about the dataset</td>
 <td><a href="../MetricsOutput/">MetricsOutput</a></td>
@@ -432,6 +469,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ImageMask
     required: false
   spots_centers_of_mass:
@@ -441,6 +480,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: true
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBCentersOfMass
     required: false
   intensity_key_values:
@@ -449,6 +490,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBIntensityKeyValues
     required: false
   distance_key_values:
@@ -457,6 +500,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: ArgolightBDistanceKeyValues
     required: false
   spots_properties:
@@ -465,6 +510,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: Table
     required: false
   spots_distances:
@@ -473,6 +520,8 @@ attributes:
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     rank: 1000
     multivalued: false
+    domain_of:
+    - ArgolightBOutput
     range: Table
     required: false
 
