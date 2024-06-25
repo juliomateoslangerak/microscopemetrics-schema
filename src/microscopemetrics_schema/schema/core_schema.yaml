@@ -402,7 +402,7 @@ classes:
         required: true
 
   Channel:
-    is_a: NamedObject
+    is_a: MetricsObject
     description: A image channel
     slots:
       - excitation_wavelength_nm
