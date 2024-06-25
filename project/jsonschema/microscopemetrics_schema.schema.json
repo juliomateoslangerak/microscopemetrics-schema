@@ -2275,6 +2275,7 @@
             "description": "The type of the OMERO object",
             "enum": [
                 "IMAGE",
+                "CHANNEL",
                 "DATASET",
                 "PROJECT",
                 "EXPERIMENTERGROUP",

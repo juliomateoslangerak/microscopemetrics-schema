@@ -903,6 +903,8 @@ enums:
     permissible_values:
       IMAGE:
         description: An image
+      CHANNEL:
+        description: A channel
       DATASET:
         description: A dataset
       PROJECT:

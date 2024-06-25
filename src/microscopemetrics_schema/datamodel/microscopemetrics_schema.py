@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-25T16:19:45
+# Generation date: 2024-06-25T16:29:44
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2655,6 +2655,9 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     IMAGE = PermissibleValue(
         text="IMAGE",
         description="An image")
+    CHANNEL = PermissibleValue(
+        text="CHANNEL",
+        description="A channel")
     DATASET = PermissibleValue(
         text="DATASET",
         description="A dataset")

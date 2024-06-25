@@ -366,6 +366,7 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_port> @linkml:Integer ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_type> [
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#IMAGE>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#CHANNEL>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#DATASET>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#PROJECT>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OMEROObjectTypeEnum#EXPERIMENTERGROUP>
