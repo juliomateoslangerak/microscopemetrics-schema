@@ -831,6 +831,10 @@
             "additionalProperties": false,
             "description": "A image channel",
             "properties": {
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
                 "description": {
                     "description": "A human readable description of an entity",
                     "type": "string"
@@ -842,6 +846,13 @@
                 "excitation_wavelength_nm": {
                     "description": "The excitation wavelength in nm",
                     "type": "number"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -1394,6 +1405,13 @@
                         "maximum": 1.0,
                         "minimum": 0.0,
                         "type": "number"
+                    },
+                    "type": "array"
+                },
+                "channel_id": {
+                    "description": "The channel id to which the measurements apply",
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -2513,6 +2531,13 @@
                     "description": "Standard deviation of the intensity for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
+                    },
+                    "type": "array"
+                },
+                "channel_name": {
+                    "description": "The channel name to which the measurements apply",
+                    "items": {
+                        "type": "string"
                     },
                     "type": "array"
                 },

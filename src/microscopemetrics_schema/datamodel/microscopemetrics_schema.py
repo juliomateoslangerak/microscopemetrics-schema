@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-25T15:51:23
+# Generation date: 2024-06-25T16:19:45
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -629,7 +629,7 @@ class ChannelSeries(YAMLRoot):
 
 
 @dataclass
-class Channel(NamedObject):
+class Channel(MetricsObject):
     """
     A image channel
     """
@@ -1390,6 +1390,7 @@ class FieldIlluminationKeyMeasurements(KeyMeasurements):
     image_id: Optional[Union[str, List[str]]] = empty_list()
     channel_name: Optional[Union[str, List[str]]] = empty_list()
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
+    channel_id: Optional[Union[str, List[str]]] = empty_list()
     center_region_intensity_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_region_area_fraction: Optional[Union[float, List[float]]] = empty_list()
     center_of_mass_y: Optional[Union[float, List[float]]] = empty_list()
@@ -1448,6 +1449,10 @@ class FieldIlluminationKeyMeasurements(KeyMeasurements):
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
+
+        if not isinstance(self.channel_id, list):
+            self.channel_id = [self.channel_id] if self.channel_id is not None else []
+        self.channel_id = [v if isinstance(v, str) else str(v) for v in self.channel_id]
 
         if not isinstance(self.center_region_intensity_fraction, list):
             self.center_region_intensity_fraction = [self.center_region_intensity_fraction] if self.center_region_intensity_fraction is not None else []
@@ -1805,6 +1810,7 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
 
+    channel_name: Optional[Union[str, List[str]]] = empty_list()
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     considered_valid_count: Optional[Union[int, List[int]]] = empty_list()
     considered_self_proximity_count: Optional[Union[int, List[int]]] = empty_list()
@@ -1872,6 +1878,10 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
     average_bead_intensity_std: Optional[Union[float, List[float]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.channel_name, list):
+            self.channel_name = [self.channel_name] if self.channel_name is not None else []
+        self.channel_name = [v if isinstance(v, str) else str(v) for v in self.channel_name]
+
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
@@ -2708,6 +2718,9 @@ slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_nr'], 
 
 slots.channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_name'], name="channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel_name, domain=None, range=Optional[Union[str, List[str]]])
+
+slots.channel_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channel_id'], name="channel_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channel_id'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_id, domain=None, range=Optional[Union[str, List[str]]])
 
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])

@@ -194,6 +194,7 @@ classes:
   PSFBeadsKeyMeasurements:
     is_a: KeyMeasurements
     slots:
+      - channel_name
       - channel_nr
       - considered_valid_count
       - considered_self_proximity_count

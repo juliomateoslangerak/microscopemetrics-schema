@@ -179,6 +179,8 @@ type Channel
   {
     name: String
     description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     excitationWavelengthNm: Float
     emissionWavelengthNm: Float
   }
@@ -279,6 +281,7 @@ type FieldIlluminationKeyMeasurements
     imageId: [String]
     channelName: [String]
     channelNr: [Integer]
+    channelId: [String]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
     centerOfMassY: [Float]
@@ -601,6 +604,7 @@ type PSFBeadsKeyMeasurements
     dataReference: DataReference
     linkedReferences: [DataReference]
     tableData: MetaObject
+    channelName: [String]
     channelNr: [Integer]
     consideredValidCount: [Integer]
     consideredSelfProximityCount: [Integer]

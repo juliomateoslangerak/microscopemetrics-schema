@@ -161,6 +161,8 @@ message Channel
  {
   string name = 0
   string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
   float excitationWavelengthNm = 0
   float emissionWavelengthNm = 0
  }
@@ -259,6 +261,7 @@ message FieldIlluminationKeyMeasurements
  repeated  string imageId = 0
  repeated  string channelName = 0
  repeated  integer channelNr = 0
+ repeated  string channelId = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
  repeated  float centerOfMassY = 0
@@ -520,6 +523,7 @@ message PSFBeadsKeyMeasurements
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
   metaObject tableData = 0
+ repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  integer consideredValidCount = 0
  repeated  integer consideredSelfProximityCount = 0

@@ -18,6 +18,7 @@
 --     * Slot: MetricsDataset_id Description: Autocreated FK slot
 --     * Slot: Image_id Description: Autocreated FK slot
 --     * Slot: ImageMask_id Description: Autocreated FK slot
+--     * Slot: Channel_id Description: Autocreated FK slot
 --     * Slot: Roi_id Description: Autocreated FK slot
 --     * Slot: KeyValues_id Description: Autocreated FK slot
 --     * Slot: KeyMeasurements_id Description: Autocreated FK slot
@@ -147,6 +148,7 @@
 --     * Slot: emission_wavelength_nm Description: The emission wavelength in nm
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "TimeSeries" Description: "A series whose values represent time"
 --     * Slot: id Description: 
 -- # Class: "Column" Description: "Attributes of a column"
@@ -548,6 +550,9 @@
 -- # Class: "FieldIlluminationKeyMeasurements_channel_nr" Description: ""
 --     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: channel_nr Description: The channel number to which the measurements apply
+-- # Class: "FieldIlluminationKeyMeasurements_channel_id" Description: ""
+--     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: channel_id Description: The channel id to which the measurements apply
 -- # Class: "FieldIlluminationKeyMeasurements_center_region_intensity_fraction" Description: ""
 --     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: center_region_intensity_fraction Description: The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.
@@ -686,6 +691,9 @@
 -- # Class: "PSFBeadsOutput_errors" Description: ""
 --     * Slot: PSFBeadsOutput_id Description: Autocreated FK slot
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
+-- # Class: "PSFBeadsKeyMeasurements_channel_name" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: channel_name Description: The channel name to which the measurements apply
 -- # Class: "PSFBeadsKeyMeasurements_channel_nr" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: channel_nr Description: The channel number to which the measurements apply
@@ -1041,6 +1049,7 @@ CREATE TABLE "DataReference" (
 	"MetricsDataset_id" INTEGER, 
 	"Image_id" INTEGER, 
 	"ImageMask_id" INTEGER, 
+	"Channel_id" INTEGER, 
 	"Roi_id" INTEGER, 
 	"KeyValues_id" INTEGER, 
 	"KeyMeasurements_id" INTEGER, 
@@ -1065,6 +1074,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("MetricsDataset_id") REFERENCES "MetricsDataset" (id), 
 	FOREIGN KEY("Image_id") REFERENCES "Image" (id), 
 	FOREIGN KEY("ImageMask_id") REFERENCES "ImageMask" (id), 
+	FOREIGN KEY("Channel_id") REFERENCES "Channel" (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
 	FOREIGN KEY("KeyValues_id") REFERENCES "KeyValues" (id), 
 	FOREIGN KEY("KeyMeasurements_id") REFERENCES "KeyMeasurements" (id), 
@@ -1222,7 +1232,9 @@ CREATE TABLE "Channel" (
 	emission_wavelength_nm FLOAT, 
 	name TEXT, 
 	description TEXT, 
-	PRIMARY KEY (id)
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "TimeSeries" (
 	id INTEGER NOT NULL, 
@@ -1858,6 +1870,12 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_channel_nr" (
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", channel_nr), 
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
 );
+CREATE TABLE "FieldIlluminationKeyMeasurements_channel_id" (
+	"FieldIlluminationKeyMeasurements_id" INTEGER, 
+	channel_id TEXT, 
+	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", channel_id), 
+	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
+);
 CREATE TABLE "FieldIlluminationKeyMeasurements_center_region_intensity_fraction" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	center_region_intensity_fraction FLOAT, 
@@ -2133,6 +2151,12 @@ CREATE TABLE "PSFBeadsOutput_errors" (
 	errors TEXT, 
 	PRIMARY KEY ("PSFBeadsOutput_id", errors), 
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_channel_name" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	channel_name TEXT, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", channel_name), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
 CREATE TABLE "PSFBeadsKeyMeasurements_channel_nr" (
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
