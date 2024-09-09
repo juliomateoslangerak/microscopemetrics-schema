@@ -230,13 +230,22 @@
     click Experimenter href "../Experimenter"
 
 
-      FieldIlluminationDataset : input
+      FieldIlluminationDataset : input_data
 
 
 
 
-    FieldIlluminationDataset --&gt; "0..1" FieldIlluminationInput : input
-    click FieldIlluminationInput href "../FieldIlluminationInput"
+    FieldIlluminationDataset --&gt; "0..1" FieldIlluminationInputData : input_data
+    click FieldIlluminationInputData href "../FieldIlluminationInputData"
+
+
+      FieldIlluminationDataset : input_parameters
+
+
+
+
+    FieldIlluminationDataset --&gt; "0..1" FieldIlluminationInputParameters : input_parameters
+    click FieldIlluminationInputParameters href "../FieldIlluminationInputParameters"
 
 
       FieldIlluminationDataset : linked_references
@@ -306,8 +315,14 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td><a href="../input_data/">input_data</a></td>
+<td>0..1 <br/> <a href="../FieldIlluminationInputData/">FieldIlluminationInputData</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../input_parameters/">input_parameters</a></td>
+<td>0..1 <br/> <a href="../FieldIlluminationInputParameters/">FieldIlluminationInputParameters</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -406,8 +421,8 @@ description: A field illumination dataset
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsDataset
 attributes:
-  input:
-    name: input
+  input_data:
+    name: input_data
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
     domain_of:
     - MetricsDataset
@@ -415,7 +430,17 @@ attributes:
     - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    range: FieldIlluminationInput
+    range: FieldIlluminationInputData
+  input_parameters:
+    name: input_parameters
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
+    range: FieldIlluminationInputParameters
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
@@ -436,10 +461,10 @@ description: A field illumination dataset
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsDataset
 attributes:
-  input:
-    name: input
+  input_data:
+    name: input_data
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
-    alias: input
+    alias: input_data
     owner: FieldIlluminationDataset
     domain_of:
     - MetricsDataset
@@ -447,7 +472,19 @@ attributes:
     - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    range: FieldIlluminationInput
+    range: FieldIlluminationInputData
+  input_parameters:
+    name: input_parameters
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
+    alias: input_parameters
+    owner: FieldIlluminationDataset
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
+    range: FieldIlluminationInputParameters
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema

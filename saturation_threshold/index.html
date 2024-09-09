@@ -332,24 +332,24 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FieldIlluminationInput/">FieldIlluminationInput</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ArgolightEInput/">ArgolightEInput</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../ArgolightBInput/">ArgolightBInput</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsInput/">PSFBeadsInput</a></td>
+<td><a href="../PSFBeadsInputParameters/">PSFBeadsInputParameters</a></td>
 <td></td>
 <td>no</td>
+</tr>
+<tr>
+<td><a href="../ArgolightBInputParameters/">ArgolightBInputParameters</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../ArgolightEInputParameters/">ArgolightEInputParameters</a></td>
+<td></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><a href="../FieldIlluminationInputParameters/">FieldIlluminationInputParameters</a></td>
+<td></td>
+<td>yes</td>
 </tr>
 </tbody>
 </table>
@@ -383,10 +383,10 @@ multivalued: false
 ifabsent: float(0.01)
 alias: saturation_threshold
 domain_of:
-- FieldIlluminationInput
-- PSFBeadsInput
-- ArgolightBInput
-- ArgolightEInput
+- FieldIlluminationInputParameters
+- PSFBeadsInputParameters
+- ArgolightBInputParameters
+- ArgolightEInputParameters
 range: float
 minimum_value: 0.0
 maximum_value: 1.0

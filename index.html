@@ -433,23 +433,43 @@
 <td>None</td>
 </tr>
 <tr>
-<td><a href="MetricsInput/">MetricsInput</a></td>
-<td>An abstract class for analysis inputs</td>
+<td><a href="MetricsInputData/">MetricsInputData</a></td>
+<td>An abstract class for analysis input data</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightBInput/">ArgolightBInput</a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightBInputData/">ArgolightBInputData</a></td>
 <td>None</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightEInput/">ArgolightEInput</a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightEInputData/">ArgolightEInputData</a></td>
 <td>None</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FieldIlluminationInput/">FieldIlluminationInput</a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FieldIlluminationInputData/">FieldIlluminationInputData</a></td>
 <td>None</td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsInput/">PSFBeadsInput</a></td>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsInputData/">PSFBeadsInputData</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td><a href="MetricsInputParameters/">MetricsInputParameters</a></td>
+<td>An abstract class for analysis inputs parameters</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightBInputParameters/">ArgolightBInputParameters</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="ArgolightEInputParameters/">ArgolightEInputParameters</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="FieldIlluminationInputParameters/">FieldIlluminationInputParameters</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsInputParameters/">PSFBeadsInputParameters</a></td>
 <td>None</td>
 </tr>
 <tr>
@@ -665,7 +685,7 @@
 </tr>
 <tr>
 <td><a href="argolight_b_image/">argolight_b_image</a></td>
-<td>Input parameter: image of the argolight b pattern in the order TZYXC</td>
+<td>Image of the argolight b pattern in the order TZYXC</td>
 </tr>
 <tr>
 <td><a href="argolight_e_image/">argolight_e_image</a></td>
@@ -1176,8 +1196,12 @@
 <td>The name of the image where the measurement was taken</td>
 </tr>
 <tr>
-<td><a href="input/">input</a></td>
-<td>The input of the analysis</td>
+<td><a href="input_data/">input_data</a></td>
+<td>The input data for the analysis</td>
+</tr>
+<tr>
+<td><a href="input_parameters/">input_parameters</a></td>
+<td>The input parameters for the analysis</td>
 </tr>
 <tr>
 <td><a href="intensity_integrated_mean/">intensity_integrated_mean</a></td>
@@ -1277,7 +1301,7 @@
 </tr>
 <tr>
 <td><a href="lower_threshold_correction_factors/">lower_threshold_correction_factors</a></td>
-<td>Input parameter: correction factor for the lower thresholds</td>
+<td>Correction factor for the lower thresholds</td>
 </tr>
 <tr>
 <td><a href="mad_3d_dist/">mad_3d_dist</a></td>
@@ -1529,7 +1553,7 @@
 </tr>
 <tr>
 <td><a href="remove_center_cross/">remove_center_cross</a></td>
-<td>Input parameter: remove the center cross found in some Argolight patterns</td>
+<td>Remove the center cross found in some Argolight patterns</td>
 </tr>
 <tr>
 <td><a href="roi_center_region/">roi_center_region</a></td>
@@ -1625,7 +1649,7 @@
 </tr>
 <tr>
 <td><a href="spots_distance/">spots_distance</a></td>
-<td>Input parameter: distance between argolight spots</td>
+<td>Distance between argolight spots</td>
 </tr>
 <tr>
 <td><a href="spots_distances/">spots_distances</a></td>
@@ -1705,7 +1729,7 @@
 </tr>
 <tr>
 <td><a href="upper_threshold_correction_factors/">upper_threshold_correction_factors</a></td>
-<td>Input parameter: correction factor for the upper thresholds</td>
+<td>Correction factor for the upper thresholds</td>
 </tr>
 <tr>
 <td><a href="url/">url</a></td>

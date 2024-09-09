@@ -230,13 +230,22 @@
     click Experimenter href "../Experimenter"
 
 
-      ArgolightBDataset : input
+      ArgolightBDataset : input_data
 
 
 
 
-    ArgolightBDataset --&gt; "0..1" ArgolightBInput : input
-    click ArgolightBInput href "../ArgolightBInput"
+    ArgolightBDataset --&gt; "0..1" ArgolightBInputData : input_data
+    click ArgolightBInputData href "../ArgolightBInputData"
+
+
+      ArgolightBDataset : input_parameters
+
+
+
+
+    ArgolightBDataset --&gt; "0..1" ArgolightBInputParameters : input_parameters
+    click ArgolightBInputParameters href "../ArgolightBInputParameters"
 
 
       ArgolightBDataset : linked_references
@@ -306,8 +315,14 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../input/">input</a></td>
-<td>0..1 <br/> <a href="../ArgolightBInput/">ArgolightBInput</a></td>
+<td><a href="../input_data/">input_data</a></td>
+<td>0..1 <br/> <a href="../ArgolightBInputData/">ArgolightBInputData</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../input_parameters/">input_parameters</a></td>
+<td>0..1 <br/> <a href="../ArgolightBInputParameters/">ArgolightBInputParameters</a></td>
 <td></td>
 <td>direct</td>
 </tr>
@@ -407,8 +422,8 @@ description: An Argolight sample pattern B dataset. This pattern consists of an 
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsDataset
 attributes:
-  input:
-    name: input
+  input_data:
+    name: input_data
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
     domain_of:
     - MetricsDataset
@@ -416,7 +431,17 @@ attributes:
     - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    range: ArgolightBInput
+    range: ArgolightBInputData
+  input_parameters:
+    name: input_parameters
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
+    range: ArgolightBInputParameters
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
@@ -438,10 +463,10 @@ description: An Argolight sample pattern B dataset. This pattern consists of an 
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: MetricsDataset
 attributes:
-  input:
-    name: input
+  input_data:
+    name: input_data
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
-    alias: input
+    alias: input_data
     owner: ArgolightBDataset
     domain_of:
     - MetricsDataset
@@ -449,7 +474,19 @@ attributes:
     - PSFBeadsDataset
     - ArgolightBDataset
     - ArgolightEDataset
-    range: ArgolightBInput
+    range: ArgolightBInputData
+  input_parameters:
+    name: input_parameters
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
+    alias: input_parameters
+    owner: ArgolightBDataset
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    - ArgolightBDataset
+    - ArgolightEDataset
+    range: ArgolightBInputParameters
   output:
     name: output
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
