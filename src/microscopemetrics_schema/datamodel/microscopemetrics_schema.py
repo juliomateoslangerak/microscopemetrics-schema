@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-06-25T16:29:44
+# Generation date: 2024-09-09T11:16:47
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -389,7 +389,8 @@ class MetricsDataset(MetricsObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsDataset
 
     microscope: Union[dict, Microscope] = None
-    input: Union[dict, "MetricsInput"] = None
+    input_data: Union[dict, "MetricsInputData"] = None
+    input_parameters: Union[dict, "MetricsInputParameters"] = None
     processed: Union[bool, Bool] = False
     sample: Optional[Union[dict, Sample]] = None
     experimenter: Optional[Union[str, ExperimenterOrcid]] = None
@@ -407,10 +408,15 @@ class MetricsDataset(MetricsObject):
         if not isinstance(self.processed, Bool):
             self.processed = Bool(self.processed)
 
-        if self._is_empty(self.input):
-            self.MissingRequiredField("input")
-        if not isinstance(self.input, MetricsInput):
-            self.input = MetricsInput()
+        if self._is_empty(self.input_data):
+            self.MissingRequiredField("input_data")
+        if not isinstance(self.input_data, MetricsInputData):
+            self.input_data = MetricsInputData()
+
+        if self._is_empty(self.input_parameters):
+            self.MissingRequiredField("input_parameters")
+        if not isinstance(self.input_parameters, MetricsInputParameters):
+            self.input_parameters = MetricsInputParameters()
 
         if self.sample is not None and not isinstance(self.sample, Sample):
             self.sample = Sample(**as_dict(self.sample))
@@ -427,16 +433,28 @@ class MetricsDataset(MetricsObject):
         super().__post_init__(**kwargs)
 
 
-class MetricsInput(YAMLRoot):
+class MetricsInputData(YAMLRoot):
     """
-    An abstract class for analysis inputs
+    An abstract class for analysis input data
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/MetricsInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/MetricsInput"
-    class_name: ClassVar[str] = "MetricsInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsInput
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/MetricsInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/MetricsInputData"
+    class_name: ClassVar[str] = "MetricsInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsInputData
+
+
+class MetricsInputParameters(YAMLRoot):
+    """
+    An abstract class for analysis inputs parameters
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/MetricsInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/MetricsInputParameters"
+    class_name: ClassVar[str] = "MetricsInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MetricsInputParameters
 
 
 @dataclass
@@ -1260,12 +1278,16 @@ class FieldIlluminationDataset(MetricsDataset):
 
     microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "FieldIlluminationInput"]] = None
+    input_data: Optional[Union[dict, "FieldIlluminationInputData"]] = None
+    input_parameters: Optional[Union[dict, "FieldIlluminationInputParameters"]] = None
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, FieldIlluminationInput):
-            self.input = FieldIlluminationInput(**as_dict(self.input))
+        if self.input_data is not None and not isinstance(self.input_data, FieldIlluminationInputData):
+            self.input_data = FieldIlluminationInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, FieldIlluminationInputParameters):
+            self.input_parameters = FieldIlluminationInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, FieldIlluminationOutput):
             self.output = FieldIlluminationOutput(**as_dict(self.output))
@@ -1274,19 +1296,15 @@ class FieldIlluminationDataset(MetricsDataset):
 
 
 @dataclass
-class FieldIlluminationInput(MetricsInput):
+class FieldIlluminationInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationInput"
-    class_name: ClassVar[str] = "FieldIlluminationInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInput
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationInputData"
+    class_name: ClassVar[str] = "FieldIlluminationInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputData
 
     field_illumination_image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    saturation_threshold: float = 0.01
-    corner_fraction: float = 0.1
-    sigma: float = 5.0
-    bit_depth: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.field_illumination_image):
@@ -1295,6 +1313,24 @@ class FieldIlluminationInput(MetricsInput):
             self.field_illumination_image = [self.field_illumination_image] if self.field_illumination_image is not None else []
         self.field_illumination_image = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.field_illumination_image]
 
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class FieldIlluminationInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/field_illumination_schema/FieldIlluminationInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/field_illumination_schema/FieldIlluminationInputParameters"
+    class_name: ClassVar[str] = "FieldIlluminationInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters
+
+    saturation_threshold: float = 0.01
+    corner_fraction: float = 0.1
+    sigma: float = 5.0
+    bit_depth: Optional[int] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
         if not isinstance(self.saturation_threshold, float):
@@ -1635,12 +1671,16 @@ class PSFBeadsDataset(MetricsDataset):
 
     microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "PSFBeadsInput"]] = None
+    input_data: Optional[Union[dict, "PSFBeadsInputData"]] = None
+    input_parameters: Optional[Union[dict, "PSFBeadsInputParameters"]] = None
     output: Optional[Union[dict, "PSFBeadsOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, PSFBeadsInput):
-            self.input = PSFBeadsInput(**as_dict(self.input))
+        if self.input_data is not None and not isinstance(self.input_data, PSFBeadsInputData):
+            self.input_data = PSFBeadsInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, PSFBeadsInputParameters):
+            self.input_parameters = PSFBeadsInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, PSFBeadsOutput):
             self.output = PSFBeadsOutput(**as_dict(self.output))
@@ -1649,15 +1689,35 @@ class PSFBeadsDataset(MetricsDataset):
 
 
 @dataclass
-class PSFBeadsInput(MetricsInput):
+class PSFBeadsInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/psf_beads_schema/PSFBeadsInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/psf_beads_schema/PSFBeadsInput"
-    class_name: ClassVar[str] = "PSFBeadsInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/psf_beads_schema/PSFBeadsInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/psf_beads_schema/PSFBeadsInputData"
+    class_name: ClassVar[str] = "PSFBeadsInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputData
 
     psf_beads_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.psf_beads_images):
+            self.MissingRequiredField("psf_beads_images")
+        if not isinstance(self.psf_beads_images, list):
+            self.psf_beads_images = [self.psf_beads_images] if self.psf_beads_images is not None else []
+        self.psf_beads_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.psf_beads_images]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class PSFBeadsInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/psf_beads_schema/PSFBeadsInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/psf_beads_schema/PSFBeadsInputParameters"
+    class_name: ClassVar[str] = "PSFBeadsInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters
+
     min_lateral_distance_factor: float = 20.0
     sigma_z: float = 1.0
     sigma_y: float = 1.0
@@ -1669,12 +1729,6 @@ class PSFBeadsInput(MetricsInput):
     saturation_threshold: Optional[float] = 0.01
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.psf_beads_images):
-            self.MissingRequiredField("psf_beads_images")
-        if not isinstance(self.psf_beads_images, list):
-            self.psf_beads_images = [self.psf_beads_images] if self.psf_beads_images is not None else []
-        self.psf_beads_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.psf_beads_images]
-
         if self._is_empty(self.min_lateral_distance_factor):
             self.MissingRequiredField("min_lateral_distance_factor")
         if not isinstance(self.min_lateral_distance_factor, float):
@@ -2159,12 +2213,16 @@ class ArgolightBDataset(MetricsDataset):
 
     microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "ArgolightBInput"]] = None
+    input_data: Optional[Union[dict, "ArgolightBInputData"]] = None
+    input_parameters: Optional[Union[dict, "ArgolightBInputParameters"]] = None
     output: Optional[Union[dict, "ArgolightBOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, ArgolightBInput):
-            self.input = ArgolightBInput(**as_dict(self.input))
+        if self.input_data is not None and not isinstance(self.input_data, ArgolightBInputData):
+            self.input_data = ArgolightBInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, ArgolightBInputParameters):
+            self.input_parameters = ArgolightBInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, ArgolightBOutput):
             self.output = ArgolightBOutput(**as_dict(self.output))
@@ -2173,15 +2231,34 @@ class ArgolightBDataset(MetricsDataset):
 
 
 @dataclass
-class ArgolightBInput(MetricsInput):
+class ArgolightBInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBInput"
-    class_name: ClassVar[str] = "ArgolightBInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBInput
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBInputData"
+    class_name: ClassVar[str] = "ArgolightBInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBInputData
 
     argolight_b_image: Union[dict, Image] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.argolight_b_image):
+            self.MissingRequiredField("argolight_b_image")
+        if not isinstance(self.argolight_b_image, Image):
+            self.argolight_b_image = Image(**as_dict(self.argolight_b_image))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ArgolightBInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightBInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightBInputParameters"
+    class_name: ClassVar[str] = "ArgolightBInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightBInputParameters
+
     spots_distance: float = None
     saturation_threshold: float = 0.01
     sigma_z: float = 1.0
@@ -2193,11 +2270,6 @@ class ArgolightBInput(MetricsInput):
     remove_center_cross: Optional[Union[bool, Bool]] = False
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.argolight_b_image):
-            self.MissingRequiredField("argolight_b_image")
-        if not isinstance(self.argolight_b_image, Image):
-            self.argolight_b_image = Image(**as_dict(self.argolight_b_image))
-
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
         if not isinstance(self.saturation_threshold, float):
@@ -2442,12 +2514,16 @@ class ArgolightEDataset(MetricsDataset):
 
     microscope: Union[dict, Microscope] = None
     processed: Union[bool, Bool] = False
-    input: Optional[Union[dict, "ArgolightEInput"]] = None
+    input_data: Optional[Union[dict, "ArgolightEInputData"]] = None
+    input_parameters: Optional[Union[dict, "ArgolightEInputParameters"]] = None
     output: Optional[Union[dict, "ArgolightEOutput"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self.input is not None and not isinstance(self.input, ArgolightEInput):
-            self.input = ArgolightEInput(**as_dict(self.input))
+        if self.input_data is not None and not isinstance(self.input_data, ArgolightEInputData):
+            self.input_data = ArgolightEInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, ArgolightEInputParameters):
+            self.input_parameters = ArgolightEInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, ArgolightEOutput):
             self.output = ArgolightEOutput(**as_dict(self.output))
@@ -2456,20 +2532,15 @@ class ArgolightEDataset(MetricsDataset):
 
 
 @dataclass
-class ArgolightEInput(MetricsInput):
+class ArgolightEInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEInput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEInput"
-    class_name: ClassVar[str] = "ArgolightEInput"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInput
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEInputData"
+    class_name: ClassVar[str] = "ArgolightEInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInputData
 
     argolight_e_image: Union[dict, Image] = None
-    orientation_axis: int = None
-    saturation_threshold: float = 0.01
-    measured_band: float = 0.4
-    prominence_threshold: float = 0.264
-    bit_depth: Optional[int] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.argolight_e_image):
@@ -2477,6 +2548,25 @@ class ArgolightEInput(MetricsInput):
         if not isinstance(self.argolight_e_image, Image):
             self.argolight_e_image = Image(**as_dict(self.argolight_e_image))
 
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class ArgolightEInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/argolight_schema/ArgolightEInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/argolight_schema/ArgolightEInputParameters"
+    class_name: ClassVar[str] = "ArgolightEInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ArgolightEInputParameters
+
+    orientation_axis: int = None
+    saturation_threshold: float = 0.01
+    measured_band: float = 0.4
+    prominence_threshold: float = 0.264
+    bit_depth: Optional[int] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.saturation_threshold):
             self.MissingRequiredField("saturation_threshold")
         if not isinstance(self.saturation_threshold, float):
@@ -3286,8 +3376,11 @@ slots.metricsDataset__acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['
 slots.metricsDataset__processed = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/processed'], name="metricsDataset__processed", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/processed'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processed, domain=None, range=Union[bool, Bool])
 
-slots.metricsDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input'], name="metricsDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__input, domain=None, range=Union[dict, MetricsInput])
+slots.metricsDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input_data'], name="metricsDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__input_data, domain=None, range=Union[dict, MetricsInputData])
+
+slots.metricsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input_parameters'], name="metricsDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__input_parameters, domain=None, range=Union[dict, MetricsInputParameters])
 
 slots.metricsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/output'], name="metricsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__output, domain=None, range=Optional[Union[dict, MetricsOutput]])
@@ -3505,8 +3598,11 @@ slots.table__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/columns'],
 slots.table__table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table__table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.table__table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
-slots.fieldIlluminationDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/input'], name="fieldIlluminationDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input, domain=None, range=Optional[Union[dict, FieldIlluminationInput]])
+slots.fieldIlluminationDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/input_data'], name="fieldIlluminationDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input_data, domain=None, range=Optional[Union[dict, FieldIlluminationInputData]])
+
+slots.fieldIlluminationDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/input_parameters'], name="fieldIlluminationDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input_parameters, domain=None, range=Optional[Union[dict, FieldIlluminationInputParameters]])
 
 slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/output'], name="fieldIlluminationDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__output, domain=None, range=Optional[Union[dict, FieldIlluminationOutput]])
@@ -3538,8 +3634,11 @@ slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEME
 slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/field_illumination_schema/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/field_illumination_schema/roi_center_region'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/input'], name="pSFBeadsDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input, domain=None, range=Optional[Union[dict, PSFBeadsInput]])
+slots.pSFBeadsDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/input_data'], name="pSFBeadsDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input_data, domain=None, range=Optional[Union[dict, PSFBeadsInputData]])
+
+slots.pSFBeadsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/input_parameters'], name="pSFBeadsDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input_parameters, domain=None, range=Optional[Union[dict, PSFBeadsInputParameters]])
 
 slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
@@ -3586,8 +3685,11 @@ slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['sampl
 slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads_schema/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads_schema/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])
 
-slots.argolightBDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightBDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input, domain=None, range=Optional[Union[dict, ArgolightBInput]])
+slots.argolightBDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input_data'], name="argolightBDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input_data, domain=None, range=Optional[Union[dict, ArgolightBInputData]])
+
+slots.argolightBDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input_parameters'], name="argolightBDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__input_parameters, domain=None, range=Optional[Union[dict, ArgolightBInputParameters]])
 
 slots.argolightBDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/output'], name="argolightBDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBDataset__output, domain=None, range=Optional[Union[dict, ArgolightBOutput]])
@@ -3610,8 +3712,11 @@ slots.argolightBOutput__spots_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['sa
 slots.argolightBOutput__spots_distances = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/spots_distances'], name="argolightBOutput__spots_distances", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/spots_distances'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightBOutput__spots_distances, domain=None, range=Optional[Union[dict, Table]])
 
-slots.argolightEDataset__input = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input'], name="argolightEDataset__input", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__input, domain=None, range=Optional[Union[dict, ArgolightEInput]])
+slots.argolightEDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input_data'], name="argolightEDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__input_data, domain=None, range=Optional[Union[dict, ArgolightEInputData]])
+
+slots.argolightEDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/input_parameters'], name="argolightEDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__input_parameters, domain=None, range=Optional[Union[dict, ArgolightEInputParameters]])
 
 slots.argolightEDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/argolight_schema/output'], name="argolightEDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/argolight_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEDataset__output, domain=None, range=Optional[Union[dict, ArgolightEOutput]])
@@ -3628,29 +3733,29 @@ slots.argolightEOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['
 slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)
 
-slots.FieldIlluminationInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInput_saturation_threshold, domain=FieldIlluminationInput, range=float)
+slots.FieldIlluminationInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters_saturation_threshold, domain=FieldIlluminationInputParameters, range=float)
 
-slots.PSFBeadsInput_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="PSFBeadsInput_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_z, domain=PSFBeadsInput, range=float)
+slots.PSFBeadsInputParameters_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="PSFBeadsInputParameters_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_z, domain=PSFBeadsInputParameters, range=float)
 
-slots.PSFBeadsInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="PSFBeadsInput_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_y, domain=PSFBeadsInput, range=float)
+slots.PSFBeadsInputParameters_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="PSFBeadsInputParameters_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_y, domain=PSFBeadsInputParameters, range=float)
 
-slots.PSFBeadsInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="PSFBeadsInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInput_sigma_x, domain=PSFBeadsInput, range=float)
+slots.PSFBeadsInputParameters_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="PSFBeadsInputParameters_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_x, domain=PSFBeadsInputParameters, range=float)
 
-slots.ArgolightBInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightBInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_saturation_threshold, domain=ArgolightBInput, range=float)
+slots.ArgolightBInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightBInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInputParameters_saturation_threshold, domain=ArgolightBInputParameters, range=float)
 
-slots.ArgolightBInput_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="ArgolightBInput_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_z, domain=ArgolightBInput, range=float)
+slots.ArgolightBInputParameters_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="ArgolightBInputParameters_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInputParameters_sigma_z, domain=ArgolightBInputParameters, range=float)
 
-slots.ArgolightBInput_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="ArgolightBInput_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_y, domain=ArgolightBInput, range=float)
+slots.ArgolightBInputParameters_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="ArgolightBInputParameters_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInputParameters_sigma_y, domain=ArgolightBInputParameters, range=float)
 
-slots.ArgolightBInput_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="ArgolightBInput_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInput_sigma_x, domain=ArgolightBInput, range=float)
+slots.ArgolightBInputParameters_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="ArgolightBInputParameters_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightBInputParameters_sigma_x, domain=ArgolightBInputParameters, range=float)
 
-slots.ArgolightEInput_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightEInput_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightEInput_saturation_threshold, domain=ArgolightEInput, range=float)
+slots.ArgolightEInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="ArgolightEInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ArgolightEInputParameters_saturation_threshold, domain=ArgolightEInputParameters, range=float)

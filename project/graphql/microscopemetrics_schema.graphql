@@ -24,7 +24,8 @@ type ArgolightBDataset
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
-    input: ArgolightBInput
+    inputData: ArgolightBInputData
+    inputParameters: ArgolightBInputParameters
     output: ArgolightBOutput
   }
 
@@ -46,9 +47,13 @@ type ArgolightBDistanceKeyValues
     madZDist: [Float]
   }
 
-type ArgolightBInput
+type ArgolightBInputData
   {
     argolightBImage: Image!
+  }
+
+type ArgolightBInputParameters
+  {
     bitDepth: Integer
     saturationThreshold: Float!
     spotsDistance: Float!
@@ -110,13 +115,18 @@ type ArgolightEDataset
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
-    input: ArgolightEInput
+    inputData: ArgolightEInputData
+    inputParameters: ArgolightEInputParameters
     output: ArgolightEOutput
   }
 
-type ArgolightEInput
+type ArgolightEInputData
   {
     argolightEImage: Image!
+  }
+
+type ArgolightEInputParameters
+  {
     bitDepth: Integer
     saturationThreshold: Float!
     orientationAxis: Integer!
@@ -257,13 +267,18 @@ type FieldIlluminationDataset
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
-    input: FieldIlluminationInput
+    inputData: FieldIlluminationInputData
+    inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
   }
 
-type FieldIlluminationInput
+type FieldIlluminationInputData
   {
     fieldIlluminationImage: [Image]!
+  }
+
+type FieldIlluminationInputParameters
+  {
     bitDepth: Integer
     saturationThreshold: Float!
     cornerFraction: Float!
@@ -463,7 +478,8 @@ type MetricsDataset
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
-    input: MetricsInput!
+    inputData: MetricsInputData!
+    inputParameters: MetricsInputParameters!
     output: MetricsOutput
   }
 
@@ -476,7 +492,11 @@ type MetricsDatasetCollection
     datasets: [MetricsDataset]
   }
 
-interface MetricsInput
+interface MetricsInputData
+  {
+  }
+
+interface MetricsInputParameters
   {
   }
 
@@ -579,13 +599,18 @@ type PSFBeadsDataset
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
-    input: PSFBeadsInput
+    inputData: PSFBeadsInputData
+    inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
   }
 
-type PSFBeadsInput
+type PSFBeadsInputData
   {
     psfBeadsImages: [Image]!
+  }
+
+type PSFBeadsInputParameters
+  {
     bitDepth: Integer
     saturationThreshold: Float
     minLateralDistanceFactor: Float!

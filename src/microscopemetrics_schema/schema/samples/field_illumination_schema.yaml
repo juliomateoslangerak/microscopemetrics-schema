@@ -18,15 +18,22 @@ classes:
     description: >-
       A field illumination dataset
     attributes:
-      input:
-        range: FieldIlluminationInput
+      input_data:
+        range: FieldIlluminationInputData
+      input_parameters:
+        range: FieldIlluminationInputParameters
       output:
         range: FieldIlluminationOutput
 
-  FieldIlluminationInput:
-    is_a: MetricsInput
+  FieldIlluminationInputData:
+    is_a: MetricsInputData
     slots:
       - field_illumination_image
+
+
+  FieldIlluminationInputParameters:
+    is_a: MetricsInputParameters
+    slots:
       - bit_depth
       - saturation_threshold
       - corner_fraction

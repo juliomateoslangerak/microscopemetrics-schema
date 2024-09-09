@@ -18,15 +18,21 @@ classes:
     description: >-
       An Argolight sample pattern B dataset. This pattern consists of an array of circles
     attributes:
-      input:
-        range: ArgolightBInput
+      input_data:
+        range: ArgolightBInputData
+      input_parameters:
+        range: ArgolightBInputParameters
       output:
         range: ArgolightBOutput
 
-  ArgolightBInput:
-    is_a: MetricsInput
+  ArgolightBInputData:
+    is_a: MetricsInputData
     slots:
       - argolight_b_image
+
+  ArgolightBInputParameters:
+    is_a: MetricsInputParameters
+    slots:
       - bit_depth
       - saturation_threshold
       - spots_distance
@@ -148,15 +154,21 @@ classes:
       - axis 1 = Y resolution = lines along X axis
       - axis 2 = X resolution = lines along Y axis
     attributes:
-      input:
-        range: ArgolightEInput
+      input_data:
+        range: ArgolightEInputData
+      input_parameters:
+        range: ArgolightEInputParameters
       output:
         range: ArgolightEOutput
 
-  ArgolightEInput:
-    is_a: MetricsInput
+  ArgolightEInputData:
+    is_a: MetricsInputData
     slots:
       - argolight_e_image
+
+  ArgolightEInputParameters:
+    is_a: MetricsInputParameters
+    slots:
       - bit_depth
       - saturation_threshold
       - orientation_axis
@@ -205,33 +217,33 @@ slots:
   argolight_b_image:
     range: Image
     description: >-
-      Input parameter: image of the argolight b pattern in the order TZYXC
+      Image of the argolight b pattern in the order TZYXC
     required: true
     multivalued: false
   spots_distance:
     range: float
     description: >-
-      Input parameter: distance between argolight spots
+      Distance between argolight spots
     required: true
     multivalued: false
   lower_threshold_correction_factors:
     range: float
     description: >-
-      Input parameter: correction factor for the lower thresholds. 
+      Correction factor for the lower thresholds. 
       Must be a list with length equal to the number of channels or a single float if all equal
     required: false
     multivalued: true
   upper_threshold_correction_factors:
     range: float
     description: >-
-      Input parameter: correction factor for the upper thresholds.
+      Correction factor for the upper thresholds.
       Must be a tuple with length equal to the number of channels or a single float if all equal
     required: false
     multivalued: true
   remove_center_cross:
     range: boolean
     description: >-
-      Input parameter: remove the center cross found in some Argolight patterns
+      Remove the center cross found in some Argolight patterns
     required: false
     multivalued: false
     ifabsent: false

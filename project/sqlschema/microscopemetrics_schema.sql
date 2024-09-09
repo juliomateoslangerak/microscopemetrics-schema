@@ -92,10 +92,13 @@
 --     * Slot: HarmonizedMetricsDatasetCollection_id Description: Autocreated FK slot
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: sample_id Description: The sample that was imaged
---     * Slot: input_id Description: The input of the analysis
+--     * Slot: input_data_id Description: The input data for the analysis
+--     * Slot: input_parameters_id Description: The input parameters for the analysis
 --     * Slot: output_id Description: The output of the analysis
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "MetricsInput" Description: "An abstract class for analysis inputs"
+-- # Class: "MetricsInputData" Description: "An abstract class for analysis input data"
+--     * Slot: id Description: 
+-- # Class: "MetricsInputParameters" Description: "An abstract class for analysis inputs parameters"
 --     * Slot: id Description: 
 -- # Class: "MetricsOutput" Description: "An abstract class for analysis outputs"
 --     * Slot: id Description: 
@@ -117,8 +120,8 @@
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: FieldIlluminationInput_id Description: Autocreated FK slot
---     * Slot: PSFBeadsInput_id Description: Autocreated FK slot
+--     * Slot: FieldIlluminationInputData_id Description: Autocreated FK slot
+--     * Slot: PSFBeadsInputData_id Description: Autocreated FK slot
 --     * Slot: time_series_id Description: 
 --     * Slot: channel_series_id Description: 
 --     * Slot: array_data_id Description: A non-required slot for non-serializable array data object
@@ -318,12 +321,15 @@
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: input_id Description: 
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "FieldIlluminationInput" Description: ""
+-- # Class: "FieldIlluminationInputData" Description: ""
+--     * Slot: id Description: 
+-- # Class: "FieldIlluminationInputParameters" Description: ""
 --     * Slot: id Description: 
 --     * Slot: bit_depth Description: Detector bit depth
 --     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
@@ -351,12 +357,15 @@
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: input_id Description: 
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "PSFBeadsInput" Description: ""
+-- # Class: "PSFBeadsInputData" Description: ""
+--     * Slot: id Description: 
+-- # Class: "PSFBeadsInputParameters" Description: ""
 --     * Slot: id Description: 
 --     * Slot: bit_depth Description: Detector bit depth
 --     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
@@ -393,21 +402,24 @@
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: input_id Description: 
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightBInput" Description: ""
+-- # Class: "ArgolightBInputData" Description: ""
+--     * Slot: id Description: 
+--     * Slot: argolight_b_image_id Description: Image of the argolight b pattern in the order TZYXC
+-- # Class: "ArgolightBInputParameters" Description: ""
 --     * Slot: id Description: 
 --     * Slot: bit_depth Description: Detector bit depth
 --     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
---     * Slot: spots_distance Description: Input parameter: distance between argolight spots
+--     * Slot: spots_distance Description: Distance between argolight spots
 --     * Slot: sigma_z Description: Smoothing factor for objects detection in the Z axis
 --     * Slot: sigma_y Description: Smoothing factor for objects detection in the Y axis
 --     * Slot: sigma_x Description: Smoothing factor for objects detection in the X axis
---     * Slot: remove_center_cross Description: Input parameter: remove the center cross found in some Argolight patterns
---     * Slot: argolight_b_image_id Description: Input parameter: image of the argolight b pattern in the order TZYXC
+--     * Slot: remove_center_cross Description: Remove the center cross found in some Argolight patterns
 -- # Class: "ArgolightBOutput" Description: ""
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
@@ -442,19 +454,22 @@
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: input_id Description: 
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightEInput" Description: ""
+-- # Class: "ArgolightEInputData" Description: ""
+--     * Slot: id Description: 
+--     * Slot: argolight_e_image_id Description: Image of the argolight e pattern provided in the order TZYXC
+-- # Class: "ArgolightEInputParameters" Description: ""
 --     * Slot: id Description: 
 --     * Slot: bit_depth Description: Detector bit depth
 --     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
 --     * Slot: orientation_axis Description: Axis along which resolution is being measured. 1=Y, 2=X
 --     * Slot: measured_band Description: Fraction of the image across which intensity profiles are measured
 --     * Slot: prominence_threshold Description: Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria
---     * Slot: argolight_e_image_id Description: Image of the argolight e pattern provided in the order TZYXC
 -- # Class: "ArgolightEOutput" Description: ""
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
@@ -889,12 +904,12 @@
 -- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_std" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: average_bead_intensity_std Description: Standard deviation of the intensity for the average bead. One value per channel.
--- # Class: "ArgolightBInput_lower_threshold_correction_factors" Description: ""
---     * Slot: ArgolightBInput_id Description: Autocreated FK slot
---     * Slot: lower_threshold_correction_factors Description: Input parameter: correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal
--- # Class: "ArgolightBInput_upper_threshold_correction_factors" Description: ""
---     * Slot: ArgolightBInput_id Description: Autocreated FK slot
---     * Slot: upper_threshold_correction_factors Description: Input parameter: correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal
+-- # Class: "ArgolightBInputParameters_lower_threshold_correction_factors" Description: ""
+--     * Slot: ArgolightBInputParameters_id Description: Autocreated FK slot
+--     * Slot: lower_threshold_correction_factors Description: Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal
+-- # Class: "ArgolightBInputParameters_upper_threshold_correction_factors" Description: ""
+--     * Slot: ArgolightBInputParameters_id Description: Autocreated FK slot
+--     * Slot: upper_threshold_correction_factors Description: Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal
 -- # Class: "ArgolightBOutput_spots_centers_of_mass" Description: ""
 --     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
 --     * Slot: spots_centers_of_mass_id Description: Centers of mass of the argolight spots provided as a list of ROIs. One per channel
@@ -1155,7 +1170,8 @@ CREATE TABLE "MetricsDataset" (
 	"HarmonizedMetricsDatasetCollection_id" INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
-	input_id INTEGER NOT NULL, 
+	input_data_id INTEGER NOT NULL, 
+	input_parameters_id INTEGER NOT NULL, 
 	output_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
@@ -1164,11 +1180,16 @@ CREATE TABLE "MetricsDataset" (
 	FOREIGN KEY("HarmonizedMetricsDatasetCollection_id") REFERENCES "HarmonizedMetricsDatasetCollection" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
-	FOREIGN KEY(input_id) REFERENCES "MetricsInput" (id), 
+	FOREIGN KEY(input_data_id) REFERENCES "MetricsInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "MetricsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "MetricsOutput" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
-CREATE TABLE "MetricsInput" (
+CREATE TABLE "MetricsInputData" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "MetricsInputParameters" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
 );
@@ -1185,15 +1206,15 @@ CREATE TABLE "Image" (
 	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
-	"FieldIlluminationInput_id" INTEGER, 
-	"PSFBeadsInput_id" INTEGER, 
+	"FieldIlluminationInputData_id" INTEGER, 
+	"PSFBeadsInputData_id" INTEGER, 
 	time_series_id INTEGER, 
 	channel_series_id INTEGER, 
 	array_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY("FieldIlluminationInput_id") REFERENCES "FieldIlluminationInput" (id), 
-	FOREIGN KEY("PSFBeadsInput_id") REFERENCES "PSFBeadsInput" (id), 
+	FOREIGN KEY("FieldIlluminationInputData_id") REFERENCES "FieldIlluminationInputData" (id), 
+	FOREIGN KEY("PSFBeadsInputData_id") REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(time_series_id) REFERENCES "TimeSeries" (id), 
 	FOREIGN KEY(channel_series_id) REFERENCES "ChannelSeries" (id), 
 	FOREIGN KEY(array_data_id) REFERENCES "MetaObject" (id), 
@@ -1325,20 +1346,26 @@ CREATE TABLE "FieldIlluminationDataset" (
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	input_id INTEGER, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_id) REFERENCES "FieldIlluminationInput" (id), 
+	FOREIGN KEY(input_data_id) REFERENCES "FieldIlluminationInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "FieldIlluminationInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "FieldIlluminationOutput" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
-CREATE TABLE "FieldIlluminationInput" (
+CREATE TABLE "FieldIlluminationInputData" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "FieldIlluminationInputParameters" (
 	id INTEGER NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT NOT NULL, 
@@ -1377,20 +1404,26 @@ CREATE TABLE "PSFBeadsDataset" (
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	input_id INTEGER, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_id) REFERENCES "PSFBeadsInput" (id), 
+	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
-CREATE TABLE "PSFBeadsInput" (
+CREATE TABLE "PSFBeadsInputData" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "PSFBeadsInputParameters" (
 	id INTEGER NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT, 
@@ -1442,20 +1475,28 @@ CREATE TABLE "ArgolightBDataset" (
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	input_id INTEGER, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_id) REFERENCES "ArgolightBInput" (id), 
+	FOREIGN KEY(input_data_id) REFERENCES "ArgolightBInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightBInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "ArgolightBOutput" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
-CREATE TABLE "ArgolightBInput" (
+CREATE TABLE "ArgolightBInputData" (
+	id INTEGER NOT NULL, 
+	argolight_b_image_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(argolight_b_image_id) REFERENCES "Image" (id)
+);
+CREATE TABLE "ArgolightBInputParameters" (
 	id INTEGER NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT NOT NULL, 
@@ -1464,9 +1505,7 @@ CREATE TABLE "ArgolightBInput" (
 	sigma_y FLOAT NOT NULL, 
 	sigma_x FLOAT NOT NULL, 
 	remove_center_cross BOOLEAN, 
-	argolight_b_image_id INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(argolight_b_image_id) REFERENCES "Image" (id)
+	PRIMARY KEY (id)
 );
 CREATE TABLE "ArgolightBOutput" (
 	id INTEGER NOT NULL, 
@@ -1519,29 +1558,35 @@ CREATE TABLE "ArgolightEDataset" (
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	input_id INTEGER, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_id) REFERENCES "ArgolightEInput" (id), 
+	FOREIGN KEY(input_data_id) REFERENCES "ArgolightEInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightEInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "ArgolightEOutput" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
-CREATE TABLE "ArgolightEInput" (
+CREATE TABLE "ArgolightEInputData" (
+	id INTEGER NOT NULL, 
+	argolight_e_image_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(argolight_e_image_id) REFERENCES "Image" (id)
+);
+CREATE TABLE "ArgolightEInputParameters" (
 	id INTEGER NOT NULL, 
 	bit_depth INTEGER, 
 	saturation_threshold FLOAT NOT NULL, 
 	orientation_axis INTEGER NOT NULL, 
 	measured_band FLOAT NOT NULL, 
 	prominence_threshold FLOAT NOT NULL, 
-	argolight_e_image_id INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(argolight_e_image_id) REFERENCES "Image" (id)
+	PRIMARY KEY (id)
 );
 CREATE TABLE "ArgolightEOutput" (
 	id INTEGER NOT NULL, 
@@ -2548,17 +2593,17 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_std" (
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_std), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "ArgolightBInput_lower_threshold_correction_factors" (
-	"ArgolightBInput_id" INTEGER, 
+CREATE TABLE "ArgolightBInputParameters_lower_threshold_correction_factors" (
+	"ArgolightBInputParameters_id" INTEGER, 
 	lower_threshold_correction_factors FLOAT, 
-	PRIMARY KEY ("ArgolightBInput_id", lower_threshold_correction_factors), 
-	FOREIGN KEY("ArgolightBInput_id") REFERENCES "ArgolightBInput" (id)
+	PRIMARY KEY ("ArgolightBInputParameters_id", lower_threshold_correction_factors), 
+	FOREIGN KEY("ArgolightBInputParameters_id") REFERENCES "ArgolightBInputParameters" (id)
 );
-CREATE TABLE "ArgolightBInput_upper_threshold_correction_factors" (
-	"ArgolightBInput_id" INTEGER, 
+CREATE TABLE "ArgolightBInputParameters_upper_threshold_correction_factors" (
+	"ArgolightBInputParameters_id" INTEGER, 
 	upper_threshold_correction_factors FLOAT, 
-	PRIMARY KEY ("ArgolightBInput_id", upper_threshold_correction_factors), 
-	FOREIGN KEY("ArgolightBInput_id") REFERENCES "ArgolightBInput" (id)
+	PRIMARY KEY ("ArgolightBInputParameters_id", upper_threshold_correction_factors), 
+	FOREIGN KEY("ArgolightBInputParameters_id") REFERENCES "ArgolightBInputParameters" (id)
 );
 CREATE TABLE "ArgolightBOutput_spots_centers_of_mass" (
 	"ArgolightBOutput_id" INTEGER, 

@@ -29,7 +29,7 @@ experimenter:
   orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_datetime: "2024-01-15T00:00:00Z"
 processed: true
-input:
+input_data:
   argolight_b_image:
     name: "ExampleImage1"
     data_reference:
@@ -47,6 +47,7 @@ input:
     shape_c: 4
     shape_t: 1
     acquisition_datetime: "2024-01-15T00:00:00Z"
+input_parameters:
   spots_distance: 40.0
   saturation_threshold: 0.01
   sigma_z: 1.0

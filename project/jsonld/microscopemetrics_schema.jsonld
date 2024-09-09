@@ -580,12 +580,12 @@
       "description": "Detector bit depth",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/bit_depth",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "FieldIlluminationInput",
-        "PSFBeadsInput",
-        "ArgolightBInput",
-        "ArgolightEInput"
+        "FieldIlluminationInputParameters",
+        "PSFBeadsInputParameters",
+        "ArgolightBInputParameters",
+        "ArgolightEInputParameters"
       ],
       "range": "integer",
       "minimum_value": 1,
@@ -599,12 +599,12 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "ifabsent": "float(0.01)",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "FieldIlluminationInput",
-        "PSFBeadsInput",
-        "ArgolightBInput",
-        "ArgolightEInput"
+        "FieldIlluminationInputParameters",
+        "PSFBeadsInputParameters",
+        "ArgolightBInputParameters",
+        "ArgolightEInputParameters"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -617,10 +617,10 @@
       "description": "Smoothing sigma to be applied to the image in the Z axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "PSFBeadsInput",
-        "ArgolightBInput"
+        "PSFBeadsInputParameters",
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -631,10 +631,10 @@
       "description": "Smoothing sigma to be applied to the image in the Y axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "PSFBeadsInput",
-        "ArgolightBInput"
+        "PSFBeadsInputParameters",
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -645,10 +645,10 @@
       "description": "Smoothing sigma to be applied to the image in the X axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "PSFBeadsInput",
-        "ArgolightBInput"
+        "PSFBeadsInputParameters",
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -660,9 +660,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/field_illumination_image",
       "multivalued": true,
-      "owner": "FieldIlluminationInput",
+      "owner": "FieldIlluminationInputData",
       "domain_of": [
-        "FieldIlluminationInput"
+        "FieldIlluminationInputData"
       ],
       "range": "Image",
       "required": true,
@@ -677,9 +677,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/corner_fraction",
       "ifabsent": "float(0.1)",
-      "owner": "FieldIlluminationInput",
+      "owner": "FieldIlluminationInputParameters",
       "domain_of": [
-        "FieldIlluminationInput"
+        "FieldIlluminationInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -694,9 +694,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/sigma",
       "ifabsent": "float(5.0)",
-      "owner": "FieldIlluminationInput",
+      "owner": "FieldIlluminationInputParameters",
       "domain_of": [
-        "FieldIlluminationInput"
+        "FieldIlluminationInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -1313,9 +1313,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/psf_beads_images",
       "multivalued": true,
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputData",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputData"
       ],
       "range": "Image",
       "required": true,
@@ -1330,9 +1330,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/min_lateral_distance_factor",
       "ifabsent": "float(20)",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -1347,9 +1347,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/snr_threshold",
       "ifabsent": "float(10.0)",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -1362,9 +1362,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/fitting_r2_threshold",
       "ifabsent": "float(0.85)",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -1377,9 +1377,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/intensity_robust_z_score_threshold",
       "ifabsent": "float(2.0)",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -2284,12 +2284,12 @@
     {
       "name": "argolight_b_image",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/argolight_b_image",
-      "description": "Input parameter: image of the argolight b pattern in the order TZYXC",
+      "description": "Image of the argolight b pattern in the order TZYXC",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/argolight_b_image",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputData",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputData"
       ],
       "range": "Image",
       "required": true,
@@ -2299,12 +2299,12 @@
     {
       "name": "spots_distance",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/spots_distance",
-      "description": "Input parameter: distance between argolight spots",
+      "description": "Distance between argolight spots",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/spots_distance",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -2313,13 +2313,13 @@
     {
       "name": "lower_threshold_correction_factors",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/lower_threshold_correction_factors",
-      "description": "Input parameter: correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
+      "description": "Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/lower_threshold_correction_factors",
       "multivalued": true,
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -2327,13 +2327,13 @@
     {
       "name": "upper_threshold_correction_factors",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/upper_threshold_correction_factors",
-      "description": "Input parameter: correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
+      "description": "Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/upper_threshold_correction_factors",
       "multivalued": true,
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -2341,13 +2341,13 @@
     {
       "name": "remove_center_cross",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/remove_center_cross",
-      "description": "Input parameter: remove the center cross found in some Argolight patterns",
+      "description": "Remove the center cross found in some Argolight patterns",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/remove_center_cross",
       "ifabsent": "False",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "range": "boolean",
       "@type": "SlotDefinition"
@@ -2642,9 +2642,9 @@
       "description": "Image of the argolight e pattern provided in the order TZYXC",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/argolight_e_image",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputData",
       "domain_of": [
-        "ArgolightEInput"
+        "ArgolightEInputData"
       ],
       "range": "Image",
       "required": true,
@@ -2657,9 +2657,9 @@
       "description": "Axis along which resolution is being measured. 1=Y, 2=X",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/orientation_axis",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "ArgolightEInput"
+        "ArgolightEInputParameters"
       ],
       "range": "integer",
       "required": true,
@@ -2674,9 +2674,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/measured_band",
       "ifabsent": "float(0.4)",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "ArgolightEInput"
+        "ArgolightEInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -2691,9 +2691,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/prominence_threshold",
       "ifabsent": "float(0.264)",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "ArgolightEInput"
+        "ArgolightEInputParameters"
       ],
       "range": "float",
       "required": true,
@@ -3262,16 +3262,31 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__input",
-      "description": "The input of the analysis",
+      "name": "metricsDataset__input_data",
+      "description": "The input data for the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input",
-      "alias": "input",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "alias": "input_data",
       "owner": "MetricsDataset",
       "domain_of": [
         "MetricsDataset"
       ],
-      "range": "MetricsInput",
+      "range": "MetricsInputData",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "metricsDataset__input_parameters",
+      "description": "The input parameters for the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "alias": "input_parameters",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "MetricsInputParameters",
       "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
@@ -4332,15 +4347,28 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fieldIlluminationDataset__input",
+      "name": "fieldIlluminationDataset__input_data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/input",
-      "alias": "input",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/input_data",
+      "alias": "input_data",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
         "FieldIlluminationDataset"
       ],
-      "range": "FieldIlluminationInput",
+      "range": "FieldIlluminationInputData",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fieldIlluminationDataset__input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/input_parameters",
+      "alias": "input_parameters",
+      "owner": "FieldIlluminationDataset",
+      "domain_of": [
+        "FieldIlluminationDataset"
+      ],
+      "range": "FieldIlluminationInputParameters",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4492,15 +4520,28 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsDataset__input",
+      "name": "pSFBeadsDataset__input_data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/input",
-      "alias": "input",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/input_data",
+      "alias": "input_data",
       "owner": "PSFBeadsDataset",
       "domain_of": [
         "PSFBeadsDataset"
       ],
-      "range": "PSFBeadsInput",
+      "range": "PSFBeadsInputData",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsDataset__input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/input_parameters",
+      "alias": "input_parameters",
+      "owner": "PSFBeadsDataset",
+      "domain_of": [
+        "PSFBeadsDataset"
+      ],
+      "range": "PSFBeadsInputParameters",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4736,15 +4777,28 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "argolightBDataset__input",
+      "name": "argolightBDataset__input_data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input",
-      "alias": "input",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input_data",
+      "alias": "input_data",
       "owner": "ArgolightBDataset",
       "domain_of": [
         "ArgolightBDataset"
       ],
-      "range": "ArgolightBInput",
+      "range": "ArgolightBInputData",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "argolightBDataset__input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input_parameters",
+      "alias": "input_parameters",
+      "owner": "ArgolightBDataset",
+      "domain_of": [
+        "ArgolightBDataset"
+      ],
+      "range": "ArgolightBInputParameters",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4847,15 +4901,28 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "argolightEDataset__input",
+      "name": "argolightEDataset__input_data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input",
-      "alias": "input",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input_data",
+      "alias": "input_data",
       "owner": "ArgolightEDataset",
       "domain_of": [
         "ArgolightEDataset"
       ],
-      "range": "ArgolightEInput",
+      "range": "ArgolightEInputData",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "argolightEDataset__input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/input_parameters",
+      "alias": "input_parameters",
+      "owner": "ArgolightEDataset",
+      "domain_of": [
+        "ArgolightEDataset"
+      ],
+      "range": "ArgolightEInputParameters",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4935,18 +5002,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "FieldIlluminationInput_saturation_threshold",
+      "name": "FieldIlluminationInputParameters_saturation_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "saturation_threshold",
-      "domain": "FieldIlluminationInput",
+      "domain": "FieldIlluminationInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "ifabsent": "float(0.01)",
       "alias": "saturation_threshold",
-      "owner": "FieldIlluminationInput",
+      "owner": "FieldIlluminationInputParameters",
       "domain_of": [
-        "FieldIlluminationInput"
+        "FieldIlluminationInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "saturation_threshold",
@@ -4957,18 +5024,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "PSFBeadsInput_sigma_z",
+      "name": "PSFBeadsInputParameters_sigma_z",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
       "description": "Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection. Does not apply to resolution measurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_z",
-      "domain": "PSFBeadsInput",
+      "domain": "PSFBeadsInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
       "ifabsent": "float(1.0)",
       "alias": "sigma_z",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_z",
@@ -4977,18 +5044,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "PSFBeadsInput_sigma_y",
+      "name": "PSFBeadsInputParameters_sigma_y",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
       "description": "Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection. Does not apply to resolution measurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_y",
-      "domain": "PSFBeadsInput",
+      "domain": "PSFBeadsInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
       "ifabsent": "float(1.0)",
       "alias": "sigma_y",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_y",
@@ -4997,18 +5064,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "PSFBeadsInput_sigma_x",
+      "name": "PSFBeadsInputParameters_sigma_x",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
       "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_x",
-      "domain": "PSFBeadsInput",
+      "domain": "PSFBeadsInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
       "ifabsent": "float(1.0)",
       "alias": "sigma_x",
-      "owner": "PSFBeadsInput",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInput"
+        "PSFBeadsInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_x",
@@ -5017,18 +5084,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "ArgolightBInput_saturation_threshold",
+      "name": "ArgolightBInputParameters_saturation_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "saturation_threshold",
-      "domain": "ArgolightBInput",
+      "domain": "ArgolightBInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "ifabsent": "float(0.01)",
       "alias": "saturation_threshold",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "saturation_threshold",
@@ -5039,18 +5106,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "ArgolightBInput_sigma_z",
+      "name": "ArgolightBInputParameters_sigma_z",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
       "description": "Smoothing factor for objects detection in the Z axis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_z",
-      "domain": "ArgolightBInput",
+      "domain": "ArgolightBInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
       "ifabsent": "float(1.0)",
       "alias": "sigma_z",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_z",
@@ -5061,18 +5128,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "ArgolightBInput_sigma_y",
+      "name": "ArgolightBInputParameters_sigma_y",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
       "description": "Smoothing factor for objects detection in the Y axis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_y",
-      "domain": "ArgolightBInput",
+      "domain": "ArgolightBInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
       "ifabsent": "float(3.0)",
       "alias": "sigma_y",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_y",
@@ -5083,18 +5150,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "ArgolightBInput_sigma_x",
+      "name": "ArgolightBInputParameters_sigma_x",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
       "description": "Smoothing factor for objects detection in the X axis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "sigma_x",
-      "domain": "ArgolightBInput",
+      "domain": "ArgolightBInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
       "ifabsent": "float(3.0)",
       "alias": "sigma_x",
-      "owner": "ArgolightBInput",
+      "owner": "ArgolightBInputParameters",
       "domain_of": [
-        "ArgolightBInput"
+        "ArgolightBInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "sigma_x",
@@ -5105,18 +5172,18 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "ArgolightEInput_saturation_threshold",
+      "name": "ArgolightEInputParameters_saturation_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "saturation_threshold",
-      "domain": "ArgolightEInput",
+      "domain": "ArgolightEInputParameters",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "ifabsent": "float(0.01)",
       "alias": "saturation_threshold",
-      "owner": "ArgolightEInput",
+      "owner": "ArgolightEInputParameters",
       "domain_of": [
-        "ArgolightEInput"
+        "ArgolightEInputParameters"
       ],
       "is_usage_slot": true,
       "usage_slot_name": "saturation_threshold",
@@ -5540,7 +5607,8 @@
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "metricsDataset__input",
+        "metricsDataset__input_data",
+        "metricsDataset__input_parameters",
         "metricsDataset__output"
       ],
       "slot_usage": {},
@@ -5579,9 +5647,16 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "input",
-          "description": "The input of the analysis",
-          "range": "MetricsInput",
+          "name": "input_data",
+          "description": "The input data for the analysis",
+          "range": "MetricsInputData",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "input_parameters",
+          "description": "The input parameters for the analysis",
+          "range": "MetricsInputParameters",
           "required": true,
           "@type": "SlotDefinition"
         },
@@ -5622,13 +5697,23 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "MetricsInput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInput",
-      "description": "An abstract class for analysis inputs",
+      "name": "MetricsInputData",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData",
+      "description": "An abstract class for analysis input data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "abstract": true,
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "MetricsInputParameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters",
+      "description": "An abstract class for analysis inputs parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "abstract": true,
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters",
       "@type": "ClassDefinition"
     },
     {
@@ -6709,14 +6794,20 @@
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "fieldIlluminationDataset__input",
+        "fieldIlluminationDataset__input_data",
+        "fieldIlluminationDataset__input_parameters",
         "fieldIlluminationDataset__output"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "input",
-          "range": "FieldIlluminationInput",
+          "name": "input_data",
+          "range": "FieldIlluminationInputData",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "input_parameters",
+          "range": "FieldIlluminationInputParameters",
           "@type": "SlotDefinition"
         },
         {
@@ -6729,19 +6820,30 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "FieldIlluminationInput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInput",
+      "name": "FieldIlluminationInputData",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInputData",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
-      "is_a": "MetricsInput",
+      "is_a": "MetricsInputData",
       "slots": [
-        "field_illumination_image",
+        "field_illumination_image"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInputData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FieldIlluminationInputParameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema",
+      "is_a": "MetricsInputParameters",
+      "slots": [
         "bit_depth",
-        "FieldIlluminationInput_saturation_threshold",
+        "FieldIlluminationInputParameters_saturation_threshold",
         "corner_fraction",
         "sigma"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema/FieldIlluminationInputParameters",
       "@type": "ClassDefinition"
     },
     {
@@ -6917,14 +7019,20 @@
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "pSFBeadsDataset__input",
+        "pSFBeadsDataset__input_data",
+        "pSFBeadsDataset__input_parameters",
         "pSFBeadsDataset__output"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "input",
-          "range": "PSFBeadsInput",
+          "name": "input_data",
+          "range": "PSFBeadsInputData",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "input_parameters",
+          "range": "PSFBeadsInputParameters",
           "@type": "SlotDefinition"
         },
         {
@@ -6937,24 +7045,35 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "PSFBeadsInput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInput",
+      "name": "PSFBeadsInputData",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInputData",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
-      "is_a": "MetricsInput",
+      "is_a": "MetricsInputData",
       "slots": [
-        "psf_beads_images",
+        "psf_beads_images"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInputData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PSFBeadsInputParameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema",
+      "is_a": "MetricsInputParameters",
+      "slots": [
         "bit_depth",
         "saturation_threshold",
         "min_lateral_distance_factor",
-        "PSFBeadsInput_sigma_z",
-        "PSFBeadsInput_sigma_y",
-        "PSFBeadsInput_sigma_x",
+        "PSFBeadsInputParameters_sigma_z",
+        "PSFBeadsInputParameters_sigma_y",
+        "PSFBeadsInputParameters_sigma_x",
         "snr_threshold",
         "fitting_r2_threshold",
         "intensity_robust_z_score_threshold"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema/PSFBeadsInputParameters",
       "@type": "ClassDefinition"
     },
     {
@@ -7212,14 +7331,20 @@
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "argolightBDataset__input",
+        "argolightBDataset__input_data",
+        "argolightBDataset__input_parameters",
         "argolightBDataset__output"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "input",
-          "range": "ArgolightBInput",
+          "name": "input_data",
+          "range": "ArgolightBInputData",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "input_parameters",
+          "range": "ArgolightBInputParameters",
           "@type": "SlotDefinition"
         },
         {
@@ -7232,24 +7357,35 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "ArgolightBInput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInput",
+      "name": "ArgolightBInputData",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInputData",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
-      "is_a": "MetricsInput",
+      "is_a": "MetricsInputData",
       "slots": [
-        "argolight_b_image",
+        "argolight_b_image"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInputData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ArgolightBInputParameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
+      "is_a": "MetricsInputParameters",
+      "slots": [
         "bit_depth",
-        "ArgolightBInput_saturation_threshold",
+        "ArgolightBInputParameters_saturation_threshold",
         "spots_distance",
-        "ArgolightBInput_sigma_z",
-        "ArgolightBInput_sigma_y",
-        "ArgolightBInput_sigma_x",
+        "ArgolightBInputParameters_sigma_z",
+        "ArgolightBInputParameters_sigma_y",
+        "ArgolightBInputParameters_sigma_x",
         "lower_threshold_correction_factors",
         "upper_threshold_correction_factors",
         "remove_center_cross"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightBInputParameters",
       "@type": "ClassDefinition"
     },
     {
@@ -7409,14 +7545,20 @@
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
-        "argolightEDataset__input",
+        "argolightEDataset__input_data",
+        "argolightEDataset__input_parameters",
         "argolightEDataset__output"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "input",
-          "range": "ArgolightEInput",
+          "name": "input_data",
+          "range": "ArgolightEInputData",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "input_parameters",
+          "range": "ArgolightEInputParameters",
           "@type": "SlotDefinition"
         },
         {
@@ -7429,20 +7571,31 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "ArgolightEInput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInput",
+      "name": "ArgolightEInputData",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInputData",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
-      "is_a": "MetricsInput",
+      "is_a": "MetricsInputData",
       "slots": [
-        "argolight_e_image",
+        "argolight_e_image"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInputData",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ArgolightEInputParameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema",
+      "is_a": "MetricsInputParameters",
+      "slots": [
         "bit_depth",
-        "ArgolightEInput_saturation_threshold",
+        "ArgolightEInputParameters_saturation_threshold",
         "orientation_axis",
         "measured_band",
         "prominence_threshold"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema/ArgolightEInputParameters",
       "@type": "ClassDefinition"
     },
     {
@@ -7520,7 +7673,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-04-30T13:02:50",
   "source_file_size": 789,
-  "generation_date": "2024-06-25T16:29:41",
+  "generation_date": "2024-09-09T11:16:44",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

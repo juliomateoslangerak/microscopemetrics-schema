@@ -100,8 +100,11 @@
                     "description": "The experimenter that performed the imaging experiment",
                     "type": "string"
                 },
-                "input": {
-                    "$ref": "#/$defs/ArgolightBInput"
+                "input_data": {
+                    "$ref": "#/$defs/ArgolightBInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/ArgolightBInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -242,14 +245,25 @@
             "title": "ArgolightBDistanceKeyValues",
             "type": "object"
         },
-        "ArgolightBInput": {
+        "ArgolightBInputData": {
             "additionalProperties": false,
             "description": "",
             "properties": {
                 "argolight_b_image": {
                     "$ref": "#/$defs/Image",
-                    "description": "Input parameter: image of the argolight b pattern in the order TZYXC"
-                },
+                    "description": "Image of the argolight b pattern in the order TZYXC"
+                }
+            },
+            "required": [
+                "argolight_b_image"
+            ],
+            "title": "ArgolightBInputData",
+            "type": "object"
+        },
+        "ArgolightBInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
                 "bit_depth": {
                     "description": "Detector bit depth",
                     "maximum": 64,
@@ -257,14 +271,14 @@
                     "type": "integer"
                 },
                 "lower_threshold_correction_factors": {
-                    "description": "Input parameter: correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
+                    "description": "Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
                     "items": {
                         "type": "number"
                     },
                     "type": "array"
                 },
                 "remove_center_cross": {
-                    "description": "Input parameter: remove the center cross found in some Argolight patterns",
+                    "description": "Remove the center cross found in some Argolight patterns",
                     "type": "boolean"
                 },
                 "saturation_threshold": {
@@ -292,11 +306,11 @@
                     "type": "number"
                 },
                 "spots_distance": {
-                    "description": "Input parameter: distance between argolight spots",
+                    "description": "Distance between argolight spots",
                     "type": "number"
                 },
                 "upper_threshold_correction_factors": {
-                    "description": "Input parameter: correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
+                    "description": "Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
                     "items": {
                         "type": "number"
                     },
@@ -304,14 +318,13 @@
                 }
             },
             "required": [
-                "argolight_b_image",
                 "saturation_threshold",
                 "spots_distance",
                 "sigma_z",
                 "sigma_y",
                 "sigma_x"
             ],
-            "title": "ArgolightBInput",
+            "title": "ArgolightBInputParameters",
             "type": "object"
         },
         "ArgolightBIntensityKeyValues": {
@@ -548,8 +561,11 @@
                     "description": "The experimenter that performed the imaging experiment",
                     "type": "string"
                 },
-                "input": {
-                    "$ref": "#/$defs/ArgolightEInput"
+                "input_data": {
+                    "$ref": "#/$defs/ArgolightEInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/ArgolightEInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -593,14 +609,25 @@
             "title": "ArgolightEDataset",
             "type": "object"
         },
-        "ArgolightEInput": {
+        "ArgolightEInputData": {
             "additionalProperties": false,
             "description": "",
             "properties": {
                 "argolight_e_image": {
                     "$ref": "#/$defs/Image",
                     "description": "Image of the argolight e pattern provided in the order TZYXC"
-                },
+                }
+            },
+            "required": [
+                "argolight_e_image"
+            ],
+            "title": "ArgolightEInputData",
+            "type": "object"
+        },
+        "ArgolightEInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
                 "bit_depth": {
                     "description": "Detector bit depth",
                     "maximum": 64,
@@ -633,13 +660,12 @@
                 }
             },
             "required": [
-                "argolight_e_image",
                 "saturation_threshold",
                 "orientation_axis",
                 "measured_band",
                 "prominence_threshold"
             ],
-            "title": "ArgolightEInput",
+            "title": "ArgolightEInputParameters",
             "type": "object"
         },
         "ArgolightEKeyValues": {
@@ -1131,8 +1157,11 @@
                     "description": "The experimenter that performed the imaging experiment",
                     "type": "string"
                 },
-                "input": {
-                    "$ref": "#/$defs/FieldIlluminationInput"
+                "input_data": {
+                    "$ref": "#/$defs/FieldIlluminationInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/FieldIlluminationInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -1176,7 +1205,25 @@
             "title": "FieldIlluminationDataset",
             "type": "object"
         },
-        "FieldIlluminationInput": {
+        "FieldIlluminationInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "field_illumination_image": {
+                    "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
+                    "items": {
+                        "$ref": "#/$defs/Image"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "field_illumination_image"
+            ],
+            "title": "FieldIlluminationInputData",
+            "type": "object"
+        },
+        "FieldIlluminationInputParameters": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -1192,13 +1239,6 @@
                     "minimum": 0.01,
                     "type": "number"
                 },
-                "field_illumination_image": {
-                    "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
-                },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1.0,
@@ -1213,12 +1253,11 @@
                 }
             },
             "required": [
-                "field_illumination_image",
                 "saturation_threshold",
                 "corner_fraction",
                 "sigma"
             ],
-            "title": "FieldIlluminationInput",
+            "title": "FieldIlluminationInputParameters",
             "type": "object"
         },
         "FieldIlluminationKeyMeasurements": {
@@ -2109,9 +2148,13 @@
                     "description": "The experimenter that performed the imaging experiment",
                     "type": "string"
                 },
-                "input": {
-                    "$ref": "#/$defs/MetricsInput",
-                    "description": "The input of the analysis"
+                "input_data": {
+                    "$ref": "#/$defs/MetricsInputData",
+                    "description": "The input data for the analysis"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/MetricsInputParameters",
+                    "description": "The input parameters for the analysis"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -2144,7 +2187,8 @@
             "required": [
                 "microscope",
                 "processed",
-                "input"
+                "input_data",
+                "input_parameters"
             ],
             "then": {
                 "properties": {
@@ -2321,8 +2365,11 @@
                     "description": "The experimenter that performed the imaging experiment",
                     "type": "string"
                 },
-                "input": {
-                    "$ref": "#/$defs/PSFBeadsInput"
+                "input_data": {
+                    "$ref": "#/$defs/PSFBeadsInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/PSFBeadsInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -2366,7 +2413,25 @@
             "title": "PSFBeadsDataset",
             "type": "object"
         },
-        "PSFBeadsInput": {
+        "PSFBeadsInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "psf_beads_images": {
+                    "description": "The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
+                    "items": {
+                        "$ref": "#/$defs/Image"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "psf_beads_images"
+            ],
+            "title": "PSFBeadsInputData",
+            "type": "object"
+        },
+        "PSFBeadsInputParameters": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -2389,13 +2454,6 @@
                     "maximum": 30.0,
                     "minimum": 10.0,
                     "type": "number"
-                },
-                "psf_beads_images": {
-                    "description": "The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
-                    "items": {
-                        "$ref": "#/$defs/Image"
-                    },
-                    "type": "array"
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
@@ -2421,7 +2479,6 @@
                 }
             },
             "required": [
-                "psf_beads_images",
                 "min_lateral_distance_factor",
                 "sigma_z",
                 "sigma_y",
@@ -2430,7 +2487,7 @@
                 "fitting_r2_threshold",
                 "intensity_robust_z_score_threshold"
             ],
-            "title": "PSFBeadsInput",
+            "title": "PSFBeadsInputParameters",
             "type": "object"
         },
         "PSFBeadsKeyMeasurements": {
@@ -3450,9 +3507,13 @@
             "description": "The experimenter that performed the imaging experiment",
             "type": "string"
         },
-        "input": {
-            "$ref": "#/$defs/MetricsInput",
-            "description": "The input of the analysis"
+        "input_data": {
+            "$ref": "#/$defs/MetricsInputData",
+            "description": "The input data for the analysis"
+        },
+        "input_parameters": {
+            "$ref": "#/$defs/MetricsInputParameters",
+            "description": "The input parameters for the analysis"
         },
         "linked_references": {
             "description": "A list of linked references",
@@ -3485,7 +3546,8 @@
     "required": [
         "microscope",
         "processed",
-        "input"
+        "input_data",
+        "input_parameters"
     ],
     "then": {
         "properties": {

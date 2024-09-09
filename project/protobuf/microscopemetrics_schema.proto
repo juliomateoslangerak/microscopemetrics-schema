@@ -26,7 +26,8 @@ message ArgolightBDataset
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  argolightBInput input = 0
+  argolightBInputData inputData = 0
+  argolightBInputParameters inputParameters = 0
   argolightBOutput output = 0
  }
 message ArgolightBDistanceKeyValues
@@ -46,9 +47,12 @@ message ArgolightBDistanceKeyValues
  repeated  float stdZDist = 0
  repeated  float madZDist = 0
  }
-message ArgolightBInput
+message ArgolightBInputData
  {
   image argolightBImage = 0
+ }
+message ArgolightBInputParameters
+ {
   integer bitDepth = 0
   float saturationThreshold = 0
   float spotsDistance = 0
@@ -111,12 +115,16 @@ message ArgolightEDataset
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  argolightEInput input = 0
+  argolightEInputData inputData = 0
+  argolightEInputParameters inputParameters = 0
   argolightEOutput output = 0
  }
-message ArgolightEInput
+message ArgolightEInputData
  {
   image argolightEImage = 0
+ }
+message ArgolightEInputParameters
+ {
   integer bitDepth = 0
   float saturationThreshold = 0
   integer orientationAxis = 0
@@ -239,12 +247,16 @@ message FieldIlluminationDataset
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  fieldIlluminationInput input = 0
+  fieldIlluminationInputData inputData = 0
+  fieldIlluminationInputParameters inputParameters = 0
   fieldIlluminationOutput output = 0
  }
-message FieldIlluminationInput
+message FieldIlluminationInputData
  {
  repeated  image fieldIlluminationImage = 0
+ }
+message FieldIlluminationInputParameters
+ {
   integer bitDepth = 0
   float saturationThreshold = 0
   float cornerFraction = 0
@@ -421,7 +433,8 @@ message MetricsDataset
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  metricsInput input = 0
+  metricsInputData inputData = 0
+  metricsInputParameters inputParameters = 0
   metricsOutput output = 0
  }
 // A collection of microscope-metrics datasets
@@ -500,12 +513,16 @@ message PSFBeadsDataset
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
-  pSFBeadsInput input = 0
+  pSFBeadsInputData inputData = 0
+  pSFBeadsInputParameters inputParameters = 0
   pSFBeadsOutput output = 0
  }
-message PSFBeadsInput
+message PSFBeadsInputData
  {
  repeated  image psfBeadsImages = 0
+ }
+message PSFBeadsInputParameters
+ {
   integer bitDepth = 0
   float saturationThreshold = 0
   float minLateralDistanceFactor = 0

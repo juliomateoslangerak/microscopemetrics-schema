@@ -18,15 +18,21 @@ classes:
     description: >-
       A PSF beads dataset
     attributes:
-      input:
-        range: PSFBeadsInput
+      input_data:
+        range: PSFBeadsInputData
+      input_parameters:
+        range: PSFBeadsInputParameters
       output:
         range: PSFBeadsOutput
 
-  PSFBeadsInput:
-    is_a: MetricsInput
+  PSFBeadsInputData:
+    is_a: MetricsInputData
     slots:
       - psf_beads_images
+
+  PSFBeadsInputParameters:
+    is_a: MetricsInputParameters
+    slots:
       - bit_depth
       - saturation_threshold
       - min_lateral_distance_factor

@@ -230,9 +230,14 @@ classes:
         required: true
         ifabsent: false
         multivalued: false
-      input:
-        range: MetricsInput
-        description: The input of the analysis
+      input_data:
+        range: MetricsInputData
+        description: The input data for the analysis
+        required: true
+        multivalued: false
+      input_parameters:
+        range: MetricsInputParameters
+        description: The input parameters for the analysis
         required: true
         multivalued: false
       output:
@@ -250,8 +255,12 @@ classes:
             output:
               required: true
 
-  MetricsInput:
-    description: An abstract class for analysis inputs
+  MetricsInputData:
+    description: An abstract class for analysis input data
+    abstract: true
+
+  MetricsInputParameters:
+    description: An abstract class for analysis inputs parameters
     abstract: true
 
   MetricsOutput:
