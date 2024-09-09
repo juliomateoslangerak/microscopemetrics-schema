@@ -1,3 +1,6 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
 message ArgolightBCentersOfMass
  {
   string name = 0
@@ -158,6 +161,8 @@ message Channel
  {
   string name = 0
   string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
   float excitationWavelengthNm = 0
   float emissionWavelengthNm = 0
  }
@@ -180,11 +185,8 @@ message Column
   string name = 0
   string description = 0
   dataReference sourceReference = 0
- }
-// A series of columns
-message ColumnSeries
- {
- repeated  column columns = 0
+  string dataType = 0
+ repeated  string values = 0
  }
 // A comment
 message Comment
@@ -248,13 +250,18 @@ message FieldIlluminationInput
   float cornerFraction = 0
   float sigma = 0
  }
-message FieldIlluminationKeyValues
+message FieldIlluminationKeyMeasurements
  {
   string name = 0
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
+  metaObject tableData = 0
+ repeated  string imageName = 0
+ repeated  string imageId = 0
  repeated  string channelName = 0
+ repeated  integer channelNr = 0
+ repeated  string channelId = 0
  repeated  float centerRegionIntensityFraction = 0
  repeated  float centerRegionAreaFraction = 0
  repeated  float centerOfMassY = 0
@@ -309,7 +316,7 @@ message FieldIlluminationOutput
   boolean validated = 0
   datetime validationDatetime = 0
   comment comment = 0
-  fieldIlluminationKeyValues keyValues = 0
+  fieldIlluminationKeyMeasurements keyMeasurements = 0
  repeated  table intensityProfiles = 0
  repeated  roi roiProfiles = 0
   roi roiCorners = 0
@@ -515,17 +522,20 @@ message PSFBeadsKeyMeasurements
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  columnSeries columnSeries = 0
   metaObject tableData = 0
+ repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  integer consideredValidCount = 0
  repeated  integer consideredSelfProximityCount = 0
  repeated  integer consideredLateralEdgeCount = 0
  repeated  integer consideredAxialEdgeCount = 0
  repeated  integer consideredIntensityOutlierCount = 0
- repeated  integer consideredBadZFitCount = 0
- repeated  integer consideredBadYFitCount = 0
- repeated  integer consideredBadXFitCount = 0
+ repeated  integer consideredBadFitZCount = 0
+ repeated  integer consideredBadFitYCount = 0
+ repeated  integer consideredBadFitXCount = 0
+ repeated  float intensityIntegratedMean = 0
+ repeated  float intensityIntegratedMedian = 0
+ repeated  float intensityIntegratedStd = 0
  repeated  float intensityMaxMean = 0
  repeated  float intensityMaxMedian = 0
  repeated  float intensityMaxStd = 0
@@ -565,6 +575,20 @@ message PSFBeadsKeyMeasurements
  repeated  float fwhmLateralAsymmetryRatioMean = 0
  repeated  float fwhmLateralAsymmetryRatioMedian = 0
  repeated  float fwhmLateralAsymmetryRatioStd = 0
+ repeated  float averageBeadFitR2Z = 0
+ repeated  float averageBeadFitR2Y = 0
+ repeated  float averageBeadFitR2X = 0
+ repeated  float averageBeadFwhmPixelZ = 0
+ repeated  float averageBeadFwhmPixelY = 0
+ repeated  float averageBeadFwhmPixelX = 0
+ repeated  float averageBeadFwhmMicronZ = 0
+ repeated  float averageBeadFwhmMicronY = 0
+ repeated  float averageBeadFwhmMicronX = 0
+ repeated  float averageBeadFwhmLateralAsymmetryRatio = 0
+ repeated  float averageBeadIntensityIntegrated = 0
+ repeated  float averageBeadIntensityMax = 0
+ repeated  float averageBeadIntensityMin = 0
+ repeated  float averageBeadIntensityStd = 0
  }
 message PSFBeadsOutput
  {
@@ -579,8 +603,8 @@ message PSFBeadsOutput
   datetime validationDatetime = 0
   comment comment = 0
  repeated  roi analyzedBeadCenters = 0
- repeated  roi discardedBeadCentersLateralEdge = 0
- repeated  roi discardedBeadCentersSelfProximity = 0
+ repeated  roi consideredBeadCentersLateralEdge = 0
+ repeated  roi consideredBeadCentersSelfProximity = 0
  repeated  roi consideredBeadCentersAxialEdge = 0
  repeated  roi consideredBeadCentersIntensityOutlier = 0
  repeated  roi consideredBeadCentersZFitQuality = 0
@@ -588,9 +612,10 @@ message PSFBeadsOutput
  repeated  roi consideredBeadCentersXFitQuality = 0
   pSFBeadsKeyMeasurements keyMeasurements = 0
   table beadProperties = 0
-  table beadZProfiles = 0
-  table beadYProfiles = 0
-  table beadXProfiles = 0
+  table beadProfilesZ = 0
+  table beadProfilesY = 0
+  table beadProfilesX = 0
+  image averageBead = 0
  }
 // A rectangle as defined by x, y coordinates and width, height
 message Rectangle
@@ -629,16 +654,6 @@ message Sample
   string description = 0
   string type = 0
   protocol protocol = 0
- }
-// A microscope-metrics table
-message Table
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  columnSeries columnSeries = 0
-  metaObject tableData = 0
  }
 // A series whose values represent time
 message TimeSeries

@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 type ArgolightBCentersOfMass implements CentersOfMass
   {
     name: String
@@ -178,6 +179,8 @@ type Channel
   {
     name: String
     description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
     excitationWavelengthNm: Float
     emissionWavelengthNm: Float
   }
@@ -200,11 +203,8 @@ type Column
     name: String
     description: String
     sourceReference: DataReference
-  }
-
-type ColumnSeries
-  {
-    columns: [Column]!
+    dataType: String!
+    values: [String]
   }
 
 type Comment
@@ -270,13 +270,18 @@ type FieldIlluminationInput
     sigma: Float!
   }
 
-type FieldIlluminationKeyValues
+type FieldIlluminationKeyMeasurements
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    tableData: MetaObject
+    imageName: [String]
+    imageId: [String]
     channelName: [String]
+    channelNr: [Integer]
+    channelId: [String]
     centerRegionIntensityFraction: [Float]
     centerRegionAreaFraction: [Float]
     centerOfMassY: [Float]
@@ -332,7 +337,7 @@ type FieldIlluminationOutput
     validated: Boolean!
     validationDatetime: Datetime
     comment: Comment
-    keyValues: FieldIlluminationKeyValues
+    keyMeasurements: FieldIlluminationKeyMeasurements
     intensityProfiles: [Table]
     roiProfiles: [Roi]
     roiCorners: Roi
@@ -401,7 +406,6 @@ interface KeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
     tableData: MetaObject
   }
 
@@ -599,17 +603,20 @@ type PSFBeadsKeyMeasurements
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
     tableData: MetaObject
+    channelName: [String]
     channelNr: [Integer]
     consideredValidCount: [Integer]
     consideredSelfProximityCount: [Integer]
     consideredLateralEdgeCount: [Integer]
     consideredAxialEdgeCount: [Integer]
     consideredIntensityOutlierCount: [Integer]
-    consideredBadZFitCount: [Integer]
-    consideredBadYFitCount: [Integer]
-    consideredBadXFitCount: [Integer]
+    consideredBadFitZCount: [Integer]
+    consideredBadFitYCount: [Integer]
+    consideredBadFitXCount: [Integer]
+    intensityIntegratedMean: [Float]
+    intensityIntegratedMedian: [Float]
+    intensityIntegratedStd: [Float]
     intensityMaxMean: [Float]
     intensityMaxMedian: [Float]
     intensityMaxStd: [Float]
@@ -649,6 +656,20 @@ type PSFBeadsKeyMeasurements
     fwhmLateralAsymmetryRatioMean: [Float]
     fwhmLateralAsymmetryRatioMedian: [Float]
     fwhmLateralAsymmetryRatioStd: [Float]
+    averageBeadFitR2Z: [Float]
+    averageBeadFitR2Y: [Float]
+    averageBeadFitR2X: [Float]
+    averageBeadFwhmPixelZ: [Float]
+    averageBeadFwhmPixelY: [Float]
+    averageBeadFwhmPixelX: [Float]
+    averageBeadFwhmMicronZ: [Float]
+    averageBeadFwhmMicronY: [Float]
+    averageBeadFwhmMicronX: [Float]
+    averageBeadFwhmLateralAsymmetryRatio: [Float]
+    averageBeadIntensityIntegrated: [Float]
+    averageBeadIntensityMax: [Float]
+    averageBeadIntensityMin: [Float]
+    averageBeadIntensityStd: [Float]
   }
 
 type PSFBeadsOutput
@@ -664,8 +685,8 @@ type PSFBeadsOutput
     validationDatetime: Datetime
     comment: Comment
     analyzedBeadCenters: [Roi]
-    discardedBeadCentersLateralEdge: [Roi]
-    discardedBeadCentersSelfProximity: [Roi]
+    consideredBeadCentersLateralEdge: [Roi]
+    consideredBeadCentersSelfProximity: [Roi]
     consideredBeadCentersAxialEdge: [Roi]
     consideredBeadCentersIntensityOutlier: [Roi]
     consideredBeadCentersZFitQuality: [Roi]
@@ -673,9 +694,10 @@ type PSFBeadsOutput
     consideredBeadCentersXFitQuality: [Roi]
     keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
-    beadZProfiles: Table
-    beadYProfiles: Table
-    beadXProfiles: Table
+    beadProfilesZ: Table
+    beadProfilesY: Table
+    beadProfilesX: Table
+    averageBead: Image
   }
 
 type Rectangle
@@ -733,13 +755,13 @@ interface Shape
     strokeWidth: Integer
   }
 
-type Table
+interface Table
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columnSeries: ColumnSeries!
+    columns: [Column]!
     tableData: MetaObject
   }
 

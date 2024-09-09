@@ -38,8 +38,8 @@ classes:
   FieldIlluminationOutput:
     is_a: MetricsOutput
     attributes:
-      key_values:
-        range: FieldIlluminationKeyValues
+      key_measurements:
+        range: FieldIlluminationKeyMeasurements
         description: >-
           Key-Value pairs containing the Key measurements for the field illumination analysis
         multivalued: false
@@ -91,10 +91,14 @@ classes:
           One mask per channel.
         multivalued: true
 
-  FieldIlluminationKeyValues:
-    is_a: KeyValues
+  FieldIlluminationKeyMeasurements:
+    is_a: KeyMeasurements
     slots:
+      - image_name
+      - image_id
       - channel_name
+      - channel_nr
+      - channel_id
       - center_region_intensity_fraction
       - center_region_area_fraction
       - center_of_mass_y
