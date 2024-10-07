@@ -363,6 +363,20 @@ type FieldIlluminationOutput
     roiCenterRegion: [Roi]
   }
 
+type FluorescentHomogeneousThickField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+  }
+
+type FluorescentHomogeneousThinField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+  }
+
 type HarmonizedMetricsDatasetCollection
   {
     name: String
@@ -588,6 +602,15 @@ type Protocol
     url: String!
   }
 
+type PSFBeads
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    beadDiameterMicron: Float!
+    manufacturer: String
+  }
+
 type PSFBeadsDataset
   {
     name: String
@@ -760,11 +783,10 @@ interface RoiMeasurements
     measurementsTable: Table
   }
 
-type Sample
+interface Sample
   {
     name: String
     description: String
-    type: String!
     protocol: Protocol!
   }
 

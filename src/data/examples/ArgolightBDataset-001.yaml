@@ -15,7 +15,6 @@ microscope:
   serial_number: "123456"
 sample:
   name: "ExampleSample"
-  type: "Sample"
   protocol:
     name: "ExampleProtocol"
     type: "Protocol"

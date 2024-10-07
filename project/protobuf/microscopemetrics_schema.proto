@@ -338,6 +338,20 @@ message FieldIlluminationOutput
  repeated  roi roiCentersMaxIntensity = 0
  repeated  roi roiCenterRegion = 0
  }
+// An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
+message FluorescentHomogeneousThickField
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+ }
+// An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
+message FluorescentHomogeneousThinField
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+ }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
  {
@@ -501,6 +515,15 @@ message Protocol
  repeated  experimenter authors = 0
   string url = 0
  }
+// A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+message PSFBeads
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+  float beadDiameterMicron = 0
+  string manufacturer = 0
+ }
 // A PSF beads dataset
 message PSFBeadsDataset
  {
@@ -663,14 +686,6 @@ message Roi
  repeated  ellipse ellipses = 0
  repeated  polygon polygons = 0
  repeated  mask masks = 0
- }
-// A sample is a standard physical object that is imaged by a microscope
-message Sample
- {
-  string name = 0
-  string description = 0
-  string type = 0
-  protocol protocol = 0
  }
 // A series whose values represent time
 message TimeSeries

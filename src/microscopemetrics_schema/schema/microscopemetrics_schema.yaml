@@ -20,6 +20,8 @@ default_range: string
 imports:
   - linkml:types
   - core_schema
-  - samples/field_illumination_schema
-  - samples/psf_beads_schema
-  - samples/argolight_schema
+  - analyses/field_illumination_schema
+  - analyses/psf_beads_schema
+  - analyses/argolight_schema
+  - samples/homogeneous_field
+  - samples/psf_beads

@@ -1,5 +1,5 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/argolight_schema
-name: microscopemetrics_samples_argolight_schema
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema
+name: microscopemetrics_analyses_argolight_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:

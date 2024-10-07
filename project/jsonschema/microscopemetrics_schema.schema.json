@@ -1770,6 +1770,52 @@
             "title": "FieldIlluminationOutput",
             "type": "object"
         },
+        "FluorescentHomogeneousThickField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThickField",
+            "type": "object"
+        },
+        "FluorescentHomogeneousThinField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThinField",
+            "type": "object"
+        },
         "HarmonizedMetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
@@ -2333,6 +2379,38 @@
             ],
             "title": "OMEROObjectTypeEnum",
             "type": "string"
+        },
+        "PSFBeads": {
+            "additionalProperties": false,
+            "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
+            "properties": {
+                "bead_diameter_micron": {
+                    "description": "The diameter of the beads in the sample measured in microns.",
+                    "type": "number"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bead_diameter_micron",
+                "protocol"
+            ],
+            "title": "PSFBeads",
+            "type": "object"
         },
         "PSFBeadsDataset": {
             "additionalProperties": false,
@@ -3406,34 +3484,6 @@
                 }
             },
             "title": "Roi",
-            "type": "object"
-        },
-        "Sample": {
-            "additionalProperties": false,
-            "description": "A sample is a standard physical object that is imaged by a microscope",
-            "properties": {
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "The type of the sample",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "protocol"
-            ],
-            "title": "Sample",
             "type": "object"
         },
         "TimeSeries": {

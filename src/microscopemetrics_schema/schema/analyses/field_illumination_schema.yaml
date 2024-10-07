@@ -1,5 +1,5 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/field_illumination_schema
-name: microscopemetrics_samples_field_illumination_schema
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
+name: microscopemetrics_analyses_field_illumination_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:

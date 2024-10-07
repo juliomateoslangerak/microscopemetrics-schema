@@ -118,13 +118,11 @@ def st_mm_sample(
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
-    type=st.text(),
     protocol=st_mm_protocol(),
 ) -> mm_schema.Sample:
     return mm_schema.Sample(
         name=draw(name),
         description=draw(description),
-        type=draw(type),
         protocol=draw(protocol),
     )
 

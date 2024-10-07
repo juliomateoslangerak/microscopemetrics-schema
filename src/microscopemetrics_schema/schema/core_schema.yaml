@@ -112,11 +112,8 @@ classes:
   Sample:
     is_a: NamedObject
     description: A sample is a standard physical object that is imaged by a microscope
+    abstract: true
     attributes:
-      type:   # TODO: develop the sample class
-        range: string    # TODO: make a enum
-        description: The type of the sample
-        required: true
       protocol:
         range: Protocol   # TODO: rename preparation_protocol
         description: The protocol used to prepare the sample

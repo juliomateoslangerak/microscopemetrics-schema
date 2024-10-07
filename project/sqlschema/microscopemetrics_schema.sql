@@ -52,7 +52,6 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Sample" Description: "A sample is a standard physical object that is imaged by a microscope"
 --     * Slot: id Description: 
---     * Slot: type Description: The type of the sample
 --     * Slot: protocol Description: The protocol used to prepare the sample
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -484,6 +483,23 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "FluorescentHomogeneousThickField" Description: "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+-- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+-- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
+--     * Slot: id Description: 
+--     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "MicroscopeCollection_microscopes" Description: ""
 --     * Slot: MicroscopeCollection_id Description: Autocreated FK slot
 --     * Slot: microscopes_id Description: The microscopes of the collection
@@ -1612,7 +1628,6 @@ CREATE TABLE "ArgolightEKeyValues" (
 );
 CREATE TABLE "Sample" (
 	id INTEGER NOT NULL, 
-	type TEXT NOT NULL, 
 	protocol TEXT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -1791,6 +1806,32 @@ CREATE TABLE "RoiMeasurements" (
 	measurements_table_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(measurements_table_id) REFERENCES "Table" (id)
+);
+CREATE TABLE "FluorescentHomogeneousThickField" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "FluorescentHomogeneousThinField" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "PSFBeads" (
+	id INTEGER NOT NULL, 
+	bead_diameter_micron FLOAT NOT NULL, 
+	manufacturer TEXT, 
+	protocol TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "MicroscopeCollection_microscopes" (
 	"MicroscopeCollection_id" INTEGER, 
