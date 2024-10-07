@@ -13,7 +13,7 @@
     "analyses/psf_beads_schema",
     "analyses/argolight_schema",
     "samples/homogeneous_field",
-    "samples/psf_beads"
+    "samples/beads"
   ],
   "license": "GNU GPL v3.0",
   "prefixes": [
@@ -3023,6 +3023,19 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "sample__manufacturer",
+      "description": "The manufacturer of the beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer",
+      "alias": "manufacturer",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "protocol__version",
       "description": "The version of the protocol",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -4973,8 +4986,8 @@
     {
       "name": "pSFBeads__bead_diameter_micron",
       "description": "The diameter of the beads in the sample measured in microns.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/bead_diameter_micron",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/bead_diameter_micron",
       "alias": "bead_diameter_micron",
       "owner": "PSFBeads",
       "domain_of": [
@@ -4982,19 +4995,6 @@
       ],
       "range": "float",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "pSFBeads__manufacturer",
-      "description": "The manufacturer of the beads.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/manufacturer",
-      "alias": "manufacturer",
-      "owner": "PSFBeads",
-      "domain_of": [
-        "PSFBeads"
-      ],
-      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -5017,6 +5017,33 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "FieldIlluminationDataset_sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
+      "is_a": "metricsDataset__sample",
+      "domain": "FieldIlluminationDataset",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sample",
+      "alias": "sample",
+      "owner": "FieldIlluminationDataset",
+      "domain_of": [
+        "FieldIlluminationDataset"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sample",
+      "range": "MetaObject",
+      "inlined": true,
+      "any_of": [
+        {
+          "range": "FluorescentHomogeneousThickField",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "range": "FluorescentHomogeneousThinField",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "FieldIlluminationInputParameters_saturation_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
@@ -5036,6 +5063,29 @@
       "required": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PSFBeadsDataset_sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
+      "is_a": "metricsDataset__sample",
+      "domain": "PSFBeadsDataset",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sample",
+      "alias": "sample",
+      "owner": "PSFBeadsDataset",
+      "domain_of": [
+        "PSFBeadsDataset"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "sample",
+      "range": "MetaObject",
+      "inlined": true,
+      "any_of": [
+        {
+          "range": "PSFBeads",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
       "@type": "SlotDefinition"
     },
     {
@@ -5415,7 +5465,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol"
+        "sample__protocol",
+        "sample__manufacturer"
       ],
       "slot_usage": {},
       "attributes": [
@@ -5424,6 +5475,12 @@
           "description": "The protocol used to prepare the sample",
           "range": "Protocol",
           "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "manufacturer",
+          "description": "The manufacturer of the beads.",
+          "range": "string",
           "@type": "SlotDefinition"
         }
       ],
@@ -6798,13 +6855,13 @@
         "metricsObject__data_reference",
         "metricsObject__linked_references",
         "metricsDataset__microscope",
-        "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
         "fieldIlluminationDataset__input_data",
         "fieldIlluminationDataset__input_parameters",
-        "fieldIlluminationDataset__output"
+        "fieldIlluminationDataset__output",
+        "FieldIlluminationDataset_sample"
       ],
       "slot_usage": {},
       "attributes": [
@@ -7023,13 +7080,13 @@
         "metricsObject__data_reference",
         "metricsObject__linked_references",
         "metricsDataset__microscope",
-        "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
         "pSFBeadsDataset__input_data",
         "pSFBeadsDataset__input_parameters",
-        "pSFBeadsDataset__output"
+        "pSFBeadsDataset__output",
+        "PSFBeadsDataset_sample"
       ],
       "slot_usage": {},
       "attributes": [
@@ -7685,7 +7742,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol"
+        "sample__protocol",
+        "sample__manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
@@ -7700,7 +7758,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol"
+        "sample__protocol",
+        "sample__manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField",
@@ -7708,16 +7767,16 @@
     },
     {
       "name": "PSFBeads",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
       "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
       "is_a": "Sample",
       "slots": [
         "name",
         "description",
         "sample__protocol",
-        "pSFBeads__bead_diameter_micron",
-        "pSFBeads__manufacturer"
+        "sample__manufacturer",
+        "pSFBeads__bead_diameter_micron"
       ],
       "slot_usage": {},
       "attributes": [
@@ -7727,23 +7786,17 @@
           "range": "float",
           "required": true,
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "manufacturer",
-          "description": "The manufacturer of the beads.",
-          "range": "string",
-          "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-10-07T10:39:21",
-  "source_file_size": 844,
-  "generation_date": "2024-10-07T11:04:20",
+  "source_file_date": "2024-10-07T11:40:33",
+  "source_file_size": 840,
+  "generation_date": "2024-10-07T12:43:44",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
@@ -7753,7 +7806,7 @@
     "analyses/psf_beads_schema.context.jsonld",
     "analyses/argolight_schema.context.jsonld",
     "samples/homogeneous_field.context.jsonld",
-    "samples/psf_beads.context.jsonld",
+    "samples/beads.context.jsonld",
     {
       "@base": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/"
     }

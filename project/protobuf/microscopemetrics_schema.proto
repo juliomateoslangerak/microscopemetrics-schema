@@ -243,13 +243,13 @@ message FieldIlluminationDataset
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
   microscope microscope = 0
-  sample sample = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
   fieldIlluminationInputData inputData = 0
   fieldIlluminationInputParameters inputParameters = 0
   fieldIlluminationOutput output = 0
+  metaObject sample = 0
  }
 message FieldIlluminationInputData
  {
@@ -344,6 +344,7 @@ message FluorescentHomogeneousThickField
   string name = 0
   string description = 0
   protocol protocol = 0
+  string manufacturer = 0
  }
 // An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
 message FluorescentHomogeneousThinField
@@ -351,6 +352,7 @@ message FluorescentHomogeneousThinField
   string name = 0
   string description = 0
   protocol protocol = 0
+  string manufacturer = 0
  }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
@@ -521,8 +523,8 @@ message PSFBeads
   string name = 0
   string description = 0
   protocol protocol = 0
-  float beadDiameterMicron = 0
   string manufacturer = 0
+  float beadDiameterMicron = 0
  }
 // A PSF beads dataset
 message PSFBeadsDataset
@@ -532,13 +534,13 @@ message PSFBeadsDataset
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
   microscope microscope = 0
-  sample sample = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
   pSFBeadsInputData inputData = 0
   pSFBeadsInputParameters inputParameters = 0
   pSFBeadsOutput output = 0
+  metaObject sample = 0
  }
 message PSFBeadsInputData
  {

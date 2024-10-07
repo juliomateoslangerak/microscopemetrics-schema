@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-07T11:04:23
+# Generation date: 2024-10-07T12:43:47
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -212,12 +212,16 @@ class Sample(NamedObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Sample
 
     protocol: Union[str, ProtocolUrl] = None
+    manufacturer: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.protocol):
             self.MissingRequiredField("protocol")
         if not isinstance(self.protocol, ProtocolUrl):
             self.protocol = ProtocolUrl(self.protocol)
+
+        if self.manufacturer is not None and not isinstance(self.manufacturer, str):
+            self.manufacturer = str(self.manufacturer)
 
         super().__post_init__(**kwargs)
 
@@ -1275,6 +1279,7 @@ class FieldIlluminationDataset(MetricsDataset):
     input_data: Optional[Union[dict, "FieldIlluminationInputData"]] = None
     input_parameters: Optional[Union[dict, "FieldIlluminationInputParameters"]] = None
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
+    sample: Optional[Union[dict, MetaObject]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, FieldIlluminationInputData):
@@ -1668,6 +1673,7 @@ class PSFBeadsDataset(MetricsDataset):
     input_data: Optional[Union[dict, "PSFBeadsInputData"]] = None
     input_parameters: Optional[Union[dict, "PSFBeadsInputParameters"]] = None
     output: Optional[Union[dict, "PSFBeadsOutput"]] = None
+    sample: Optional[Union[dict, MetaObject]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, PSFBeadsInputData):
@@ -2717,23 +2723,19 @@ class PSFBeads(Sample):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/psf_beads/PSFBeads"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/psf_beads/PSFBeads"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/beads/PSFBeads"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/beads/PSFBeads"
     class_name: ClassVar[str] = "PSFBeads"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeads
 
     protocol: Union[str, ProtocolUrl] = None
     bead_diameter_micron: float = None
-    manufacturer: Optional[str] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.bead_diameter_micron):
             self.MissingRequiredField("bead_diameter_micron")
         if not isinstance(self.bead_diameter_micron, float):
             self.bead_diameter_micron = float(self.bead_diameter_micron)
-
-        if self.manufacturer is not None and not isinstance(self.manufacturer, str):
-            self.manufacturer = str(self.manufacturer)
 
         super().__post_init__(**kwargs)
 
@@ -3375,6 +3377,9 @@ slots.microscope__comments = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/comm
 slots.sample__protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/protocol'], name="sample__protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/protocol'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sample__protocol, domain=None, range=Union[str, ProtocolUrl])
 
+slots.sample__manufacturer = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/manufacturer'], name="sample__manufacturer", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/manufacturer'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sample__manufacturer, domain=None, range=Optional[str])
+
 slots.protocol__version = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/version'], name="protocol__version", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/version'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__version, domain=None, range=str)
 
@@ -3777,17 +3782,20 @@ slots.argolightEOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['an
 slots.argolightEOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/argolight_schema/intensity_profiles'], name="argolightEOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/argolight_schema/intensity_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.argolightEOutput__intensity_profiles, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads/bead_diameter_micron'),
+slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__bead_diameter_micron, domain=None, range=float)
-
-slots.pSFBeads__manufacturer = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/psf_beads/manufacturer'], name="pSFBeads__manufacturer", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/psf_beads/manufacturer'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__manufacturer, domain=None, range=Optional[str])
 
 slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)
 
+slots.FieldIlluminationDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA.sample, name="FieldIlluminationDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset_sample, domain=FieldIlluminationDataset, range=Optional[Union[dict, MetaObject]])
+
 slots.FieldIlluminationInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters_saturation_threshold, domain=FieldIlluminationInputParameters, range=float)
+
+slots.PSFBeadsDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA.sample, name="PSFBeadsDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset_sample, domain=PSFBeadsDataset, range=Optional[Union[dict, MetaObject]])
 
 slots.PSFBeadsInputParameters_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="PSFBeadsInputParameters_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_z, domain=PSFBeadsInputParameters, range=float)

@@ -120,6 +120,11 @@ classes:
         required: true
         multivalued: false
         inlined: false
+      manufacturer:
+        description: The manufacturer of the beads.
+        required: false
+        range: string
+
 
   Protocol:
     is_a: NamedObject

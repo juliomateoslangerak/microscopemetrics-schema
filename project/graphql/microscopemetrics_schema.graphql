@@ -263,13 +263,13 @@ type FieldIlluminationDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     microscope: Microscope!
-    sample: Sample
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     inputData: FieldIlluminationInputData
     inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
+    sample: MetaObject
   }
 
 type FieldIlluminationInputData
@@ -368,6 +368,7 @@ type FluorescentHomogeneousThickField
     name: String
     description: String
     protocol: Protocol!
+    manufacturer: String
   }
 
 type FluorescentHomogeneousThinField
@@ -375,6 +376,7 @@ type FluorescentHomogeneousThinField
     name: String
     description: String
     protocol: Protocol!
+    manufacturer: String
   }
 
 type HarmonizedMetricsDatasetCollection
@@ -607,8 +609,8 @@ type PSFBeads
     name: String
     description: String
     protocol: Protocol!
-    beadDiameterMicron: Float!
     manufacturer: String
+    beadDiameterMicron: Float!
   }
 
 type PSFBeadsDataset
@@ -618,13 +620,13 @@ type PSFBeadsDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     microscope: Microscope!
-    sample: Sample
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     inputData: PSFBeadsInputData
     inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
+    sample: MetaObject
   }
 
 type PSFBeadsInputData
@@ -788,6 +790,7 @@ interface Sample
     name: String
     description: String
     protocol: Protocol!
+    manufacturer: String
   }
 
 interface Shape
