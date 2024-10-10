@@ -1,0 +1,32 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+name: microscopemetrics_samples_beads
+prefixes:
+#  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
+#imports:
+#  - metrics:types
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - core_schema  # TODO: change to metrics:core_schema
+
+default_range: string
+
+
+classes:
+  PSFBeads:
+    is_a: Sample
+    description: A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+    attributes:
+      bead_diameter_micron:
+        description: The diameter of the beads in the sample measured in microns.
+        required: true
+        range: float
+
+upper_thresholds:
+  fwhm_resolution: 45
+  bead_diameter_micron: 1.0
+  fwhm_resolution_micron: mean
+
+lower_thresholds:
+  fwhm_resolution: 0.1
+  bead_diameter_micron: 0.1
