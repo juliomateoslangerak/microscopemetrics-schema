@@ -14,7 +14,7 @@ linkml-runtime = "^1.6.3"
 [tool.poetry.group.dev.dependencies]
 linkml = "^1.6.8"
 mkdocs-material = "^8.2.8"
-mkdocs-mermaid2-plugin = "^0.6.0"
+mkdocs-mermaid2-plugin = "^1.1.1"
 hypothesis = "^6"
 black = "^24"
 schemasheets = "^0.1.14"
