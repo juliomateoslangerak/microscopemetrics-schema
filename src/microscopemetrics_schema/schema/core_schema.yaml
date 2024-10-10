@@ -125,7 +125,6 @@ classes:
         required: false
         range: string
 
-
   Protocol:
     is_a: NamedObject
     description: Set of instructions for preparing and imaging a sample
@@ -208,15 +207,13 @@ classes:
     is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
     tree_root: true
+    slots:
+      - sample
     attributes:
       microscope:
         range: Microscope
         description: The microscope that was used to acquire the dataset
         required: true
-        multivalued: false
-      sample:
-        range: Sample
-        description: The sample that was imaged
         multivalued: false
       experimenter:
         range: Experimenter
@@ -816,6 +813,11 @@ slots:
   description:
     range: string
     description: A human readable description of an entity
+    required: false
+    multivalued: false
+  sample:
+    range: Sample
+    description: The physical sample that was imaged
     required: false
     multivalued: false
   excitation_wavelength_nm:

@@ -90,8 +90,8 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: MetricsDatasetCollection_id Description: Autocreated FK slot
 --     * Slot: HarmonizedMetricsDatasetCollection_id Description: Autocreated FK slot
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: input_data_id Description: The input data for the analysis
 --     * Slot: input_parameters_id Description: The input parameters for the analysis
 --     * Slot: output_id Description: The output of the analysis
@@ -336,8 +336,8 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "FieldIlluminationInputData" Description: ""
 --     * Slot: id Description: 
@@ -379,8 +379,8 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PSFBeadsInputData" Description: ""
 --     * Slot: id Description: 
@@ -424,8 +424,8 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ArgolightBInputData" Description: ""
 --     * Slot: id Description: 
@@ -476,8 +476,8 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: sample_id Description: The sample that was imaged
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ArgolightEInputData" Description: ""
 --     * Slot: id Description: 
@@ -1187,8 +1187,8 @@ CREATE TABLE "MetricsDataset" (
 	description TEXT, 
 	"MetricsDatasetCollection_id" INTEGER, 
 	"HarmonizedMetricsDatasetCollection_id" INTEGER, 
-	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
 	input_data_id INTEGER NOT NULL, 
 	input_parameters_id INTEGER NOT NULL, 
 	output_id INTEGER, 
@@ -1197,8 +1197,8 @@ CREATE TABLE "MetricsDataset" (
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
 	FOREIGN KEY("MetricsDatasetCollection_id") REFERENCES "MetricsDatasetCollection" (id), 
 	FOREIGN KEY("HarmonizedMetricsDatasetCollection_id") REFERENCES "HarmonizedMetricsDatasetCollection" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(input_data_id) REFERENCES "MetricsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "MetricsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "MetricsOutput" (id), 
@@ -1368,16 +1368,16 @@ CREATE TABLE "FieldIlluminationDataset" (
 	input_data_id INTEGER, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
 	FOREIGN KEY(input_data_id) REFERENCES "FieldIlluminationInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "FieldIlluminationInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "FieldIlluminationOutput" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "FieldIlluminationInputData" (
@@ -1426,16 +1426,16 @@ CREATE TABLE "PSFBeadsDataset" (
 	input_data_id INTEGER, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
 	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "PSFBeadsInputData" (
@@ -1497,16 +1497,16 @@ CREATE TABLE "ArgolightBDataset" (
 	input_data_id INTEGER, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
 	FOREIGN KEY(input_data_id) REFERENCES "ArgolightBInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightBInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "ArgolightBOutput" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "ArgolightBInputData" (
@@ -1580,16 +1580,16 @@ CREATE TABLE "ArgolightEDataset" (
 	input_data_id INTEGER, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
 	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
 	FOREIGN KEY(input_data_id) REFERENCES "ArgolightEInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightEInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "ArgolightEOutput" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "ArgolightEInputData" (

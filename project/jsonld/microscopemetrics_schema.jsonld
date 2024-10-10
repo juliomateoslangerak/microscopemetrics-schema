@@ -476,6 +476,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "sample",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
+      "description": "The physical sample that was imaged",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "Sample",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "excitation_wavelength_nm",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/excitation_wavelength_nm",
       "description": "The excitation wavelength in nm",
@@ -3208,20 +3222,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__sample",
-      "description": "The sample that was imaged",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
-      "alias": "sample",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "Sample",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "metricsDataset__experimenter",
       "description": "The experimenter that performed the imaging experiment",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -5018,10 +5018,12 @@
     },
     {
       "name": "FieldIlluminationDataset_sample",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
-      "is_a": "metricsDataset__sample",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
+      "description": "The physical sample that was imaged",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "sample",
       "domain": "FieldIlluminationDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sample",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
       "alias": "sample",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
@@ -5067,10 +5069,12 @@
     },
     {
       "name": "PSFBeadsDataset_sample",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
-      "is_a": "metricsDataset__sample",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
+      "description": "The physical sample that was imaged",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "sample",
       "domain": "PSFBeadsDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sample",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
       "alias": "sample",
       "owner": "PSFBeadsDataset",
       "domain_of": [
@@ -5667,8 +5671,8 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
+        "sample",
         "metricsDataset__microscope",
-        "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
@@ -5683,12 +5687,6 @@
           "description": "The microscope that was used to acquire the dataset",
           "range": "Microscope",
           "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "sample",
-          "description": "The sample that was imaged",
-          "range": "Sample",
           "@type": "SlotDefinition"
         },
         {
@@ -7391,8 +7389,8 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
+        "sample",
         "metricsDataset__microscope",
-        "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
@@ -7605,8 +7603,8 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
+        "sample",
         "metricsDataset__microscope",
-        "metricsDataset__sample",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
@@ -7794,9 +7792,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-10-07T11:40:33",
+  "source_file_date": "2024-10-07T14:53:46",
   "source_file_size": 840,
-  "generation_date": "2024-10-07T12:43:44",
+  "generation_date": "2024-10-10T12:14:41",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

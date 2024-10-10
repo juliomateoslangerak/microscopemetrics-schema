@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-07T12:43:47
+# Generation date: 2024-10-10T12:14:44
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2846,6 +2846,9 @@ slots.name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="name",
 slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.description, domain=None, range=Optional[str])
 
+slots.sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sample, domain=None, range=Optional[Union[dict, Sample]])
+
 slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/excitation_wavelength_nm'], name="excitation_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/excitation_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.excitation_wavelength_nm, domain=None, range=Optional[float])
 
@@ -3416,9 +3419,6 @@ slots.harmonizedMetricsDatasetCollection__dataset_class = Slot(uri=MICROSCOPEMET
 slots.metricsDataset__microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscope'], name="metricsDataset__microscope", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscope'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[dict, Microscope])
 
-slots.metricsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="metricsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__sample, domain=None, range=Optional[Union[dict, Sample]])
-
 slots.metricsDataset__experimenter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/experimenter'], name="metricsDataset__experimenter", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/experimenter'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__experimenter, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
 
@@ -3788,13 +3788,13 @@ slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['sample
 slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)
 
-slots.FieldIlluminationDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA.sample, name="FieldIlluminationDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('sample'),
+slots.FieldIlluminationDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="FieldIlluminationDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset_sample, domain=FieldIlluminationDataset, range=Optional[Union[dict, MetaObject]])
 
 slots.FieldIlluminationInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters_saturation_threshold, domain=FieldIlluminationInputParameters, range=float)
 
-slots.PSFBeadsDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA.sample, name="PSFBeadsDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('sample'),
+slots.PSFBeadsDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="PSFBeadsDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset_sample, domain=PSFBeadsDataset, range=Optional[Union[dict, MetaObject]])
 
 slots.PSFBeadsInputParameters_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_z'], name="PSFBeadsInputParameters_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_z'),

@@ -19,8 +19,8 @@ type ArgolightBDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    microscope: Microscope!
     sample: Sample
+    microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
@@ -110,8 +110,8 @@ type ArgolightEDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    microscope: Microscope!
     sample: Sample
+    microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
@@ -489,8 +489,8 @@ type MetricsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    microscope: Microscope!
     sample: Sample
+    microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!

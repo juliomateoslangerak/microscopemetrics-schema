@@ -21,8 +21,8 @@ message ArgolightBDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  microscope microscope = 0
   sample sample = 0
+  microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
@@ -110,8 +110,8 @@ message ArgolightEDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  microscope microscope = 0
   sample sample = 0
+  microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
@@ -444,8 +444,8 @@ message MetricsDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  microscope microscope = 0
   sample sample = 0
+  microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
   boolean processed = 0
