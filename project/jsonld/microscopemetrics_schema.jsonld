@@ -32,6 +32,15 @@
   ],
   "default_prefix": "microscopemetrics_schema",
   "default_range": "string",
+  "subsets": [
+    {
+      "name": "dangerous",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Dangerous",
+      "description": "A subset indicating that changing this parameter may damage the consistency of the analysis.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "@type": "SubsetDefinition"
+    }
+  ],
   "types": [
     {
       "name": "string",
@@ -1375,6 +1384,9 @@
       "name": "fitting_r2_threshold",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fitting_r2_threshold",
       "description": "Threshold for the coefficient of determination (R^2) of the fit to be considered good.",
+      "in_subset": [
+        "dangerous"
+      ],
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fitting_r2_threshold",
       "ifabsent": "float(0.85)",
@@ -7794,7 +7806,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-10-07T14:53:46",
   "source_file_size": 840,
-  "generation_date": "2024-10-10T12:14:41",
+  "generation_date": "2024-10-10T15:24:48",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

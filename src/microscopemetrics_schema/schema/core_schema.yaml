@@ -884,6 +884,12 @@ slots:
     range: float
     description: >-
       Smoothing sigma to be applied to the image in the X axis.
+      
+
+subsets:
+  dangerous:
+    description: >-
+      A subset indicating that changing this parameter may damage the consistency of the analysis.
 
 
 enums:
