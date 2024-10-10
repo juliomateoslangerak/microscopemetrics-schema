@@ -1,0 +1,1058 @@
+name: FI_60x_2021-02-01
+description: Field Illumination dataset
+data_reference:
+  data_uri: https://localhost:6064/webclient/?show=dataset-26
+  omero_host: localhost
+  omero_port: 6064
+  omero_object_type: DATASET
+  omero_object_id: 26
+microscope:
+  name: IGH-Z3
+sample:
+  name: Chroma slides
+  description: The old chroma slides
+  protocol:
+    name: "ExampleProtocol"
+    type: "Protocol"
+    version: "1.0"
+    authors:
+      - name: "John Doe"
+        orcid: "https://orcid.org/0000-0000-0000-0001"
+    url: "https://example.org/protocol/1"
+  manufacturer: Chroma
+input_data:
+  field_illumination_image:
+  - name: FI_60x_DAPI_2021-02-01
+    description: An image taken on the IGH-Z3 microscope on the 2021-02-01 for QC
+    data_reference:
+      data_uri: https://localhost:6064/webclient/?show=image-76
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: IMAGE
+      omero_object_id: 76
+    shape_x: 512
+    shape_y: 512
+    acquisition_datetime: '2024-04-25T15:06:50.451935'
+    shape_z: 1
+    shape_c: 1
+    shape_t: 1
+    channel_series:
+      channels:
+      - name: DAPI
+  - name: FI_60x_FITC_2021-02-01
+    description: An image taken on the IGH-Z3 microscope on the 2021-02-01 for QC
+    data_reference:
+      data_uri: https://localhost:6064/webclient/?show=image-77
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: IMAGE
+      omero_object_id: 77
+    shape_x: 512
+    shape_y: 512
+    acquisition_datetime: '2024-04-25T15:06:51.423646'
+    shape_z: 1
+    shape_c: 1
+    shape_t: 1
+    channel_series:
+      channels:
+      - name: FITC
+  - name: FI_60x_TRITC_CY5_2021-02-01
+    description: An image taken on the IGH-Z3 microscope on the 2021-02-01 for QC
+    data_reference:
+      data_uri: https://localhost:6064/webclient/?show=image-78
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: IMAGE
+      omero_object_id: 78
+    shape_x: 512
+    shape_y: 512
+    acquisition_datetime: '2024-04-25T15:06:53.428969'
+    shape_z: 1
+    shape_c: 2
+    shape_t: 1
+    channel_series:
+      channels:
+      - name: TRITC
+      - name: CY5
+input_parameters:
+  saturation_threshold: 0.01
+  corner_fraction: 0.1
+  sigma: 5.0
+processed: true
+acquisition_datetime: '2021-02-01T00:00:00'
+output:
+  processing_application:
+  - microscopemetrics
+  processing_version:
+  - 0.1.0
+  processing_datetime: '2024-04-25T15:06:59.690683'
+  key_measurements:
+    data_reference:
+      data_uri: https://localhost:6064/webclient/?show=key_values-75
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: KEY_VALUES
+      omero_object_id: 75
+    channel_name:
+    - DAPI
+    - FITC
+    - TRITC
+    - CY5
+    center_region_intensity_fraction:
+    - 0.05
+    - 0.05
+    - 0.05
+    - 0.05
+    center_region_area_fraction:
+    - 0.16061019897460938
+    - 0.14881515502929688
+    - 0.14659500122070312
+    - 0.11954498291015625
+    center_of_mass_y:
+    - 227.99591478041944
+    - 264.98890056650686
+    - 282.9972937104791
+    - 245.00443550960495
+    center_of_mass_y_relative:
+    - -0.10939095788898656
+    - 0.03511289283791741
+    - 0.10545817855655892
+    - -0.04295142379060568
+    center_of_mass_x:
+    - 221.00380020426098
+    - 221.0073568993361
+    - 232.99633089593797
+    - 216.00443550960495
+    center_of_mass_x_relative:
+    - -0.13670390545210553
+    - -0.1366900121119684
+    - -0.08985808243774229
+    - -0.15623267379060568
+    center_of_mass_distance_relative:
+    - 0.17508380688609737
+    - 0.14112786632914542
+    - 0.13854927789005309
+    - 0.1620292355268086
+    center_geometric_y:
+    - 227.99591478041944
+    - 264.98890056650686
+    - 282.9972937104791
+    - 245.00443550960495
+    center_geometric_y_relative:
+    - -0.10939095788898656
+    - 0.03511289283791741
+    - 0.10545817855655892
+    - -0.04295142379060568
+    center_geometric_x:
+    - 221.00380020426098
+    - 221.0073568993361
+    - 232.99633089593797
+    - 216.00443550960495
+    center_geometric_x_relative:
+    - -0.13670390545210553
+    - -0.1366900121119684
+    - -0.08985808243774229
+    - -0.15623267379060568
+    center_geometric_distance_relative:
+    - 0.17508380688609737
+    - 0.14112786632914542
+    - 0.13854927789005309
+    - 0.1620292355268086
+    center_fitted_y:
+    - 228.00334270340812
+    - 265.00203318351765
+    - 282.9913476724976
+    - 244.99818941402057
+    center_fitted_y_relative:
+    - -0.10936194256481202
+    - 0.035164192123115834
+    - 0.10543495184569385
+    - -0.04297582260148214
+    center_fitted_x:
+    - 220.99525672346476
+    - 220.99470064158066
+    - 233.00831175229345
+    - 216.00146225279045
+    center_fitted_x_relative:
+    - -0.13673727842396577
+    - -0.13673945061882553
+    - -0.0898112822176037
+    - -0.15624428807503732
+    center_fitted_distance_relative:
+    - 0.1750917410740506
+    - 0.14118851852473566
+    - 0.13850124723002982
+    - 0.16204690334699182
+    max_intensity:
+    - 56844.34738831107
+    - 56442.19496170949
+    - 55254.26511269274
+    - 56590.02669424978
+    max_intensity_pos_y:
+    - 229.0
+    - 265.0
+    - 282.0
+    - 245.0
+    max_intensity_pos_y_relative:
+    - -0.10546875
+    - 0.03515625
+    - 0.1015625
+    - -0.04296875
+    max_intensity_pos_x:
+    - 221.0
+    - 221.0
+    - 233.0
+    - 216.0
+    max_intensity_pos_x_relative:
+    - -0.13671875
+    - -0.13671875
+    - -0.08984375
+    - -0.15625
+    max_intensity_distance_relative:
+    - 0.17267215707265893
+    - 0.1411664921843176
+    - 0.13559808560710768
+    - 0.16205053525540267
+    top_left_intensity_mean:
+    - 41938.87889273356
+    - 37875.36178392926
+    - 34345.51287966167
+    - 35602.9446366782
+    top_left_intensity_ratio:
+    - 0.7372961374904814
+    - 0.6706927642713071
+    - 0.6210200321790376
+    - 0.6287828871583165
+    top_center_intensity_mean:
+    - 48511.360105580694
+    - 44449.54864253393
+    - 41748.708521870285
+    - 43657.740950226245
+    top_center_intensity_ratio:
+    - 0.8528420256949596
+    - 0.7871077461845505
+    - 0.754881267911948
+    - 0.7710384823959988
+    top_right_intensity_mean:
+    - 36819.288235294116
+    - 32820.864705882355
+    - 31081.863137254903
+    - 27974.6768627451
+    top_right_intensity_ratio:
+    - 0.6472924340792187
+    - 0.5811882827929302
+    - 0.5620081934229256
+    - 0.4940602038561884
+    middle_left_intensity_mean:
+    - 49109.84766214178
+    - 48335.478129713425
+    - 46097.469457013576
+    - 46934.05542986425
+    middle_left_intensity_ratio:
+    - 0.8633635888706758
+    - 0.8559193605629944
+    - 0.8335135965466699
+    - 0.8289014063414265
+    middle_center_intensity_mean:
+    - 56365.317307692305
+    - 56072.39275147929
+    - 54892.143860946744
+    - 56026.45599112426
+    middle_center_intensity_ratio:
+    - 0.9909165871047485
+    - 0.9929237985458155
+    - 0.99253492199524
+    - 0.9894821092706768
+    middle_right_intensity_mean:
+    - 43457.532692307694
+    - 42387.89538461538
+    - 42219.15923076923
+    - 38323.32153846154
+    middle_right_intensity_ratio:
+    - 0.7639944568107256
+    - 0.7506002157638366
+    - 0.7633877448832698
+    - 0.6768274087538685
+    bottom_left_intensity_mean:
+    - 37833.49725490196
+    - 39399.97019607843
+    - 38672.607450980395
+    - 33544.427450980394
+    bottom_left_intensity_ratio:
+    - 0.6651224861098759
+    - 0.6976903632964732
+    - 0.699260599421036
+    - 0.5924274566596093
+    bottom_center_intensity_mean:
+    - 44014.665
+    - 46143.64
+    - 46588.13692307692
+    - 41410.835
+    bottom_center_intensity_ratio:
+    - 0.7737889842129321
+    - 0.8171065306700666
+    - 0.8423856237786261
+    - 0.7313559217265374
+    bottom_right_intensity_mean:
+    - 33018.2672
+    - 34215.1624
+    - 35182.8544
+    - 26094.9984
+    bottom_right_intensity_ratio:
+    - 0.5804695193558596
+    - 0.6058783538744865
+    - 0.6361604628876231
+    - 0.46086324043657945
+  intensity_profiles:
+  - name: FI_60x_DAPI_2021-02-01_intensity_profiles
+    description: Intensity profiles of FI_60x_DAPI_2021-02-01
+    columns:
+    - name: ch00_leftTop_to_rightBottom
+    - name: ch00_leftBottom_to_rightTop
+    - name: ch00_center_horizontal
+    - name: ch00_center_vertical
+  - name: FI_60x_FITC_2021-02-01_intensity_profiles
+    description: Intensity profiles of FI_60x_FITC_2021-02-01
+    columns:
+    - name: ch00_leftTop_to_rightBottom
+    - name: ch00_leftBottom_to_rightTop
+    - name: ch00_center_horizontal
+    - name: ch00_center_vertical
+  - name: FI_60x_TRITC_CY5_2021-02-01_intensity_profiles
+    description: Intensity profiles of FI_60x_TRITC_CY5_2021-02-01
+    columns:
+    - name: ch00_leftTop_to_rightBottom
+    - name: ch01_leftTop_to_rightBottom
+    - name: ch00_leftBottom_to_rightTop
+    - name: ch01_leftBottom_to_rightTop
+    - name: ch00_center_horizontal
+    - name: ch01_center_horizontal
+    - name: ch00_center_vertical
+    - name: ch01_center_vertical
+  roi_profiles:
+  - name: Profile ROIs
+    description: ROIs used to compute the intensity profiles
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-253
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 253
+    lines:
+    - name: leftTop_to_rightBottom
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 0.0
+      x2: 512.0
+      y2: 512.0
+    - name: leftBottom_to_rightTop
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 512.0
+      x2: 512.0
+      y2: 0.0
+    - name: center_horizontal
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 256.0
+      x2: 512.0
+      y2: 256.0
+    - name: center_vertical
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 256.0
+      y1: 0.0
+      x2: 256.0
+      y2: 512.0
+  - name: Profile ROIs
+    description: ROIs used to compute the intensity profiles
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-254
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 254
+    lines:
+    - name: leftTop_to_rightBottom
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 0.0
+      x2: 512.0
+      y2: 512.0
+    - name: leftBottom_to_rightTop
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 512.0
+      x2: 512.0
+      y2: 0.0
+    - name: center_horizontal
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 256.0
+      x2: 512.0
+      y2: 256.0
+    - name: center_vertical
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 256.0
+      y1: 0.0
+      x2: 256.0
+      y2: 512.0
+  - name: Profile ROIs
+    description: ROIs used to compute the intensity profiles
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-255
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 255
+    lines:
+    - name: leftTop_to_rightBottom
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 0.0
+      x2: 512.0
+      y2: 512.0
+    - name: leftBottom_to_rightTop
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 512.0
+      x2: 512.0
+      y2: 0.0
+    - name: center_horizontal
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 0.0
+      y1: 256.0
+      x2: 512.0
+      y2: 256.0
+    - name: center_vertical
+      stroke_color:
+        r: 0
+        g: 0
+        b: 255
+        alpha: 200
+      stroke_width: 1
+      x1: 256.0
+      y1: 0.0
+      x2: 256.0
+      y2: 512.0
+  roi_corners:
+    name: Corner ROIs
+    description: ROIs used to compute the corner intensities
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-256
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 256
+    - data_uri: https://localhost:6064/webclient/?show=roi-257
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 257
+    - data_uri: https://localhost:6064/webclient/?show=roi-258
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 258
+    rectangles:
+    - name: top_left
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 0.0
+      y: 0.0
+      w: 51.0
+      h: 51.0
+    - name: top_center
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 230.0
+      y: 0.0
+      w: 51.0
+      h: 51.0
+    - name: top_right
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 461.0
+      y: 0.0
+      w: 51.0
+      h: 51.0
+    - name: middle_left
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 0.0
+      y: 230.0
+      w: 51.0
+      h: 51.0
+    - name: middle_center
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 230.0
+      y: 230.0
+      w: 51.0
+      h: 51.0
+    - name: middle_right
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 461.0
+      y: 230.0
+      w: 51.0
+      h: 51.0
+    - name: bottom_left
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 0.0
+      y: 461.0
+      w: 51.0
+      h: 51.0
+    - name: bottom_center
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 230.0
+      y: 461.0
+      w: 51.0
+      h: 51.0
+    - name: bottom_right
+      stroke_color:
+        r: 0
+        g: 255
+        b: 0
+        alpha: 200
+      stroke_width: 1
+      x: 461.0
+      y: 461.0
+      w: 51.0
+      h: 51.0
+  roi_centers_of_mass:
+  - name: Centers of mass ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-259
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 259
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 227.99591478041944
+      x: 221.00380020426098
+  - name: Centers of mass ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-260
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 260
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 264.98890056650686
+      x: 221.0073568993361
+  - name: Centers of mass ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-261
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 261
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 282.9972937104791
+      x: 232.99633089593797
+    - name: ch01_center
+      c: 1
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 245.00443550960495
+      x: 216.00443550960495
+  roi_centers_geometric:
+  - name: Geometric centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-262
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 262
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 227.99591478041944
+      x: 221.00380020426098
+  - name: Geometric centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-263
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 263
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 264.98890056650686
+      x: 221.0073568993361
+  - name: Geometric centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-264
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 264
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 282.9972937104791
+      x: 232.99633089593797
+    - name: ch01_center
+      c: 1
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 245.00443550960495
+      x: 216.00443550960495
+  roi_centers_fitted:
+  - name: Fitted centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-265
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 265
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 228.00334270340812
+      x: 220.99525672346476
+  - name: Fitted centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-266
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 266
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 265.00203318351765
+      x: 220.99470064158066
+  - name: Fitted centers ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-267
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 267
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 282.9913476724976
+      x: 233.00831175229345
+    - name: ch01_center
+      c: 1
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 244.99818941402057
+      x: 216.00146225279045
+  roi_centers_max_intensity:
+  - name: Max intensity ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-268
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 268
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 229.0
+      x: 221.0
+  - name: Max intensity ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-269
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 269
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 265.0
+      x: 221.0
+  - name: Max intensity ROIs
+    description: Point ROI marking the centroids of the max intensity regions
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-270
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 270
+    points:
+    - name: ch00_center
+      c: 0
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 282.0
+      x: 233.0
+    - name: ch01_center
+      c: 1
+      fill_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_color:
+        r: 255
+        g: 0
+        b: 0
+        alpha: 200
+      stroke_width: 5
+      y: 245.0
+      x: 216.0
+  roi_center_region:
+  - name: Center region ROIs
+    description: Mask ROIs marking the center region of the image
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-271
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 271
+    masks:
+    - name: ch00_center_region
+      c: 0
+      fill_color:
+        r: 255
+        g: 200
+        b: 60
+        alpha: 128
+      stroke_width: 1
+      y: 0
+      x: 0
+      mask:
+        shape_x: 512
+        shape_y: 512
+        acquisition_datetime: '2024-04-25T15:06:59.682984'
+        shape_z: 1
+        shape_c: 1
+        shape_t: 1
+  - name: Center region ROIs
+    description: Mask ROIs marking the center region of the image
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-272
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 272
+    masks:
+    - name: ch00_center_region
+      c: 0
+      fill_color:
+        r: 255
+        g: 200
+        b: 60
+        alpha: 128
+      stroke_width: 1
+      y: 0
+      x: 0
+      mask:
+        shape_x: 512
+        shape_y: 512
+        acquisition_datetime: '2024-04-25T15:06:59.685304'
+        shape_z: 1
+        shape_c: 1
+        shape_t: 1
+  - name: Center region ROIs
+    description: Mask ROIs marking the center region of the image
+    linked_references:
+    - data_uri: https://localhost:6064/webclient/?show=roi-273
+      omero_host: localhost
+      omero_port: 6064
+      omero_object_type: ROI
+      omero_object_id: 273
+    masks:
+    - name: ch00_center_region
+      c: 0
+      fill_color:
+        r: 255
+        g: 200
+        b: 60
+        alpha: 128
+      stroke_width: 1
+      y: 0
+      x: 0
+      mask:
+        shape_x: 512
+        shape_y: 512
+        acquisition_datetime: '2024-04-25T15:06:59.687721'
+        shape_z: 1
+        shape_c: 1
+        shape_t: 1
+    - name: ch01_center_region
+      c: 1
+      fill_color:
+        r: 255
+        g: 200
+        b: 60
+        alpha: 128
+      stroke_width: 1
+      y: 0
+      x: 0
+      mask:
+        shape_x: 512
+        shape_y: 512
+        acquisition_datetime: '2024-04-25T15:06:59.690006'
+        shape_z: 1
+        shape_c: 1
+        shape_t: 1
