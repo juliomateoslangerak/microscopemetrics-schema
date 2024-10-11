@@ -206,6 +206,7 @@ classes:
   MetricsDataset:
     is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
+    abstract: true
     tree_root: true
     slots:
       - sample
