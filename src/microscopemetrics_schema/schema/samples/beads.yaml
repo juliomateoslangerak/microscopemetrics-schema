@@ -21,12 +21,3 @@ classes:
         description: The diameter of the beads in the sample measured in microns.
         required: true
         range: float
-
-upper_thresholds:
-  fwhm_resolution: 45
-  bead_diameter_micron: 1.0
-  fwhm_resolution_micron: mean
-
-lower_thresholds:
-  fwhm_resolution: 0.1
-  bead_diameter_micron: 0.1
