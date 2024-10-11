@@ -210,20 +210,10 @@ classes:
     tree_root: true
     slots:
       - sample
+      - microscope
+      - experimenter
+      - acquisition_datetime
     attributes:
-      microscope:
-        range: Microscope
-        description: The microscope that was used to acquire the dataset
-        required: true
-        multivalued: false
-      experimenter:
-        range: Experimenter
-        description: The experimenter that performed the imaging experiment
-        multivalued: false
-      acquisition_datetime:
-        range: datetime
-        description: The datetime of the acquisition
-        multivalued: false
       processed:
         range: boolean
         description: Has the dataset been processed by microscope-metrics
@@ -322,6 +312,8 @@ classes:
   Image:
     is_a: MetricsObject
     description: A microscope-metrics image
+    slots:
+      - acquisition_datetime
     attributes:
       voxel_size_x_micron:
         range: float
@@ -376,11 +368,6 @@ classes:
         implements:
           - linkml:axis4
         required: false
-      acquisition_datetime:
-        range: datetime
-        description: The datetime of the acquisition
-        required: false
-        multivalued: false
       source_images:
         range: DataReference
         description: A list of references linking to the images that were used as a source
@@ -820,6 +807,19 @@ slots:
     range: Sample
     description: The physical sample that was imaged
     required: false
+    multivalued: false
+  microscope:
+    range: Microscope
+    description: The microscope that was used to acquire the dataset
+    required: true
+    multivalued: false
+  experimenter:
+    range: Experimenter
+    description: The experimenter that performed the imaging experiment
+    multivalued: false
+  acquisition_datetime:
+    range: datetime
+    description: The datetime of the acquisition
     multivalued: false
   excitation_wavelength_nm:
     range: float
