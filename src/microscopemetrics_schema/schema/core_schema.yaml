@@ -360,11 +360,13 @@ classes:
         ifabsent: int(1)
       time_series:
         range: TimeSeries
+        description: A series representing time for time-lapse images.
         implements:
           - linkml:axis0
         required: false
       channel_series:
         range: ChannelSeries
+        description: A series representing channels for multi-channel images.
         implements:
           - linkml:axis4
         required: false
@@ -392,6 +394,7 @@ classes:
     attributes:
       channels:
         range: Channel
+        description: The channels of the ChannelSeries
         multivalued: true
         implements:
           - linkml:elements
@@ -411,6 +414,7 @@ classes:
     attributes:
       values:
         range: float
+        description: The values of the TimeSeries in seconds
         multivalued: true
         implements:
           - linkml:elements
@@ -779,6 +783,7 @@ classes:
     attributes:
       columns:
         range: Column
+        description: The columns of the table
         required: true
         multivalued: true
         inlined: true
