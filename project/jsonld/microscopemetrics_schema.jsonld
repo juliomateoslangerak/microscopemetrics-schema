@@ -11,7 +11,6 @@
     "core_schema",
     "analyses/field_illumination_schema",
     "analyses/psf_beads_schema",
-    "analyses/argolight_schema",
     "samples/homogeneous_field",
     "samples/beads"
   ],
@@ -27,7 +26,7 @@
     },
     {
       "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
+      "prefix_reference": "http://www.example.org/rdf#"
     }
   ],
   "default_prefix": "microscopemetrics_schema",
@@ -499,6 +498,92 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "microscope",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
+      "description": "The microscope that was used to acquire the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "Microscope",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "experimenter",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
+      "description": "The experimenter that performed the imaging experiment",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "Experimenter",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "acquisition_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "description": "The datetime of the acquisition",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "owner": "Image",
+      "domain_of": [
+        "MetricsDataset",
+        "Image"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "input_data",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "description": "The input data for the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "MetricsInputData",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "input_parameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "description": "The input parameters for the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "MetricsInputParameters",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "output",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
+      "description": "The output of the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "MetricsOutput",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "excitation_wavelength_nm",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/excitation_wavelength_nm",
       "description": "The excitation wavelength in nm",
@@ -530,12 +615,12 @@
       "description": "The name of the image where the measurement was taken",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_name",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -544,12 +629,12 @@
       "description": "The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/image_id",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -558,15 +643,13 @@
       "description": "The channel number to which the measurements apply",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_nr",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
+      "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements",
-        "PSFBeadsKeyMeasurements",
-        "ArgolightBIntensityKeyValues",
-        "ArgolightEKeyValues"
+        "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "minimum_value": 0,
       "@type": "SlotDefinition"
     },
@@ -576,13 +659,13 @@
       "description": "The channel name to which the measurements apply",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_name",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements",
         "PSFBeadsKeyMeasurements"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -591,12 +674,12 @@
       "description": "The channel id to which the measurements apply",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_id",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -605,12 +688,10 @@
       "description": "Detector bit depth",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/bit_depth",
-      "owner": "ArgolightEInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
         "FieldIlluminationInputParameters",
-        "PSFBeadsInputParameters",
-        "ArgolightBInputParameters",
-        "ArgolightEInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "integer",
       "minimum_value": 1,
@@ -624,12 +705,10 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
       "ifabsent": "float(0.01)",
-      "owner": "ArgolightEInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
         "FieldIlluminationInputParameters",
-        "PSFBeadsInputParameters",
-        "ArgolightBInputParameters",
-        "ArgolightEInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -642,10 +721,9 @@
       "description": "Smoothing sigma to be applied to the image in the Z axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
-      "owner": "ArgolightBInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInputParameters",
-        "ArgolightBInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -656,10 +734,9 @@
       "description": "Smoothing sigma to be applied to the image in the Y axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
-      "owner": "ArgolightBInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInputParameters",
-        "ArgolightBInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -670,10 +747,9 @@
       "description": "Smoothing sigma to be applied to the image in the X axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
-      "owner": "ArgolightBInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
-        "PSFBeadsInputParameters",
-        "ArgolightBInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "@type": "SlotDefinition"
@@ -684,13 +760,13 @@
       "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/field_illumination_image",
-      "multivalued": true,
       "owner": "FieldIlluminationInputData",
       "domain_of": [
         "FieldIlluminationInputData"
       ],
       "range": "Image",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -735,12 +811,12 @@
       "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_intensity_fraction",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -751,12 +827,12 @@
       "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_area_fraction",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -767,12 +843,12 @@
       "description": "The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -781,12 +857,12 @@
       "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -797,12 +873,12 @@
       "description": "The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -811,12 +887,12 @@
       "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -827,12 +903,12 @@
       "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_distance_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -843,12 +919,12 @@
       "description": "The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -857,12 +933,12 @@
       "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -873,12 +949,12 @@
       "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -887,12 +963,12 @@
       "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -903,12 +979,12 @@
       "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_distance_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -919,12 +995,12 @@
       "description": "The y coordinate of the fitted center of illumination. In pixels",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -933,12 +1009,12 @@
       "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -949,12 +1025,12 @@
       "description": "The x coordinate of the fitted center of illumination. In pixels",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -963,12 +1039,12 @@
       "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -979,12 +1055,12 @@
       "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_distance_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -995,12 +1071,12 @@
       "description": "The maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1009,12 +1085,12 @@
       "description": "The y coordinate of the maximum intensity of the center of illumination. In pixels",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1023,12 +1099,12 @@
       "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1039,12 +1115,12 @@
       "description": "The x coordinate of the maximum intensity of the center of illumination. In pixels",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1053,12 +1129,12 @@
       "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1069,12 +1145,12 @@
       "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_distance_relative",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1085,12 +1161,12 @@
       "description": "The mean intensity of the top-left corner of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1099,12 +1175,12 @@
       "description": "The mean intensity of the top-left corner of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1113,12 +1189,12 @@
       "description": "The mean intensity of the top-center of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1127,12 +1203,12 @@
       "description": "The mean intensity of the top-center of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1141,12 +1217,12 @@
       "description": "The mean intensity of the top-right corner of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1155,12 +1231,12 @@
       "description": "The mean intensity of the top-right corner of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1169,12 +1245,12 @@
       "description": "The mean intensity of the middle-left of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1183,12 +1259,12 @@
       "description": "The mean intensity of the middle-left of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1197,12 +1273,12 @@
       "description": "The mean intensity of the middle-center of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1211,12 +1287,12 @@
       "description": "The mean intensity of the middle-center of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1225,12 +1301,12 @@
       "description": "The mean intensity of the middle-right of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1239,12 +1315,12 @@
       "description": "The mean intensity of the middle-right of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1253,12 +1329,12 @@
       "description": "The mean intensity of the bottom-left of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1267,12 +1343,12 @@
       "description": "The mean intensity of the bottom-left of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1281,12 +1357,12 @@
       "description": "The mean intensity of the bottom-center of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1295,12 +1371,12 @@
       "description": "The mean intensity of the bottom-center of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1309,12 +1385,12 @@
       "description": "The mean intensity of the bottom-right of the image",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_mean",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1323,12 +1399,27 @@
       "description": "The mean intensity of the bottom-right of the image  divided by the maximum intensity of the center of illumination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_ratio",
-      "multivalued": true,
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "key_measurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/key_measurements",
+      "description": "The key measurements of the PSF beads analysis.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/key_measurements",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "PSFBeadsKeyMeasurements",
+      "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1337,13 +1428,13 @@
       "description": "The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/psf_beads_images",
-      "multivalued": true,
       "owner": "PSFBeadsInputData",
       "domain_of": [
         "PSFBeadsInputData"
       ],
       "range": "Image",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -1419,12 +1510,12 @@
       "description": "Number of beads analyzed. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_valid_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1433,12 +1524,12 @@
       "description": "Number of beads considered for being too close to the edge of the image. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_lateral_edge_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1447,12 +1538,12 @@
       "description": "Number of beads considered for being too close to another bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_self_proximity_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1461,12 +1552,12 @@
       "description": "Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_axial_edge_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1475,12 +1566,12 @@
       "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_intensity_outlier_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1489,12 +1580,12 @@
       "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_z_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1503,12 +1594,12 @@
       "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_y_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1517,12 +1608,12 @@
       "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_x_count",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1531,12 +1622,12 @@
       "description": "Mean integrated intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1545,12 +1636,12 @@
       "description": "Median integrated intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1559,12 +1650,12 @@
       "description": "Standard deviation of the integrated intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1573,12 +1664,12 @@
       "description": "Mean maximum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1587,12 +1678,12 @@
       "description": "Median maximum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1601,12 +1692,12 @@
       "description": "Standard deviation of the maximum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1615,12 +1706,12 @@
       "description": "Mean minimum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1629,12 +1720,12 @@
       "description": "Median minimum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1643,12 +1734,12 @@
       "description": "Standard deviation of the minimum intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1657,12 +1748,12 @@
       "description": "Mean standard deviation of the intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1671,12 +1762,12 @@
       "description": "Median standard deviation of the intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1685,12 +1776,12 @@
       "description": "Standard deviation of the standard deviation of the intensity of the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1699,12 +1790,12 @@
       "description": "Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1713,12 +1804,12 @@
       "description": "Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1727,12 +1818,12 @@
       "description": "Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1741,12 +1832,12 @@
       "description": "Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1755,12 +1846,12 @@
       "description": "Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1769,12 +1860,12 @@
       "description": "Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1783,12 +1874,12 @@
       "description": "Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1797,12 +1888,12 @@
       "description": "Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1811,12 +1902,12 @@
       "description": "Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1825,12 +1916,12 @@
       "description": "Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1839,12 +1930,12 @@
       "description": "Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1853,12 +1944,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1867,12 +1958,12 @@
       "description": "Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1881,12 +1972,12 @@
       "description": "Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1895,12 +1986,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1909,12 +2000,12 @@
       "description": "Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1923,12 +2014,12 @@
       "description": "Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1937,12 +2028,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1951,12 +2042,12 @@
       "description": "Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1965,12 +2056,12 @@
       "description": "Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1979,12 +2070,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1993,12 +2084,12 @@
       "description": "Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2007,12 +2098,12 @@
       "description": "Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2021,12 +2112,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2035,12 +2126,12 @@
       "description": "Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2049,12 +2140,12 @@
       "description": "Median FWHM for the analyzed beads in the X axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2063,12 +2154,12 @@
       "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2077,12 +2168,12 @@
       "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_mean",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2091,12 +2182,12 @@
       "description": "Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_median",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2105,12 +2196,12 @@
       "description": "Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2119,12 +2210,12 @@
       "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_z",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2133,12 +2224,12 @@
       "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_y",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2147,12 +2238,12 @@
       "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_x",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2161,12 +2252,12 @@
       "description": "FWHM for the average bead in the Z axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_z",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2175,12 +2266,12 @@
       "description": "FWHM for the average bead in the Y axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_y",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2189,12 +2280,12 @@
       "description": "FWHM for the average bead in the X axis in pixels. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_x",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2203,12 +2294,12 @@
       "description": "Average FWHM for the beads in the Z axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_z",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2217,12 +2308,12 @@
       "description": "FWHM for the average bead in the Y axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_y",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2231,12 +2322,12 @@
       "description": "FWHM for the average bead in the X axis in microns. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_x",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2245,12 +2336,12 @@
       "description": "Lateral FWHM asymmetry ratio for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2259,12 +2350,12 @@
       "description": "Integrated intensity for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_integrated",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2273,12 +2364,12 @@
       "description": "Maximum intensity for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_max",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2287,12 +2378,12 @@
       "description": "Minimum intensity for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_min",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2301,559 +2392,12 @@
       "description": "Standard deviation of the intensity for the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_std",
-      "multivalued": true,
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
       ],
       "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolight_b_image",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/argolight_b_image",
-      "description": "Image of the argolight b pattern in the order TZYXC",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/argolight_b_image",
-      "owner": "ArgolightBInputData",
-      "domain_of": [
-        "ArgolightBInputData"
-      ],
-      "range": "Image",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "spots_distance",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_distance",
-      "description": "Distance between argolight spots",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_distance",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "lower_threshold_correction_factors",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/lower_threshold_correction_factors",
-      "description": "Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/lower_threshold_correction_factors",
       "multivalued": true,
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "upper_threshold_correction_factors",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/upper_threshold_correction_factors",
-      "description": "Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/upper_threshold_correction_factors",
-      "multivalued": true,
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "remove_center_cross",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/remove_center_cross",
-      "description": "Remove the center cross found in some Argolight patterns",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/remove_center_cross",
-      "ifabsent": "False",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "range": "boolean",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "nr_of_spots",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/nr_of_spots",
-      "description": "Number of argolight spots detected for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/nr_of_spots",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "intensity_max_spot",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_max_spot",
-      "description": "Integrated intensity of the most intense spot for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_max_spot",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "intensity_max_spot_roi",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_max_spot_roi",
-      "description": "ROI number of the most intense spot for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_max_spot_roi",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "intensity_min_spot",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_min_spot",
-      "description": "Integrated intensity of the least intense spot for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_min_spot",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "intensity_min_spot_roi",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_min_spot_roi",
-      "description": "ROI number of the least intense spot for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_min_spot_roi",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mean_intensity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_intensity",
-      "description": "Mean of all spots integrated intensity for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_intensity",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "median_intensity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_intensity",
-      "description": "Median of all spots integrated intensity for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_intensity",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "std_mean_intensity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_mean_intensity",
-      "description": "Standard deviation of all spots integrated intensity for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_mean_intensity",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mad_mean_intensity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_mean_intensity",
-      "description": "Median absolute deviation of all spots integrated intensity for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_mean_intensity",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "min_max_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/min_max_intensity_ratio",
-      "description": "Ratio between the integrated intensities between the most intense and the least intense spots for each channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/min_max_intensity_ratio",
-      "multivalued": true,
-      "owner": "ArgolightBIntensityKeyValues",
-      "domain_of": [
-        "ArgolightBIntensityKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "channel_A",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/channel_A",
-      "description": "The first channel number to which the measurements apply",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "channel_nr",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/channel_A",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "integer",
-      "minimum_value": 0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "channel_B",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/channel_B",
-      "description": "The second channel number to which the measurements apply",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "channel_nr",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/channel_B",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "integer",
-      "minimum_value": 0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mean_3d_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_3d_dist",
-      "description": "Mean of the 3D distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_3d_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "median_3d_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_3d_dist",
-      "description": "Median of the 3D distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_3d_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "std_3d_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_3d_dist",
-      "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_3d_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mad_3d_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_3d_dist",
-      "description": "Median absolute deviation of the 3D distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_3d_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mean_z_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_z_dist",
-      "description": "Mean of the Z distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mean_z_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "median_z_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_z_dist",
-      "description": "Median of the Z distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/median_z_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "std_z_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_z_dist",
-      "description": "Standard deviation of the Z distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/std_z_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mad_z_dist",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_z_dist",
-      "description": "Median absolute deviation of the Z distances between spots for each permutation of channel A and B",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/mad_z_dist",
-      "multivalued": true,
-      "owner": "ArgolightBDistanceKeyValues",
-      "domain_of": [
-        "ArgolightBDistanceKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolight_e_image",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/argolight_e_image",
-      "description": "Image of the argolight e pattern provided in the order TZYXC",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/argolight_e_image",
-      "owner": "ArgolightEInputData",
-      "domain_of": [
-        "ArgolightEInputData"
-      ],
-      "range": "Image",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "orientation_axis",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/orientation_axis",
-      "description": "Axis along which resolution is being measured. 1=Y, 2=X",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/orientation_axis",
-      "owner": "ArgolightEInputParameters",
-      "domain_of": [
-        "ArgolightEInputParameters"
-      ],
-      "range": "integer",
-      "required": true,
-      "minimum_value": 1,
-      "maximum_value": 2,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "measured_band",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/measured_band",
-      "description": "Fraction of the image across which intensity profiles are measured",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/measured_band",
-      "ifabsent": "float(0.4)",
-      "owner": "ArgolightEInputParameters",
-      "domain_of": [
-        "ArgolightEInputParameters"
-      ],
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 1.0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "prominence_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/prominence_threshold",
-      "description": "Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/prominence_threshold",
-      "ifabsent": "float(0.264)",
-      "owner": "ArgolightEInputParameters",
-      "domain_of": [
-        "ArgolightEInputParameters"
-      ],
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.1,
-      "maximum_value": 0.99,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "focus_slice",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/focus_slice",
-      "description": "Z position at which focus has been measured. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/focus_slice",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "integer",
-      "minimum_value": 0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "rayleigh_resolution_pixels",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/rayleigh_resolution_pixels",
-      "description": "Rayleigh resolution measured in pixels. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/rayleigh_resolution_pixels",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "rayleigh_resolution_microns",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/rayleigh_resolution_microns",
-      "description": "Rayleigh resolution measured in microns. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/rayleigh_resolution_microns",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_position_A",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_position_A",
-      "description": "Position, in pixels, of first peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_position_A",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_position_B",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_position_B",
-      "description": "Position, in pixels, of second peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_position_B",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_height_A",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_height_A",
-      "description": "Height of first peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_height_A",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_height_B",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_height_B",
-      "description": "Height of second peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_height_B",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_prominence_A",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_prominence_A",
-      "description": "Prominence of first peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_prominence_A",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "peak_prominence_B",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_prominence_B",
-      "description": "Prominence of second peak in the intensity profiles. One value per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peak_prominence_B",
-      "multivalued": true,
-      "owner": "ArgolightEKeyValues",
-      "domain_of": [
-        "ArgolightEKeyValues"
-      ],
-      "range": "float",
       "@type": "SlotDefinition"
     },
     {
@@ -2940,13 +2484,13 @@
       "description": "A list of linked references",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/linked_references",
-      "multivalued": true,
       "alias": "linked_references",
       "owner": "MetricsObject",
       "domain_of": [
         "MetricsObject"
       ],
       "range": "DataReference",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -2956,7 +2500,6 @@
       "description": "The microscopes of the collection",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscopes",
-      "multivalued": true,
       "alias": "microscopes",
       "owner": "MicroscopeCollection",
       "domain_of": [
@@ -2964,6 +2507,7 @@
       ],
       "range": "Microscope",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3024,13 +2568,13 @@
       "description": "A list of comments linked to the microscope",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comments",
-      "multivalued": true,
       "alias": "comments",
       "owner": "Microscope",
       "domain_of": [
         "Microscope"
       ],
       "range": "Comment",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3080,13 +2624,13 @@
       "description": "The authors of the protocol",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/authors",
-      "multivalued": true,
       "alias": "authors",
       "owner": "Protocol",
       "domain_of": [
         "Protocol"
       ],
       "range": "Experimenter",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3193,13 +2737,13 @@
       "description": "The datasets of the collection",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/datasets",
-      "multivalued": true,
       "alias": "datasets",
       "owner": "MetricsDatasetCollection",
       "domain_of": [
         "MetricsDatasetCollection"
       ],
       "range": "MetricsDataset",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3219,47 +2763,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__microscope",
-      "description": "The microscope that was used to acquire the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
-      "alias": "microscope",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "Microscope",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__experimenter",
-      "description": "The experimenter that performed the imaging experiment",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
-      "alias": "experimenter",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "Experimenter",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__acquisition_datetime",
-      "description": "The datetime of the acquisition",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
-      "alias": "acquisition_datetime",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "datetime",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "metricsDataset__processed",
       "description": "Has the dataset been processed by microscope-metrics",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -3275,55 +2778,10 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDataset__input_data",
-      "description": "The input data for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
-      "alias": "input_data",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsInputData",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__input_parameters",
-      "description": "The input parameters for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
-      "alias": "input_parameters",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsInputParameters",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__output",
-      "description": "The output of the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
-      "alias": "output",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "metricsOutput__processing_application",
       "description": "The application used to process the dataset",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_application",
-      "multivalued": true,
       "alias": "processing_application",
       "owner": "MetricsOutput",
       "domain_of": [
@@ -3331,6 +2789,7 @@
       ],
       "range": "string",
       "required": true,
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3338,7 +2797,6 @@
       "description": "The version of the application used to process the dataset",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_version",
-      "multivalued": true,
       "alias": "processing_version",
       "owner": "MetricsOutput",
       "domain_of": [
@@ -3346,6 +2804,7 @@
       ],
       "range": "string",
       "required": true,
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3353,13 +2812,13 @@
       "description": "The entity that processed the dataset",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_entity",
-      "multivalued": true,
       "alias": "processing_entity",
       "owner": "MetricsOutput",
       "domain_of": [
         "MetricsOutput"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3394,13 +2853,13 @@
       "description": "The warnings of the processing by microscope-metrics",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/warnings",
-      "multivalued": true,
       "alias": "warnings",
       "owner": "MetricsOutput",
       "domain_of": [
         "MetricsOutput"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3408,13 +2867,13 @@
       "description": "The errors of the processing by microscope-metrics",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/errors",
-      "multivalued": true,
       "alias": "errors",
       "owner": "MetricsOutput",
       "domain_of": [
         "MetricsOutput"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3576,6 +3035,7 @@
       "implements": [
         "linkml:axis0"
       ],
+      "description": "A series representing time for time-lapse images.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_series",
       "alias": "time_series",
@@ -3592,6 +3052,7 @@
       "implements": [
         "linkml:axis4"
       ],
+      "description": "A series representing channels for multi-channel images.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series",
       "alias": "channel_series",
@@ -3604,30 +3065,17 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "image__acquisition_datetime",
-      "description": "The datetime of the acquisition",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
-      "alias": "acquisition_datetime",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "datetime",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "image__source_images",
       "description": "A list of references linking to the images that were used as a source",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_images",
-      "multivalued": true,
       "alias": "source_images",
       "owner": "Image",
       "domain_of": [
         "Image"
       ],
       "range": "DataReference",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3651,9 +3099,9 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The channels of the ChannelSeries",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channels",
-      "multivalued": true,
       "alias": "channels",
       "owner": "ChannelSeries",
       "domain_of": [
@@ -3661,6 +3109,7 @@
       ],
       "range": "Channel",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3669,9 +3118,9 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The values of the TimeSeries in seconds",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values",
-      "multivalued": true,
       "alias": "values",
       "owner": "TimeSeries",
       "domain_of": [
@@ -3679,6 +3128,7 @@
       ],
       "range": "float",
       "required": true,
+      "multivalued": true,
       "unit": {
         "ucum_code": "s",
         "@type": "UnitOfMeasure"
@@ -3719,13 +3169,13 @@
       "description": "An optional container for the values of the column",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values",
-      "multivalued": true,
       "alias": "values",
       "owner": "Column",
       "domain_of": [
         "Column"
       ],
       "range": "string",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3733,13 +3183,13 @@
       "description": "A list of points included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/points",
-      "multivalued": true,
       "alias": "points",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Point",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3749,13 +3199,13 @@
       "description": "A list of lines included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/lines",
-      "multivalued": true,
       "alias": "lines",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Line",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3765,13 +3215,13 @@
       "description": "A list of rectangles included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/rectangles",
-      "multivalued": true,
       "alias": "rectangles",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Rectangle",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3781,13 +3231,13 @@
       "description": "A list of ellipses included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ellipses",
-      "multivalued": true,
       "alias": "ellipses",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Ellipse",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3797,13 +3247,13 @@
       "description": "A list of polygons included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/polygons",
-      "multivalued": true,
       "alias": "polygons",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Polygon",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -3813,13 +3263,13 @@
       "description": "A list of masks included in the ROI",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/masks",
-      "multivalued": true,
       "alias": "masks",
       "owner": "Roi",
       "domain_of": [
         "Roi"
       ],
       "range": "Mask",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4106,7 +3556,6 @@
       "description": "A list of vertexes defining the polygon",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/vertexes",
-      "multivalued": true,
       "alias": "vertexes",
       "owner": "Polygon",
       "domain_of": [
@@ -4114,6 +3563,7 @@
       ],
       "range": "Vertex",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4331,9 +3781,9 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The columns of the table",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns",
-      "multivalued": true,
       "alias": "columns",
       "owner": "Table",
       "domain_of": [
@@ -4341,6 +3791,7 @@
       ],
       "range": "Column",
       "required": true,
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4417,13 +3868,13 @@
       "description": "Intensity profiles for the field illumination analysis in the different directions",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/intensity_profiles",
-      "multivalued": true,
       "alias": "intensity_profiles",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Table",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4433,13 +3884,13 @@
       "description": "line ROIs used to compute the intensity profiles",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_profiles",
-      "multivalued": true,
       "alias": "roi_profiles",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4462,13 +3913,13 @@
       "description": "Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_of_mass",
-      "multivalued": true,
       "alias": "roi_centers_of_mass",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4477,13 +3928,13 @@
       "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_geometric",
-      "multivalued": true,
       "alias": "roi_centers_geometric",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4492,13 +3943,13 @@
       "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_fitted",
-      "multivalued": true,
       "alias": "roi_centers_fitted",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4507,13 +3958,13 @@
       "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_max_intensity",
-      "multivalued": true,
       "alias": "roi_centers_max_intensity",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4522,13 +3973,13 @@
       "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_center_region",
-      "multivalued": true,
       "alias": "roi_center_region",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
         "FieldIlluminationOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4576,13 +4027,13 @@
       "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/analyzed_bead_centers",
-      "multivalued": true,
       "alias": "analyzed_bead_centers",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4592,13 +4043,13 @@
       "description": "The centers of the beads detected but considered as too close to the edge of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_lateral_edge",
-      "multivalued": true,
       "alias": "considered_bead_centers_lateral_edge",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4608,13 +4059,13 @@
       "description": "The centers of the beads detected but considered as too close to another bead. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_self_proximity",
-      "multivalued": true,
       "alias": "considered_bead_centers_self_proximity",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4624,13 +4075,13 @@
       "description": "The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_axial_edge",
-      "multivalued": true,
       "alias": "considered_bead_centers_axial_edge",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4640,13 +4091,13 @@
       "description": "The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_intensity_outlier",
-      "multivalued": true,
       "alias": "considered_bead_centers_intensity_outlier",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4656,13 +4107,13 @@
       "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_z_fit_quality",
-      "multivalued": true,
       "alias": "considered_bead_centers_z_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4672,13 +4123,13 @@
       "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_y_fit_quality",
-      "multivalued": true,
       "alias": "considered_bead_centers_y_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4688,28 +4139,13 @@
       "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_x_fit_quality",
-      "multivalued": true,
       "alias": "considered_bead_centers_x_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
       ],
       "range": "Roi",
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "pSFBeadsOutput__key_measurements",
-      "description": "The key measurements of the PSF beads analysis.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/key_measurements",
-      "alias": "key_measurements",
-      "owner": "PSFBeadsOutput",
-      "domain_of": [
-        "PSFBeadsOutput"
-      ],
-      "range": "PSFBeadsKeyMeasurements",
+      "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4787,212 +4223,6 @@
       "range": "Image",
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBDataset__input_data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/input_data",
-      "alias": "input_data",
-      "owner": "ArgolightBDataset",
-      "domain_of": [
-        "ArgolightBDataset"
-      ],
-      "range": "ArgolightBInputData",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBDataset__input_parameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/input_parameters",
-      "alias": "input_parameters",
-      "owner": "ArgolightBDataset",
-      "domain_of": [
-        "ArgolightBDataset"
-      ],
-      "range": "ArgolightBInputParameters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBDataset__output",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/output",
-      "alias": "output",
-      "owner": "ArgolightBDataset",
-      "domain_of": [
-        "ArgolightBDataset"
-      ],
-      "range": "ArgolightBOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__spots_labels_image",
-      "description": "Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_labels_image",
-      "alias": "spots_labels_image",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "ImageMask",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__spots_centers_of_mass",
-      "description": "Centers of mass of the argolight spots provided as a list of ROIs. One per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_centers_of_mass",
-      "multivalued": true,
-      "alias": "spots_centers_of_mass",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "ArgolightBCentersOfMass",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__intensity_key_values",
-      "description": "Key Intensity Measurements on Argolight spots",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_key_values",
-      "alias": "intensity_key_values",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "ArgolightBIntensityKeyValues",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__distance_key_values",
-      "description": "Key Distance Measurements on Argolight spots",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/distance_key_values",
-      "alias": "distance_key_values",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "ArgolightBDistanceKeyValues",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__spots_properties",
-      "description": "Table of properties of the argolight spots",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_properties",
-      "alias": "spots_properties",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "Table",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightBOutput__spots_distances",
-      "description": "Table of distances between argolight spots",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/spots_distances",
-      "alias": "spots_distances",
-      "owner": "ArgolightBOutput",
-      "domain_of": [
-        "ArgolightBOutput"
-      ],
-      "range": "Table",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEDataset__input_data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/input_data",
-      "alias": "input_data",
-      "owner": "ArgolightEDataset",
-      "domain_of": [
-        "ArgolightEDataset"
-      ],
-      "range": "ArgolightEInputData",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEDataset__input_parameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/input_parameters",
-      "alias": "input_parameters",
-      "owner": "ArgolightEDataset",
-      "domain_of": [
-        "ArgolightEDataset"
-      ],
-      "range": "ArgolightEInputParameters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEDataset__output",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/output",
-      "alias": "output",
-      "owner": "ArgolightEDataset",
-      "domain_of": [
-        "ArgolightEDataset"
-      ],
-      "range": "ArgolightEOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEOutput__peaks_rois",
-      "description": "ROIs of the peaks found in the argolight images. One per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/peaks_rois",
-      "multivalued": true,
-      "alias": "peaks_rois",
-      "owner": "ArgolightEOutput",
-      "domain_of": [
-        "ArgolightEOutput"
-      ],
-      "range": "Roi",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEOutput__key_measurements",
-      "description": "Key Measurements on Argolight E images",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/key_measurements",
-      "alias": "key_measurements",
-      "owner": "ArgolightEOutput",
-      "domain_of": [
-        "ArgolightEOutput"
-      ],
-      "range": "ArgolightEKeyValues",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "argolightEOutput__intensity_profiles",
-      "description": "Intensity profiles of the argolight lines provided as tables. One table per channel",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/intensity_profiles",
-      "alias": "intensity_profiles",
-      "owner": "ArgolightEOutput",
-      "domain_of": [
-        "ArgolightEOutput"
-      ],
-      "range": "Table",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5163,116 +4393,6 @@
       "range": "float",
       "required": true,
       "@type": "SlotDefinition"
-    },
-    {
-      "name": "ArgolightBInputParameters_saturation_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
-      "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "saturation_threshold",
-      "domain": "ArgolightBInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
-      "ifabsent": "float(0.01)",
-      "alias": "saturation_threshold",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "saturation_threshold",
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ArgolightBInputParameters_sigma_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
-      "description": "Smoothing factor for objects detection in the Z axis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "sigma_z",
-      "domain": "ArgolightBInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_z",
-      "ifabsent": "float(1.0)",
-      "alias": "sigma_z",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_z",
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 5.0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ArgolightBInputParameters_sigma_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
-      "description": "Smoothing factor for objects detection in the Y axis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "sigma_y",
-      "domain": "ArgolightBInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_y",
-      "ifabsent": "float(3.0)",
-      "alias": "sigma_y",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_y",
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ArgolightBInputParameters_sigma_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
-      "description": "Smoothing factor for objects detection in the X axis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "sigma_x",
-      "domain": "ArgolightBInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sigma_x",
-      "ifabsent": "float(3.0)",
-      "alias": "sigma_x",
-      "owner": "ArgolightBInputParameters",
-      "domain_of": [
-        "ArgolightBInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_x",
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 10.0,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ArgolightEInputParameters_saturation_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
-      "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "is_a": "saturation_threshold",
-      "domain": "ArgolightEInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/saturation_threshold",
-      "ifabsent": "float(0.01)",
-      "alias": "saturation_threshold",
-      "owner": "ArgolightEInputParameters",
-      "domain_of": [
-        "ArgolightEInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "saturation_threshold",
-      "range": "float",
-      "required": true,
-      "minimum_value": 0.0,
-      "maximum_value": 1.0,
-      "@type": "SlotDefinition"
     }
   ],
   "classes": [
@@ -5385,8 +4505,8 @@
         {
           "name": "linked_references",
           "description": "A list of linked references",
-          "multivalued": true,
           "range": "DataReference",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5408,9 +4528,9 @@
         {
           "name": "microscopes",
           "description": "The microscopes of the collection",
-          "multivalued": true,
           "range": "Microscope",
           "required": true,
+          "multivalued": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -5463,8 +4583,8 @@
         {
           "name": "comments",
           "description": "A list of comments linked to the microscope",
-          "multivalued": true,
           "range": "Comment",
+          "multivalued": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -5528,8 +4648,8 @@
         {
           "name": "authors",
           "description": "The authors of the protocol",
-          "multivalued": true,
           "range": "Experimenter",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -5635,8 +4755,8 @@
         {
           "name": "datasets",
           "description": "The datasets of the collection",
-          "multivalued": true,
           "range": "MetricsDataset",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -5678,41 +4798,23 @@
       "description": "A base object on which microscope-metrics runs the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "MetricsObject",
+      "abstract": true,
       "slots": [
         "name",
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
         "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
-        "metricsDataset__input_data",
-        "metricsDataset__input_parameters",
-        "metricsDataset__output"
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
+        "input_data",
+        "input_parameters",
+        "output",
+        "metricsDataset__processed"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "microscope",
-          "description": "The microscope that was used to acquire the dataset",
-          "range": "Microscope",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "experimenter",
-          "description": "The experimenter that performed the imaging experiment",
-          "range": "Experimenter",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "acquisition_datetime",
-          "description": "The datetime of the acquisition",
-          "range": "datetime",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "processed",
           "description": "Has the dataset been processed by microscope-metrics",
@@ -5720,55 +4822,10 @@
           "range": "boolean",
           "required": true,
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_data",
-          "description": "The input data for the analysis",
-          "range": "MetricsInputData",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_parameters",
-          "description": "The input parameters for the analysis",
-          "range": "MetricsInputParameters",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "output",
-          "description": "The output of the analysis",
-          "range": "MetricsOutput",
-          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset",
       "tree_root": true,
-      "rules": [
-        {
-          "preconditions": {
-            "slot_conditions": [
-              {
-                "name": "processed",
-                "equals_number": 1,
-                "@type": "SlotDefinition"
-              }
-            ],
-            "@type": "AnonymousClassExpression"
-          },
-          "postconditions": {
-            "slot_conditions": [
-              {
-                "name": "output",
-                "required": true,
-                "@type": "SlotDefinition"
-              }
-            ],
-            "@type": "AnonymousClassExpression"
-          },
-          "@type": "ClassRule"
-        }
-      ],
       "@type": "ClassDefinition"
     },
     {
@@ -5814,24 +4871,24 @@
         {
           "name": "processing_application",
           "description": "The application used to process the dataset",
-          "multivalued": true,
           "range": "string",
           "required": true,
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "processing_version",
           "description": "The version of the application used to process the dataset",
-          "multivalued": true,
           "range": "string",
           "required": true,
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "processing_entity",
           "description": "The entity that processed the dataset",
-          "multivalued": true,
           "range": "string",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -5850,15 +4907,15 @@
         {
           "name": "warnings",
           "description": "The warnings of the processing by microscope-metrics",
-          "multivalued": true,
           "range": "string",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "errors",
           "description": "The errors of the processing by microscope-metrics",
-          "multivalued": true,
           "range": "string",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -5896,6 +4953,7 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
+        "acquisition_datetime",
         "image__voxel_size_x_micron",
         "image__voxel_size_y_micron",
         "image__voxel_size_z_micron",
@@ -5906,7 +4964,6 @@
         "image__shape_t",
         "image__time_series",
         "image__channel_series",
-        "image__acquisition_datetime",
         "image__source_images",
         "image__array_data"
       ],
@@ -5973,6 +5030,7 @@
           "implements": [
             "linkml:axis0"
           ],
+          "description": "A series representing time for time-lapse images.",
           "range": "TimeSeries",
           "@type": "SlotDefinition"
         },
@@ -5981,20 +5039,15 @@
           "implements": [
             "linkml:axis4"
           ],
+          "description": "A series representing channels for multi-channel images.",
           "range": "ChannelSeries",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "acquisition_datetime",
-          "description": "The datetime of the acquisition",
-          "range": "datetime",
           "@type": "SlotDefinition"
         },
         {
           "name": "source_images",
           "description": "A list of references linking to the images that were used as a source",
-          "multivalued": true,
           "range": "DataReference",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6020,6 +5073,7 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
+        "acquisition_datetime",
         "image__voxel_size_x_micron",
         "image__voxel_size_y_micron",
         "image__voxel_size_z_micron",
@@ -6030,7 +5084,6 @@
         "image__shape_t",
         "image__time_series",
         "image__channel_series",
-        "image__acquisition_datetime",
         "image__source_images",
         "image__array_data"
       ],
@@ -6056,9 +5109,10 @@
           "implements": [
             "linkml:elements"
           ],
-          "multivalued": true,
+          "description": "The channels of the ChannelSeries",
           "range": "Channel",
           "required": true,
+          "multivalued": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -6101,9 +5155,10 @@
           "implements": [
             "linkml:elements"
           ],
-          "multivalued": true,
+          "description": "The values of the TimeSeries in seconds",
           "range": "float",
           "required": true,
+          "multivalued": true,
           "unit": {
             "ucum_code": "s",
             "@type": "UnitOfMeasure"
@@ -6146,8 +5201,8 @@
         {
           "name": "values",
           "description": "An optional container for the values of the column",
-          "multivalued": true,
           "range": "string",
+          "multivalued": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -6177,8 +5232,8 @@
         {
           "name": "points",
           "description": "A list of points included in the ROI",
-          "multivalued": true,
           "range": "Point",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6186,8 +5241,8 @@
         {
           "name": "lines",
           "description": "A list of lines included in the ROI",
-          "multivalued": true,
           "range": "Line",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6195,8 +5250,8 @@
         {
           "name": "rectangles",
           "description": "A list of rectangles included in the ROI",
-          "multivalued": true,
           "range": "Rectangle",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6204,8 +5259,8 @@
         {
           "name": "ellipses",
           "description": "A list of ellipses included in the ROI",
-          "multivalued": true,
           "range": "Ellipse",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6213,8 +5268,8 @@
         {
           "name": "polygons",
           "description": "A list of polygons included in the ROI",
-          "multivalued": true,
           "range": "Polygon",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6222,8 +5277,8 @@
         {
           "name": "masks",
           "description": "A list of masks included in the ROI",
-          "multivalued": true,
           "range": "Mask",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6515,9 +5570,9 @@
         {
           "name": "vertexes",
           "description": "A list of vertexes defining the polygon",
-          "multivalued": true,
           "range": "Vertex",
           "required": true,
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -6836,9 +5891,10 @@
           "implements": [
             "linkml:elements"
           ],
-          "multivalued": true,
+          "description": "The columns of the table",
           "range": "Column",
           "required": true,
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6864,9 +5920,9 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
         "metricsDataset__processed",
         "fieldIlluminationDataset__input_data",
         "fieldIlluminationDataset__input_parameters",
@@ -6958,8 +6014,8 @@
         {
           "name": "intensity_profiles",
           "description": "Intensity profiles for the field illumination analysis in the different directions",
-          "multivalued": true,
           "range": "Table",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6967,8 +6023,8 @@
         {
           "name": "roi_profiles",
           "description": "line ROIs used to compute the intensity profiles",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
@@ -6980,36 +6036,36 @@
         {
           "name": "roi_centers_of_mass",
           "description": "Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "roi_centers_geometric",
           "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "roi_centers_fitted",
           "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "roi_centers_max_intensity",
           "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         },
         {
           "name": "roi_center_region",
           "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "@type": "SlotDefinition"
         }
       ],
@@ -7089,9 +6145,9 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
         "metricsDataset__processed",
         "pSFBeadsDataset__input_data",
         "pSFBeadsDataset__input_parameters",
@@ -7167,6 +6223,7 @@
         "metricsOutput__validated",
         "metricsOutput__validation_datetime",
         "metricsOutput__comment",
+        "key_measurements",
         "pSFBeadsOutput__analyzed_bead_centers",
         "pSFBeadsOutput__considered_bead_centers_lateral_edge",
         "pSFBeadsOutput__considered_bead_centers_self_proximity",
@@ -7175,7 +6232,6 @@
         "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
         "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
         "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
-        "pSFBeadsOutput__key_measurements",
         "pSFBeadsOutput__bead_properties",
         "pSFBeadsOutput__bead_profiles_z",
         "pSFBeadsOutput__bead_profiles_y",
@@ -7187,8 +6243,8 @@
         {
           "name": "analyzed_bead_centers",
           "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7196,8 +6252,8 @@
         {
           "name": "considered_bead_centers_lateral_edge",
           "description": "The centers of the beads detected but considered as too close to the edge of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7205,8 +6261,8 @@
         {
           "name": "considered_bead_centers_self_proximity",
           "description": "The centers of the beads detected but considered as too close to another bead. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7214,8 +6270,8 @@
         {
           "name": "considered_bead_centers_axial_edge",
           "description": "The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7223,8 +6279,8 @@
         {
           "name": "considered_bead_centers_intensity_outlier",
           "description": "The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7232,8 +6288,8 @@
         {
           "name": "considered_bead_centers_z_fit_quality",
           "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7241,8 +6297,8 @@
         {
           "name": "considered_bead_centers_y_fit_quality",
           "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7250,16 +6306,8 @@
         {
           "name": "considered_bead_centers_x_fit_quality",
           "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-          "multivalued": true,
           "range": "Roi",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "key_measurements",
-          "description": "The key measurements of the PSF beads analysis.",
-          "range": "PSFBeadsKeyMeasurements",
+          "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7391,359 +6439,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "ArgolightBDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBDataset",
-      "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsDataset",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
-        "argolightBDataset__input_data",
-        "argolightBDataset__input_parameters",
-        "argolightBDataset__output"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "input_data",
-          "range": "ArgolightBInputData",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_parameters",
-          "range": "ArgolightBInputParameters",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "output",
-          "range": "ArgolightBOutput",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBDataset",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBInputData",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBInputData",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsInputData",
-      "slots": [
-        "argolight_b_image"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBInputData",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBInputParameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBInputParameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsInputParameters",
-      "slots": [
-        "bit_depth",
-        "ArgolightBInputParameters_saturation_threshold",
-        "spots_distance",
-        "ArgolightBInputParameters_sigma_z",
-        "ArgolightBInputParameters_sigma_y",
-        "ArgolightBInputParameters_sigma_x",
-        "lower_threshold_correction_factors",
-        "upper_threshold_correction_factors",
-        "remove_center_cross"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBInputParameters",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsOutput",
-      "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
-        "argolightBOutput__spots_labels_image",
-        "argolightBOutput__spots_centers_of_mass",
-        "argolightBOutput__intensity_key_values",
-        "argolightBOutput__distance_key_values",
-        "argolightBOutput__spots_properties",
-        "argolightBOutput__spots_distances"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "spots_labels_image",
-          "description": "Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels",
-          "range": "ImageMask",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "spots_centers_of_mass",
-          "description": "Centers of mass of the argolight spots provided as a list of ROIs. One per channel",
-          "multivalued": true,
-          "range": "ArgolightBCentersOfMass",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "intensity_key_values",
-          "description": "Key Intensity Measurements on Argolight spots",
-          "range": "ArgolightBIntensityKeyValues",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "distance_key_values",
-          "description": "Key Distance Measurements on Argolight spots",
-          "range": "ArgolightBDistanceKeyValues",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "spots_properties",
-          "description": "Table of properties of the argolight spots",
-          "range": "Table",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "spots_distances",
-          "description": "Table of distances between argolight spots",
-          "range": "Table",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBOutput",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBCentersOfMass",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBCentersOfMass",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "Roi",
-      "mixins": [
-        "CentersOfMass"
-      ],
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "roi__points",
-        "roi__lines",
-        "roi__rectangles",
-        "roi__ellipses",
-        "roi__polygons",
-        "roi__masks"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBCentersOfMass",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBIntensityKeyValues",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBIntensityKeyValues",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "KeyValues",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "channel_nr",
-        "nr_of_spots",
-        "intensity_max_spot",
-        "intensity_max_spot_roi",
-        "intensity_min_spot",
-        "intensity_min_spot_roi",
-        "mean_intensity",
-        "median_intensity",
-        "std_mean_intensity",
-        "mad_mean_intensity",
-        "min_max_intensity_ratio"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBIntensityKeyValues",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightBDistanceKeyValues",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBDistanceKeyValues",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "KeyValues",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "channel_A",
-        "channel_B",
-        "mean_3d_dist",
-        "median_3d_dist",
-        "std_3d_dist",
-        "mad_3d_dist",
-        "mean_z_dist",
-        "median_z_dist",
-        "std_z_dist",
-        "mad_z_dist"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightBDistanceKeyValues",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightEDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEDataset",
-      "description": "An Argolight sample pattern E dataset.\nIt contains resolution data on the axis indicated:\n- axis 1 = Y resolution = lines along X axis\n- axis 2 = X resolution = lines along Y axis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsDataset",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
-        "argolightEDataset__input_data",
-        "argolightEDataset__input_parameters",
-        "argolightEDataset__output"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "input_data",
-          "range": "ArgolightEInputData",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_parameters",
-          "range": "ArgolightEInputParameters",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "output",
-          "range": "ArgolightEOutput",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEDataset",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightEInputData",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEInputData",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsInputData",
-      "slots": [
-        "argolight_e_image"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEInputData",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightEInputParameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEInputParameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsInputParameters",
-      "slots": [
-        "bit_depth",
-        "ArgolightEInputParameters_saturation_threshold",
-        "orientation_axis",
-        "measured_band",
-        "prominence_threshold"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEInputParameters",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightEOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "MetricsOutput",
-      "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
-        "argolightEOutput__peaks_rois",
-        "argolightEOutput__key_measurements",
-        "argolightEOutput__intensity_profiles"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "peaks_rois",
-          "description": "ROIs of the peaks found in the argolight images. One per channel",
-          "multivalued": true,
-          "range": "Roi",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "key_measurements",
-          "description": "Key Measurements on Argolight E images",
-          "range": "ArgolightEKeyValues",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "intensity_profiles",
-          "description": "Intensity profiles of the argolight lines provided as tables. One table per channel",
-          "range": "Table",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEOutput",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "ArgolightEKeyValues",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEKeyValues",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema",
-      "is_a": "KeyValues",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "channel_nr",
-        "focus_slice",
-        "rayleigh_resolution_pixels",
-        "rayleigh_resolution_microns",
-        "peak_position_A",
-        "peak_position_B",
-        "peak_height_A",
-        "peak_height_B",
-        "peak_prominence_A",
-        "peak_prominence_B"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight_schema/ArgolightEKeyValues",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "FluorescentHomogeneousThickField",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
       "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
@@ -7804,9 +6499,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-10-07T14:53:46",
-  "source_file_size": 840,
-  "generation_date": "2024-10-10T15:24:48",
+  "source_file_date": "2024-10-11T10:30:54",
+  "source_file_size": 848,
+  "generation_date": "2024-10-11T13:38:09",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
@@ -7814,7 +6509,6 @@
     "core_schema.context.jsonld",
     "analyses/field_illumination_schema.context.jsonld",
     "analyses/psf_beads_schema.context.jsonld",
-    "analyses/argolight_schema.context.jsonld",
     "samples/homogeneous_field.context.jsonld",
     "samples/beads.context.jsonld",
     {

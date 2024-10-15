@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
-name: microscopemetrics_analyses_psf_beads_schema
+name: psf_beads_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -71,6 +71,8 @@ classes:
 
   PSFBeadsOutput:
     is_a: MetricsOutput
+    slots:
+      - key_measurements
     attributes:
       analyzed_bead_centers:
         range: Roi
@@ -153,13 +155,6 @@ classes:
           One point will be provided per bead.
           One ROI per channel.
         multivalued: true
-        inlined: true
-        inlined_as_list: true
-      key_measurements:
-        range: PSFBeadsKeyMeasurements
-        description: >-
-          The key measurements of the PSF beads analysis.
-        multivalued: false
         inlined: true
         inlined_as_list: true
       bead_properties:
@@ -275,6 +270,14 @@ classes:
 
 
 slots:
+  key_measurements:
+    range: PSFBeadsKeyMeasurements
+    description: >-
+      The key measurements of the PSF beads analysis.
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+
   # Inputs
   psf_beads_images:
     range: Image

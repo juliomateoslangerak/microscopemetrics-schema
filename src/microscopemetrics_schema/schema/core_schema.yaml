@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-name: microscopemetrics_core_schema
+name: core_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -213,6 +213,9 @@ classes:
       - microscope
       - experimenter
       - acquisition_datetime
+      - input_data
+      - input_parameters
+      - output
     attributes:
       processed:
         range: boolean
@@ -220,30 +223,30 @@ classes:
         required: true
         ifabsent: false
         multivalued: false
-      input_data:
-        range: MetricsInputData
-        description: The input data for the analysis
-        required: true
-        multivalued: false
-      input_parameters:
-        range: MetricsInputParameters
-        description: The input parameters for the analysis
-        required: true
-        multivalued: false
-      output:
-        range: MetricsOutput
-        description: The output of the analysis
-        required: false
-        multivalued: false
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
+#      input_data:
+#        range: MetricsInputData
+#        description: The input data for the analysis
+#        required: true
+#        multivalued: false
+#      input_parameters:
+#        range: MetricsInputParameters
+#        description: The input parameters for the analysis
+#        required: true
+#        multivalued: false
+#      output:
+#        range: MetricsOutput
+#        description: The output of the analysis
+#        required: false
+#        multivalued: false
+#    rules:
+#      - preconditions:
+#          slot_conditions:
+#            processed:
+#              equals_number: 1
+#        postconditions:
+#          slot_conditions:
+#            output:
+#              required: true
 
   MetricsInputData:
     description: An abstract class for analysis input data
@@ -825,6 +828,21 @@ slots:
   acquisition_datetime:
     range: datetime
     description: The datetime of the acquisition
+    multivalued: false
+  input_data:
+    range: MetricsInputData
+    description: The input data for the analysis
+    required: true
+    multivalued: false
+  input_parameters:
+    range: MetricsInputParameters
+    description: The input parameters for the analysis
+    required: true
+    multivalued: false
+  output:
+    range: MetricsOutput
+    description: The output of the analysis
+    required: false
     multivalued: false
   excitation_wavelength_nm:
     range: float
