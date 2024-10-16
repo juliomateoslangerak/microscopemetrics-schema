@@ -79,7 +79,6 @@ message FieldIlluminationDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  sample sample = 0
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
@@ -87,6 +86,7 @@ message FieldIlluminationDataset
   fieldIlluminationInputData inputData = 0
   fieldIlluminationInputParameters inputParameters = 0
   fieldIlluminationOutput output = 0
+  homogeneousField sample = 0
  }
 message FieldIlluminationInputData
  {
@@ -175,6 +175,22 @@ message FieldIlluminationOutput
  repeated  roi roiCentersMaxIntensity = 0
  repeated  roi roiCenterRegion = 0
  }
+// An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
+message FluorescentHomogeneousThickField
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+  string manufacturer = 0
+ }
+// An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
+message FluorescentHomogeneousThinField
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+  string manufacturer = 0
+ }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
  {
@@ -258,22 +274,6 @@ message Mask
   integer x = 0
   imageMask mask = 0
  }
-// A base object on which microscope-metrics runs the analysis
-message MetricsDataset
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  sample sample = 0
-  microscope microscope = 0
-  experimenter experimenter = 0
-  datetime acquisitionDatetime = 0
-  boolean processed = 0
-  metricsInputData inputData = 0
-  metricsInputParameters inputParameters = 0
-  metricsOutput output = 0
- }
 // A collection of microscope-metrics datasets
 message MetricsDatasetCollection
  {
@@ -338,6 +338,15 @@ message Protocol
  repeated  experimenter authors = 0
   string url = 0
  }
+// A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+message PSFBeads
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+  string manufacturer = 0
+  float beadDiameterMicron = 0
+ }
 // A PSF beads dataset
 message PSFBeadsDataset
  {
@@ -345,7 +354,6 @@ message PSFBeadsDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  sample sample = 0
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
@@ -353,6 +361,7 @@ message PSFBeadsDataset
   pSFBeadsInputData inputData = 0
   pSFBeadsInputParameters inputParameters = 0
   pSFBeadsOutput output = 0
+  pSFBeads sample = 0
  }
 message PSFBeadsInputData
  {

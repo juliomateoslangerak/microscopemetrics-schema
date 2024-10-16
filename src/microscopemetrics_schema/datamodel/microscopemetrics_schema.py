@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-16T12:11:32
+# Generation date: 2024-10-16T13:31:18
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -32,7 +32,7 @@ version = None
 dataclasses._init_fn = dataclasses_init_fn_with_kwargs
 
 # Namespaces
-EXAMPLE = CurieNamespace('example', 'https://example.org/')
+EXAMPLE = CurieNamespace('example', 'http://www.example.org/rdf#')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 MICROSCOPEMETRICS_SCHEMA = CurieNamespace('microscopemetrics_schema', 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/')
 DEFAULT_ = MICROSCOPEMETRICS_SCHEMA
@@ -1279,6 +1279,7 @@ class FieldIlluminationDataset(MetricsDataset):
     input_data: Optional[Union[dict, "FieldIlluminationInputData"]] = None
     input_parameters: Optional[Union[dict, "FieldIlluminationInputParameters"]] = None
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
+    sample: Optional[Union[dict, "HomogeneousField"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, FieldIlluminationInputData):
@@ -1289,6 +1290,9 @@ class FieldIlluminationDataset(MetricsDataset):
 
         if self.output is not None and not isinstance(self.output, FieldIlluminationOutput):
             self.output = FieldIlluminationOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, HomogeneousField):
+            self.sample = HomogeneousField(**as_dict(self.sample))
 
         super().__post_init__(**kwargs)
 
@@ -1672,6 +1676,7 @@ class PSFBeadsDataset(MetricsDataset):
     input_data: Optional[Union[dict, "PSFBeadsInputData"]] = None
     input_parameters: Optional[Union[dict, "PSFBeadsInputParameters"]] = None
     output: Optional[Union[dict, "PSFBeadsOutput"]] = None
+    sample: Optional[Union[dict, "PSFBeads"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, PSFBeadsInputData):
@@ -1682,6 +1687,9 @@ class PSFBeadsDataset(MetricsDataset):
 
         if self.output is not None and not isinstance(self.output, PSFBeadsOutput):
             self.output = PSFBeadsOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, PSFBeads):
+            self.sample = PSFBeads(**as_dict(self.sample))
 
         super().__post_init__(**kwargs)
 
@@ -2197,6 +2205,72 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
         super().__post_init__(**kwargs)
 
 
+@dataclass
+class HomogeneousField(Sample):
+    """
+    An homogeneous field.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/homogeneous_field/HomogeneousField"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/homogeneous_field/HomogeneousField"
+    class_name: ClassVar[str] = "HomogeneousField"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HomogeneousField
+
+    protocol: Union[str, ProtocolUrl] = None
+
+@dataclass
+class FluorescentHomogeneousThickField(HomogeneousField):
+    """
+    An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/homogeneous_field/FluorescentHomogeneousThickField"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/homogeneous_field/FluorescentHomogeneousThickField"
+    class_name: ClassVar[str] = "FluorescentHomogeneousThickField"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FluorescentHomogeneousThickField
+
+    protocol: Union[str, ProtocolUrl] = None
+
+@dataclass
+class FluorescentHomogeneousThinField(HomogeneousField):
+    """
+    An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/homogeneous_field/FluorescentHomogeneousThinField"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/homogeneous_field/FluorescentHomogeneousThinField"
+    class_name: ClassVar[str] = "FluorescentHomogeneousThinField"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FluorescentHomogeneousThinField
+
+    protocol: Union[str, ProtocolUrl] = None
+
+@dataclass
+class PSFBeads(Sample):
+    """
+    A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/beads/PSFBeads"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/beads/PSFBeads"
+    class_name: ClassVar[str] = "PSFBeads"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeads
+
+    protocol: Union[str, ProtocolUrl] = None
+    bead_diameter_micron: float = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.bead_diameter_micron):
+            self.MissingRequiredField("bead_diameter_micron")
+        if not isinstance(self.bead_diameter_micron, float):
+            self.bead_diameter_micron = float(self.bead_diameter_micron)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class CommentTypesEnum(EnumDefinitionImpl):
     """
@@ -2305,6 +2379,24 @@ slots.description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description']
 
 slots.sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sample'], name="sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sample, domain=None, range=Optional[Union[dict, Sample]])
+
+slots.microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/microscope'], name="microscope", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/microscope'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.microscope, domain=None, range=Union[dict, Microscope])
+
+slots.experimenter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/experimenter'], name="experimenter", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/experimenter'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.experimenter, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
+
+slots.acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_datetime'], name="acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.acquisition_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
+
+slots.input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input_data'], name="input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.input_data, domain=None, range=Union[dict, MetricsInputData])
+
+slots.input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/input_parameters'], name="input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.input_parameters, domain=None, range=Union[dict, MetricsInputParameters])
+
+slots.output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/output'], name="output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.output, domain=None, range=Optional[Union[dict, MetricsOutput]])
 
 slots.excitation_wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/excitation_wavelength_nm'], name="excitation_wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/excitation_wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.excitation_wavelength_nm, domain=None, range=Optional[float])
@@ -3002,6 +3094,9 @@ slots.fieldIlluminationDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SC
 slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/output'], name="fieldIlluminationDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__output, domain=None, range=Optional[Union[dict, FieldIlluminationOutput]])
 
+slots.fieldIlluminationDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/sample'], name="fieldIlluminationDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__sample, domain=None, range=Optional[Union[dict, HomogeneousField]])
+
 slots.fieldIlluminationOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/key_measurements'], name="fieldIlluminationOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__key_measurements, domain=None, range=Optional[Union[dict, FieldIlluminationKeyMeasurements]])
 
@@ -3037,6 +3132,9 @@ slots.pSFBeadsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['ana
 
 slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
+
+slots.pSFBeadsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/sample'], name="pSFBeadsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__sample, domain=None, range=Optional[Union[dict, PSFBeads]])
 
 slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
@@ -3079,6 +3177,9 @@ slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analy
 
 slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])
+
+slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__bead_diameter_micron, domain=None, range=float)
 
 slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)

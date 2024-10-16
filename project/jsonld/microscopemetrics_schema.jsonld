@@ -10,7 +10,9 @@
     "linkml:types",
     "core_schema",
     "analyses/field_illumination_schema",
-    "analyses/psf_beads_schema"
+    "analyses/psf_beads_schema",
+    "samples/homogeneous_field",
+    "samples/beads"
   ],
   "license": "GNU GPL v3.0",
   "prefixes": [
@@ -24,11 +26,20 @@
     },
     {
       "prefix_prefix": "example",
-      "prefix_reference": "https://example.org/"
+      "prefix_reference": "http://www.example.org/rdf#"
     }
   ],
   "default_prefix": "microscopemetrics_schema",
   "default_range": "string",
+  "subsets": [
+    {
+      "name": "critical_parameter",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/CriticalParameter",
+      "description": "A subset indicating that changing this parameter may damage the consistency of the analysis.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "@type": "SubsetDefinition"
+    }
+  ],
   "types": [
     {
       "name": "string",
@@ -483,6 +494,67 @@
         "MetricsDataset"
       ],
       "range": "Sample",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
+      "description": "The microscope that was used to acquire the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
+      "range": "Microscope",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "experimenter",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
+      "description": "The experimenter that performed the imaging experiment",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
+      "range": "Experimenter",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "acquisition_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "description": "The datetime of the acquisition",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "input_data",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "description": "The input data for the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "range": "MetricsInputData",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "input_parameters",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "description": "The input parameters for the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "range": "MetricsInputParameters",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "output",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
+      "description": "The output of the analysis",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
+      "range": "MetricsOutput",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3005,6 +3077,7 @@
       "implements": [
         "linkml:axis0"
       ],
+      "description": "A series representing time for time-lapse images.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_series",
       "alias": "time_series",
@@ -3021,6 +3094,7 @@
       "implements": [
         "linkml:axis4"
       ],
+      "description": "A series representing channels for multi-channel images.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series",
       "alias": "channel_series",
@@ -3080,6 +3154,7 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The channels of the ChannelSeries",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channels",
       "alias": "channels",
@@ -3098,6 +3173,7 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The values of the TimeSeries in seconds",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values",
       "alias": "values",
@@ -3760,6 +3836,7 @@
       "implements": [
         "linkml:elements"
       ],
+      "description": "The columns of the table",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/columns",
       "alias": "columns",
@@ -3824,6 +3901,19 @@
         "FieldIlluminationDataset"
       ],
       "range": "FieldIlluminationOutput",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fieldIlluminationDataset__sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sample",
+      "alias": "sample",
+      "owner": "FieldIlluminationDataset",
+      "domain_of": [
+        "FieldIlluminationDataset"
+      ],
+      "range": "HomogeneousField",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -3997,6 +4087,19 @@
         "PSFBeadsDataset"
       ],
       "range": "PSFBeadsOutput",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsDataset__sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/sample",
+      "alias": "sample",
+      "owner": "PSFBeadsDataset",
+      "domain_of": [
+        "PSFBeadsDataset"
+      ],
+      "range": "PSFBeads",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -4216,6 +4319,20 @@
       "range": "Image",
       "inlined": true,
       "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeads__bead_diameter_micron",
+      "description": "The diameter of the beads in the sample measured in microns.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/bead_diameter_micron",
+      "alias": "bead_diameter_micron",
+      "owner": "PSFBeads",
+      "domain_of": [
+        "PSFBeads"
+      ],
+      "range": "float",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4723,6 +4840,7 @@
       "description": "A base object on which microscope-metrics runs the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "MetricsObject",
+      "abstract": true,
       "slots": [
         "name",
         "description",
@@ -5018,6 +5136,7 @@
           "implements": [
             "linkml:axis0"
           ],
+          "description": "A series representing time for time-lapse images.",
           "range": "TimeSeries",
           "@type": "SlotDefinition"
         },
@@ -5026,6 +5145,7 @@
           "implements": [
             "linkml:axis4"
           ],
+          "description": "A series representing channels for multi-channel images.",
           "range": "ChannelSeries",
           "@type": "SlotDefinition"
         },
@@ -5101,6 +5221,7 @@
           "implements": [
             "linkml:elements"
           ],
+          "description": "The channels of the ChannelSeries",
           "range": "Channel",
           "required": true,
           "multivalued": true,
@@ -5146,6 +5267,7 @@
           "implements": [
             "linkml:elements"
           ],
+          "description": "The values of the TimeSeries in seconds",
           "range": "float",
           "required": true,
           "multivalued": true,
@@ -5881,6 +6003,7 @@
           "implements": [
             "linkml:elements"
           ],
+          "description": "The columns of the table",
           "range": "Column",
           "required": true,
           "multivalued": true,
@@ -5909,14 +6032,14 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "sample",
         "metricsDataset__microscope",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
         "fieldIlluminationDataset__input_data",
         "fieldIlluminationDataset__input_parameters",
-        "fieldIlluminationDataset__output"
+        "fieldIlluminationDataset__output",
+        "fieldIlluminationDataset__sample"
       ],
       "slot_usage": {},
       "attributes": [
@@ -5933,6 +6056,11 @@
         {
           "name": "output",
           "range": "FieldIlluminationOutput",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "sample",
+          "range": "HomogeneousField",
           "@type": "SlotDefinition"
         }
       ],
@@ -6134,14 +6262,14 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "sample",
         "metricsDataset__microscope",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
         "pSFBeadsDataset__input_data",
         "pSFBeadsDataset__input_parameters",
-        "pSFBeadsDataset__output"
+        "pSFBeadsDataset__output",
+        "pSFBeadsDataset__sample"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6158,6 +6286,11 @@
         {
           "name": "output",
           "range": "PSFBeadsOutput",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "sample",
+          "range": "PSFBeads",
           "@type": "SlotDefinition"
         }
       ],
@@ -6434,13 +6567,88 @@
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsKeyMeasurements",
       "@type": "ClassDefinition"
+    },
+    {
+      "name": "HomogeneousField",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
+      "description": "An homogeneous field.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
+      "is_a": "Sample",
+      "abstract": true,
+      "slots": [
+        "name",
+        "description",
+        "sample__protocol",
+        "sample__manufacturer"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FluorescentHomogeneousThickField",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
+      "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
+      "is_a": "HomogeneousField",
+      "slots": [
+        "name",
+        "description",
+        "sample__protocol",
+        "sample__manufacturer"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "FluorescentHomogeneousThinField",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField",
+      "description": "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
+      "is_a": "HomogeneousField",
+      "slots": [
+        "name",
+        "description",
+        "sample__protocol",
+        "sample__manufacturer"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "PSFBeads",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
+      "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
+      "is_a": "Sample",
+      "slots": [
+        "name",
+        "description",
+        "sample__protocol",
+        "sample__manufacturer",
+        "pSFBeads__bead_diameter_micron"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "bead_diameter_micron",
+          "description": "The diameter of the beads in the sample measured in microns.",
+          "range": "float",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
+      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-10-16T12:07:44",
-  "source_file_size": 843,
-  "generation_date": "2024-10-16T12:11:30",
+  "source_file_date": "2024-10-16T13:05:00",
+  "source_file_size": 848,
+  "generation_date": "2024-10-16T13:31:16",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
@@ -6448,6 +6656,8 @@
     "core_schema.context.jsonld",
     "analyses/field_illumination_schema.context.jsonld",
     "analyses/psf_beads_schema.context.jsonld",
+    "samples/homogeneous_field.context.jsonld",
+    "samples/beads.context.jsonld",
     {
       "@base": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/"
     }

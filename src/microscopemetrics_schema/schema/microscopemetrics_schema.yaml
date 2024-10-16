@@ -13,7 +13,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 #  biolink: https://w3id.org/biolink/
 #  schema: http://schema.org/
-  example: https://example.org/
+  example: http://www.example.org/rdf#
 default_prefix: microscopemetrics_schema
 default_range: string
 
@@ -23,5 +23,5 @@ imports:
   - analyses/field_illumination_schema
   - analyses/psf_beads_schema
 #  - analyses/argolight_schema
-#  - samples/homogeneous_field
-#  - samples/beads
+  - samples/homogeneous_field
+  - samples/beads

@@ -92,7 +92,6 @@ type FieldIlluminationDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
@@ -100,6 +99,7 @@ type FieldIlluminationDataset
     inputData: FieldIlluminationInputData
     inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
+    sample: HomogeneousField
   }
 
 type FieldIlluminationInputData
@@ -193,6 +193,22 @@ type FieldIlluminationOutput
     roiCenterRegion: [Roi]
   }
 
+type FluorescentHomogeneousThickField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+  }
+
+type FluorescentHomogeneousThinField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+  }
+
 type HarmonizedMetricsDatasetCollection
   {
     name: String
@@ -201,6 +217,14 @@ type HarmonizedMetricsDatasetCollection
     linkedReferences: [DataReference]
     datasets: [MetricsDataset]
     datasetClass: String!
+  }
+
+interface HomogeneousField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
   }
 
 type Image
@@ -297,7 +321,7 @@ type MetaObject
   {
   }
 
-type MetricsDataset
+interface MetricsDataset
   {
     name: String
     description: String
@@ -418,13 +442,21 @@ type Protocol
     url: String!
   }
 
+type PSFBeads
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+    beadDiameterMicron: Float!
+  }
+
 type PSFBeadsDataset
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
@@ -432,6 +464,7 @@ type PSFBeadsDataset
     inputData: PSFBeadsInputData
     inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
+    sample: PSFBeads
   }
 
 type PSFBeadsInputData

@@ -116,8 +116,8 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: FieldIlluminationInputData_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsInputData_id Description: Autocreated FK slot
---     * Slot: time_series_id Description: 
---     * Slot: channel_series_id Description: 
+--     * Slot: time_series_id Description: A series representing time for time-lapse images.
+--     * Slot: channel_series_id Description: A series representing channels for multi-channel images.
 --     * Slot: array_data_id Description: A non-required slot for non-serializable array data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ImageMask" Description: "A mask image. Either a binary image or a label image"
@@ -133,8 +133,8 @@
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: time_series_id Description: 
---     * Slot: channel_series_id Description: 
+--     * Slot: time_series_id Description: A series representing time for time-lapse images.
+--     * Slot: channel_series_id Description: A series representing channels for multi-channel images.
 --     * Slot: array_data_id Description: A non-required slot for non-serializable array data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ChannelSeries" Description: "A series representing channels"
@@ -302,6 +302,24 @@
 --     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "HomogeneousField" Description: "An homogeneous field."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+-- # Class: "FluorescentHomogeneousThickField" Description: "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+-- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "FieldIlluminationDataset" Description: "A field illumination dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -312,7 +330,7 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
+--     * Slot: sample_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "FieldIlluminationInputData" Description: ""
@@ -338,6 +356,13 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
+--     * Slot: id Description: 
+--     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "PSFBeadsDataset" Description: "A PSF beads dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -348,7 +373,7 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
+--     * Slot: sample_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PSFBeadsInputData" Description: ""
@@ -409,10 +434,10 @@
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
 -- # Class: "ChannelSeries_channels" Description: ""
 --     * Slot: ChannelSeries_id Description: Autocreated FK slot
---     * Slot: channels_id Description: 
+--     * Slot: channels_id Description: The channels of the ChannelSeries
 -- # Class: "TimeSeries_values" Description: ""
 --     * Slot: TimeSeries_id Description: Autocreated FK slot
---     * Slot: values Description: 
+--     * Slot: values Description: The values of the TimeSeries in seconds
 -- # Class: "Column_values" Description: ""
 --     * Slot: Column_id Description: Autocreated FK slot
 --     * Slot: values Description: An optional container for the values of the column
@@ -1109,7 +1134,7 @@ CREATE TABLE "FieldIlluminationDataset" (
 	FOREIGN KEY(input_data_id) REFERENCES "FieldIlluminationInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "FieldIlluminationInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "FieldIlluminationOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "HomogeneousField" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1167,7 +1192,7 @@ CREATE TABLE "PSFBeadsDataset" (
 	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "PSFBeads" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1389,6 +1414,43 @@ CREATE TABLE "RoiMeasurements" (
 	measurements_table_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(measurements_table_id) REFERENCES "Table" (id)
+);
+CREATE TABLE "HomogeneousField" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "FluorescentHomogeneousThickField" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "FluorescentHomogeneousThinField" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "PSFBeads" (
+	id INTEGER NOT NULL, 
+	bead_diameter_micron FLOAT NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "MicroscopeCollection_microscopes" (
 	"MicroscopeCollection_id" INTEGER, 

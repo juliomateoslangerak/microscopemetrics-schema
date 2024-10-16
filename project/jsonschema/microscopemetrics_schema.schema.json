@@ -40,6 +40,7 @@
             "description": "A series representing channels",
             "properties": {
                 "channels": {
+                    "description": "The channels of the ChannelSeries",
                     "items": {
                         "$ref": "#/$defs/Channel"
                     },
@@ -333,8 +334,7 @@
                     "type": "boolean"
                 },
                 "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The physical sample that was imaged"
+                    "$ref": "#/$defs/HomogeneousField"
                 }
             },
             "required": [
@@ -917,6 +917,60 @@
             "title": "FieldIlluminationOutput",
             "type": "object"
         },
+        "FluorescentHomogeneousThickField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThickField",
+            "type": "object"
+        },
+        "FluorescentHomogeneousThinField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThinField",
+            "type": "object"
+        },
         "HarmonizedMetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
@@ -972,7 +1026,8 @@
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "$ref": "#/$defs/ChannelSeries"
+                    "$ref": "#/$defs/ChannelSeries",
+                    "description": "A series representing channels for multi-channel images."
                 },
                 "data_reference": {
                     "$ref": "#/$defs/DataReference",
@@ -1021,7 +1076,8 @@
                     "type": "array"
                 },
                 "time_series": {
-                    "$ref": "#/$defs/TimeSeries"
+                    "$ref": "#/$defs/TimeSeries",
+                    "description": "A series representing time for time-lapse images."
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
@@ -1060,7 +1116,8 @@
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "$ref": "#/$defs/ChannelSeries"
+                    "$ref": "#/$defs/ChannelSeries",
+                    "description": "A series representing channels for multi-channel images."
                 },
                 "data_reference": {
                     "$ref": "#/$defs/DataReference",
@@ -1109,7 +1166,8 @@
                     "type": "array"
                 },
                 "time_series": {
-                    "$ref": "#/$defs/TimeSeries"
+                    "$ref": "#/$defs/TimeSeries",
+                    "description": "A series representing time for time-lapse images."
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
@@ -1264,90 +1322,6 @@
                 "string"
             ]
         },
-        "MetricsDataset": {
-            "additionalProperties": false,
-            "description": "A base object on which microscope-metrics runs the analysis",
-            "if": {
-                "properties": {
-                    "processed": {
-                        "const": 1
-                    }
-                },
-                "required": [
-                    "processed"
-                ]
-            },
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": "string"
-                },
-                "input_data": {
-                    "$ref": "#/$defs/MetricsInputData",
-                    "description": "The input data for the analysis"
-                },
-                "input_parameters": {
-                    "$ref": "#/$defs/MetricsInputParameters",
-                    "description": "The input parameters for the analysis"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "microscope": {
-                    "$ref": "#/$defs/Microscope",
-                    "description": "The microscope that was used to acquire the dataset"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "output": {
-                    "$ref": "#/$defs/MetricsOutput",
-                    "description": "The output of the analysis"
-                },
-                "processed": {
-                    "description": "Has the dataset been processed by microscope-metrics",
-                    "type": "boolean"
-                },
-                "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The physical sample that was imaged"
-                }
-            },
-            "required": [
-                "microscope",
-                "processed",
-                "input_data",
-                "input_parameters"
-            ],
-            "then": {
-                "properties": {
-                    "output": {}
-                },
-                "required": [
-                    "output"
-                ]
-            },
-            "title": "MetricsDataset",
-            "type": "object"
-        },
         "MetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of microscope-metrics datasets",
@@ -1481,6 +1455,38 @@
             "title": "OMEROObjectTypeEnum",
             "type": "string"
         },
+        "PSFBeads": {
+            "additionalProperties": false,
+            "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
+            "properties": {
+                "bead_diameter_micron": {
+                    "description": "The diameter of the beads in the sample measured in microns.",
+                    "type": "number"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bead_diameter_micron",
+                "protocol"
+            ],
+            "title": "PSFBeads",
+            "type": "object"
+        },
         "PSFBeadsDataset": {
             "additionalProperties": false,
             "description": "A PSF beads dataset",
@@ -1541,8 +1547,7 @@
                     "type": "boolean"
                 },
                 "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The physical sample that was imaged"
+                    "$ref": "#/$defs/PSFBeads"
                 }
             },
             "required": [
@@ -2560,6 +2565,7 @@
             "description": "A series whose values represent time",
             "properties": {
                 "values": {
+                    "description": "The values of the TimeSeries in seconds",
                     "items": {
                         "type": "number"
                     },
@@ -2596,86 +2602,7 @@
     "$id": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "A base object on which microscope-metrics runs the analysis",
-    "if": {
-        "properties": {
-            "processed": {
-                "const": 1
-            }
-        },
-        "required": [
-            "processed"
-        ]
-    },
     "metamodel_version": "1.7.0",
-    "properties": {
-        "acquisition_datetime": {
-            "description": "The datetime of the acquisition",
-            "format": "date-time",
-            "type": "string"
-        },
-        "data_reference": {
-            "$ref": "#/$defs/DataReference",
-            "description": "A reference to the data"
-        },
-        "description": {
-            "description": "A human readable description of an entity",
-            "type": "string"
-        },
-        "experimenter": {
-            "description": "The experimenter that performed the imaging experiment",
-            "type": "string"
-        },
-        "input_data": {
-            "$ref": "#/$defs/MetricsInputData",
-            "description": "The input data for the analysis"
-        },
-        "input_parameters": {
-            "$ref": "#/$defs/MetricsInputParameters",
-            "description": "The input parameters for the analysis"
-        },
-        "linked_references": {
-            "description": "A list of linked references",
-            "items": {
-                "$ref": "#/$defs/DataReference"
-            },
-            "type": "array"
-        },
-        "microscope": {
-            "$ref": "#/$defs/Microscope",
-            "description": "The microscope that was used to acquire the dataset"
-        },
-        "name": {
-            "description": "The human readable name of an entity",
-            "type": "string"
-        },
-        "output": {
-            "$ref": "#/$defs/MetricsOutput",
-            "description": "The output of the analysis"
-        },
-        "processed": {
-            "description": "Has the dataset been processed by microscope-metrics",
-            "type": "boolean"
-        },
-        "sample": {
-            "$ref": "#/$defs/Sample",
-            "description": "The physical sample that was imaged"
-        }
-    },
-    "required": [
-        "microscope",
-        "processed",
-        "input_data",
-        "input_parameters"
-    ],
-    "then": {
-        "properties": {
-            "output": {}
-        },
-        "required": [
-            "output"
-        ]
-    },
     "title": "microscopemetrics-schema",
     "type": "object",
     "version": null

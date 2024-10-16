@@ -8,6 +8,7 @@ prefixes:
 imports:
   - linkml:types
   - core_schema  # TODO: change to metrics:core_schema
+  - samples/beads
 
 default_range: string
 
@@ -24,6 +25,8 @@ classes:
         range: PSFBeadsInputParameters
       output:
         range: PSFBeadsOutput
+      sample:
+        range: PSFBeads
 
   PSFBeadsInputData:
     is_a: MetricsInputData
