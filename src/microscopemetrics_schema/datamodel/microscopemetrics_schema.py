@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-16T12:59:44
+# Generation date: 2024-10-16T13:24:48
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1672,6 +1672,7 @@ class PSFBeadsDataset(MetricsDataset):
     input_data: Optional[Union[dict, "PSFBeadsInputData"]] = None
     input_parameters: Optional[Union[dict, "PSFBeadsInputParameters"]] = None
     output: Optional[Union[dict, "PSFBeadsOutput"]] = None
+    sample: Optional[Union[dict, "PSFBeads"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, PSFBeadsInputData):
@@ -1682,6 +1683,9 @@ class PSFBeadsDataset(MetricsDataset):
 
         if self.output is not None and not isinstance(self.output, PSFBeadsOutput):
             self.output = PSFBeadsOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, PSFBeads):
+            self.sample = PSFBeads(**as_dict(self.sample))
 
         super().__post_init__(**kwargs)
 
@@ -3107,6 +3111,9 @@ slots.pSFBeadsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['ana
 
 slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
+
+slots.pSFBeadsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/sample'], name="pSFBeadsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__sample, domain=None, range=Optional[Union[dict, PSFBeads]])
 
 slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])

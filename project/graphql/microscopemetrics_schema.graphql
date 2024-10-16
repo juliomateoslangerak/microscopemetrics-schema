@@ -449,7 +449,6 @@ type PSFBeadsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
@@ -457,6 +456,7 @@ type PSFBeadsDataset
     inputData: PSFBeadsInputData
     inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
+    sample: PSFBeads
   }
 
 type PSFBeadsInputData

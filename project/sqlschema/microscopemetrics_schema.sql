@@ -338,6 +338,13 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
+--     * Slot: id Description: 
+--     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "PSFBeadsDataset" Description: "A PSF beads dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -348,7 +355,7 @@
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
+--     * Slot: sample_id Description: 
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PSFBeadsInputData" Description: ""
@@ -391,13 +398,6 @@
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
--- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
---     * Slot: id Description: 
---     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
 --     * Slot: protocol Description: The protocol used to prepare the sample
 --     * Slot: manufacturer Description: The manufacturer of the beads.
 --     * Slot: name Description: The human readable name of an entity
@@ -1186,7 +1186,7 @@ CREATE TABLE "PSFBeadsDataset" (
 	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "PSFBeads" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1409,6 +1409,16 @@ CREATE TABLE "RoiMeasurements" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(measurements_table_id) REFERENCES "Table" (id)
 );
+CREATE TABLE "PSFBeads" (
+	id INTEGER NOT NULL, 
+	bead_diameter_micron FLOAT NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
 CREATE TABLE "FluorescentHomogeneousThickField" (
 	id INTEGER NOT NULL, 
 	protocol TEXT NOT NULL, 
@@ -1420,16 +1430,6 @@ CREATE TABLE "FluorescentHomogeneousThickField" (
 );
 CREATE TABLE "FluorescentHomogeneousThinField" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
-	manufacturer TEXT, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
-);
-CREATE TABLE "PSFBeads" (
-	id INTEGER NOT NULL, 
-	bead_diameter_micron FLOAT NOT NULL, 
 	protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
