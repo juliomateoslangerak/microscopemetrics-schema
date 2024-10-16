@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-name: microscopemetrics_core_schema
+name: core_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -112,17 +112,18 @@ classes:
   Sample:
     is_a: NamedObject
     description: A sample is a standard physical object that is imaged by a microscope
+    abstract: true
     attributes:
-      type:   # TODO: develop the sample class
-        range: string    # TODO: make a enum
-        description: The type of the sample
-        required: true
       protocol:
         range: Protocol   # TODO: rename preparation_protocol
         description: The protocol used to prepare the sample
         required: true
         multivalued: false
         inlined: false
+      manufacturer:
+        description: The manufacturer of the beads.
+        required: false
+        range: string
 
   Protocol:
     is_a: NamedObject
@@ -205,16 +206,15 @@ classes:
   MetricsDataset:
     is_a: MetricsObject
     description: A base object on which microscope-metrics runs the analysis
+    abstract: true
     tree_root: true
+    slots:
+      - sample
     attributes:
       microscope:
         range: Microscope
         description: The microscope that was used to acquire the dataset
         required: true
-        multivalued: false
-      sample:
-        range: Sample
-        description: The sample that was imaged
         multivalued: false
       experimenter:
         range: Experimenter
@@ -368,11 +368,13 @@ classes:
         ifabsent: int(1)
       time_series:
         range: TimeSeries
+        description: A series representing time for time-lapse images.
         implements:
           - linkml:axis0
         required: false
       channel_series:
         range: ChannelSeries
+        description: A series representing channels for multi-channel images.
         implements:
           - linkml:axis4
         required: false
@@ -405,6 +407,7 @@ classes:
     attributes:
       channels:
         range: Channel
+        description: The channels of the ChannelSeries
         multivalued: true
         implements:
           - linkml:elements
@@ -424,6 +427,7 @@ classes:
     attributes:
       values:
         range: float
+        description: The values of the TimeSeries in seconds
         multivalued: true
         implements:
           - linkml:elements
@@ -792,6 +796,7 @@ classes:
     attributes:
       columns:
         range: Column
+        description: The columns of the table
         required: true
         multivalued: true
         inlined: true
@@ -814,6 +819,39 @@ slots:
   description:
     range: string
     description: A human readable description of an entity
+    required: false
+    multivalued: false
+  sample:
+    range: Sample
+    description: The physical sample that was imaged
+    required: false
+    multivalued: false
+  microscope:
+    range: Microscope
+    description: The microscope that was used to acquire the dataset
+    required: true
+    multivalued: false
+  experimenter:
+    range: Experimenter
+    description: The experimenter that performed the imaging experiment
+    multivalued: false
+  acquisition_datetime:
+    range: datetime
+    description: The datetime of the acquisition
+    multivalued: false
+  input_data:
+    range: MetricsInputData
+    description: The input data for the analysis
+    required: true
+    multivalued: false
+  input_parameters:
+    range: MetricsInputParameters
+    description: The input parameters for the analysis
+    required: true
+    multivalued: false
+  output:
+    range: MetricsOutput
+    description: The output of the analysis
     required: false
     multivalued: false
   excitation_wavelength_nm:
@@ -880,6 +918,12 @@ slots:
     range: float
     description: >-
       Smoothing sigma to be applied to the image in the X axis.
+      
+
+subsets:
+  critical_parameter:
+    description: >-
+      A subset indicating that changing this parameter may damage the consistency of the analysis.
 
 
 enums:

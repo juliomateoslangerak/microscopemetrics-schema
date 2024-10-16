@@ -1,5 +1,5 @@
 {
-   "example": "https://example.org/",
+   "example": "http://www.example.org/rdf#",
    "linkml": "https://w3id.org/linkml/",
    "microscopemetrics_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/",
    "MetaObject": {

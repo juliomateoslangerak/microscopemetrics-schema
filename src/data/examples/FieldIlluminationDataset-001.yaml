@@ -15,7 +15,6 @@ microscope:
   serial_number: "654321"
 sample:
   name: "ExampleSample"
-  type: "Sample"
   protocol:
     name: "ExampleProtocol"
     type: "Protocol"
@@ -24,6 +23,7 @@ sample:
       - name: "John Doe"
         orcid: "https://orcid.org/0000-0000-0000-0001"
     url: "https://example.org/protocol/1"
+  manufacturer: "Chroma"
 experimenter:
   name: "Jane Smith"
   orcid: "https://orcid.org/0000-0000-0000-0002"

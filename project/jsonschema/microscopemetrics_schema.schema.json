@@ -1,858 +1,5 @@
 {
     "$defs": {
-        "ArgolightBCentersOfMass": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "ellipses": {
-                    "description": "A list of ellipses included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Ellipse"
-                    },
-                    "type": "array"
-                },
-                "lines": {
-                    "description": "A list of lines included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Line"
-                    },
-                    "type": "array"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "masks": {
-                    "description": "A list of masks included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Mask"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "points": {
-                    "description": "A list of points included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Point"
-                    },
-                    "type": "array"
-                },
-                "polygons": {
-                    "description": "A list of polygons included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Polygon"
-                    },
-                    "type": "array"
-                },
-                "rectangles": {
-                    "description": "A list of rectangles included in the ROI",
-                    "items": {
-                        "$ref": "#/$defs/Rectangle"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ArgolightBCentersOfMass",
-            "type": "object"
-        },
-        "ArgolightBDataset": {
-            "additionalProperties": false,
-            "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
-            "if": {
-                "properties": {
-                    "processed": {
-                        "const": 1
-                    }
-                },
-                "required": [
-                    "processed"
-                ]
-            },
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": "string"
-                },
-                "input_data": {
-                    "$ref": "#/$defs/ArgolightBInputData"
-                },
-                "input_parameters": {
-                    "$ref": "#/$defs/ArgolightBInputParameters"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "microscope": {
-                    "$ref": "#/$defs/Microscope",
-                    "description": "The microscope that was used to acquire the dataset"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "output": {
-                    "$ref": "#/$defs/ArgolightBOutput"
-                },
-                "processed": {
-                    "description": "Has the dataset been processed by microscope-metrics",
-                    "type": "boolean"
-                },
-                "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The sample that was imaged"
-                }
-            },
-            "required": [
-                "microscope",
-                "processed"
-            ],
-            "then": {
-                "properties": {
-                    "output": {}
-                },
-                "required": [
-                    "output"
-                ]
-            },
-            "title": "ArgolightBDataset",
-            "type": "object"
-        },
-        "ArgolightBDistanceKeyValues": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "channel_A": {
-                    "description": "The first channel number to which the measurements apply",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "channel_B": {
-                    "description": "The second channel number to which the measurements apply",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "mad_3d_dist": {
-                    "description": "Median absolute deviation of the 3D distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "mad_z_dist": {
-                    "description": "Median absolute deviation of the Z distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "mean_3d_dist": {
-                    "description": "Mean of the 3D distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "mean_z_dist": {
-                    "description": "Mean of the Z distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "median_3d_dist": {
-                    "description": "Median of the 3D distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "median_z_dist": {
-                    "description": "Median of the Z distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "std_3d_dist": {
-                    "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "std_z_dist": {
-                    "description": "Standard deviation of the Z distances between spots for each permutation of channel A and B",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ArgolightBDistanceKeyValues",
-            "type": "object"
-        },
-        "ArgolightBInputData": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "argolight_b_image": {
-                    "$ref": "#/$defs/Image",
-                    "description": "Image of the argolight b pattern in the order TZYXC"
-                }
-            },
-            "required": [
-                "argolight_b_image"
-            ],
-            "title": "ArgolightBInputData",
-            "type": "object"
-        },
-        "ArgolightBInputParameters": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "bit_depth": {
-                    "description": "Detector bit depth",
-                    "maximum": 64,
-                    "minimum": 1,
-                    "type": "integer"
-                },
-                "lower_threshold_correction_factors": {
-                    "description": "Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "remove_center_cross": {
-                    "description": "Remove the center cross found in some Argolight patterns",
-                    "type": "boolean"
-                },
-                "saturation_threshold": {
-                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1.0,
-                    "minimum": 0.0,
-                    "type": "number"
-                },
-                "sigma_x": {
-                    "description": "Smoothing factor for objects detection in the X axis",
-                    "maximum": 10.0,
-                    "minimum": 0.0,
-                    "type": "number"
-                },
-                "sigma_y": {
-                    "description": "Smoothing factor for objects detection in the Y axis",
-                    "maximum": 10.0,
-                    "minimum": 0.0,
-                    "type": "number"
-                },
-                "sigma_z": {
-                    "description": "Smoothing factor for objects detection in the Z axis",
-                    "maximum": 5.0,
-                    "minimum": 0.0,
-                    "type": "number"
-                },
-                "spots_distance": {
-                    "description": "Distance between argolight spots",
-                    "type": "number"
-                },
-                "upper_threshold_correction_factors": {
-                    "description": "Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "saturation_threshold",
-                "spots_distance",
-                "sigma_z",
-                "sigma_y",
-                "sigma_x"
-            ],
-            "title": "ArgolightBInputParameters",
-            "type": "object"
-        },
-        "ArgolightBIntensityKeyValues": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "channel_nr": {
-                    "description": "The channel number to which the measurements apply",
-                    "items": {
-                        "minimum": 0,
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "intensity_max_spot": {
-                    "description": "Integrated intensity of the most intense spot for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "intensity_max_spot_roi": {
-                    "description": "ROI number of the most intense spot for each channel",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "intensity_min_spot": {
-                    "description": "Integrated intensity of the least intense spot for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "intensity_min_spot_roi": {
-                    "description": "ROI number of the least intense spot for each channel",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "mad_mean_intensity": {
-                    "description": "Median absolute deviation of all spots integrated intensity for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "mean_intensity": {
-                    "description": "Mean of all spots integrated intensity for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "median_intensity": {
-                    "description": "Median of all spots integrated intensity for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "min_max_intensity_ratio": {
-                    "description": "Ratio between the integrated intensities between the most intense and the least intense spots for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "nr_of_spots": {
-                    "description": "Number of argolight spots detected for each channel",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "std_mean_intensity": {
-                    "description": "Standard deviation of all spots integrated intensity for each channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ArgolightBIntensityKeyValues",
-            "type": "object"
-        },
-        "ArgolightBOutput": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "comment": {
-                    "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
-                },
-                "distance_key_values": {
-                    "$ref": "#/$defs/ArgolightBDistanceKeyValues",
-                    "description": "Key Distance Measurements on Argolight spots"
-                },
-                "errors": {
-                    "description": "The errors of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "intensity_key_values": {
-                    "$ref": "#/$defs/ArgolightBIntensityKeyValues",
-                    "description": "Key Intensity Measurements on Argolight spots"
-                },
-                "processing_application": {
-                    "description": "The application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_entity": {
-                    "description": "The entity that processed the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
-                "processing_version": {
-                    "description": "The version of the application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "spots_centers_of_mass": {
-                    "description": "Centers of mass of the argolight spots provided as a list of ROIs. One per channel",
-                    "items": {
-                        "$ref": "#/$defs/ArgolightBCentersOfMass"
-                    },
-                    "type": "array"
-                },
-                "spots_distances": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Table of distances between argolight spots"
-                },
-                "spots_labels_image": {
-                    "$ref": "#/$defs/ImageMask",
-                    "description": "Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels"
-                },
-                "spots_properties": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Table of properties of the argolight spots"
-                },
-                "validated": {
-                    "description": "Has the dataset been validated by a human",
-                    "type": "boolean"
-                },
-                "validation_datetime": {
-                    "description": "The datetime of the validation",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "warnings": {
-                    "description": "The warnings of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "processing_application",
-                "processing_version",
-                "processing_datetime",
-                "validated"
-            ],
-            "title": "ArgolightBOutput",
-            "type": "object"
-        },
-        "ArgolightEDataset": {
-            "additionalProperties": false,
-            "description": "An Argolight sample pattern E dataset.\nIt contains resolution data on the axis indicated:\n- axis 1 = Y resolution = lines along X axis\n- axis 2 = X resolution = lines along Y axis",
-            "if": {
-                "properties": {
-                    "processed": {
-                        "const": 1
-                    }
-                },
-                "required": [
-                    "processed"
-                ]
-            },
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": "string"
-                },
-                "input_data": {
-                    "$ref": "#/$defs/ArgolightEInputData"
-                },
-                "input_parameters": {
-                    "$ref": "#/$defs/ArgolightEInputParameters"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "microscope": {
-                    "$ref": "#/$defs/Microscope",
-                    "description": "The microscope that was used to acquire the dataset"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "output": {
-                    "$ref": "#/$defs/ArgolightEOutput"
-                },
-                "processed": {
-                    "description": "Has the dataset been processed by microscope-metrics",
-                    "type": "boolean"
-                },
-                "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The sample that was imaged"
-                }
-            },
-            "required": [
-                "microscope",
-                "processed"
-            ],
-            "then": {
-                "properties": {
-                    "output": {}
-                },
-                "required": [
-                    "output"
-                ]
-            },
-            "title": "ArgolightEDataset",
-            "type": "object"
-        },
-        "ArgolightEInputData": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "argolight_e_image": {
-                    "$ref": "#/$defs/Image",
-                    "description": "Image of the argolight e pattern provided in the order TZYXC"
-                }
-            },
-            "required": [
-                "argolight_e_image"
-            ],
-            "title": "ArgolightEInputData",
-            "type": "object"
-        },
-        "ArgolightEInputParameters": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "bit_depth": {
-                    "description": "Detector bit depth",
-                    "maximum": 64,
-                    "minimum": 1,
-                    "type": "integer"
-                },
-                "measured_band": {
-                    "description": "Fraction of the image across which intensity profiles are measured",
-                    "maximum": 1.0,
-                    "minimum": 0.1,
-                    "type": "number"
-                },
-                "orientation_axis": {
-                    "description": "Axis along which resolution is being measured. 1=Y, 2=X",
-                    "maximum": 2,
-                    "minimum": 1,
-                    "type": "integer"
-                },
-                "prominence_threshold": {
-                    "description": "Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria",
-                    "maximum": 0.99,
-                    "minimum": 0.1,
-                    "type": "number"
-                },
-                "saturation_threshold": {
-                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1.0,
-                    "minimum": 0.0,
-                    "type": "number"
-                }
-            },
-            "required": [
-                "saturation_threshold",
-                "orientation_axis",
-                "measured_band",
-                "prominence_threshold"
-            ],
-            "title": "ArgolightEInputParameters",
-            "type": "object"
-        },
-        "ArgolightEKeyValues": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "channel_nr": {
-                    "description": "The channel number to which the measurements apply",
-                    "items": {
-                        "minimum": 0,
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "focus_slice": {
-                    "description": "Z position at which focus has been measured. One value per channel",
-                    "items": {
-                        "minimum": 0,
-                        "type": "integer"
-                    },
-                    "type": "array"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "peak_height_A": {
-                    "description": "Height of first peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "peak_height_B": {
-                    "description": "Height of second peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "peak_position_A": {
-                    "description": "Position, in pixels, of first peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "peak_position_B": {
-                    "description": "Position, in pixels, of second peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "peak_prominence_A": {
-                    "description": "Prominence of first peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "peak_prominence_B": {
-                    "description": "Prominence of second peak in the intensity profiles. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "rayleigh_resolution_microns": {
-                    "description": "Rayleigh resolution measured in microns. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                },
-                "rayleigh_resolution_pixels": {
-                    "description": "Rayleigh resolution measured in pixels. One value per channel",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": "array"
-                }
-            },
-            "title": "ArgolightEKeyValues",
-            "type": "object"
-        },
-        "ArgolightEOutput": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "comment": {
-                    "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
-                },
-                "errors": {
-                    "description": "The errors of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "intensity_profiles": {
-                    "$ref": "#/$defs/Table",
-                    "description": "Intensity profiles of the argolight lines provided as tables. One table per channel"
-                },
-                "key_measurements": {
-                    "$ref": "#/$defs/ArgolightEKeyValues",
-                    "description": "Key Measurements on Argolight E images"
-                },
-                "peaks_rois": {
-                    "description": "ROIs of the peaks found in the argolight images. One per channel",
-                    "items": {
-                        "$ref": "#/$defs/Roi"
-                    },
-                    "type": "array"
-                },
-                "processing_application": {
-                    "description": "The application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_entity": {
-                    "description": "The entity that processed the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
-                "processing_version": {
-                    "description": "The version of the application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "validated": {
-                    "description": "Has the dataset been validated by a human",
-                    "type": "boolean"
-                },
-                "validation_datetime": {
-                    "description": "The datetime of the validation",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "warnings": {
-                    "description": "The warnings of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "processing_application",
-                "processing_version",
-                "processing_datetime",
-                "validated"
-            ],
-            "title": "ArgolightEOutput",
-            "type": "object"
-        },
         "Channel": {
             "additionalProperties": false,
             "description": "A image channel",
@@ -893,6 +40,7 @@
             "description": "A series representing channels",
             "properties": {
                 "channels": {
+                    "description": "The channels of the ChannelSeries",
                     "items": {
                         "$ref": "#/$defs/Channel"
                     },
@@ -1186,8 +334,7 @@
                     "type": "boolean"
                 },
                 "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The sample that was imaged"
+                    "$ref": "#/$defs/HomogeneousField"
                 }
             },
             "required": [
@@ -1770,6 +917,60 @@
             "title": "FieldIlluminationOutput",
             "type": "object"
         },
+        "FluorescentHomogeneousThickField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThickField",
+            "type": "object"
+        },
+        "FluorescentHomogeneousThinField": {
+            "additionalProperties": false,
+            "description": "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "FluorescentHomogeneousThinField",
+            "type": "object"
+        },
         "HarmonizedMetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
@@ -1825,7 +1026,8 @@
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "$ref": "#/$defs/ChannelSeries"
+                    "$ref": "#/$defs/ChannelSeries",
+                    "description": "A series representing channels for multi-channel images."
                 },
                 "data_reference": {
                     "$ref": "#/$defs/DataReference",
@@ -1874,7 +1076,8 @@
                     "type": "array"
                 },
                 "time_series": {
-                    "$ref": "#/$defs/TimeSeries"
+                    "$ref": "#/$defs/TimeSeries",
+                    "description": "A series representing time for time-lapse images."
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
@@ -1913,7 +1116,8 @@
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "$ref": "#/$defs/ChannelSeries"
+                    "$ref": "#/$defs/ChannelSeries",
+                    "description": "A series representing channels for multi-channel images."
                 },
                 "data_reference": {
                     "$ref": "#/$defs/DataReference",
@@ -1962,7 +1166,8 @@
                     "type": "array"
                 },
                 "time_series": {
-                    "$ref": "#/$defs/TimeSeries"
+                    "$ref": "#/$defs/TimeSeries",
+                    "description": "A series representing time for time-lapse images."
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
@@ -2117,90 +1322,6 @@
                 "string"
             ]
         },
-        "MetricsDataset": {
-            "additionalProperties": false,
-            "description": "A base object on which microscope-metrics runs the analysis",
-            "if": {
-                "properties": {
-                    "processed": {
-                        "const": 1
-                    }
-                },
-                "required": [
-                    "processed"
-                ]
-            },
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": "string"
-                },
-                "input_data": {
-                    "$ref": "#/$defs/MetricsInputData",
-                    "description": "The input data for the analysis"
-                },
-                "input_parameters": {
-                    "$ref": "#/$defs/MetricsInputParameters",
-                    "description": "The input parameters for the analysis"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "microscope": {
-                    "$ref": "#/$defs/Microscope",
-                    "description": "The microscope that was used to acquire the dataset"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "output": {
-                    "$ref": "#/$defs/MetricsOutput",
-                    "description": "The output of the analysis"
-                },
-                "processed": {
-                    "description": "Has the dataset been processed by microscope-metrics",
-                    "type": "boolean"
-                },
-                "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The sample that was imaged"
-                }
-            },
-            "required": [
-                "microscope",
-                "processed",
-                "input_data",
-                "input_parameters"
-            ],
-            "then": {
-                "properties": {
-                    "output": {}
-                },
-                "required": [
-                    "output"
-                ]
-            },
-            "title": "MetricsDataset",
-            "type": "object"
-        },
         "MetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of microscope-metrics datasets",
@@ -2334,6 +1455,38 @@
             "title": "OMEROObjectTypeEnum",
             "type": "string"
         },
+        "PSFBeads": {
+            "additionalProperties": false,
+            "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
+            "properties": {
+                "bead_diameter_micron": {
+                    "description": "The diameter of the beads in the sample measured in microns.",
+                    "type": "number"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "bead_diameter_micron",
+                "protocol"
+            ],
+            "title": "PSFBeads",
+            "type": "object"
+        },
         "PSFBeadsDataset": {
             "additionalProperties": false,
             "description": "A PSF beads dataset",
@@ -2394,8 +1547,7 @@
                     "type": "boolean"
                 },
                 "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The sample that was imaged"
+                    "$ref": "#/$defs/PSFBeads"
                 }
             },
             "required": [
@@ -3408,39 +2560,12 @@
             "title": "Roi",
             "type": "object"
         },
-        "Sample": {
-            "additionalProperties": false,
-            "description": "A sample is a standard physical object that is imaged by a microscope",
-            "properties": {
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
-                    "type": "string"
-                },
-                "type": {
-                    "description": "The type of the sample",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "type",
-                "protocol"
-            ],
-            "title": "Sample",
-            "type": "object"
-        },
         "TimeSeries": {
             "additionalProperties": false,
             "description": "A series whose values represent time",
             "properties": {
                 "values": {
+                    "description": "The values of the TimeSeries in seconds",
                     "items": {
                         "type": "number"
                     },
@@ -3477,86 +2602,7 @@
     "$id": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "description": "A base object on which microscope-metrics runs the analysis",
-    "if": {
-        "properties": {
-            "processed": {
-                "const": 1
-            }
-        },
-        "required": [
-            "processed"
-        ]
-    },
     "metamodel_version": "1.7.0",
-    "properties": {
-        "acquisition_datetime": {
-            "description": "The datetime of the acquisition",
-            "format": "date-time",
-            "type": "string"
-        },
-        "data_reference": {
-            "$ref": "#/$defs/DataReference",
-            "description": "A reference to the data"
-        },
-        "description": {
-            "description": "A human readable description of an entity",
-            "type": "string"
-        },
-        "experimenter": {
-            "description": "The experimenter that performed the imaging experiment",
-            "type": "string"
-        },
-        "input_data": {
-            "$ref": "#/$defs/MetricsInputData",
-            "description": "The input data for the analysis"
-        },
-        "input_parameters": {
-            "$ref": "#/$defs/MetricsInputParameters",
-            "description": "The input parameters for the analysis"
-        },
-        "linked_references": {
-            "description": "A list of linked references",
-            "items": {
-                "$ref": "#/$defs/DataReference"
-            },
-            "type": "array"
-        },
-        "microscope": {
-            "$ref": "#/$defs/Microscope",
-            "description": "The microscope that was used to acquire the dataset"
-        },
-        "name": {
-            "description": "The human readable name of an entity",
-            "type": "string"
-        },
-        "output": {
-            "$ref": "#/$defs/MetricsOutput",
-            "description": "The output of the analysis"
-        },
-        "processed": {
-            "description": "Has the dataset been processed by microscope-metrics",
-            "type": "boolean"
-        },
-        "sample": {
-            "$ref": "#/$defs/Sample",
-            "description": "The sample that was imaged"
-        }
-    },
-    "required": [
-        "microscope",
-        "processed",
-        "input_data",
-        "input_parameters"
-    ],
-    "then": {
-        "properties": {
-            "output": {}
-        },
-        "required": [
-            "output"
-        ]
-    },
     "title": "microscopemetrics-schema",
     "type": "object",
     "version": null

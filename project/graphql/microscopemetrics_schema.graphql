@@ -1,174 +1,4 @@
 # metamodel_version: 1.7.0
-type ArgolightBCentersOfMass implements CentersOfMass
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    points: [Point]
-    lines: [Line]
-    rectangles: [Rectangle]
-    ellipses: [Ellipse]
-    polygons: [Polygon]
-    masks: [Mask]
-  }
-
-type ArgolightBDataset
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    microscope: Microscope!
-    sample: Sample
-    experimenter: Experimenter
-    acquisitionDatetime: Datetime
-    processed: Boolean!
-    inputData: ArgolightBInputData
-    inputParameters: ArgolightBInputParameters
-    output: ArgolightBOutput
-  }
-
-type ArgolightBDistanceKeyValues
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    channelA: [Integer]
-    channelB: [Integer]
-    mean3dDist: [Float]
-    median3dDist: [Float]
-    std3dDist: [Float]
-    mad3dDist: [Float]
-    meanZDist: [Float]
-    medianZDist: [Float]
-    stdZDist: [Float]
-    madZDist: [Float]
-  }
-
-type ArgolightBInputData
-  {
-    argolightBImage: Image!
-  }
-
-type ArgolightBInputParameters
-  {
-    bitDepth: Integer
-    saturationThreshold: Float!
-    spotsDistance: Float!
-    sigmaZ: Float!
-    sigmaY: Float!
-    sigmaX: Float!
-    lowerThresholdCorrectionFactors: [Float]
-    upperThresholdCorrectionFactors: [Float]
-    removeCenterCross: Boolean
-  }
-
-type ArgolightBIntensityKeyValues
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    channelNr: [Integer]
-    nrOfSpots: [Integer]
-    intensityMaxSpot: [Float]
-    intensityMaxSpotRoi: [Integer]
-    intensityMinSpot: [Float]
-    intensityMinSpotRoi: [Integer]
-    meanIntensity: [Float]
-    medianIntensity: [Float]
-    stdMeanIntensity: [Float]
-    madMeanIntensity: [Float]
-    minMaxIntensityRatio: [Float]
-  }
-
-type ArgolightBOutput
-  {
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    comment: Comment
-    spotsLabelsImage: ImageMask
-    spotsCentersOfMass: [ArgolightBCentersOfMass]
-    intensityKeyValues: ArgolightBIntensityKeyValues
-    distanceKeyValues: ArgolightBDistanceKeyValues
-    spotsProperties: Table
-    spotsDistances: Table
-  }
-
-type ArgolightEDataset
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    microscope: Microscope!
-    sample: Sample
-    experimenter: Experimenter
-    acquisitionDatetime: Datetime
-    processed: Boolean!
-    inputData: ArgolightEInputData
-    inputParameters: ArgolightEInputParameters
-    output: ArgolightEOutput
-  }
-
-type ArgolightEInputData
-  {
-    argolightEImage: Image!
-  }
-
-type ArgolightEInputParameters
-  {
-    bitDepth: Integer
-    saturationThreshold: Float!
-    orientationAxis: Integer!
-    measuredBand: Float!
-    prominenceThreshold: Float!
-  }
-
-type ArgolightEKeyValues
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    channelNr: [Integer]
-    focusSlice: [Integer]
-    rayleighResolutionPixels: [Float]
-    rayleighResolutionMicrons: [Float]
-    peakPositionA: [Float]
-    peakPositionB: [Float]
-    peakHeightA: [Float]
-    peakHeightB: [Float]
-    peakProminenceA: [Float]
-    peakProminenceB: [Float]
-  }
-
-type ArgolightEOutput
-  {
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    comment: Comment
-    peaksRois: [Roi]
-    keyMeasurements: ArgolightEKeyValues
-    intensityProfiles: Table
-  }
-
 interface CentersFitted
   {
   }
@@ -263,13 +93,13 @@ type FieldIlluminationDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     microscope: Microscope!
-    sample: Sample
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     inputData: FieldIlluminationInputData
     inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
+    sample: HomogeneousField
   }
 
 type FieldIlluminationInputData
@@ -363,6 +193,22 @@ type FieldIlluminationOutput
     roiCenterRegion: [Roi]
   }
 
+type FluorescentHomogeneousThickField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+  }
+
+type FluorescentHomogeneousThinField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+  }
+
 type HarmonizedMetricsDatasetCollection
   {
     name: String
@@ -371,6 +217,14 @@ type HarmonizedMetricsDatasetCollection
     linkedReferences: [DataReference]
     datasets: [MetricsDataset]
     datasetClass: String!
+  }
+
+interface HomogeneousField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
   }
 
 type Image
@@ -467,14 +321,14 @@ type MetaObject
   {
   }
 
-type MetricsDataset
+interface MetricsDataset
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    microscope: Microscope!
     sample: Sample
+    microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
@@ -588,6 +442,15 @@ type Protocol
     url: String!
   }
 
+type PSFBeads
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+    beadDiameterMicron: Float!
+  }
+
 type PSFBeadsDataset
   {
     name: String
@@ -595,13 +458,13 @@ type PSFBeadsDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     microscope: Microscope!
-    sample: Sample
     experimenter: Experimenter
     acquisitionDatetime: Datetime
     processed: Boolean!
     inputData: PSFBeadsInputData
     inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
+    sample: PSFBeads
   }
 
 type PSFBeadsInputData
@@ -760,12 +623,12 @@ interface RoiMeasurements
     measurementsTable: Table
   }
 
-type Sample
+interface Sample
   {
     name: String
     description: String
-    type: String!
     protocol: Protocol!
+    manufacturer: String
   }
 
 interface Shape
