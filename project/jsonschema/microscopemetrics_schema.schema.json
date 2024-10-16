@@ -1,57 +1,888 @@
 {
     "$defs": {
-        "Channel": {
+        "ArgolightBCentersOfMass": {
             "additionalProperties": false,
-            "description": "A image channel",
+            "description": "",
             "properties": {
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
-                "emission_wavelength_nm": {
-                    "description": "The emission wavelength in nm",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                "ellipses": {
+                    "description": "A list of ellipses included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Ellipse"
+                    },
+                    "type": "array"
                 },
-                "excitation_wavelength_nm": {
-                    "description": "The excitation wavelength in nm",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                "lines": {
+                    "description": "A list of lines included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Line"
+                    },
+                    "type": "array"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
+                },
+                "masks": {
+                    "description": "A list of masks included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Mask"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
+                },
+                "points": {
+                    "description": "A list of points included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Point"
+                    },
+                    "type": "array"
+                },
+                "polygons": {
+                    "description": "A list of polygons included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Polygon"
+                    },
+                    "type": "array"
+                },
+                "rectangles": {
+                    "description": "A list of rectangles included in the ROI",
+                    "items": {
+                        "$ref": "#/$defs/Rectangle"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "ArgolightBCentersOfMass",
+            "type": "object"
+        },
+        "ArgolightBDataset": {
+            "additionalProperties": false,
+            "description": "An Argolight sample pattern B dataset. This pattern consists of an array of circles",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "type": "string"
+                },
+                "input_data": {
+                    "$ref": "#/$defs/ArgolightBInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/ArgolightBInputParameters"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "microscope": {
+                    "$ref": "#/$defs/Microscope",
+                    "description": "The microscope that was used to acquire the dataset"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "output": {
+                    "$ref": "#/$defs/ArgolightBOutput"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "sample": {
+                    "$ref": "#/$defs/Sample",
+                    "description": "The physical sample that was imaged"
+                }
+            },
+            "required": [
+                "microscope",
+                "processed"
+            ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
+            "title": "ArgolightBDataset",
+            "type": "object"
+        },
+        "ArgolightBDistanceKeyValues": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "channel_A": {
+                    "description": "The first channel number to which the measurements apply",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "channel_B": {
+                    "description": "The second channel number to which the measurements apply",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "mad_3d_dist": {
+                    "description": "Median absolute deviation of the 3D distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "mad_z_dist": {
+                    "description": "Median absolute deviation of the Z distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "mean_3d_dist": {
+                    "description": "Mean of the 3D distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "mean_z_dist": {
+                    "description": "Mean of the Z distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "median_3d_dist": {
+                    "description": "Median of the 3D distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "median_z_dist": {
+                    "description": "Median of the Z distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "std_3d_dist": {
+                    "description": "Standard deviation of the 3D distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "std_z_dist": {
+                    "description": "Standard deviation of the Z distances between spots for each permutation of channel A and B",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "ArgolightBDistanceKeyValues",
+            "type": "object"
+        },
+        "ArgolightBInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "argolight_b_image": {
+                    "$ref": "#/$defs/Image",
+                    "description": "Image of the argolight b pattern in the order TZYXC"
+                }
+            },
+            "required": [
+                "argolight_b_image"
+            ],
+            "title": "ArgolightBInputData",
+            "type": "object"
+        },
+        "ArgolightBInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "bit_depth": {
+                    "description": "Detector bit depth",
+                    "maximum": 64,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "lower_threshold_correction_factors": {
+                    "description": "Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "remove_center_cross": {
+                    "description": "Remove the center cross found in some Argolight patterns",
+                    "type": "boolean"
+                },
+                "saturation_threshold": {
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "maximum": 1.0,
+                    "minimum": 0.0,
+                    "type": "number"
+                },
+                "sigma_x": {
+                    "description": "Smoothing factor for objects detection in the X axis",
+                    "maximum": 10.0,
+                    "minimum": 0.0,
+                    "type": "number"
+                },
+                "sigma_y": {
+                    "description": "Smoothing factor for objects detection in the Y axis",
+                    "maximum": 10.0,
+                    "minimum": 0.0,
+                    "type": "number"
+                },
+                "sigma_z": {
+                    "description": "Smoothing factor for objects detection in the Z axis",
+                    "maximum": 5.0,
+                    "minimum": 0.0,
+                    "type": "number"
+                },
+                "spots_distance": {
+                    "description": "Distance between argolight spots",
+                    "type": "number"
+                },
+                "upper_threshold_correction_factors": {
+                    "description": "Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "saturation_threshold",
+                "spots_distance",
+                "sigma_z",
+                "sigma_y",
+                "sigma_x"
+            ],
+            "title": "ArgolightBInputParameters",
+            "type": "object"
+        },
+        "ArgolightBIntensityKeyValues": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "channel_nr": {
+                    "description": "The channel number to which the measurements apply",
+                    "items": {
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "intensity_max_spot": {
+                    "description": "Integrated intensity of the most intense spot for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "intensity_max_spot_roi": {
+                    "description": "ROI number of the most intense spot for each channel",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "intensity_min_spot": {
+                    "description": "Integrated intensity of the least intense spot for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "intensity_min_spot_roi": {
+                    "description": "ROI number of the least intense spot for each channel",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "mad_mean_intensity": {
+                    "description": "Median absolute deviation of all spots integrated intensity for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "mean_intensity": {
+                    "description": "Mean of all spots integrated intensity for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "median_intensity": {
+                    "description": "Median of all spots integrated intensity for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "min_max_intensity_ratio": {
+                    "description": "Ratio between the integrated intensities between the most intense and the least intense spots for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "nr_of_spots": {
+                    "description": "Number of argolight spots detected for each channel",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "std_mean_intensity": {
+                    "description": "Standard deviation of all spots integrated intensity for each channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "ArgolightBIntensityKeyValues",
+            "type": "object"
+        },
+        "ArgolightBOutput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "comment": {
+                    "$ref": "#/$defs/Comment",
+                    "description": "A human readable comment about the dataset"
+                },
+                "distance_key_values": {
+                    "$ref": "#/$defs/ArgolightBDistanceKeyValues",
+                    "description": "Key Distance Measurements on Argolight spots"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "intensity_key_values": {
+                    "$ref": "#/$defs/ArgolightBIntensityKeyValues",
+                    "description": "Key Intensity Measurements on Argolight spots"
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "spots_centers_of_mass": {
+                    "description": "Centers of mass of the argolight spots provided as a list of ROIs. One per channel",
+                    "items": {
+                        "$ref": "#/$defs/ArgolightBCentersOfMass"
+                    },
+                    "type": "array"
+                },
+                "spots_distances": {
+                    "$ref": "#/$defs/Table",
+                    "description": "Table of distances between argolight spots"
+                },
+                "spots_labels_image": {
+                    "$ref": "#/$defs/ImageMask",
+                    "description": "Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels"
+                },
+                "spots_properties": {
+                    "$ref": "#/$defs/Table",
+                    "description": "Table of properties of the argolight spots"
+                },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime",
+                "validated"
+            ],
+            "title": "ArgolightBOutput",
+            "type": "object"
+        },
+        "ArgolightEDataset": {
+            "additionalProperties": false,
+            "description": "An Argolight sample pattern E dataset.\nIt contains resolution data on the axis indicated:\n- axis 1 = Y resolution = lines along X axis\n- axis 2 = X resolution = lines along Y axis",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "type": "string"
+                },
+                "input_data": {
+                    "$ref": "#/$defs/ArgolightEInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/ArgolightEInputParameters"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "microscope": {
+                    "$ref": "#/$defs/Microscope",
+                    "description": "The microscope that was used to acquire the dataset"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "output": {
+                    "$ref": "#/$defs/ArgolightEOutput"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "sample": {
+                    "$ref": "#/$defs/Sample",
+                    "description": "The physical sample that was imaged"
+                }
+            },
+            "required": [
+                "microscope",
+                "processed"
+            ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
+            "title": "ArgolightEDataset",
+            "type": "object"
+        },
+        "ArgolightEInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "argolight_e_image": {
+                    "$ref": "#/$defs/Image",
+                    "description": "Image of the argolight e pattern provided in the order TZYXC"
+                }
+            },
+            "required": [
+                "argolight_e_image"
+            ],
+            "title": "ArgolightEInputData",
+            "type": "object"
+        },
+        "ArgolightEInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "bit_depth": {
+                    "description": "Detector bit depth",
+                    "maximum": 64,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "measured_band": {
+                    "description": "Fraction of the image across which intensity profiles are measured",
+                    "maximum": 1.0,
+                    "minimum": 0.1,
+                    "type": "number"
+                },
+                "orientation_axis": {
+                    "description": "Axis along which resolution is being measured. 1=Y, 2=X",
+                    "maximum": 2,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "prominence_threshold": {
+                    "description": "Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria",
+                    "maximum": 0.99,
+                    "minimum": 0.1,
+                    "type": "number"
+                },
+                "saturation_threshold": {
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "maximum": 1.0,
+                    "minimum": 0.0,
+                    "type": "number"
+                }
+            },
+            "required": [
+                "saturation_threshold",
+                "orientation_axis",
+                "measured_band",
+                "prominence_threshold"
+            ],
+            "title": "ArgolightEInputParameters",
+            "type": "object"
+        },
+        "ArgolightEKeyValues": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "channel_nr": {
+                    "description": "The channel number to which the measurements apply",
+                    "items": {
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "focus_slice": {
+                    "description": "Z position at which focus has been measured. One value per channel",
+                    "items": {
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "peak_height_A": {
+                    "description": "Height of first peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "peak_height_B": {
+                    "description": "Height of second peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "peak_position_A": {
+                    "description": "Position, in pixels, of first peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "peak_position_B": {
+                    "description": "Position, in pixels, of second peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "peak_prominence_A": {
+                    "description": "Prominence of first peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "peak_prominence_B": {
+                    "description": "Prominence of second peak in the intensity profiles. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "rayleigh_resolution_microns": {
+                    "description": "Rayleigh resolution measured in microns. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "rayleigh_resolution_pixels": {
+                    "description": "Rayleigh resolution measured in pixels. One value per channel",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "ArgolightEKeyValues",
+            "type": "object"
+        },
+        "ArgolightEOutput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "comment": {
+                    "$ref": "#/$defs/Comment",
+                    "description": "A human readable comment about the dataset"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "intensity_profiles": {
+                    "$ref": "#/$defs/Table",
+                    "description": "Intensity profiles of the argolight lines provided as tables. One table per channel"
+                },
+                "key_measurements": {
+                    "$ref": "#/$defs/ArgolightEKeyValues",
+                    "description": "Key Measurements on Argolight E images"
+                },
+                "peaks_rois": {
+                    "description": "ROIs of the peaks found in the argolight images. One per channel",
+                    "items": {
+                        "$ref": "#/$defs/Roi"
+                    },
+                    "type": "array"
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime",
+                "validated"
+            ],
+            "title": "ArgolightEOutput",
+            "type": "object"
+        },
+        "Channel": {
+            "additionalProperties": false,
+            "description": "A image channel",
+            "properties": {
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "emission_wavelength_nm": {
+                    "description": "The emission wavelength in nm",
+                    "type": "number"
+                },
+                "excitation_wavelength_nm": {
+                    "description": "The excitation wavelength in nm",
+                    "type": "number"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
                 }
             },
             "title": "Channel",
@@ -62,7 +893,6 @@
             "description": "A series representing channels",
             "properties": {
                 "channels": {
-                    "description": "The channels of the ChannelSeries",
                     "items": {
                         "$ref": "#/$defs/Channel"
                     },
@@ -83,10 +913,7 @@
                     "description": "The alpha value of the color (optional)",
                     "maximum": 255,
                     "minimum": 0,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "b": {
                     "description": "The blue value of the color",
@@ -125,27 +952,14 @@
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "source_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "The source object of the column"
                 },
                 "values": {
@@ -153,10 +967,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -171,10 +982,7 @@
             "properties": {
                 "author": {
                     "description": "The author of the comment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "comment_type": {
                     "$ref": "#/$defs/CommentTypesEnum",
@@ -214,24 +1022,15 @@
             "properties": {
                 "data_uri": {
                     "description": "The URI of the object data",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "omero_host": {
                     "description": "The host of the OMERO server",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "omero_object_id": {
                     "description": "The ID of the OMERO object",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "omero_object_type": {
                     "$ref": "#/$defs/OMEROObjectTypeEnum",
@@ -239,10 +1038,7 @@
                 },
                 "omero_port": {
                     "description": "The port of the OMERO server",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 }
             },
             "title": "DataReference",
@@ -254,60 +1050,31 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "x": {
                     "description": "The x coordinate of the bounding box of the ellipse",
@@ -327,10 +1094,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -352,10 +1116,7 @@
                 },
                 "orcid": {
                     "description": "The ORCID of the experimenter",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -368,69 +1129,46 @@
         "FieldIlluminationDataset": {
             "additionalProperties": false,
             "description": "A field illumination dataset",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
             "properties": {
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "input_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/FieldIlluminationInputData"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/FieldIlluminationInputData"
                 },
                 "input_parameters": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/FieldIlluminationInputParameters"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/FieldIlluminationInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
@@ -438,35 +1176,23 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "output": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/FieldIlluminationOutput"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/FieldIlluminationOutput"
                 },
                 "processed": {
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
                 "sample": {
+                    "$ref": "#/$defs/MetaObject",
                     "anyOf": [
                         {
                             "$ref": "#/$defs/FluorescentHomogeneousThickField"
                         },
                         {
                             "$ref": "#/$defs/FluorescentHomogeneousThinField"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The physical sample that was imaged"
@@ -476,6 +1202,14 @@
                 "microscope",
                 "processed"
             ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
             "title": "FieldIlluminationDataset",
             "type": "object"
         },
@@ -505,10 +1239,7 @@
                     "description": "Detector bit depth",
                     "maximum": 64,
                     "minimum": 1,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "corner_fraction": {
                     "description": "Input parameter: the proportion of the image to be considered as corner or center",
@@ -546,60 +1277,42 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "bottom_center_intensity_ratio": {
                     "description": "The mean intensity of the bottom-center of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "bottom_left_intensity_mean": {
                     "description": "The mean intensity of the bottom-left of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "bottom_left_intensity_ratio": {
                     "description": "The mean intensity of the bottom-left of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "bottom_right_intensity_mean": {
                     "description": "The mean intensity of the bottom-right of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "bottom_right_intensity_ratio": {
                     "description": "The mean intensity of the bottom-right of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_fitted_distance_relative": {
                     "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
@@ -608,20 +1321,14 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_fitted_x": {
                     "description": "The x coordinate of the fitted center of illumination. In pixels",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_fitted_x_relative": {
                     "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
@@ -630,20 +1337,14 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_fitted_y": {
                     "description": "The y coordinate of the fitted center of illumination. In pixels",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_fitted_y_relative": {
                     "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
@@ -652,10 +1353,7 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_geometric_distance_relative": {
                     "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
@@ -664,20 +1362,14 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_geometric_x": {
                     "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_geometric_x_relative": {
                     "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
@@ -686,20 +1378,14 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_geometric_y": {
                     "description": "The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_geometric_y_relative": {
                     "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
@@ -708,10 +1394,7 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_of_mass_distance_relative": {
                     "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.",
@@ -720,20 +1403,14 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_of_mass_x": {
                     "description": "The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_of_mass_x_relative": {
                     "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.",
@@ -742,20 +1419,14 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_of_mass_y": {
                     "description": "The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_of_mass_y_relative": {
                     "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
@@ -764,10 +1435,7 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_region_area_fraction": {
                     "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.",
@@ -776,10 +1444,7 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "center_region_intensity_fraction": {
                     "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
@@ -788,30 +1453,21 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "channel_id": {
                     "description": "The channel id to which the measurements apply",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "channel_name": {
                     "description": "The channel name to which the measurements apply",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
@@ -819,68 +1475,43 @@
                         "minimum": 0,
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "image_id": {
                     "description": "The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "image_name": {
                     "description": "The name of the image where the measurement was taken",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity": {
                     "description": "The maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity_distance_relative": {
                     "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
@@ -889,20 +1520,14 @@
                         "minimum": 0.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity_pos_x": {
                     "description": "The x coordinate of the maximum intensity of the center of illumination. In pixels",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity_pos_x_relative": {
                     "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
@@ -911,20 +1536,14 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity_pos_y": {
                     "description": "The y coordinate of the maximum intensity of the center of illumination. In pixels",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "max_intensity_pos_y_relative": {
                     "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
@@ -933,87 +1552,56 @@
                         "minimum": -1.0,
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_center_intensity_mean": {
                     "description": "The mean intensity of the middle-center of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_center_intensity_ratio": {
                     "description": "The mean intensity of the middle-center of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_left_intensity_mean": {
                     "description": "The mean intensity of the middle-left of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_left_intensity_ratio": {
                     "description": "The mean intensity of the middle-left of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_right_intensity_mean": {
                     "description": "The mean intensity of the middle-right of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "middle_right_intensity_ratio": {
                     "description": "The mean intensity of the middle-right of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable table data object"
                 },
                 "top_center_intensity_mean": {
@@ -1021,60 +1609,42 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "top_center_intensity_ratio": {
                     "description": "The mean intensity of the top-center of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "top_left_intensity_mean": {
                     "description": "The mean intensity of the top-left corner of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "top_left_intensity_ratio": {
                     "description": "The mean intensity of the top-left corner of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "top_right_intensity_mean": {
                     "description": "The mean intensity of the top-right corner of the image",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "top_right_intensity_ratio": {
                     "description": "The mean intensity of the top-right corner of the image  divided by the maximum intensity of the center of illumination",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "title": "FieldIlluminationKeyMeasurements",
@@ -1085,14 +1655,7 @@
             "description": "",
             "properties": {
                 "comment": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Comment"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Comment",
                     "description": "A human readable comment about the dataset"
                 },
                 "errors": {
@@ -1100,30 +1663,17 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_profiles": {
                     "description": "Intensity profiles for the field illumination analysis in the different directions",
                     "items": {
                         "$ref": "#/$defs/Table"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/FieldIlluminationKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/FieldIlluminationKeyMeasurements",
                     "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
                 },
                 "processing_application": {
@@ -1143,17 +1693,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "processing_log": {
                     "description": "The log of the processing by microscope-metrics",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "processing_version": {
                     "description": "The version of the application used to process the dataset",
@@ -1167,60 +1711,38 @@
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "roi_centers_fitted": {
                     "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "roi_centers_geometric": {
                     "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "roi_centers_max_intensity": {
                     "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "roi_centers_of_mass": {
                     "description": "Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "roi_corners": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Roi"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Roi",
                     "description": "Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images."
                 },
                 "roi_profiles": {
@@ -1228,10 +1750,7 @@
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "validated": {
                     "description": "Has the dataset been validated by a human",
@@ -1240,20 +1759,14 @@
                 "validation_datetime": {
                     "description": "The datetime of the validation",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -1271,24 +1784,15 @@
             "properties": {
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "manufacturer": {
                     "description": "The manufacturer of the beads.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "protocol": {
                     "description": "The protocol used to prepare the sample",
@@ -1307,24 +1811,15 @@
             "properties": {
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "manufacturer": {
                     "description": "The manufacturer of the beads.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "protocol": {
                     "description": "The protocol used to prepare the sample",
@@ -1342,14 +1837,7 @@
             "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
             "properties": {
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "dataset_class": {
@@ -1361,34 +1849,22 @@
                     "items": {
                         "$ref": "#/$defs/MetricsDataset"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1404,67 +1880,33 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "array_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ChannelSeries"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A series representing channels for multi-channel images."
+                    "$ref": "#/$defs/ChannelSeries"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -1491,42 +1933,22 @@
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "time_series": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/TimeSeries"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A series representing time for time-lapse images."
+                    "$ref": "#/$defs/TimeSeries"
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "voxel_size_y_micron": {
                     "description": "The physical size in the voxel in the y dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "voxel_size_z_micron": {
                     "description": "The physical size in the voxel in the z dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -1546,67 +1968,33 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "array_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable array data object"
                 },
                 "channel_series": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ChannelSeries"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A series representing channels for multi-channel images."
+                    "$ref": "#/$defs/ChannelSeries"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "shape_c": {
                     "description": "The shape of the image in the c dimension",
@@ -1633,42 +2021,22 @@
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "time_series": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/TimeSeries"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A series representing time for time-lapse images."
+                    "$ref": "#/$defs/TimeSeries"
                 },
                 "voxel_size_x_micron": {
                     "description": "The physical size in the voxel in the x dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "voxel_size_y_micron": {
                     "description": "The physical size in the voxel in the y dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "voxel_size_z_micron": {
                     "description": "The physical size in the voxel in the z dimension in microns",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -1687,60 +2055,31 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "x1": {
                     "description": "The x coordinate of the first point of the line",
@@ -1760,10 +2099,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -1781,71 +2117,35 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "mask": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/ImageMask"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/ImageMask",
                     "description": "The mask image"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "x": {
                     "description": "The x coordinate of the top left corner of the mask",
@@ -1857,10 +2157,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -1882,19 +2179,96 @@
                 "string"
             ]
         },
+        "MetricsDataset": {
+            "additionalProperties": false,
+            "description": "A base object on which microscope-metrics runs the analysis",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "type": "string"
+                },
+                "input_data": {
+                    "$ref": "#/$defs/MetricsInputData",
+                    "description": "The input data for the analysis"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/MetricsInputParameters",
+                    "description": "The input parameters for the analysis"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "microscope": {
+                    "$ref": "#/$defs/Microscope",
+                    "description": "The microscope that was used to acquire the dataset"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "output": {
+                    "$ref": "#/$defs/MetricsOutput",
+                    "description": "The output of the analysis"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "sample": {
+                    "$ref": "#/$defs/Sample",
+                    "description": "The physical sample that was imaged"
+                }
+            },
+            "required": [
+                "microscope",
+                "processed",
+                "input_data",
+                "input_parameters"
+            ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
+            "title": "MetricsDataset",
+            "type": "object"
+        },
         "MetricsDatasetCollection": {
             "additionalProperties": false,
             "description": "A collection of microscope-metrics datasets",
             "properties": {
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "datasets": {
@@ -1902,34 +2276,22 @@
                     "items": {
                         "$ref": "#/$defs/MetricsDataset"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "title": "MetricsDatasetCollection",
@@ -1944,66 +2306,38 @@
                     "items": {
                         "$ref": "#/$defs/Comment"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "manufacturer": {
                     "description": "The manufacturer of the microscope",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "model": {
                     "description": "The model of the microscope",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "serial_number": {
                     "description": "The serial number of the microscope",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "type": {
                     "$ref": "#/$defs/MicroscopeTypeEnum",
@@ -2072,24 +2406,15 @@
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "manufacturer": {
                     "description": "The manufacturer of the beads.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "protocol": {
                     "description": "The protocol used to prepare the sample",
@@ -2106,69 +2431,46 @@
         "PSFBeadsDataset": {
             "additionalProperties": false,
             "description": "A PSF beads dataset",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
             "properties": {
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "experimenter": {
                     "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "input_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PSFBeadsInputData"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/PSFBeadsInputData"
                 },
                 "input_parameters": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PSFBeadsInputParameters"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/PSFBeadsInputParameters"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "microscope": {
                     "$ref": "#/$defs/Microscope",
@@ -2176,32 +2478,20 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "output": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PSFBeadsOutput"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ]
+                    "$ref": "#/$defs/PSFBeadsOutput"
                 },
                 "processed": {
                     "description": "Has the dataset been processed by microscope-metrics",
                     "type": "boolean"
                 },
                 "sample": {
+                    "$ref": "#/$defs/MetaObject",
                     "anyOf": [
                         {
                             "$ref": "#/$defs/PSFBeads"
-                        },
-                        {
-                            "type": "null"
                         }
                     ],
                     "description": "The physical sample that was imaged"
@@ -2211,6 +2501,14 @@
                 "microscope",
                 "processed"
             ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
             "title": "PSFBeadsDataset",
             "type": "object"
         },
@@ -2240,10 +2538,7 @@
                     "description": "Detector bit depth",
                     "maximum": 64,
                     "minimum": 1,
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "fitting_r2_threshold": {
                     "description": "Threshold for the coefficient of determination (R^2) of the fit to be considered good.",
@@ -2263,10 +2558,7 @@
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1.0,
                     "minimum": 0.0,
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 },
                 "sigma_x": {
                     "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
@@ -2306,150 +2598,105 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fit_r2_y": {
                     "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fit_r2_z": {
                     "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_lateral_asymmetry_ratio": {
                     "description": "Lateral FWHM asymmetry ratio for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_x": {
                     "description": "FWHM for the average bead in the X axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_y": {
                     "description": "FWHM for the average bead in the Y axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_micron_z": {
                     "description": "Average FWHM for the beads in the Z axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_x": {
                     "description": "FWHM for the average bead in the X axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_y": {
                     "description": "FWHM for the average bead in the Y axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_fwhm_pixel_z": {
                     "description": "FWHM for the average bead in the Z axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_intensity_integrated": {
                     "description": "Integrated intensity for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_intensity_max": {
                     "description": "Maximum intensity for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_intensity_min": {
                     "description": "Minimum intensity for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead_intensity_std": {
                     "description": "Standard deviation of the intensity for the average bead. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "channel_name": {
                     "description": "The channel name to which the measurements apply",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "channel_nr": {
                     "description": "The channel number to which the measurements apply",
@@ -2457,555 +2704,379 @@
                         "minimum": 0,
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_axial_edge_count": {
                     "description": "Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bad_fit_x_count": {
                     "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bad_fit_y_count": {
                     "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bad_fit_z_count": {
                     "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_intensity_outlier_count": {
                     "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_lateral_edge_count": {
                     "description": "Number of beads considered for being too close to the edge of the image. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_self_proximity_count": {
                     "description": "Number of beads considered for being too close to another bead. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_valid_count": {
                     "description": "Number of beads analyzed. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fit_r2_x_mean": {
                     "description": "Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_x_median": {
                     "description": "Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_x_std": {
                     "description": "Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_y_mean": {
                     "description": "Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_y_median": {
                     "description": "Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_y_std": {
                     "description": "Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_z_mean": {
                     "description": "Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_z_median": {
                     "description": "Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fit_r2_z_std": {
                     "description": "Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_lateral_asymmetry_ratio_mean": {
                     "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_lateral_asymmetry_ratio_median": {
                     "description": "Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_lateral_asymmetry_ratio_std": {
                     "description": "Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_x_mean": {
                     "description": "Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_x_median": {
                     "description": "Median FWHM for the analyzed beads in the X axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_x_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_y_mean": {
                     "description": "Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_y_median": {
                     "description": "Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_y_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_z_mean": {
                     "description": "Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_z_median": {
                     "description": "Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_micron_z_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_x_mean": {
                     "description": "Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_x_median": {
                     "description": "Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_x_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_y_mean": {
                     "description": "Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_y_median": {
                     "description": "Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_y_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_z_mean": {
                     "description": "Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_z_median": {
                     "description": "Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "fwhm_pixel_z_std": {
                     "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_integrated_mean": {
                     "description": "Mean integrated intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_integrated_median": {
                     "description": "Median integrated intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_integrated_std": {
                     "description": "Standard deviation of the integrated intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_max_mean": {
                     "description": "Mean maximum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_max_median": {
                     "description": "Median maximum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_max_std": {
                     "description": "Standard deviation of the maximum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_min_mean": {
                     "description": "Mean minimum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_min_median": {
                     "description": "Median minimum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_min_std": {
                     "description": "Standard deviation of the minimum intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_std_mean": {
                     "description": "Mean standard deviation of the intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_std_median": {
                     "description": "Median standard deviation of the intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "intensity_std_std": {
                     "description": "Standard deviation of the standard deviation of the intensity of the analyzed beads. One value per channel.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable table data object"
                 }
             },
@@ -3021,75 +3092,30 @@
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "average_bead": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Image"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Image",
                     "description": "The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated."
                 },
                 "bead_profiles_x": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Table"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits."
                 },
                 "bead_profiles_y": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Table"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits."
                 },
                 "bead_profiles_z": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Table"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Table",
                     "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits."
                 },
                 "bead_properties": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Table"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Table",
                     "description": "Properties associated with the analysis of the beads."
                 },
                 "comment": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Comment"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Comment",
                     "description": "A human readable comment about the dataset"
                 },
                 "considered_bead_centers_axial_edge": {
@@ -3097,90 +3123,59 @@
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_intensity_outlier": {
                     "description": "The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_lateral_edge": {
                     "description": "The centers of the beads detected but considered as too close to the edge of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_self_proximity": {
                     "description": "The centers of the beads detected but considered as too close to another bead. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_x_fit_quality": {
                     "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_y_fit_quality": {
                     "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "considered_bead_centers_z_fit_quality": {
                     "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
                     "items": {
                         "$ref": "#/$defs/Roi"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "errors": {
                     "description": "The errors of the processing by microscope-metrics",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PSFBeadsKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/PSFBeadsKeyMeasurements",
                     "description": "The key measurements of the PSF beads analysis."
                 },
                 "processing_application": {
@@ -3200,17 +3195,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "processing_log": {
                     "description": "The log of the processing by microscope-metrics",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "processing_version": {
                     "description": "The version of the application used to process the dataset",
@@ -3226,20 +3215,14 @@
                 "validation_datetime": {
                     "description": "The datetime of the validation",
                     "format": "date-time",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "warnings": {
                     "description": "The warnings of the processing by microscope-metrics",
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "required": [
@@ -3257,60 +3240,31 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "x": {
                     "description": "The x coordinate of the point",
@@ -3322,10 +3276,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -3341,27 +3292,14 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "is_open": {
@@ -3370,35 +3308,19 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "vertexes": {
                     "description": "A list of vertexes defining the polygon",
@@ -3409,10 +3331,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -3431,24 +3350,15 @@
                     "items": {
                         "type": "string"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "url": {
                     "description": "The URL where the protocol can be found",
@@ -3472,27 +3382,14 @@
             "properties": {
                 "c": {
                     "description": "The c coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "fill_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
                 },
                 "h": {
@@ -3501,35 +3398,19 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "stroke_color": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/Color"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/Color",
                     "description": "The stroke color of the shape"
                 },
                 "stroke_width": {
                     "description": "The stroke width of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "t": {
                     "description": "The t coordinate of the shape",
-                    "type": [
-                        "integer",
-                        "null"
-                    ]
+                    "type": "integer"
                 },
                 "w": {
                     "description": "The width of the rectangle",
@@ -3545,10 +3426,7 @@
                 },
                 "z": {
                     "description": "The z coordinate of the shape",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
+                    "type": "number"
                 }
             },
             "required": [
@@ -3565,99 +3443,65 @@
             "description": "A ROI (Region Of Interest). Collection of shapes and an image to which they are applied",
             "properties": {
                 "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
+                    "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "ellipses": {
                     "description": "A list of ellipses included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Ellipse"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "lines": {
                     "description": "A list of lines included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Line"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "masks": {
                     "description": "A list of masks included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Mask"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "points": {
                     "description": "A list of points included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Point"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "polygons": {
                     "description": "A list of polygons included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Polygon"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "rectangles": {
                     "description": "A list of rectangles included in the ROI",
                     "items": {
                         "$ref": "#/$defs/Rectangle"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 }
             },
             "title": "Roi",
@@ -3668,7 +3512,6 @@
             "description": "A series whose values represent time",
             "properties": {
                 "values": {
-                    "description": "The values of the TimeSeries in seconds",
                     "items": {
                         "type": "number"
                     },
@@ -3705,7 +3548,86 @@
     "$id": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
+    "description": "A base object on which microscope-metrics runs the analysis",
+    "if": {
+        "properties": {
+            "processed": {
+                "const": 1
+            }
+        },
+        "required": [
+            "processed"
+        ]
+    },
     "metamodel_version": "1.7.0",
+    "properties": {
+        "acquisition_datetime": {
+            "description": "The datetime of the acquisition",
+            "format": "date-time",
+            "type": "string"
+        },
+        "data_reference": {
+            "$ref": "#/$defs/DataReference",
+            "description": "A reference to the data"
+        },
+        "description": {
+            "description": "A human readable description of an entity",
+            "type": "string"
+        },
+        "experimenter": {
+            "description": "The experimenter that performed the imaging experiment",
+            "type": "string"
+        },
+        "input_data": {
+            "$ref": "#/$defs/MetricsInputData",
+            "description": "The input data for the analysis"
+        },
+        "input_parameters": {
+            "$ref": "#/$defs/MetricsInputParameters",
+            "description": "The input parameters for the analysis"
+        },
+        "linked_references": {
+            "description": "A list of linked references",
+            "items": {
+                "$ref": "#/$defs/DataReference"
+            },
+            "type": "array"
+        },
+        "microscope": {
+            "$ref": "#/$defs/Microscope",
+            "description": "The microscope that was used to acquire the dataset"
+        },
+        "name": {
+            "description": "The human readable name of an entity",
+            "type": "string"
+        },
+        "output": {
+            "$ref": "#/$defs/MetricsOutput",
+            "description": "The output of the analysis"
+        },
+        "processed": {
+            "description": "Has the dataset been processed by microscope-metrics",
+            "type": "boolean"
+        },
+        "sample": {
+            "$ref": "#/$defs/Sample",
+            "description": "The physical sample that was imaged"
+        }
+    },
+    "required": [
+        "microscope",
+        "processed",
+        "input_data",
+        "input_parameters"
+    ],
+    "then": {
+        "properties": {
+            "output": {}
+        },
+        "required": [
+            "output"
+        ]
+    },
     "title": "microscopemetrics-schema",
     "type": "object",
     "version": null

@@ -1,6 +1,169 @@
  syntax="proto3";
  package
 // metamodel_version: 1.7.0
+message ArgolightBCentersOfMass
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  point points = 0
+ repeated  line lines = 0
+ repeated  rectangle rectangles = 0
+ repeated  ellipse ellipses = 0
+ repeated  polygon polygons = 0
+ repeated  mask masks = 0
+ }
+// An Argolight sample pattern B dataset. This pattern consists of an array of circles
+message ArgolightBDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  sample sample = 0
+  microscope microscope = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  argolightBInputData inputData = 0
+  argolightBInputParameters inputParameters = 0
+  argolightBOutput output = 0
+ }
+message ArgolightBDistanceKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelA = 0
+ repeated  integer channelB = 0
+ repeated  float mean3dDist = 0
+ repeated  float median3dDist = 0
+ repeated  float std3dDist = 0
+ repeated  float mad3dDist = 0
+ repeated  float meanZDist = 0
+ repeated  float medianZDist = 0
+ repeated  float stdZDist = 0
+ repeated  float madZDist = 0
+ }
+message ArgolightBInputData
+ {
+  image argolightBImage = 0
+ }
+message ArgolightBInputParameters
+ {
+  integer bitDepth = 0
+  float saturationThreshold = 0
+  float spotsDistance = 0
+  float sigmaZ = 0
+  float sigmaY = 0
+  float sigmaX = 0
+ repeated  float lowerThresholdCorrectionFactors = 0
+ repeated  float upperThresholdCorrectionFactors = 0
+  boolean removeCenterCross = 0
+ }
+message ArgolightBIntensityKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelNr = 0
+ repeated  integer nrOfSpots = 0
+ repeated  float intensityMaxSpot = 0
+ repeated  integer intensityMaxSpotRoi = 0
+ repeated  float intensityMinSpot = 0
+ repeated  integer intensityMinSpotRoi = 0
+ repeated  float meanIntensity = 0
+ repeated  float medianIntensity = 0
+ repeated  float stdMeanIntensity = 0
+ repeated  float madMeanIntensity = 0
+ repeated  float minMaxIntensityRatio = 0
+ }
+message ArgolightBOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
+  comment comment = 0
+  imageMask spotsLabelsImage = 0
+ repeated  argolightBCentersOfMass spotsCentersOfMass = 0
+  argolightBIntensityKeyValues intensityKeyValues = 0
+  argolightBDistanceKeyValues distanceKeyValues = 0
+  table spotsProperties = 0
+  table spotsDistances = 0
+ }
+// An Argolight sample pattern E dataset.
+// It contains resolution data on the axis indicated:
+// - axis 1 = Y resolution = lines along X axis
+// - axis 2 = X resolution = lines along Y axis
+message ArgolightEDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  sample sample = 0
+  microscope microscope = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  argolightEInputData inputData = 0
+  argolightEInputParameters inputParameters = 0
+  argolightEOutput output = 0
+ }
+message ArgolightEInputData
+ {
+  image argolightEImage = 0
+ }
+message ArgolightEInputParameters
+ {
+  integer bitDepth = 0
+  float saturationThreshold = 0
+  integer orientationAxis = 0
+  float measuredBand = 0
+  float prominenceThreshold = 0
+ }
+message ArgolightEKeyValues
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+ repeated  integer channelNr = 0
+ repeated  integer focusSlice = 0
+ repeated  float rayleighResolutionPixels = 0
+ repeated  float rayleighResolutionMicrons = 0
+ repeated  float peakPositionA = 0
+ repeated  float peakPositionB = 0
+ repeated  float peakHeightA = 0
+ repeated  float peakHeightB = 0
+ repeated  float peakProminenceA = 0
+ repeated  float peakProminenceB = 0
+ }
+message ArgolightEOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
+  comment comment = 0
+ repeated  roi peaksRois = 0
+  argolightEKeyValues keyMeasurements = 0
+  table intensityProfiles = 0
+ }
 // A image channel
 message Channel
  {
@@ -208,7 +371,6 @@ message Image
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  datetime acquisitionDatetime = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -219,6 +381,7 @@ message Image
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
+  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
@@ -229,7 +392,6 @@ message ImageMask
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  datetime acquisitionDatetime = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -240,6 +402,7 @@ message ImageMask
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
+  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
@@ -273,6 +436,22 @@ message Mask
   integer y = 0
   integer x = 0
   imageMask mask = 0
+ }
+// A base object on which microscope-metrics runs the analysis
+message MetricsDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  sample sample = 0
+  microscope microscope = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  metricsInputData inputData = 0
+  metricsInputParameters inputParameters = 0
+  metricsOutput output = 0
  }
 // A collection of microscope-metrics datasets
 message MetricsDatasetCollection
@@ -465,7 +644,6 @@ message PSFBeadsOutput
   boolean validated = 0
   datetime validationDatetime = 0
   comment comment = 0
-  pSFBeadsKeyMeasurements keyMeasurements = 0
  repeated  roi analyzedBeadCenters = 0
  repeated  roi consideredBeadCentersLateralEdge = 0
  repeated  roi consideredBeadCentersSelfProximity = 0
@@ -474,6 +652,7 @@ message PSFBeadsOutput
  repeated  roi consideredBeadCentersZFitQuality = 0
  repeated  roi consideredBeadCentersYFitQuality = 0
  repeated  roi consideredBeadCentersXFitQuality = 0
+  pSFBeadsKeyMeasurements keyMeasurements = 0
   table beadProperties = 0
   table beadProfilesZ = 0
   table beadProfilesY = 0

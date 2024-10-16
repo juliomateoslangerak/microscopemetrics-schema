@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
-name: field_illumination_schema
+name: microscopemetrics_analyses_field_illumination_schema
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -43,9 +43,12 @@ classes:
 
   FieldIlluminationOutput:
     is_a: MetricsOutput
-    slots:
-      - key_measurements
     attributes:
+      key_measurements:
+        range: FieldIlluminationKeyMeasurements
+        description: >-
+          Key-Value pairs containing the Key measurements for the field illumination analysis
+        multivalued: false
       intensity_profiles:
         range: Table
         description: >-
@@ -146,12 +149,6 @@ classes:
 
 
 slots:
-  key_measurements:
-    range: FieldIlluminationKeyMeasurements
-    description: >-
-      Key-Value pairs containing the Key measurements for the field illumination analysis
-    multivalued: false
-
   # Inputs
   field_illumination_image:
     range: Image
