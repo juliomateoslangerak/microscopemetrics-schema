@@ -12,7 +12,7 @@ python = ">=3.9.18 <4"
 linkml-runtime = "^1.6.3"
 
 [tool.poetry.group.dev.dependencies]
-linkml = "^1.6.8"
+linkml = "^1.6.8, <1.8"
 mkdocs-material = "^8.2.8"
 mkdocs-mermaid2-plugin = "^1.1.1"
 hypothesis = "^6"
