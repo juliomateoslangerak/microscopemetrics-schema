@@ -8,6 +8,7 @@ prefixes:
 imports:
   - linkml:types
   - core_schema  # TODO: change to metrics:core_schema
+  - samples/homogeneous_field
 
 default_range: string
 
@@ -24,6 +25,8 @@ classes:
         range: FieldIlluminationInputParameters
       output:
         range: FieldIlluminationOutput
+      sample:
+        range: HomogeneousField
 
   FieldIlluminationInputData:
     is_a: MetricsInputData

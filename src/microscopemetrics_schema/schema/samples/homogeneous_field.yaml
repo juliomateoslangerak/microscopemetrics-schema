@@ -13,10 +13,15 @@ default_range: string
 
 
 classes:
+  HomogeneousField:
+      is_a: Sample
+      description: An homogeneous field.
+      abstract: true
+
   FluorescentHomogeneousThickField:
-    is_a: Sample
+    is_a: HomogeneousField
     description: An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
 
   FluorescentHomogeneousThinField:
-    is_a: Sample
+    is_a: HomogeneousField
     description: An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.

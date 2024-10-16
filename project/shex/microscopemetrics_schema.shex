@@ -188,7 +188,9 @@ CLOSED {
           ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/output>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationOutput>
-          ?
+          ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sample>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField> ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationDataset>
@@ -408,8 +410,12 @@ CLOSED {
 CLOSED {
     ( 
        $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField_tes>
-       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample> ] ?
+       ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField_tes>
+          ;
+          rdf:type [
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField>
+             ] ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField>
@@ -422,8 +428,12 @@ CLOSED {
 CLOSED {
     ( 
        $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField_tes>
-       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample> ] ?
+       ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField_tes>
+          ;
+          rdf:type [
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField>
+             ] ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField>
@@ -442,6 +452,23 @@ CLOSED {
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/HarmonizedMetricsDatasetCollection>
           ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField>  (
+
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField>
+    OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField>
+)
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField_struct> {
+    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample> ] ?
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField> ] ?
     )
 }
 
@@ -1071,11 +1098,8 @@ CLOSED {
 }
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample>  (
-
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField>
-    OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads>
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_struct> {

@@ -334,8 +334,7 @@
                     "type": "boolean"
                 },
                 "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The physical sample that was imaged"
+                    "$ref": "#/$defs/HomogeneousField"
                 }
             },
             "required": [

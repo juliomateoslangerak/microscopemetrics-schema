@@ -92,7 +92,6 @@ type FieldIlluminationDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
@@ -100,6 +99,7 @@ type FieldIlluminationDataset
     inputData: FieldIlluminationInputData
     inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
+    sample: HomogeneousField
   }
 
 type FieldIlluminationInputData
@@ -217,6 +217,14 @@ type HarmonizedMetricsDatasetCollection
     linkedReferences: [DataReference]
     datasets: [MetricsDataset]
     datasetClass: String!
+  }
+
+interface HomogeneousField
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
   }
 
 type Image

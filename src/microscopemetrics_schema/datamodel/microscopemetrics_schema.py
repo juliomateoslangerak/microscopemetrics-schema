@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-16T13:24:48
+# Generation date: 2024-10-16T13:31:18
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1279,6 +1279,7 @@ class FieldIlluminationDataset(MetricsDataset):
     input_data: Optional[Union[dict, "FieldIlluminationInputData"]] = None
     input_parameters: Optional[Union[dict, "FieldIlluminationInputParameters"]] = None
     output: Optional[Union[dict, "FieldIlluminationOutput"]] = None
+    sample: Optional[Union[dict, "HomogeneousField"]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self.input_data is not None and not isinstance(self.input_data, FieldIlluminationInputData):
@@ -1289,6 +1290,9 @@ class FieldIlluminationDataset(MetricsDataset):
 
         if self.output is not None and not isinstance(self.output, FieldIlluminationOutput):
             self.output = FieldIlluminationOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, HomogeneousField):
+            self.sample = HomogeneousField(**as_dict(self.sample))
 
         super().__post_init__(**kwargs)
 
@@ -2202,7 +2206,21 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
 
 
 @dataclass
-class FluorescentHomogeneousThickField(Sample):
+class HomogeneousField(Sample):
+    """
+    An homogeneous field.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/homogeneous_field/HomogeneousField"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/homogeneous_field/HomogeneousField"
+    class_name: ClassVar[str] = "HomogeneousField"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HomogeneousField
+
+    protocol: Union[str, ProtocolUrl] = None
+
+@dataclass
+class FluorescentHomogeneousThickField(HomogeneousField):
     """
     An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
     """
@@ -2216,7 +2234,7 @@ class FluorescentHomogeneousThickField(Sample):
     protocol: Union[str, ProtocolUrl] = None
 
 @dataclass
-class FluorescentHomogeneousThinField(Sample):
+class FluorescentHomogeneousThinField(HomogeneousField):
     """
     An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
     """
@@ -3075,6 +3093,9 @@ slots.fieldIlluminationDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SC
 
 slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/output'], name="fieldIlluminationDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__output, domain=None, range=Optional[Union[dict, FieldIlluminationOutput]])
+
+slots.fieldIlluminationDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/sample'], name="fieldIlluminationDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__sample, domain=None, range=Optional[Union[dict, HomogeneousField]])
 
 slots.fieldIlluminationOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/key_measurements'], name="fieldIlluminationOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__key_measurements, domain=None, range=Optional[Union[dict, FieldIlluminationKeyMeasurements]])

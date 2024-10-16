@@ -3905,6 +3905,19 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "fieldIlluminationDataset__sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sample",
+      "alias": "sample",
+      "owner": "FieldIlluminationDataset",
+      "domain_of": [
+        "FieldIlluminationDataset"
+      ],
+      "range": "HomogeneousField",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "fieldIlluminationOutput__key_measurements",
       "description": "Key-Value pairs containing the Key measurements for the field illumination analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
@@ -6019,14 +6032,14 @@
         "description",
         "metricsObject__data_reference",
         "metricsObject__linked_references",
-        "sample",
         "metricsDataset__microscope",
         "metricsDataset__experimenter",
         "metricsDataset__acquisition_datetime",
         "metricsDataset__processed",
         "fieldIlluminationDataset__input_data",
         "fieldIlluminationDataset__input_parameters",
-        "fieldIlluminationDataset__output"
+        "fieldIlluminationDataset__output",
+        "fieldIlluminationDataset__sample"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6043,6 +6056,11 @@
         {
           "name": "output",
           "range": "FieldIlluminationOutput",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "sample",
+          "range": "HomogeneousField",
           "@type": "SlotDefinition"
         }
       ],
@@ -6551,11 +6569,28 @@
       "@type": "ClassDefinition"
     },
     {
+      "name": "HomogeneousField",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
+      "description": "An homogeneous field.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
+      "is_a": "Sample",
+      "abstract": true,
+      "slots": [
+        "name",
+        "description",
+        "sample__protocol",
+        "sample__manufacturer"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
+      "@type": "ClassDefinition"
+    },
+    {
       "name": "FluorescentHomogeneousThickField",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
       "description": "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
-      "is_a": "Sample",
+      "is_a": "HomogeneousField",
       "slots": [
         "name",
         "description",
@@ -6571,7 +6606,7 @@
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField",
       "description": "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field",
-      "is_a": "Sample",
+      "is_a": "HomogeneousField",
       "slots": [
         "name",
         "description",
@@ -6613,7 +6648,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-10-16T13:05:00",
   "source_file_size": 848,
-  "generation_date": "2024-10-16T13:24:46",
+  "generation_date": "2024-10-16T13:31:16",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

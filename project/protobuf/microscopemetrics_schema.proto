@@ -79,7 +79,6 @@ message FieldIlluminationDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  sample sample = 0
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
@@ -87,6 +86,7 @@ message FieldIlluminationDataset
   fieldIlluminationInputData inputData = 0
   fieldIlluminationInputParameters inputParameters = 0
   fieldIlluminationOutput output = 0
+  homogeneousField sample = 0
  }
 message FieldIlluminationInputData
  {
