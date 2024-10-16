@@ -911,7 +911,7 @@ slots:
       
 
 subsets:
-  dangerous:
+  critical_parameter:
     description: >-
       A subset indicating that changing this parameter may damage the consistency of the analysis.
 
