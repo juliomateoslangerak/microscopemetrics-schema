@@ -11,6 +11,7 @@ microscope:
 sample:
   name: Chroma slides
   description: The old chroma slides
+  type: Slide
   protocol:
     name: "ExampleProtocol"
     type: "Protocol"
@@ -19,7 +20,6 @@ sample:
       - name: "John Doe"
         orcid: "https://orcid.org/0000-0000-0000-0001"
     url: "https://example.org/protocol/1"
-  manufacturer: Chroma
 input_data:
   field_illumination_image:
   - name: FI_60x_DAPI_2021-02-01
