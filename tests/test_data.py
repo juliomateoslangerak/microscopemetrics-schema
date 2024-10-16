@@ -8,7 +8,7 @@ from microscopemetrics_schema.datamodel.microscopemetrics_schema import (
     MetricsDataset,
     PSFBeadsDataset,
     FieldIlluminationDataset,
-    ArgolightBDataset,
+    # ArgolightBDataset,
 )
 
 ROOT = os.path.join(os.path.dirname(__file__), '..')
@@ -34,9 +34,9 @@ class TestData(unittest.TestCase):
                 obj = yaml_loader.load(path, target_class=FieldIlluminationDataset)
                 assert obj
 
-    def test_ArgolightBDataset(self):
-        """Data test."""
-        for path in EXAMPLE_FILES:
-            if "ArgolightBDataset" in path:
-                obj = yaml_loader.load(path, target_class=ArgolightBDataset)
-                assert obj
+    # def test_ArgolightBDataset(self):
+    #     """Data test."""
+    #     for path in EXAMPLE_FILES:
+    #         if "ArgolightBDataset" in path:
+    #             obj = yaml_loader.load(path, target_class=ArgolightBDataset)
+    #             assert obj

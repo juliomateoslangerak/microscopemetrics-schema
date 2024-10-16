@@ -22,6 +22,6 @@ imports:
   - core_schema
   - analyses/field_illumination_schema
   - analyses/psf_beads_schema
-  - analyses/argolight_schema
-  - samples/homogeneous_field
-  - samples/beads
+#  - analyses/argolight_schema
+#  - samples/homogeneous_field
+#  - samples/beads

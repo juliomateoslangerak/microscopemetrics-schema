@@ -28,12 +28,6 @@
 --     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsDataset_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: ArgolightBDataset_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: ArgolightEDataset_id Description: Autocreated FK slot
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
 -- # Class: "MetricsObject" Description: "A base object for all microscope-metrics objects."
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -188,7 +182,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Line" Description: "A line as defined by x1, y1, x2, y2 coordinates"
@@ -204,7 +197,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Rectangle" Description: "A rectangle as defined by x, y coordinates and width, height"
@@ -220,7 +212,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Ellipse" Description: "An ellipse as defined by x, y coordinates and x and y radii"
@@ -236,7 +227,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Polygon" Description: "A polygon as defined by a series of vertexes and a boolean to indicate if closed or not"
@@ -249,7 +239,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Vertex" Description: "A vertex as defined by x and y coordinates"
@@ -267,7 +256,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: ArgolightBCentersOfMass_id Description: Autocreated FK slot
 --     * Slot: mask_id Description: The mask image
 --     * Slot: fill_color_id Description: The fill color of the shape
 --     * Slot: stroke_color_id Description: The stroke color of the shape
@@ -314,18 +302,6 @@
 --     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "FluorescentHomogeneousThickField" Description: "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides."
---     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
--- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
---     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
 -- # Class: "FieldIlluminationDataset" Description: "A field illumination dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -362,13 +338,6 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
---     * Slot: id Description: 
---     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
 -- # Class: "PSFBeadsDataset" Description: "A PSF beads dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -413,95 +382,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightBDataset" Description: "An Argolight sample pattern B dataset. This pattern consists of an array of circles"
---     * Slot: id Description: 
---     * Slot: experimenter Description: The experimenter that performed the imaging experiment
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
---     * Slot: processed Description: Has the dataset been processed by microscope-metrics
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: input_data_id Description: 
---     * Slot: input_parameters_id Description: 
---     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
---     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightBInputData" Description: ""
---     * Slot: id Description: 
---     * Slot: argolight_b_image_id Description: Image of the argolight b pattern in the order TZYXC
--- # Class: "ArgolightBInputParameters" Description: ""
---     * Slot: id Description: 
---     * Slot: bit_depth Description: Detector bit depth
---     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
---     * Slot: spots_distance Description: Distance between argolight spots
---     * Slot: sigma_z Description: Smoothing factor for objects detection in the Z axis
---     * Slot: sigma_y Description: Smoothing factor for objects detection in the Y axis
---     * Slot: sigma_x Description: Smoothing factor for objects detection in the X axis
---     * Slot: remove_center_cross Description: Remove the center cross found in some Argolight patterns
--- # Class: "ArgolightBOutput" Description: ""
---     * Slot: id Description: 
---     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
---     * Slot: processing_log Description: The log of the processing by microscope-metrics
---     * Slot: validated Description: Has the dataset been validated by a human
---     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: spots_labels_image_id Description: Labels image of the argolight segmented spots provided in the order TZYXC. Image intensities correspond to ROI labels
---     * Slot: intensity_key_values_id Description: Key Intensity Measurements on Argolight spots
---     * Slot: distance_key_values_id Description: Key Distance Measurements on Argolight spots
---     * Slot: spots_properties_id Description: Table of properties of the argolight spots
---     * Slot: spots_distances_id Description: Table of distances between argolight spots
---     * Slot: comment_id Description: A human readable comment about the dataset
--- # Class: "ArgolightBCentersOfMass" Description: ""
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightBIntensityKeyValues" Description: ""
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightBDistanceKeyValues" Description: ""
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightEDataset" Description: "An Argolight sample pattern E dataset.It contains resolution data on the axis indicated:- axis 1 = Y resolution = lines along X axis- axis 2 = X resolution = lines along Y axis"
---     * Slot: id Description: 
---     * Slot: experimenter Description: The experimenter that performed the imaging experiment
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
---     * Slot: processed Description: Has the dataset been processed by microscope-metrics
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: input_data_id Description: 
---     * Slot: input_parameters_id Description: 
---     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
---     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "ArgolightEInputData" Description: ""
---     * Slot: id Description: 
---     * Slot: argolight_e_image_id Description: Image of the argolight e pattern provided in the order TZYXC
--- # Class: "ArgolightEInputParameters" Description: ""
---     * Slot: id Description: 
---     * Slot: bit_depth Description: Detector bit depth
---     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
---     * Slot: orientation_axis Description: Axis along which resolution is being measured. 1=Y, 2=X
---     * Slot: measured_band Description: Fraction of the image across which intensity profiles are measured
---     * Slot: prominence_threshold Description: Peak prominence used as a threshold to distinguish two peaks.  Defaults to the value defined by the Rayleigh criteria
--- # Class: "ArgolightEOutput" Description: ""
---     * Slot: id Description: 
---     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
---     * Slot: processing_log Description: The log of the processing by microscope-metrics
---     * Slot: validated Description: Has the dataset been validated by a human
---     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: key_measurements_id Description: Key Measurements on Argolight E images
---     * Slot: intensity_profiles_id Description: Intensity profiles of the argolight lines provided as tables. One table per channel
---     * Slot: comment_id Description: A human readable comment about the dataset
--- # Class: "ArgolightEKeyValues" Description: ""
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "MicroscopeCollection_microscopes" Description: ""
 --     * Slot: MicroscopeCollection_id Description: Autocreated FK slot
@@ -923,141 +803,6 @@
 -- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_std" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: average_bead_intensity_std Description: Standard deviation of the intensity for the average bead. One value per channel.
--- # Class: "ArgolightBInputParameters_lower_threshold_correction_factors" Description: ""
---     * Slot: ArgolightBInputParameters_id Description: Autocreated FK slot
---     * Slot: lower_threshold_correction_factors Description: Correction factor for the lower thresholds.  Must be a list with length equal to the number of channels or a single float if all equal
--- # Class: "ArgolightBInputParameters_upper_threshold_correction_factors" Description: ""
---     * Slot: ArgolightBInputParameters_id Description: Autocreated FK slot
---     * Slot: upper_threshold_correction_factors Description: Correction factor for the upper thresholds. Must be a tuple with length equal to the number of channels or a single float if all equal
--- # Class: "ArgolightBOutput_spots_centers_of_mass" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: spots_centers_of_mass_id Description: Centers of mass of the argolight spots provided as a list of ROIs. One per channel
--- # Class: "ArgolightBOutput_processing_application" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: processing_application Description: The application used to process the dataset
--- # Class: "ArgolightBOutput_processing_version" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: processing_version Description: The version of the application used to process the dataset
--- # Class: "ArgolightBOutput_processing_entity" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: processing_entity Description: The entity that processed the dataset
--- # Class: "ArgolightBOutput_warnings" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: warnings Description: The warnings of the processing by microscope-metrics
--- # Class: "ArgolightBOutput_errors" Description: ""
---     * Slot: ArgolightBOutput_id Description: Autocreated FK slot
---     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "ArgolightBIntensityKeyValues_channel_nr" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: channel_nr Description: The channel number to which the measurements apply
--- # Class: "ArgolightBIntensityKeyValues_nr_of_spots" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: nr_of_spots Description: Number of argolight spots detected for each channel
--- # Class: "ArgolightBIntensityKeyValues_intensity_max_spot" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: intensity_max_spot Description: Integrated intensity of the most intense spot for each channel
--- # Class: "ArgolightBIntensityKeyValues_intensity_max_spot_roi" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: intensity_max_spot_roi Description: ROI number of the most intense spot for each channel
--- # Class: "ArgolightBIntensityKeyValues_intensity_min_spot" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: intensity_min_spot Description: Integrated intensity of the least intense spot for each channel
--- # Class: "ArgolightBIntensityKeyValues_intensity_min_spot_roi" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: intensity_min_spot_roi Description: ROI number of the least intense spot for each channel
--- # Class: "ArgolightBIntensityKeyValues_mean_intensity" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: mean_intensity Description: Mean of all spots integrated intensity for each channel
--- # Class: "ArgolightBIntensityKeyValues_median_intensity" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: median_intensity Description: Median of all spots integrated intensity for each channel
--- # Class: "ArgolightBIntensityKeyValues_std_mean_intensity" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: std_mean_intensity Description: Standard deviation of all spots integrated intensity for each channel
--- # Class: "ArgolightBIntensityKeyValues_mad_mean_intensity" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: mad_mean_intensity Description: Median absolute deviation of all spots integrated intensity for each channel
--- # Class: "ArgolightBIntensityKeyValues_min_max_intensity_ratio" Description: ""
---     * Slot: ArgolightBIntensityKeyValues_id Description: Autocreated FK slot
---     * Slot: min_max_intensity_ratio Description: Ratio between the integrated intensities between the most intense and the least intense spots for each channel
--- # Class: "ArgolightBDistanceKeyValues_channel_A" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: channel_A Description: The first channel number to which the measurements apply
--- # Class: "ArgolightBDistanceKeyValues_channel_B" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: channel_B Description: The second channel number to which the measurements apply
--- # Class: "ArgolightBDistanceKeyValues_mean_3d_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: mean_3d_dist Description: Mean of the 3D distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_median_3d_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: median_3d_dist Description: Median of the 3D distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_std_3d_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: std_3d_dist Description: Standard deviation of the 3D distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_mad_3d_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: mad_3d_dist Description: Median absolute deviation of the 3D distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_mean_z_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: mean_z_dist Description: Mean of the Z distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_median_z_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: median_z_dist Description: Median of the Z distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_std_z_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: std_z_dist Description: Standard deviation of the Z distances between spots for each permutation of channel A and B
--- # Class: "ArgolightBDistanceKeyValues_mad_z_dist" Description: ""
---     * Slot: ArgolightBDistanceKeyValues_id Description: Autocreated FK slot
---     * Slot: mad_z_dist Description: Median absolute deviation of the Z distances between spots for each permutation of channel A and B
--- # Class: "ArgolightEOutput_peaks_rois" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: peaks_rois_id Description: ROIs of the peaks found in the argolight images. One per channel
--- # Class: "ArgolightEOutput_processing_application" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: processing_application Description: The application used to process the dataset
--- # Class: "ArgolightEOutput_processing_version" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: processing_version Description: The version of the application used to process the dataset
--- # Class: "ArgolightEOutput_processing_entity" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: processing_entity Description: The entity that processed the dataset
--- # Class: "ArgolightEOutput_warnings" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: warnings Description: The warnings of the processing by microscope-metrics
--- # Class: "ArgolightEOutput_errors" Description: ""
---     * Slot: ArgolightEOutput_id Description: Autocreated FK slot
---     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "ArgolightEKeyValues_channel_nr" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: channel_nr Description: The channel number to which the measurements apply
--- # Class: "ArgolightEKeyValues_focus_slice" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: focus_slice Description: Z position at which focus has been measured. One value per channel
--- # Class: "ArgolightEKeyValues_rayleigh_resolution_pixels" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: rayleigh_resolution_pixels Description: Rayleigh resolution measured in pixels. One value per channel
--- # Class: "ArgolightEKeyValues_rayleigh_resolution_microns" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: rayleigh_resolution_microns Description: Rayleigh resolution measured in microns. One value per channel
--- # Class: "ArgolightEKeyValues_peak_position_A" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_position_A Description: Position, in pixels, of first peak in the intensity profiles. One value per channel
--- # Class: "ArgolightEKeyValues_peak_position_B" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_position_B Description: Position, in pixels, of second peak in the intensity profiles. One value per channel
--- # Class: "ArgolightEKeyValues_peak_height_A" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_height_A Description: Height of first peak in the intensity profiles. One value per channel
--- # Class: "ArgolightEKeyValues_peak_height_B" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_height_B Description: Height of second peak in the intensity profiles. One value per channel
--- # Class: "ArgolightEKeyValues_peak_prominence_A" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_prominence_A Description: Prominence of first peak in the intensity profiles. One value per channel
--- # Class: "ArgolightEKeyValues_peak_prominence_B" Description: ""
---     * Slot: ArgolightEKeyValues_id Description: Autocreated FK slot
---     * Slot: peak_prominence_B Description: Prominence of second peak in the intensity profiles. One value per channel
 
 CREATE TABLE "MetaObject" (
 	id INTEGER NOT NULL, 
@@ -1093,12 +838,6 @@ CREATE TABLE "DataReference" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	"PSFBeadsDataset_id" INTEGER, 
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
-	"ArgolightBDataset_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	"ArgolightEDataset_id" INTEGER, 
-	"ArgolightEKeyValues_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (omero_host, omero_object_type, omero_object_id), 
 	FOREIGN KEY("MetricsObject_id") REFERENCES "MetricsObject" (id), 
@@ -1117,13 +856,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("FieldIlluminationDataset_id") REFERENCES "FieldIlluminationDataset" (id), 
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id), 
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
-	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
-	FOREIGN KEY("ArgolightBDataset_id") REFERENCES "ArgolightBDataset" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id), 
-	FOREIGN KEY("ArgolightEDataset_id") REFERENCES "ArgolightEDataset" (id), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
 CREATE TABLE "MetricsObject" (
 	id INTEGER NOT NULL, 
@@ -1376,7 +1109,7 @@ CREATE TABLE "FieldIlluminationDataset" (
 	FOREIGN KEY(input_data_id) REFERENCES "FieldIlluminationInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "FieldIlluminationInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "FieldIlluminationOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1434,7 +1167,7 @@ CREATE TABLE "PSFBeadsDataset" (
 	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1485,148 +1218,6 @@ CREATE TABLE "PSFBeadsKeyMeasurements" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightBDataset" (
-	id INTEGER NOT NULL, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	input_data_id INTEGER, 
-	input_parameters_id INTEGER, 
-	output_id INTEGER, 
-	sample_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_data_id) REFERENCES "ArgolightBInputData" (id), 
-	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightBInputParameters" (id), 
-	FOREIGN KEY(output_id) REFERENCES "ArgolightBOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightBInputData" (
-	id INTEGER NOT NULL, 
-	argolight_b_image_id INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(argolight_b_image_id) REFERENCES "Image" (id)
-);
-CREATE TABLE "ArgolightBInputParameters" (
-	id INTEGER NOT NULL, 
-	bit_depth INTEGER, 
-	saturation_threshold FLOAT NOT NULL, 
-	spots_distance FLOAT NOT NULL, 
-	sigma_z FLOAT NOT NULL, 
-	sigma_y FLOAT NOT NULL, 
-	sigma_x FLOAT NOT NULL, 
-	remove_center_cross BOOLEAN, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "ArgolightBOutput" (
-	id INTEGER NOT NULL, 
-	processing_datetime DATETIME NOT NULL, 
-	processing_log TEXT, 
-	validated BOOLEAN NOT NULL, 
-	validation_datetime DATETIME, 
-	spots_labels_image_id INTEGER, 
-	intensity_key_values_id INTEGER, 
-	distance_key_values_id INTEGER, 
-	spots_properties_id INTEGER, 
-	spots_distances_id INTEGER, 
-	comment_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(spots_labels_image_id) REFERENCES "ImageMask" (id), 
-	FOREIGN KEY(intensity_key_values_id) REFERENCES "ArgolightBIntensityKeyValues" (id), 
-	FOREIGN KEY(distance_key_values_id) REFERENCES "ArgolightBDistanceKeyValues" (id), 
-	FOREIGN KEY(spots_properties_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(spots_distances_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
-);
-CREATE TABLE "ArgolightBCentersOfMass" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightEDataset" (
-	id INTEGER NOT NULL, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	input_data_id INTEGER, 
-	input_parameters_id INTEGER, 
-	output_id INTEGER, 
-	sample_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_data_id) REFERENCES "ArgolightEInputData" (id), 
-	FOREIGN KEY(input_parameters_id) REFERENCES "ArgolightEInputParameters" (id), 
-	FOREIGN KEY(output_id) REFERENCES "ArgolightEOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "ArgolightEInputData" (
-	id INTEGER NOT NULL, 
-	argolight_e_image_id INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(argolight_e_image_id) REFERENCES "Image" (id)
-);
-CREATE TABLE "ArgolightEInputParameters" (
-	id INTEGER NOT NULL, 
-	bit_depth INTEGER, 
-	saturation_threshold FLOAT NOT NULL, 
-	orientation_axis INTEGER NOT NULL, 
-	measured_band FLOAT NOT NULL, 
-	prominence_threshold FLOAT NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "ArgolightEOutput" (
-	id INTEGER NOT NULL, 
-	processing_datetime DATETIME NOT NULL, 
-	processing_log TEXT, 
-	validated BOOLEAN NOT NULL, 
-	validation_datetime DATETIME, 
-	key_measurements_id INTEGER, 
-	intensity_profiles_id INTEGER, 
-	comment_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(key_measurements_id) REFERENCES "ArgolightEKeyValues" (id), 
-	FOREIGN KEY(intensity_profiles_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
-);
-CREATE TABLE "ArgolightEKeyValues" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "Sample" (
@@ -1683,12 +1274,10 @@ CREATE TABLE "Point" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
@@ -1705,12 +1294,10 @@ CREATE TABLE "Line" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
@@ -1727,12 +1314,10 @@ CREATE TABLE "Rectangle" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
@@ -1749,12 +1334,10 @@ CREATE TABLE "Ellipse" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
@@ -1768,12 +1351,10 @@ CREATE TABLE "Polygon" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
@@ -1788,13 +1369,11 @@ CREATE TABLE "Mask" (
 	name TEXT, 
 	description TEXT, 
 	"Roi_id" INTEGER, 
-	"ArgolightBCentersOfMass_id" INTEGER, 
 	mask_id INTEGER, 
 	fill_color_id INTEGER, 
 	stroke_color_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("ArgolightBCentersOfMass_id") REFERENCES "ArgolightBCentersOfMass" (id), 
 	FOREIGN KEY(mask_id) REFERENCES "ImageMask" (id), 
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
@@ -1810,34 +1389,6 @@ CREATE TABLE "RoiMeasurements" (
 	measurements_table_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(measurements_table_id) REFERENCES "Table" (id)
-);
-CREATE TABLE "FluorescentHomogeneousThickField" (
-	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
-	manufacturer TEXT, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
-);
-CREATE TABLE "FluorescentHomogeneousThinField" (
-	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
-	manufacturer TEXT, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
-);
-CREATE TABLE "PSFBeads" (
-	id INTEGER NOT NULL, 
-	bead_diameter_micron FLOAT NOT NULL, 
-	protocol TEXT NOT NULL, 
-	manufacturer TEXT, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "MicroscopeCollection_microscopes" (
 	"MicroscopeCollection_id" INTEGER, 
@@ -2639,278 +2190,6 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_std" (
 	average_bead_intensity_std FLOAT, 
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_std), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);
-CREATE TABLE "ArgolightBInputParameters_lower_threshold_correction_factors" (
-	"ArgolightBInputParameters_id" INTEGER, 
-	lower_threshold_correction_factors FLOAT, 
-	PRIMARY KEY ("ArgolightBInputParameters_id", lower_threshold_correction_factors), 
-	FOREIGN KEY("ArgolightBInputParameters_id") REFERENCES "ArgolightBInputParameters" (id)
-);
-CREATE TABLE "ArgolightBInputParameters_upper_threshold_correction_factors" (
-	"ArgolightBInputParameters_id" INTEGER, 
-	upper_threshold_correction_factors FLOAT, 
-	PRIMARY KEY ("ArgolightBInputParameters_id", upper_threshold_correction_factors), 
-	FOREIGN KEY("ArgolightBInputParameters_id") REFERENCES "ArgolightBInputParameters" (id)
-);
-CREATE TABLE "ArgolightBOutput_spots_centers_of_mass" (
-	"ArgolightBOutput_id" INTEGER, 
-	spots_centers_of_mass_id INTEGER, 
-	PRIMARY KEY ("ArgolightBOutput_id", spots_centers_of_mass_id), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id), 
-	FOREIGN KEY(spots_centers_of_mass_id) REFERENCES "ArgolightBCentersOfMass" (id)
-);
-CREATE TABLE "ArgolightBOutput_processing_application" (
-	"ArgolightBOutput_id" INTEGER, 
-	processing_application TEXT NOT NULL, 
-	PRIMARY KEY ("ArgolightBOutput_id", processing_application), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id)
-);
-CREATE TABLE "ArgolightBOutput_processing_version" (
-	"ArgolightBOutput_id" INTEGER, 
-	processing_version TEXT NOT NULL, 
-	PRIMARY KEY ("ArgolightBOutput_id", processing_version), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id)
-);
-CREATE TABLE "ArgolightBOutput_processing_entity" (
-	"ArgolightBOutput_id" INTEGER, 
-	processing_entity TEXT, 
-	PRIMARY KEY ("ArgolightBOutput_id", processing_entity), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id)
-);
-CREATE TABLE "ArgolightBOutput_warnings" (
-	"ArgolightBOutput_id" INTEGER, 
-	warnings TEXT, 
-	PRIMARY KEY ("ArgolightBOutput_id", warnings), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id)
-);
-CREATE TABLE "ArgolightBOutput_errors" (
-	"ArgolightBOutput_id" INTEGER, 
-	errors TEXT, 
-	PRIMARY KEY ("ArgolightBOutput_id", errors), 
-	FOREIGN KEY("ArgolightBOutput_id") REFERENCES "ArgolightBOutput" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_channel_nr" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	channel_nr INTEGER, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", channel_nr), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_nr_of_spots" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	nr_of_spots INTEGER, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", nr_of_spots), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_intensity_max_spot" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	intensity_max_spot FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", intensity_max_spot), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_intensity_max_spot_roi" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	intensity_max_spot_roi INTEGER, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", intensity_max_spot_roi), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_intensity_min_spot" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	intensity_min_spot FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", intensity_min_spot), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_intensity_min_spot_roi" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	intensity_min_spot_roi INTEGER, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", intensity_min_spot_roi), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_mean_intensity" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	mean_intensity FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", mean_intensity), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_median_intensity" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	median_intensity FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", median_intensity), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_std_mean_intensity" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	std_mean_intensity FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", std_mean_intensity), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_mad_mean_intensity" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	mad_mean_intensity FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", mad_mean_intensity), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBIntensityKeyValues_min_max_intensity_ratio" (
-	"ArgolightBIntensityKeyValues_id" INTEGER, 
-	min_max_intensity_ratio FLOAT, 
-	PRIMARY KEY ("ArgolightBIntensityKeyValues_id", min_max_intensity_ratio), 
-	FOREIGN KEY("ArgolightBIntensityKeyValues_id") REFERENCES "ArgolightBIntensityKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_channel_A" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	"channel_A" INTEGER, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", "channel_A"), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_channel_B" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	"channel_B" INTEGER, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", "channel_B"), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_mean_3d_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	mean_3d_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", mean_3d_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_median_3d_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	median_3d_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", median_3d_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_std_3d_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	std_3d_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", std_3d_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_mad_3d_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	mad_3d_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", mad_3d_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_mean_z_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	mean_z_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", mean_z_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_median_z_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	median_z_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", median_z_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_std_z_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	std_z_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", std_z_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightBDistanceKeyValues_mad_z_dist" (
-	"ArgolightBDistanceKeyValues_id" INTEGER, 
-	mad_z_dist FLOAT, 
-	PRIMARY KEY ("ArgolightBDistanceKeyValues_id", mad_z_dist), 
-	FOREIGN KEY("ArgolightBDistanceKeyValues_id") REFERENCES "ArgolightBDistanceKeyValues" (id)
-);
-CREATE TABLE "ArgolightEOutput_peaks_rois" (
-	"ArgolightEOutput_id" INTEGER, 
-	peaks_rois_id INTEGER, 
-	PRIMARY KEY ("ArgolightEOutput_id", peaks_rois_id), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id), 
-	FOREIGN KEY(peaks_rois_id) REFERENCES "Roi" (id)
-);
-CREATE TABLE "ArgolightEOutput_processing_application" (
-	"ArgolightEOutput_id" INTEGER, 
-	processing_application TEXT NOT NULL, 
-	PRIMARY KEY ("ArgolightEOutput_id", processing_application), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id)
-);
-CREATE TABLE "ArgolightEOutput_processing_version" (
-	"ArgolightEOutput_id" INTEGER, 
-	processing_version TEXT NOT NULL, 
-	PRIMARY KEY ("ArgolightEOutput_id", processing_version), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id)
-);
-CREATE TABLE "ArgolightEOutput_processing_entity" (
-	"ArgolightEOutput_id" INTEGER, 
-	processing_entity TEXT, 
-	PRIMARY KEY ("ArgolightEOutput_id", processing_entity), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id)
-);
-CREATE TABLE "ArgolightEOutput_warnings" (
-	"ArgolightEOutput_id" INTEGER, 
-	warnings TEXT, 
-	PRIMARY KEY ("ArgolightEOutput_id", warnings), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id)
-);
-CREATE TABLE "ArgolightEOutput_errors" (
-	"ArgolightEOutput_id" INTEGER, 
-	errors TEXT, 
-	PRIMARY KEY ("ArgolightEOutput_id", errors), 
-	FOREIGN KEY("ArgolightEOutput_id") REFERENCES "ArgolightEOutput" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_channel_nr" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	channel_nr INTEGER, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", channel_nr), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_focus_slice" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	focus_slice INTEGER, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", focus_slice), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_rayleigh_resolution_pixels" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	rayleigh_resolution_pixels FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", rayleigh_resolution_pixels), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_rayleigh_resolution_microns" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	rayleigh_resolution_microns FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", rayleigh_resolution_microns), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_position_A" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_position_A" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_position_A"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_position_B" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_position_B" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_position_B"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_height_A" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_height_A" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_height_A"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_height_B" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_height_B" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_height_B"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_prominence_A" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_prominence_A" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_prominence_A"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
-);
-CREATE TABLE "ArgolightEKeyValues_peak_prominence_B" (
-	"ArgolightEKeyValues_id" INTEGER, 
-	"peak_prominence_B" FLOAT, 
-	PRIMARY KEY ("ArgolightEKeyValues_id", "peak_prominence_B"), 
-	FOREIGN KEY("ArgolightEKeyValues_id") REFERENCES "ArgolightEKeyValues" (id)
 );
 CREATE TABLE "MetricsOutput" (
 	id INTEGER NOT NULL, 
