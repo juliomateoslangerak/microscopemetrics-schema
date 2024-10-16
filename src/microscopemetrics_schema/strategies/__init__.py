@@ -1,4 +1,5 @@
 from hypothesis import strategies as st
+from pydantic.v1.schema import schema
 
 from ..datamodel import microscopemetrics_schema as mm_schema
 
@@ -565,6 +566,30 @@ def st_mm_tag(
 
 # Field Illumination
 @st.composite
+def st_mm_homogeneous_field_sample(
+    draw,
+    sample=st_mm_sample(),
+) -> mm_schema.HomogeneousField:
+    return draw(sample)
+
+
+@st.composite
+def st_mm_homogeneous_thin_field_sample(
+    draw,
+    sample=st_mm_homogeneous_field_sample(),
+) -> mm_schema.FluorescentHomogeneousThinField:
+    return draw(sample)
+
+
+@st.composite
+def st_mm_homogeneous_thick_field_sample(
+    draw,
+    sample=st_mm_homogeneous_field_sample(),
+) -> mm_schema.FluorescentHomogeneousThickField:
+    return draw(sample)
+
+
+@st.composite
 def st_mm_field_illumination_input_data(
     draw,
     field_illumination_image=st.lists(st_mm_image(), min_size=1, max_size=3),
@@ -572,6 +597,7 @@ def st_mm_field_illumination_input_data(
     return mm_schema.FieldIlluminationInputData(
         field_illumination_image=draw(field_illumination_image),
     )
+
 
 @st.composite
 def st_mm_field_illumination_input_parameters(
@@ -608,6 +634,7 @@ def st_mm_field_illumination_output(
         comment=mm_output.comment,
     )
 
+
 @st.composite
 def st_mm_field_illumination_unprocessed_dataset(
     draw,
@@ -616,6 +643,10 @@ def st_mm_field_illumination_unprocessed_dataset(
         processed=st.just(False),
         input_data=st_mm_field_illumination_input_data(),
         input_parameters=st_mm_field_illumination_input_parameters(),
+        sample=st.one_of(
+            st_mm_homogeneous_thin_field_sample(),
+            st_mm_homogeneous_thick_field_sample(),
+        )
     ),
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)
@@ -630,12 +661,27 @@ def st_mm_field_illumination_processed_dataset(
         input_data=st_mm_field_illumination_input_data(),
         input_parameters=st_mm_field_illumination_input_parameters(),
         output=st_mm_field_illumination_output(),
+        sample=st.one_of(
+            st_mm_homogeneous_thin_field_sample(),
+            st_mm_homogeneous_thick_field_sample(),
+        )
     ),
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)
 
 
 # PSF Beads
+@st.composite
+def st_mm_psf_beads_sample(
+    draw,
+    sample=st_mm_sample(),
+) -> mm_schema.PSFBeads:
+    return mm_schema.PSFBeads(
+        bead_diameter_micron=draw(st.floats(min_value=0.1, max_value=0.5)),
+        **draw(sample)._as_dict,
+    )
+
+
 @st.composite
 def st_mm_psf_beads_input_data(
     draw,
@@ -644,6 +690,7 @@ def st_mm_psf_beads_input_data(
     return mm_schema.PSFBeadsInputData(
         psf_beads_images=draw(psf_beads_images),
     )
+
 
 @st.composite
 def st_mm_psf_beads_input_parameters(
@@ -692,6 +739,7 @@ def st_mm_psf_beads_unprocessed_dataset(
     draw,
     dataset=st_mm_dataset(
         target_class=mm_schema.PSFBeadsDataset,
+        sample=st_mm_psf_beads_sample(),
         processed=st.just(False),
         input_data=st_mm_psf_beads_input_data(),
         input_parameters=st_mm_psf_beads_input_parameters(),
@@ -705,6 +753,7 @@ def st_mm_psf_beads_processed_dataset(
     draw,
     dataset=st_mm_dataset(
         target_class=mm_schema.PSFBeadsDataset,
+        sample=st_mm_psf_beads_sample(),
         processed=st.just(True),
         input_data=st_mm_psf_beads_input_data(),
         input_parameters=st_mm_psf_beads_input_parameters(),
