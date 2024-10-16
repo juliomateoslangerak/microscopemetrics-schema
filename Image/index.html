@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Image/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: Image - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -505,84 +505,84 @@ attributes:
     description: The physical size in the voxel in the x dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   voxel_size_y_micron:
     name: voxel_size_y_micron
     description: The physical size in the voxel in the y dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   voxel_size_z_micron:
     name: voxel_size_z_micron
     description: The physical size in the voxel in the z dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   shape_x:
     name: shape_x
     description: The shape of the image in the x dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_y:
     name: shape_y
     description: The shape of the image in the y dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_z:
     name: shape_z
     description: The shape of the image in the z dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_c:
     name: shape_c
     description: The shape of the image in the c dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_t:
     name: shape_t
     description: The shape of the image in the t dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   time_series:
     name: time_series
     implements:
@@ -607,22 +607,22 @@ attributes:
     name: acquisition_datetime
     description: The datetime of the acquisition
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    multivalued: false
     domain_of:
     - MetricsDataset
     - Image
     range: datetime
     required: false
+    multivalued: false
   source_images:
     name: source_images
     description: A list of references linking to the images that were used as a source
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
     domain_of:
     - Image
     range: DataReference
     required: false
+    multivalued: true
     inlined: true
     inlined_as_list: true
   array_data:
@@ -630,11 +630,11 @@ attributes:
     description: A non-required slot for non-serializable array data object
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     domain_of:
     - Image
     range: MetaObject
     required: false
+    multivalued: false
 
 </code></pre>
 </details>
@@ -650,67 +650,66 @@ attributes:
     description: The physical size in the voxel in the x dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: voxel_size_x_micron
     owner: Image
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   voxel_size_y_micron:
     name: voxel_size_y_micron
     description: The physical size in the voxel in the y dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: voxel_size_y_micron
     owner: Image
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   voxel_size_z_micron:
     name: voxel_size_z_micron
     description: The physical size in the voxel in the z dimension in microns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: voxel_size_z_micron
     owner: Image
     domain_of:
     - Image
     range: float
     required: false
+    multivalued: false
   shape_x:
     name: shape_x
     description: The shape of the image in the x dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: shape_x
     owner: Image
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_y:
     name: shape_y
     description: The shape of the image in the y dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: shape_y
     owner: Image
     domain_of:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_z:
     name: shape_z
     description: The shape of the image in the z dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     alias: shape_z
     owner: Image
@@ -718,12 +717,12 @@ attributes:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_c:
     name: shape_c
     description: The shape of the image in the c dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     alias: shape_c
     owner: Image
@@ -731,12 +730,12 @@ attributes:
     - Image
     range: integer
     required: true
+    multivalued: false
   shape_t:
     name: shape_t
     description: The shape of the image in the t dimension
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     ifabsent: int(1)
     alias: shape_t
     owner: Image
@@ -744,6 +743,7 @@ attributes:
     - Image
     range: integer
     required: true
+    multivalued: false
   time_series:
     name: time_series
     implements:
@@ -772,7 +772,6 @@ attributes:
     name: acquisition_datetime
     description: The datetime of the acquisition
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    multivalued: false
     alias: acquisition_datetime
     owner: Image
     domain_of:
@@ -780,18 +779,19 @@ attributes:
     - Image
     range: datetime
     required: false
+    multivalued: false
   source_images:
     name: source_images
     description: A list of references linking to the images that were used as a source
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
     alias: source_images
     owner: Image
     domain_of:
     - Image
     range: DataReference
     required: false
+    multivalued: true
     inlined: true
     inlined_as_list: true
   array_data:
@@ -799,37 +799,37 @@ attributes:
     description: A non-required slot for non-serializable array data object
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: array_data
     owner: Image
     domain_of:
     - Image
     range: MetaObject
     required: false
+    multivalued: false
   data_reference:
     name: data_reference
     description: A reference to the data
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: false
     alias: data_reference
     owner: Image
     domain_of:
     - MetricsObject
     range: DataReference
     required: false
+    multivalued: false
   linked_references:
     name: linked_references
     description: A list of linked references
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
-    multivalued: true
     alias: linked_references
     owner: Image
     domain_of:
     - MetricsObject
     range: DataReference
     required: false
+    multivalued: true
     inlined: true
     inlined_as_list: true
   name:
@@ -837,7 +837,6 @@ attributes:
     description: The human readable name of an entity
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     alias: name
     owner: Image
     domain_of:
@@ -845,12 +844,12 @@ attributes:
     - Experimenter
     range: string
     required: false
+    multivalued: false
   description:
     name: description
     description: A human readable description of an entity
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     alias: description
     owner: Image
     domain_of:
@@ -858,6 +857,7 @@ attributes:
     - Tag
     range: string
     required: false
+    multivalued: false
 
 </code></pre>
 </details>
@@ -886,5 +886,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script><script type="module">import mermaid from "https://unpkg.com/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
 </html>

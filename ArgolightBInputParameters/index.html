@@ -7,7 +7,7 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <link href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/ArgolightBInputParameters/" rel="canonical"/>
 <link href="../assets/images/favicon.png" rel="icon"/>
-<meta content="mkdocs-1.6.0, mkdocs-material-8.5.10" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-8.5.10" name="generator"/>
 <title>Class: ArgolightBInputParameters - microscopemetrics-schema</title>
 <link href="../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
@@ -369,43 +369,29 @@ slots:
 slot_usage:
   saturation_threshold:
     name: saturation_threshold
-    domain_of:
-    - FieldIlluminationInputParameters
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
-    - ArgolightEInputParameters
     required: true
   sigma_z:
     name: sigma_z
     description: Smoothing factor for objects detection in the Z axis
-    multivalued: false
     ifabsent: float(1.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 5.0
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
-    multivalued: false
     ifabsent: float(3.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
-    multivalued: false
     ifabsent: float(3.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
 
@@ -419,43 +405,29 @@ is_a: MetricsInputParameters
 slot_usage:
   saturation_threshold:
     name: saturation_threshold
-    domain_of:
-    - FieldIlluminationInputParameters
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
-    - ArgolightEInputParameters
     required: true
   sigma_z:
     name: sigma_z
     description: Smoothing factor for objects detection in the Z axis
-    multivalued: false
     ifabsent: float(1.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 5.0
   sigma_y:
     name: sigma_y
     description: Smoothing factor for objects detection in the Y axis
-    multivalued: false
     ifabsent: float(3.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
   sigma_x:
     name: sigma_x
     description: Smoothing factor for objects detection in the X axis
-    multivalued: false
     ifabsent: float(3.0)
-    domain_of:
-    - PSFBeadsInputParameters
-    - ArgolightBInputParameters
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
 attributes:
@@ -464,7 +436,6 @@ attributes:
     description: Detector bit depth
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     alias: bit_depth
     owner: ArgolightBInputParameters
     domain_of:
@@ -473,6 +444,7 @@ attributes:
     - ArgolightBInputParameters
     - ArgolightEInputParameters
     range: integer
+    multivalued: false
     minimum_value: 1
     maximum_value: 64
   saturation_threshold:
@@ -482,7 +454,6 @@ attributes:
       is not performed.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     ifabsent: float(0.01)
     alias: saturation_threshold
     owner: ArgolightBInputParameters
@@ -493,6 +464,7 @@ attributes:
     - ArgolightEInputParameters
     range: float
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   spots_distance:
@@ -500,19 +472,18 @@ attributes:
     description: Distance between argolight spots
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     alias: spots_distance
     owner: ArgolightBInputParameters
     domain_of:
     - ArgolightBInputParameters
     range: float
     required: true
+    multivalued: false
   sigma_z:
     name: sigma_z
     description: Smoothing factor for objects detection in the Z axis
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     ifabsent: float(1.0)
     alias: sigma_z
     owner: ArgolightBInputParameters
@@ -521,6 +492,7 @@ attributes:
     - ArgolightBInputParameters
     range: float
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 5.0
   sigma_y:
@@ -528,7 +500,6 @@ attributes:
     description: Smoothing factor for objects detection in the Y axis
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     ifabsent: float(3.0)
     alias: sigma_y
     owner: ArgolightBInputParameters
@@ -537,6 +508,7 @@ attributes:
     - ArgolightBInputParameters
     range: float
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
   sigma_x:
@@ -544,7 +516,6 @@ attributes:
     description: Smoothing factor for objects detection in the X axis
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     ifabsent: float(3.0)
     alias: sigma_x
     owner: ArgolightBInputParameters
@@ -553,6 +524,7 @@ attributes:
     - ArgolightBInputParameters
     range: float
     required: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 10.0
   lower_threshold_correction_factors:
@@ -561,32 +533,31 @@ attributes:
       length equal to the number of channels or a single float if all equal
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: true
     alias: lower_threshold_correction_factors
     owner: ArgolightBInputParameters
     domain_of:
     - ArgolightBInputParameters
     range: float
     required: false
+    multivalued: true
   upper_threshold_correction_factors:
     name: upper_threshold_correction_factors
     description: Correction factor for the upper thresholds. Must be a tuple with
       length equal to the number of channels or a single float if all equal
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: true
     alias: upper_threshold_correction_factors
     owner: ArgolightBInputParameters
     domain_of:
     - ArgolightBInputParameters
     range: float
     required: false
+    multivalued: true
   remove_center_cross:
     name: remove_center_cross
     description: Remove the center cross found in some Argolight patterns
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
     rank: 1000
-    multivalued: false
     ifabsent: 'False'
     alias: remove_center_cross
     owner: ArgolightBInputParameters
@@ -594,6 +565,7 @@ attributes:
     - ArgolightBInputParameters
     range: boolean
     required: false
+    multivalued: false
 
 </code></pre>
 </details>
@@ -622,5 +594,7 @@ attributes:
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.tabs.link"], "search": "../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
 <script src="../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
-<script src="https://unpkg.com/mermaid@8.8.0/dist/mermaid.min.js"></script><script>mermaid.initialize({});</script></body>
+<script type="module">import mermaid from "https://unpkg.com/mermaid@10.4.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script><script type="module">import mermaid from "https://unpkg.com/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({});</script></body>
 </html>
