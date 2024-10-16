@@ -121,6 +121,10 @@
          <lastmod>2024-10-16</lastmod>
     </url>
     <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/CriticalParameter/</loc>
+         <lastmod>2024-10-16</lastmod>
+    </url>
+    <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Curie/</loc>
          <lastmod>2024-10-16</lastmod>
     </url>
@@ -230,6 +234,10 @@
     </url>
     <url>
          <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/HarmonizedMetricsDatasetCollection/</loc>
+         <lastmod>2024-10-16</lastmod>
+    </url>
+    <url>
+         <loc>https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/HomogeneousField/</loc>
          <lastmod>2024-10-16</lastmod>
     </url>
     <url>

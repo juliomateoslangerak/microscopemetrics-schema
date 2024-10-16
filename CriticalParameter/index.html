@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sigma_z/">
+        <link rel="canonical" href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/CriticalParameter/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-8.5.10">
     
     
       
-        <title>Slot: sigma_z - microscopemetrics-schema</title>
+        <title>Subset: CriticalParameter - microscopemetrics-schema</title>
       
     
     
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#slot-sigma_z" class="md-skip">
+        <a href="#subset-criticalparameter" class="md-skip">
           Skip to content
         </a>
       
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Slot: sigma_z
+              Subset: CriticalParameter
             
           </span>
         </div>
@@ -256,20 +256,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#applicable-classes" class="md-nav__link">
-    Applicable Classes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#properties" class="md-nav__link">
-    Properties
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#identifier-and-mapping-information" class="md-nav__link">
     Identifier and Mapping Information
   </a>
@@ -289,13 +275,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#linkml-source" class="md-nav__link">
-    LinkML Source
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -310,58 +289,20 @@
                 
                   
 
-  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/sigma_z.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/MontpellierRessourcesImagerie/microscopemetrics-schema/edit/master/docs/CriticalParameter.md" title="Edit this page" class="md-content__button md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
-<h1 id="slot-sigma_z">Slot: sigma_z</h1>
-<p><em>Smoothing sigma to be applied to the image in the Z axis.</em></p>
-<p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/sigma_z">microscopemetrics_schema:sigma_z</a></p>
-<!-- no inheritance hierarchy -->
-
-<h2 id="applicable-classes">Applicable Classes</h2>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Modifies Slot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="../PSFBeadsInputParameters/">PSFBeadsInputParameters</a></td>
-<td></td>
-<td>yes</td>
-</tr>
-</tbody>
-</table>
-<h2 id="properties">Properties</h2>
-<ul>
-<li>Range: <a href="../Float/">Float</a></li>
-</ul>
+<h1 id="subset-criticalparameter">Subset: CriticalParameter</h1>
+<p><em>A subset indicating that changing this parameter may damage the consistency of the analysis.</em></p>
+<p>URI: <a href="./">CriticalParameter</a></p>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
 <li>from schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema</li>
 </ul>
-<h2 id="linkml-source">LinkML Source</h2>
-<details>
-
-<pre><code class="language-yaml">name: sigma_z
-description: Smoothing sigma to be applied to the image in the Z axis.
-from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-rank: 1000
-alias: sigma_z
-domain_of:
-- PSFBeadsInputParameters
-range: float
-
-</code></pre>
-
-</details>
 
 
 

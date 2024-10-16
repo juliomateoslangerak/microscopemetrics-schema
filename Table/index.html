@@ -282,7 +282,7 @@
 <tr>
 <td><a href="../columns/">columns</a></td>
 <td>1..* <br/> <a href="../Column/">Column</a></td>
-<td></td>
+<td>The columns of the table</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -370,24 +370,6 @@
 <td>range</td>
 <td><a href="./">Table</a></td>
 </tr>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_properties/">spots_properties</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightBOutput/">ArgolightBOutput</a></td>
-<td><a href="../spots_distances/">spots_distances</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEOutput/">ArgolightEOutput</a></td>
-<td><a href="../intensity_profiles/">intensity_profiles</a></td>
-<td>range</td>
-<td><a href="./">Table</a></td>
-</tr>
 </tbody>
 </table>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
@@ -428,6 +410,7 @@ attributes:
     name: columns
     implements:
     - linkml:elements
+    description: The columns of the table
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     domain_of:
@@ -462,6 +445,7 @@ attributes:
     name: columns
     implements:
     - linkml:elements
+    description: The columns of the table
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
     rank: 1000
     alias: columns

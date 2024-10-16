@@ -206,6 +206,9 @@
 </a>
 <h1 id="class-sample">Class: Sample</h1>
 <p><em>A sample is a standard physical object that is imaged by a microscope</em></p>
+<ul>
+<li><strong>NOTE</strong>: this is an abstract class and should not be instantiated directly</li>
+</ul>
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/Sample">microscopemetrics_schema:Sample</a></p>
 <div class="mermaid"> classDiagram
     class Sample
@@ -213,7 +216,16 @@
       NamedObject &lt;|-- Sample
         click NamedObject href "../NamedObject"
 
+
+      Sample &lt;|-- HomogeneousField
+        click HomogeneousField href "../HomogeneousField"
+      Sample &lt;|-- PSFBeads
+        click PSFBeads href "../PSFBeads"
+
+
       Sample : description
+
+      Sample : manufacturer
 
       Sample : name
 
@@ -226,14 +238,16 @@
     click Protocol href "../Protocol"
 
 
-      Sample : type
-
 
 </div>
 <h2 id="inheritance">Inheritance</h2>
 <ul>
 <li><a href="../NamedObject/">NamedObject</a><ul>
-<li><strong>Sample</strong></li>
+<li><strong>Sample</strong><ul>
+<li><a href="../HomogeneousField/">HomogeneousField</a></li>
+<li><a href="../PSFBeads/">PSFBeads</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -249,15 +263,15 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../type/">type</a></td>
-<td>1 <br/> <a href="../String/">String</a></td>
-<td>The type of the sample</td>
-<td>direct</td>
-</tr>
-<tr>
 <td><a href="../protocol/">protocol</a></td>
 <td>1 <br/> <a href="../Protocol/">Protocol</a></td>
 <td>The protocol used to prepare the sample</td>
+<td>direct</td>
+</tr>
+<tr>
+<td><a href="../manufacturer/">manufacturer</a></td>
+<td>0..1 <br/> <a href="../String/">String</a></td>
+<td>The manufacturer of the beads</td>
 <td>direct</td>
 </tr>
 <tr>
@@ -287,30 +301,6 @@
 <tbody>
 <tr>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
-<td><a href="../sample/">sample</a></td>
-<td>range</td>
-<td><a href="./">Sample</a></td>
-</tr>
-<tr>
-<td><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></td>
-<td><a href="../sample/">sample</a></td>
-<td>range</td>
-<td><a href="./">Sample</a></td>
-</tr>
-<tr>
-<td><a href="../PSFBeadsDataset/">PSFBeadsDataset</a></td>
-<td><a href="../sample/">sample</a></td>
-<td>range</td>
-<td><a href="./">Sample</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightBDataset/">ArgolightBDataset</a></td>
-<td><a href="../sample/">sample</a></td>
-<td>range</td>
-<td><a href="./">Sample</a></td>
-</tr>
-<tr>
-<td><a href="../ArgolightEDataset/">ArgolightEDataset</a></td>
 <td><a href="../sample/">sample</a></td>
 <td>range</td>
 <td><a href="./">Sample</a></td>
@@ -349,16 +339,8 @@
 description: A sample is a standard physical object that is imaged by a microscope
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: NamedObject
+abstract: true
 attributes:
-  type:
-    name: type
-    description: The type of the sample
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    domain_of:
-    - Microscope
-    - Sample
-    range: string
-    required: true
   protocol:
     name: protocol
     description: The protocol used to prepare the sample
@@ -370,6 +352,15 @@ attributes:
     required: true
     multivalued: false
     inlined: false
+  manufacturer:
+    name: manufacturer
+    description: The manufacturer of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    domain_of:
+    - Microscope
+    - Sample
+    range: string
+    required: false
 
 </code></pre>
 </details>
@@ -379,18 +370,8 @@ attributes:
 description: A sample is a standard physical object that is imaged by a microscope
 from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 is_a: NamedObject
+abstract: true
 attributes:
-  type:
-    name: type
-    description: The type of the sample
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    alias: type
-    owner: Sample
-    domain_of:
-    - Microscope
-    - Sample
-    range: string
-    required: true
   protocol:
     name: protocol
     description: The protocol used to prepare the sample
@@ -404,6 +385,17 @@ attributes:
     required: true
     multivalued: false
     inlined: false
+  manufacturer:
+    name: manufacturer
+    description: The manufacturer of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
+    alias: manufacturer
+    owner: Sample
+    domain_of:
+    - Microscope
+    - Sample
+    range: string
+    required: false
   name:
     name: name
     description: The human readable name of an entity

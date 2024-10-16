@@ -284,8 +284,8 @@
 
 
 
-    PSFBeadsDataset --&gt; "0..1" Sample : sample
-    click Sample href "../Sample"
+    PSFBeadsDataset --&gt; "0..1" PSFBeads : sample
+    click PSFBeads href "../PSFBeads"
 
 
 
@@ -333,15 +333,15 @@
 <td>direct</td>
 </tr>
 <tr>
+<td><a href="../sample/">sample</a></td>
+<td>0..1 <br/> <a href="../PSFBeads/">PSFBeads</a></td>
+<td></td>
+<td>direct</td>
+</tr>
+<tr>
 <td><a href="../microscope/">microscope</a></td>
 <td>1 <br/> <a href="../Microscope/">Microscope</a></td>
 <td>The microscope that was used to acquire the dataset</td>
-<td><a href="../MetricsDataset/">MetricsDataset</a></td>
-</tr>
-<tr>
-<td><a href="../sample/">sample</a></td>
-<td>0..1 <br/> <a href="../Sample/">Sample</a></td>
-<td>The sample that was imaged</td>
 <td><a href="../MetricsDataset/">MetricsDataset</a></td>
 </tr>
 <tr>
@@ -423,34 +423,36 @@ is_a: MetricsDataset
 attributes:
   input_data:
     name: input_data
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsInputData
   input_parameters:
     name: input_parameters
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsInputParameters
   output:
     name: output
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsOutput
+  sample:
+    name: sample
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    range: PSFBeads
 
 </code></pre>
 </details>
@@ -463,45 +465,48 @@ is_a: MetricsDataset
 attributes:
   input_data:
     name: input_data
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     alias: input_data
     owner: PSFBeadsDataset
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsInputData
   input_parameters:
     name: input_parameters
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     alias: input_parameters
     owner: PSFBeadsDataset
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsInputParameters
   output:
     name: output
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads_schema
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
     alias: output
     owner: PSFBeadsDataset
     domain_of:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
-    - ArgolightBDataset
-    - ArgolightEDataset
     range: PSFBeadsOutput
+  sample:
+    name: sample
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema
+    alias: sample
+    owner: PSFBeadsDataset
+    domain_of:
+    - MetricsDataset
+    - FieldIlluminationDataset
+    - PSFBeadsDataset
+    range: PSFBeads
   microscope:
     name: microscope
     description: The microscope that was used to acquire the dataset
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
     alias: microscope
     owner: PSFBeadsDataset
     domain_of:
@@ -509,22 +514,10 @@ attributes:
     range: Microscope
     required: true
     multivalued: false
-  sample:
-    name: sample
-    description: The sample that was imaged
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
-    alias: sample
-    owner: PSFBeadsDataset
-    domain_of:
-    - MetricsDataset
-    range: Sample
-    multivalued: false
   experimenter:
     name: experimenter
     description: The experimenter that performed the imaging experiment
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
     alias: experimenter
     owner: PSFBeadsDataset
     domain_of:
@@ -535,7 +528,6 @@ attributes:
     name: acquisition_datetime
     description: The datetime of the acquisition
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-    rank: 1000
     alias: acquisition_datetime
     owner: PSFBeadsDataset
     domain_of:
