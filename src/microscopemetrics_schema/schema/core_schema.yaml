@@ -942,13 +942,13 @@ enums:
   MicroscopeTypeEnum:
     description: The type of the microscope
     permissible_values:
-      WIDE-FIELD:
+      WIDEFIELD:
         description: A wide-field microscope
       CONFOCAL:
         description: A confocal microscope
       STED:
         description: A STED microscope
-      3D-SIM:
+      SIM3D:
         description: A 3D-SIM microscope
       OTHER:
         description: Another type of microscope

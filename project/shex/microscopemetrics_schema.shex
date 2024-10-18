@@ -710,10 +710,10 @@ CLOSED {
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/type> [
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#WIDE-FIELD>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#WIDEFIELD>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#CONFOCAL>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#STED>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#3D-SIM>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#SIM3D>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeTypeEnum#OTHER> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer> @linkml:String ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/model> @linkml:String ? ;

@@ -1461,10 +1461,10 @@
         "MicroscopeTypeEnum": {
             "description": "The type of the microscope",
             "enum": [
-                "WIDE-FIELD",
+                "WIDEFIELD",
                 "CONFOCAL",
                 "STED",
-                "3D-SIM",
+                "SIM3D",
                 "OTHER"
             ],
             "title": "MicroscopeTypeEnum",

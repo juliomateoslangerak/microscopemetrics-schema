@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-18T15:26:32
+# Generation date: 2024-10-18T16:23:51
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2295,12 +2295,18 @@ class MicroscopeTypeEnum(EnumDefinitionImpl):
     """
     The type of the microscope
     """
+    WIDEFIELD = PermissibleValue(
+        text="WIDEFIELD",
+        description="A wide-field microscope")
     CONFOCAL = PermissibleValue(
         text="CONFOCAL",
         description="A confocal microscope")
     STED = PermissibleValue(
         text="STED",
         description="A STED microscope")
+    SIM3D = PermissibleValue(
+        text="SIM3D",
+        description="A 3D-SIM microscope")
     OTHER = PermissibleValue(
         text="OTHER",
         description="Another type of microscope")
@@ -2309,17 +2315,6 @@ class MicroscopeTypeEnum(EnumDefinitionImpl):
         name="MicroscopeTypeEnum",
         description="The type of the microscope",
     )
-
-    @classmethod
-    def _addvals(cls):
-        setattr(cls, "WIDE-FIELD",
-            PermissibleValue(
-                text="WIDE-FIELD",
-                description="A wide-field microscope"))
-        setattr(cls, "3D-SIM",
-            PermissibleValue(
-                text="3D-SIM",
-                description="A 3D-SIM microscope"))
 
 class OMEROObjectTypeEnum(EnumDefinitionImpl):
     """

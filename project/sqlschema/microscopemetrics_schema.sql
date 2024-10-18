@@ -908,7 +908,7 @@ CREATE TABLE "MicroscopeCollection" (
 );
 CREATE TABLE "Microscope" (
 	id INTEGER NOT NULL, 
-	type VARCHAR(10), 
+	type VARCHAR(9), 
 	manufacturer TEXT, 
 	model TEXT, 
 	serial_number TEXT, 

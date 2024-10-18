@@ -378,7 +378,7 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "permissible_values": [
         {
-          "text": "WIDE-FIELD",
+          "text": "WIDEFIELD",
           "description": "A wide-field microscope"
         },
         {
@@ -390,7 +390,7 @@
           "description": "A STED microscope"
         },
         {
-          "text": "3D-SIM",
+          "text": "SIM3D",
           "description": "A 3D-SIM microscope"
         },
         {
@@ -6657,7 +6657,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-10-16T16:49:39",
   "source_file_size": 848,
-  "generation_date": "2024-10-18T15:26:30",
+  "generation_date": "2024-10-18T16:23:49",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
