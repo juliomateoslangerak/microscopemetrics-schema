@@ -36,6 +36,10 @@ message Column
 // A comment
 message Comment
  {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
   datetime datetime = 0
   experimenter author = 0
   commentTypesEnum commentType = 0
@@ -69,6 +73,9 @@ message Ellipse
 // The person that performed the experiment or developed the protocol
 message Experimenter
  {
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
   string name = 0
   string orcid = 0
  }

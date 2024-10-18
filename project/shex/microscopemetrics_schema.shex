@@ -115,6 +115,8 @@ linkml:Sparqlpath xsd:string
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment> CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment_tes> ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/datetime> @linkml:Datetime ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/author>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter> ? ;
@@ -167,8 +169,11 @@ linkml:Sparqlpath xsd:string
 }
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter> CLOSED {
-    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter_tes>
-       <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/name> @linkml:String ;
+    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter_tes> ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/name> @linkml:String
+       ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter> ]
     )
 }
@@ -646,6 +651,8 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Channel> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset> OR

@@ -4711,7 +4711,11 @@
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter",
       "description": "The person that performed the experiment or developed the protocol",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "MetricsObject",
       "slots": [
+        "description",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "experimenter__name",
         "experimenter__orcid"
       ],
@@ -4740,7 +4744,12 @@
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment",
       "description": "A comment",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "MetricsObject",
       "slots": [
+        "name",
+        "description",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
         "comment__datetime",
         "comment__author",
         "comment__comment_type",
@@ -6646,9 +6655,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2024-10-16T13:05:00",
+  "source_file_date": "2024-10-16T16:49:39",
   "source_file_size": 848,
-  "generation_date": "2024-10-16T13:31:16",
+  "generation_date": "2024-10-18T15:26:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
