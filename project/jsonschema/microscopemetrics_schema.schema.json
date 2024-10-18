@@ -136,9 +136,28 @@
                     "$ref": "#/$defs/CommentTypesEnum",
                     "description": "The type of the comment"
                 },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
                 "datetime": {
                     "description": "The datetime to which the comment is referring",
                     "format": "date-time",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "text": {
@@ -258,6 +277,21 @@
             "additionalProperties": false,
             "description": "The person that performed the experiment or developed the protocol",
             "properties": {
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
                 "name": {
                     "description": "The name of the experimenter",
                     "type": "string"

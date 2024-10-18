@@ -145,6 +145,7 @@ classes:
         identifier: true
 
   Experimenter:
+    is_a: MetricsObject
     description: The person that performed the experiment or developed the protocol
     attributes:
       name:
@@ -157,6 +158,7 @@ classes:
         identifier: true
 
   Comment:
+    is_a: MetricsObject
     description: A comment
     attributes:
       datetime:

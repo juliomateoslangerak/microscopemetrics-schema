@@ -13,6 +13,8 @@
 --     * Slot: omero_object_id Description: The ID of the OMERO object
 --     * Slot: MetricsObject_id Description: Autocreated FK slot
 --     * Slot: Microscope_id Description: Autocreated FK slot
+--     * Slot: Experimenter_orcid Description: Autocreated FK slot
+--     * Slot: Comment_id Description: Autocreated FK slot
 --     * Slot: MetricsDatasetCollection_id Description: Autocreated FK slot
 --     * Slot: HarmonizedMetricsDatasetCollection_id Description: Autocreated FK slot
 --     * Slot: MetricsDataset_id Description: Autocreated FK slot
@@ -58,12 +60,17 @@
 -- # Class: "Experimenter" Description: "The person that performed the experiment or developed the protocol"
 --     * Slot: name Description: The name of the experimenter
 --     * Slot: orcid Description: The ORCID of the experimenter
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Comment" Description: "A comment"
 --     * Slot: id Description: 
 --     * Slot: datetime Description: The datetime to which the comment is referring
 --     * Slot: author Description: The author of the comment
 --     * Slot: comment_type Description: The type of the comment
 --     * Slot: text Description: The text of the comment
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "MetricsDatasetCollection" Description: "A collection of microscope-metrics datasets"
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -848,6 +855,8 @@ CREATE TABLE "DataReference" (
 	omero_object_id INTEGER, 
 	"MetricsObject_id" INTEGER, 
 	"Microscope_id" INTEGER, 
+	"Experimenter_orcid" TEXT, 
+	"Comment_id" INTEGER, 
 	"MetricsDatasetCollection_id" INTEGER, 
 	"HarmonizedMetricsDatasetCollection_id" INTEGER, 
 	"MetricsDataset_id" INTEGER, 
@@ -867,6 +876,8 @@ CREATE TABLE "DataReference" (
 	UNIQUE (omero_host, omero_object_type, omero_object_id), 
 	FOREIGN KEY("MetricsObject_id") REFERENCES "MetricsObject" (id), 
 	FOREIGN KEY("Microscope_id") REFERENCES "Microscope" (id), 
+	FOREIGN KEY("Experimenter_orcid") REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY("Comment_id") REFERENCES "Comment" (id), 
 	FOREIGN KEY("MetricsDatasetCollection_id") REFERENCES "MetricsDatasetCollection" (id), 
 	FOREIGN KEY("HarmonizedMetricsDatasetCollection_id") REFERENCES "HarmonizedMetricsDatasetCollection" (id), 
 	FOREIGN KEY("MetricsDataset_id") REFERENCES "MetricsDataset" (id), 
@@ -917,7 +928,23 @@ CREATE TABLE "Protocol" (
 CREATE TABLE "Experimenter" (
 	name TEXT NOT NULL, 
 	orcid TEXT NOT NULL, 
-	PRIMARY KEY (orcid)
+	description TEXT, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (orcid), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
+CREATE TABLE "Comment" (
+	id INTEGER NOT NULL, 
+	datetime DATETIME NOT NULL, 
+	author TEXT, 
+	comment_type VARCHAR(11) NOT NULL, 
+	text TEXT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(author) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "MetricsDatasetCollection" (
 	id INTEGER NOT NULL, 
@@ -969,6 +996,16 @@ CREATE TABLE "MetricsInputData" (
 CREATE TABLE "MetricsInputParameters" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
+);
+CREATE TABLE "MetricsOutput" (
+	id INTEGER NOT NULL, 
+	processing_datetime DATETIME NOT NULL, 
+	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
+	comment_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
 CREATE TABLE "Image" (
 	id INTEGER NOT NULL, 
@@ -1254,15 +1291,6 @@ CREATE TABLE "Sample" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
 );
-CREATE TABLE "Comment" (
-	id INTEGER NOT NULL, 
-	datetime DATETIME NOT NULL, 
-	author TEXT, 
-	comment_type VARCHAR(11) NOT NULL, 
-	text TEXT NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(author) REFERENCES "Experimenter" (orcid)
-);
 CREATE TABLE "Column" (
 	id INTEGER NOT NULL, 
 	data_type TEXT NOT NULL, 
@@ -1459,12 +1487,49 @@ CREATE TABLE "MicroscopeCollection_microscopes" (
 	FOREIGN KEY("MicroscopeCollection_id") REFERENCES "MicroscopeCollection" (id), 
 	FOREIGN KEY(microscopes_id) REFERENCES "Microscope" (id)
 );
+CREATE TABLE "Microscope_comments" (
+	"Microscope_id" INTEGER, 
+	comments_id INTEGER, 
+	PRIMARY KEY ("Microscope_id", comments_id), 
+	FOREIGN KEY("Microscope_id") REFERENCES "Microscope" (id), 
+	FOREIGN KEY(comments_id) REFERENCES "Comment" (id)
+);
 CREATE TABLE "Protocol_authors" (
 	"Protocol_url" TEXT, 
 	authors_orcid TEXT, 
 	PRIMARY KEY ("Protocol_url", authors_orcid), 
 	FOREIGN KEY("Protocol_url") REFERENCES "Protocol" (url), 
 	FOREIGN KEY(authors_orcid) REFERENCES "Experimenter" (orcid)
+);
+CREATE TABLE "MetricsOutput_processing_application" (
+	"MetricsOutput_id" INTEGER, 
+	processing_application TEXT NOT NULL, 
+	PRIMARY KEY ("MetricsOutput_id", processing_application), 
+	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
+);
+CREATE TABLE "MetricsOutput_processing_version" (
+	"MetricsOutput_id" INTEGER, 
+	processing_version TEXT NOT NULL, 
+	PRIMARY KEY ("MetricsOutput_id", processing_version), 
+	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
+);
+CREATE TABLE "MetricsOutput_processing_entity" (
+	"MetricsOutput_id" INTEGER, 
+	processing_entity TEXT, 
+	PRIMARY KEY ("MetricsOutput_id", processing_entity), 
+	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
+);
+CREATE TABLE "MetricsOutput_warnings" (
+	"MetricsOutput_id" INTEGER, 
+	warnings TEXT, 
+	PRIMARY KEY ("MetricsOutput_id", warnings), 
+	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
+);
+CREATE TABLE "MetricsOutput_errors" (
+	"MetricsOutput_id" INTEGER, 
+	errors TEXT, 
+	PRIMARY KEY ("MetricsOutput_id", errors), 
+	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );
 CREATE TABLE "ChannelSeries_channels" (
 	"ChannelSeries_id" INTEGER, 
@@ -2253,23 +2318,6 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_std" (
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_std), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
-CREATE TABLE "MetricsOutput" (
-	id INTEGER NOT NULL, 
-	processing_datetime DATETIME NOT NULL, 
-	processing_log TEXT, 
-	validated BOOLEAN NOT NULL, 
-	validation_datetime DATETIME, 
-	comment_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
-);
-CREATE TABLE "Microscope_comments" (
-	"Microscope_id" INTEGER, 
-	comments_id INTEGER, 
-	PRIMARY KEY ("Microscope_id", comments_id), 
-	FOREIGN KEY("Microscope_id") REFERENCES "Microscope" (id), 
-	FOREIGN KEY(comments_id) REFERENCES "Comment" (id)
-);
 CREATE TABLE "Column_values" (
 	"Column_id" INTEGER, 
 	"values" TEXT, 
@@ -2282,34 +2330,4 @@ CREATE TABLE "Polygon_vertexes" (
 	PRIMARY KEY ("Polygon_id", vertexes_id), 
 	FOREIGN KEY("Polygon_id") REFERENCES "Polygon" (id), 
 	FOREIGN KEY(vertexes_id) REFERENCES "Vertex" (id)
-);
-CREATE TABLE "MetricsOutput_processing_application" (
-	"MetricsOutput_id" INTEGER, 
-	processing_application TEXT NOT NULL, 
-	PRIMARY KEY ("MetricsOutput_id", processing_application), 
-	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);
-CREATE TABLE "MetricsOutput_processing_version" (
-	"MetricsOutput_id" INTEGER, 
-	processing_version TEXT NOT NULL, 
-	PRIMARY KEY ("MetricsOutput_id", processing_version), 
-	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);
-CREATE TABLE "MetricsOutput_processing_entity" (
-	"MetricsOutput_id" INTEGER, 
-	processing_entity TEXT, 
-	PRIMARY KEY ("MetricsOutput_id", processing_entity), 
-	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);
-CREATE TABLE "MetricsOutput_warnings" (
-	"MetricsOutput_id" INTEGER, 
-	warnings TEXT, 
-	PRIMARY KEY ("MetricsOutput_id", warnings), 
-	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);
-CREATE TABLE "MetricsOutput_errors" (
-	"MetricsOutput_id" INTEGER, 
-	errors TEXT, 
-	PRIMARY KEY ("MetricsOutput_id", errors), 
-	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-16T13:31:18
+# Generation date: 2024-10-18T15:26:32
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -261,7 +261,7 @@ class Protocol(NamedObject):
 
 
 @dataclass
-class Experimenter(YAMLRoot):
+class Experimenter(MetricsObject):
     """
     The person that performed the experiment or developed the protocol
     """
@@ -290,7 +290,7 @@ class Experimenter(YAMLRoot):
 
 
 @dataclass
-class Comment(YAMLRoot):
+class Comment(MetricsObject):
     """
     A comment
     """
