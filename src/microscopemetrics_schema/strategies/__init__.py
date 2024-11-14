@@ -45,7 +45,7 @@ def st_mm_metrics_object(
 def st_mm_microscope(
     draw,
     metrics_object=st_mm_metrics_object(),
-    type=st.sampled_from(["WIDE-FIELD", "CONFOCAL", "STED", "3D-SIM", "OTHER"]),
+    type=st.sampled_from(["WIDEFIELD", "CONFOCAL", "STED", "SIM3D", "OTHER"]),
     manufacturer=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),

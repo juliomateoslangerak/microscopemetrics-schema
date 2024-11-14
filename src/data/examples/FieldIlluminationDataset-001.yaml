@@ -9,7 +9,7 @@ data_reference:
 microscope:
   name: "My microscope"
   description: "A nice microscope"
-  type: "3D-SIM"
+  type: "SIM3D"
   manufacturer: "Applied Precision"
   model: "OMX-V4"
   serial_number: "654321"
