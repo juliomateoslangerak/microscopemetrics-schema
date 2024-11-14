@@ -355,7 +355,6 @@
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: Key-Value pairs containing the Key measurements for the field illumination analysis
---     * Slot: roi_corners_id Description: Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
 --     * Slot: comment_id Description: A human readable comment about the dataset
 -- # Class: "FieldIlluminationKeyMeasurements" Description: ""
 --     * Slot: id Description: 
@@ -454,6 +453,9 @@
 -- # Class: "FieldIlluminationOutput_roi_profiles" Description: ""
 --     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: roi_profiles_id Description: line ROIs used to compute the intensity profiles
+-- # Class: "FieldIlluminationOutput_roi_corners" Description: ""
+--     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
+--     * Slot: roi_corners_id Description: Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
 -- # Class: "FieldIlluminationOutput_roi_centers_of_mass" Description: ""
 --     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: roi_centers_of_mass_id Description: Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.
@@ -1194,11 +1196,9 @@ CREATE TABLE "FieldIlluminationOutput" (
 	validated BOOLEAN NOT NULL, 
 	validation_datetime DATETIME, 
 	key_measurements_id INTEGER, 
-	roi_corners_id INTEGER, 
 	comment_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(key_measurements_id) REFERENCES "FieldIlluminationKeyMeasurements" (id), 
-	FOREIGN KEY(roi_corners_id) REFERENCES "Roi" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
 CREATE TABLE "FieldIlluminationKeyMeasurements" (
@@ -1550,6 +1550,13 @@ CREATE TABLE "FieldIlluminationOutput_roi_profiles" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", roi_profiles_id), 
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id), 
 	FOREIGN KEY(roi_profiles_id) REFERENCES "Roi" (id)
+);
+CREATE TABLE "FieldIlluminationOutput_roi_corners" (
+	"FieldIlluminationOutput_id" INTEGER, 
+	roi_corners_id INTEGER, 
+	PRIMARY KEY ("FieldIlluminationOutput_id", roi_corners_id), 
+	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id), 
+	FOREIGN KEY(roi_corners_id) REFERENCES "Roi" (id)
 );
 CREATE TABLE "FieldIlluminationOutput_roi_centers_of_mass" (
 	"FieldIlluminationOutput_id" INTEGER, 

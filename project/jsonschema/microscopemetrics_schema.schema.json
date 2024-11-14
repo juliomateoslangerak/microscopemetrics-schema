@@ -915,8 +915,11 @@
                     "type": "array"
                 },
                 "roi_corners": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images."
+                    "description": "Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.",
+                    "items": {
+                        "$ref": "#/$defs/Roi"
+                    },
+                    "type": "array"
                 },
                 "roi_profiles": {
                     "description": "line ROIs used to compute the intensity profiles",

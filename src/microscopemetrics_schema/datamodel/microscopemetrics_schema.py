@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-10-18T16:23:51
+# Generation date: 2024-11-14T12:43:12
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1370,7 +1370,7 @@ class FieldIlluminationOutput(MetricsOutput):
     key_measurements: Optional[Union[dict, "FieldIlluminationKeyMeasurements"]] = None
     intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
     roi_profiles: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
-    roi_corners: Optional[Union[dict, Roi]] = None
+    roi_corners: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_centers_of_mass: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_centers_geometric: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
     roi_centers_fitted: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
@@ -1389,8 +1389,9 @@ class FieldIlluminationOutput(MetricsOutput):
             self.roi_profiles = [self.roi_profiles] if self.roi_profiles is not None else []
         self.roi_profiles = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_profiles]
 
-        if self.roi_corners is not None and not isinstance(self.roi_corners, Roi):
-            self.roi_corners = Roi(**as_dict(self.roi_corners))
+        if not isinstance(self.roi_corners, list):
+            self.roi_corners = [self.roi_corners] if self.roi_corners is not None else []
+        self.roi_corners = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.roi_corners]
 
         if not isinstance(self.roi_centers_of_mass, list):
             self.roi_centers_of_mass = [self.roi_centers_of_mass] if self.roi_centers_of_mass is not None else []
@@ -3102,7 +3103,7 @@ slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA[
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_corners'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.fieldIlluminationOutput__roi_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_centers_of_mass'], name="fieldIlluminationOutput__roi_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_centers_of_mass'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])

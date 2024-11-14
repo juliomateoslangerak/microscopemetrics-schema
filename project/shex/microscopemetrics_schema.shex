@@ -390,7 +390,7 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_profiles>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_corners>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ? ;
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_of_mass>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> * ;
 

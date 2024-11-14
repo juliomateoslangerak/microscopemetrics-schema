@@ -192,7 +192,7 @@ type FieldIlluminationOutput
     keyMeasurements: FieldIlluminationKeyMeasurements
     intensityProfiles: [Table]
     roiProfiles: [Roi]
-    roiCorners: Roi
+    roiCorners: [Roi]
     roiCentersOfMass: [Roi]
     roiCentersGeometric: [Roi]
     roiCentersFitted: [Roi]

@@ -175,7 +175,7 @@ message FieldIlluminationOutput
   fieldIlluminationKeyMeasurements keyMeasurements = 0
  repeated  table intensityProfiles = 0
  repeated  roi roiProfiles = 0
-  roi roiCorners = 0
+ repeated  roi roiCorners = 0
  repeated  roi roiCentersOfMass = 0
  repeated  roi roiCentersGeometric = 0
  repeated  roi roiCentersFitted = 0

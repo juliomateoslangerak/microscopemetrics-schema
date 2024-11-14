@@ -67,7 +67,7 @@ classes:
         range: Roi
         description: >-
           Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.
-        multivalued: false
+        multivalued: true
       roi_centers_of_mass:
         range: Roi
         description: >-
