@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-14T12:43:12
+# Generation date: 2024-12-13T17:39:07
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1269,8 +1269,8 @@ class FieldIlluminationDataset(MetricsDataset):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination_schema/FieldIlluminationDataset"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination_schema/FieldIlluminationDataset"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination/FieldIlluminationDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination/FieldIlluminationDataset"
     class_name: ClassVar[str] = "FieldIlluminationDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset
 
@@ -1301,8 +1301,8 @@ class FieldIlluminationDataset(MetricsDataset):
 class FieldIlluminationInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination_schema/FieldIlluminationInputData"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination_schema/FieldIlluminationInputData"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination/FieldIlluminationInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination/FieldIlluminationInputData"
     class_name: ClassVar[str] = "FieldIlluminationInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputData
 
@@ -1322,8 +1322,8 @@ class FieldIlluminationInputData(MetricsInputData):
 class FieldIlluminationInputParameters(MetricsInputParameters):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination_schema/FieldIlluminationInputParameters"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination_schema/FieldIlluminationInputParameters"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination/FieldIlluminationInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination/FieldIlluminationInputParameters"
     class_name: ClassVar[str] = "FieldIlluminationInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters
 
@@ -1358,8 +1358,8 @@ class FieldIlluminationInputParameters(MetricsInputParameters):
 class FieldIlluminationOutput(MetricsOutput):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination_schema/FieldIlluminationOutput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination_schema/FieldIlluminationOutput"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination/FieldIlluminationOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination/FieldIlluminationOutput"
     class_name: ClassVar[str] = "FieldIlluminationOutput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationOutput
 
@@ -1420,8 +1420,8 @@ class FieldIlluminationOutput(MetricsOutput):
 class FieldIlluminationKeyMeasurements(KeyMeasurements):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination_schema/FieldIlluminationKeyMeasurements"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination_schema/FieldIlluminationKeyMeasurements"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/field_illumination/FieldIlluminationKeyMeasurements"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/field_illumination/FieldIlluminationKeyMeasurements"
     class_name: ClassVar[str] = "FieldIlluminationKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationKeyMeasurements
 
@@ -1667,8 +1667,8 @@ class PSFBeadsDataset(MetricsDataset):
     """
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads_schema/PSFBeadsDataset"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads_schema/PSFBeadsDataset"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads/PSFBeadsDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads/PSFBeadsDataset"
     class_name: ClassVar[str] = "PSFBeadsDataset"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset
 
@@ -1699,8 +1699,8 @@ class PSFBeadsDataset(MetricsDataset):
 class PSFBeadsInputData(MetricsInputData):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads_schema/PSFBeadsInputData"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads_schema/PSFBeadsInputData"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads/PSFBeadsInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads/PSFBeadsInputData"
     class_name: ClassVar[str] = "PSFBeadsInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputData
 
@@ -1720,8 +1720,8 @@ class PSFBeadsInputData(MetricsInputData):
 class PSFBeadsInputParameters(MetricsInputParameters):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads_schema/PSFBeadsInputParameters"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads_schema/PSFBeadsInputParameters"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads/PSFBeadsInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads/PSFBeadsInputParameters"
     class_name: ClassVar[str] = "PSFBeadsInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters
 
@@ -1784,8 +1784,8 @@ class PSFBeadsInputParameters(MetricsInputParameters):
 class PSFBeadsOutput(MetricsOutput):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads_schema/PSFBeadsOutput"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads_schema/PSFBeadsOutput"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads/PSFBeadsOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads/PSFBeadsOutput"
     class_name: ClassVar[str] = "PSFBeadsOutput"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsOutput
 
@@ -1866,8 +1866,8 @@ class PSFBeadsOutput(MetricsOutput):
 class PSFBeadsKeyMeasurements(KeyMeasurements):
     _inherited_slots: ClassVar[List[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads_schema/PSFBeadsKeyMeasurements"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads_schema/PSFBeadsKeyMeasurements"
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/psf_beads/PSFBeadsKeyMeasurements"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/psf_beads/PSFBeadsKeyMeasurements"
     class_name: ClassVar[str] = "PSFBeadsKeyMeasurements"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsKeyMeasurements
 
@@ -2430,343 +2430,343 @@ slots.sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="
 slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_x, domain=None, range=Optional[float])
 
-slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/field_illumination_image'),
+slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/field_illumination_image'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
-slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/corner_fraction'], name="corner_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/corner_fraction'),
+slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/corner_fraction'], name="corner_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/corner_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.corner_fraction, domain=None, range=float)
 
-slots.sigma = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/sigma'], name="sigma", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/sigma'),
+slots.sigma = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/sigma'], name="sigma", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/sigma'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma, domain=None, range=float)
 
-slots.center_region_intensity_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_region_intensity_fraction'], name="center_region_intensity_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_region_intensity_fraction'),
+slots.center_region_intensity_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_region_intensity_fraction'], name="center_region_intensity_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_region_intensity_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_region_intensity_fraction, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_region_area_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_region_area_fraction'], name="center_region_area_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_region_area_fraction'),
+slots.center_region_area_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_region_area_fraction'], name="center_region_area_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_region_area_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_region_area_fraction, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_of_mass_y'], name="center_of_mass_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_of_mass_y'),
+slots.center_of_mass_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_of_mass_y'], name="center_of_mass_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_of_mass_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_of_mass_y_relative'], name="center_of_mass_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_of_mass_y_relative'),
+slots.center_of_mass_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_of_mass_y_relative'], name="center_of_mass_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_of_mass_y_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_y_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_of_mass_x'], name="center_of_mass_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_of_mass_x'),
+slots.center_of_mass_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_of_mass_x'], name="center_of_mass_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_of_mass_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_of_mass_x_relative'], name="center_of_mass_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_of_mass_x_relative'),
+slots.center_of_mass_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_of_mass_x_relative'], name="center_of_mass_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_of_mass_x_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_x_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_of_mass_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_of_mass_distance_relative'], name="center_of_mass_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_of_mass_distance_relative'),
+slots.center_of_mass_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_of_mass_distance_relative'], name="center_of_mass_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_of_mass_distance_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_of_mass_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_geometric_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_geometric_y'], name="center_geometric_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_geometric_y'),
+slots.center_geometric_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_geometric_y'], name="center_geometric_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_geometric_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_geometric_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_geometric_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_geometric_y_relative'], name="center_geometric_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_geometric_y_relative'),
+slots.center_geometric_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_geometric_y_relative'], name="center_geometric_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_geometric_y_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_geometric_y_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_geometric_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_geometric_x'], name="center_geometric_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_geometric_x'),
+slots.center_geometric_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_geometric_x'], name="center_geometric_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_geometric_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_geometric_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_geometric_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_geometric_x_relative'], name="center_geometric_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_geometric_x_relative'),
+slots.center_geometric_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_geometric_x_relative'], name="center_geometric_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_geometric_x_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_geometric_x_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_geometric_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_geometric_distance_relative'], name="center_geometric_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_geometric_distance_relative'),
+slots.center_geometric_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_geometric_distance_relative'], name="center_geometric_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_geometric_distance_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_geometric_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_fitted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_fitted_y'], name="center_fitted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_fitted_y'),
+slots.center_fitted_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_fitted_y'], name="center_fitted_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_fitted_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_fitted_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_fitted_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_fitted_y_relative'], name="center_fitted_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_fitted_y_relative'),
+slots.center_fitted_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_fitted_y_relative'], name="center_fitted_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_fitted_y_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_fitted_y_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_fitted_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_fitted_x'], name="center_fitted_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_fitted_x'),
+slots.center_fitted_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_fitted_x'], name="center_fitted_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_fitted_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_fitted_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_fitted_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_fitted_x_relative'], name="center_fitted_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_fitted_x_relative'),
+slots.center_fitted_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_fitted_x_relative'], name="center_fitted_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_fitted_x_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_fitted_x_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.center_fitted_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/center_fitted_distance_relative'], name="center_fitted_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/center_fitted_distance_relative'),
+slots.center_fitted_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/center_fitted_distance_relative'], name="center_fitted_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/center_fitted_distance_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.center_fitted_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity'], name="max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity'),
+slots.max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity'], name="max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_pos_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity_pos_y'], name="max_intensity_pos_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity_pos_y'),
+slots.max_intensity_pos_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_pos_y'], name="max_intensity_pos_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_pos_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_pos_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity_pos_y_relative'], name="max_intensity_pos_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity_pos_y_relative'),
+slots.max_intensity_pos_y_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_pos_y_relative'], name="max_intensity_pos_y_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_pos_y_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_pos_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity_pos_x'], name="max_intensity_pos_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity_pos_x'),
+slots.max_intensity_pos_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_pos_x'], name="max_intensity_pos_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_pos_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_pos_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity_pos_x_relative'], name="max_intensity_pos_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity_pos_x_relative'),
+slots.max_intensity_pos_x_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_pos_x_relative'], name="max_intensity_pos_x_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_pos_x_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_x_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.max_intensity_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/max_intensity_distance_relative'], name="max_intensity_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/max_intensity_distance_relative'),
+slots.max_intensity_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_distance_relative'], name="max_intensity_distance_relative", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_distance_relative'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_distance_relative, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_left_intensity_mean'], name="top_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_left_intensity_mean'),
+slots.top_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_left_intensity_mean'], name="top_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_left_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_left_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_left_intensity_ratio'], name="top_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_left_intensity_ratio'),
+slots.top_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_left_intensity_ratio'], name="top_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_left_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_left_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_center_intensity_mean'], name="top_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_center_intensity_mean'),
+slots.top_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_center_intensity_mean'], name="top_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_center_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_center_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_center_intensity_ratio'], name="top_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_center_intensity_ratio'),
+slots.top_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_center_intensity_ratio'], name="top_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_center_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_center_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_right_intensity_mean'], name="top_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_right_intensity_mean'),
+slots.top_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_right_intensity_mean'], name="top_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_right_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_right_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.top_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/top_right_intensity_ratio'], name="top_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/top_right_intensity_ratio'),
+slots.top_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/top_right_intensity_ratio'], name="top_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/top_right_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.top_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_left_intensity_mean'], name="middle_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_left_intensity_mean'),
+slots.middle_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_left_intensity_mean'], name="middle_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_left_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_left_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_left_intensity_ratio'], name="middle_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_left_intensity_ratio'),
+slots.middle_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_left_intensity_ratio'], name="middle_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_left_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_left_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_center_intensity_mean'], name="middle_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_center_intensity_mean'),
+slots.middle_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_center_intensity_mean'], name="middle_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_center_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_center_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_center_intensity_ratio'], name="middle_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_center_intensity_ratio'),
+slots.middle_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_center_intensity_ratio'], name="middle_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_center_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_center_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_right_intensity_mean'], name="middle_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_right_intensity_mean'),
+slots.middle_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_right_intensity_mean'], name="middle_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_right_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_right_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.middle_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/middle_right_intensity_ratio'], name="middle_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/middle_right_intensity_ratio'),
+slots.middle_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/middle_right_intensity_ratio'], name="middle_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/middle_right_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.middle_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_left_intensity_mean'], name="bottom_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_left_intensity_mean'),
+slots.bottom_left_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_left_intensity_mean'], name="bottom_left_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_left_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_left_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_left_intensity_ratio'], name="bottom_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_left_intensity_ratio'),
+slots.bottom_left_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_left_intensity_ratio'], name="bottom_left_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_left_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_left_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_center_intensity_mean'], name="bottom_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_center_intensity_mean'),
+slots.bottom_center_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_center_intensity_mean'], name="bottom_center_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_center_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_center_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_center_intensity_ratio'], name="bottom_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_center_intensity_ratio'),
+slots.bottom_center_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_center_intensity_ratio'], name="bottom_center_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_center_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_center_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_right_intensity_mean'], name="bottom_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_right_intensity_mean'),
+slots.bottom_right_intensity_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_right_intensity_mean'], name="bottom_right_intensity_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_right_intensity_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_intensity_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/bottom_right_intensity_ratio'], name="bottom_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/bottom_right_intensity_ratio'),
+slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/bottom_right_intensity_ratio'], name="bottom_right_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/bottom_right_intensity_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bottom_right_intensity_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/psf_beads_images'], name="psf_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/psf_beads_images'),
+slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/psf_beads_images'], name="psf_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/psf_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
-slots.min_lateral_distance_factor = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/min_lateral_distance_factor'], name="min_lateral_distance_factor", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/min_lateral_distance_factor'),
+slots.min_lateral_distance_factor = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/min_lateral_distance_factor'], name="min_lateral_distance_factor", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/min_lateral_distance_factor'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
 
-slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/snr_threshold'),
+slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/snr_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
 
-slots.fitting_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fitting_r2_threshold'], name="fitting_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fitting_r2_threshold'),
+slots.fitting_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_r2_threshold'], name="fitting_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_r2_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_r2_threshold, domain=None, range=float)
 
-slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_robust_z_score_threshold'),
+slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
 
-slots.considered_valid_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_valid_count'], name="considered_valid_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_valid_count'),
+slots.considered_valid_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_valid_count'], name="considered_valid_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_valid_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_valid_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_lateral_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_lateral_edge_count'], name="considered_lateral_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_lateral_edge_count'),
+slots.considered_lateral_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_lateral_edge_count'], name="considered_lateral_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_lateral_edge_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_lateral_edge_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_self_proximity_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_self_proximity_count'], name="considered_self_proximity_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_self_proximity_count'),
+slots.considered_self_proximity_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_self_proximity_count'], name="considered_self_proximity_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_self_proximity_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_self_proximity_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_axial_edge_count'], name="considered_axial_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_axial_edge_count'),
+slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_axial_edge_count'], name="considered_axial_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_axial_edge_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_axial_edge_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_intensity_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_intensity_outlier_count'], name="considered_intensity_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_intensity_outlier_count'),
+slots.considered_intensity_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_intensity_outlier_count'], name="considered_intensity_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_intensity_outlier_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_intensity_outlier_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_fit_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bad_fit_z_count'], name="considered_bad_fit_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bad_fit_z_count'),
+slots.considered_bad_fit_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_z_count'], name="considered_bad_fit_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_z_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_z_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_fit_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bad_fit_y_count'], name="considered_bad_fit_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bad_fit_y_count'),
+slots.considered_bad_fit_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_y_count'], name="considered_bad_fit_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_y_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_y_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.considered_bad_fit_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bad_fit_x_count'], name="considered_bad_fit_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bad_fit_x_count'),
+slots.considered_bad_fit_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_x_count'], name="considered_bad_fit_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_x_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_x_count, domain=None, range=Optional[Union[int, List[int]]])
 
-slots.intensity_integrated_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_integrated_mean'], name="intensity_integrated_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_integrated_mean'),
+slots.intensity_integrated_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_integrated_mean'], name="intensity_integrated_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_integrated_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_integrated_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_integrated_median'], name="intensity_integrated_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_integrated_median'),
+slots.intensity_integrated_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_integrated_median'], name="intensity_integrated_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_integrated_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_integrated_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_integrated_std'], name="intensity_integrated_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_integrated_std'),
+slots.intensity_integrated_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_integrated_std'], name="intensity_integrated_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_integrated_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_max_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_max_mean'], name="intensity_max_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_max_mean'),
+slots.intensity_max_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_max_mean'], name="intensity_max_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_max_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_max_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_max_median'], name="intensity_max_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_max_median'),
+slots.intensity_max_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_max_median'], name="intensity_max_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_max_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_max_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_max_std'], name="intensity_max_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_max_std'),
+slots.intensity_max_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_max_std'], name="intensity_max_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_max_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_max_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_min_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_min_mean'], name="intensity_min_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_min_mean'),
+slots.intensity_min_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_min_mean'], name="intensity_min_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_min_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_min_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_min_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_min_median'], name="intensity_min_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_min_median'),
+slots.intensity_min_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_min_median'], name="intensity_min_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_min_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_min_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_min_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_min_std'], name="intensity_min_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_min_std'),
+slots.intensity_min_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_min_std'], name="intensity_min_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_min_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_min_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_std_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_std_mean'], name="intensity_std_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_std_mean'),
+slots.intensity_std_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_std_mean'], name="intensity_std_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_std_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_std_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_std_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_std_median'], name="intensity_std_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_std_median'),
+slots.intensity_std_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_std_median'], name="intensity_std_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_std_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_std_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.intensity_std_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/intensity_std_std'], name="intensity_std_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/intensity_std_std'),
+slots.intensity_std_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_std_std'], name="intensity_std_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_std_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_std_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_z_mean'], name="fit_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_z_mean'),
+slots.fit_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_mean'], name="fit_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_z_median'], name="fit_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_z_median'),
+slots.fit_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_median'], name="fit_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_z_std'], name="fit_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_z_std'),
+slots.fit_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_std'], name="fit_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_y_mean'], name="fit_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_y_mean'),
+slots.fit_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_mean'], name="fit_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_y_median'], name="fit_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_y_median'),
+slots.fit_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_median'], name="fit_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_y_std'], name="fit_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_y_std'),
+slots.fit_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_std'], name="fit_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_x_mean'], name="fit_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_x_mean'),
+slots.fit_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_mean'], name="fit_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_x_median'], name="fit_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_x_median'),
+slots.fit_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_median'], name="fit_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fit_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fit_r2_x_std'], name="fit_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fit_r2_x_std'),
+slots.fit_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_std'], name="fit_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_z_mean'], name="fwhm_pixel_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_z_mean'),
+slots.fwhm_pixel_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_z_mean'], name="fwhm_pixel_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_z_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_z_median'], name="fwhm_pixel_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_z_median'),
+slots.fwhm_pixel_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_z_median'], name="fwhm_pixel_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_z_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_z_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_z_std'], name="fwhm_pixel_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_z_std'),
+slots.fwhm_pixel_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_z_std'], name="fwhm_pixel_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_z_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_z_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_y_mean'], name="fwhm_pixel_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_y_mean'),
+slots.fwhm_pixel_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_y_mean'], name="fwhm_pixel_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_y_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_y_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_y_median'], name="fwhm_pixel_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_y_median'),
+slots.fwhm_pixel_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_y_median'], name="fwhm_pixel_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_y_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_y_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_y_std'], name="fwhm_pixel_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_y_std'),
+slots.fwhm_pixel_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_y_std'], name="fwhm_pixel_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_y_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_y_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_x_mean'], name="fwhm_pixel_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_x_mean'),
+slots.fwhm_pixel_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_x_mean'], name="fwhm_pixel_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_x_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_x_median'], name="fwhm_pixel_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_x_median'),
+slots.fwhm_pixel_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_x_median'], name="fwhm_pixel_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_x_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_x_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_pixel_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_pixel_x_std'], name="fwhm_pixel_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_pixel_x_std'),
+slots.fwhm_pixel_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_x_std'], name="fwhm_pixel_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_x_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_x_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_z_mean'], name="fwhm_micron_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_z_mean'),
+slots.fwhm_micron_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_z_mean'], name="fwhm_micron_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_z_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_z_median'], name="fwhm_micron_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_z_median'),
+slots.fwhm_micron_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_z_median'], name="fwhm_micron_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_z_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_z_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_z_std'], name="fwhm_micron_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_z_std'),
+slots.fwhm_micron_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_z_std'], name="fwhm_micron_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_z_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_z_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_y_mean'], name="fwhm_micron_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_y_mean'),
+slots.fwhm_micron_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_y_mean'], name="fwhm_micron_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_y_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_y_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_y_median'], name="fwhm_micron_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_y_median'),
+slots.fwhm_micron_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_y_median'], name="fwhm_micron_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_y_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_y_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_y_std'], name="fwhm_micron_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_y_std'),
+slots.fwhm_micron_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_y_std'], name="fwhm_micron_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_y_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_y_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_x_mean'], name="fwhm_micron_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_x_mean'),
+slots.fwhm_micron_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_x_mean'], name="fwhm_micron_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_x_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_x_median'], name="fwhm_micron_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_x_median'),
+slots.fwhm_micron_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_x_median'], name="fwhm_micron_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_x_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_x_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_micron_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_micron_x_std'], name="fwhm_micron_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_micron_x_std'),
+slots.fwhm_micron_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_micron_x_std'], name="fwhm_micron_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_micron_x_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_micron_x_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_lateral_asymmetry_ratio_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_mean'], name="fwhm_lateral_asymmetry_ratio_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_mean'),
+slots.fwhm_lateral_asymmetry_ratio_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_lateral_asymmetry_ratio_mean'], name="fwhm_lateral_asymmetry_ratio_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_lateral_asymmetry_ratio_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_lateral_asymmetry_ratio_mean, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_lateral_asymmetry_ratio_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_median'], name="fwhm_lateral_asymmetry_ratio_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_median'),
+slots.fwhm_lateral_asymmetry_ratio_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_lateral_asymmetry_ratio_median'], name="fwhm_lateral_asymmetry_ratio_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_lateral_asymmetry_ratio_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_lateral_asymmetry_ratio_median, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.fwhm_lateral_asymmetry_ratio_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std'], name="fwhm_lateral_asymmetry_ratio_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std'),
+slots.fwhm_lateral_asymmetry_ratio_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'], name="fwhm_lateral_asymmetry_ratio_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_lateral_asymmetry_ratio_std, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fit_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fit_r2_z'], name="average_bead_fit_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fit_r2_z'),
+slots.average_bead_fit_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_z'], name="average_bead_fit_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_z, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fit_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fit_r2_y'], name="average_bead_fit_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fit_r2_y'),
+slots.average_bead_fit_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_y'], name="average_bead_fit_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fit_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fit_r2_x'], name="average_bead_fit_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fit_r2_x'),
+slots.average_bead_fit_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_x'], name="average_bead_fit_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_pixel_z'], name="average_bead_fwhm_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_pixel_z'),
+slots.average_bead_fwhm_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_pixel_z'], name="average_bead_fwhm_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_pixel_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_pixel_z, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_pixel_y'], name="average_bead_fwhm_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_pixel_y'),
+slots.average_bead_fwhm_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_pixel_y'], name="average_bead_fwhm_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_pixel_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_pixel_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_pixel_x'], name="average_bead_fwhm_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_pixel_x'),
+slots.average_bead_fwhm_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_pixel_x'], name="average_bead_fwhm_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_pixel_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_pixel_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_micron_z'], name="average_bead_fwhm_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_micron_z'),
+slots.average_bead_fwhm_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_micron_z'], name="average_bead_fwhm_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_micron_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_micron_z, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_micron_y'], name="average_bead_fwhm_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_micron_y'),
+slots.average_bead_fwhm_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_micron_y'], name="average_bead_fwhm_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_micron_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_micron_y, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_micron_x'], name="average_bead_fwhm_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_micron_x'),
+slots.average_bead_fwhm_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_micron_x'], name="average_bead_fwhm_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_micron_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_micron_x, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio'], name="average_bead_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio'),
+slots.average_bead_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio'], name="average_bead_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_intensity_integrated = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_intensity_integrated'], name="average_bead_intensity_integrated", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_intensity_integrated'),
+slots.average_bead_intensity_integrated = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_integrated'], name="average_bead_intensity_integrated", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_integrated'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_integrated, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_intensity_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_intensity_max'], name="average_bead_intensity_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_intensity_max'),
+slots.average_bead_intensity_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_max'], name="average_bead_intensity_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_max'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_max, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_intensity_min'], name="average_bead_intensity_min", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_intensity_min'),
+slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_min'], name="average_bead_intensity_min", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_min'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_min, domain=None, range=Optional[Union[float, List[float]]])
 
-slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead_intensity_std'),
+slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_std, domain=None, range=Optional[Union[float, List[float]]])
 
 slots.dataReference__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="dataReference__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
@@ -3081,97 +3081,97 @@ slots.table__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/columns'],
 slots.table__table_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/table_data'], name="table__table_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/table_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.table__table_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
-slots.fieldIlluminationDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/input_data'], name="fieldIlluminationDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/input_data'),
+slots.fieldIlluminationDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/input_data'], name="fieldIlluminationDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input_data, domain=None, range=Optional[Union[dict, FieldIlluminationInputData]])
 
-slots.fieldIlluminationDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/input_parameters'], name="fieldIlluminationDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/input_parameters'),
+slots.fieldIlluminationDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/input_parameters'], name="fieldIlluminationDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/input_parameters'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__input_parameters, domain=None, range=Optional[Union[dict, FieldIlluminationInputParameters]])
 
-slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/output'], name="fieldIlluminationDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/output'),
+slots.fieldIlluminationDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/output'], name="fieldIlluminationDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__output, domain=None, range=Optional[Union[dict, FieldIlluminationOutput]])
 
-slots.fieldIlluminationDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/sample'], name="fieldIlluminationDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/sample'),
+slots.fieldIlluminationDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/sample'], name="fieldIlluminationDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationDataset__sample, domain=None, range=Optional[Union[dict, HomogeneousField]])
 
-slots.fieldIlluminationOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/key_measurements'], name="fieldIlluminationOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/key_measurements'),
+slots.fieldIlluminationOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/key_measurements'], name="fieldIlluminationOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__key_measurements, domain=None, range=Optional[Union[dict, FieldIlluminationKeyMeasurements]])
 
-slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/intensity_profiles'], name="fieldIlluminationOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/intensity_profiles'),
+slots.fieldIlluminationOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/intensity_profiles'], name="fieldIlluminationOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/intensity_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], List[Union[dict, Table]]]])
 
-slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_profiles'),
+slots.fieldIlluminationOutput__roi_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_profiles'], name="fieldIlluminationOutput__roi_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_profiles, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_corners'),
+slots.fieldIlluminationOutput__roi_corners = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_corners'], name="fieldIlluminationOutput__roi_corners", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_corners'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_corners, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_centers_of_mass'], name="fieldIlluminationOutput__roi_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_centers_of_mass'),
+slots.fieldIlluminationOutput__roi_centers_of_mass = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_centers_of_mass'], name="fieldIlluminationOutput__roi_centers_of_mass", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_centers_of_mass'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_of_mass, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_centers_geometric = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_centers_geometric'], name="fieldIlluminationOutput__roi_centers_geometric", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_centers_geometric'),
+slots.fieldIlluminationOutput__roi_centers_geometric = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_centers_geometric'], name="fieldIlluminationOutput__roi_centers_geometric", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_centers_geometric'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_geometric, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_centers_fitted = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_centers_fitted'], name="fieldIlluminationOutput__roi_centers_fitted", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_centers_fitted'),
+slots.fieldIlluminationOutput__roi_centers_fitted = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_centers_fitted'], name="fieldIlluminationOutput__roi_centers_fitted", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_centers_fitted'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_fitted, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_centers_max_intensity'], name="fieldIlluminationOutput__roi_centers_max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_centers_max_intensity'),
+slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_centers_max_intensity'], name="fieldIlluminationOutput__roi_centers_max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_centers_max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_centers_max_intensity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/roi_center_region'),
+slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_center_region'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/input_data'], name="pSFBeadsDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/input_data'),
+slots.pSFBeadsDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/input_data'], name="pSFBeadsDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input_data, domain=None, range=Optional[Union[dict, PSFBeadsInputData]])
 
-slots.pSFBeadsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/input_parameters'], name="pSFBeadsDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/input_parameters'),
+slots.pSFBeadsDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/input_parameters'], name="pSFBeadsDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/input_parameters'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__input_parameters, domain=None, range=Optional[Union[dict, PSFBeadsInputParameters]])
 
-slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/output'),
+slots.pSFBeadsDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/output'], name="pSFBeadsDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__output, domain=None, range=Optional[Union[dict, PSFBeadsOutput]])
 
-slots.pSFBeadsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/sample'], name="pSFBeadsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/sample'),
+slots.pSFBeadsDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sample'], name="pSFBeadsDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsDataset__sample, domain=None, range=Optional[Union[dict, PSFBeads]])
 
-slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/analyzed_bead_centers'),
+slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_lateral_edge'], name="pSFBeadsOutput__considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_lateral_edge'),
+slots.pSFBeadsOutput__considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_lateral_edge'], name="pSFBeadsOutput__considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_lateral_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_self_proximity'], name="pSFBeadsOutput__considered_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_self_proximity'),
+slots.pSFBeadsOutput__considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_self_proximity'], name="pSFBeadsOutput__considered_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_self_proximity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_axial_edge'], name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_axial_edge'),
+slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_axial_edge'], name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_intensity_outlier'], name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_intensity_outlier'),
+slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_intensity_outlier'], name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_intensity_outlier'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_z_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_z_fit_quality'),
+slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_z_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_z_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_y_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_y_fit_quality'),
+slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_y_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_y_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/considered_bead_centers_x_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/considered_bead_centers_x_fit_quality'),
+slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_x_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_x_fit_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/key_measurements'], name="pSFBeadsOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/key_measurements'),
+slots.pSFBeadsOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/key_measurements'], name="pSFBeadsOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__key_measurements, domain=None, range=Optional[Union[dict, PSFBeadsKeyMeasurements]])
 
-slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/bead_properties'),
+slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_properties'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_profiles_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/bead_profiles_z'], name="pSFBeadsOutput__bead_profiles_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/bead_profiles_z'),
+slots.pSFBeadsOutput__bead_profiles_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_profiles_z'], name="pSFBeadsOutput__bead_profiles_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_profiles_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_z, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_profiles_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/bead_profiles_y'], name="pSFBeadsOutput__bead_profiles_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/bead_profiles_y'),
+slots.pSFBeadsOutput__bead_profiles_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_profiles_y'], name="pSFBeadsOutput__bead_profiles_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_profiles_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_y, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/bead_profiles_x'], name="pSFBeadsOutput__bead_profiles_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/bead_profiles_x'),
+slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_profiles_x'], name="pSFBeadsOutput__bead_profiles_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_profiles_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_x, domain=None, range=Optional[Union[dict, Table]])
 
-slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads_schema/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads_schema/average_bead'),
+slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])
 
 slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),

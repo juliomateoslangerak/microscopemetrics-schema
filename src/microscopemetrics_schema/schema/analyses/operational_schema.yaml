@@ -1,0 +1,117 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/operational
+name: microscopemetrics_analyses_operational
+prefixes:
+#  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
+#imports:
+#  - metrics:types
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - core_schema  # TODO: change to metrics:core_schema
+  - samples/operational
+
+default_range: string
+
+
+classes:
+  OperationalDataset:
+    is_a: MetricsDataset
+    description: >-
+      A dataset of non-standardized microscope samples produced during regular operation of a research project.
+    attributes:
+      input_data:
+        range: OperationalInputData
+      input_parameters:
+        range: OperationalInputParameters
+      output:
+        range: OperationalOutput
+      sample:
+        range: Operational
+
+  OperationalInputData:
+    is_a: MetricsInputData
+    slots:
+      - operational_images
+      - orthogonal_rois
+      - profile_rois
+
+  PSFBeadsInputParameters:
+    is_a: MetricsInputParameters
+
+  OperationalOutput:
+    is_a: MetricsOutput
+    attributes:
+      intensity_profiles:
+        range: Table
+        description: >-
+          Intensity profiles as measured in the provided profile_rois.
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      orthogonal_images:
+        range: Image
+        description: >-
+          Orthogonal images created from the provided orthogonal_rois.
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      fft_images:
+        range: Image
+        description: >-
+          Fourier space transforms of the input images.
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      key_measurements:
+        range: OperationalKeyMeasurements
+        description: >-
+          The key measurements on the operational dataset.
+        multivalued: false
+        inlined: true
+        inlined_as_list: true
+
+  OperationalKeyMeasurements:
+    is_a: KeyMeasurements
+    slots:
+      - channel_name
+      - channel_nr
+      - max_intensity
+      - min_intensity
+
+
+slots:
+  # Inputs
+  operational_images:
+    range: Image
+    description: >-
+      The operational images provided in the order TZYXC.
+      More than one image can be provided if the image conditions are the same.
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  orthogonal_rois:
+    range: Roi
+    description: >-
+      Rois containing a point shape where the orthogonal views are to be taken.
+    required: false
+  profile_rois:
+    range: Roi
+    description: >-
+      Rois containing a line shape where a intensity profile is to be calculated.
+    required: true
+    ifabsent: float(10.0)
+
+  # Outputs
+  max_intensity:
+    range: float
+    description: >-
+      Maximum intensity on the image. One value per channel.
+    multivalued: true
+  min_intensity:
+    range: float
+    description: >-
+      Minimum intensity on the image. One value per channel.
+    multivalued: true

@@ -731,10 +731,10 @@
     },
     {
       "name": "field_illumination_image",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/field_illumination_image",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/field_illumination_image",
       "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/field_illumination_image",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/field_illumination_image",
       "owner": "FieldIlluminationInputData",
       "domain_of": [
         "FieldIlluminationInputData"
@@ -748,10 +748,10 @@
     },
     {
       "name": "corner_fraction",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/corner_fraction",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/corner_fraction",
       "description": "Input parameter: the proportion of the image to be considered as corner or center",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/corner_fraction",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/corner_fraction",
       "ifabsent": "float(0.1)",
       "owner": "FieldIlluminationInputParameters",
       "domain_of": [
@@ -765,10 +765,10 @@
     },
     {
       "name": "sigma",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sigma",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/sigma",
       "description": "Input parameter: the sigma for the smoothing gaussian filter to be applied prior to analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sigma",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/sigma",
       "ifabsent": "float(5.0)",
       "owner": "FieldIlluminationInputParameters",
       "domain_of": [
@@ -782,10 +782,10 @@
     },
     {
       "name": "center_region_intensity_fraction",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_intensity_fraction",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_region_intensity_fraction",
       "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_intensity_fraction",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_region_intensity_fraction",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -798,10 +798,10 @@
     },
     {
       "name": "center_region_area_fraction",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_area_fraction",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_region_area_fraction",
       "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_region_area_fraction",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_region_area_fraction",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -814,10 +814,10 @@
     },
     {
       "name": "center_of_mass_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_y",
       "description": "The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_y",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -828,10 +828,10 @@
     },
     {
       "name": "center_of_mass_y_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_y_relative",
       "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_y_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_y_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -844,10 +844,10 @@
     },
     {
       "name": "center_of_mass_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_x",
       "description": "The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_x",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -858,10 +858,10 @@
     },
     {
       "name": "center_of_mass_x_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_x_relative",
       "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_x_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_x_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -874,10 +874,10 @@
     },
     {
       "name": "center_of_mass_distance_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_distance_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_distance_relative",
       "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_of_mass_distance_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_of_mass_distance_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -890,10 +890,10 @@
     },
     {
       "name": "center_geometric_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_y",
       "description": "The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_y",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -904,10 +904,10 @@
     },
     {
       "name": "center_geometric_y_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_y_relative",
       "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_y_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_y_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -920,10 +920,10 @@
     },
     {
       "name": "center_geometric_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_x",
       "description": "The x coordinate of the geometric center of the center of illumination region. In pixels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_x",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -934,10 +934,10 @@
     },
     {
       "name": "center_geometric_x_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_x_relative",
       "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_x_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_x_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -950,10 +950,10 @@
     },
     {
       "name": "center_geometric_distance_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_distance_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_distance_relative",
       "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_geometric_distance_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_geometric_distance_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -966,10 +966,10 @@
     },
     {
       "name": "center_fitted_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_y",
       "description": "The y coordinate of the fitted center of illumination. In pixels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_y",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -980,10 +980,10 @@
     },
     {
       "name": "center_fitted_y_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_y_relative",
       "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_y_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_y_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -996,10 +996,10 @@
     },
     {
       "name": "center_fitted_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_x",
       "description": "The x coordinate of the fitted center of illumination. In pixels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_x",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1010,10 +1010,10 @@
     },
     {
       "name": "center_fitted_x_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_x_relative",
       "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_x_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_x_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1026,10 +1026,10 @@
     },
     {
       "name": "center_fitted_distance_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_distance_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_distance_relative",
       "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/center_fitted_distance_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/center_fitted_distance_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1042,10 +1042,10 @@
     },
     {
       "name": "max_intensity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity",
       "description": "The maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1056,10 +1056,10 @@
     },
     {
       "name": "max_intensity_pos_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_y",
       "description": "The y coordinate of the maximum intensity of the center of illumination. In pixels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_y",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1070,10 +1070,10 @@
     },
     {
       "name": "max_intensity_pos_y_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_y_relative",
       "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_y_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_y_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1086,10 +1086,10 @@
     },
     {
       "name": "max_intensity_pos_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_x",
       "description": "The x coordinate of the maximum intensity of the center of illumination. In pixels",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_x",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1100,10 +1100,10 @@
     },
     {
       "name": "max_intensity_pos_x_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_x_relative",
       "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_pos_x_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_pos_x_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1116,10 +1116,10 @@
     },
     {
       "name": "max_intensity_distance_relative",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_distance_relative",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_distance_relative",
       "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/max_intensity_distance_relative",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/max_intensity_distance_relative",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1132,10 +1132,10 @@
     },
     {
       "name": "top_left_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_left_intensity_mean",
       "description": "The mean intensity of the top-left corner of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_left_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1146,10 +1146,10 @@
     },
     {
       "name": "top_left_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_left_intensity_ratio",
       "description": "The mean intensity of the top-left corner of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_left_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_left_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1160,10 +1160,10 @@
     },
     {
       "name": "top_center_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_center_intensity_mean",
       "description": "The mean intensity of the top-center of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_center_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1174,10 +1174,10 @@
     },
     {
       "name": "top_center_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_center_intensity_ratio",
       "description": "The mean intensity of the top-center of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_center_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_center_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1188,10 +1188,10 @@
     },
     {
       "name": "top_right_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_right_intensity_mean",
       "description": "The mean intensity of the top-right corner of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_right_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1202,10 +1202,10 @@
     },
     {
       "name": "top_right_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_right_intensity_ratio",
       "description": "The mean intensity of the top-right corner of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/top_right_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/top_right_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1216,10 +1216,10 @@
     },
     {
       "name": "middle_left_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_left_intensity_mean",
       "description": "The mean intensity of the middle-left of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_left_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1230,10 +1230,10 @@
     },
     {
       "name": "middle_left_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_left_intensity_ratio",
       "description": "The mean intensity of the middle-left of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_left_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_left_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1244,10 +1244,10 @@
     },
     {
       "name": "middle_center_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_center_intensity_mean",
       "description": "The mean intensity of the middle-center of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_center_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1258,10 +1258,10 @@
     },
     {
       "name": "middle_center_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_center_intensity_ratio",
       "description": "The mean intensity of the middle-center of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_center_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_center_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1272,10 +1272,10 @@
     },
     {
       "name": "middle_right_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_right_intensity_mean",
       "description": "The mean intensity of the middle-right of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_right_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1286,10 +1286,10 @@
     },
     {
       "name": "middle_right_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_right_intensity_ratio",
       "description": "The mean intensity of the middle-right of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/middle_right_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/middle_right_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1300,10 +1300,10 @@
     },
     {
       "name": "bottom_left_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_left_intensity_mean",
       "description": "The mean intensity of the bottom-left of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_left_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1314,10 +1314,10 @@
     },
     {
       "name": "bottom_left_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_left_intensity_ratio",
       "description": "The mean intensity of the bottom-left of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_left_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_left_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1328,10 +1328,10 @@
     },
     {
       "name": "bottom_center_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_center_intensity_mean",
       "description": "The mean intensity of the bottom-center of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_center_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1342,10 +1342,10 @@
     },
     {
       "name": "bottom_center_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_center_intensity_ratio",
       "description": "The mean intensity of the bottom-center of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_center_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_center_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1356,10 +1356,10 @@
     },
     {
       "name": "bottom_right_intensity_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_right_intensity_mean",
       "description": "The mean intensity of the bottom-right of the image",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_right_intensity_mean",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1370,10 +1370,10 @@
     },
     {
       "name": "bottom_right_intensity_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_right_intensity_ratio",
       "description": "The mean intensity of the bottom-right of the image  divided by the maximum intensity of the center of illumination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/bottom_right_intensity_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/bottom_right_intensity_ratio",
       "owner": "FieldIlluminationKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements"
@@ -1384,10 +1384,10 @@
     },
     {
       "name": "psf_beads_images",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/psf_beads_images",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/psf_beads_images",
       "description": "The image containing the beads provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/psf_beads_images",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/psf_beads_images",
       "owner": "PSFBeadsInputData",
       "domain_of": [
         "PSFBeadsInputData"
@@ -1401,10 +1401,10 @@
     },
     {
       "name": "min_lateral_distance_factor",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/min_lateral_distance_factor",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor",
       "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/min_lateral_distance_factor",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor",
       "ifabsent": "float(20)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
@@ -1418,10 +1418,10 @@
     },
     {
       "name": "snr_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/snr_threshold",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold",
       "description": "Signal to noise ratio threshold to be used for bead detection.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/snr_threshold",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold",
       "ifabsent": "float(10.0)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
@@ -1433,10 +1433,10 @@
     },
     {
       "name": "fitting_r2_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fitting_r2_threshold",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold",
       "description": "Threshold for the coefficient of determination (R^2) of the fit to be considered good.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fitting_r2_threshold",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold",
       "ifabsent": "float(0.85)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
@@ -1448,10 +1448,10 @@
     },
     {
       "name": "intensity_robust_z_score_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_robust_z_score_threshold",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_robust_z_score_threshold",
       "description": "Threshold for the robust z-score of the intensity of the bead to be considered good.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_robust_z_score_threshold",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_robust_z_score_threshold",
       "ifabsent": "float(2.0)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
@@ -1463,10 +1463,10 @@
     },
     {
       "name": "considered_valid_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_valid_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_valid_count",
       "description": "Number of beads analyzed. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_valid_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_valid_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1477,10 +1477,10 @@
     },
     {
       "name": "considered_lateral_edge_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_lateral_edge_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_lateral_edge_count",
       "description": "Number of beads considered for being too close to the edge of the image. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_lateral_edge_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_lateral_edge_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1491,10 +1491,10 @@
     },
     {
       "name": "considered_self_proximity_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_self_proximity_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_self_proximity_count",
       "description": "Number of beads considered for being too close to another bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_self_proximity_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_self_proximity_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1505,10 +1505,10 @@
     },
     {
       "name": "considered_axial_edge_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_axial_edge_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_axial_edge_count",
       "description": "Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_axial_edge_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_axial_edge_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1519,10 +1519,10 @@
     },
     {
       "name": "considered_intensity_outlier_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_intensity_outlier_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_intensity_outlier_count",
       "description": "Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_intensity_outlier_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_intensity_outlier_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1533,10 +1533,10 @@
     },
     {
       "name": "considered_bad_fit_z_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_z_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_z_count",
       "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_z_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_z_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1547,10 +1547,10 @@
     },
     {
       "name": "considered_bad_fit_y_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_y_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_y_count",
       "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_y_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_y_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1561,10 +1561,10 @@
     },
     {
       "name": "considered_bad_fit_x_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_x_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_x_count",
       "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bad_fit_x_count",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_x_count",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1575,10 +1575,10 @@
     },
     {
       "name": "intensity_integrated_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_mean",
       "description": "Mean integrated intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1589,10 +1589,10 @@
     },
     {
       "name": "intensity_integrated_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_median",
       "description": "Median integrated intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1603,10 +1603,10 @@
     },
     {
       "name": "intensity_integrated_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_std",
       "description": "Standard deviation of the integrated intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_integrated_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1617,10 +1617,10 @@
     },
     {
       "name": "intensity_max_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_mean",
       "description": "Mean maximum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1631,10 +1631,10 @@
     },
     {
       "name": "intensity_max_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_median",
       "description": "Median maximum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1645,10 +1645,10 @@
     },
     {
       "name": "intensity_max_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_std",
       "description": "Standard deviation of the maximum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_max_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_max_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1659,10 +1659,10 @@
     },
     {
       "name": "intensity_min_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_mean",
       "description": "Mean minimum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1673,10 +1673,10 @@
     },
     {
       "name": "intensity_min_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_median",
       "description": "Median minimum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1687,10 +1687,10 @@
     },
     {
       "name": "intensity_min_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_std",
       "description": "Standard deviation of the minimum intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_min_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_min_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1701,10 +1701,10 @@
     },
     {
       "name": "intensity_std_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_mean",
       "description": "Mean standard deviation of the intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1715,10 +1715,10 @@
     },
     {
       "name": "intensity_std_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_median",
       "description": "Median standard deviation of the intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1729,10 +1729,10 @@
     },
     {
       "name": "intensity_std_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_std",
       "description": "Standard deviation of the standard deviation of the intensity of the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/intensity_std_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1743,10 +1743,10 @@
     },
     {
       "name": "fit_r2_z_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_mean",
       "description": "Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1757,10 +1757,10 @@
     },
     {
       "name": "fit_r2_z_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_median",
       "description": "Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1771,10 +1771,10 @@
     },
     {
       "name": "fit_r2_z_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_std",
       "description": "Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_z_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1785,10 +1785,10 @@
     },
     {
       "name": "fit_r2_y_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_mean",
       "description": "Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1799,10 +1799,10 @@
     },
     {
       "name": "fit_r2_y_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_median",
       "description": "Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1813,10 +1813,10 @@
     },
     {
       "name": "fit_r2_y_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_std",
       "description": "Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_y_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1827,10 +1827,10 @@
     },
     {
       "name": "fit_r2_x_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_mean",
       "description": "Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1841,10 +1841,10 @@
     },
     {
       "name": "fit_r2_x_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_median",
       "description": "Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1855,10 +1855,10 @@
     },
     {
       "name": "fit_r2_x_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_std",
       "description": "Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fit_r2_x_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1869,10 +1869,10 @@
     },
     {
       "name": "fwhm_pixel_z_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_mean",
       "description": "Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1883,10 +1883,10 @@
     },
     {
       "name": "fwhm_pixel_z_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_median",
       "description": "Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1897,10 +1897,10 @@
     },
     {
       "name": "fwhm_pixel_z_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_z_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1911,10 +1911,10 @@
     },
     {
       "name": "fwhm_pixel_y_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_mean",
       "description": "Mean FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1925,10 +1925,10 @@
     },
     {
       "name": "fwhm_pixel_y_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_median",
       "description": "Median FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1939,10 +1939,10 @@
     },
     {
       "name": "fwhm_pixel_y_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_y_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_y_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1953,10 +1953,10 @@
     },
     {
       "name": "fwhm_pixel_x_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_mean",
       "description": "Mean FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1967,10 +1967,10 @@
     },
     {
       "name": "fwhm_pixel_x_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_median",
       "description": "Median FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1981,10 +1981,10 @@
     },
     {
       "name": "fwhm_pixel_x_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_pixel_x_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_x_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -1995,10 +1995,10 @@
     },
     {
       "name": "fwhm_micron_z_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_mean",
       "description": "Mean FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2009,10 +2009,10 @@
     },
     {
       "name": "fwhm_micron_z_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_median",
       "description": "Median FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2023,10 +2023,10 @@
     },
     {
       "name": "fwhm_micron_z_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the Z axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_z_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_z_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2037,10 +2037,10 @@
     },
     {
       "name": "fwhm_micron_y_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_mean",
       "description": "Mean FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2051,10 +2051,10 @@
     },
     {
       "name": "fwhm_micron_y_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_median",
       "description": "Median FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2065,10 +2065,10 @@
     },
     {
       "name": "fwhm_micron_y_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the Y axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_y_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_y_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2079,10 +2079,10 @@
     },
     {
       "name": "fwhm_micron_x_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_mean",
       "description": "Mean FWHM for the analyzed beads in the X axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2093,10 +2093,10 @@
     },
     {
       "name": "fwhm_micron_x_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_median",
       "description": "Median FWHM for the analyzed beads in the X axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2107,10 +2107,10 @@
     },
     {
       "name": "fwhm_micron_x_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_std",
       "description": "Standard deviation of the FWHM for the analyzed beads in the X axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_micron_x_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_micron_x_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2121,10 +2121,10 @@
     },
     {
       "name": "fwhm_lateral_asymmetry_ratio_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_mean",
       "description": "Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_mean",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_mean",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2135,10 +2135,10 @@
     },
     {
       "name": "fwhm_lateral_asymmetry_ratio_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_median",
       "description": "Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_median",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_median",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2149,10 +2149,10 @@
     },
     {
       "name": "fwhm_lateral_asymmetry_ratio_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std",
       "description": "Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/fwhm_lateral_asymmetry_ratio_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2163,10 +2163,10 @@
     },
     {
       "name": "average_bead_fit_r2_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_z",
       "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_z",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_z",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2177,10 +2177,10 @@
     },
     {
       "name": "average_bead_fit_r2_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_y",
       "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_y",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2191,10 +2191,10 @@
     },
     {
       "name": "average_bead_fit_r2_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_x",
       "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fit_r2_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_x",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2205,10 +2205,10 @@
     },
     {
       "name": "average_bead_fwhm_pixel_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_z",
       "description": "FWHM for the average bead in the Z axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_z",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_z",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2219,10 +2219,10 @@
     },
     {
       "name": "average_bead_fwhm_pixel_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_y",
       "description": "FWHM for the average bead in the Y axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_y",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2233,10 +2233,10 @@
     },
     {
       "name": "average_bead_fwhm_pixel_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_x",
       "description": "FWHM for the average bead in the X axis in pixels. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_pixel_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_x",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2247,10 +2247,10 @@
     },
     {
       "name": "average_bead_fwhm_micron_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_z",
       "description": "Average FWHM for the beads in the Z axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_z",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_z",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2261,10 +2261,10 @@
     },
     {
       "name": "average_bead_fwhm_micron_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_y",
       "description": "FWHM for the average bead in the Y axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_y",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2275,10 +2275,10 @@
     },
     {
       "name": "average_bead_fwhm_micron_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_x",
       "description": "FWHM for the average bead in the X axis in microns. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_micron_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_micron_x",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2289,10 +2289,10 @@
     },
     {
       "name": "average_bead_fwhm_lateral_asymmetry_ratio",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio",
       "description": "Lateral FWHM asymmetry ratio for the average bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_fwhm_lateral_asymmetry_ratio",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2303,10 +2303,10 @@
     },
     {
       "name": "average_bead_intensity_integrated",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_integrated",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_integrated",
       "description": "Integrated intensity for the average bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_integrated",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_integrated",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2317,10 +2317,10 @@
     },
     {
       "name": "average_bead_intensity_max",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_max",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_max",
       "description": "Maximum intensity for the average bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_max",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_max",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2331,10 +2331,10 @@
     },
     {
       "name": "average_bead_intensity_min",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_min",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_min",
       "description": "Minimum intensity for the average bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_min",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_min",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -2345,10 +2345,10 @@
     },
     {
       "name": "average_bead_intensity_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_std",
       "description": "Standard deviation of the intensity for the average bead. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead_intensity_std",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_intensity_std",
       "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "PSFBeadsKeyMeasurements"
@@ -3867,8 +3867,8 @@
     },
     {
       "name": "fieldIlluminationDataset__input_data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/input_data",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/input_data",
       "alias": "input_data",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
@@ -3880,8 +3880,8 @@
     },
     {
       "name": "fieldIlluminationDataset__input_parameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/input_parameters",
       "alias": "input_parameters",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
@@ -3893,8 +3893,8 @@
     },
     {
       "name": "fieldIlluminationDataset__output",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/output",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/output",
       "alias": "output",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
@@ -3906,8 +3906,8 @@
     },
     {
       "name": "fieldIlluminationDataset__sample",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/sample",
       "alias": "sample",
       "owner": "FieldIlluminationDataset",
       "domain_of": [
@@ -3920,8 +3920,8 @@
     {
       "name": "fieldIlluminationOutput__key_measurements",
       "description": "Key-Value pairs containing the Key measurements for the field illumination analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/key_measurements",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/key_measurements",
       "alias": "key_measurements",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -3934,8 +3934,8 @@
     {
       "name": "fieldIlluminationOutput__intensity_profiles",
       "description": "Intensity profiles for the field illumination analysis in the different directions",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/intensity_profiles",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/intensity_profiles",
       "alias": "intensity_profiles",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -3950,8 +3950,8 @@
     {
       "name": "fieldIlluminationOutput__roi_profiles",
       "description": "line ROIs used to compute the intensity profiles",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_profiles",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_profiles",
       "alias": "roi_profiles",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -3965,8 +3965,8 @@
     {
       "name": "fieldIlluminationOutput__roi_corners",
       "description": "Rectangular ROIs used to compute the corner intensities. The sama ROI is assigned to multiple images.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_corners",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_corners",
       "alias": "roi_corners",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -3980,8 +3980,8 @@
     {
       "name": "fieldIlluminationOutput__roi_centers_of_mass",
       "description": "Point ROIs marking the center of mass of the area of maximum illumination. When the image is very flat, the 99 percentile is used instead. One point per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_of_mass",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_centers_of_mass",
       "alias": "roi_centers_of_mass",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -3995,8 +3995,8 @@
     {
       "name": "fieldIlluminationOutput__roi_centers_geometric",
       "description": "Point ROIs marking the geometric center of the area of maximum illumination. One point per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_geometric",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_centers_geometric",
       "alias": "roi_centers_geometric",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -4010,8 +4010,8 @@
     {
       "name": "fieldIlluminationOutput__roi_centers_fitted",
       "description": "Point ROIs marking the fitted center of the area of maximum illumination. One point per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_fitted",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_centers_fitted",
       "alias": "roi_centers_fitted",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -4025,8 +4025,8 @@
     {
       "name": "fieldIlluminationOutput__roi_centers_max_intensity",
       "description": "Point ROIs marking the maximum intensity of the area of maximum illumination. One point per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_centers_max_intensity",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_centers_max_intensity",
       "alias": "roi_centers_max_intensity",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -4040,8 +4040,8 @@
     {
       "name": "fieldIlluminationOutput__roi_center_region",
       "description": "Mask ROIs marking the area of maximum illumination. One mask per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/roi_center_region",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/roi_center_region",
       "alias": "roi_center_region",
       "owner": "FieldIlluminationOutput",
       "domain_of": [
@@ -4054,8 +4054,8 @@
     },
     {
       "name": "pSFBeadsDataset__input_data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/input_data",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/input_data",
       "alias": "input_data",
       "owner": "PSFBeadsDataset",
       "domain_of": [
@@ -4067,8 +4067,8 @@
     },
     {
       "name": "pSFBeadsDataset__input_parameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/input_parameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/input_parameters",
       "alias": "input_parameters",
       "owner": "PSFBeadsDataset",
       "domain_of": [
@@ -4080,8 +4080,8 @@
     },
     {
       "name": "pSFBeadsDataset__output",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/output",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/output",
       "alias": "output",
       "owner": "PSFBeadsDataset",
       "domain_of": [
@@ -4093,8 +4093,8 @@
     },
     {
       "name": "pSFBeadsDataset__sample",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sample",
       "alias": "sample",
       "owner": "PSFBeadsDataset",
       "domain_of": [
@@ -4107,8 +4107,8 @@
     {
       "name": "pSFBeadsOutput__analyzed_bead_centers",
       "description": "The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/analyzed_bead_centers",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/analyzed_bead_centers",
       "alias": "analyzed_bead_centers",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4123,8 +4123,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_lateral_edge",
       "description": "The centers of the beads detected but considered as too close to the edge of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_lateral_edge",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_lateral_edge",
       "alias": "considered_bead_centers_lateral_edge",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4139,8 +4139,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_self_proximity",
       "description": "The centers of the beads detected but considered as too close to another bead. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_self_proximity",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_self_proximity",
       "alias": "considered_bead_centers_self_proximity",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4155,8 +4155,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_axial_edge",
       "description": "The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_axial_edge",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_axial_edge",
       "alias": "considered_bead_centers_axial_edge",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4171,8 +4171,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_intensity_outlier",
       "description": "The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_intensity_outlier",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_intensity_outlier",
       "alias": "considered_bead_centers_intensity_outlier",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4187,8 +4187,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
       "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_z_fit_quality",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_quality",
       "alias": "considered_bead_centers_z_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4203,8 +4203,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
       "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_y_fit_quality",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_quality",
       "alias": "considered_bead_centers_y_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4219,8 +4219,8 @@
     {
       "name": "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
       "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/considered_bead_centers_x_fit_quality",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_quality",
       "alias": "considered_bead_centers_x_fit_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4235,8 +4235,8 @@
     {
       "name": "pSFBeadsOutput__key_measurements",
       "description": "The key measurements of the PSF beads analysis.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/key_measurements",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/key_measurements",
       "alias": "key_measurements",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4250,8 +4250,8 @@
     {
       "name": "pSFBeadsOutput__bead_properties",
       "description": "Properties associated with the analysis of the beads.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/bead_properties",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_properties",
       "alias": "bead_properties",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4265,8 +4265,8 @@
     {
       "name": "pSFBeadsOutput__bead_profiles_z",
       "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/bead_profiles_z",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_profiles_z",
       "alias": "bead_profiles_z",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4280,8 +4280,8 @@
     {
       "name": "pSFBeadsOutput__bead_profiles_y",
       "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/bead_profiles_y",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_profiles_y",
       "alias": "bead_profiles_y",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4295,8 +4295,8 @@
     {
       "name": "pSFBeadsOutput__bead_profiles_x",
       "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/bead_profiles_x",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_profiles_x",
       "alias": "bead_profiles_x",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -4310,8 +4310,8 @@
     {
       "name": "pSFBeadsOutput__average_bead",
       "description": "The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/average_bead",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead",
       "alias": "average_bead",
       "owner": "PSFBeadsOutput",
       "domain_of": [
@@ -6033,9 +6033,9 @@
     },
     {
       "name": "FieldIlluminationDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationDataset",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationDataset",
       "description": "A field illumination dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "MetricsDataset",
       "slots": [
         "name",
@@ -6074,25 +6074,25 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationDataset",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationDataset",
       "@type": "ClassDefinition"
     },
     {
       "name": "FieldIlluminationInputData",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationInputData",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputData",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "MetricsInputData",
       "slots": [
         "field_illumination_image"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationInputData",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputData",
       "@type": "ClassDefinition"
     },
     {
       "name": "FieldIlluminationInputParameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationInputParameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "MetricsInputParameters",
       "slots": [
         "bit_depth",
@@ -6101,13 +6101,13 @@
         "sigma"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationInputParameters",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputParameters",
       "@type": "ClassDefinition"
     },
     {
       "name": "FieldIlluminationOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationOutput",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "MetricsOutput",
       "slots": [
         "metricsOutput__processing_application",
@@ -6197,13 +6197,13 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationOutput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationOutput",
       "@type": "ClassDefinition"
     },
     {
       "name": "FieldIlluminationKeyMeasurements",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationKeyMeasurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationKeyMeasurements",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "KeyMeasurements",
       "slots": [
         "name",
@@ -6259,14 +6259,14 @@
         "bottom_right_intensity_ratio"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/FieldIlluminationKeyMeasurements",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationKeyMeasurements",
       "@type": "ClassDefinition"
     },
     {
       "name": "PSFBeadsDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsDataset",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsDataset",
       "description": "A PSF beads dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "MetricsDataset",
       "slots": [
         "name",
@@ -6305,25 +6305,25 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsDataset",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsDataset",
       "@type": "ClassDefinition"
     },
     {
       "name": "PSFBeadsInputData",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsInputData",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputData",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "MetricsInputData",
       "slots": [
         "psf_beads_images"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsInputData",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputData",
       "@type": "ClassDefinition"
     },
     {
       "name": "PSFBeadsInputParameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsInputParameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputParameters",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "MetricsInputParameters",
       "slots": [
         "bit_depth",
@@ -6337,13 +6337,13 @@
         "intensity_robust_z_score_threshold"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsInputParameters",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputParameters",
       "@type": "ClassDefinition"
     },
     {
       "name": "PSFBeadsOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsOutput",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "MetricsOutput",
       "slots": [
         "metricsOutput__processing_application",
@@ -6494,13 +6494,13 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsOutput",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsOutput",
       "@type": "ClassDefinition"
     },
     {
       "name": "PSFBeadsKeyMeasurements",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsKeyMeasurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsKeyMeasurements",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "KeyMeasurements",
       "slots": [
         "name",
@@ -6576,7 +6576,7 @@
         "average_bead_intensity_std"
       ],
       "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsKeyMeasurements",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsKeyMeasurements",
       "@type": "ClassDefinition"
     },
     {
@@ -6659,7 +6659,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-10-16T16:49:39",
   "source_file_size": 848,
-  "generation_date": "2024-11-14T12:43:10",
+  "generation_date": "2024-12-13T17:39:05",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
