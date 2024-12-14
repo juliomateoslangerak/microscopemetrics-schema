@@ -1,5 +1,17 @@
 {
     "$defs": {
+        "AxisEnum": {
+            "description": "The axis of the image",
+            "enum": [
+                "X",
+                "Y",
+                "Z",
+                "C",
+                "T"
+            ],
+            "title": "AxisEnum",
+            "type": "string"
+        },
         "Channel": {
             "additionalProperties": false,
             "description": "A image channel",
@@ -1492,6 +1504,111 @@
             "title": "OMEROObjectTypeEnum",
             "type": "string"
         },
+        "OrthogonalImage": {
+            "additionalProperties": false,
+            "description": "An image that is orthogonal to the main image",
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "array_data": {
+                    "$ref": "#/$defs/MetaObject",
+                    "description": "A non-required slot for non-serializable array data object"
+                },
+                "axis": {
+                    "$ref": "#/$defs/PlaneAxisEnum",
+                    "description": "The axis of the orthogonal image"
+                },
+                "channel_series": {
+                    "$ref": "#/$defs/ChannelSeries",
+                    "description": "A series representing channels for multi-channel images."
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "shape_c": {
+                    "description": "The shape of the image in the c dimension",
+                    "type": "integer"
+                },
+                "shape_t": {
+                    "description": "The shape of the image in the t dimension",
+                    "type": "integer"
+                },
+                "shape_x": {
+                    "description": "The shape of the image in the x dimension",
+                    "type": "integer"
+                },
+                "shape_y": {
+                    "description": "The shape of the image in the y dimension",
+                    "type": "integer"
+                },
+                "shape_z": {
+                    "description": "The shape of the image in the z dimension",
+                    "type": "integer"
+                },
+                "source_image": {
+                    "$ref": "#/$defs/Image",
+                    "description": "The source image of the orthogonal image"
+                },
+                "source_images": {
+                    "description": "A list of references linking to the images that were used as a source",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "source_roi": {
+                    "$ref": "#/$defs/Roi",
+                    "description": "The source ROI of the orthogonal image. The ROI has to contain a single point shape."
+                },
+                "time_series": {
+                    "$ref": "#/$defs/TimeSeries",
+                    "description": "A series representing time for time-lapse images."
+                },
+                "voxel_size_x_micron": {
+                    "description": "The physical size in the voxel in the x dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_y_micron": {
+                    "description": "The physical size in the voxel in the y dimension in microns",
+                    "type": "number"
+                },
+                "voxel_size_z_micron": {
+                    "description": "The physical size in the voxel in the z dimension in microns",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "source_image",
+                "source_roi",
+                "axis",
+                "shape_x",
+                "shape_y",
+                "shape_z",
+                "shape_c",
+                "shape_t"
+            ],
+            "title": "OrthogonalImage",
+            "type": "object"
+        },
         "PSFBeads": {
             "additionalProperties": false,
             "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
@@ -2324,6 +2441,16 @@
             "title": "PSFBeadsOutput",
             "type": "object"
         },
+        "PlaneAxisEnum": {
+            "description": "The axis of the plane",
+            "enum": [
+                "XY",
+                "XZ",
+                "YZ"
+            ],
+            "title": "PlaneAxisEnum",
+            "type": "string"
+        },
         "Point": {
             "additionalProperties": false,
             "description": "A point as defined by x and y coordinates",
@@ -2849,7 +2976,7 @@
                 "orthogonal_images": {
                     "description": "Orthogonal images created from the provided orthogonal_rois.",
                     "items": {
-                        "$ref": "#/$defs/Image"
+                        "$ref": "#/$defs/OrthogonalImage"
                     },
                     "type": "array"
                 },

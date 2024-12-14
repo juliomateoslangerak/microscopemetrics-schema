@@ -406,6 +406,30 @@ interface NamedObject
     description: String
   }
 
+type OrthogonalImage
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    voxelSizeXMicron: Float
+    voxelSizeYMicron: Float
+    voxelSizeZMicron: Float
+    shapeX: Integer!
+    shapeY: Integer!
+    shapeZ: Integer!
+    shapeC: Integer!
+    shapeT: Integer!
+    timeSeries: TimeSeries
+    channelSeries: ChannelSeries
+    acquisitionDatetime: Datetime
+    sourceImages: [DataReference]
+    arrayData: MetaObject
+    sourceImage: Image!
+    sourceRoi: Roi!
+    axis: PlaneAxisEnum!
+  }
+
 type Point
   {
     name: String
@@ -733,7 +757,7 @@ type UserExperimentOutput
     validationDatetime: Datetime
     comment: Comment
     intensityProfiles: [Table]
-    orthogonalImages: [Image]
+    orthogonalImages: [OrthogonalImage]
     fftImages: [Image]
     keyMeasurements: UserExperimentKeyMeasurements
   }

@@ -354,6 +354,54 @@
   ],
   "enums": [
     {
+      "name": "PlaneAxisEnum",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/PlaneAxisEnum",
+      "description": "The axis of the plane",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "permissible_values": [
+        {
+          "text": "XY",
+          "description": "The XY plane"
+        },
+        {
+          "text": "XZ",
+          "description": "The XZ plane"
+        },
+        {
+          "text": "YZ",
+          "description": "The YZ plane"
+        }
+      ]
+    },
+    {
+      "name": "AxisEnum",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/AxisEnum",
+      "description": "The axis of the image",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "permissible_values": [
+        {
+          "text": "X",
+          "description": "The X axis"
+        },
+        {
+          "text": "Y",
+          "description": "The Y axis"
+        },
+        {
+          "text": "Z",
+          "description": "The Z axis"
+        },
+        {
+          "text": "C",
+          "description": "The C axis"
+        },
+        {
+          "text": "T",
+          "description": "The T axis"
+        }
+      ]
+    },
+    {
       "name": "CommentTypesEnum",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/CommentTypesEnum",
       "description": "The type of the comment",
@@ -3229,6 +3277,50 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "orthogonalImage__source_image",
+      "description": "The source image of the orthogonal image",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_image",
+      "alias": "source_image",
+      "owner": "OrthogonalImage",
+      "domain_of": [
+        "OrthogonalImage"
+      ],
+      "range": "Image",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "orthogonalImage__source_roi",
+      "description": "The source ROI of the orthogonal image. The ROI has to contain a single point shape.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_roi",
+      "alias": "source_roi",
+      "owner": "OrthogonalImage",
+      "domain_of": [
+        "OrthogonalImage"
+      ],
+      "range": "Roi",
+      "required": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "orthogonalImage__axis",
+      "description": "The axis of the orthogonal image",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/axis",
+      "alias": "axis",
+      "owner": "OrthogonalImage",
+      "domain_of": [
+        "OrthogonalImage"
+      ],
+      "range": "PlaneAxisEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "channelSeries__channels",
       "implements": [
         "linkml:elements"
@@ -4480,7 +4572,7 @@
       "domain_of": [
         "UserExperimentOutput"
       ],
-      "range": "Image",
+      "range": "OrthogonalImage",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -5405,6 +5497,61 @@
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ImageMask",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "OrthogonalImage",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage",
+      "description": "An image that is orthogonal to the main image",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "Image",
+      "slots": [
+        "name",
+        "description",
+        "metricsObject__data_reference",
+        "metricsObject__linked_references",
+        "image__voxel_size_x_micron",
+        "image__voxel_size_y_micron",
+        "image__voxel_size_z_micron",
+        "image__shape_x",
+        "image__shape_y",
+        "image__shape_z",
+        "image__shape_c",
+        "image__shape_t",
+        "image__time_series",
+        "image__channel_series",
+        "image__acquisition_datetime",
+        "image__source_images",
+        "image__array_data",
+        "orthogonalImage__source_image",
+        "orthogonalImage__source_roi",
+        "orthogonalImage__axis"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "source_image",
+          "description": "The source image of the orthogonal image",
+          "range": "Image",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "source_roi",
+          "description": "The source ROI of the orthogonal image. The ROI has to contain a single point shape.",
+          "range": "Roi",
+          "required": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "axis",
+          "description": "The axis of the orthogonal image",
+          "range": "PlaneAxisEnum",
+          "required": true,
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage",
       "@type": "ClassDefinition"
     },
     {
@@ -6878,7 +7025,7 @@
           "name": "orthogonal_images",
           "description": "Orthogonal images created from the provided orthogonal_rois.",
           "multivalued": true,
-          "range": "Image",
+          "range": "OrthogonalImage",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -7020,7 +7167,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-12-14T09:08:13",
   "source_file_size": 912,
-  "generation_date": "2024-12-14T09:22:33",
+  "generation_date": "2024-12-14T11:57:35",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

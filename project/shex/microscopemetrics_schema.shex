@@ -480,7 +480,8 @@ CLOSED {
           ) ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ] ?
        )
-    } OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ImageMask>
+    } OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ImageMask> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ImageMask> CLOSED {
@@ -721,6 +722,23 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/description> @linkml:String ?
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/NamedObject> ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage> CLOSED {
+    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage_tes> ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_image>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_roi>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/axis> [
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/PlaneAxisEnum#XY>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/PlaneAxisEnum#XZ>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/PlaneAxisEnum#YZ> ]
+       ) ;
+       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage> ] ?
     )
 }
 
@@ -1227,7 +1245,7 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/intensity_profiles>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_images>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> * ;
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/fft_images>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/key_measurements>

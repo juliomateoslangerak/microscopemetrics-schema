@@ -267,6 +267,30 @@ CREATE TABLE "MicroscopeCollection" (
 	PRIMARY KEY (microscopes)
 );
 
+CREATE TABLE "OrthogonalImage" (
+	name TEXT, 
+	description TEXT, 
+	data_reference TEXT, 
+	linked_references TEXT, 
+	voxel_size_x_micron FLOAT, 
+	voxel_size_y_micron FLOAT, 
+	voxel_size_z_micron FLOAT, 
+	shape_x INTEGER NOT NULL, 
+	shape_y INTEGER NOT NULL, 
+	shape_z INTEGER NOT NULL, 
+	shape_c INTEGER NOT NULL, 
+	shape_t INTEGER NOT NULL, 
+	time_series TEXT, 
+	channel_series TEXT, 
+	acquisition_datetime DATETIME, 
+	source_images TEXT, 
+	array_data TEXT, 
+	source_image TEXT NOT NULL, 
+	source_roi TEXT NOT NULL, 
+	axis VARCHAR(2) NOT NULL, 
+	PRIMARY KEY (name, description, data_reference, linked_references, voxel_size_x_micron, voxel_size_y_micron, voxel_size_z_micron, shape_x, shape_y, shape_z, shape_c, shape_t, time_series, channel_series, acquisition_datetime, source_images, array_data, source_image, source_roi, axis)
+);
+
 CREATE TABLE "Point" (
 	name TEXT, 
 	description TEXT, 

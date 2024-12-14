@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T09:22:37
+# Generation date: 2024-12-14T11:57:41
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -618,6 +618,46 @@ class ImageMask(Image):
     shape_z: int = 1
     shape_c: int = 1
     shape_t: int = 1
+
+@dataclass
+class OrthogonalImage(Image):
+    """
+    An image that is orthogonal to the main image
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/OrthogonalImage"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/OrthogonalImage"
+    class_name: ClassVar[str] = "OrthogonalImage"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.OrthogonalImage
+
+    shape_x: int = None
+    shape_y: int = None
+    source_image: Union[dict, Image] = None
+    source_roi: Union[dict, "Roi"] = None
+    axis: Union[str, "PlaneAxisEnum"] = None
+    shape_z: int = 1
+    shape_c: int = 1
+    shape_t: int = 1
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.source_image):
+            self.MissingRequiredField("source_image")
+        if not isinstance(self.source_image, Image):
+            self.source_image = Image(**as_dict(self.source_image))
+
+        if self._is_empty(self.source_roi):
+            self.MissingRequiredField("source_roi")
+        if not isinstance(self.source_roi, Roi):
+            self.source_roi = Roi(**as_dict(self.source_roi))
+
+        if self._is_empty(self.axis):
+            self.MissingRequiredField("axis")
+        if not isinstance(self.axis, PlaneAxisEnum):
+            self.axis = PlaneAxisEnum(self.axis)
+
+        super().__post_init__(**kwargs)
+
 
 @dataclass
 class ChannelSeries(YAMLRoot):
@@ -2294,7 +2334,7 @@ class UserExperimentOutput(MetricsOutput):
     processing_datetime: Union[str, XSDDateTime] = None
     validated: Union[bool, Bool] = False
     intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
-    orthogonal_images: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    orthogonal_images: Optional[Union[Union[dict, OrthogonalImage], List[Union[dict, OrthogonalImage]]]] = empty_list()
     fft_images: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
     key_measurements: Optional[Union[dict, "UserExperimentKeyMeasurements"]] = None
 
@@ -2305,7 +2345,7 @@ class UserExperimentOutput(MetricsOutput):
 
         if not isinstance(self.orthogonal_images, list):
             self.orthogonal_images = [self.orthogonal_images] if self.orthogonal_images is not None else []
-        self.orthogonal_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.orthogonal_images]
+        self.orthogonal_images = [v if isinstance(v, OrthogonalImage) else OrthogonalImage(**as_dict(v)) for v in self.orthogonal_images]
 
         if not isinstance(self.fft_images, list):
             self.fft_images = [self.fft_images] if self.fft_images is not None else []
@@ -2432,6 +2472,50 @@ class UserExperiment(Sample):
     protocol: Union[str, ProtocolUrl] = None
 
 # Enumerations
+class PlaneAxisEnum(EnumDefinitionImpl):
+    """
+    The axis of the plane
+    """
+    XY = PermissibleValue(
+        text="XY",
+        description="The XY plane")
+    XZ = PermissibleValue(
+        text="XZ",
+        description="The XZ plane")
+    YZ = PermissibleValue(
+        text="YZ",
+        description="The YZ plane")
+
+    _defn = EnumDefinition(
+        name="PlaneAxisEnum",
+        description="The axis of the plane",
+    )
+
+class AxisEnum(EnumDefinitionImpl):
+    """
+    The axis of the image
+    """
+    X = PermissibleValue(
+        text="X",
+        description="The X axis")
+    Y = PermissibleValue(
+        text="Y",
+        description="The Y axis")
+    Z = PermissibleValue(
+        text="Z",
+        description="The Z axis")
+    C = PermissibleValue(
+        text="C",
+        description="The C axis")
+    T = PermissibleValue(
+        text="T",
+        description="The T axis")
+
+    _defn = EnumDefinition(
+        name="AxisEnum",
+        description="The axis of the image",
+    )
+
 class CommentTypesEnum(EnumDefinitionImpl):
     """
     The type of the comment
@@ -3111,6 +3195,15 @@ slots.image__source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sour
 slots.image__array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="image__array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image__array_data, domain=None, range=Optional[Union[dict, MetaObject]])
 
+slots.orthogonalImage__source_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image'], name="orthogonalImage__source_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_image, domain=None, range=Union[dict, Image])
+
+slots.orthogonalImage__source_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_roi'], name="orthogonalImage__source_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_roi'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_roi, domain=None, range=Union[dict, Roi])
+
+slots.orthogonalImage__axis = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/axis'], name="orthogonalImage__axis", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/axis'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__axis, domain=None, range=Union[str, "PlaneAxisEnum"])
+
 slots.channelSeries__channels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/channels'], name="channelSeries__channels", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/channels'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channelSeries__channels, domain=None, range=Union[Union[dict, Channel], List[Union[dict, Channel]]])
 
@@ -3364,7 +3457,7 @@ slots.userExperimentOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHE
                    model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], List[Union[dict, Table]]]])
 
 slots.userExperimentOutput__orthogonal_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/orthogonal_images'], name="userExperimentOutput__orthogonal_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/orthogonal_images'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__orthogonal_images, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__orthogonal_images, domain=None, range=Optional[Union[Union[dict, OrthogonalImage], List[Union[dict, OrthogonalImage]]]])
 
 slots.userExperimentOutput__fft_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/fft_images'], name="userExperimentOutput__fft_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/fft_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__fft_images, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])

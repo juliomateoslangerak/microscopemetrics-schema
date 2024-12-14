@@ -305,6 +305,30 @@ message MicroscopeCollection
  {
  repeated  microscope microscopes = 0
  }
+// An image that is orthogonal to the main image
+message OrthogonalImage
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  float voxelSizeXMicron = 0
+  float voxelSizeYMicron = 0
+  float voxelSizeZMicron = 0
+  integer shapeX = 0
+  integer shapeY = 0
+  integer shapeZ = 0
+  integer shapeC = 0
+  integer shapeT = 0
+  timeSeries timeSeries = 0
+  channelSeries channelSeries = 0
+  datetime acquisitionDatetime = 0
+ repeated  dataReference sourceImages = 0
+  metaObject arrayData = 0
+  image sourceImage = 0
+  roi sourceRoi = 0
+  planeAxisEnum axis = 0
+ }
 // A point as defined by x and y coordinates
 message Point
  {
@@ -574,7 +598,7 @@ message UserExperimentOutput
   datetime validationDatetime = 0
   comment comment = 0
  repeated  table intensityProfiles = 0
- repeated  image orthogonalImages = 0
+ repeated  orthogonalImage orthogonalImages = 0
  repeated  image fftImages = 0
   userExperimentKeyMeasurements keyMeasurements = 0
  }
