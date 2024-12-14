@@ -402,6 +402,27 @@ classes:
     is_a: Image
     description: A mask image. Either a binary image or a label image
 
+  OrthogonalImage:
+    is_a: Image
+    description: An image that is orthogonal to the main image
+    attributes:
+      source_image:
+        range: Image
+        description: The source image of the orthogonal image
+        required: true
+        multivalued: false
+      source_roi:
+        range: Roi
+        description: >-
+          The source ROI of the orthogonal image. The ROI has to contain a single point shape.
+        required: true
+        multivalued: false
+      axis:
+        range: PlaneAxisEnum
+        description: The axis of the orthogonal image
+        required: true
+        multivalued: false
+
   ChannelSeries:
     description: A series representing channels
     implements:
@@ -929,6 +950,30 @@ subsets:
 
 
 enums:
+  PlaneAxisEnum:
+    description: The axis of the plane
+    permissible_values:
+      XY:
+        description: The XY plane
+      XZ:
+        description: The XZ plane
+      YZ:
+        description: The YZ plane
+
+  AxisEnum:
+    description: The axis of the image
+    permissible_values:
+      X:
+        description: The X axis
+      Y:
+        description: The Y axis
+      Z:
+        description: The Z axis
+      C:
+        description: The C axis
+      T:
+        description: The T axis
+
   CommentTypesEnum:
     description: The type of the comment
     permissible_values:

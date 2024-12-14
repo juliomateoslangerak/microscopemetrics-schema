@@ -49,7 +49,7 @@ classes:
         inlined: true
         inlined_as_list: true
       orthogonal_images:
-        range: Image
+        range: OrthogonalImage
         description: >-
           Orthogonal images created from the provided orthogonal_rois.
         required: false
