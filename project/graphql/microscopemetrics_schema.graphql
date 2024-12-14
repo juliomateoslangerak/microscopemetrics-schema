@@ -729,6 +729,8 @@ type UserExperimentInputData
 
 type UserExperimentInputParameters
   {
+    bitDepth: Integer
+    saturationThreshold: Float
   }
 
 type UserExperimentKeyMeasurements

@@ -491,6 +491,12 @@ CREATE TABLE "UserExperimentInputData" (
 	PRIMARY KEY (user_experiment_images, orthogonal_rois, profile_rois)
 );
 
+CREATE TABLE "UserExperimentInputParameters" (
+	bit_depth INTEGER, 
+	saturation_threshold FLOAT, 
+	PRIMARY KEY (bit_depth, saturation_threshold)
+);
+
 CREATE TABLE "UserExperimentKeyMeasurements" (
 	name TEXT, 
 	description TEXT, 

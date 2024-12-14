@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T11:57:41
+# Generation date: 2024-12-14T12:37:29
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2269,7 +2269,7 @@ class UserExperimentDataset(MetricsDataset):
             self.input_data = UserExperimentInputData(**as_dict(self.input_data))
 
         if self.input_parameters is not None and not isinstance(self.input_parameters, UserExperimentInputParameters):
-            self.input_parameters = UserExperimentInputParameters()
+            self.input_parameters = UserExperimentInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, UserExperimentOutput):
             self.output = UserExperimentOutput(**as_dict(self.output))
@@ -2311,6 +2311,7 @@ class UserExperimentInputData(MetricsInputData):
         super().__post_init__(**kwargs)
 
 
+@dataclass
 class UserExperimentInputParameters(MetricsInputParameters):
     _inherited_slots: ClassVar[List[str]] = []
 
@@ -2318,6 +2319,18 @@ class UserExperimentInputParameters(MetricsInputParameters):
     class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentInputParameters"
     class_name: ClassVar[str] = "UserExperimentInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputParameters
+
+    bit_depth: Optional[int] = None
+    saturation_threshold: Optional[float] = 0.01
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
+            self.bit_depth = int(self.bit_depth)
+
+        if self.saturation_threshold is not None and not isinstance(self.saturation_threshold, float):
+            self.saturation_threshold = float(self.saturation_threshold)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass

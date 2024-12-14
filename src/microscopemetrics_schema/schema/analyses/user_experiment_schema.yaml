@@ -37,6 +37,9 @@ classes:
 
   UserExperimentInputParameters:
     is_a: MetricsInputParameters
+    slots:
+      - bit_depth
+      - saturation_threshold
 
   UserExperimentOutput:
     is_a: MetricsOutput

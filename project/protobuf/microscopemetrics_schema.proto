@@ -573,6 +573,11 @@ message UserExperimentInputData
   roi orthogonalRois = 0
   roi profileRois = 0
  }
+message UserExperimentInputParameters
+ {
+  integer bitDepth = 0
+  float saturationThreshold = 0
+ }
 message UserExperimentKeyMeasurements
  {
   string name = 0
