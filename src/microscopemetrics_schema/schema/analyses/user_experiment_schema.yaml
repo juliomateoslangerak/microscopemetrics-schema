@@ -78,6 +78,7 @@ classes:
       - channel_name
       - channel_nr
       - variation_coefficient
+      - saturated_channels
 
 
 slots:
@@ -108,4 +109,9 @@ slots:
     range: float
     description: >-
       The variation coefficient of the signal of the image. One value per channel.
+    multivalued: true
+  saturated_channels:
+    range: integer
+    description: >-
+      The channels that are saturated in the image. One value per channel.
     multivalued: true

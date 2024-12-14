@@ -476,7 +476,8 @@ CREATE TABLE "UserExperimentKeyMeasurements" (
 	channel_name TEXT, 
 	channel_nr INTEGER, 
 	variation_coefficient FLOAT, 
-	PRIMARY KEY (name, description, data_reference, linked_references, table_data, channel_name, channel_nr, variation_coefficient)
+	saturated_channels INTEGER, 
+	PRIMARY KEY (name, description, data_reference, linked_references, table_data, channel_name, channel_nr, variation_coefficient, saturated_channels)
 );
 
 CREATE TABLE "UserExperimentOutput" (

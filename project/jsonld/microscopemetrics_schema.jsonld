@@ -2423,6 +2423,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "saturated_channels",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/saturated_channels",
+      "description": "The channels that are saturated in the image. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/saturated_channels",
+      "multivalued": true,
+      "owner": "UserExperimentKeyMeasurements",
+      "domain_of": [
+        "UserExperimentKeyMeasurements"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "dataReference__data_uri",
       "description": "The URI of the object data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -6903,7 +6917,8 @@
         "keyMeasurements__table_data",
         "channel_name",
         "channel_nr",
-        "variation_coefficient"
+        "variation_coefficient",
+        "saturated_channels"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements",
@@ -7005,7 +7020,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2024-12-14T09:08:13",
   "source_file_size": 912,
-  "generation_date": "2024-12-14T09:14:13",
+  "generation_date": "2024-12-14T09:22:33",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

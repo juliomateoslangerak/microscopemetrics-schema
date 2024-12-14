@@ -2791,6 +2791,13 @@
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
+                "saturated_channels": {
+                    "description": "The channels that are saturated in the image. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
                 "table_data": {
                     "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable table data object"
