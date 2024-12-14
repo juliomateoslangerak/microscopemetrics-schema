@@ -1,6 +1,3 @@
- syntax="proto3";
- package
-// metamodel_version: 1.7.0
 // A image channel
 message Channel
  {

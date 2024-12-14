@@ -1,5 +1,5 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/operational
-name: microscopemetrics_analyses_operational
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment
+name: microscopemetrics_analyses_user_experiment
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -8,7 +8,7 @@ prefixes:
 imports:
   - linkml:types
   - core_schema  # TODO: change to metrics:core_schema
-  - samples/operational
+  - samples/user_experiment
 
 default_range: string
 
@@ -31,7 +31,7 @@ classes:
   OperationalInputData:
     is_a: MetricsInputData
     slots:
-      - operational_images
+      - user_experiment_images
       - orthogonal_rois
       - profile_rois
 
@@ -67,7 +67,7 @@ classes:
       key_measurements:
         range: OperationalKeyMeasurements
         description: >-
-          The key measurements on the operational dataset.
+          The key measurements on the user_experiment dataset.
         multivalued: false
         inlined: true
         inlined_as_list: true
@@ -83,10 +83,10 @@ classes:
 
 slots:
   # Inputs
-  operational_images:
+  user_experiment_images:
     range: Image
     description: >-
-      The operational images provided in the order TZYXC.
+      The user_experiment images provided in the order TZYXC.
       More than one image can be provided if the image conditions are the same.
     required: true
     multivalued: true
