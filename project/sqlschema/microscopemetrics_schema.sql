@@ -460,6 +460,43 @@ CREATE TABLE "TimeSeries" (
 	PRIMARY KEY ("values")
 );
 
+CREATE TABLE "UserExperimentInputData" (
+	user_experiment_images TEXT NOT NULL, 
+	orthogonal_rois TEXT, 
+	profile_rois TEXT NOT NULL, 
+	PRIMARY KEY (user_experiment_images, orthogonal_rois, profile_rois)
+);
+
+CREATE TABLE "UserExperimentKeyMeasurements" (
+	name TEXT, 
+	description TEXT, 
+	data_reference TEXT, 
+	linked_references TEXT, 
+	table_data TEXT, 
+	channel_name TEXT, 
+	channel_nr INTEGER, 
+	variation_coefficient FLOAT, 
+	PRIMARY KEY (name, description, data_reference, linked_references, table_data, channel_name, channel_nr, variation_coefficient)
+);
+
+CREATE TABLE "UserExperimentOutput" (
+	processing_application TEXT NOT NULL, 
+	processing_version TEXT NOT NULL, 
+	processing_entity TEXT, 
+	processing_datetime DATETIME NOT NULL, 
+	processing_log TEXT, 
+	warnings TEXT, 
+	errors TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
+	comment TEXT, 
+	intensity_profiles TEXT, 
+	orthogonal_images TEXT, 
+	fft_images TEXT, 
+	key_measurements TEXT, 
+	PRIMARY KEY (processing_application, processing_version, processing_entity, processing_datetime, processing_log, warnings, errors, validated, validation_datetime, comment, intensity_profiles, orthogonal_images, fft_images, key_measurements)
+);
+
 CREATE TABLE "Vertex" (
 	x FLOAT NOT NULL, 
 	y FLOAT NOT NULL, 
@@ -525,6 +562,32 @@ CREATE TABLE "PSFBeads" (
 );
 
 CREATE TABLE "PSFBeadsDataset" (
+	name TEXT, 
+	description TEXT, 
+	data_reference TEXT, 
+	linked_references TEXT, 
+	microscope TEXT NOT NULL, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	input_data TEXT, 
+	input_parameters TEXT, 
+	output TEXT, 
+	sample TEXT, 
+	PRIMARY KEY (name, description, data_reference, linked_references, microscope, experimenter, acquisition_datetime, processed, input_data, input_parameters, output, sample), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid)
+);
+
+CREATE TABLE "UserExperiment" (
+	name TEXT, 
+	description TEXT, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	PRIMARY KEY (name, description, protocol, manufacturer), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+
+CREATE TABLE "UserExperimentDataset" (
 	name TEXT, 
 	description TEXT, 
 	data_reference TEXT, 

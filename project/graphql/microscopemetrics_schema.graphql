@@ -672,6 +672,71 @@ type TimeSeries
     values: [Float]!
   }
 
+type UserExperiment
+  {
+    name: String
+    description: String
+    protocol: Protocol!
+    manufacturer: String
+  }
+
+type UserExperimentDataset
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    microscope: Microscope!
+    experimenter: Experimenter
+    acquisitionDatetime: Datetime
+    processed: Boolean!
+    inputData: UserExperimentInputData
+    inputParameters: UserExperimentInputParameters
+    output: UserExperimentOutput
+    sample: UserExperiment
+  }
+
+type UserExperimentInputData
+  {
+    userExperimentImages: [Image]!
+    orthogonalRois: Roi
+    profileRois: Roi!
+  }
+
+type UserExperimentInputParameters
+  {
+  }
+
+type UserExperimentKeyMeasurements
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    tableData: MetaObject
+    channelName: [String]
+    channelNr: [Integer]
+    variationCoefficient: [Float]
+  }
+
+type UserExperimentOutput
+  {
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
+    comment: Comment
+    intensityProfiles: [Table]
+    orthogonalImages: [Image]
+    fftImages: [Image]
+    keyMeasurements: UserExperimentKeyMeasurements
+  }
+
 type Vertex
   {
     x: Float!

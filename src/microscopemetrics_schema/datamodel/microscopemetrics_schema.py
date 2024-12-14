@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T09:02:48
+# Generation date: 2024-12-14T09:14:17
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2206,6 +2206,147 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
 
 
 @dataclass
+class UserExperimentDataset(MetricsDataset):
+    """
+    A dataset of non-standardized microscope samples produced during regular operation of a research project.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/user_experiment/UserExperimentDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentDataset"
+    class_name: ClassVar[str] = "UserExperimentDataset"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentDataset
+
+    microscope: Union[dict, Microscope] = None
+    processed: Union[bool, Bool] = False
+    input_data: Optional[Union[dict, "UserExperimentInputData"]] = None
+    input_parameters: Optional[Union[dict, "UserExperimentInputParameters"]] = None
+    output: Optional[Union[dict, "UserExperimentOutput"]] = None
+    sample: Optional[Union[dict, "UserExperiment"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self.input_data is not None and not isinstance(self.input_data, UserExperimentInputData):
+            self.input_data = UserExperimentInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, UserExperimentInputParameters):
+            self.input_parameters = UserExperimentInputParameters()
+
+        if self.output is not None and not isinstance(self.output, UserExperimentOutput):
+            self.output = UserExperimentOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, UserExperiment):
+            self.sample = UserExperiment(**as_dict(self.sample))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class UserExperimentInputData(MetricsInputData):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/user_experiment/UserExperimentInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentInputData"
+    class_name: ClassVar[str] = "UserExperimentInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputData
+
+    user_experiment_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
+    profile_rois: Union[dict, Roi] = 10.0
+    orthogonal_rois: Optional[Union[dict, Roi]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.user_experiment_images):
+            self.MissingRequiredField("user_experiment_images")
+        if not isinstance(self.user_experiment_images, list):
+            self.user_experiment_images = [self.user_experiment_images] if self.user_experiment_images is not None else []
+        self.user_experiment_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.user_experiment_images]
+
+        if self._is_empty(self.profile_rois):
+            self.MissingRequiredField("profile_rois")
+        if not isinstance(self.profile_rois, Roi):
+            self.profile_rois = Roi(**as_dict(self.profile_rois))
+
+        if self.orthogonal_rois is not None and not isinstance(self.orthogonal_rois, Roi):
+            self.orthogonal_rois = Roi(**as_dict(self.orthogonal_rois))
+
+        super().__post_init__(**kwargs)
+
+
+class UserExperimentInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/user_experiment/UserExperimentInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentInputParameters"
+    class_name: ClassVar[str] = "UserExperimentInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputParameters
+
+
+@dataclass
+class UserExperimentOutput(MetricsOutput):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/user_experiment/UserExperimentOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentOutput"
+    class_name: ClassVar[str] = "UserExperimentOutput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentOutput
+
+    processing_application: Union[str, List[str]] = None
+    processing_version: Union[str, List[str]] = None
+    processing_datetime: Union[str, XSDDateTime] = None
+    validated: Union[bool, Bool] = False
+    intensity_profiles: Optional[Union[Union[dict, Table], List[Union[dict, Table]]]] = empty_list()
+    orthogonal_images: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    fft_images: Optional[Union[Union[dict, Image], List[Union[dict, Image]]]] = empty_list()
+    key_measurements: Optional[Union[dict, "UserExperimentKeyMeasurements"]] = None
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.intensity_profiles, list):
+            self.intensity_profiles = [self.intensity_profiles] if self.intensity_profiles is not None else []
+        self.intensity_profiles = [v if isinstance(v, Table) else Table(**as_dict(v)) for v in self.intensity_profiles]
+
+        if not isinstance(self.orthogonal_images, list):
+            self.orthogonal_images = [self.orthogonal_images] if self.orthogonal_images is not None else []
+        self.orthogonal_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.orthogonal_images]
+
+        if not isinstance(self.fft_images, list):
+            self.fft_images = [self.fft_images] if self.fft_images is not None else []
+        self.fft_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.fft_images]
+
+        if self.key_measurements is not None and not isinstance(self.key_measurements, UserExperimentKeyMeasurements):
+            self.key_measurements = UserExperimentKeyMeasurements(**as_dict(self.key_measurements))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
+class UserExperimentKeyMeasurements(KeyMeasurements):
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/user_experiment/UserExperimentKeyMeasurements"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/user_experiment/UserExperimentKeyMeasurements"
+    class_name: ClassVar[str] = "UserExperimentKeyMeasurements"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentKeyMeasurements
+
+    channel_name: Optional[Union[str, List[str]]] = empty_list()
+    channel_nr: Optional[Union[int, List[int]]] = empty_list()
+    variation_coefficient: Optional[Union[float, List[float]]] = empty_list()
+
+    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if not isinstance(self.channel_name, list):
+            self.channel_name = [self.channel_name] if self.channel_name is not None else []
+        self.channel_name = [v if isinstance(v, str) else str(v) for v in self.channel_name]
+
+        if not isinstance(self.channel_nr, list):
+            self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
+        self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
+
+        if not isinstance(self.variation_coefficient, list):
+            self.variation_coefficient = [self.variation_coefficient] if self.variation_coefficient is not None else []
+        self.variation_coefficient = [v if isinstance(v, float) else float(v) for v in self.variation_coefficient]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass
 class HomogeneousField(Sample):
     """
     An homogeneous field.
@@ -2270,6 +2411,20 @@ class PSFBeads(Sample):
 
         super().__post_init__(**kwargs)
 
+
+@dataclass
+class UserExperiment(Sample):
+    """
+    A non-standardized microscope sample produced during regular operation of a research project.
+    """
+    _inherited_slots: ClassVar[List[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/user_experiment/UserExperiment"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/user_experiment/UserExperiment"
+    class_name: ClassVar[str] = "UserExperiment"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperiment
+
+    protocol: Union[str, ProtocolUrl] = None
 
 # Enumerations
 class CommentTypesEnum(EnumDefinitionImpl):
@@ -2768,6 +2923,18 @@ slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_std, domain=None, range=Optional[Union[float, List[float]]])
 
+slots.user_experiment_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/user_experiment_images'], name="user_experiment_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/user_experiment_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.user_experiment_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
+
+slots.orthogonal_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/orthogonal_rois'], name="orthogonal_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/orthogonal_rois'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[dict, Roi]])
+
+slots.profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/profile_rois'], name="profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/profile_rois'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Union[dict, Roi])
+
+slots.variation_coefficient = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/variation_coefficient'], name="variation_coefficient", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/variation_coefficient'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.variation_coefficient, domain=None, range=Optional[Union[float, List[float]]])
+
 slots.dataReference__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="dataReference__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__data_uri, domain=None, range=Optional[str])
 
@@ -3172,6 +3339,30 @@ slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analy
 
 slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])
+
+slots.userExperimentDataset__input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/input_data'], name="userExperimentDataset__input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentDataset__input_data, domain=None, range=Optional[Union[dict, UserExperimentInputData]])
+
+slots.userExperimentDataset__input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/input_parameters'], name="userExperimentDataset__input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentDataset__input_parameters, domain=None, range=Optional[Union[dict, UserExperimentInputParameters]])
+
+slots.userExperimentDataset__output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/output'], name="userExperimentDataset__output", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentDataset__output, domain=None, range=Optional[Union[dict, UserExperimentOutput]])
+
+slots.userExperimentDataset__sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/sample'], name="userExperimentDataset__sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentDataset__sample, domain=None, range=Optional[Union[dict, UserExperiment]])
+
+slots.userExperimentOutput__intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/intensity_profiles'], name="userExperimentOutput__intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/intensity_profiles'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], List[Union[dict, Table]]]])
+
+slots.userExperimentOutput__orthogonal_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/orthogonal_images'], name="userExperimentOutput__orthogonal_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/orthogonal_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__orthogonal_images, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
+
+slots.userExperimentOutput__fft_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/fft_images'], name="userExperimentOutput__fft_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/fft_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__fft_images, domain=None, range=Optional[Union[Union[dict, Image], List[Union[dict, Image]]]])
+
+slots.userExperimentOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/key_measurements'], name="userExperimentOutput__key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/key_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__key_measurements, domain=None, range=Optional[Union[dict, UserExperimentKeyMeasurements]])
 
 slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__bead_diameter_micron, domain=None, range=float)

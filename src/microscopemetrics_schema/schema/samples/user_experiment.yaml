@@ -13,6 +13,6 @@ default_range: string
 
 
 classes:
-  Operational:
+  UserExperiment:
     is_a: Sample
     description: A non-standardized microscope sample produced during regular operation of a research project.

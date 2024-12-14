@@ -495,7 +495,8 @@ CLOSED {
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements>  (
 
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationKeyMeasurements>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsKeyMeasurements>
+    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsKeyMeasurements> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_struct> {
@@ -554,7 +555,8 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationDataset>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsDataset>
+    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsDataset> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset_struct> {
@@ -597,7 +599,8 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputData>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputData>
+    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputData> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData_struct> {
@@ -609,7 +612,8 @@ CLOSED {
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters>  (
 
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationInputParameters>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputParameters>
+    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsInputParameters> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters_struct> {
@@ -648,7 +652,8 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsOutput>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination/FieldIlluminationOutput>
-    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsOutput>
+    OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsOutput> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsOutput_struct> {
@@ -1056,7 +1061,8 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField> OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads>
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_struct> {
@@ -1125,6 +1131,110 @@ CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/TimeSeries_tes>
        <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values> @linkml:Float + ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/TimeSeries> ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment> CLOSED {
+    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment_tes> ( 
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample> ] ?
+       ) ;
+       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment>
+          ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset> CLOSED {
+    ( 
+       $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/input_data>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData>
+          ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/input_parameters>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters>
+          ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/output>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput>
+          ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/sample>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment> ?
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset>
+          ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData> CLOSED
+{
+    ( 
+       $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/user_experiment_images>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> + ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_rois>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/profile_rois>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi>
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData>
+          ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters>
+CLOSED {
+    ( 
+       $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputParameters>
+             ] ?
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters>
+          ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements>
+CLOSED {
+    ( 
+       $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_name> @linkml:String * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/variation_coefficient>
+          @linkml:Float *
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements>
+          ] ?
+    )
+}
+
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput> CLOSED {
+    ( 
+       $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput_tes>
+       (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsOutput_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsOutput> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/intensity_profiles>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_images>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/fft_images>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/key_measurements>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements>
+          ?
+       ) ;
+       rdf:type [
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput>
+          ] ?
     )
 }
 

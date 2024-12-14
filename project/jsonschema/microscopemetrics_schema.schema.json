@@ -2615,6 +2615,293 @@
             "title": "TimeSeries",
             "type": "object"
         },
+        "UserExperiment": {
+            "additionalProperties": false,
+            "description": "A non-standardized microscope sample produced during regular operation of a research project.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "manufacturer": {
+                    "description": "The manufacturer of the beads.",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "protocol": {
+                    "description": "The protocol used to prepare the sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "protocol"
+            ],
+            "title": "UserExperiment",
+            "type": "object"
+        },
+        "UserExperimentDataset": {
+            "additionalProperties": false,
+            "description": "A dataset of non-standardized microscope samples produced during regular operation of a research project.",
+            "if": {
+                "properties": {
+                    "processed": {
+                        "const": 1
+                    }
+                },
+                "required": [
+                    "processed"
+                ]
+            },
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "type": "string"
+                },
+                "input_data": {
+                    "$ref": "#/$defs/UserExperimentInputData"
+                },
+                "input_parameters": {
+                    "$ref": "#/$defs/UserExperimentInputParameters"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "microscope": {
+                    "$ref": "#/$defs/Microscope",
+                    "description": "The microscope that was used to acquire the dataset"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "output": {
+                    "$ref": "#/$defs/UserExperimentOutput"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "sample": {
+                    "$ref": "#/$defs/UserExperiment"
+                }
+            },
+            "required": [
+                "microscope",
+                "processed"
+            ],
+            "then": {
+                "properties": {
+                    "output": {}
+                },
+                "required": [
+                    "output"
+                ]
+            },
+            "title": "UserExperimentDataset",
+            "type": "object"
+        },
+        "UserExperimentInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "orthogonal_rois": {
+                    "$ref": "#/$defs/Roi",
+                    "description": "Rois containing a point shape where the orthogonal views are to be taken."
+                },
+                "profile_rois": {
+                    "$ref": "#/$defs/Roi",
+                    "description": "Rois containing a line shape where a intensity profile is to be calculated."
+                },
+                "user_experiment_images": {
+                    "description": "The user_experiment images provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
+                    "items": {
+                        "$ref": "#/$defs/Image"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "user_experiment_images",
+                "profile_rois"
+            ],
+            "title": "UserExperimentInputData",
+            "type": "object"
+        },
+        "UserExperimentInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "UserExperimentInputParameters",
+            "type": "object"
+        },
+        "UserExperimentKeyMeasurements": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "channel_name": {
+                    "description": "The channel name to which the measurements apply",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "channel_nr": {
+                    "description": "The channel number to which the measurements apply",
+                    "items": {
+                        "minimum": 0,
+                        "type": "integer"
+                    },
+                    "type": "array"
+                },
+                "data_reference": {
+                    "$ref": "#/$defs/DataReference",
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": "string"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": "string"
+                },
+                "table_data": {
+                    "$ref": "#/$defs/MetaObject",
+                    "description": "A non-required slot for non-serializable table data object"
+                },
+                "variation_coefficient": {
+                    "description": "The variation coefficient of the signal of the image. One value per channel.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                }
+            },
+            "title": "UserExperimentKeyMeasurements",
+            "type": "object"
+        },
+        "UserExperimentOutput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "comment": {
+                    "$ref": "#/$defs/Comment",
+                    "description": "A human readable comment about the dataset"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "fft_images": {
+                    "description": "Fourier space transforms of the input images.",
+                    "items": {
+                        "$ref": "#/$defs/Image"
+                    },
+                    "type": "array"
+                },
+                "intensity_profiles": {
+                    "description": "Intensity profiles as measured in the provided profile_rois.",
+                    "items": {
+                        "$ref": "#/$defs/Table"
+                    },
+                    "type": "array"
+                },
+                "key_measurements": {
+                    "$ref": "#/$defs/UserExperimentKeyMeasurements",
+                    "description": "The key measurements on the user_experiment dataset."
+                },
+                "orthogonal_images": {
+                    "description": "Orthogonal images created from the provided orthogonal_rois.",
+                    "items": {
+                        "$ref": "#/$defs/Image"
+                    },
+                    "type": "array"
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": "string"
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime",
+                "validated"
+            ],
+            "title": "UserExperimentOutput",
+            "type": "object"
+        },
         "Vertex": {
             "additionalProperties": false,
             "description": "A vertex as defined by x and y coordinates",
