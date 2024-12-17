@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 interface CentersFitted
   {
   }
@@ -724,7 +725,7 @@ type UserExperimentInputData
   {
     userExperimentImages: [Image]!
     orthogonalRois: Roi
-    profileRois: Roi!
+    profileRois: Roi
   }
 
 type UserExperimentInputParameters
@@ -743,7 +744,6 @@ type UserExperimentKeyMeasurements
     channelName: [String]
     channelNr: [Integer]
     variationCoefficient: [Float]
-    saturatedChannels: [Integer]
   }
 
 type UserExperimentOutput

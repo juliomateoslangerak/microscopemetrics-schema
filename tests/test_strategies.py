@@ -123,3 +123,17 @@ class TestPSFBeadsSchemaElements(unittest.TestCase):
     def test_psf_beads_processed_dataset(self, dataset):
         self.assertIsInstance(dataset, mm_schema.PSFBeadsDataset)
         self.assertTrue(dataset.processed)
+
+
+class TestUserExperimentSchemaElements(unittest.TestCase):
+    """Test the strategies for the UserExperiment schema elements."""
+
+    @given(st_mm_user_experiment_unprocessed_dataset())
+    def test_user_experiment_unprocessed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.UserExperimentDataset)
+        self.assertFalse(dataset.processed)
+
+    @given(st_mm_user_experiment_processed_dataset())
+    def test_user_experiment_processed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.UserExperimentDataset)
+        self.assertTrue(dataset.processed)

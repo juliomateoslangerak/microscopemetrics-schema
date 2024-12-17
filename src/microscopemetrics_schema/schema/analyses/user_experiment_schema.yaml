@@ -67,6 +67,11 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
+#      saturated_channels:
+#        range: integer
+#        description: >-
+#          The number of saturated channels in the input images.
+#        multivalued: true
       key_measurements:
         range: UserExperimentKeyMeasurements
         description: >-
@@ -81,7 +86,6 @@ classes:
       - channel_name
       - channel_nr
       - variation_coefficient
-      - saturated_channels
 
 
 slots:
@@ -104,17 +108,11 @@ slots:
     range: Roi
     description: >-
       Rois containing a line shape where a intensity profile is to be calculated.
-    required: true
-    ifabsent: float(10.0)
+    required: false
 
   # Outputs
   variation_coefficient:
     range: float
     description: >-
       The variation coefficient of the signal of the image. One value per channel.
-    multivalued: true
-  saturated_channels:
-    range: integer
-    description: >-
-      The channels that are saturated in the image. One value per channel.
     multivalued: true

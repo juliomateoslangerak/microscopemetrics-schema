@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T12:37:29
+# Generation date: 2024-12-17T16:54:21
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -11,6 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -2290,8 +2291,8 @@ class UserExperimentInputData(MetricsInputData):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputData
 
     user_experiment_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    profile_rois: Union[dict, Roi] = 10.0
     orthogonal_rois: Optional[Union[dict, Roi]] = None
+    profile_rois: Optional[Union[dict, Roi]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.user_experiment_images):
@@ -2300,13 +2301,11 @@ class UserExperimentInputData(MetricsInputData):
             self.user_experiment_images = [self.user_experiment_images] if self.user_experiment_images is not None else []
         self.user_experiment_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.user_experiment_images]
 
-        if self._is_empty(self.profile_rois):
-            self.MissingRequiredField("profile_rois")
-        if not isinstance(self.profile_rois, Roi):
-            self.profile_rois = Roi(**as_dict(self.profile_rois))
-
         if self.orthogonal_rois is not None and not isinstance(self.orthogonal_rois, Roi):
             self.orthogonal_rois = Roi(**as_dict(self.orthogonal_rois))
+
+        if self.profile_rois is not None and not isinstance(self.profile_rois, Roi):
+            self.profile_rois = Roi(**as_dict(self.profile_rois))
 
         super().__post_init__(**kwargs)
 
@@ -2382,7 +2381,6 @@ class UserExperimentKeyMeasurements(KeyMeasurements):
     channel_name: Optional[Union[str, List[str]]] = empty_list()
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     variation_coefficient: Optional[Union[float, List[float]]] = empty_list()
-    saturated_channels: Optional[Union[int, List[int]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if not isinstance(self.channel_name, list):
@@ -2396,10 +2394,6 @@ class UserExperimentKeyMeasurements(KeyMeasurements):
         if not isinstance(self.variation_coefficient, list):
             self.variation_coefficient = [self.variation_coefficient] if self.variation_coefficient is not None else []
         self.variation_coefficient = [v if isinstance(v, float) else float(v) for v in self.variation_coefficient]
-
-        if not isinstance(self.saturated_channels, list):
-            self.saturated_channels = [self.saturated_channels] if self.saturated_channels is not None else []
-        self.saturated_channels = [v if isinstance(v, int) else int(v) for v in self.saturated_channels]
 
         super().__post_init__(**kwargs)
 
@@ -3032,13 +3026,10 @@ slots.orthogonal_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experim
                    model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[dict, Roi]])
 
 slots.profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/profile_rois'], name="profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Union[dict, Roi])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Optional[Union[dict, Roi]])
 
 slots.variation_coefficient = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/variation_coefficient'], name="variation_coefficient", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/variation_coefficient'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.variation_coefficient, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.saturated_channels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/saturated_channels'], name="saturated_channels", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/saturated_channels'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.saturated_channels, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.dataReference__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="dataReference__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__data_uri, domain=None, range=Optional[str])
