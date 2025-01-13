@@ -317,8 +317,8 @@
 
 
 <h1 id="slot-profile_rois">Slot: profile_rois</h1>
-<p><em>line ROIs used to compute the intensity profiles</em></p>
-<p>URI: <a href="https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema/profile_rois">microscopemetrics_schema:profile_rois</a></p>
+<p><em>Rois containing a line shape where a intensity profile is to be calculated.</em></p>
+<p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/profile_rois">microscopemetrics_schema:profile_rois</a></p>
 <!-- no inheritance hierarchy -->
 
 <h2 id="applicable-classes">Applicable Classes</h2>
@@ -332,7 +332,7 @@
 </thead>
 <tbody>
 <tr>
-<td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
+<td><a href="../UserExperimentInputData/">UserExperimentInputData</a></td>
 <td></td>
 <td>no</td>
 </tr>
@@ -340,27 +340,27 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>Range: <a href="../RoiProfiles/">RoiProfiles</a></li>
+<li>Range: <a href="../Roi/">Roi</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
 <h3 id="schema-source">Schema Source</h3>
 <ul>
-<li>from schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema</li>
+<li>from schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema</li>
 </ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: profile_rois
-description: line ROIs used to compute the intensity profiles
-from_schema: https://w3id.org/MontpellierRessourcesImagerie/microscopemetrics-schema
+description: Rois containing a line shape where a intensity profile is to be calculated.
+from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
 rank: 1000
-multivalued: false
 alias: profile_rois
-owner: FieldIlluminationOutput
 domain_of:
-- FieldIlluminationOutput
-range: RoiProfiles
+- UserExperimentInputData
+range: Roi
+required: false
 inlined: true
+inlined_as_list: true
 
 </code></pre>
 

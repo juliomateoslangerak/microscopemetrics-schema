@@ -221,6 +221,8 @@
         click FieldIlluminationDataset href "../FieldIlluminationDataset"
       MetricsDataset &lt;|-- PSFBeadsDataset
         click PSFBeadsDataset href "../PSFBeadsDataset"
+      MetricsDataset &lt;|-- UserExperimentDataset
+        click UserExperimentDataset href "../UserExperimentDataset"
 
 
       MetricsDataset : acquisition_datetime
@@ -312,6 +314,7 @@
 <li><strong>MetricsDataset</strong><ul>
 <li><a href="../FieldIlluminationDataset/">FieldIlluminationDataset</a></li>
 <li><a href="../PSFBeadsDataset/">PSFBeadsDataset</a></li>
+<li><a href="../UserExperimentDataset/">UserExperimentDataset</a></li>
 </ul>
 </li>
 </ul>
@@ -510,6 +513,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsInputData
     required: true
     multivalued: false
@@ -521,6 +525,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsInputParameters
     required: true
     multivalued: false
@@ -532,6 +537,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsOutput
     required: false
     multivalued: false
@@ -613,6 +619,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsInputData
     required: true
     multivalued: false
@@ -626,6 +633,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsInputParameters
     required: true
     multivalued: false
@@ -639,6 +647,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: MetricsOutput
     required: false
     multivalued: false
@@ -653,6 +662,7 @@ attributes:
     - MetricsDataset
     - FieldIlluminationDataset
     - PSFBeadsDataset
+    - UserExperimentDataset
     range: Sample
     required: false
     multivalued: false

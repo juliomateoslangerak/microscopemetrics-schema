@@ -274,19 +274,6 @@
     Identifier and Mapping Information
   </a>
   
-    <nav class="md-nav" aria-label="Identifier and Mapping Information">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#schema-source" class="md-nav__link">
-    Schema Source
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -317,7 +304,6 @@
 
 
 <h1 id="slot-intensity_profiles">Slot: intensity_profiles</h1>
-<p><em>Intensity profiles for the field illumination analysis in the different directions</em></p>
 <p>URI: <a href="https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/intensity_profiles">microscopemetrics_schema:intensity_profiles</a></p>
 <!-- no inheritance hierarchy -->
 
@@ -332,6 +318,11 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="../UserExperimentOutput/">UserExperimentOutput</a></td>
+<td></td>
+<td>no</td>
+</tr>
+<tr>
 <td><a href="../FieldIlluminationOutput/">FieldIlluminationOutput</a></td>
 <td></td>
 <td>no</td>
@@ -340,34 +331,18 @@
 </table>
 <h2 id="properties">Properties</h2>
 <ul>
-<li>
-<p>Range: <a href="../Table/">Table</a></p>
-</li>
-<li>
-<p>Multivalued: True</p>
-</li>
+<li>Range: <a href="../String/">String</a></li>
 </ul>
 <h2 id="identifier-and-mapping-information">Identifier and Mapping Information</h2>
-<h3 id="schema-source">Schema Source</h3>
-<ul>
-<li>from schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema</li>
-</ul>
 <h2 id="linkml-source">LinkML Source</h2>
 <details>
 
 <pre><code class="language-yaml">name: intensity_profiles
-description: Intensity profiles for the field illumination analysis in the different
-  directions
-from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
-rank: 1000
 alias: intensity_profiles
-owner: FieldIlluminationOutput
 domain_of:
 - FieldIlluminationOutput
-range: Table
-multivalued: true
-inlined: true
-inlined_as_list: true
+- UserExperimentOutput
+range: string
 
 </code></pre>
 

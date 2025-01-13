@@ -437,6 +437,10 @@
 <td>None</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperimentInputData/">UserExperimentInputData</a></td>
+<td>None</td>
+</tr>
+<tr>
 <td><a href="MetricsInputParameters/">MetricsInputParameters</a></td>
 <td>An abstract class for analysis inputs parameters</td>
 </tr>
@@ -449,6 +453,10 @@
 <td>None</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperimentInputParameters/">UserExperimentInputParameters</a></td>
+<td>None</td>
+</tr>
+<tr>
 <td><a href="MetricsOutput/">MetricsOutput</a></td>
 <td>An abstract class for analysis outputs</td>
 </tr>
@@ -458,6 +466,10 @@
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsOutput/">PSFBeadsOutput</a></td>
+<td>None</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperimentOutput/">UserExperimentOutput</a></td>
 <td>None</td>
 </tr>
 <tr>
@@ -497,6 +509,10 @@
 <td>A mask image. Either a binary image or a label image</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="OrthogonalImage/">OrthogonalImage</a></td>
+<td>An image that is orthogonal to the main image</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="KeyValues/">KeyValues</a></td>
 <td>A collection of key-value pairs</td>
 </tr>
@@ -513,6 +529,10 @@
 <td>None</td>
 </tr>
 <tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperimentKeyMeasurements/">UserExperimentKeyMeasurements</a></td>
+<td>None</td>
+</tr>
+<tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MetricsDataset/">MetricsDataset</a></td>
 <td>A base object on which microscope-metrics runs the analysis</td>
 </tr>
@@ -523,6 +543,10 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeadsDataset/">PSFBeadsDataset</a></td>
 <td>A PSF beads dataset</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperimentDataset/">UserExperimentDataset</a></td>
+<td>A dataset of non-standardized microscope samples produced during regular operation of a research project.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="MetricsDatasetCollection/">MetricsDatasetCollection</a></td>
@@ -571,6 +595,10 @@
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="PSFBeads/">PSFBeads</a></td>
 <td>A sample of sub-resolution sized beads used to measure the PSF of a microscope.</td>
+</tr>
+<tr>
+<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserExperiment/">UserExperiment</a></td>
+<td>A non-standardized microscope sample produced during regular operation of a research project.</td>
 </tr>
 <tr>
 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="Shape/">Shape</a></td>
@@ -710,6 +738,10 @@
 <tr>
 <td><a href="average_bead_intensity_std/">average_bead_intensity_std</a></td>
 <td>Standard deviation of the intensity for the average bead</td>
+</tr>
+<tr>
+<td><a href="axis/">axis</a></td>
+<td>The axis of the orthogonal image</td>
 </tr>
 <tr>
 <td><a href="b/">b</a></td>
@@ -982,6 +1014,10 @@
 <tr>
 <td><a href="experimenter/">experimenter</a></td>
 <td>The experimenter that performed the imaging experiment</td>
+</tr>
+<tr>
+<td><a href="fft_images/">fft_images</a></td>
+<td>Fourier space transforms of the input images</td>
 </tr>
 <tr>
 <td><a href="field_illumination_image/">field_illumination_image</a></td>
@@ -1320,6 +1356,14 @@
 <td>The ORCID of the experimenter</td>
 </tr>
 <tr>
+<td><a href="orthogonal_images/">orthogonal_images</a></td>
+<td>Orthogonal images created from the provided orthogonal_rois</td>
+</tr>
+<tr>
+<td><a href="orthogonal_rois/">orthogonal_rois</a></td>
+<td>Rois containing a point shape where the orthogonal views are to be taken</td>
+</tr>
+<tr>
 <td><a href="output/">output</a></td>
 <td>The output of the analysis</td>
 </tr>
@@ -1354,6 +1398,10 @@
 <tr>
 <td><a href="processing_version/">processing_version</a></td>
 <td>The version of the application used to process the dataset</td>
+</tr>
+<tr>
+<td><a href="profile_rois/">profile_rois</a></td>
+<td>Rois containing a line shape where a intensity profile is to be calculated</td>
 </tr>
 <tr>
 <td><a href="protocol/">protocol</a></td>
@@ -1452,12 +1500,20 @@
 <td>Signal to noise ratio threshold to be used for bead detection</td>
 </tr>
 <tr>
+<td><a href="source_image/">source_image</a></td>
+<td>The source image of the orthogonal image</td>
+</tr>
+<tr>
 <td><a href="source_images/">source_images</a></td>
 <td>A list of references linking to the images that were used as a source</td>
 </tr>
 <tr>
 <td><a href="source_reference/">source_reference</a></td>
 <td>The source object of the column</td>
+</tr>
+<tr>
+<td><a href="source_roi/">source_roi</a></td>
+<td>The source ROI of the orthogonal image</td>
 </tr>
 <tr>
 <td><a href="stroke_color/">stroke_color</a></td>
@@ -1516,6 +1572,10 @@
 <td>The URL where the protocol can be found</td>
 </tr>
 <tr>
+<td><a href="user_experiment_images/">user_experiment_images</a></td>
+<td>The user_experiment images provided in the order TZYXC</td>
+</tr>
+<tr>
 <td><a href="validated/">validated</a></td>
 <td>Has the dataset been validated by a human</td>
 </tr>
@@ -1526,6 +1586,10 @@
 <tr>
 <td><a href="values/">values</a></td>
 <td>The values of the TimeSeries in seconds</td>
+</tr>
+<tr>
+<td><a href="variation_coefficient/">variation_coefficient</a></td>
+<td>The variation coefficient of the signal of the image</td>
 </tr>
 <tr>
 <td><a href="version/">version</a></td>
@@ -1603,6 +1667,10 @@
 </thead>
 <tbody>
 <tr>
+<td><a href="AxisEnum/">AxisEnum</a></td>
+<td>The axis of the image</td>
+</tr>
+<tr>
 <td><a href="CommentTypesEnum/">CommentTypesEnum</a></td>
 <td>The type of the comment</td>
 </tr>
@@ -1613,6 +1681,10 @@
 <tr>
 <td><a href="OMEROObjectTypeEnum/">OMEROObjectTypeEnum</a></td>
 <td>The type of the OMERO object</td>
+</tr>
+<tr>
+<td><a href="PlaneAxisEnum/">PlaneAxisEnum</a></td>
+<td>The axis of the plane</td>
 </tr>
 </tbody>
 </table>
