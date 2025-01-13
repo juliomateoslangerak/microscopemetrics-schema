@@ -724,8 +724,8 @@ type UserExperimentDataset
 type UserExperimentInputData
   {
     userExperimentImages: [Image]!
-    orthogonalRois: Roi
-    profileRois: Roi
+    orthogonalRois: [Roi]
+    profileRois: [Roi]
   }
 
 type UserExperimentInputParameters

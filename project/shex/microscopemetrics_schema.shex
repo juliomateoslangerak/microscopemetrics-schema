@@ -1195,9 +1195,9 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/user_experiment_images>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_rois>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ? ;
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/profile_rois>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ?
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> *
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData>

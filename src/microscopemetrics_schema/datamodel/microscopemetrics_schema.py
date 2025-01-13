@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-17T16:54:21
+# Generation date: 2025-01-13T11:07:18
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2291,8 +2291,8 @@ class UserExperimentInputData(MetricsInputData):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputData
 
     user_experiment_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    orthogonal_rois: Optional[Union[dict, Roi]] = None
-    profile_rois: Optional[Union[dict, Roi]] = None
+    orthogonal_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    profile_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.user_experiment_images):
@@ -2301,11 +2301,13 @@ class UserExperimentInputData(MetricsInputData):
             self.user_experiment_images = [self.user_experiment_images] if self.user_experiment_images is not None else []
         self.user_experiment_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.user_experiment_images]
 
-        if self.orthogonal_rois is not None and not isinstance(self.orthogonal_rois, Roi):
-            self.orthogonal_rois = Roi(**as_dict(self.orthogonal_rois))
+        if not isinstance(self.orthogonal_rois, list):
+            self.orthogonal_rois = [self.orthogonal_rois] if self.orthogonal_rois is not None else []
+        self.orthogonal_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.orthogonal_rois]
 
-        if self.profile_rois is not None and not isinstance(self.profile_rois, Roi):
-            self.profile_rois = Roi(**as_dict(self.profile_rois))
+        if not isinstance(self.profile_rois, list):
+            self.profile_rois = [self.profile_rois] if self.profile_rois is not None else []
+        self.profile_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.profile_rois]
 
         super().__post_init__(**kwargs)
 
@@ -3023,10 +3025,10 @@ slots.user_experiment_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_
                    model_uri=MICROSCOPEMETRICS_SCHEMA.user_experiment_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
 slots.orthogonal_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/orthogonal_rois'], name="orthogonal_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/orthogonal_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/profile_rois'], name="profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.variation_coefficient = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/variation_coefficient'], name="variation_coefficient", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/variation_coefficient'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.variation_coefficient, domain=None, range=Optional[Union[float, List[float]]])
