@@ -217,7 +217,7 @@
 
 
 
-    UserExperimentInputData --&gt; "0..1" Roi : orthogonal_rois
+    UserExperimentInputData --&gt; "*" Roi : orthogonal_rois
     click Roi href "../Roi"
 
 
@@ -226,7 +226,7 @@
 
 
 
-    UserExperimentInputData --&gt; "0..1" Roi : profile_rois
+    UserExperimentInputData --&gt; "*" Roi : profile_rois
     click Roi href "../Roi"
 
 
@@ -267,13 +267,13 @@
 </tr>
 <tr>
 <td><a href="../orthogonal_rois/">orthogonal_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>Rois containing a point shape where the orthogonal views are to be taken</td>
 <td>direct</td>
 </tr>
 <tr>
 <td><a href="../profile_rois/">profile_rois</a></td>
-<td>0..1 <br/> <a href="../Roi/">Roi</a></td>
+<td>* <br/> <a href="../Roi/">Roi</a></td>
 <td>Rois containing a line shape where a intensity profile is to be calculated</td>
 <td>direct</td>
 </tr>
@@ -369,6 +369,7 @@ attributes:
     - UserExperimentInputData
     range: Roi
     required: false
+    multivalued: true
     inlined: true
     inlined_as_list: true
   profile_rois:
@@ -382,6 +383,7 @@ attributes:
     - UserExperimentInputData
     range: Roi
     required: false
+    multivalued: true
     inlined: true
     inlined_as_list: true
 
