@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-01-19T21:44:23
+# Generation date: 2025-01-13T11:07:18
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -634,6 +634,7 @@ class OrthogonalImage(Image):
 
     shape_x: int = None
     shape_y: int = None
+    source_image: Union[dict, Image] = None
     source_roi: Union[dict, "Roi"] = None
     axis: Union[str, "PlaneAxisEnum"] = None
     shape_z: int = 1
@@ -641,6 +642,11 @@ class OrthogonalImage(Image):
     shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.source_image):
+            self.MissingRequiredField("source_image")
+        if not isinstance(self.source_image, Image):
+            self.source_image = Image(**as_dict(self.source_image))
+
         if self._is_empty(self.source_roi):
             self.MissingRequiredField("source_roi")
         if not isinstance(self.source_roi, Roi):
@@ -2285,8 +2291,8 @@ class UserExperimentInputData(MetricsInputData):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputData
 
     user_experiment_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    profile_rois: Union[dict, Roi] = None
-    orthogonal_rois: Optional[Union[dict, Roi]] = None
+    orthogonal_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
+    profile_rois: Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if self._is_empty(self.user_experiment_images):
@@ -2295,13 +2301,13 @@ class UserExperimentInputData(MetricsInputData):
             self.user_experiment_images = [self.user_experiment_images] if self.user_experiment_images is not None else []
         self.user_experiment_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.user_experiment_images]
 
-        if self._is_empty(self.profile_rois):
-            self.MissingRequiredField("profile_rois")
-        if not isinstance(self.profile_rois, Roi):
-            self.profile_rois = Roi(**as_dict(self.profile_rois))
+        if not isinstance(self.orthogonal_rois, list):
+            self.orthogonal_rois = [self.orthogonal_rois] if self.orthogonal_rois is not None else []
+        self.orthogonal_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.orthogonal_rois]
 
-        if self.orthogonal_rois is not None and not isinstance(self.orthogonal_rois, Roi):
-            self.orthogonal_rois = Roi(**as_dict(self.orthogonal_rois))
+        if not isinstance(self.profile_rois, list):
+            self.profile_rois = [self.profile_rois] if self.profile_rois is not None else []
+        self.profile_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.profile_rois]
 
         super().__post_init__(**kwargs)
 
@@ -2377,7 +2383,6 @@ class UserExperimentKeyMeasurements(KeyMeasurements):
     channel_name: Optional[Union[str, List[str]]] = empty_list()
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
     variation_coefficient: Optional[Union[float, List[float]]] = empty_list()
-    saturated_channels: Optional[Union[int, List[int]]] = empty_list()
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
         if not isinstance(self.channel_name, list):
@@ -2391,10 +2396,6 @@ class UserExperimentKeyMeasurements(KeyMeasurements):
         if not isinstance(self.variation_coefficient, list):
             self.variation_coefficient = [self.variation_coefficient] if self.variation_coefficient is not None else []
         self.variation_coefficient = [v if isinstance(v, float) else float(v) for v in self.variation_coefficient]
-
-        if not isinstance(self.saturated_channels, list):
-            self.saturated_channels = [self.saturated_channels] if self.saturated_channels is not None else []
-        self.saturated_channels = [v if isinstance(v, int) else int(v) for v in self.saturated_channels]
 
         super().__post_init__(**kwargs)
 
@@ -3024,16 +3025,13 @@ slots.user_experiment_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_
                    model_uri=MICROSCOPEMETRICS_SCHEMA.user_experiment_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
 slots.orthogonal_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/orthogonal_rois'], name="orthogonal_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/orthogonal_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[dict, Roi]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonal_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.profile_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/profile_rois'], name="profile_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/profile_rois'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Union[dict, Roi])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.profile_rois, domain=None, range=Optional[Union[Union[dict, Roi], List[Union[dict, Roi]]]])
 
 slots.variation_coefficient = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/variation_coefficient'], name="variation_coefficient", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/variation_coefficient'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.variation_coefficient, domain=None, range=Optional[Union[float, List[float]]])
-
-slots.saturated_channels = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/saturated_channels'], name="saturated_channels", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/saturated_channels'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.saturated_channels, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.dataReference__data_uri = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/data_uri'], name="dataReference__data_uri", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/data_uri'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.dataReference__data_uri, domain=None, range=Optional[str])
@@ -3202,6 +3200,9 @@ slots.image__source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sour
 
 slots.image__array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="image__array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image__array_data, domain=None, range=Optional[Union[dict, MetaObject]])
+
+slots.orthogonalImage__source_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image'], name="orthogonalImage__source_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_image, domain=None, range=Union[dict, Image])
 
 slots.orthogonalImage__source_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_roi'], name="orthogonalImage__source_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_roi'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_roi, domain=None, range=Union[dict, Roi])

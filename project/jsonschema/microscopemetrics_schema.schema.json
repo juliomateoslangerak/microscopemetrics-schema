@@ -2847,12 +2847,18 @@
             "description": "",
             "properties": {
                 "orthogonal_rois": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "Rois containing a point shape where the orthogonal views are to be taken."
+                    "description": "Rois containing a point shape where the orthogonal views are to be taken.",
+                    "items": {
+                        "$ref": "#/$defs/Roi"
+                    },
+                    "type": "array"
                 },
                 "profile_rois": {
-                    "$ref": "#/$defs/Roi",
-                    "description": "Rois containing a line shape where a intensity profile is to be calculated."
+                    "description": "Rois containing a line shape where a intensity profile is to be calculated.",
+                    "items": {
+                        "$ref": "#/$defs/Roi"
+                    },
+                    "type": "array"
                 },
                 "user_experiment_images": {
                     "description": "The user_experiment images provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
@@ -2863,8 +2869,7 @@
                 }
             },
             "required": [
-                "user_experiment_images",
-                "profile_rois"
+                "user_experiment_images"
             ],
             "title": "UserExperimentInputData",
             "type": "object"
@@ -2926,13 +2931,6 @@
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
-                },
-                "saturated_channels": {
-                    "description": "The channels that are saturated in the image. One value per channel.",
-                    "items": {
-                        "type": "integer"
-                    },
-                    "type": "array"
                 },
                 "table_data": {
                     "$ref": "#/$defs/MetaObject",

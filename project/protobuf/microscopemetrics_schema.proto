@@ -572,8 +572,8 @@ message UserExperimentDataset
 message UserExperimentInputData
  {
  repeated  image userExperimentImages = 0
-  roi orthogonalRois = 0
-  roi profileRois = 0
+ repeated  roi orthogonalRois = 0
+ repeated  roi profileRois = 0
  }
 message UserExperimentInputParameters
  {
@@ -590,7 +590,6 @@ message UserExperimentKeyMeasurements
  repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  float variationCoefficient = 0
- repeated  integer saturatedChannels = 0
  }
 message UserExperimentOutput
  {
