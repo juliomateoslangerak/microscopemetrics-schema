@@ -1,3 +1,6 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.7.0
 // A image channel
 message Channel
  {
@@ -325,7 +328,6 @@ message OrthogonalImage
   datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
-  image sourceImage = 0
   roi sourceRoi = 0
   planeAxisEnum axis = 0
  }

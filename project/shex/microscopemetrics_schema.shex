@@ -1,3 +1,4 @@
+# metamodel_version: 1.7.0
 BASE <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -729,8 +730,6 @@ CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/OrthogonalImage_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_image>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_roi>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/axis> [
@@ -1269,5 +1268,4 @@ CLOSED {
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Vertex> ] ?
     )
 }
-
 

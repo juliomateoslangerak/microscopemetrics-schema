@@ -406,11 +406,6 @@ classes:
     is_a: Image
     description: An image that is orthogonal to the main image
     attributes:
-      source_image:
-        range: Image
-        description: The source image of the orthogonal image
-        required: true
-        multivalued: false
       source_roi:
         range: Roi
         description: >-

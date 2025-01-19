@@ -105,7 +105,6 @@ slots:
     description: >-
       Rois containing a line shape where a intensity profile is to be calculated.
     required: true
-    ifabsent: float(10.0)
 
   # Outputs
   variation_coefficient:

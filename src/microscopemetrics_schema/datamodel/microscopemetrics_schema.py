@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-12-14T12:37:29
+# Generation date: 2025-01-19T21:44:23
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -11,6 +11,7 @@ import re
 from jsonasobj2 import JsonObj, as_dict
 from typing import Optional, List, Union, Dict, ClassVar, Any
 from dataclasses import dataclass
+from datetime import date, datetime
 from linkml_runtime.linkml_model.meta import EnumDefinition, PermissibleValue, PvFormulaOptions
 
 from linkml_runtime.utils.slot import Slot
@@ -633,7 +634,6 @@ class OrthogonalImage(Image):
 
     shape_x: int = None
     shape_y: int = None
-    source_image: Union[dict, Image] = None
     source_roi: Union[dict, "Roi"] = None
     axis: Union[str, "PlaneAxisEnum"] = None
     shape_z: int = 1
@@ -641,11 +641,6 @@ class OrthogonalImage(Image):
     shape_t: int = 1
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.source_image):
-            self.MissingRequiredField("source_image")
-        if not isinstance(self.source_image, Image):
-            self.source_image = Image(**as_dict(self.source_image))
-
         if self._is_empty(self.source_roi):
             self.MissingRequiredField("source_roi")
         if not isinstance(self.source_roi, Roi):
@@ -2290,7 +2285,7 @@ class UserExperimentInputData(MetricsInputData):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperimentInputData
 
     user_experiment_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
-    profile_rois: Union[dict, Roi] = 10.0
+    profile_rois: Union[dict, Roi] = None
     orthogonal_rois: Optional[Union[dict, Roi]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
@@ -3207,9 +3202,6 @@ slots.image__source_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sour
 
 slots.image__array_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/array_data'], name="image__array_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/array_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.image__array_data, domain=None, range=Optional[Union[dict, MetaObject]])
-
-slots.orthogonalImage__source_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_image'], name="orthogonalImage__source_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_image, domain=None, range=Union[dict, Image])
 
 slots.orthogonalImage__source_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/source_roi'], name="orthogonalImage__source_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/source_roi'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.orthogonalImage__source_roi, domain=None, range=Union[dict, Roi])

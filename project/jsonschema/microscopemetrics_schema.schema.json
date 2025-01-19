@@ -428,20 +428,20 @@
                 },
                 "corner_fraction": {
                     "description": "Input parameter: the proportion of the image to be considered as corner or center",
-                    "maximum": 0,
-                    "minimum": 0,
+                    "maximum": 0.49,
+                    "minimum": 0.01,
                     "type": "number"
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma": {
                     "description": "Input parameter: the sigma for the smoothing gaussian filter to be applied prior to analysis",
-                    "maximum": 8,
-                    "minimum": 2,
+                    "maximum": 8.0,
+                    "minimum": 2.0,
                     "type": "number"
                 }
             },
@@ -502,8 +502,8 @@
                 "center_fitted_distance_relative": {
                     "description": "The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -518,8 +518,8 @@
                 "center_fitted_x_relative": {
                     "description": "The relative x position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -534,8 +534,8 @@
                 "center_fitted_y_relative": {
                     "description": "The relative y position of the fitted center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -543,8 +543,8 @@
                 "center_geometric_distance_relative": {
                     "description": "The relative distance of the geometric center to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -559,8 +559,8 @@
                 "center_geometric_x_relative": {
                     "description": "The relative x position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -575,8 +575,8 @@
                 "center_geometric_y_relative": {
                     "description": "The relative y position of the geometric center of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -584,8 +584,8 @@
                 "center_of_mass_distance_relative": {
                     "description": "The relative distance of the centers of mass to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -600,8 +600,8 @@
                 "center_of_mass_x_relative": {
                     "description": "The relative x position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -616,8 +616,8 @@
                 "center_of_mass_y_relative": {
                     "description": "The relative y position of the center of mass of the center of illumination region.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -625,8 +625,8 @@
                 "center_region_area_fraction": {
                     "description": "The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -634,8 +634,8 @@
                 "center_region_intensity_fraction": {
                     "description": "The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -701,8 +701,8 @@
                 "max_intensity_distance_relative": {
                     "description": "The relative distance of the maximum intensity to the center of the image. Relative to the distance to  an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": 0,
+                        "maximum": 1.0,
+                        "minimum": 0.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -717,8 +717,8 @@
                 "max_intensity_pos_x_relative": {
                     "description": "The relative x position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -733,8 +733,8 @@
                 "max_intensity_pos_y_relative": {
                     "description": "The relative y position of the maximum intensity of the center of illumination.  Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.",
                     "items": {
-                        "maximum": 1,
-                        "minimum": -1,
+                        "maximum": 1.0,
+                        "minimum": -1.0,
                         "type": "number"
                     },
                     "type": "array"
@@ -1564,10 +1564,6 @@
                     "description": "The shape of the image in the z dimension",
                     "type": "integer"
                 },
-                "source_image": {
-                    "$ref": "#/$defs/Image",
-                    "description": "The source image of the orthogonal image"
-                },
                 "source_images": {
                     "description": "A list of references linking to the images that were used as a source",
                     "items": {
@@ -1597,7 +1593,6 @@
                 }
             },
             "required": [
-                "source_image",
                 "source_roi",
                 "axis",
                 "shape_x",
@@ -1757,14 +1752,14 @@
                 },
                 "min_lateral_distance_factor": {
                     "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
-                    "maximum": 30,
-                    "minimum": 10,
+                    "maximum": 30.0,
+                    "minimum": 10.0,
                     "type": "number"
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 },
                 "sigma_x": {
@@ -2886,8 +2881,8 @@
                 },
                 "saturation_threshold": {
                     "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
-                    "maximum": 1,
-                    "minimum": 0,
+                    "maximum": 1.0,
+                    "minimum": 0.0,
                     "type": "number"
                 }
             },
