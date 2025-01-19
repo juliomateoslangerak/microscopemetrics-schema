@@ -590,6 +590,7 @@ message UserExperimentKeyMeasurements
  repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  float variationCoefficient = 0
+ repeated  integer saturatedChannels = 0
  }
 message UserExperimentOutput
  {

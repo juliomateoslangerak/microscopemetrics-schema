@@ -164,7 +164,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: source_image_id Description: The source image of the orthogonal image
 --     * Slot: source_roi_id Description: The source ROI of the orthogonal image. The ROI has to contain a single point shape.
 --     * Slot: time_series_id Description: A series representing time for time-lapse images.
 --     * Slot: channel_series_id Description: A series representing channels for multi-channel images.
@@ -928,6 +927,9 @@
 -- # Class: "UserExperimentKeyMeasurements_variation_coefficient" Description: ""
 --     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: variation_coefficient Description: The variation coefficient of the signal of the image. One value per channel.
+-- # Class: "UserExperimentKeyMeasurements_saturated_channels" Description: ""
+--     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: saturated_channels Description: The channels that are saturated in the image. One value per channel.
 
 CREATE TABLE "MetaObject" (
 	id INTEGER NOT NULL, 
@@ -1175,7 +1177,6 @@ CREATE TABLE "OrthogonalImage" (
 	name TEXT, 
 	description TEXT, 
 	"UserExperimentOutput_id" INTEGER, 
-	source_image_id INTEGER NOT NULL, 
 	source_roi_id INTEGER NOT NULL, 
 	time_series_id INTEGER, 
 	channel_series_id INTEGER, 
@@ -1183,7 +1184,6 @@ CREATE TABLE "OrthogonalImage" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id), 
-	FOREIGN KEY(source_image_id) REFERENCES "Image" (id), 
 	FOREIGN KEY(source_roi_id) REFERENCES "Roi" (id), 
 	FOREIGN KEY(time_series_id) REFERENCES "TimeSeries" (id), 
 	FOREIGN KEY(channel_series_id) REFERENCES "ChannelSeries" (id), 
@@ -2569,6 +2569,12 @@ CREATE TABLE "UserExperimentKeyMeasurements_variation_coefficient" (
 	"UserExperimentKeyMeasurements_id" INTEGER, 
 	variation_coefficient FLOAT, 
 	PRIMARY KEY ("UserExperimentKeyMeasurements_id", variation_coefficient), 
+	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
+);
+CREATE TABLE "UserExperimentKeyMeasurements_saturated_channels" (
+	"UserExperimentKeyMeasurements_id" INTEGER, 
+	saturated_channels INTEGER, 
+	PRIMARY KEY ("UserExperimentKeyMeasurements_id", saturated_channels), 
 	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
 );
 CREATE TABLE "Column_values" (

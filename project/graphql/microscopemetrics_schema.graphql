@@ -743,6 +743,7 @@ type UserExperimentKeyMeasurements
     channelName: [String]
     channelNr: [Integer]
     variationCoefficient: [Float]
+    saturatedChannels: [Integer]
   }
 
 type UserExperimentOutput
