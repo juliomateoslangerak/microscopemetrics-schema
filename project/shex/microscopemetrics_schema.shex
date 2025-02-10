@@ -211,7 +211,7 @@ CLOSED {
        (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsInputData> ] ? ;
 
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/field_illumination_image>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema/field_illumination_images>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> +
        ) ;
        rdf:type [

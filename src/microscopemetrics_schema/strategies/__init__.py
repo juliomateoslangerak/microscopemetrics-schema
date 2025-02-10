@@ -592,10 +592,10 @@ def st_mm_homogeneous_thick_field_sample(
 @st.composite
 def st_mm_field_illumination_input_data(
     draw,
-    field_illumination_image=st.lists(st_mm_image(), min_size=1, max_size=3),
+    field_illumination_images=st.lists(st_mm_image(), min_size=1, max_size=3),
 ) -> mm_schema.FieldIlluminationInputData:
     return mm_schema.FieldIlluminationInputData(
-        field_illumination_image=draw(field_illumination_image),
+        field_illumination_image=draw(field_illumination_images),
     )
 
 

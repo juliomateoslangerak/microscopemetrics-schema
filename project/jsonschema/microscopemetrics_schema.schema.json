@@ -390,7 +390,7 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "field_illumination_image": {
+                "field_illumination_images": {
                     "description": "Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts multiple channels, the T and Z dimensions are expected to be 1.",
                     "items": {
                         "$ref": "#/$defs/Image"
@@ -399,7 +399,7 @@
                 }
             },
             "required": [
-                "field_illumination_image"
+                "field_illumination_images"
             ],
             "title": "FieldIlluminationInputData",
             "type": "object"

@@ -111,7 +111,7 @@ type FieldIlluminationDataset
 
 type FieldIlluminationInputData
   {
-    fieldIlluminationImage: [Image]!
+    fieldIlluminationImages: [Image]!
   }
 
 type FieldIlluminationInputParameters

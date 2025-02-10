@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2024-11-14T12:43:12
+# Generation date: 2025-02-10T17:24:58
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1306,14 +1306,14 @@ class FieldIlluminationInputData(MetricsInputData):
     class_name: ClassVar[str] = "FieldIlluminationInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputData
 
-    field_illumination_image: Union[Union[dict, Image], List[Union[dict, Image]]] = None
+    field_illumination_images: Union[Union[dict, Image], List[Union[dict, Image]]] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.field_illumination_image):
-            self.MissingRequiredField("field_illumination_image")
-        if not isinstance(self.field_illumination_image, list):
-            self.field_illumination_image = [self.field_illumination_image] if self.field_illumination_image is not None else []
-        self.field_illumination_image = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.field_illumination_image]
+        if self._is_empty(self.field_illumination_images):
+            self.MissingRequiredField("field_illumination_images")
+        if not isinstance(self.field_illumination_images, list):
+            self.field_illumination_images = [self.field_illumination_images] if self.field_illumination_images is not None else []
+        self.field_illumination_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.field_illumination_images]
 
         super().__post_init__(**kwargs)
 
@@ -2430,8 +2430,8 @@ slots.sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_y'], name="
 slots.sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_x, domain=None, range=Optional[float])
 
-slots.field_illumination_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/field_illumination_image'], name="field_illumination_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/field_illumination_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_image, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
+slots.field_illumination_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/field_illumination_images'], name="field_illumination_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/field_illumination_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.field_illumination_images, domain=None, range=Union[Union[dict, Image], List[Union[dict, Image]]])
 
 slots.corner_fraction = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination_schema/corner_fraction'], name="corner_fraction", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination_schema/corner_fraction'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.corner_fraction, domain=None, range=float)
