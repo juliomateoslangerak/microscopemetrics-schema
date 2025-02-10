@@ -1,7 +1,8 @@
 from microscopemetrics_schema.datamodel import microscopemetrics_schema as mm_schema
 from hypothesis import given, assume
-from hypothesis import strategies as st
 from microscopemetrics_schema.strategies import *
+from microscopemetrics_schema.strategies.analyses import *
+from microscopemetrics_schema.strategies.samples import *
 
 import unittest
 
