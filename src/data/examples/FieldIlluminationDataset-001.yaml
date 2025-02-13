@@ -30,7 +30,7 @@ experimenter:
 acquisition_datetime: "2024-01-15T00:00:00Z"
 processed: true
 input_data:
-  field_illumination_image:
+  field_illumination_images:
     name: "ExampleImage"
     data_reference:
       data_uri: "https://omero.example.org/image/420"

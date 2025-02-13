@@ -793,14 +793,14 @@ CLOSED {
     )
 }
 
-<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads> CLOSED {
-    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads_tes> ( 
+<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads> CLOSED {
+    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/bead_diameter_micron>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/bead_diameter_micron>
           @linkml:Float
        ) ;
-       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads> ] ?
+       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads> ] ?
     )
 }
 
@@ -817,7 +817,7 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/output>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsOutput> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/sample>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads> ?
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads> ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads_schema/PSFBeadsDataset> ] ?
@@ -1106,7 +1106,7 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample>  (
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField> OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads>
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample_struct> {

@@ -12,7 +12,7 @@
     "analyses/field_illumination_schema",
     "analyses/psf_beads_schema",
     "samples/homogeneous_field",
-    "samples/beads"
+    "samples/psf_beads"
   ],
   "license": "GNU GPL v3.0",
   "prefixes": [
@@ -4325,8 +4325,8 @@
     {
       "name": "pSFBeads__bead_diameter_micron",
       "description": "The diameter of the beads in the sample measured in microns.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/bead_diameter_micron",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/bead_diameter_micron",
       "alias": "bead_diameter_micron",
       "owner": "PSFBeads",
       "domain_of": [
@@ -6630,9 +6630,9 @@
     },
     {
       "name": "PSFBeads",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads",
       "description": "A sample of sub-resolution sized beads used to measure the PSF of a microscope.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads",
       "is_a": "Sample",
       "slots": [
         "name",
@@ -6651,15 +6651,15 @@
           "@type": "SlotDefinition"
         }
       ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads",
+      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads/PSFBeads",
       "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-02-10T16:48:46",
-  "source_file_size": 848,
-  "generation_date": "2025-02-10T17:24:56",
+  "source_file_date": "2025-02-10T17:32:55",
+  "source_file_size": 852,
+  "generation_date": "2025-02-10T17:40:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
@@ -6668,7 +6668,7 @@
     "analyses/field_illumination_schema.context.jsonld",
     "analyses/psf_beads_schema.context.jsonld",
     "samples/homogeneous_field.context.jsonld",
-    "samples/beads.context.jsonld",
+    "samples/psf_beads.context.jsonld",
     {
       "@base": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/"
     }

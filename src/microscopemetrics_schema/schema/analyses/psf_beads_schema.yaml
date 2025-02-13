@@ -8,7 +8,7 @@ prefixes:
 imports:
   - linkml:types
   - core_schema  # TODO: change to metrics:core_schema
-  - samples/beads
+  - samples/psf_beads
 
 default_range: string
 

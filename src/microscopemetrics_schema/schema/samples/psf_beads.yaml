@@ -1,5 +1,5 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
-name: microscopemetrics_samples_beads
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/psf_beads
+name: microscopemetrics_samples_psf_beads
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:

@@ -20,7 +20,7 @@ sample:
         orcid: "https://orcid.org/0000-0000-0000-0001"
     url: "https://example.org/protocol/1"
 input_data:
-  field_illumination_image:
+  field_illumination_images:
   - name: FI_60x_DAPI_2021-02-01
     description: An image taken on the IGH-Z3 microscope on the 2021-02-01 for QC
     data_reference:
