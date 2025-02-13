@@ -511,23 +511,21 @@ attributes:
     name: key_measurements
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
     - PSFBeadsOutput
-    - UserExperimentOutput
     range: FieldIlluminationKeyMeasurements
     multivalued: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
       directions
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
-    - UserExperimentOutput
     range: Table
     multivalued: true
     inlined: true
@@ -535,7 +533,7 @@ attributes:
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -545,7 +543,7 @@ attributes:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
       ROI is assigned to multiple images.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -556,7 +554,7 @@ attributes:
     description: Point ROIs marking the center of mass of the area of maximum illumination.
       When the image is very flat, the 99 percentile is used instead. One point per
       channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -566,7 +564,7 @@ attributes:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -576,7 +574,7 @@ attributes:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -586,7 +584,7 @@ attributes:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -596,7 +594,7 @@ attributes:
     name: roi_center_region
     description: Mask ROIs marking the area of maximum illumination. One mask per
       channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     domain_of:
     - FieldIlluminationOutput
@@ -615,27 +613,25 @@ attributes:
     name: key_measurements
     description: Key-Value pairs containing the Key measurements for the field illumination
       analysis
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: key_measurements
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
     - PSFBeadsOutput
-    - UserExperimentOutput
     range: FieldIlluminationKeyMeasurements
     multivalued: false
   intensity_profiles:
     name: intensity_profiles
     description: Intensity profiles for the field illumination analysis in the different
       directions
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: intensity_profiles
     owner: FieldIlluminationOutput
     domain_of:
     - FieldIlluminationOutput
-    - UserExperimentOutput
     range: Table
     multivalued: true
     inlined: true
@@ -643,7 +639,7 @@ attributes:
   roi_profiles:
     name: roi_profiles
     description: line ROIs used to compute the intensity profiles
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_profiles
     owner: FieldIlluminationOutput
@@ -655,7 +651,7 @@ attributes:
     name: roi_corners
     description: Rectangular ROIs used to compute the corner intensities. The sama
       ROI is assigned to multiple images.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_corners
     owner: FieldIlluminationOutput
@@ -668,7 +664,7 @@ attributes:
     description: Point ROIs marking the center of mass of the area of maximum illumination.
       When the image is very flat, the 99 percentile is used instead. One point per
       channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_centers_of_mass
     owner: FieldIlluminationOutput
@@ -680,7 +676,7 @@ attributes:
     name: roi_centers_geometric
     description: Point ROIs marking the geometric center of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_centers_geometric
     owner: FieldIlluminationOutput
@@ -692,7 +688,7 @@ attributes:
     name: roi_centers_fitted
     description: Point ROIs marking the fitted center of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_centers_fitted
     owner: FieldIlluminationOutput
@@ -704,7 +700,7 @@ attributes:
     name: roi_centers_max_intensity
     description: Point ROIs marking the maximum intensity of the area of maximum illumination.
       One point per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_centers_max_intensity
     owner: FieldIlluminationOutput
@@ -716,7 +712,7 @@ attributes:
     name: roi_center_region
     description: Mask ROIs marking the area of maximum illumination. One mask per
       channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination_schema
     rank: 1000
     alias: roi_center_region
     owner: FieldIlluminationOutput
