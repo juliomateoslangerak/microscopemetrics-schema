@@ -640,14 +640,14 @@ def st_mm_field_illumination_unprocessed_dataset(
     draw,
     dataset=st_mm_dataset(
         target_class=mm_schema.FieldIlluminationDataset,
-        processed=st.just(False),
-        input_data=st_mm_field_illumination_input_data(),
-        input_parameters=st_mm_field_illumination_input_parameters(),
         sample=st.one_of(
             st_mm_homogeneous_thin_field_sample(),
             st_mm_homogeneous_thick_field_sample(),
-        )
-    ),
+        ),
+        processed=st.just(False),
+        input_data=st_mm_field_illumination_input_data(),
+        input_parameters=st_mm_field_illumination_input_parameters(),
+    )
 ) -> mm_schema.FieldIlluminationDataset:
     return draw(dataset)
 
