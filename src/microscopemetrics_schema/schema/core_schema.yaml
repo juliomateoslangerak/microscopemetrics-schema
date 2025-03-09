@@ -240,7 +240,7 @@ classes:
       input_parameters:
         range: MetricsInputParameters
         description: The input parameters for the analysis
-        required: true
+        required: false
         multivalued: false
       output:
         range: MetricsOutput
@@ -865,7 +865,7 @@ slots:
   input_parameters:
     range: MetricsInputParameters
     description: The input parameters for the analysis
-    required: true
+    required: false
     multivalued: false
   output:
     range: MetricsOutput
