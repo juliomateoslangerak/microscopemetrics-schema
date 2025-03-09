@@ -250,6 +250,69 @@ message ImageMask
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
+// A light source.
+message LightSource
+ {
+  float wavelengthNm = 0
+ }
+// A sample providing measurements on light source power.
+message LightSourcePower
+ {
+  string name = 0
+  string description = 0
+  protocol protocol = 0
+  string manufacturer = 0
+ }
+// Power measurements dataset. A collection of power samples for different light sources.
+message LightSourcePowerDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  sample sample = 0
+  microscope microscope = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  lightSourcePowerInputData inputData = 0
+  lightSourcePowerInputParameters inputParameters = 0
+  lightSourcePowerOutput output = 0
+ }
+message LightSourcePowerInputData
+ {
+  powerMeter measurementDevice = 0
+ repeated  powerSample powerSamples = 0
+ }
+message LightSourcePowerKeyMeasurements
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  metaObject tableData = 0
+  lightSource lightSource = 0
+ repeated  float powerMeanMw = 0
+ repeated  float powerMedianMw = 0
+ repeated  float powerStdMw = 0
+ repeated  float powerMinMw = 0
+ repeated  float powerMaxMw = 0
+ repeated  float linearity = 0
+ }
+message LightSourcePowerOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
+  comment comment = 0
+  lightSourcePowerKeyMeasurements keyMeasurements = 0
+ }
 // A line as defined by x1, y1, x2, y2 coordinates
 message Line
  {
@@ -358,6 +421,20 @@ message Polygon
   integer strokeWidth = 0
  repeated  vertex vertexes = 0
   boolean isOpen = 0
+ }
+message PowerMeter
+ {
+  string name = 0
+  string description = 0
+  string manufacturer = 0
+  string model = 0
+ }
+// A single power measurement for a light source.
+message PowerSample
+ {
+  lightSource lightSource = 0
+  datetime samplingDatetime = 0
+  float powerMw = 0
  }
 // Set of instructions for preparing and imaging a sample
 message Protocol
@@ -539,6 +616,46 @@ message Roi
  repeated  ellipse ellipses = 0
  repeated  polygon polygons = 0
  repeated  mask masks = 0
+ }
+// A simple power measurements dataset containing only one power sample per light source.
+message SimpleLightSourcePowerDataset
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  sample sample = 0
+  microscope microscope = 0
+  experimenter experimenter = 0
+  datetime acquisitionDatetime = 0
+  boolean processed = 0
+  lightSourcePowerInputData inputData = 0
+  lightSourcePowerInputParameters inputParameters = 0
+  simpleLightSourcePowerOutput output = 0
+ }
+message SimpleLightSourcePowerKeyMeasurements
+ {
+  string name = 0
+  string description = 0
+  dataReference dataReference = 0
+ repeated  dataReference linkedReferences = 0
+  metaObject tableData = 0
+  lightSource lightSource = 0
+  float powerMw = 0
+ }
+message SimpleLightSourcePowerOutput
+ {
+ repeated  string processingApplication = 0
+ repeated  string processingVersion = 0
+ repeated  string processingEntity = 0
+  datetime processingDatetime = 0
+  string processingLog = 0
+ repeated  string warnings = 0
+ repeated  string errors = 0
+  boolean validated = 0
+  datetime validationDatetime = 0
+  comment comment = 0
+  simpleLightSourcePowerKeyMeasurements keyMeasurements = 0
  }
 // A series whose values represent time
 message TimeSeries

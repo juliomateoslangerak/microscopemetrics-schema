@@ -31,6 +31,10 @@
 --     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsDataset_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: LightSourcePowerDataset_id Description: Autocreated FK slot
+--     * Slot: SimpleLightSourcePowerDataset_id Description: Autocreated FK slot
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: SimpleLightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: UserExperimentDataset_id Description: Autocreated FK slot
 --     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
 -- # Class: "MetricsObject" Description: "A base object for all microscope-metrics objects."
@@ -441,6 +445,83 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "LightSourcePowerDataset" Description: "Power measurements dataset. A collection of power samples for different light sources."
+--     * Slot: id Description: 
+--     * Slot: experimenter Description: The experimenter that performed the imaging experiment
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: processed Description: Has the dataset been processed by microscope-metrics
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
+--     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
+--     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
+--     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "SimpleLightSourcePowerDataset" Description: "A simple power measurements dataset containing only one power sample per light source."
+--     * Slot: id Description: 
+--     * Slot: experimenter Description: The experimenter that performed the imaging experiment
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: processed Description: Has the dataset been processed by microscope-metrics
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: input_data_id Description: 
+--     * Slot: input_parameters_id Description: 
+--     * Slot: output_id Description: 
+--     * Slot: sample_id Description: The physical sample that was imaged
+--     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
+--     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "LightSourcePowerInputData" Description: ""
+--     * Slot: id Description: 
+--     * Slot: measurement_device_id Description: The power meter used to measure the power.
+-- # Class: "LightSourcePowerInputParameters" Description: ""
+--     * Slot: id Description: 
+-- # Class: "LightSourcePowerOutput" Description: ""
+--     * Slot: id Description: 
+--     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
+--     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
+--     * Slot: key_measurements_id Description: Key-Value measurements for the power measurements.
+--     * Slot: comment_id Description: A human readable comment about the dataset
+-- # Class: "SimpleLightSourcePowerOutput" Description: ""
+--     * Slot: id Description: 
+--     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
+--     * Slot: processing_log Description: The log of the processing by microscope-metrics
+--     * Slot: validated Description: Has the dataset been validated by a human
+--     * Slot: validation_datetime Description: The datetime of the validation
+--     * Slot: key_measurements_id Description: Key-Value measurements for simple power measurements.
+--     * Slot: comment_id Description: A human readable comment about the dataset
+-- # Class: "LightSourcePowerKeyMeasurements" Description: ""
+--     * Slot: id Description: 
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: light_source_id Description: The light source under investigation.
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
+--     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "SimpleLightSourcePowerKeyMeasurements" Description: ""
+--     * Slot: id Description: 
+--     * Slot: power_mw Description: The power measured in milliwatts.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
+--     * Slot: light_source_id Description: The light source under investigation.
+--     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
+--     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "PowerSample" Description: "A single power measurement for a light source."
+--     * Slot: id Description: 
+--     * Slot: sampling_datetime Description: The date and time of the sampling.
+--     * Slot: power_mw Description: The power measured in milliwatts.
+--     * Slot: LightSourcePowerInputData_id Description: Autocreated FK slot
+--     * Slot: light_source_id Description: The light source under investigation.
+-- # Class: "LightSource" Description: "A light source."
+--     * Slot: id Description: 
+--     * Slot: wavelength_nm Description: The wavelength of the light source in nanometers.
+-- # Class: "PowerMeter" Description: ""
+--     * Slot: id Description: 
+--     * Slot: manufacturer Description: 
+--     * Slot: model Description: 
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "UserExperiment" Description: "A non-standardized microscope sample produced during regular operation of a research project."
 --     * Slot: id Description: 
 --     * Slot: protocol Description: The protocol used to prepare the sample
@@ -480,6 +561,12 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
+-- # Class: "LightSourcePower" Description: "A sample providing measurements on light source power."
+--     * Slot: id Description: 
+--     * Slot: protocol Description: The protocol used to prepare the sample
+--     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: name Description: The human readable name of an entity
+--     * Slot: description Description: A human readable description of an entity
 -- # Class: "MicroscopeCollection_microscopes" Description: ""
 --     * Slot: MicroscopeCollection_id Description: Autocreated FK slot
 --     * Slot: microscopes_id Description: The microscopes of the collection
@@ -903,6 +990,54 @@
 -- # Class: "PSFBeadsKeyMeasurements_average_bead_intensity_std" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: average_bead_intensity_std Description: Standard deviation of the intensity for the average bead. One value per channel.
+-- # Class: "LightSourcePowerOutput_processing_application" Description: ""
+--     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_application Description: The application used to process the dataset
+-- # Class: "LightSourcePowerOutput_processing_version" Description: ""
+--     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_version Description: The version of the application used to process the dataset
+-- # Class: "LightSourcePowerOutput_processing_entity" Description: ""
+--     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_entity Description: The entity that processed the dataset
+-- # Class: "LightSourcePowerOutput_warnings" Description: ""
+--     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: warnings Description: The warnings of the processing by microscope-metrics
+-- # Class: "LightSourcePowerOutput_errors" Description: ""
+--     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: errors Description: The errors of the processing by microscope-metrics
+-- # Class: "SimpleLightSourcePowerOutput_processing_application" Description: ""
+--     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_application Description: The application used to process the dataset
+-- # Class: "SimpleLightSourcePowerOutput_processing_version" Description: ""
+--     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_version Description: The version of the application used to process the dataset
+-- # Class: "SimpleLightSourcePowerOutput_processing_entity" Description: ""
+--     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: processing_entity Description: The entity that processed the dataset
+-- # Class: "SimpleLightSourcePowerOutput_warnings" Description: ""
+--     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: warnings Description: The warnings of the processing by microscope-metrics
+-- # Class: "SimpleLightSourcePowerOutput_errors" Description: ""
+--     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
+--     * Slot: errors Description: The errors of the processing by microscope-metrics
+-- # Class: "LightSourcePowerKeyMeasurements_power_mean_mw" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_mean_mw Description: The mean power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_power_median_mw" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_median_mw Description: The median power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_power_std_mw" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_std_mw Description: The standard deviation of the power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_power_min_mw" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_min_mw Description: The minimum power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_power_max_mw" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_max_mw Description: The maximum power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_linearity" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: linearity Description: The linearity of the power measurements.
 -- # Class: "UserExperimentOutput_processing_application" Description: ""
 --     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
 --     * Slot: processing_application Description: The application used to process the dataset
@@ -968,6 +1103,10 @@ CREATE TABLE "DataReference" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER, 
 	"PSFBeadsDataset_id" INTEGER, 
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	"LightSourcePowerDataset_id" INTEGER, 
+	"SimpleLightSourcePowerDataset_id" INTEGER, 
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	"SimpleLightSourcePowerKeyMeasurements_id" INTEGER, 
 	"UserExperimentDataset_id" INTEGER, 
 	"UserExperimentKeyMeasurements_id" INTEGER, 
 	PRIMARY KEY (id), 
@@ -992,6 +1131,10 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id), 
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
+	FOREIGN KEY("LightSourcePowerDataset_id") REFERENCES "LightSourcePowerDataset" (id), 
+	FOREIGN KEY("SimpleLightSourcePowerDataset_id") REFERENCES "SimpleLightSourcePowerDataset" (id), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
+	FOREIGN KEY("SimpleLightSourcePowerKeyMeasurements_id") REFERENCES "SimpleLightSourcePowerKeyMeasurements" (id), 
 	FOREIGN KEY("UserExperimentDataset_id") REFERENCES "UserExperimentDataset" (id), 
 	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
 );
@@ -1076,7 +1219,7 @@ CREATE TABLE "MetricsDataset" (
 	sample_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
 	input_data_id INTEGER NOT NULL, 
-	input_parameters_id INTEGER NOT NULL, 
+	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
@@ -1417,6 +1560,116 @@ CREATE TABLE "PSFBeadsKeyMeasurements" (
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
+CREATE TABLE "LightSourcePowerDataset" (
+	id INTEGER NOT NULL, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
+	output_id INTEGER, 
+	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(input_data_id) REFERENCES "LightSourcePowerInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "LightSourcePowerInputParameters" (id), 
+	FOREIGN KEY(output_id) REFERENCES "LightSourcePowerOutput" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerDataset" (
+	id INTEGER NOT NULL, 
+	experimenter TEXT, 
+	acquisition_datetime DATETIME, 
+	processed BOOLEAN NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	input_data_id INTEGER, 
+	input_parameters_id INTEGER, 
+	output_id INTEGER, 
+	sample_id INTEGER, 
+	microscope_id INTEGER NOT NULL, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(input_data_id) REFERENCES "LightSourcePowerInputData" (id), 
+	FOREIGN KEY(input_parameters_id) REFERENCES "LightSourcePowerInputParameters" (id), 
+	FOREIGN KEY(output_id) REFERENCES "SimpleLightSourcePowerOutput" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
+	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
+CREATE TABLE "LightSourcePowerInputParameters" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "LightSourcePowerOutput" (
+	id INTEGER NOT NULL, 
+	processing_datetime DATETIME NOT NULL, 
+	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
+	key_measurements_id INTEGER, 
+	comment_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(key_measurements_id) REFERENCES "LightSourcePowerKeyMeasurements" (id), 
+	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput" (
+	id INTEGER NOT NULL, 
+	processing_datetime DATETIME NOT NULL, 
+	processing_log TEXT, 
+	validated BOOLEAN NOT NULL, 
+	validation_datetime DATETIME, 
+	key_measurements_id INTEGER, 
+	comment_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(key_measurements_id) REFERENCES "SimpleLightSourcePowerKeyMeasurements" (id), 
+	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements" (
+	id INTEGER NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	light_source_id INTEGER NOT NULL, 
+	table_data_id INTEGER, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerKeyMeasurements" (
+	id INTEGER NOT NULL, 
+	power_mw FLOAT NOT NULL, 
+	name TEXT, 
+	description TEXT, 
+	light_source_id INTEGER NOT NULL, 
+	table_data_id INTEGER, 
+	data_reference_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
+	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
+	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
+);
+CREATE TABLE "LightSource" (
+	id INTEGER NOT NULL, 
+	wavelength_nm FLOAT NOT NULL, 
+	PRIMARY KEY (id)
+);
+CREATE TABLE "PowerMeter" (
+	id INTEGER NOT NULL, 
+	manufacturer TEXT, 
+	model TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "UserExperimentDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
@@ -1669,7 +1922,22 @@ CREATE TABLE "PSFBeads" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
 );
+CREATE TABLE "LightSourcePowerInputData" (
+	id INTEGER NOT NULL, 
+	measurement_device_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
+);
 CREATE TABLE "UserExperiment" (
+	id INTEGER NOT NULL, 
+	protocol TEXT NOT NULL, 
+	manufacturer TEXT, 
+	name TEXT, 
+	description TEXT, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+);
+CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
 	protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
@@ -2523,6 +2791,102 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_std" (
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_std), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
+CREATE TABLE "LightSourcePowerOutput_processing_application" (
+	"LightSourcePowerOutput_id" INTEGER, 
+	processing_application TEXT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerOutput_id", processing_application), 
+	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
+);
+CREATE TABLE "LightSourcePowerOutput_processing_version" (
+	"LightSourcePowerOutput_id" INTEGER, 
+	processing_version TEXT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerOutput_id", processing_version), 
+	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
+);
+CREATE TABLE "LightSourcePowerOutput_processing_entity" (
+	"LightSourcePowerOutput_id" INTEGER, 
+	processing_entity TEXT, 
+	PRIMARY KEY ("LightSourcePowerOutput_id", processing_entity), 
+	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
+);
+CREATE TABLE "LightSourcePowerOutput_warnings" (
+	"LightSourcePowerOutput_id" INTEGER, 
+	warnings TEXT, 
+	PRIMARY KEY ("LightSourcePowerOutput_id", warnings), 
+	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
+);
+CREATE TABLE "LightSourcePowerOutput_errors" (
+	"LightSourcePowerOutput_id" INTEGER, 
+	errors TEXT, 
+	PRIMARY KEY ("LightSourcePowerOutput_id", errors), 
+	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput_processing_application" (
+	"SimpleLightSourcePowerOutput_id" INTEGER, 
+	processing_application TEXT NOT NULL, 
+	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_application), 
+	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput_processing_version" (
+	"SimpleLightSourcePowerOutput_id" INTEGER, 
+	processing_version TEXT NOT NULL, 
+	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_version), 
+	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput_processing_entity" (
+	"SimpleLightSourcePowerOutput_id" INTEGER, 
+	processing_entity TEXT, 
+	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_entity), 
+	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput_warnings" (
+	"SimpleLightSourcePowerOutput_id" INTEGER, 
+	warnings TEXT, 
+	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", warnings), 
+	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
+);
+CREATE TABLE "SimpleLightSourcePowerOutput_errors" (
+	"SimpleLightSourcePowerOutput_id" INTEGER, 
+	errors TEXT, 
+	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", errors), 
+	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_mean_mw" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_mean_mw FLOAT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_mean_mw), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_median_mw" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_median_mw FLOAT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_median_mw), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_std_mw" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_std_mw FLOAT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_std_mw), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_min_mw" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_min_mw FLOAT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_min_mw), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_max_mw" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_max_mw FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_max_mw), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_linearity" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	linearity FLOAT NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", linearity), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
 CREATE TABLE "UserExperimentOutput_processing_application" (
 	"UserExperimentOutput_id" INTEGER, 
 	processing_application TEXT NOT NULL, 
@@ -2576,6 +2940,16 @@ CREATE TABLE "UserExperimentKeyMeasurements_saturated_channels" (
 	saturated_channels INTEGER, 
 	PRIMARY KEY ("UserExperimentKeyMeasurements_id", saturated_channels), 
 	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
+);
+CREATE TABLE "PowerSample" (
+	id INTEGER NOT NULL, 
+	sampling_datetime DATETIME NOT NULL, 
+	power_mw FLOAT NOT NULL, 
+	"LightSourcePowerInputData_id" INTEGER, 
+	light_source_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY("LightSourcePowerInputData_id") REFERENCES "LightSourcePowerInputData" (id), 
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
 );
 CREATE TABLE "Column_values" (
 	"Column_id" INTEGER, 

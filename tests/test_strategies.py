@@ -125,6 +125,20 @@ class TestPSFBeadsSchemaElements(unittest.TestCase):
         self.assertTrue(dataset.processed)
 
 
+class TestLightSourcePower(unittest.TestCase):
+    """Test the strategies for the LightSourcePower schema elements."""
+
+    @given(st_mm_light_source_power_unprocessed_dataset())
+    def test_light_source_power_unprocessed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.LightSourcePowerDataset)
+        self.assertFalse(dataset.processed)
+
+    @given(st_mm_light_source_power_processed_dataset())
+    def test_light_source_power_processed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.LightSourcePowerDataset)
+        self.assertTrue(dataset.processed)
+
+
 class TestUserExperimentSchemaElements(unittest.TestCase):
     """Test the strategies for the UserExperiment schema elements."""
 
