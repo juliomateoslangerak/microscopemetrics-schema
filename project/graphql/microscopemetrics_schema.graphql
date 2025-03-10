@@ -80,16 +80,16 @@ type Ellipse
     strokeWidth: Integer
     x: Float!
     y: Float!
-    xRad: Float!
-    yRad: Float!
+    w: Float!
+    h: Float!
   }
 
 type Experimenter
   {
+    name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    name: String!
     orcid: String!
   }
 
@@ -102,6 +102,7 @@ type FieldIlluminationDataset
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
+    acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: FieldIlluminationInputData
     inputParameters: FieldIlluminationInputParameters
@@ -204,7 +205,7 @@ type FluorescentHomogeneousThickField
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -212,7 +213,7 @@ type FluorescentHomogeneousThinField
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -222,7 +223,7 @@ type HarmonizedMetricsDatasetCollection
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    datasets: [MetricsDataset]
+    datasetCollection: [MetricsDataset]
     datasetClass: String!
   }
 
@@ -230,7 +231,7 @@ interface HomogeneousField
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -240,6 +241,7 @@ type Image
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -250,7 +252,6 @@ type Image
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    acquisitionDatetime: Datetime
     sourceImages: [DataReference]
     arrayData: MetaObject
   }
@@ -261,6 +262,7 @@ type ImageMask
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -271,7 +273,6 @@ type ImageMask
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    acquisitionDatetime: Datetime
     sourceImages: [DataReference]
     arrayData: MetaObject
   }
@@ -302,7 +303,7 @@ type LightSourcePower
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -312,10 +313,11 @@ type LightSourcePowerDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
+    sample: Sample
     acquisitionDatetime: Datetime
+    acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: LightSourcePowerInputData
     inputParameters: LightSourcePowerInputParameters
@@ -340,6 +342,7 @@ type LightSourcePowerKeyMeasurements
     linkedReferences: [DataReference]
     tableData: MetaObject
     lightSource: LightSource!
+    powerSetPointPct: Float!
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
     powerStdMw: [Float]!
@@ -389,8 +392,8 @@ type Mask
     fillColor: Color
     strokeColor: Color
     strokeWidth: Integer
-    y: Integer!
-    x: Integer!
+    x: Float!
+    y: Float!
     mask: ImageMask
   }
 
@@ -404,13 +407,14 @@ interface MetricsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
+    sample: Sample
     acquisitionDatetime: Datetime
-    processed: Boolean!
+    acquisitionProtocol: Protocol
     inputData: MetricsInputData!
     inputParameters: MetricsInputParameters
+    processed: Boolean!
     output: MetricsOutput
   }
 
@@ -420,7 +424,7 @@ type MetricsDatasetCollection
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    datasets: [MetricsDataset]
+    datasetCollection: [MetricsDataset]
   }
 
 interface MetricsInputData
@@ -459,16 +463,16 @@ type Microscope
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    type: MicroscopeTypeEnum
+    microscopeType: MicroscopeTypeEnum
     manufacturer: String
     model: String
     serialNumber: String
-    comments: [Comment]
+    commentCollection: [Comment]
   }
 
 type MicroscopeCollection
   {
-    microscopes: [Microscope]!
+    microscopeCollection: [Microscope]!
   }
 
 interface NamedObject
@@ -483,6 +487,7 @@ type OrthogonalImage
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
@@ -493,7 +498,6 @@ type OrthogonalImage
     shapeT: Integer!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
-    acquisitionDatetime: Datetime
     sourceImages: [DataReference]
     arrayData: MetaObject
     sourceRoi: Roi!
@@ -510,8 +514,8 @@ type Point
     fillColor: Color
     strokeColor: Color
     strokeWidth: Integer
-    y: Float!
     x: Float!
+    y: Float!
   }
 
 type Polygon
@@ -561,7 +565,7 @@ type PSFBeads
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
     beadDiameterMicron: Float!
   }
@@ -575,6 +579,7 @@ type PSFBeadsDataset
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
+    acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: PSFBeadsInputData
     inputParameters: PSFBeadsInputParameters
@@ -742,7 +747,7 @@ interface Sample
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -758,56 +763,14 @@ interface Shape
     strokeWidth: Integer
   }
 
-type SimpleLightSourcePowerDataset
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    sample: Sample
-    microscope: Microscope!
-    experimenter: Experimenter
-    acquisitionDatetime: Datetime
-    processed: Boolean!
-    inputData: LightSourcePowerInputData
-    inputParameters: LightSourcePowerInputParameters
-    output: SimpleLightSourcePowerOutput
-  }
-
-type SimpleLightSourcePowerKeyMeasurements
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
-    lightSource: LightSource!
-    powerMw: Float!
-  }
-
-type SimpleLightSourcePowerOutput
-  {
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    comment: Comment
-    keyMeasurements: SimpleLightSourcePowerKeyMeasurements
-  }
-
 interface Table
   {
     name: String
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    columns: [Column]!
     tableData: MetaObject
+    columns: [Column]!
   }
 
 interface Tag
@@ -820,14 +783,14 @@ interface Tag
 
 type TimeSeries
   {
-    values: [Float]!
+    timePointsSec: [Float]!
   }
 
 type UserExperiment
   {
     name: String
     description: String
-    protocol: Protocol!
+    preparationProtocol: Protocol!
     manufacturer: String
   }
 
@@ -840,6 +803,7 @@ type UserExperimentDataset
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionDatetime: Datetime
+    acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: UserExperimentInputData
     inputParameters: UserExperimentInputParameters

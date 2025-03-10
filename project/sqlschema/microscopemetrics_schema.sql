@@ -32,9 +32,7 @@
 --     * Slot: PSFBeadsDataset_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: LightSourcePowerDataset_id Description: Autocreated FK slot
---     * Slot: SimpleLightSourcePowerDataset_id Description: Autocreated FK slot
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: SimpleLightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: UserExperimentDataset_id Description: Autocreated FK slot
 --     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
 -- # Class: "MetricsObject" Description: "A base object for all microscope-metrics objects."
@@ -46,27 +44,27 @@
 --     * Slot: id Description: 
 -- # Class: "Microscope" Description: "A microscope"
 --     * Slot: id Description: 
---     * Slot: type Description: The type of the microscope
---     * Slot: manufacturer Description: The manufacturer of the microscope
---     * Slot: model Description: The model of the microscope
---     * Slot: serial_number Description: The serial number of the microscope
+--     * Slot: microscope_type Description: The type of the microscope
+--     * Slot: manufacturer Description: A manufacturer
+--     * Slot: model Description: The model of a device
+--     * Slot: serial_number Description: The serial number of a device
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Sample" Description: "A sample is a standard physical object that is imaged by a microscope"
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
--- # Class: "Protocol" Description: "Set of instructions for preparing and imaging a sample"
+-- # Class: "Protocol" Description: "Set of instructions for preparing a sample or acquiring data"
 --     * Slot: version Description: The version of the protocol
 --     * Slot: url Description: The URL where the protocol can be found
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "Experimenter" Description: "The person that performed the experiment or developed the protocol"
---     * Slot: name Description: The name of the experimenter
 --     * Slot: orcid Description: The ORCID of the experimenter
+--     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Comment" Description: "A comment"
@@ -93,13 +91,14 @@
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: MetricsDatasetCollection_id Description: Autocreated FK slot
 --     * Slot: HarmonizedMetricsDatasetCollection_id Description: Autocreated FK slot
---     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
+--     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: input_data_id Description: The input data for the analysis
 --     * Slot: input_parameters_id Description: The input parameters for the analysis
 --     * Slot: output_id Description: The output of the analysis
@@ -114,18 +113,18 @@
 --     * Slot: processing_log Description: The log of the processing by microscope-metrics
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: comment_id Description: A human readable comment about the dataset
+--     * Slot: comment_id Description: A human readable comment
 -- # Class: "Image" Description: "A microscope-metrics image"
 --     * Slot: id Description: 
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: voxel_size_x_micron Description: The physical size in the voxel in the x dimension in microns
 --     * Slot: voxel_size_y_micron Description: The physical size in the voxel in the y dimension in microns
 --     * Slot: voxel_size_z_micron Description: The physical size in the voxel in the z dimension in microns
---     * Slot: shape_x Description: The shape of the image in the x dimension
---     * Slot: shape_y Description: The shape of the image in the y dimension
---     * Slot: shape_z Description: The shape of the image in the z dimension
---     * Slot: shape_c Description: The shape of the image in the c dimension
---     * Slot: shape_t Description: The shape of the image in the t dimension
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: shape_x Description: The shape of an image in the x dimension
+--     * Slot: shape_y Description: The shape of an image in the y dimension
+--     * Slot: shape_z Description: The shape of an image in the z dimension
+--     * Slot: shape_c Description: The shape of an image in the c dimension
+--     * Slot: shape_t Description: The shape of an image in the t dimension
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: FieldIlluminationInputData_id Description: Autocreated FK slot
@@ -138,15 +137,15 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "ImageMask" Description: "A mask image. Either a binary image or a label image"
 --     * Slot: id Description: 
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: voxel_size_x_micron Description: The physical size in the voxel in the x dimension in microns
 --     * Slot: voxel_size_y_micron Description: The physical size in the voxel in the y dimension in microns
 --     * Slot: voxel_size_z_micron Description: The physical size in the voxel in the z dimension in microns
---     * Slot: shape_x Description: The shape of the image in the x dimension
---     * Slot: shape_y Description: The shape of the image in the y dimension
---     * Slot: shape_z Description: The shape of the image in the z dimension
---     * Slot: shape_c Description: The shape of the image in the c dimension
---     * Slot: shape_t Description: The shape of the image in the t dimension
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: shape_x Description: The shape of an image in the x dimension
+--     * Slot: shape_y Description: The shape of an image in the y dimension
+--     * Slot: shape_z Description: The shape of an image in the z dimension
+--     * Slot: shape_c Description: The shape of an image in the c dimension
+--     * Slot: shape_t Description: The shape of an image in the t dimension
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: time_series_id Description: A series representing time for time-lapse images.
@@ -156,15 +155,15 @@
 -- # Class: "OrthogonalImage" Description: "An image that is orthogonal to the main image"
 --     * Slot: id Description: 
 --     * Slot: axis Description: The axis of the orthogonal image
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: voxel_size_x_micron Description: The physical size in the voxel in the x dimension in microns
 --     * Slot: voxel_size_y_micron Description: The physical size in the voxel in the y dimension in microns
 --     * Slot: voxel_size_z_micron Description: The physical size in the voxel in the z dimension in microns
---     * Slot: shape_x Description: The shape of the image in the x dimension
---     * Slot: shape_y Description: The shape of the image in the y dimension
---     * Slot: shape_z Description: The shape of the image in the z dimension
---     * Slot: shape_c Description: The shape of the image in the c dimension
---     * Slot: shape_t Description: The shape of the image in the t dimension
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: shape_x Description: The shape of an image in the x dimension
+--     * Slot: shape_y Description: The shape of an image in the y dimension
+--     * Slot: shape_z Description: The shape of an image in the z dimension
+--     * Slot: shape_c Description: The shape of an image in the c dimension
+--     * Slot: shape_t Description: The shape of an image in the t dimension
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
@@ -200,9 +199,9 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Shape" Description: "A shape"
 --     * Slot: id Description: 
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -210,11 +209,11 @@
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Point" Description: "A point as defined by x and y coordinates"
 --     * Slot: id Description: 
---     * Slot: y Description: The y coordinate of the point
---     * Slot: x Description: The x coordinate of the point
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: x Description: The x coordinate
+--     * Slot: y Description: The y coordinate
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -227,9 +226,9 @@
 --     * Slot: y1 Description: The y coordinate of the first point of the line
 --     * Slot: x2 Description: The x coordinate of the second point of the line
 --     * Slot: y2 Description: The y coordinate of the second point of the line
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -238,13 +237,13 @@
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Rectangle" Description: "A rectangle as defined by x, y coordinates and width, height"
 --     * Slot: id Description: 
---     * Slot: x Description: The x coordinate of the top left corner of the rectangle
---     * Slot: y Description: The y coordinate of the top left corner of the rectangle
---     * Slot: w Description: The width of the rectangle
---     * Slot: h Description: The height of the rectangle
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: x Description: The x coordinate
+--     * Slot: y Description: The y coordinate
+--     * Slot: w Description: The width
+--     * Slot: h Description: The height
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -253,13 +252,13 @@
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Ellipse" Description: "An ellipse as defined by x, y coordinates and x and y radii"
 --     * Slot: id Description: 
---     * Slot: x Description: The x coordinate of the bounding box of the ellipse
---     * Slot: y Description: The y coordinate of the bounding box of the ellipse
---     * Slot: x_rad Description: The x radius of the ellipse
---     * Slot: y_rad Description: The y radius of the ellipse
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: x Description: The x coordinate
+--     * Slot: y Description: The y coordinate
+--     * Slot: w Description: The width
+--     * Slot: h Description: The height
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -269,9 +268,9 @@
 -- # Class: "Polygon" Description: "A polygon as defined by a series of vertexes and a boolean to indicate if closed or not"
 --     * Slot: id Description: 
 --     * Slot: is_open Description: Is the polygon open. By default, it is closed (false)
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -280,15 +279,15 @@
 --     * Slot: stroke_color_id Description: The stroke color of the shape
 -- # Class: "Vertex" Description: "A vertex as defined by x and y coordinates"
 --     * Slot: id Description: 
---     * Slot: x Description: The x coordinate of the vertex
---     * Slot: y Description: The y coordinate of the vertex
+--     * Slot: x Description: The x coordinate
+--     * Slot: y Description: The y coordinate
 -- # Class: "Mask" Description: "A mask as defined by a boolean image"
 --     * Slot: id Description: 
---     * Slot: y Description: The y coordinate of the top left corner of the mask
---     * Slot: x Description: The x coordinate of the top left corner of the mask
---     * Slot: z Description: The z coordinate of the shape
---     * Slot: c Description: The c coordinate of the shape
---     * Slot: t Description: The t coordinate of the shape
+--     * Slot: x Description: The x coordinate
+--     * Slot: y Description: The y coordinate
+--     * Slot: z Description: The z coordinate
+--     * Slot: c Description: The c coordinate
+--     * Slot: t Description: The t coordinate
 --     * Slot: stroke_width Description: The stroke width of the shape
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -342,26 +341,27 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "HomogeneousField" Description: "An homogeneous field."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FluorescentHomogeneousThickField" Description: "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FieldIlluminationDataset" Description: "A field illumination dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -386,7 +386,7 @@
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: Key-Value pairs containing the Key measurements for the field illumination analysis
---     * Slot: comment_id Description: A human readable comment about the dataset
+--     * Slot: comment_id Description: A human readable comment
 -- # Class: "FieldIlluminationKeyMeasurements" Description: ""
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -396,14 +396,15 @@
 -- # Class: "PSFBeads" Description: "A sample of sub-resolution sized beads used to measure the PSF of a microscope."
 --     * Slot: id Description: 
 --     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "PSFBeadsDataset" Description: "A PSF beads dataset"
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -438,7 +439,7 @@
 --     * Slot: bead_profiles_y_id Description: The intensity profiles along the y axis of the analyzed beads as well as the fits.
 --     * Slot: bead_profiles_x_id Description: The intensity profiles along the x axis of the analyzed beads as well as the fits.
 --     * Slot: average_bead_id Description: The average bead image created from all the beads considered valid. The average bead is calculated after aligning the beads in all three axes. This one image contains all the channels. If the analysis does not detect at least two beads in a channel, the average bead for this channel is not calculated.
---     * Slot: comment_id Description: A human readable comment about the dataset
+--     * Slot: comment_id Description: A human readable comment
 -- # Class: "PSFBeadsKeyMeasurements" Description: ""
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -449,27 +450,15 @@
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: input_data_id Description: 
 --     * Slot: input_parameters_id Description: 
 --     * Slot: output_id Description: 
---     * Slot: sample_id Description: The physical sample that was imaged
 --     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "SimpleLightSourcePowerDataset" Description: "A simple power measurements dataset containing only one power sample per light source."
---     * Slot: id Description: 
---     * Slot: experimenter Description: The experimenter that performed the imaging experiment
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
---     * Slot: processed Description: Has the dataset been processed by microscope-metrics
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: input_data_id Description: 
---     * Slot: input_parameters_id Description: 
---     * Slot: output_id Description: 
 --     * Slot: sample_id Description: The physical sample that was imaged
---     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "LightSourcePowerInputData" Description: ""
 --     * Slot: id Description: 
@@ -483,25 +472,10 @@
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: Key-Value measurements for the power measurements.
---     * Slot: comment_id Description: A human readable comment about the dataset
--- # Class: "SimpleLightSourcePowerOutput" Description: ""
---     * Slot: id Description: 
---     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
---     * Slot: processing_log Description: The log of the processing by microscope-metrics
---     * Slot: validated Description: Has the dataset been validated by a human
---     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: key_measurements_id Description: Key-Value measurements for simple power measurements.
---     * Slot: comment_id Description: A human readable comment about the dataset
+--     * Slot: comment_id Description: A human readable comment
 -- # Class: "LightSourcePowerKeyMeasurements" Description: ""
 --     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: light_source_id Description: The light source under investigation.
---     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "SimpleLightSourcePowerKeyMeasurements" Description: ""
---     * Slot: id Description: 
---     * Slot: power_mw Description: The power measured in milliwatts.
+--     * Slot: power_set_point_pct Description: The power set point in percent.
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: light_source_id Description: The light source under investigation.
@@ -524,14 +498,15 @@
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "UserExperiment" Description: "A non-standardized microscope sample produced during regular operation of a research project."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "UserExperimentDataset" Description: "A dataset of non-standardized microscope samples produced during regular operation of a research project."
 --     * Slot: id Description: 
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
 --     * Slot: processed Description: Has the dataset been processed by microscope-metrics
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -554,7 +529,7 @@
 --     * Slot: validated Description: Has the dataset been validated by a human
 --     * Slot: validation_datetime Description: The datetime of the validation
 --     * Slot: key_measurements_id Description: The key measurements on the user_experiment dataset.
---     * Slot: comment_id Description: A human readable comment about the dataset
+--     * Slot: comment_id Description: A human readable comment
 -- # Class: "UserExperimentKeyMeasurements" Description: ""
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -563,16 +538,16 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "LightSourcePower" Description: "A sample providing measurements on light source power."
 --     * Slot: id Description: 
---     * Slot: protocol Description: The protocol used to prepare the sample
---     * Slot: manufacturer Description: The manufacturer of the beads.
+--     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
--- # Class: "MicroscopeCollection_microscopes" Description: ""
+-- # Class: "MicroscopeCollection_microscope_collection" Description: ""
 --     * Slot: MicroscopeCollection_id Description: Autocreated FK slot
---     * Slot: microscopes_id Description: The microscopes of the collection
--- # Class: "Microscope_comments" Description: ""
+--     * Slot: microscope_collection_id Description: The microscopes of the collection
+-- # Class: "Microscope_comment_collection" Description: ""
 --     * Slot: Microscope_id Description: Autocreated FK slot
---     * Slot: comments_id Description: A list of comments linked to the microscope
+--     * Slot: comment_collection_id Description: A collection of comments
 -- # Class: "Protocol_authors" Description: ""
 --     * Slot: Protocol_url Description: Autocreated FK slot
 --     * Slot: authors_orcid Description: The authors of the protocol
@@ -594,9 +569,9 @@
 -- # Class: "ChannelSeries_channels" Description: ""
 --     * Slot: ChannelSeries_id Description: Autocreated FK slot
 --     * Slot: channels_id Description: The channels of the ChannelSeries
--- # Class: "TimeSeries_values" Description: ""
+-- # Class: "TimeSeries_time_points_sec" Description: ""
 --     * Slot: TimeSeries_id Description: Autocreated FK slot
---     * Slot: values Description: The values of the TimeSeries in seconds
+--     * Slot: time_points_sec Description: The relative times at which the time series were acquired in seconds
 -- # Class: "Column_values" Description: ""
 --     * Slot: Column_id Description: Autocreated FK slot
 --     * Slot: values Description: An optional container for the values of the column
@@ -1005,21 +980,6 @@
 -- # Class: "LightSourcePowerOutput_errors" Description: ""
 --     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "SimpleLightSourcePowerOutput_processing_application" Description: ""
---     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
---     * Slot: processing_application Description: The application used to process the dataset
--- # Class: "SimpleLightSourcePowerOutput_processing_version" Description: ""
---     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
---     * Slot: processing_version Description: The version of the application used to process the dataset
--- # Class: "SimpleLightSourcePowerOutput_processing_entity" Description: ""
---     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
---     * Slot: processing_entity Description: The entity that processed the dataset
--- # Class: "SimpleLightSourcePowerOutput_warnings" Description: ""
---     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
---     * Slot: warnings Description: The warnings of the processing by microscope-metrics
--- # Class: "SimpleLightSourcePowerOutput_errors" Description: ""
---     * Slot: SimpleLightSourcePowerOutput_id Description: Autocreated FK slot
---     * Slot: errors Description: The errors of the processing by microscope-metrics
 -- # Class: "LightSourcePowerKeyMeasurements_power_mean_mw" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: power_mean_mw Description: The mean power measured in milliwatts.
@@ -1104,9 +1064,7 @@ CREATE TABLE "DataReference" (
 	"PSFBeadsDataset_id" INTEGER, 
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	"LightSourcePowerDataset_id" INTEGER, 
-	"SimpleLightSourcePowerDataset_id" INTEGER, 
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
-	"SimpleLightSourcePowerKeyMeasurements_id" INTEGER, 
 	"UserExperimentDataset_id" INTEGER, 
 	"UserExperimentKeyMeasurements_id" INTEGER, 
 	PRIMARY KEY (id), 
@@ -1132,9 +1090,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY("LightSourcePowerDataset_id") REFERENCES "LightSourcePowerDataset" (id), 
-	FOREIGN KEY("SimpleLightSourcePowerDataset_id") REFERENCES "SimpleLightSourcePowerDataset" (id), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
-	FOREIGN KEY("SimpleLightSourcePowerKeyMeasurements_id") REFERENCES "SimpleLightSourcePowerKeyMeasurements" (id), 
 	FOREIGN KEY("UserExperimentDataset_id") REFERENCES "UserExperimentDataset" (id), 
 	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
 );
@@ -1152,7 +1108,7 @@ CREATE TABLE "MicroscopeCollection" (
 );
 CREATE TABLE "Microscope" (
 	id INTEGER NOT NULL, 
-	type VARCHAR(9), 
+	microscope_type VARCHAR(9), 
 	manufacturer TEXT, 
 	model TEXT, 
 	serial_number TEXT, 
@@ -1170,8 +1126,8 @@ CREATE TABLE "Protocol" (
 	PRIMARY KEY (url)
 );
 CREATE TABLE "Experimenter" (
-	name TEXT NOT NULL, 
 	orcid TEXT NOT NULL, 
+	name TEXT, 
 	description TEXT, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (orcid), 
@@ -1211,23 +1167,25 @@ CREATE TABLE "MetricsDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
+	acquisition_protocol TEXT, 
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	"MetricsDatasetCollection_id" INTEGER, 
 	"HarmonizedMetricsDatasetCollection_id" INTEGER, 
-	sample_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
+	sample_id INTEGER, 
 	input_data_id INTEGER NOT NULL, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
 	FOREIGN KEY("MetricsDatasetCollection_id") REFERENCES "MetricsDatasetCollection" (id), 
 	FOREIGN KEY("HarmonizedMetricsDatasetCollection_id") REFERENCES "HarmonizedMetricsDatasetCollection" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
+	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(input_data_id) REFERENCES "MetricsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "MetricsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "MetricsOutput" (id), 
@@ -1253,6 +1211,7 @@ CREATE TABLE "MetricsOutput" (
 );
 CREATE TABLE "Image" (
 	id INTEGER NOT NULL, 
+	acquisition_datetime DATETIME, 
 	voxel_size_x_micron FLOAT, 
 	voxel_size_y_micron FLOAT, 
 	voxel_size_z_micron FLOAT, 
@@ -1261,7 +1220,6 @@ CREATE TABLE "Image" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
 	"FieldIlluminationInputData_id" INTEGER, 
@@ -1284,6 +1242,7 @@ CREATE TABLE "Image" (
 );
 CREATE TABLE "ImageMask" (
 	id INTEGER NOT NULL, 
+	acquisition_datetime DATETIME, 
 	voxel_size_x_micron FLOAT, 
 	voxel_size_y_micron FLOAT, 
 	voxel_size_z_micron FLOAT, 
@@ -1292,7 +1251,6 @@ CREATE TABLE "ImageMask" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
 	time_series_id INTEGER, 
@@ -1308,6 +1266,7 @@ CREATE TABLE "ImageMask" (
 CREATE TABLE "OrthogonalImage" (
 	id INTEGER NOT NULL, 
 	axis VARCHAR(2) NOT NULL, 
+	acquisition_datetime DATETIME, 
 	voxel_size_x_micron FLOAT, 
 	voxel_size_y_micron FLOAT, 
 	voxel_size_z_micron FLOAT, 
@@ -1316,7 +1275,6 @@ CREATE TABLE "OrthogonalImage" (
 	shape_z INTEGER NOT NULL, 
 	shape_c INTEGER NOT NULL, 
 	shape_t INTEGER NOT NULL, 
-	acquisition_datetime DATETIME, 
 	name TEXT, 
 	description TEXT, 
 	"UserExperimentOutput_id" INTEGER, 
@@ -1437,6 +1395,7 @@ CREATE TABLE "FieldIlluminationDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
+	acquisition_protocol TEXT, 
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -1448,6 +1407,7 @@ CREATE TABLE "FieldIlluminationDataset" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
 	FOREIGN KEY(input_data_id) REFERENCES "FieldIlluminationInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "FieldIlluminationInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "FieldIlluminationOutput" (id), 
@@ -1493,6 +1453,7 @@ CREATE TABLE "PSFBeadsDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
+	acquisition_protocol TEXT, 
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -1504,6 +1465,7 @@ CREATE TABLE "PSFBeadsDataset" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
 	FOREIGN KEY(input_data_id) REFERENCES "PSFBeadsInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "PSFBeadsInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "PSFBeadsOutput" (id), 
@@ -1564,44 +1526,24 @@ CREATE TABLE "LightSourcePowerDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
+	acquisition_protocol TEXT, 
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	input_data_id INTEGER, 
 	input_parameters_id INTEGER, 
 	output_id INTEGER, 
-	sample_id INTEGER, 
 	microscope_id INTEGER NOT NULL, 
+	sample_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
 	FOREIGN KEY(input_data_id) REFERENCES "LightSourcePowerInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "LightSourcePowerInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "LightSourcePowerOutput" (id), 
-	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerDataset" (
-	id INTEGER NOT NULL, 
-	experimenter TEXT, 
-	acquisition_datetime DATETIME, 
-	processed BOOLEAN NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	input_data_id INTEGER, 
-	input_parameters_id INTEGER, 
-	output_id INTEGER, 
-	sample_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(input_data_id) REFERENCES "LightSourcePowerInputData" (id), 
-	FOREIGN KEY(input_parameters_id) REFERENCES "LightSourcePowerInputParameters" (id), 
-	FOREIGN KEY(output_id) REFERENCES "SimpleLightSourcePowerOutput" (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "LightSourcePowerInputParameters" (
@@ -1620,33 +1562,9 @@ CREATE TABLE "LightSourcePowerOutput" (
 	FOREIGN KEY(key_measurements_id) REFERENCES "LightSourcePowerKeyMeasurements" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
-CREATE TABLE "SimpleLightSourcePowerOutput" (
-	id INTEGER NOT NULL, 
-	processing_datetime DATETIME NOT NULL, 
-	processing_log TEXT, 
-	validated BOOLEAN NOT NULL, 
-	validation_datetime DATETIME, 
-	key_measurements_id INTEGER, 
-	comment_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(key_measurements_id) REFERENCES "SimpleLightSourcePowerKeyMeasurements" (id), 
-	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
-);
 CREATE TABLE "LightSourcePowerKeyMeasurements" (
 	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	light_source_id INTEGER NOT NULL, 
-	table_data_id INTEGER, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
-	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerKeyMeasurements" (
-	id INTEGER NOT NULL, 
-	power_mw FLOAT NOT NULL, 
+	power_set_point_pct FLOAT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	light_source_id INTEGER NOT NULL, 
@@ -1674,6 +1592,7 @@ CREATE TABLE "UserExperimentDataset" (
 	id INTEGER NOT NULL, 
 	experimenter TEXT, 
 	acquisition_datetime DATETIME, 
+	acquisition_protocol TEXT, 
 	processed BOOLEAN NOT NULL, 
 	name TEXT, 
 	description TEXT, 
@@ -1685,6 +1604,7 @@ CREATE TABLE "UserExperimentDataset" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
+	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
 	FOREIGN KEY(input_data_id) REFERENCES "UserExperimentInputData" (id), 
 	FOREIGN KEY(input_parameters_id) REFERENCES "UserExperimentInputParameters" (id), 
 	FOREIGN KEY(output_id) REFERENCES "UserExperimentOutput" (id), 
@@ -1726,12 +1646,12 @@ CREATE TABLE "UserExperimentKeyMeasurements" (
 );
 CREATE TABLE "Sample" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "Column" (
 	id INTEGER NOT NULL, 
@@ -1760,8 +1680,8 @@ CREATE TABLE "Shape" (
 );
 CREATE TABLE "Point" (
 	id INTEGER NOT NULL, 
-	y FLOAT NOT NULL, 
 	x FLOAT NOT NULL, 
+	y FLOAT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -1820,8 +1740,8 @@ CREATE TABLE "Ellipse" (
 	id INTEGER NOT NULL, 
 	x FLOAT NOT NULL, 
 	y FLOAT NOT NULL, 
-	x_rad FLOAT NOT NULL, 
-	y_rad FLOAT NOT NULL, 
+	w FLOAT NOT NULL, 
+	h FLOAT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -1855,8 +1775,8 @@ CREATE TABLE "Polygon" (
 );
 CREATE TABLE "Mask" (
 	id INTEGER NOT NULL, 
-	y INTEGER NOT NULL, 
-	x INTEGER NOT NULL, 
+	x FLOAT NOT NULL, 
+	y FLOAT NOT NULL, 
 	z FLOAT, 
 	c INTEGER, 
 	t INTEGER, 
@@ -1887,40 +1807,40 @@ CREATE TABLE "RoiMeasurements" (
 );
 CREATE TABLE "HomogeneousField" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "FluorescentHomogeneousThickField" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "FluorescentHomogeneousThinField" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "PSFBeads" (
 	id INTEGER NOT NULL, 
 	bead_diameter_micron FLOAT NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "LightSourcePowerInputData" (
 	id INTEGER NOT NULL, 
@@ -1930,35 +1850,35 @@ CREATE TABLE "LightSourcePowerInputData" (
 );
 CREATE TABLE "UserExperiment" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
-	protocol TEXT NOT NULL, 
+	preparation_protocol TEXT NOT NULL, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(protocol) REFERENCES "Protocol" (url)
+	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
-CREATE TABLE "MicroscopeCollection_microscopes" (
+CREATE TABLE "MicroscopeCollection_microscope_collection" (
 	"MicroscopeCollection_id" INTEGER, 
-	microscopes_id INTEGER NOT NULL, 
-	PRIMARY KEY ("MicroscopeCollection_id", microscopes_id), 
+	microscope_collection_id INTEGER NOT NULL, 
+	PRIMARY KEY ("MicroscopeCollection_id", microscope_collection_id), 
 	FOREIGN KEY("MicroscopeCollection_id") REFERENCES "MicroscopeCollection" (id), 
-	FOREIGN KEY(microscopes_id) REFERENCES "Microscope" (id)
+	FOREIGN KEY(microscope_collection_id) REFERENCES "Microscope" (id)
 );
-CREATE TABLE "Microscope_comments" (
+CREATE TABLE "Microscope_comment_collection" (
 	"Microscope_id" INTEGER, 
-	comments_id INTEGER, 
-	PRIMARY KEY ("Microscope_id", comments_id), 
+	comment_collection_id INTEGER, 
+	PRIMARY KEY ("Microscope_id", comment_collection_id), 
 	FOREIGN KEY("Microscope_id") REFERENCES "Microscope" (id), 
-	FOREIGN KEY(comments_id) REFERENCES "Comment" (id)
+	FOREIGN KEY(comment_collection_id) REFERENCES "Comment" (id)
 );
 CREATE TABLE "Protocol_authors" (
 	"Protocol_url" TEXT, 
@@ -2004,10 +1924,10 @@ CREATE TABLE "ChannelSeries_channels" (
 	FOREIGN KEY("ChannelSeries_id") REFERENCES "ChannelSeries" (id), 
 	FOREIGN KEY(channels_id) REFERENCES "Channel" (id)
 );
-CREATE TABLE "TimeSeries_values" (
+CREATE TABLE "TimeSeries_time_points_sec" (
 	"TimeSeries_id" INTEGER, 
-	"values" FLOAT NOT NULL, 
-	PRIMARY KEY ("TimeSeries_id", "values"), 
+	time_points_sec FLOAT NOT NULL, 
+	PRIMARY KEY ("TimeSeries_id", time_points_sec), 
 	FOREIGN KEY("TimeSeries_id") REFERENCES "TimeSeries" (id)
 );
 CREATE TABLE "FieldIlluminationOutput_roi_profiles" (
@@ -2820,36 +2740,6 @@ CREATE TABLE "LightSourcePowerOutput_errors" (
 	errors TEXT, 
 	PRIMARY KEY ("LightSourcePowerOutput_id", errors), 
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerOutput_processing_application" (
-	"SimpleLightSourcePowerOutput_id" INTEGER, 
-	processing_application TEXT NOT NULL, 
-	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_application), 
-	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerOutput_processing_version" (
-	"SimpleLightSourcePowerOutput_id" INTEGER, 
-	processing_version TEXT NOT NULL, 
-	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_version), 
-	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerOutput_processing_entity" (
-	"SimpleLightSourcePowerOutput_id" INTEGER, 
-	processing_entity TEXT, 
-	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", processing_entity), 
-	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerOutput_warnings" (
-	"SimpleLightSourcePowerOutput_id" INTEGER, 
-	warnings TEXT, 
-	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", warnings), 
-	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
-);
-CREATE TABLE "SimpleLightSourcePowerOutput_errors" (
-	"SimpleLightSourcePowerOutput_id" INTEGER, 
-	errors TEXT, 
-	PRIMARY KEY ("SimpleLightSourcePowerOutput_id", errors), 
-	FOREIGN KEY("SimpleLightSourcePowerOutput_id") REFERENCES "SimpleLightSourcePowerOutput" (id)
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_mean_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 

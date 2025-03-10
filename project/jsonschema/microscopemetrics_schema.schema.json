@@ -228,7 +228,7 @@
             "description": "An ellipse as defined by x, y coordinates and x and y radii",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -238,6 +238,10 @@
                 "fill_color": {
                     "$ref": "#/$defs/Color",
                     "description": "The fill color of the shape"
+                },
+                "h": {
+                    "description": "The height",
+                    "type": "number"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -252,35 +256,31 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
-                "x": {
-                    "description": "The x coordinate of the bounding box of the ellipse",
+                "w": {
+                    "description": "The width",
                     "type": "number"
                 },
-                "x_rad": {
-                    "description": "The x radius of the ellipse",
+                "x": {
+                    "description": "The x coordinate",
                     "type": "number"
                 },
                 "y": {
-                    "description": "The y coordinate of the bounding box of the ellipse",
-                    "type": "number"
-                },
-                "y_rad": {
-                    "description": "The y radius of the ellipse",
+                    "description": "The y coordinate",
                     "type": "number"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
             "required": [
                 "x",
                 "y",
-                "x_rad",
-                "y_rad"
+                "w",
+                "h"
             ],
             "title": "Ellipse",
             "type": "object"
@@ -305,7 +305,7 @@
                     "type": "array"
                 },
                 "name": {
-                    "description": "The name of the experimenter",
+                    "description": "The human readable name of an entity",
                     "type": "string"
                 },
                 "orcid": {
@@ -314,7 +314,6 @@
                 }
             },
             "required": [
-                "name",
                 "orcid"
             ],
             "title": "Experimenter",
@@ -337,6 +336,10 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
+                    "type": "string"
+                },
+                "acquisition_protocol": {
+                    "description": "The protocol used to acquire the dataset",
                     "type": "string"
                 },
                 "data_reference": {
@@ -841,7 +844,7 @@
             "properties": {
                 "comment": {
                     "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
+                    "description": "A human readable comment"
                 },
                 "errors": {
                     "description": "The errors of the processing by microscope-metrics",
@@ -975,20 +978,20 @@
                     "type": "string"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the beads.",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
                     "type": "string"
                 }
             },
             "required": [
-                "protocol"
+                "preparation_protocol"
             ],
             "title": "FluorescentHomogeneousThickField",
             "type": "object"
@@ -1002,20 +1005,20 @@
                     "type": "string"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the beads.",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
                     "type": "string"
                 }
             },
             "required": [
-                "protocol"
+                "preparation_protocol"
             ],
             "title": "FluorescentHomogeneousThinField",
             "type": "object"
@@ -1032,7 +1035,7 @@
                     "description": "The class of the datasets in the collection",
                     "type": "string"
                 },
-                "datasets": {
+                "dataset_collection": {
                     "description": "The datasets of the collection",
                     "items": {
                         "$ref": "#/$defs/MetricsDataset"
@@ -1098,23 +1101,23 @@
                     "type": "string"
                 },
                 "shape_c": {
-                    "description": "The shape of the image in the c dimension",
+                    "description": "The shape of an image in the c dimension",
                     "type": "integer"
                 },
                 "shape_t": {
-                    "description": "The shape of the image in the t dimension",
+                    "description": "The shape of an image in the t dimension",
                     "type": "integer"
                 },
                 "shape_x": {
-                    "description": "The shape of the image in the x dimension",
+                    "description": "The shape of an image in the x dimension",
                     "type": "integer"
                 },
                 "shape_y": {
-                    "description": "The shape of the image in the y dimension",
+                    "description": "The shape of an image in the y dimension",
                     "type": "integer"
                 },
                 "shape_z": {
-                    "description": "The shape of the image in the z dimension",
+                    "description": "The shape of an image in the z dimension",
                     "type": "integer"
                 },
                 "source_images": {
@@ -1188,23 +1191,23 @@
                     "type": "string"
                 },
                 "shape_c": {
-                    "description": "The shape of the image in the c dimension",
+                    "description": "The shape of an image in the c dimension",
                     "type": "integer"
                 },
                 "shape_t": {
-                    "description": "The shape of the image in the t dimension",
+                    "description": "The shape of an image in the t dimension",
                     "type": "integer"
                 },
                 "shape_x": {
-                    "description": "The shape of the image in the x dimension",
+                    "description": "The shape of an image in the x dimension",
                     "type": "integer"
                 },
                 "shape_y": {
-                    "description": "The shape of the image in the y dimension",
+                    "description": "The shape of an image in the y dimension",
                     "type": "integer"
                 },
                 "shape_z": {
-                    "description": "The shape of the image in the z dimension",
+                    "description": "The shape of an image in the z dimension",
                     "type": "integer"
                 },
                 "source_images": {
@@ -1265,20 +1268,20 @@
                     "type": "string"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the beads.",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
                     "type": "string"
                 }
             },
             "required": [
-                "protocol"
+                "preparation_protocol"
             ],
             "title": "LightSourcePower",
             "type": "object"
@@ -1300,6 +1303,10 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
+                    "type": "string"
+                },
+                "acquisition_protocol": {
+                    "description": "The protocol used to acquire the dataset",
                     "type": "string"
                 },
                 "data_reference": {
@@ -1453,6 +1460,10 @@
                     },
                     "type": "array"
                 },
+                "power_set_point_pct": {
+                    "description": "The power set point in percent.",
+                    "type": "number"
+                },
                 "power_std_mw": {
                     "description": "The standard deviation of the power measured in milliwatts.",
                     "items": {
@@ -1467,6 +1478,7 @@
             },
             "required": [
                 "light_source",
+                "power_set_point_pct",
                 "power_mean_mw",
                 "power_median_mw",
                 "power_std_mw",
@@ -1482,7 +1494,7 @@
             "properties": {
                 "comment": {
                     "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
+                    "description": "A human readable comment"
                 },
                 "errors": {
                     "description": "The errors of the processing by microscope-metrics",
@@ -1556,7 +1568,7 @@
             "description": "A line as defined by x1, y1, x2, y2 coordinates",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -1580,7 +1592,7 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
                 "x1": {
@@ -1600,7 +1612,7 @@
                     "type": "number"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
@@ -1618,7 +1630,7 @@
             "description": "A mask as defined by a boolean image",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -1646,25 +1658,25 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
                 "x": {
-                    "description": "The x coordinate of the top left corner of the mask",
-                    "type": "integer"
+                    "description": "The x coordinate",
+                    "type": "number"
                 },
                 "y": {
-                    "description": "The y coordinate of the top left corner of the mask",
-                    "type": "integer"
+                    "description": "The y coordinate",
+                    "type": "number"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
             "required": [
-                "y",
-                "x"
+                "x",
+                "y"
             ],
             "title": "Mask",
             "type": "object"
@@ -1689,7 +1701,7 @@
                     "$ref": "#/$defs/DataReference",
                     "description": "A reference to the data"
                 },
-                "datasets": {
+                "dataset_collection": {
                     "description": "The datasets of the collection",
                     "items": {
                         "$ref": "#/$defs/MetricsDataset"
@@ -1719,8 +1731,8 @@
             "additionalProperties": false,
             "description": "A microscope",
             "properties": {
-                "comments": {
-                    "description": "A list of comments linked to the microscope",
+                "comment_collection": {
+                    "description": "A collection of comments",
                     "items": {
                         "$ref": "#/$defs/Comment"
                     },
@@ -1742,11 +1754,15 @@
                     "type": "array"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the microscope",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
+                "microscope_type": {
+                    "$ref": "#/$defs/MicroscopeTypeEnum",
+                    "description": "The type of the microscope"
+                },
                 "model": {
-                    "description": "The model of the microscope",
+                    "description": "The model of a device",
                     "type": "string"
                 },
                 "name": {
@@ -1754,12 +1770,8 @@
                     "type": "string"
                 },
                 "serial_number": {
-                    "description": "The serial number of the microscope",
+                    "description": "The serial number of a device",
                     "type": "string"
-                },
-                "type": {
-                    "$ref": "#/$defs/MicroscopeTypeEnum",
-                    "description": "The type of the microscope"
                 }
             },
             "title": "Microscope",
@@ -1769,7 +1781,7 @@
             "additionalProperties": false,
             "description": "A collection of microscopes",
             "properties": {
-                "microscopes": {
+                "microscope_collection": {
                     "description": "The microscopes of the collection",
                     "items": {
                         "$ref": "#/$defs/Microscope"
@@ -1778,7 +1790,7 @@
                 }
             },
             "required": [
-                "microscopes"
+                "microscope_collection"
             ],
             "title": "MicroscopeCollection",
             "type": "object"
@@ -1855,23 +1867,23 @@
                     "type": "string"
                 },
                 "shape_c": {
-                    "description": "The shape of the image in the c dimension",
+                    "description": "The shape of an image in the c dimension",
                     "type": "integer"
                 },
                 "shape_t": {
-                    "description": "The shape of the image in the t dimension",
+                    "description": "The shape of an image in the t dimension",
                     "type": "integer"
                 },
                 "shape_x": {
-                    "description": "The shape of the image in the x dimension",
+                    "description": "The shape of an image in the x dimension",
                     "type": "integer"
                 },
                 "shape_y": {
-                    "description": "The shape of the image in the y dimension",
+                    "description": "The shape of an image in the y dimension",
                     "type": "integer"
                 },
                 "shape_z": {
-                    "description": "The shape of the image in the z dimension",
+                    "description": "The shape of an image in the z dimension",
                     "type": "integer"
                 },
                 "source_images": {
@@ -1927,21 +1939,21 @@
                     "type": "string"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the beads.",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
                     "type": "string"
                 }
             },
             "required": [
                 "bead_diameter_micron",
-                "protocol"
+                "preparation_protocol"
             ],
             "title": "PSFBeads",
             "type": "object"
@@ -1963,6 +1975,10 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
+                    "type": "string"
+                },
+                "acquisition_protocol": {
+                    "description": "The protocol used to acquire the dataset",
                     "type": "string"
                 },
                 "data_reference": {
@@ -2628,7 +2644,7 @@
                 },
                 "comment": {
                     "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
+                    "description": "A human readable comment"
                 },
                 "considered_bead_centers_axial_edge": {
                     "description": "The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
@@ -2761,7 +2777,7 @@
             "description": "A point as defined by x and y coordinates",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -2785,25 +2801,25 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
                 "x": {
-                    "description": "The x coordinate of the point",
+                    "description": "The x coordinate",
                     "type": "number"
                 },
                 "y": {
-                    "description": "The y coordinate of the point",
+                    "description": "The y coordinate",
                     "type": "number"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
             "required": [
-                "y",
-                "x"
+                "x",
+                "y"
             ],
             "title": "Point",
             "type": "object"
@@ -2813,7 +2829,7 @@
             "description": "A polygon as defined by a series of vertexes and a boolean to indicate if closed or not",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -2841,7 +2857,7 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
                 "vertexes": {
@@ -2852,7 +2868,7 @@
                     "type": "array"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
@@ -2913,7 +2929,7 @@
         },
         "Protocol": {
             "additionalProperties": false,
-            "description": "Set of instructions for preparing and imaging a sample",
+            "description": "Set of instructions for preparing a sample or acquiring data",
             "properties": {
                 "authors": {
                     "description": "The authors of the protocol",
@@ -2951,7 +2967,7 @@
             "description": "A rectangle as defined by x, y coordinates and width, height",
             "properties": {
                 "c": {
-                    "description": "The c coordinate of the shape",
+                    "description": "The c coordinate",
                     "type": "integer"
                 },
                 "description": {
@@ -2963,7 +2979,7 @@
                     "description": "The fill color of the shape"
                 },
                 "h": {
-                    "description": "The height of the rectangle",
+                    "description": "The height",
                     "type": "number"
                 },
                 "name": {
@@ -2979,23 +2995,23 @@
                     "type": "integer"
                 },
                 "t": {
-                    "description": "The t coordinate of the shape",
+                    "description": "The t coordinate",
                     "type": "integer"
                 },
                 "w": {
-                    "description": "The width of the rectangle",
+                    "description": "The width",
                     "type": "number"
                 },
                 "x": {
-                    "description": "The x coordinate of the top left corner of the rectangle",
+                    "description": "The x coordinate",
                     "type": "number"
                 },
                 "y": {
-                    "description": "The y coordinate of the top left corner of the rectangle",
+                    "description": "The y coordinate",
                     "type": "number"
                 },
                 "z": {
-                    "description": "The z coordinate of the shape",
+                    "description": "The z coordinate",
                     "type": "number"
                 }
             },
@@ -3077,209 +3093,12 @@
             "title": "Roi",
             "type": "object"
         },
-        "SimpleLightSourcePowerDataset": {
-            "additionalProperties": false,
-            "description": "A simple power measurements dataset containing only one power sample per light source.",
-            "if": {
-                "properties": {
-                    "processed": {
-                        "const": 1
-                    }
-                },
-                "required": [
-                    "processed"
-                ]
-            },
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": "string"
-                },
-                "input_data": {
-                    "$ref": "#/$defs/LightSourcePowerInputData"
-                },
-                "input_parameters": {
-                    "$ref": "#/$defs/LightSourcePowerInputParameters"
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "microscope": {
-                    "$ref": "#/$defs/Microscope",
-                    "description": "The microscope that was used to acquire the dataset"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "output": {
-                    "$ref": "#/$defs/SimpleLightSourcePowerOutput"
-                },
-                "processed": {
-                    "description": "Has the dataset been processed by microscope-metrics",
-                    "type": "boolean"
-                },
-                "sample": {
-                    "$ref": "#/$defs/Sample",
-                    "description": "The physical sample that was imaged"
-                }
-            },
-            "required": [
-                "microscope",
-                "processed"
-            ],
-            "then": {
-                "properties": {
-                    "output": {}
-                },
-                "required": [
-                    "output"
-                ]
-            },
-            "title": "SimpleLightSourcePowerDataset",
-            "type": "object"
-        },
-        "SimpleLightSourcePowerKeyMeasurements": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "data_reference": {
-                    "$ref": "#/$defs/DataReference",
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": "string"
-                },
-                "light_source": {
-                    "$ref": "#/$defs/LightSource",
-                    "description": "The light source under investigation."
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": "array"
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": "string"
-                },
-                "power_mw": {
-                    "description": "The power measured in milliwatts.",
-                    "type": "number"
-                },
-                "table_data": {
-                    "$ref": "#/$defs/MetaObject",
-                    "description": "A non-required slot for non-serializable table data object"
-                }
-            },
-            "required": [
-                "light_source",
-                "power_mw"
-            ],
-            "title": "SimpleLightSourcePowerKeyMeasurements",
-            "type": "object"
-        },
-        "SimpleLightSourcePowerOutput": {
-            "additionalProperties": false,
-            "description": "",
-            "properties": {
-                "comment": {
-                    "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
-                },
-                "errors": {
-                    "description": "The errors of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "key_measurements": {
-                    "$ref": "#/$defs/SimpleLightSourcePowerKeyMeasurements",
-                    "description": "Key-Value measurements for simple power measurements."
-                },
-                "processing_application": {
-                    "description": "The application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_datetime": {
-                    "description": "The datetime of the processing by microscope-metrics",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "processing_entity": {
-                    "description": "The entity that processed the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "processing_log": {
-                    "description": "The log of the processing by microscope-metrics",
-                    "type": "string"
-                },
-                "processing_version": {
-                    "description": "The version of the application used to process the dataset",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                },
-                "validated": {
-                    "description": "Has the dataset been validated by a human",
-                    "type": "boolean"
-                },
-                "validation_datetime": {
-                    "description": "The datetime of the validation",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "warnings": {
-                    "description": "The warnings of the processing by microscope-metrics",
-                    "items": {
-                        "type": "string"
-                    },
-                    "type": "array"
-                }
-            },
-            "required": [
-                "processing_application",
-                "processing_version",
-                "processing_datetime",
-                "validated"
-            ],
-            "title": "SimpleLightSourcePowerOutput",
-            "type": "object"
-        },
         "TimeSeries": {
             "additionalProperties": false,
             "description": "A series whose values represent time",
             "properties": {
-                "values": {
-                    "description": "The values of the TimeSeries in seconds",
+                "time_points_sec": {
+                    "description": "The relative times at which the time series were acquired in seconds",
                     "items": {
                         "type": "number"
                     },
@@ -3287,7 +3106,7 @@
                 }
             },
             "required": [
-                "values"
+                "time_points_sec"
             ],
             "title": "TimeSeries",
             "type": "object"
@@ -3301,20 +3120,20 @@
                     "type": "string"
                 },
                 "manufacturer": {
-                    "description": "The manufacturer of the beads.",
+                    "description": "A manufacturer",
                     "type": "string"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": "string"
                 },
-                "protocol": {
-                    "description": "The protocol used to prepare the sample",
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
                     "type": "string"
                 }
             },
             "required": [
-                "protocol"
+                "preparation_protocol"
             ],
             "title": "UserExperiment",
             "type": "object"
@@ -3336,6 +3155,10 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
+                    "type": "string"
+                },
+                "acquisition_protocol": {
+                    "description": "The protocol used to acquire the dataset",
                     "type": "string"
                 },
                 "data_reference": {
@@ -3515,7 +3338,7 @@
             "properties": {
                 "comment": {
                     "$ref": "#/$defs/Comment",
-                    "description": "A human readable comment about the dataset"
+                    "description": "A human readable comment"
                 },
                 "errors": {
                     "description": "The errors of the processing by microscope-metrics",
@@ -3610,11 +3433,11 @@
             "description": "A vertex as defined by x and y coordinates",
             "properties": {
                 "x": {
-                    "description": "The x coordinate of the vertex",
+                    "description": "The x coordinate",
                     "type": "number"
                 },
                 "y": {
-                    "description": "The y coordinate of the vertex",
+                    "description": "The y coordinate",
                     "type": "number"
                 }
             },

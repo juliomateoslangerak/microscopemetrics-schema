@@ -67,16 +67,16 @@ message Ellipse
   integer strokeWidth = 0
   float x = 0
   float y = 0
-  float xRad = 0
-  float yRad = 0
+  float w = 0
+  float h = 0
  }
 // The person that performed the experiment or developed the protocol
 message Experimenter
  {
+  string name = 0
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  string name = 0
   string orcid = 0
  }
 // A field illumination dataset
@@ -89,6 +89,7 @@ message FieldIlluminationDataset
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
+  protocol acquisitionProtocol = 0
   boolean processed = 0
   fieldIlluminationInputData inputData = 0
   fieldIlluminationInputParameters inputParameters = 0
@@ -187,7 +188,7 @@ message FluorescentHomogeneousThickField
  {
   string name = 0
   string description = 0
-  protocol protocol = 0
+  protocol preparationProtocol = 0
   string manufacturer = 0
  }
 // An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
@@ -195,7 +196,7 @@ message FluorescentHomogeneousThinField
  {
   string name = 0
   string description = 0
-  protocol protocol = 0
+  protocol preparationProtocol = 0
   string manufacturer = 0
  }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
@@ -205,7 +206,7 @@ message HarmonizedMetricsDatasetCollection
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
- repeated  metricsDataset datasets = 0
+ repeated  metricsDataset datasetCollection = 0
   string datasetClass = 0
  }
 // A microscope-metrics image
@@ -215,6 +216,7 @@ message Image
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
+  datetime acquisitionDatetime = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -225,7 +227,6 @@ message Image
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
-  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
@@ -236,6 +237,7 @@ message ImageMask
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
+  datetime acquisitionDatetime = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -246,7 +248,6 @@ message ImageMask
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
-  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
  }
@@ -260,7 +261,7 @@ message LightSourcePower
  {
   string name = 0
   string description = 0
-  protocol protocol = 0
+  protocol preparationProtocol = 0
   string manufacturer = 0
  }
 // Power measurements dataset. A collection of power samples for different light sources.
@@ -270,10 +271,11 @@ message LightSourcePowerDataset
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  sample sample = 0
   microscope microscope = 0
   experimenter experimenter = 0
+  sample sample = 0
   datetime acquisitionDatetime = 0
+  protocol acquisitionProtocol = 0
   boolean processed = 0
   lightSourcePowerInputData inputData = 0
   lightSourcePowerInputParameters inputParameters = 0
@@ -292,6 +294,7 @@ message LightSourcePowerKeyMeasurements
  repeated  dataReference linkedReferences = 0
   metaObject tableData = 0
   lightSource lightSource = 0
+  float powerSetPointPct = 0
  repeated  float powerMeanMw = 0
  repeated  float powerMedianMw = 0
  repeated  float powerStdMw = 0
@@ -340,8 +343,8 @@ message Mask
   color fillColor = 0
   color strokeColor = 0
   integer strokeWidth = 0
-  integer y = 0
-  integer x = 0
+  float x = 0
+  float y = 0
   imageMask mask = 0
  }
 // A collection of microscope-metrics datasets
@@ -351,7 +354,7 @@ message MetricsDatasetCollection
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
- repeated  metricsDataset datasets = 0
+ repeated  metricsDataset datasetCollection = 0
  }
 // A microscope
 message Microscope
@@ -360,16 +363,16 @@ message Microscope
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  microscopeTypeEnum type = 0
+  microscopeTypeEnum microscopeType = 0
   string manufacturer = 0
   string model = 0
   string serialNumber = 0
- repeated  comment comments = 0
+ repeated  comment commentCollection = 0
  }
 // A collection of microscopes
 message MicroscopeCollection
  {
- repeated  microscope microscopes = 0
+ repeated  microscope microscopeCollection = 0
  }
 // An image that is orthogonal to the main image
 message OrthogonalImage
@@ -378,6 +381,7 @@ message OrthogonalImage
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
+  datetime acquisitionDatetime = 0
   float voxelSizeXMicron = 0
   float voxelSizeYMicron = 0
   float voxelSizeZMicron = 0
@@ -388,7 +392,6 @@ message OrthogonalImage
   integer shapeT = 0
   timeSeries timeSeries = 0
   channelSeries channelSeries = 0
-  datetime acquisitionDatetime = 0
  repeated  dataReference sourceImages = 0
   metaObject arrayData = 0
   roi sourceRoi = 0
@@ -405,8 +408,8 @@ message Point
   color fillColor = 0
   color strokeColor = 0
   integer strokeWidth = 0
-  float y = 0
   float x = 0
+  float y = 0
  }
 // A polygon as defined by a series of vertexes and a boolean to indicate if closed or not
 message Polygon
@@ -436,7 +439,7 @@ message PowerSample
   datetime samplingDatetime = 0
   float powerMw = 0
  }
-// Set of instructions for preparing and imaging a sample
+// Set of instructions for preparing a sample or acquiring data
 message Protocol
  {
   string name = 0
@@ -450,7 +453,7 @@ message PSFBeads
  {
   string name = 0
   string description = 0
-  protocol protocol = 0
+  protocol preparationProtocol = 0
   string manufacturer = 0
   float beadDiameterMicron = 0
  }
@@ -464,6 +467,7 @@ message PSFBeadsDataset
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
+  protocol acquisitionProtocol = 0
   boolean processed = 0
   pSFBeadsInputData inputData = 0
   pSFBeadsInputParameters inputParameters = 0
@@ -617,57 +621,17 @@ message Roi
  repeated  polygon polygons = 0
  repeated  mask masks = 0
  }
-// A simple power measurements dataset containing only one power sample per light source.
-message SimpleLightSourcePowerDataset
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  sample sample = 0
-  microscope microscope = 0
-  experimenter experimenter = 0
-  datetime acquisitionDatetime = 0
-  boolean processed = 0
-  lightSourcePowerInputData inputData = 0
-  lightSourcePowerInputParameters inputParameters = 0
-  simpleLightSourcePowerOutput output = 0
- }
-message SimpleLightSourcePowerKeyMeasurements
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
-  lightSource lightSource = 0
-  float powerMw = 0
- }
-message SimpleLightSourcePowerOutput
- {
- repeated  string processingApplication = 0
- repeated  string processingVersion = 0
- repeated  string processingEntity = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  string warnings = 0
- repeated  string errors = 0
-  boolean validated = 0
-  datetime validationDatetime = 0
-  comment comment = 0
-  simpleLightSourcePowerKeyMeasurements keyMeasurements = 0
- }
 // A series whose values represent time
 message TimeSeries
  {
- repeated  float values = 0
+ repeated  float timePointsSec = 0
  }
 // A non-standardized microscope sample produced during regular operation of a research project.
 message UserExperiment
  {
   string name = 0
   string description = 0
-  protocol protocol = 0
+  protocol preparationProtocol = 0
   string manufacturer = 0
  }
 // A dataset of non-standardized microscope samples produced during regular operation of a research project.
@@ -680,6 +644,7 @@ message UserExperimentDataset
   microscope microscope = 0
   experimenter experimenter = 0
   datetime acquisitionDatetime = 0
+  protocol acquisitionProtocol = 0
   boolean processed = 0
   userExperimentInputData inputData = 0
   userExperimentInputParameters inputParameters = 0

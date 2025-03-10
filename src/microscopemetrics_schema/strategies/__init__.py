@@ -45,7 +45,7 @@ def st_mm_metrics_object(
 def st_mm_microscope(
     draw,
     metrics_object=st_mm_metrics_object(),
-    type=st.sampled_from(["WIDEFIELD", "CONFOCAL", "STED", "SIM3D", "OTHER"]),
+    microscope_type=st.sampled_from(["WIDEFIELD", "CONFOCAL", "STED", "SIM3D", "OTHER"]),
     manufacturer=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
     ),
@@ -62,7 +62,7 @@ def st_mm_microscope(
         name=metrics_object.name,
         description=metrics_object.description,
         data_reference=draw(data_reference),
-        type=draw(type),
+        microscope_type=draw(microscope_type),
         manufacturer=draw(manufacturer),
         model=draw(model),
         serial_number=draw(serial_number),
@@ -119,13 +119,13 @@ def st_mm_sample(
     description=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
-    protocol=st_mm_protocol(),
+    preparation_protocol=st_mm_protocol(),
     manufacturer=st.text(min_size=1, max_size=32),
 ) -> mm_schema.Sample:
     return mm_schema.Sample(
         name=draw(name),
         description=draw(description),
-        protocol=draw(protocol),
+        preparation_protocol=draw(preparation_protocol),
         manufacturer=draw(manufacturer),
     )
 
@@ -407,8 +407,8 @@ def st_mm_ellipse(
     stroke_width=st.integers(min_value=1, max_value=5),
     x=st.floats(min_value=0.0, max_value=1024.0),
     y=st.floats(min_value=0.0, max_value=1024.0),
-    x_rad=st.floats(min_value=0.0, max_value=1024.0),
-    y_rad=st.floats(min_value=0.0, max_value=1024.0),
+    w=st.floats(min_value=0.0, max_value=1024.0),
+    h=st.floats(min_value=0.0, max_value=1024.0),
 ) -> mm_schema.Ellipse:
     return mm_schema.Ellipse(
         name=draw(name),
@@ -421,8 +421,8 @@ def st_mm_ellipse(
         stroke_width=draw(stroke_width),
         x=draw(x),
         y=draw(y),
-        x_rad=draw(x_rad),
-        y_rad=draw(y_rad),
+        w=draw(w),
+        h=draw(h),
     )
 
 

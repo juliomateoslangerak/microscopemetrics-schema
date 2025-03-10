@@ -31,23 +31,12 @@ classes:
 
   DataReference:
     description: A reference to a data resource
-    attributes:
-      data_uri:
-        # TODO: make required and compose the URI from OMERO attributes if absent
-        range: string
-        description: The URI of the object data
-      omero_host:
-        range: string
-        description: The host of the OMERO server
-      omero_port:
-        range: integer
-        description: The port of the OMERO server
-      omero_object_type:
-        range: OMEROObjectTypeEnum
-        description: The type of the OMERO object
-      omero_object_id:
-        range: integer
-        description: The ID of the OMERO object
+    slots:
+      - data_uri
+      - omero_host
+      - omero_port
+      - omero_object_type
+      - omero_object_id
     unique_keys:
       omero_reference:
         description: A metrics object is uniquely identified by a combination of its OMERO attributes
@@ -60,74 +49,36 @@ classes:
     is_a: NamedObject
     abstract: true
     description: A base object for all microscope-metrics objects.
-    attributes:
-      data_reference:
-        range: DataReference
-        description: A reference to the data
-        required: false
-        multivalued: false
-      linked_references:
-        range: DataReference
-        description: A list of linked references
-        required: false
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
+    slots:
+      - data_reference
+      - linked_references
 
   MicroscopeCollection:
     description: A collection of microscopes
-    attributes:
-      microscopes:
-        range: Microscope
-        description: The microscopes of the collection
-        required: true
-        multivalued: true
+    slots:
+      - microscope_collection
 
   Microscope:
     is_a: MetricsObject
     description: A microscope
-    attributes:
-      type:
-        range: MicroscopeTypeEnum
-        description: The type of the microscope
-        required: false
-      manufacturer:
-        range: string
-        description: The manufacturer of the microscope
-        required: false
-      model:
-        range: string
-        description: The model of the microscope
-        required: false
-      serial_number:
-        range: string
-        description: The serial number of the microscope
-        required: false
-      comments:
-        range: Comment
-        description: A list of comments linked to the microscope
-        required: false
-        multivalued: true
+    slots:
+      - microscope_type
+      - manufacturer
+      - model
+      - serial_number
+      - comment_collection
 
   Sample:
     is_a: NamedObject
     description: A sample is a standard physical object that is imaged by a microscope
     abstract: true
-    attributes:
-      protocol:
-        range: Protocol   # TODO: rename preparation_protocol
-        description: The protocol used to prepare the sample
-        required: true
-        multivalued: false
-        inlined: false
-      manufacturer:
-        description: The manufacturer of the beads.
-        required: false
-        range: string
+    slots:
+      - preparation_protocol
+      - manufacturer
 
   Protocol:
     is_a: NamedObject
-    description: Set of instructions for preparing and imaging a sample
+    description: Set of instructions for preparing a sample or acquiring data
     attributes:
       version:
         range: string
@@ -148,10 +99,6 @@ classes:
     is_a: MetricsObject
     description: The person that performed the experiment or developed the protocol
     attributes:
-      name:
-        range: string
-        description: The name of the experimenter
-        required: true
       orcid:
         range: string
         description: The ORCID of the experimenter
@@ -186,7 +133,7 @@ classes:
     is_a: MetricsObject
     description: A collection of microscope-metrics datasets
     attributes:
-      datasets:
+      dataset_collection:
         range: MetricsDataset
         description: The datasets of the collection
         multivalued: true
@@ -211,42 +158,15 @@ classes:
     abstract: true
     tree_root: true
     slots:
+      - microscope
+      - experimenter
       - sample
-    attributes:
-      microscope:
-        range: Microscope
-        description: The microscope that was used to acquire the dataset
-        required: true
-        multivalued: false
-      experimenter:
-        range: Experimenter
-        description: The experimenter that performed the imaging experiment
-        multivalued: false
-      acquisition_datetime:
-        range: datetime
-        description: The datetime of the acquisition
-        multivalued: false
-      processed:
-        range: boolean
-        description: Has the dataset been processed by microscope-metrics
-        required: true
-        ifabsent: false
-        multivalued: false
-      input_data:
-        range: MetricsInputData
-        description: The input data for the analysis
-        required: true
-        multivalued: false
-      input_parameters:
-        range: MetricsInputParameters
-        description: The input parameters for the analysis
-        required: false
-        multivalued: false
-      output:
-        range: MetricsOutput
-        description: The output of the analysis
-        required: false
-        multivalued: false
+      - acquisition_datetime
+      - acquisition_protocol
+      - input_data
+      - input_parameters
+      - processed
+      - output
     rules:
       - preconditions:
           slot_conditions:
@@ -268,135 +188,35 @@ classes:
   MetricsOutput:
     description: An abstract class for analysis outputs
     abstract: true
-    attributes:
-      processing_application:
-        range: string
-        description: The application used to process the dataset
-        required: true
-        multivalued: true
-      processing_version:
-        range: string
-        description: The version of the application used to process the dataset
-        required: true
-        multivalued: true
-      processing_entity:
-        range: string
-        description: The entity that processed the dataset
-        required: false
-        multivalued: true
-      processing_datetime:
-        range: datetime
-        description: The datetime of the processing by microscope-metrics
-        required: true
-        multivalued: false
-      processing_log:
-        range: string
-        description: The log of the processing by microscope-metrics
-        required: false
-        multivalued: false
-      warnings:
-        range: string
-        description: The warnings of the processing by microscope-metrics
-        required: false
-        multivalued: true
-      errors:
-        range: string
-        description: The errors of the processing by microscope-metrics
-        required: false
-        multivalued: true
-      validated:
-        range: boolean
-        description: Has the dataset been validated by a human
-        required: true
-        ifabsent: false
-        multivalued: false
-      validation_datetime:
-        range: datetime
-        description: The datetime of the validation
-        required: false
-        multivalued: false
-      comment:
-        range: Comment
-        description: A human readable comment about the dataset
-        required: false
-        multivalued: false
+    slots:
+      - processing_application
+      - processing_version
+      - processing_entity
+      - processing_datetime
+      - processing_log
+      - warnings
+      - errors
+      - validated
+      - validation_datetime
+      - comment
 
   Image:
     is_a: MetricsObject
     description: A microscope-metrics image
-    attributes:
-      voxel_size_x_micron:
-        range: float
-        description: The physical size in the voxel in the x dimension in microns
-        required: false
-        multivalued: false
-      voxel_size_y_micron:
-        range: float
-        description: The physical size in the voxel in the y dimension in microns
-        required: false
-        multivalued: false
-      voxel_size_z_micron:
-        range: float
-        description: The physical size in the voxel in the z dimension in microns
-        required: false
-        multivalued: false
-      shape_x:
-        range: integer
-        description: The shape of the image in the x dimension
-        required: true
-        multivalued: false
-      shape_y:
-        range: integer
-        description: The shape of the image in the y dimension
-        required: true
-        multivalued: false
-      shape_z:
-        range: integer
-        description: The shape of the image in the z dimension
-        required: true
-        multivalued: false
-        ifabsent: int(1)
-      shape_c:
-        range: integer
-        description: The shape of the image in the c dimension
-        required: true
-        multivalued: false
-        ifabsent: int(1)
-      shape_t:
-        range: integer
-        description: The shape of the image in the t dimension
-        required: true
-        multivalued: false
-        ifabsent: int(1)
-      time_series:
-        range: TimeSeries
-        description: A series representing time for time-lapse images.
-        implements:
-          - linkml:axis0
-        required: false
-      channel_series:
-        range: ChannelSeries
-        description: A series representing channels for multi-channel images.
-        implements:
-          - linkml:axis4
-        required: false
-      acquisition_datetime:
-        range: datetime
-        description: The datetime of the acquisition
-        required: false
-        multivalued: false
-      source_images:
-        range: DataReference
-        description: A list of references linking to the images that were used as a source
-        required: false
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      array_data:
-        range: MetaObject
-        description: A non-required slot for non-serializable array data object
-        required: false
-        multivalued: false
+    slots:
+      - acquisition_datetime
+      - voxel_size_x_micron
+      - voxel_size_y_micron
+      - voxel_size_z_micron
+      - shape_x
+      - shape_y
+      - shape_z
+      - shape_c
+      - shape_t
+      - time_series
+      - channel_series
+      - source_images
+      - array_data
 
   ImageMask:
     is_a: Image
@@ -443,9 +263,9 @@ classes:
     implements:
       - linkml:OneDimensionalSeries
     attributes:
-      values:
+      time_points_sec:
         range: float
-        description: The values of the TimeSeries in seconds
+        description: The relative times at which the time series were acquired in seconds
         multivalued: true
         implements:
           - linkml:elements
@@ -526,19 +346,11 @@ classes:
     is_a: NamedObject
     description: A shape
     abstract: true
+    slots:
+      - z
+      - c
+      - t
     attributes:
-      z:
-        range: float
-        description: The z coordinate of the shape
-        required: false
-      c:
-        range: integer
-        description: The c coordinate of the shape
-        required: false
-      t:
-        range: integer
-        description: The t coordinate of the shape
-        required: false
       fill_color:
         range: Color
         description: The fill color of the shape
@@ -556,17 +368,9 @@ classes:
   Point:
     is_a: Shape
     description: A point as defined by x and y coordinates
-    attributes:
-      y:
-        range: float
-        description: The y coordinate of the point
-        multivalued: false
-        required: true
-      x:
-        range: float
-        description: The x coordinate of the point
-        multivalued: false
-        required: true
+    slots:
+      - x
+      - y
 
   Line:
     is_a: Shape
@@ -596,52 +400,20 @@ classes:
   Rectangle:
     is_a: Shape
     description: A rectangle as defined by x, y coordinates and width, height
-    attributes:
-      x:
-        range: float
-        description: The x coordinate of the top left corner of the rectangle
-        multivalued: false
-        required: true
-      y:
-        range: float
-        description: The y coordinate of the top left corner of the rectangle
-        multivalued: false
-        required: true
-      w:
-        range: float
-        description: The width of the rectangle
-        multivalued: false
-        required: true
-      h:
-        range: float
-        description: The height of the rectangle
-        multivalued: false
-        required: true
+    slots:
+      - x
+      - y
+      - w
+      - h
 
   Ellipse:
     is_a: Shape
     description: An ellipse as defined by x, y coordinates and x and y radii
-    attributes:
-      x:
-        range: float
-        description: The x coordinate of the bounding box of the ellipse
-        multivalued: false
-        required: true
-      y:
-        range: float
-        description: The y coordinate of the bounding box of the ellipse
-        multivalued: false
-        required: true
-      x_rad:
-        range: float
-        description: The x radius of the ellipse
-        multivalued: false
-        required: true
-      y_rad:
-        range: float
-        description: The y radius of the ellipse
-        multivalued: false
-        required: true
+    slots:
+      - x
+      - y
+      - w
+      - h
 
   Polygon:
     is_a: Shape
@@ -662,32 +434,17 @@ classes:
 
   Vertex:
     description: A vertex as defined by x and y coordinates
-    attributes:
-      x:
-        range: float
-        description: The x coordinate of the vertex
-        multivalued: false
-        required: true
-      y:
-        range: float
-        description: The y coordinate of the vertex
-        multivalued: false
-        required: true
+    slots:
+      - x
+      - y
 
   Mask: # review for arrays
     is_a: Shape
     description: A mask as defined by a boolean image
+    slots:
+      - x
+      - y
     attributes:
-      y:
-        range: integer
-        description: The y coordinate of the top left corner of the mask
-        required: true
-        ifabsent: int(0)
-      x:
-        range: integer
-        description: The x coordinate of the top left corner of the mask
-        required: true
-        ifabsent: int(0)
       mask:
         range: ImageMask
         description: The mask image
@@ -786,12 +543,8 @@ classes:
     is_a: KeyValues
     description: A table of key measurements
     abstract: true
-    attributes:
-      table_data:
-        range: MetaObject
-        description: A non-required slot for non-serializable table data object
-        required: false
-        multivalued: false
+    slots:
+      - table_data
 
   Tag:
     is_a: MetricsObject
@@ -811,6 +564,8 @@ classes:
     is_a: MetricsObject
     description: A microscope-metrics table
     abstract: true
+    slots:
+      - table_data
     attributes:
       columns:
         range: Column
@@ -821,14 +576,10 @@ classes:
         inlined_as_list: true
         implements:
           - linkml:elements
-      table_data:
-        range: MetaObject
-        description: A non-required slot for non-serializable table data object
-        required: false
-        multivalued: false
 
 
 slots:
+  # NamedObject slots
   name:
     range: string
     description: The human readable name of an entity
@@ -839,6 +590,59 @@ slots:
     description: A human readable description of an entity
     required: false
     multivalued: false
+
+  # DataReference slots
+  data_uri:
+    # TODO: make required and compose the URI from OMERO attributes if absent
+    range: string
+    description: The URI of the object data
+  omero_host:
+    range: string
+    description: The host of the OMERO server
+  omero_port:
+    range: integer
+    description: The port of the OMERO server
+  omero_object_type:
+    range: OMEROObjectTypeEnum
+    description: The type of the OMERO object
+  omero_object_id:
+    range: integer
+    description: The ID of the OMERO object
+
+  # Microscope slots
+  microscope_type:
+    range: MicroscopeTypeEnum
+    description: The type of the microscope
+    required: false
+  comments:
+    range: Comment
+    description: A list of comments linked to the microscope
+    required: false
+    multivalued: true
+
+  # Sample slots
+  preparation_protocol:
+    range: Protocol
+    description: The protocol used to prepare a sample
+    required: true
+    multivalued: false
+    inlined: false
+
+  # MetricsObject slots
+  data_reference:
+    range: DataReference
+    description: A reference to the data
+    required: false
+    multivalued: false
+  linked_references:
+    range: DataReference
+    description: A list of linked references
+    required: false
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  # MetricsDataset slots
   sample:
     range: Sample
     description: The physical sample that was imaged
@@ -857,6 +661,12 @@ slots:
     range: datetime
     description: The datetime of the acquisition
     multivalued: false
+  acquisition_protocol:
+    range: Protocol
+    description: The protocol used to acquire the dataset
+    required: false
+    multivalued: false
+    inlined: false
   input_data:
     range: MetricsInputData
     description: The input data for the analysis
@@ -867,11 +677,200 @@ slots:
     description: The input parameters for the analysis
     required: false
     multivalued: false
+  processed:
+    range: boolean
+    description: Has the dataset been processed by microscope-metrics
+    required: true
+    ifabsent: false
+    multivalued: false
   output:
     range: MetricsOutput
     description: The output of the analysis
     required: false
     multivalued: false
+
+  # MetricsOutput slots
+  processing_application:
+    range: string
+    description: The application used to process the dataset
+    required: true
+    multivalued: true
+  processing_version:
+    range: string
+    description: The version of the application used to process the dataset
+    required: true
+    multivalued: true
+  processing_entity:
+    range: string
+    description: The entity that processed the dataset
+    required: false
+    multivalued: true
+  processing_datetime:
+    range: datetime
+    description: The datetime of the processing by microscope-metrics
+    required: true
+    multivalued: false
+  processing_log:
+    range: string
+    description: The log of the processing by microscope-metrics
+    required: false
+    multivalued: false
+  warnings:
+    range: string
+    description: The warnings of the processing by microscope-metrics
+    required: false
+    multivalued: true
+  errors:
+    range: string
+    description: The errors of the processing by microscope-metrics
+    required: false
+    multivalued: true
+  validated:
+    range: boolean
+    description: Has the dataset been validated by a human
+    required: true
+    ifabsent: false
+    multivalued: false
+  validation_datetime:
+    range: datetime
+    description: The datetime of the validation
+    required: false
+    multivalued: false
+
+  # Image slots
+  voxel_size_x_micron:
+    range: float
+    description: The physical size in the voxel in the x dimension in microns
+    required: false
+    multivalued: false
+  voxel_size_y_micron:
+    range: float
+    description: The physical size in the voxel in the y dimension in microns
+    required: false
+    multivalued: false
+  voxel_size_z_micron:
+    range: float
+    description: The physical size in the voxel in the z dimension in microns
+    required: false
+    multivalued: false
+  shape_x:
+    range: integer
+    description: The shape of an image in the x dimension
+    required: true
+    multivalued: false
+  shape_y:
+    range: integer
+    description: The shape of an image in the y dimension
+    required: true
+    multivalued: false
+  shape_z:
+    range: integer
+    description: The shape of an image in the z dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  shape_c:
+    range: integer
+    description: The shape of an image in the c dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  shape_t:
+    range: integer
+    description: The shape of an image in the t dimension
+    required: true
+    multivalued: false
+    ifabsent: int(1)
+  time_series:
+    range: TimeSeries
+    description: A series representing time for time-lapse images.
+    implements:
+      - linkml:axis0
+    required: false
+  channel_series:
+    range: ChannelSeries
+    description: A series representing channels for multi-channel images.
+    implements:
+      - linkml:axis4
+    required: false
+  source_images:
+    range: DataReference
+    description: A list of references linking to the images that were used as a source
+    required: false
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  array_data:
+    range: MetaObject
+    description: A non-required slot for non-serializable array data object
+    required: false
+    multivalued: false
+
+  # Table slots
+  table_data:
+    range: MetaObject
+    description: A non-required slot for non-serializable table data object
+    required: false
+    multivalued: false
+
+  # ROI slots
+  x:
+    range: float
+    description: The x coordinate
+    required: true
+  y:
+    range: float
+    description: The y coordinate
+    required: true
+  z:
+    range: float
+    description: The z coordinate
+    required: false
+  c:
+    range: integer
+    description: The c coordinate
+    required: false
+  t:
+    range: integer
+    description: The t coordinate
+    required: false
+  w:
+    range: float
+    description: The width
+    required: true
+  h:
+    range: float
+    description: The height
+    required: true
+
+  # Various slots
+  microscope_collection:
+    range: Microscope
+    description: The microscopes of the collection
+    required: true
+    multivalued: true
+  comment:
+    range: Comment
+    description: A human readable comment
+    required: false
+    multivalued: false
+  comment_collection:
+    range: Comment
+    description: A collection of comments
+    required: false
+    multivalued: true
+  manufacturer:
+    range: string
+    description: A manufacturer
+    required: false
+  model:
+    range: string
+    description: The model of a device
+    required: false
+  serial_number:
+    range: string
+    description: The serial number of a device
+    required: false
   excitation_wavelength_nm:
     range: float
     description: The excitation wavelength in nm

@@ -25,18 +25,6 @@ classes:
       output:
         range: LightSourcePowerOutput
 
-  SimpleLightSourcePowerDataset:
-    is_a: LightSourcePowerDataset
-    description: >-
-      A simple power measurements dataset containing only one power sample per light source.
-    attributes:
-      input_data:
-        range: LightSourcePowerInputData
-      input_parameters:
-        range: LightSourcePowerInputParameters
-      output:
-        range: SimpleLightSourcePowerOutput
-
   LightSourcePowerInputData:
     is_a: MetricsInputData
     slots:
@@ -56,30 +44,18 @@ classes:
           Key-Value measurements for the power measurements.
         multivalued: false
 
-  SimpleLightSourcePowerOutput:
-    is_a: MetricsOutput
-    attributes:
-      key_measurements:
-        range: SimpleLightSourcePowerKeyMeasurements
-        description: >-
-          Key-Value measurements for simple power measurements.
 
   LightSourcePowerKeyMeasurements:
     is_a: KeyMeasurements
     slots:
       - light_source
+      - power_set_point_pct
       - power_mean_mw
       - power_median_mw
       - power_std_mw
       - power_min_mw
       - power_max_mw
       - linearity
-
-  SimpleLightSourcePowerKeyMeasurements:
-    is_a: KeyMeasurements
-    slots:
-      - light_source
-      - power_mw
 
   PowerSample:
     description: >-
@@ -140,6 +116,12 @@ slots:
       The date and time of the sampling.
     multivalued: false
     required: true
+  power_set_point_pct:
+    range: float
+    description: >-
+      The power set point in percent.
+    multivalued: false
+    required: true
   power_mw:
     range: float
     description: >-
@@ -183,11 +165,3 @@ slots:
     required: true
 
 
-  power_set_point_pct:
-    range: float
-    description: >-
-      The power set point in percent.
-    multivalued: false
-    required: true
-
-  # Output key measurements

@@ -536,6 +536,139 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "data_uri",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_uri",
+      "description": "The URI of the object data",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_uri",
+      "owner": "DataReference",
+      "domain_of": [
+        "DataReference"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "omero_host",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_host",
+      "description": "The host of the OMERO server",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_host",
+      "owner": "DataReference",
+      "domain_of": [
+        "DataReference"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "omero_port",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_port",
+      "description": "The port of the OMERO server",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_port",
+      "owner": "DataReference",
+      "domain_of": [
+        "DataReference"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "omero_object_type",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_type",
+      "description": "The type of the OMERO object",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_type",
+      "owner": "DataReference",
+      "domain_of": [
+        "DataReference"
+      ],
+      "range": "OMEROObjectTypeEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "omero_object_id",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_id",
+      "description": "The ID of the OMERO object",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_id",
+      "owner": "DataReference",
+      "domain_of": [
+        "DataReference"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope_type",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope_type",
+      "description": "The type of the microscope",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope_type",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "MicroscopeTypeEnum",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comments",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comments",
+      "description": "A list of comments linked to the microscope",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comments",
+      "range": "Comment",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "preparation_protocol",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/preparation_protocol",
+      "description": "The protocol used to prepare a sample",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/preparation_protocol",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "Protocol",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "data_reference",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_reference",
+      "description": "A reference to the data",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_reference",
+      "owner": "MetricsObject",
+      "domain_of": [
+        "MetricsObject"
+      ],
+      "range": "DataReference",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "linked_references",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/linked_references",
+      "description": "A list of linked references",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/linked_references",
+      "owner": "MetricsObject",
+      "domain_of": [
+        "MetricsObject"
+      ],
+      "range": "DataReference",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "sample",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/sample",
       "description": "The physical sample that was imaged",
@@ -555,6 +688,10 @@
       "description": "The microscope that was used to acquire the dataset",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
       "range": "Microscope",
       "required": true,
       "inlined": true,
@@ -566,6 +703,10 @@
       "description": "The experimenter that performed the imaging experiment",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
       "range": "Experimenter",
       "@type": "SlotDefinition"
     },
@@ -575,7 +716,25 @@
       "description": "The datetime of the acquisition",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "owner": "Image",
+      "domain_of": [
+        "MetricsDataset",
+        "Image"
+      ],
       "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "acquisition_protocol",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_protocol",
+      "description": "The protocol used to acquire the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_protocol",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "Protocol",
       "@type": "SlotDefinition"
     },
     {
@@ -584,6 +743,10 @@
       "description": "The input data for the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
       "range": "MetricsInputData",
       "required": true,
       "inlined": true,
@@ -595,8 +758,27 @@
       "description": "The input parameters for the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
       "range": "MetricsInputParameters",
       "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processed",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processed",
+      "description": "Has the dataset been processed by microscope-metrics",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processed",
+      "ifabsent": "False",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
+      "range": "boolean",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -605,8 +787,520 @@
       "description": "The output of the analysis",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
+      "owner": "MetricsDataset",
+      "domain_of": [
+        "MetricsDataset"
+      ],
       "range": "MetricsOutput",
       "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processing_application",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_application",
+      "description": "The application used to process the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_application",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processing_version",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_version",
+      "description": "The version of the application used to process the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_version",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processing_entity",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_entity",
+      "description": "The entity that processed the dataset",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_entity",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processing_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_datetime",
+      "description": "The datetime of the processing by microscope-metrics",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_datetime",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "datetime",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "processing_log",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_log",
+      "description": "The log of the processing by microscope-metrics",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_log",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "warnings",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/warnings",
+      "description": "The warnings of the processing by microscope-metrics",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/warnings",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "errors",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/errors",
+      "description": "The errors of the processing by microscope-metrics",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/errors",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "string",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "validated",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validated",
+      "description": "Has the dataset been validated by a human",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validated",
+      "ifabsent": "False",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "boolean",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "validation_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validation_datetime",
+      "description": "The datetime of the validation",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validation_datetime",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "voxel_size_x_micron",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_x_micron",
+      "description": "The physical size in the voxel in the x dimension in microns",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_x_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "voxel_size_y_micron",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_y_micron",
+      "description": "The physical size in the voxel in the y dimension in microns",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_y_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "voxel_size_z_micron",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_z_micron",
+      "description": "The physical size in the voxel in the z dimension in microns",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_z_micron",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "shape_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_x",
+      "description": "The shape of an image in the x dimension",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_x",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "shape_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_y",
+      "description": "The shape of an image in the y dimension",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_y",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "shape_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_z",
+      "description": "The shape of an image in the z dimension",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_z",
+      "ifabsent": "int(1)",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "shape_c",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_c",
+      "description": "The shape of an image in the c dimension",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_c",
+      "ifabsent": "int(1)",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "shape_t",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_t",
+      "description": "The shape of an image in the t dimension",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_t",
+      "ifabsent": "int(1)",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "time_series",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_series",
+      "implements": [
+        "linkml:axis0"
+      ],
+      "description": "A series representing time for time-lapse images.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_series",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "TimeSeries",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "channel_series",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series",
+      "implements": [
+        "linkml:axis4"
+      ],
+      "description": "A series representing channels for multi-channel images.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "ChannelSeries",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_images",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_images",
+      "description": "A list of references linking to the images that were used as a source",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_images",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "DataReference",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "array_data",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/array_data",
+      "description": "A non-required slot for non-serializable array data object",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/array_data",
+      "owner": "Image",
+      "domain_of": [
+        "Image"
+      ],
+      "range": "MetaObject",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "table_data",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data",
+      "description": "A non-required slot for non-serializable table data object",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data",
+      "owner": "Table",
+      "domain_of": [
+        "KeyMeasurements",
+        "Table"
+      ],
+      "range": "MetaObject",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
+      "description": "The x coordinate",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
+      "owner": "Mask",
+      "domain_of": [
+        "Point",
+        "Rectangle",
+        "Ellipse",
+        "Vertex",
+        "Mask"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
+      "description": "The y coordinate",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
+      "owner": "Mask",
+      "domain_of": [
+        "Point",
+        "Rectangle",
+        "Ellipse",
+        "Vertex",
+        "Mask"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/z",
+      "description": "The z coordinate",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/z",
+      "owner": "Shape",
+      "domain_of": [
+        "Shape"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "c",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/c",
+      "description": "The c coordinate",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/c",
+      "owner": "Shape",
+      "domain_of": [
+        "Shape"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "t",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/t",
+      "description": "The t coordinate",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/t",
+      "owner": "Shape",
+      "domain_of": [
+        "Shape"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "w",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/w",
+      "description": "The width",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/w",
+      "owner": "Ellipse",
+      "domain_of": [
+        "Rectangle",
+        "Ellipse"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "h",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/h",
+      "description": "The height",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/h",
+      "owner": "Ellipse",
+      "domain_of": [
+        "Rectangle",
+        "Ellipse"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "microscope_collection",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope_collection",
+      "description": "The microscopes of the collection",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope_collection",
+      "owner": "MicroscopeCollection",
+      "domain_of": [
+        "MicroscopeCollection"
+      ],
+      "range": "Microscope",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comment",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment",
+      "description": "A human readable comment",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment",
+      "owner": "MetricsOutput",
+      "domain_of": [
+        "MetricsOutput"
+      ],
+      "range": "Comment",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "comment_collection",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment_collection",
+      "description": "A collection of comments",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment_collection",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "Comment",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "manufacturer",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer",
+      "description": "A manufacturer",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer",
+      "owner": "Sample",
+      "domain_of": [
+        "Microscope",
+        "Sample"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "model",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/model",
+      "description": "The model of a device",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/model",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "serial_number",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/serial_number",
+      "description": "The serial number of a device",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/serial_number",
+      "owner": "Microscope",
+      "domain_of": [
+        "Microscope"
+      ],
+      "range": "string",
       "@type": "SlotDefinition"
     },
     {
@@ -2438,7 +3132,6 @@
       "owner": "PowerSample",
       "domain_of": [
         "LightSourcePowerKeyMeasurements",
-        "SimpleLightSourcePowerKeyMeasurements",
         "PowerSample"
       ],
       "range": "LightSource",
@@ -2490,6 +3183,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "power_set_point_pct",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
+      "description": "The power set point in percent.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "power_mw",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mw",
       "description": "The power measured in milliwatts.",
@@ -2497,7 +3204,6 @@
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mw",
       "owner": "PowerSample",
       "domain_of": [
-        "SimpleLightSourcePowerKeyMeasurements",
         "PowerSample"
       ],
       "range": "float",
@@ -2594,16 +3300,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "power_set_point_pct",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
-      "description": "The power set point in percent.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "user_experiment_images",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/user_experiment_images",
       "description": "The user_experiment images provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
@@ -2681,211 +3377,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "dataReference__data_uri",
-      "description": "The URI of the object data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_uri",
-      "alias": "data_uri",
-      "owner": "DataReference",
-      "domain_of": [
-        "DataReference"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dataReference__omero_host",
-      "description": "The host of the OMERO server",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_host",
-      "alias": "omero_host",
-      "owner": "DataReference",
-      "domain_of": [
-        "DataReference"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dataReference__omero_port",
-      "description": "The port of the OMERO server",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_port",
-      "alias": "omero_port",
-      "owner": "DataReference",
-      "domain_of": [
-        "DataReference"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dataReference__omero_object_type",
-      "description": "The type of the OMERO object",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_type",
-      "alias": "omero_object_type",
-      "owner": "DataReference",
-      "domain_of": [
-        "DataReference"
-      ],
-      "range": "OMEROObjectTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "dataReference__omero_object_id",
-      "description": "The ID of the OMERO object",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/omero_object_id",
-      "alias": "omero_object_id",
-      "owner": "DataReference",
-      "domain_of": [
-        "DataReference"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsObject__data_reference",
-      "description": "A reference to the data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/data_reference",
-      "alias": "data_reference",
-      "owner": "MetricsObject",
-      "domain_of": [
-        "MetricsObject"
-      ],
-      "range": "DataReference",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsObject__linked_references",
-      "description": "A list of linked references",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/linked_references",
-      "alias": "linked_references",
-      "owner": "MetricsObject",
-      "domain_of": [
-        "MetricsObject"
-      ],
-      "range": "DataReference",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscopeCollection__microscopes",
-      "description": "The microscopes of the collection",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscopes",
-      "alias": "microscopes",
-      "owner": "MicroscopeCollection",
-      "domain_of": [
-        "MicroscopeCollection"
-      ],
-      "range": "Microscope",
-      "required": true,
-      "multivalued": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscope__type",
-      "description": "The type of the microscope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/type",
-      "alias": "type",
-      "owner": "Microscope",
-      "domain_of": [
-        "Microscope"
-      ],
-      "range": "MicroscopeTypeEnum",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscope__manufacturer",
-      "description": "The manufacturer of the microscope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer",
-      "alias": "manufacturer",
-      "owner": "Microscope",
-      "domain_of": [
-        "Microscope"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscope__model",
-      "description": "The model of the microscope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/model",
-      "alias": "model",
-      "owner": "Microscope",
-      "domain_of": [
-        "Microscope"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscope__serial_number",
-      "description": "The serial number of the microscope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/serial_number",
-      "alias": "serial_number",
-      "owner": "Microscope",
-      "domain_of": [
-        "Microscope"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "microscope__comments",
-      "description": "A list of comments linked to the microscope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comments",
-      "alias": "comments",
-      "owner": "Microscope",
-      "domain_of": [
-        "Microscope"
-      ],
-      "range": "Comment",
-      "multivalued": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sample__protocol",
-      "description": "The protocol used to prepare the sample",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/protocol",
-      "alias": "protocol",
-      "owner": "Sample",
-      "domain_of": [
-        "Sample"
-      ],
-      "range": "Protocol",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "sample__manufacturer",
-      "description": "The manufacturer of the beads.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/manufacturer",
-      "alias": "manufacturer",
-      "owner": "Sample",
-      "domain_of": [
-        "Sample"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "protocol__version",
       "description": "The version of the protocol",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -2923,20 +3414,6 @@
       "owner": "Protocol",
       "domain_of": [
         "Protocol"
-      ],
-      "range": "string",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "experimenter__name",
-      "description": "The name of the experimenter",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/name",
-      "alias": "name",
-      "owner": "Experimenter",
-      "domain_of": [
-        "Experimenter"
       ],
       "range": "string",
       "required": true,
@@ -3013,11 +3490,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "metricsDatasetCollection__datasets",
+      "name": "metricsDatasetCollection__dataset_collection",
       "description": "The datasets of the collection",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/datasets",
-      "alias": "datasets",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/dataset_collection",
+      "alias": "dataset_collection",
       "owner": "MetricsDatasetCollection",
       "domain_of": [
         "MetricsDatasetCollection"
@@ -3040,435 +3517,6 @@
       ],
       "range": "string",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__microscope",
-      "description": "The microscope that was used to acquire the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/microscope",
-      "alias": "microscope",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "Microscope",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__experimenter",
-      "description": "The experimenter that performed the imaging experiment",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/experimenter",
-      "alias": "experimenter",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "Experimenter",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__acquisition_datetime",
-      "description": "The datetime of the acquisition",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
-      "alias": "acquisition_datetime",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "datetime",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__processed",
-      "description": "Has the dataset been processed by microscope-metrics",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processed",
-      "ifabsent": "False",
-      "alias": "processed",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "boolean",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__input_data",
-      "description": "The input data for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_data",
-      "alias": "input_data",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsInputData",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__input_parameters",
-      "description": "The input parameters for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/input_parameters",
-      "alias": "input_parameters",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsInputParameters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsDataset__output",
-      "description": "The output of the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/output",
-      "alias": "output",
-      "owner": "MetricsDataset",
-      "domain_of": [
-        "MetricsDataset"
-      ],
-      "range": "MetricsOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__processing_application",
-      "description": "The application used to process the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_application",
-      "alias": "processing_application",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "required": true,
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__processing_version",
-      "description": "The version of the application used to process the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_version",
-      "alias": "processing_version",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "required": true,
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__processing_entity",
-      "description": "The entity that processed the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_entity",
-      "alias": "processing_entity",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__processing_datetime",
-      "description": "The datetime of the processing by microscope-metrics",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_datetime",
-      "alias": "processing_datetime",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "datetime",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__processing_log",
-      "description": "The log of the processing by microscope-metrics",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/processing_log",
-      "alias": "processing_log",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__warnings",
-      "description": "The warnings of the processing by microscope-metrics",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/warnings",
-      "alias": "warnings",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__errors",
-      "description": "The errors of the processing by microscope-metrics",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/errors",
-      "alias": "errors",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "string",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__validated",
-      "description": "Has the dataset been validated by a human",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validated",
-      "ifabsent": "False",
-      "alias": "validated",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "boolean",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__validation_datetime",
-      "description": "The datetime of the validation",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/validation_datetime",
-      "alias": "validation_datetime",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "datetime",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "metricsOutput__comment",
-      "description": "A human readable comment about the dataset",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/comment",
-      "alias": "comment",
-      "owner": "MetricsOutput",
-      "domain_of": [
-        "MetricsOutput"
-      ],
-      "range": "Comment",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__voxel_size_x_micron",
-      "description": "The physical size in the voxel in the x dimension in microns",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_x_micron",
-      "alias": "voxel_size_x_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__voxel_size_y_micron",
-      "description": "The physical size in the voxel in the y dimension in microns",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_y_micron",
-      "alias": "voxel_size_y_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__voxel_size_z_micron",
-      "description": "The physical size in the voxel in the z dimension in microns",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/voxel_size_z_micron",
-      "alias": "voxel_size_z_micron",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__shape_x",
-      "description": "The shape of the image in the x dimension",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_x",
-      "alias": "shape_x",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__shape_y",
-      "description": "The shape of the image in the y dimension",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_y",
-      "alias": "shape_y",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__shape_z",
-      "description": "The shape of the image in the z dimension",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_z",
-      "ifabsent": "int(1)",
-      "alias": "shape_z",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__shape_c",
-      "description": "The shape of the image in the c dimension",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_c",
-      "ifabsent": "int(1)",
-      "alias": "shape_c",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__shape_t",
-      "description": "The shape of the image in the t dimension",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/shape_t",
-      "ifabsent": "int(1)",
-      "alias": "shape_t",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__time_series",
-      "implements": [
-        "linkml:axis0"
-      ],
-      "description": "A series representing time for time-lapse images.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_series",
-      "alias": "time_series",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "TimeSeries",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__channel_series",
-      "implements": [
-        "linkml:axis4"
-      ],
-      "description": "A series representing channels for multi-channel images.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_series",
-      "alias": "channel_series",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "ChannelSeries",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__acquisition_datetime",
-      "description": "The datetime of the acquisition",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
-      "alias": "acquisition_datetime",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "datetime",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__source_images",
-      "description": "A list of references linking to the images that were used as a source",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/source_images",
-      "alias": "source_images",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "DataReference",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "image__array_data",
-      "description": "A non-required slot for non-serializable array data object",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/array_data",
-      "alias": "array_data",
-      "owner": "Image",
-      "domain_of": [
-        "Image"
-      ],
-      "range": "MetaObject",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3520,14 +3568,14 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "timeSeries__values",
+      "name": "timeSeries__time_points_sec",
       "implements": [
         "linkml:elements"
       ],
-      "description": "The values of the TimeSeries in seconds",
+      "description": "The relative times at which the time series were acquired in seconds",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/values",
-      "alias": "values",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/time_points_sec",
+      "alias": "time_points_sec",
       "owner": "TimeSeries",
       "domain_of": [
         "TimeSeries"
@@ -3681,45 +3729,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "shape__z",
-      "description": "The z coordinate of the shape",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/z",
-      "alias": "z",
-      "owner": "Shape",
-      "domain_of": [
-        "Shape"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape__c",
-      "description": "The c coordinate of the shape",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/c",
-      "alias": "c",
-      "owner": "Shape",
-      "domain_of": [
-        "Shape"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "shape__t",
-      "description": "The t coordinate of the shape",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/t",
-      "alias": "t",
-      "owner": "Shape",
-      "domain_of": [
-        "Shape"
-      ],
-      "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "shape__fill_color",
       "description": "The fill color of the shape",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -3759,34 +3768,6 @@
         "Shape"
       ],
       "range": "integer",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "point__y",
-      "description": "The y coordinate of the point",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
-      "alias": "y",
-      "owner": "Point",
-      "domain_of": [
-        "Point"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "point__x",
-      "description": "The x coordinate of the point",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
-      "alias": "x",
-      "owner": "Point",
-      "domain_of": [
-        "Point"
-      ],
-      "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3846,118 +3827,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "rectangle__x",
-      "description": "The x coordinate of the top left corner of the rectangle",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
-      "alias": "x",
-      "owner": "Rectangle",
-      "domain_of": [
-        "Rectangle"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "rectangle__y",
-      "description": "The y coordinate of the top left corner of the rectangle",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
-      "alias": "y",
-      "owner": "Rectangle",
-      "domain_of": [
-        "Rectangle"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "rectangle__w",
-      "description": "The width of the rectangle",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/w",
-      "alias": "w",
-      "owner": "Rectangle",
-      "domain_of": [
-        "Rectangle"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "rectangle__h",
-      "description": "The height of the rectangle",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/h",
-      "alias": "h",
-      "owner": "Rectangle",
-      "domain_of": [
-        "Rectangle"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ellipse__x",
-      "description": "The x coordinate of the bounding box of the ellipse",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
-      "alias": "x",
-      "owner": "Ellipse",
-      "domain_of": [
-        "Ellipse"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ellipse__y",
-      "description": "The y coordinate of the bounding box of the ellipse",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
-      "alias": "y",
-      "owner": "Ellipse",
-      "domain_of": [
-        "Ellipse"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ellipse__x_rad",
-      "description": "The x radius of the ellipse",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x_rad",
-      "alias": "x_rad",
-      "owner": "Ellipse",
-      "domain_of": [
-        "Ellipse"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "ellipse__y_rad",
-      "description": "The y radius of the ellipse",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y_rad",
-      "alias": "y_rad",
-      "owner": "Ellipse",
-      "domain_of": [
-        "Ellipse"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "polygon__vertexes",
       "description": "A list of vertexes defining the polygon",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -3985,64 +3854,6 @@
         "Polygon"
       ],
       "range": "boolean",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "vertex__x",
-      "description": "The x coordinate of the vertex",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
-      "alias": "x",
-      "owner": "Vertex",
-      "domain_of": [
-        "Vertex"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "vertex__y",
-      "description": "The y coordinate of the vertex",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
-      "alias": "y",
-      "owner": "Vertex",
-      "domain_of": [
-        "Vertex"
-      ],
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mask__y",
-      "description": "The y coordinate of the top left corner of the mask",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/y",
-      "ifabsent": "int(0)",
-      "alias": "y",
-      "owner": "Mask",
-      "domain_of": [
-        "Mask"
-      ],
-      "range": "integer",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "mask__x",
-      "description": "The x coordinate of the top left corner of the mask",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/x",
-      "ifabsent": "int(0)",
-      "alias": "x",
-      "owner": "Mask",
-      "domain_of": [
-        "Mask"
-      ],
-      "range": "integer",
       "required": true,
       "@type": "SlotDefinition"
     },
@@ -4156,20 +3967,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "keyMeasurements__table_data",
-      "description": "A non-required slot for non-serializable table data object",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data",
-      "alias": "table_data",
-      "owner": "KeyMeasurements",
-      "domain_of": [
-        "KeyMeasurements"
-      ],
-      "range": "MetaObject",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "tag__description",
       "description": "The description of the tag",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
@@ -4200,20 +3997,6 @@
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "table__table_data",
-      "description": "A non-required slot for non-serializable table data object",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data",
-      "alias": "table_data",
-      "owner": "Table",
-      "domain_of": [
-        "Table"
-      ],
-      "range": "MetaObject",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4713,45 +4496,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "simpleLightSourcePowerDataset__input_data",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/input_data",
-      "alias": "input_data",
-      "owner": "SimpleLightSourcePowerDataset",
-      "domain_of": [
-        "SimpleLightSourcePowerDataset"
-      ],
-      "range": "LightSourcePowerInputData",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "simpleLightSourcePowerDataset__input_parameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/input_parameters",
-      "alias": "input_parameters",
-      "owner": "SimpleLightSourcePowerDataset",
-      "domain_of": [
-        "SimpleLightSourcePowerDataset"
-      ],
-      "range": "LightSourcePowerInputParameters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "simpleLightSourcePowerDataset__output",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/output",
-      "alias": "output",
-      "owner": "SimpleLightSourcePowerDataset",
-      "domain_of": [
-        "SimpleLightSourcePowerDataset"
-      ],
-      "range": "SimpleLightSourcePowerOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "lightSourcePowerOutput__key_measurements",
       "description": "Key-Value measurements for the power measurements.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
@@ -4762,20 +4506,6 @@
         "LightSourcePowerOutput"
       ],
       "range": "LightSourcePowerKeyMeasurements",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "simpleLightSourcePowerOutput__key_measurements",
-      "description": "Key-Value measurements for simple power measurements.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/key_measurements",
-      "alias": "key_measurements",
-      "owner": "SimpleLightSourcePowerOutput",
-      "domain_of": [
-        "SimpleLightSourcePowerOutput"
-      ],
-      "range": "SimpleLightSourcePowerKeyMeasurements",
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -5066,45 +4796,13 @@
       "description": "A reference to a data resource",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slots": [
-        "dataReference__data_uri",
-        "dataReference__omero_host",
-        "dataReference__omero_port",
-        "dataReference__omero_object_type",
-        "dataReference__omero_object_id"
+        "data_uri",
+        "omero_host",
+        "omero_port",
+        "omero_object_type",
+        "omero_object_id"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "data_uri",
-          "description": "The URI of the object data",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "omero_host",
-          "description": "The host of the OMERO server",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "omero_port",
-          "description": "The port of the OMERO server",
-          "range": "integer",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "omero_object_type",
-          "description": "The type of the OMERO object",
-          "range": "OMEROObjectTypeEnum",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "omero_object_id",
-          "description": "The ID of the OMERO object",
-          "range": "integer",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/DataReference",
       "unique_keys": [
         {
@@ -5130,27 +4828,10 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references"
+        "data_reference",
+        "linked_references"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "data_reference",
-          "description": "A reference to the data",
-          "range": "DataReference",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "linked_references",
-          "description": "A list of linked references",
-          "range": "DataReference",
-          "multivalued": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject",
       "@type": "ClassDefinition"
     },
@@ -5160,19 +4841,9 @@
       "description": "A collection of microscopes",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slots": [
-        "microscopeCollection__microscopes"
+        "microscope_collection"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "microscopes",
-          "description": "The microscopes of the collection",
-          "range": "Microscope",
-          "required": true,
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MicroscopeCollection",
       "@type": "ClassDefinition"
     },
@@ -5185,48 +4856,15 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "microscope__type",
-        "microscope__manufacturer",
-        "microscope__model",
-        "microscope__serial_number",
-        "microscope__comments"
+        "data_reference",
+        "linked_references",
+        "microscope_type",
+        "manufacturer",
+        "model",
+        "serial_number",
+        "comment_collection"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "type",
-          "description": "The type of the microscope",
-          "range": "MicroscopeTypeEnum",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "manufacturer",
-          "description": "The manufacturer of the microscope",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "model",
-          "description": "The model of the microscope",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "serial_number",
-          "description": "The serial number of the microscope",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "comments",
-          "description": "A list of comments linked to the microscope",
-          "range": "Comment",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Microscope",
       "@type": "ClassDefinition"
     },
@@ -5240,32 +4878,17 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "protocol",
-          "description": "The protocol used to prepare the sample",
-          "range": "Protocol",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "manufacturer",
-          "description": "The manufacturer of the beads.",
-          "range": "string",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Sample",
       "@type": "ClassDefinition"
     },
     {
       "name": "Protocol",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Protocol",
-      "description": "Set of instructions for preparing and imaging a sample",
+      "description": "Set of instructions for preparing a sample or acquiring data",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "NamedObject",
       "slots": [
@@ -5310,21 +4933,14 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "is_a": "MetricsObject",
       "slots": [
+        "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "experimenter__name",
+        "data_reference",
+        "linked_references",
         "experimenter__orcid"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "name",
-          "description": "The name of the experimenter",
-          "range": "string",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "orcid",
           "description": "The ORCID of the experimenter",
@@ -5345,8 +4961,8 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
         "comment__datetime",
         "comment__author",
         "comment__comment_type",
@@ -5394,14 +5010,14 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "metricsDatasetCollection__datasets"
+        "data_reference",
+        "linked_references",
+        "metricsDatasetCollection__dataset_collection"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "datasets",
+          "name": "dataset_collection",
           "description": "The datasets of the collection",
           "range": "MetricsDataset",
           "multivalued": true,
@@ -5422,9 +5038,9 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "metricsDatasetCollection__datasets",
+        "data_reference",
+        "linked_references",
+        "metricsDatasetCollection__dataset_collection",
         "harmonizedMetricsDatasetCollection__dataset_class"
       ],
       "slot_usage": {},
@@ -5450,66 +5066,19 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
+        "microscope",
+        "experimenter",
         "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
-        "metricsDataset__input_data",
-        "metricsDataset__input_parameters",
-        "metricsDataset__output"
+        "acquisition_datetime",
+        "acquisition_protocol",
+        "input_data",
+        "input_parameters",
+        "processed",
+        "output"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "microscope",
-          "description": "The microscope that was used to acquire the dataset",
-          "range": "Microscope",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "experimenter",
-          "description": "The experimenter that performed the imaging experiment",
-          "range": "Experimenter",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "acquisition_datetime",
-          "description": "The datetime of the acquisition",
-          "range": "datetime",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "processed",
-          "description": "Has the dataset been processed by microscope-metrics",
-          "ifabsent": "False",
-          "range": "boolean",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_data",
-          "description": "The input data for the analysis",
-          "range": "MetricsInputData",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_parameters",
-          "description": "The input parameters for the analysis",
-          "range": "MetricsInputParameters",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "output",
-          "description": "The output of the analysis",
-          "range": "MetricsOutput",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset",
       "tree_root": true,
       "rules": [
@@ -5566,90 +5135,18 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "abstract": true,
       "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment"
+        "processing_application",
+        "processing_version",
+        "processing_entity",
+        "processing_datetime",
+        "processing_log",
+        "warnings",
+        "errors",
+        "validated",
+        "validation_datetime",
+        "comment"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "processing_application",
-          "description": "The application used to process the dataset",
-          "range": "string",
-          "required": true,
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "processing_version",
-          "description": "The version of the application used to process the dataset",
-          "range": "string",
-          "required": true,
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "processing_entity",
-          "description": "The entity that processed the dataset",
-          "range": "string",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "processing_datetime",
-          "description": "The datetime of the processing by microscope-metrics",
-          "range": "datetime",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "processing_log",
-          "description": "The log of the processing by microscope-metrics",
-          "range": "string",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "warnings",
-          "description": "The warnings of the processing by microscope-metrics",
-          "range": "string",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "errors",
-          "description": "The errors of the processing by microscope-metrics",
-          "range": "string",
-          "multivalued": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "validated",
-          "description": "Has the dataset been validated by a human",
-          "ifabsent": "False",
-          "range": "boolean",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "validation_datetime",
-          "description": "The datetime of the validation",
-          "range": "datetime",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "comment",
-          "description": "A human readable comment about the dataset",
-          "range": "Comment",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsOutput",
       "@type": "ClassDefinition"
     },
@@ -5662,120 +5159,23 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "image__voxel_size_x_micron",
-        "image__voxel_size_y_micron",
-        "image__voxel_size_z_micron",
-        "image__shape_x",
-        "image__shape_y",
-        "image__shape_z",
-        "image__shape_c",
-        "image__shape_t",
-        "image__time_series",
-        "image__channel_series",
-        "image__acquisition_datetime",
-        "image__source_images",
-        "image__array_data"
+        "data_reference",
+        "linked_references",
+        "acquisition_datetime",
+        "voxel_size_x_micron",
+        "voxel_size_y_micron",
+        "voxel_size_z_micron",
+        "shape_x",
+        "shape_y",
+        "shape_z",
+        "shape_c",
+        "shape_t",
+        "time_series",
+        "channel_series",
+        "source_images",
+        "array_data"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "voxel_size_x_micron",
-          "description": "The physical size in the voxel in the x dimension in microns",
-          "range": "float",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "voxel_size_y_micron",
-          "description": "The physical size in the voxel in the y dimension in microns",
-          "range": "float",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "voxel_size_z_micron",
-          "description": "The physical size in the voxel in the z dimension in microns",
-          "range": "float",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shape_x",
-          "description": "The shape of the image in the x dimension",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shape_y",
-          "description": "The shape of the image in the y dimension",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shape_z",
-          "description": "The shape of the image in the z dimension",
-          "ifabsent": "int(1)",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shape_c",
-          "description": "The shape of the image in the c dimension",
-          "ifabsent": "int(1)",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "shape_t",
-          "description": "The shape of the image in the t dimension",
-          "ifabsent": "int(1)",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "time_series",
-          "implements": [
-            "linkml:axis0"
-          ],
-          "description": "A series representing time for time-lapse images.",
-          "range": "TimeSeries",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "channel_series",
-          "implements": [
-            "linkml:axis4"
-          ],
-          "description": "A series representing channels for multi-channel images.",
-          "range": "ChannelSeries",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "acquisition_datetime",
-          "description": "The datetime of the acquisition",
-          "range": "datetime",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "source_images",
-          "description": "A list of references linking to the images that were used as a source",
-          "range": "DataReference",
-          "multivalued": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "array_data",
-          "description": "A non-required slot for non-serializable array data object",
-          "range": "MetaObject",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image",
       "@type": "ClassDefinition"
     },
@@ -5788,21 +5188,21 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "image__voxel_size_x_micron",
-        "image__voxel_size_y_micron",
-        "image__voxel_size_z_micron",
-        "image__shape_x",
-        "image__shape_y",
-        "image__shape_z",
-        "image__shape_c",
-        "image__shape_t",
-        "image__time_series",
-        "image__channel_series",
-        "image__acquisition_datetime",
-        "image__source_images",
-        "image__array_data"
+        "data_reference",
+        "linked_references",
+        "acquisition_datetime",
+        "voxel_size_x_micron",
+        "voxel_size_y_micron",
+        "voxel_size_z_micron",
+        "shape_x",
+        "shape_y",
+        "shape_z",
+        "shape_c",
+        "shape_t",
+        "time_series",
+        "channel_series",
+        "source_images",
+        "array_data"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/ImageMask",
@@ -5817,21 +5217,21 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "image__voxel_size_x_micron",
-        "image__voxel_size_y_micron",
-        "image__voxel_size_z_micron",
-        "image__shape_x",
-        "image__shape_y",
-        "image__shape_z",
-        "image__shape_c",
-        "image__shape_t",
-        "image__time_series",
-        "image__channel_series",
-        "image__acquisition_datetime",
-        "image__source_images",
-        "image__array_data",
+        "data_reference",
+        "linked_references",
+        "acquisition_datetime",
+        "voxel_size_x_micron",
+        "voxel_size_y_micron",
+        "voxel_size_z_micron",
+        "shape_x",
+        "shape_y",
+        "shape_z",
+        "shape_c",
+        "shape_t",
+        "time_series",
+        "channel_series",
+        "source_images",
+        "array_data",
         "orthogonalImage__source_roi",
         "orthogonalImage__axis"
       ],
@@ -5892,8 +5292,8 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
         "excitation_wavelength_nm",
         "emission_wavelength_nm"
       ],
@@ -5910,16 +5310,16 @@
       "description": "A series whose values represent time",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slots": [
-        "timeSeries__values"
+        "timeSeries__time_points_sec"
       ],
       "slot_usage": {},
       "attributes": [
         {
-          "name": "values",
+          "name": "time_points_sec",
           "implements": [
             "linkml:elements"
           ],
-          "description": "The values of the TimeSeries in seconds",
+          "description": "The relative times at which the time series were acquired in seconds",
           "range": "float",
           "required": true,
           "multivalued": true,
@@ -5982,8 +5382,8 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
         "roi__points",
         "roi__lines",
         "roi__rectangles",
@@ -6061,33 +5461,15 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "z",
-          "description": "The z coordinate of the shape",
-          "range": "float",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "c",
-          "description": "The c coordinate of the shape",
-          "range": "integer",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "t",
-          "description": "The t coordinate of the shape",
-          "range": "integer",
-          "@type": "SlotDefinition"
-        },
         {
           "name": "fill_color",
           "description": "The fill color of the shape",
@@ -6120,32 +5502,16 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
-        "point__y",
-        "point__x"
+        "x",
+        "y"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "y",
-          "description": "The y coordinate of the point",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "x",
-          "description": "The x coordinate of the point",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Point",
       "@type": "ClassDefinition"
     },
@@ -6158,9 +5524,9 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
@@ -6212,48 +5578,18 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
-        "rectangle__x",
-        "rectangle__y",
-        "rectangle__w",
-        "rectangle__h"
+        "x",
+        "y",
+        "w",
+        "h"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "x",
-          "description": "The x coordinate of the top left corner of the rectangle",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "y",
-          "description": "The y coordinate of the top left corner of the rectangle",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "w",
-          "description": "The width of the rectangle",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "h",
-          "description": "The height of the rectangle",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Rectangle",
       "@type": "ClassDefinition"
     },
@@ -6266,48 +5602,18 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
-        "ellipse__x",
-        "ellipse__y",
-        "ellipse__x_rad",
-        "ellipse__y_rad"
+        "x",
+        "y",
+        "w",
+        "h"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "x",
-          "description": "The x coordinate of the bounding box of the ellipse",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "y",
-          "description": "The y coordinate of the bounding box of the ellipse",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "x_rad",
-          "description": "The x radius of the ellipse",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "y_rad",
-          "description": "The y radius of the ellipse",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Ellipse",
       "@type": "ClassDefinition"
     },
@@ -6320,9 +5626,9 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
@@ -6357,26 +5663,10 @@
       "description": "A vertex as defined by x and y coordinates",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slots": [
-        "vertex__x",
-        "vertex__y"
+        "x",
+        "y"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "x",
-          "description": "The x coordinate of the vertex",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "y",
-          "description": "The y coordinate of the vertex",
-          "range": "float",
-          "required": true,
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Vertex",
       "@type": "ClassDefinition"
     },
@@ -6389,34 +5679,18 @@
       "slots": [
         "name",
         "description",
-        "shape__z",
-        "shape__c",
-        "shape__t",
+        "z",
+        "c",
+        "t",
         "shape__fill_color",
         "shape__stroke_color",
         "shape__stroke_width",
-        "mask__y",
-        "mask__x",
+        "x",
+        "y",
         "mask__mask"
       ],
       "slot_usage": {},
       "attributes": [
-        {
-          "name": "y",
-          "description": "The y coordinate of the top left corner of the mask",
-          "ifabsent": "int(0)",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "x",
-          "description": "The x coordinate of the top left corner of the mask",
-          "ifabsent": "int(0)",
-          "range": "integer",
-          "required": true,
-          "@type": "SlotDefinition"
-        },
         {
           "name": "mask",
           "description": "The mask image",
@@ -6575,8 +5849,8 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references"
+        "data_reference",
+        "linked_references"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues",
@@ -6592,19 +5866,11 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data"
+        "data_reference",
+        "linked_references",
+        "table_data"
       ],
       "slot_usage": {},
-      "attributes": [
-        {
-          "name": "table_data",
-          "description": "A non-required slot for non-serializable table data object",
-          "range": "MetaObject",
-          "@type": "SlotDefinition"
-        }
-      ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements",
       "@type": "ClassDefinition"
     },
@@ -6616,8 +5882,8 @@
       "is_a": "MetricsObject",
       "abstract": true,
       "slots": [
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
         "tag__description",
         "Tag_name"
       ],
@@ -6643,10 +5909,10 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "table__columns",
-        "table__table_data"
+        "data_reference",
+        "linked_references",
+        "table_data",
+        "table__columns"
       ],
       "slot_usage": {},
       "attributes": [
@@ -6662,12 +5928,6 @@
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
-        },
-        {
-          "name": "table_data",
-          "description": "A non-required slot for non-serializable table data object",
-          "range": "MetaObject",
-          "@type": "SlotDefinition"
         }
       ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table",
@@ -6682,12 +5942,13 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
+        "data_reference",
+        "linked_references",
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
+        "acquisition_protocol",
+        "processed",
         "fieldIlluminationDataset__input_data",
         "fieldIlluminationDataset__input_parameters",
         "fieldIlluminationDataset__output",
@@ -6752,16 +6013,16 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination",
       "is_a": "MetricsOutput",
       "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
+        "processing_application",
+        "processing_version",
+        "processing_entity",
+        "processing_datetime",
+        "processing_log",
+        "warnings",
+        "errors",
+        "validated",
+        "validation_datetime",
+        "comment",
         "fieldIlluminationOutput__key_measurements",
         "fieldIlluminationOutput__intensity_profiles",
         "fieldIlluminationOutput__roi_profiles",
@@ -6850,9 +6111,9 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data",
+        "data_reference",
+        "linked_references",
+        "table_data",
         "image_name",
         "image_id",
         "channel_name",
@@ -6913,12 +6174,13 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
+        "data_reference",
+        "linked_references",
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
+        "acquisition_protocol",
+        "processed",
         "pSFBeadsDataset__input_data",
         "pSFBeadsDataset__input_parameters",
         "pSFBeadsDataset__output",
@@ -6988,16 +6250,16 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "is_a": "MetricsOutput",
       "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
+        "processing_application",
+        "processing_version",
+        "processing_entity",
+        "processing_datetime",
+        "processing_log",
+        "warnings",
+        "errors",
+        "validated",
+        "validation_datetime",
+        "comment",
         "pSFBeadsOutput__analyzed_bead_centers",
         "pSFBeadsOutput__considered_bead_centers_lateral_edge",
         "pSFBeadsOutput__considered_bead_centers_self_proximity",
@@ -7147,9 +6409,9 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data",
+        "data_reference",
+        "linked_references",
+        "table_data",
         "channel_name",
         "channel_nr",
         "considered_valid_count",
@@ -7230,13 +6492,14 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
+        "data_reference",
+        "linked_references",
+        "microscope",
+        "experimenter",
         "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
+        "acquisition_datetime",
+        "acquisition_protocol",
+        "processed",
         "lightSourcePowerDataset__input_data",
         "lightSourcePowerDataset__input_parameters",
         "lightSourcePowerDataset__output"
@@ -7260,47 +6523,6 @@
         }
       ],
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerDataset",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "SimpleLightSourcePowerDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerDataset",
-      "description": "A simple power measurements dataset containing only one power sample per light source.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "LightSourcePowerDataset",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "sample",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
-        "simpleLightSourcePowerDataset__input_data",
-        "simpleLightSourcePowerDataset__input_parameters",
-        "simpleLightSourcePowerDataset__output"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "input_data",
-          "range": "LightSourcePowerInputData",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "input_parameters",
-          "range": "LightSourcePowerInputParameters",
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "output",
-          "range": "SimpleLightSourcePowerOutput",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerDataset",
       "@type": "ClassDefinition"
     },
     {
@@ -7331,16 +6553,16 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "is_a": "MetricsOutput",
       "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
+        "processing_application",
+        "processing_version",
+        "processing_entity",
+        "processing_datetime",
+        "processing_log",
+        "warnings",
+        "errors",
+        "validated",
+        "validation_datetime",
+        "comment",
         "lightSourcePowerOutput__key_measurements"
       ],
       "slot_usage": {},
@@ -7356,36 +6578,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "SimpleLightSourcePowerOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "MetricsOutput",
-      "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
-        "simpleLightSourcePowerOutput__key_measurements"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "key_measurements",
-          "description": "Key-Value measurements for simple power measurements.",
-          "range": "SimpleLightSourcePowerKeyMeasurements",
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerOutput",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "LightSourcePowerKeyMeasurements",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerKeyMeasurements",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
@@ -7393,10 +6585,11 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data",
+        "data_reference",
+        "linked_references",
+        "table_data",
         "light_source",
+        "power_set_point_pct",
         "power_mean_mw",
         "power_median_mw",
         "power_std_mw",
@@ -7406,24 +6599,6 @@
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerKeyMeasurements",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "SimpleLightSourcePowerKeyMeasurements",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerKeyMeasurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "KeyMeasurements",
-      "slots": [
-        "name",
-        "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data",
-        "light_source",
-        "power_mw"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SimpleLightSourcePowerKeyMeasurements",
       "@type": "ClassDefinition"
     },
     {
@@ -7488,12 +6663,13 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_datetime",
-        "metricsDataset__processed",
+        "data_reference",
+        "linked_references",
+        "microscope",
+        "experimenter",
+        "acquisition_datetime",
+        "acquisition_protocol",
+        "processed",
         "userExperimentDataset__input_data",
         "userExperimentDataset__input_parameters",
         "userExperimentDataset__output",
@@ -7558,16 +6734,16 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
       "is_a": "MetricsOutput",
       "slots": [
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "metricsOutput__comment",
+        "processing_application",
+        "processing_version",
+        "processing_entity",
+        "processing_datetime",
+        "processing_log",
+        "warnings",
+        "errors",
+        "validated",
+        "validation_datetime",
+        "comment",
         "userExperimentOutput__intensity_profiles",
         "userExperimentOutput__orthogonal_images",
         "userExperimentOutput__fft_images",
@@ -7622,9 +6798,9 @@
       "slots": [
         "name",
         "description",
-        "metricsObject__data_reference",
-        "metricsObject__linked_references",
-        "keyMeasurements__table_data",
+        "data_reference",
+        "linked_references",
+        "table_data",
         "channel_name",
         "channel_nr",
         "variation_coefficient",
@@ -7644,8 +6820,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
@@ -7660,8 +6836,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThickField",
@@ -7676,8 +6852,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField",
@@ -7692,8 +6868,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer",
+        "preparation_protocol",
+        "manufacturer",
         "pSFBeads__bead_diameter_micron"
       ],
       "slot_usage": {},
@@ -7718,8 +6894,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/light_source_power/LightSourcePower",
@@ -7734,8 +6910,8 @@
       "slots": [
         "name",
         "description",
-        "sample__protocol",
-        "sample__manufacturer"
+        "preparation_protocol",
+        "manufacturer"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_experiment/UserExperiment",
@@ -7744,9 +6920,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-03-06T19:45:10",
+  "source_file_date": "2025-03-10T11:12:14",
   "source_file_size": 982,
-  "generation_date": "2025-03-09T22:32:23",
+  "generation_date": "2025-03-10T13:52:03",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

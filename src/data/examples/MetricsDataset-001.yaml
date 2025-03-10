@@ -5,15 +5,14 @@ data_reference:
 microscope:
   name: "My microscope"
   description: "A nice microscope"
-  type: "SIM3D"
+  microscope_type: "SIM3D"
   manufacturer: "Applied Precision"
   model: "OMX-V4"
   serial_number: "654321"
 sample:
   name: "ExampleSample"
-  protocol:
+  preparation_protocol:
     name: "ExampleProtocol"
-    type: "Protocol"
     version: "1.0"
     authors:
       - name: "John Doe"

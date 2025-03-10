@@ -11,9 +11,8 @@ microscope:
 sample:
   name: Chroma slides
   description: The old chroma slides
-  protocol:
+  preparation_protocol:
     name: "ExampleProtocol"
-    type: "Protocol"
     version: "1.0"
     authors:
       - name: "John Doe"
