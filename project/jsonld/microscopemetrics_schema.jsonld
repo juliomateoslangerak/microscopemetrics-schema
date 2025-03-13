@@ -2211,6 +2211,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "total_bead_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/total_bead_count",
+      "description": "Total number of beads detected in the image. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/total_bead_count",
+      "owner": "PSFBeadsKeyMeasurements",
+      "domain_of": [
+        "PSFBeadsKeyMeasurements"
+      ],
+      "range": "integer",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "considered_valid_count",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_valid_count",
       "description": "Number of beads analyzed. One value per channel.",
@@ -6414,6 +6428,7 @@
         "table_data",
         "channel_name",
         "channel_nr",
+        "total_bead_count",
         "considered_valid_count",
         "considered_self_proximity_count",
         "considered_lateral_edge_count",
@@ -6922,7 +6937,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-03-06T19:45:10",
   "source_file_size": 982,
-  "generation_date": "2025-03-13T19:58:50",
+  "generation_date": "2025-03-13T20:04:17",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

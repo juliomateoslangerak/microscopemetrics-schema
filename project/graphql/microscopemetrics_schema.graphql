@@ -614,6 +614,7 @@ type PSFBeadsKeyMeasurements
     tableData: MetaObject
     channelName: [String]
     channelNr: [Integer]
+    totalBeadCount: [Integer]
     consideredValidCount: [Integer]
     consideredSelfProximityCount: [Integer]
     consideredLateralEdgeCount: [Integer]

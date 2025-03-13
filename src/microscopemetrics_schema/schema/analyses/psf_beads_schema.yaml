@@ -205,6 +205,7 @@ classes:
     slots:
       - channel_name
       - channel_nr
+      - total_bead_count
       - considered_valid_count
       - considered_self_proximity_count
       - considered_lateral_edge_count
@@ -312,6 +313,11 @@ slots:
 
 
   # Outputs
+  total_bead_count:
+    range: integer
+    description: >-
+      Total number of beads detected in the image. One value per channel.
+    multivalued: true
   considered_valid_count:
     range: integer
     description: >-

@@ -773,6 +773,9 @@
 -- # Class: "PSFBeadsKeyMeasurements_channel_nr" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: channel_nr Description: The channel number to which the measurements apply
+-- # Class: "PSFBeadsKeyMeasurements_total_bead_count" Description: ""
+--     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: total_bead_count Description: Total number of beads detected in the image. One value per channel.
 -- # Class: "PSFBeadsKeyMeasurements_considered_valid_count" Description: ""
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: considered_valid_count Description: Number of beads analyzed. One value per channel.
@@ -2325,6 +2328,12 @@ CREATE TABLE "PSFBeadsKeyMeasurements_channel_nr" (
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	channel_nr INTEGER, 
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", channel_nr), 
+	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
+);
+CREATE TABLE "PSFBeadsKeyMeasurements_total_bead_count" (
+	"PSFBeadsKeyMeasurements_id" INTEGER, 
+	total_bead_count INTEGER, 
+	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", total_bead_count), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
 );
 CREATE TABLE "PSFBeadsKeyMeasurements_considered_valid_count" (

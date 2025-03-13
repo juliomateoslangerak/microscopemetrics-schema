@@ -2606,6 +2606,13 @@
                 "table_data": {
                     "$ref": "#/$defs/MetaObject",
                     "description": "A non-required slot for non-serializable table data object"
+                },
+                "total_bead_count": {
+                    "description": "Total number of beads detected in the image. One value per channel.",
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
                 }
             },
             "title": "PSFBeadsKeyMeasurements",

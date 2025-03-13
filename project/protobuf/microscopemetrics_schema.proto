@@ -499,6 +499,7 @@ message PSFBeadsKeyMeasurements
   metaObject tableData = 0
  repeated  string channelName = 0
  repeated  integer channelNr = 0
+ repeated  integer totalBeadCount = 0
  repeated  integer consideredValidCount = 0
  repeated  integer consideredSelfProximityCount = 0
  repeated  integer consideredLateralEdgeCount = 0

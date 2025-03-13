@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-13T19:58:51
+# Generation date: 2025-03-13T20:04:18
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1903,6 +1903,7 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
 
     channel_name: Optional[Union[str, List[str]]] = empty_list()
     channel_nr: Optional[Union[int, List[int]]] = empty_list()
+    total_bead_count: Optional[Union[int, List[int]]] = empty_list()
     considered_valid_count: Optional[Union[int, List[int]]] = empty_list()
     considered_self_proximity_count: Optional[Union[int, List[int]]] = empty_list()
     considered_lateral_edge_count: Optional[Union[int, List[int]]] = empty_list()
@@ -1976,6 +1977,10 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
         if not isinstance(self.channel_nr, list):
             self.channel_nr = [self.channel_nr] if self.channel_nr is not None else []
         self.channel_nr = [v if isinstance(v, int) else int(v) for v in self.channel_nr]
+
+        if not isinstance(self.total_bead_count, list):
+            self.total_bead_count = [self.total_bead_count] if self.total_bead_count is not None else []
+        self.total_bead_count = [v if isinstance(v, int) else int(v) for v in self.total_bead_count]
 
         if not isinstance(self.considered_valid_count, list):
             self.considered_valid_count = [self.considered_valid_count] if self.considered_valid_count is not None else []
@@ -3213,6 +3218,9 @@ slots.fitting_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_bea
 
 slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
+
+slots.total_bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/total_bead_count'], name="total_bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/total_bead_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.total_bead_count, domain=None, range=Optional[Union[int, List[int]]])
 
 slots.considered_valid_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_valid_count'], name="considered_valid_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_valid_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_valid_count, domain=None, range=Optional[Union[int, List[int]]])

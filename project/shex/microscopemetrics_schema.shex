@@ -1016,6 +1016,8 @@ CLOSED {
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_name> @linkml:String * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/channel_nr> @linkml:Integer * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/total_bead_count>
+          @linkml:Integer * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_valid_count>
           @linkml:Integer * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_self_proximity_count>
