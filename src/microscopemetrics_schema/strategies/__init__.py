@@ -151,16 +151,16 @@ def st_mm_comment(
 @st.composite
 def st_mm_input_data(
     draw,
-    input=st.just(mm_schema.MetricsInputData(input_data=None)),
+    input=st.just({"some_data": 42}),  # Input data must contain something
 ) -> mm_schema.MetricsInputData:
-    return draw(input)
+    return mm_schema.MetricsInputData(**draw(input))
 
 @st.composite
 def st_mm_input_parameters(
     draw,
-    input=st.just(mm_schema.MetricsInputParameters(input_data=None)),
+    input=st.just({}),
 ) -> mm_schema.MetricsInputParameters:
-    return draw(input)
+    return mm_schema.MetricsInputParameters(**draw(input))
 
 
 @st.composite

@@ -6920,9 +6920,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-03-10T11:12:14",
+  "source_file_date": "2025-03-06T19:45:10",
   "source_file_size": 982,
-  "generation_date": "2025-03-10T13:52:03",
+  "generation_date": "2025-03-13T19:58:50",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
