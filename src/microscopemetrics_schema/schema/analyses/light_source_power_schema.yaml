@@ -49,7 +49,6 @@ classes:
     is_a: KeyMeasurements
     slots:
       - light_source
-      - power_set_point_pct
       - power_mean_mw
       - power_median_mw
       - power_std_mw
@@ -63,7 +62,11 @@ classes:
     slots:
       - light_source
       - sampling_datetime
+      - power_set_point
       - power_mw
+      - integration_time_ms
+      - location
+#      - irradiance???
 
   LightSource:
     description: >-
@@ -116,10 +119,10 @@ slots:
       The date and time of the sampling.
     multivalued: false
     required: true
-  power_set_point_pct:
+  power_set_point:
     range: float
     description: >-
-      The power set point in percent.
+      The power set point as a fraction of the nominal power of the light source.
     multivalued: false
     required: true
   power_mw:
@@ -128,6 +131,14 @@ slots:
       The power measured in milliwatts.
     multivalued: false
     required: true
+  integration_time_ms:
+    range: float
+    description: >-
+      The integration time in milliseconds.
+    multivalued: false
+    required: false
+
+
   power_mean_mw:
     range: float
     description: >-
@@ -157,7 +168,8 @@ slots:
     description: >-
       The maximum power measured in milliwatts.
     multivalued: true
-  linearity:
+  linearity_r2:
+    title: Linearity R2
     range: float
     description: >-
       The linearity of the power measurements.
