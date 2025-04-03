@@ -60,12 +60,12 @@ classes:
     description: >-
       A single power measurement for a light source.
     slots:
-      - light_source
       - sampling_datetime
+      - light_source
+      - location
       - power_set_point
       - power_mw
       - integration_time_ms
-      - location
 #      - irradiance???
 
   LightSource:
