@@ -475,7 +475,6 @@
 --     * Slot: comment_id Description: A human readable comment
 -- # Class: "LightSourcePowerKeyMeasurements" Description: ""
 --     * Slot: id Description: 
---     * Slot: power_set_point_pct Description: The power set point in percent.
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: light_source_id Description: The light source under investigation.
@@ -483,8 +482,11 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PowerSample" Description: "A single power measurement for a light source."
 --     * Slot: id Description: 
---     * Slot: sampling_datetime Description: The date and time of the sampling.
+--     * Slot: acquisition_datetime Description: The datetime of the acquisition
+--     * Slot: sampling_location Description: The location at which the sampling was taken.
+--     * Slot: power_set_point Description: The power set point as a fraction of the nominal power of the light source.
 --     * Slot: power_mw Description: The power measured in milliwatts.
+--     * Slot: integration_time_ms Description: The integration time in milliseconds.
 --     * Slot: LightSourcePowerInputData_id Description: Autocreated FK slot
 --     * Slot: light_source_id Description: The light source under investigation.
 -- # Class: "LightSource" Description: "A light source."
@@ -1567,7 +1569,6 @@ CREATE TABLE "LightSourcePowerOutput" (
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements" (
 	id INTEGER NOT NULL, 
-	power_set_point_pct FLOAT NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	light_source_id INTEGER NOT NULL, 
@@ -2842,8 +2843,11 @@ CREATE TABLE "UserExperimentKeyMeasurements_saturated_channels" (
 );
 CREATE TABLE "PowerSample" (
 	id INTEGER NOT NULL, 
-	sampling_datetime DATETIME NOT NULL, 
+	acquisition_datetime DATETIME NOT NULL, 
+	sampling_location VARCHAR(19) NOT NULL, 
+	power_set_point FLOAT NOT NULL, 
 	power_mw FLOAT NOT NULL, 
+	integration_time_ms FLOAT, 
 	"LightSourcePowerInputData_id" INTEGER, 
 	light_source_id INTEGER NOT NULL, 
 	PRIMARY KEY (id), 

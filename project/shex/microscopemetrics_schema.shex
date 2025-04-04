@@ -607,8 +607,6 @@ CLOSED {
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct>
-          @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw>
           @linkml:Float + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw>
@@ -912,12 +910,25 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerSample> CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerSample_tes> ( 
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime>
+          @linkml:Datetime ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_datetime>
-          @linkml:Datetime ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_location>
+          [
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#SOURCE_EXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#FIBER_EXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#OBJECTIVE_BACKFOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#OBJECTIVE_EXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#OBJECTIVE_FOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum#OTHER>
+             ] ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point>
+          @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mw>
-          @linkml:Float
+          @linkml:Float ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms>
+          @linkml:Float ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerSample> ] ?

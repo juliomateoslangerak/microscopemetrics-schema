@@ -506,6 +506,38 @@
           "description": "A file"
         }
       ]
+    },
+    {
+      "name": "SamplingLocationEnum",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/SamplingLocationEnum",
+      "description": "The location at which the sampling was taken.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "permissible_values": [
+        {
+          "text": "SOURCE_EXIT",
+          "description": "Power at the exit of the light source"
+        },
+        {
+          "text": "FIBER_EXIT",
+          "description": "Power at the exit of the fiber"
+        },
+        {
+          "text": "OBJECTIVE_BACKFOCAL",
+          "description": "Power at the back focal plane of the objective"
+        },
+        {
+          "text": "OBJECTIVE_EXIT",
+          "description": "Power at the exit of the objective"
+        },
+        {
+          "text": "OBJECTIVE_FOCAL",
+          "description": "Power at the focal plane of the objective"
+        },
+        {
+          "text": "OTHER",
+          "description": "Other location"
+        }
+      ]
     }
   ],
   "slots": [
@@ -716,10 +748,11 @@
       "description": "The datetime of the acquisition",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
-      "owner": "Image",
+      "owner": "PowerSample",
       "domain_of": [
         "MetricsDataset",
-        "Image"
+        "Image",
+        "PowerSample"
       ],
       "range": "datetime",
       "@type": "SlotDefinition"
@@ -3154,6 +3187,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "sampling_location",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_location",
+      "description": "The location at which the sampling was taken.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_location",
+      "owner": "PowerSample",
+      "domain_of": [
+        "PowerSample"
+      ],
+      "range": "SamplingLocationEnum",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "wavelength_nm",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/wavelength_nm",
       "description": "The wavelength of the light source in nanometers.",
@@ -3183,28 +3230,14 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "sampling_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_datetime",
-      "description": "The date and time of the sampling.",
+      "name": "power_set_point",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point",
+      "description": "The power set point as a fraction of the nominal power of the light source.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/sampling_datetime",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point",
       "owner": "PowerSample",
       "domain_of": [
         "PowerSample"
-      ],
-      "range": "datetime",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "power_set_point_pct",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
-      "description": "The power set point in percent.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point_pct",
-      "owner": "LightSourcePowerKeyMeasurements",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
       "required": true,
@@ -3222,6 +3255,19 @@
       ],
       "range": "float",
       "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "integration_time_ms",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms",
+      "description": "The integration time in milliseconds.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms",
+      "owner": "PowerSample",
+      "domain_of": [
+        "PowerSample"
+      ],
+      "range": "float",
       "@type": "SlotDefinition"
     },
     {
@@ -3302,6 +3348,7 @@
       "name": "linearity",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/linearity",
       "description": "The linearity of the power measurements.",
+      "title": "Linearity R2",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/linearity",
       "owner": "LightSourcePowerKeyMeasurements",
@@ -4774,6 +4821,25 @@
       "is_usage_slot": true,
       "usage_slot_name": "sigma_x",
       "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PowerSample_acquisition_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "description": "The datetime of the acquisition",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema",
+      "is_a": "acquisition_datetime",
+      "domain": "PowerSample",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/acquisition_datetime",
+      "alias": "acquisition_datetime",
+      "owner": "PowerSample",
+      "domain_of": [
+        "PowerSample"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "acquisition_datetime",
+      "range": "datetime",
       "required": true,
       "@type": "SlotDefinition"
     }
@@ -6604,7 +6670,6 @@
         "linked_references",
         "table_data",
         "light_source",
-        "power_set_point_pct",
         "power_mean_mw",
         "power_median_mw",
         "power_std_mw",
@@ -6622,9 +6687,12 @@
       "description": "A single power measurement for a light source.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slots": [
+        "PowerSample_acquisition_datetime",
         "light_source",
-        "sampling_datetime",
-        "power_mw"
+        "sampling_location",
+        "power_set_point",
+        "power_mw",
+        "integration_time_ms"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerSample",
@@ -6935,9 +7003,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-03-06T19:45:10",
+  "source_file_date": "2025-03-10T11:12:14",
   "source_file_size": 982,
-  "generation_date": "2025-03-13T20:04:17",
+  "generation_date": "2025-04-04T16:13:35",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

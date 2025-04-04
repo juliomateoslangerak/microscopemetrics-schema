@@ -1460,10 +1460,6 @@
                     },
                     "type": "array"
                 },
-                "power_set_point_pct": {
-                    "description": "The power set point in percent.",
-                    "type": "number"
-                },
                 "power_std_mw": {
                     "description": "The standard deviation of the power measured in milliwatts.",
                     "items": {
@@ -1478,7 +1474,6 @@
             },
             "required": [
                 "light_source",
-                "power_set_point_pct",
                 "power_mean_mw",
                 "power_median_mw",
                 "power_std_mw",
@@ -2912,6 +2907,15 @@
             "additionalProperties": false,
             "description": "A single power measurement for a light source.",
             "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "integration_time_ms": {
+                    "description": "The integration time in milliseconds.",
+                    "type": "number"
+                },
                 "light_source": {
                     "$ref": "#/$defs/LightSource",
                     "description": "The light source under investigation."
@@ -2920,15 +2924,20 @@
                     "description": "The power measured in milliwatts.",
                     "type": "number"
                 },
-                "sampling_datetime": {
-                    "description": "The date and time of the sampling.",
-                    "format": "date-time",
-                    "type": "string"
+                "power_set_point": {
+                    "description": "The power set point as a fraction of the nominal power of the light source.",
+                    "type": "number"
+                },
+                "sampling_location": {
+                    "$ref": "#/$defs/SamplingLocationEnum",
+                    "description": "The location at which the sampling was taken."
                 }
             },
             "required": [
+                "acquisition_datetime",
                 "light_source",
-                "sampling_datetime",
+                "sampling_location",
+                "power_set_point",
                 "power_mw"
             ],
             "title": "PowerSample",
@@ -3099,6 +3108,19 @@
             },
             "title": "Roi",
             "type": "object"
+        },
+        "SamplingLocationEnum": {
+            "description": "The location at which the sampling was taken.",
+            "enum": [
+                "SOURCE_EXIT",
+                "FIBER_EXIT",
+                "OBJECTIVE_BACKFOCAL",
+                "OBJECTIVE_EXIT",
+                "OBJECTIVE_FOCAL",
+                "OTHER"
+            ],
+            "title": "SamplingLocationEnum",
+            "type": "string"
         },
         "TimeSeries": {
             "additionalProperties": false,

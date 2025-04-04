@@ -60,13 +60,16 @@ classes:
     description: >-
       A single power measurement for a light source.
     slots:
-      - sampling_datetime
+      - acquisition_datetime
       - light_source
-      - location
+      - sampling_location
       - power_set_point
       - power_mw
       - integration_time_ms
 #      - irradiance???
+    slot_usage:
+      acquisition_datetime:
+        required: true
 
   LightSource:
     description: >-
@@ -100,6 +103,12 @@ slots:
       The light source under investigation.
     required: true
     multivalued: false
+  sampling_location:
+    range: SamplingLocationEnum
+    description: >-
+      The location at which the sampling was taken.
+    required: true
+    multivalued: false
   wavelength_nm:
     range: float
     description: >-
@@ -113,12 +122,6 @@ slots:
       The power meter used to measure the power.
     required: true
 
-  sampling_datetime:
-    range: datetime
-    description: >-
-      The date and time of the sampling.
-    multivalued: false
-    required: true
   power_set_point:
     range: float
     description: >-
@@ -137,7 +140,6 @@ slots:
       The integration time in milliseconds.
     multivalued: false
     required: false
-
 
   power_mean_mw:
     range: float
@@ -168,7 +170,7 @@ slots:
     description: >-
       The maximum power measured in milliwatts.
     multivalued: true
-  linearity_r2:
+  linearity:
     title: Linearity R2
     range: float
     description: >-
@@ -176,4 +178,20 @@ slots:
     multivalued: true
     required: true
 
-
+enums:
+  SamplingLocationEnum:
+    description: >-
+      The location at which the sampling was taken.
+    permissible_values:
+      SOURCE_EXIT:
+        description: Power at the exit of the light source
+      FIBER_EXIT:
+        description: Power at the exit of the fiber
+      OBJECTIVE_BACKFOCAL:
+        description: Power at the back focal plane of the objective
+      OBJECTIVE_EXIT:
+        description: Power at the exit of the objective
+      OBJECTIVE_FOCAL:
+        description: Power at the focal plane of the objective
+      OTHER:
+        description: Other location

@@ -294,7 +294,6 @@ message LightSourcePowerKeyMeasurements
  repeated  dataReference linkedReferences = 0
   metaObject tableData = 0
   lightSource lightSource = 0
-  float powerSetPointPct = 0
  repeated  float powerMeanMw = 0
  repeated  float powerMedianMw = 0
  repeated  float powerStdMw = 0
@@ -435,9 +434,12 @@ message PowerMeter
 // A single power measurement for a light source.
 message PowerSample
  {
+  datetime acquisitionDatetime = 0
   lightSource lightSource = 0
-  datetime samplingDatetime = 0
+  samplingLocationEnum samplingLocation = 0
+  float powerSetPoint = 0
   float powerMw = 0
+  float integrationTimeMs = 0
  }
 // Set of instructions for preparing a sample or acquiring data
 message Protocol

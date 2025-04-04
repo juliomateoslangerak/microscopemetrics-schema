@@ -614,6 +614,7 @@ slots:
     range: MicroscopeTypeEnum
     description: The type of the microscope
     required: false
+    multivalued: false
   comments:
     range: Comment
     description: A list of comments linked to the microscope

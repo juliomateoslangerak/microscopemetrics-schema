@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-03-13T20:04:18
+# Generation date: 2025-04-04T16:13:38
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2340,7 +2340,6 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements
 
     light_source: Union[dict, "LightSource"] = None
-    power_set_point_pct: float = None
     power_mean_mw: Union[float, List[float]] = None
     power_median_mw: Union[float, List[float]] = None
     power_std_mw: Union[float, List[float]] = None
@@ -2353,11 +2352,6 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.MissingRequiredField("light_source")
         if not isinstance(self.light_source, LightSource):
             self.light_source = LightSource(**as_dict(self.light_source))
-
-        if self._is_empty(self.power_set_point_pct):
-            self.MissingRequiredField("power_set_point_pct")
-        if not isinstance(self.power_set_point_pct, float):
-            self.power_set_point_pct = float(self.power_set_point_pct)
 
         if self._is_empty(self.power_mean_mw):
             self.MissingRequiredField("power_mean_mw")
@@ -2408,25 +2402,41 @@ class PowerSample(YAMLRoot):
     class_name: ClassVar[str] = "PowerSample"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PowerSample
 
+    acquisition_datetime: Union[str, XSDDateTime] = None
     light_source: Union[dict, "LightSource"] = None
-    sampling_datetime: Union[str, XSDDateTime] = None
+    sampling_location: Union[str, "SamplingLocationEnum"] = None
+    power_set_point: float = None
     power_mw: float = None
+    integration_time_ms: Optional[float] = None
 
     def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
+        if self._is_empty(self.acquisition_datetime):
+            self.MissingRequiredField("acquisition_datetime")
+        if not isinstance(self.acquisition_datetime, XSDDateTime):
+            self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
+
         if self._is_empty(self.light_source):
             self.MissingRequiredField("light_source")
         if not isinstance(self.light_source, LightSource):
             self.light_source = LightSource(**as_dict(self.light_source))
 
-        if self._is_empty(self.sampling_datetime):
-            self.MissingRequiredField("sampling_datetime")
-        if not isinstance(self.sampling_datetime, XSDDateTime):
-            self.sampling_datetime = XSDDateTime(self.sampling_datetime)
+        if self._is_empty(self.sampling_location):
+            self.MissingRequiredField("sampling_location")
+        if not isinstance(self.sampling_location, SamplingLocationEnum):
+            self.sampling_location = SamplingLocationEnum(self.sampling_location)
+
+        if self._is_empty(self.power_set_point):
+            self.MissingRequiredField("power_set_point")
+        if not isinstance(self.power_set_point, float):
+            self.power_set_point = float(self.power_set_point)
 
         if self._is_empty(self.power_mw):
             self.MissingRequiredField("power_mw")
         if not isinstance(self.power_mw, float):
             self.power_mw = float(self.power_mw)
+
+        if self.integration_time_ms is not None and not isinstance(self.integration_time_ms, float):
+            self.integration_time_ms = float(self.integration_time_ms)
 
         super().__post_init__(**kwargs)
 
@@ -2862,6 +2872,34 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
     _defn = EnumDefinition(
         name="OMEROObjectTypeEnum",
         description="The type of the OMERO object",
+    )
+
+class SamplingLocationEnum(EnumDefinitionImpl):
+    """
+    The location at which the sampling was taken.
+    """
+    SOURCE_EXIT = PermissibleValue(
+        text="SOURCE_EXIT",
+        description="Power at the exit of the light source")
+    FIBER_EXIT = PermissibleValue(
+        text="FIBER_EXIT",
+        description="Power at the exit of the fiber")
+    OBJECTIVE_BACKFOCAL = PermissibleValue(
+        text="OBJECTIVE_BACKFOCAL",
+        description="Power at the back focal plane of the objective")
+    OBJECTIVE_EXIT = PermissibleValue(
+        text="OBJECTIVE_EXIT",
+        description="Power at the exit of the objective")
+    OBJECTIVE_FOCAL = PermissibleValue(
+        text="OBJECTIVE_FOCAL",
+        description="Power at the focal plane of the objective")
+    OTHER = PermissibleValue(
+        text="OTHER",
+        description="Other location")
+
+    _defn = EnumDefinition(
+        name="SamplingLocationEnum",
+        description="The location at which the sampling was taken.",
     )
 
 # Slots
@@ -3420,20 +3458,23 @@ slots.power_samples = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_p
 slots.light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.light_source, domain=None, range=Union[dict, LightSource])
 
+slots.sampling_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/sampling_location'], name="sampling_location", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/sampling_location'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sampling_location, domain=None, range=Union[str, "SamplingLocationEnum"])
+
 slots.wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/wavelength_nm'], name="wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.wavelength_nm, domain=None, range=float)
 
 slots.measurement_device = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measurement_device'], name="measurement_device", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measurement_device'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.measurement_device, domain=None, range=Union[dict, PowerMeter])
 
-slots.sampling_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/sampling_datetime'], name="sampling_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/sampling_datetime'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sampling_datetime, domain=None, range=Union[str, XSDDateTime])
-
-slots.power_set_point_pct = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_set_point_pct'], name="power_set_point_pct", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_set_point_pct'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_set_point_pct, domain=None, range=float)
+slots.power_set_point = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_set_point'], name="power_set_point", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_set_point'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_set_point, domain=None, range=float)
 
 slots.power_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_mw'], name="power_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_mw, domain=None, range=float)
+
+slots.integration_time_ms = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_ms'], name="integration_time_ms", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_ms'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_ms, domain=None, range=Optional[float])
 
 slots.power_mean_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_mean_mw'], name="power_mean_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_mean_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_mean_mw, domain=None, range=Union[float, List[float]])
@@ -3743,3 +3784,6 @@ slots.PSFBeadsInputParameters_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_
 
 slots.PSFBeadsInputParameters_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/sigma_x'], name="PSFBeadsInputParameters_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/sigma_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_x, domain=PSFBeadsInputParameters, range=float)
+
+slots.PowerSample_acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/acquisition_datetime'], name="PowerSample_acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/acquisition_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PowerSample_acquisition_datetime, domain=PowerSample, range=Union[str, XSDDateTime])

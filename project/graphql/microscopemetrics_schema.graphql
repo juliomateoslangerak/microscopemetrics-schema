@@ -342,7 +342,6 @@ type LightSourcePowerKeyMeasurements
     linkedReferences: [DataReference]
     tableData: MetaObject
     lightSource: LightSource!
-    powerSetPointPct: Float!
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
     powerStdMw: [Float]!
@@ -542,9 +541,12 @@ type PowerMeter
 
 type PowerSample
   {
+    acquisitionDatetime: Datetime!
     lightSource: LightSource!
-    samplingDatetime: Datetime!
+    samplingLocation: SamplingLocationEnum!
+    powerSetPoint: Float!
     powerMw: Float!
+    integrationTimeMs: Float
   }
 
 interface ProfilesIntensity
