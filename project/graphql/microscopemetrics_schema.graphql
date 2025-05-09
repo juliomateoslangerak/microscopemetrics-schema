@@ -286,14 +286,6 @@ interface KeyMeasurements
     tableData: MetaObject
   }
 
-interface KeyValues
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-  }
-
 type LightSource
   {
     wavelengthNm: Float!
@@ -774,14 +766,6 @@ interface Table
     linkedReferences: [DataReference]
     tableData: MetaObject
     columns: [Column]!
-  }
-
-interface Tag
-  {
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    description: String
-    name: String!
   }
 
 type TimeSeries

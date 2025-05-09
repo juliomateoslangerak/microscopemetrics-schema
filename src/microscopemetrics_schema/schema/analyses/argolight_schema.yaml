@@ -87,14 +87,14 @@ classes:
           Centers of mass of the argolight spots provided as a list of ROIs. One per channel
         required: false
         multivalued: true
-      intensity_key_values:
-        range: ArgolightBIntensityKeyValues
+      intensity_key_measurements:
+        range: ArgolightBIntensityKeyMeasurements
         description: >-
           Key Intensity Measurements on Argolight spots
         required: false
         multivalued: false
-      distance_key_values:
-        range: ArgolightBDistanceKeyValues
+      distance_key_measurements:
+        range: ArgolightBDistanceKeyMeasurements
         description: >-
           Key Distance Measurements on Argolight spots
         required: false
@@ -117,8 +117,8 @@ classes:
     mixins:
       - CentersOfMass
 
-  ArgolightBIntensityKeyValues:
-    is_a: KeyValues
+  ArgolightBIntensityKeyMeasurements:
+    is_a: KeyMeasurements
     slots:
       - channel_nr
       - nr_of_spots
@@ -132,8 +132,8 @@ classes:
       - mad_mean_intensity
       - min_max_intensity_ratio
 
-  ArgolightBDistanceKeyValues:
-    is_a: KeyValues
+  ArgolightBDistanceKeyMeasurements:
+    is_a: KeyMeasurements
     slots:
       - channel_A
       - channel_B
@@ -187,7 +187,7 @@ classes:
           ROIs of the peaks found in the argolight images. One per channel
         multivalued: true
       key_measurements:
-        range: ArgolightEKeyValues
+        range: ArgolightEKeyMeasurements
         description: >-
           Key Measurements on Argolight E images
         multivalued: false
@@ -197,8 +197,8 @@ classes:
           Intensity profiles of the argolight lines provided as tables. One table per channel
         multivalued: false
 
-  ArgolightEKeyValues:
-    is_a: KeyValues
+  ArgolightEKeyMeasurements:
+    is_a: KeyMeasurements
     slots:
       - channel_nr
       - focus_slice

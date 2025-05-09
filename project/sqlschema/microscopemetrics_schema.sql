@@ -23,9 +23,7 @@
 --     * Slot: OrthogonalImage_id Description: Autocreated FK slot
 --     * Slot: Channel_id Description: Autocreated FK slot
 --     * Slot: Roi_id Description: Autocreated FK slot
---     * Slot: KeyValues_id Description: Autocreated FK slot
 --     * Slot: KeyMeasurements_id Description: Autocreated FK slot
---     * Slot: Tag_id Description: Autocreated FK slot
 --     * Slot: Table_id Description: Autocreated FK slot
 --     * Slot: FieldIlluminationDataset_id Description: Autocreated FK slot
 --     * Slot: FieldIlluminationKeyMeasurements_id Description: Autocreated FK slot
@@ -315,21 +313,11 @@
 -- # Class: "RoiMeasurements" Description: "Measurements computed on the ROIs of an image. Intended to be used with ROIs."
 --     * Slot: id Description: 
 --     * Slot: measurements_table_id Description: Linked table of measurements
--- # Class: "KeyValues" Description: "A collection of key-value pairs"
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "KeyMeasurements" Description: "A table of key measurements"
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "Tag" Description: "A tag"
---     * Slot: id Description: 
---     * Slot: description Description: The description of the tag
---     * Slot: name Description: The human readable name of an entity
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "Table" Description: "A microscope-metrics table"
 --     * Slot: id Description: 
@@ -1060,9 +1048,7 @@ CREATE TABLE "DataReference" (
 	"OrthogonalImage_id" INTEGER, 
 	"Channel_id" INTEGER, 
 	"Roi_id" INTEGER, 
-	"KeyValues_id" INTEGER, 
 	"KeyMeasurements_id" INTEGER, 
-	"Tag_id" INTEGER, 
 	"Table_id" INTEGER, 
 	"FieldIlluminationDataset_id" INTEGER, 
 	"FieldIlluminationKeyMeasurements_id" INTEGER, 
@@ -1086,9 +1072,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("OrthogonalImage_id") REFERENCES "OrthogonalImage" (id), 
 	FOREIGN KEY("Channel_id") REFERENCES "Channel" (id), 
 	FOREIGN KEY("Roi_id") REFERENCES "Roi" (id), 
-	FOREIGN KEY("KeyValues_id") REFERENCES "KeyValues" (id), 
 	FOREIGN KEY("KeyMeasurements_id") REFERENCES "KeyMeasurements" (id), 
-	FOREIGN KEY("Tag_id") REFERENCES "Tag" (id), 
 	FOREIGN KEY("Table_id") REFERENCES "Table" (id), 
 	FOREIGN KEY("FieldIlluminationDataset_id") REFERENCES "FieldIlluminationDataset" (id), 
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id), 
@@ -1356,14 +1340,6 @@ CREATE TABLE "CentersMaxIntensity" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
 );
-CREATE TABLE "KeyValues" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
 CREATE TABLE "KeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
@@ -1372,14 +1348,6 @@ CREATE TABLE "KeyMeasurements" (
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "Tag" (
-	id INTEGER NOT NULL, 
-	description TEXT, 
-	name TEXT NOT NULL, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "Table" (

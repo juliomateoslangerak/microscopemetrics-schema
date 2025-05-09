@@ -504,25 +504,14 @@ CLOSED {
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_struct> {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements_tes> ( 
-          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> ] ? ;
+          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/table_data>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetaObject> ?
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> ] ?
     )
 }
-
-<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues>  (
-    {
-       (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues_tes> ( 
-             &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
-             rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ?
-          ) ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> ] ?
-       )
-    } OR @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements>
-)
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource_tes>
@@ -757,13 +746,12 @@ CLOSED {
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Comment> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Experimenter> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Image> OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyValues> OR
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/KeyMeasurements> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDataset> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsDatasetCollection> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Microscope> OR
     @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Roi> OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> OR
-    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Tag>
+    @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table>
 )
 
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_struct> {
@@ -1304,17 +1292,6 @@ CLOSED {
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Column> +
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Table> ] ?
-    )
-}
-
-<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Tag> {
-    (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Tag_tes> ( 
-          &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/MetricsObject> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/description> @linkml:String ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/name> @linkml:String
-       ) ;
-       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema/Tag> ] ?
     )
 }
 

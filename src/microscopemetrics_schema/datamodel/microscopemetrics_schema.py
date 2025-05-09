@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-04-04T16:13:38
+# Generation date: 2025-05-09T11:40:04
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1214,20 +1214,8 @@ class RoiMeasurements(YAMLRoot):
         super().__post_init__(**kwargs)
 
 
-class KeyValues(MetricsObject):
-    """
-    A collection of key-value pairs
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/KeyValues"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/KeyValues"
-    class_name: ClassVar[str] = "KeyValues"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyValues
-
-
 @dataclass
-class KeyMeasurements(KeyValues):
+class KeyMeasurements(MetricsObject):
     """
     A table of key measurements
     """
@@ -1239,33 +1227,6 @@ class KeyMeasurements(KeyValues):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.KeyMeasurements
 
     table_data: Optional[Union[dict, MetaObject]] = None
-
-@dataclass
-class Tag(MetricsObject):
-    """
-    A tag
-    """
-    _inherited_slots: ClassVar[List[str]] = []
-
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["core_schema/Tag"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:core_schema/Tag"
-    class_name: ClassVar[str] = "Tag"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Tag
-
-    name: str = None
-    description: Optional[str] = None
-
-    def __post_init__(self, *_: List[str], **kwargs: Dict[str, Any]):
-        if self._is_empty(self.name):
-            self.MissingRequiredField("name")
-        if not isinstance(self.name, str):
-            self.name = str(self.name)
-
-        if self.description is not None and not isinstance(self.description, str):
-            self.description = str(self.description)
-
-        super().__post_init__(**kwargs)
-
 
 @dataclass
 class Table(MetricsObject):
@@ -3626,9 +3587,6 @@ slots.profilesIntensity__intensity_profiles_table = Slot(uri=MICROSCOPEMETRICS_S
 slots.roiMeasurements__measurements_table = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/measurements_table'], name="roiMeasurements__measurements_table", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/measurements_table'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.roiMeasurements__measurements_table, domain=None, range=Optional[Union[dict, Table]])
 
-slots.tag__description = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/description'], name="tag__description", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/description'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.tag__description, domain=None, range=Optional[str])
-
 slots.table__columns = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/columns'], name="table__columns", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/columns'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.table__columns, domain=None, range=Union[Union[dict, Column], List[Union[dict, Column]]])
 
@@ -3769,9 +3727,6 @@ slots.userExperimentOutput__key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA
 
 slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__bead_diameter_micron, domain=None, range=float)
-
-slots.Tag_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/name'], name="Tag_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/name'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.Tag_name, domain=Tag, range=str)
 
 slots.FieldIlluminationInputParameters_saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core_schema/saturation_threshold'], name="FieldIlluminationInputParameters_saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core_schema/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationInputParameters_saturation_threshold, domain=FieldIlluminationInputParameters, range=float)

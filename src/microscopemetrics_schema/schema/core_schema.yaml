@@ -534,31 +534,12 @@ classes:
         required: false
         multivalued: false
 
-  KeyValues:
-    is_a: MetricsObject
-    description: A collection of key-value pairs
-    abstract: true
-
   KeyMeasurements:
-    is_a: KeyValues
+    is_a: MetricsObject
     description: A table of key measurements
     abstract: true
     slots:
       - table_data
-
-  Tag:
-    is_a: MetricsObject
-    description: A tag
-    abstract: true
-    attributes:
-      description:
-        range: string
-        description: The description of the tag
-        required: false
-        multivalued: false
-    slot_usage:
-      name:
-        required: true
 
   Table:
     is_a: MetricsObject
