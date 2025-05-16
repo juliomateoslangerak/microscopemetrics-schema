@@ -7,17 +7,19 @@
 ###### schema definition variables, used by makefile
 
 # Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
-LINKML_SCHEMA_NAME=microscopemetrics_schema
-LINKML_SCHEMA_AUTHOR=Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>
-LINKML_SCHEMA_DESCRIPTION=A schema for microscope-metrics, a python package for microscope QC
-LINKML_SCHEMA_SOURCE_PATH=src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml
-LINKML_SCHEMA_GOOGLE_SHEET_ID=
-LINKML_SCHEMA_GOOGLE_SHEET_TABS=
+LINKML_SCHEMA_NAME="microscopemetrics_schema"
+LINKML_SCHEMA_AUTHOR="Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"
+LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC"
+LINKML_SCHEMA_SOURCE_PATH="src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml"
+LINKML_SCHEMA_GOOGLE_SHEET_MODULE=""
+LINKML_SCHEMA_GOOGLE_SHEET_ID=""
+LINKML_SCHEMA_GOOGLE_SHEET_TABS=""
+LINKML_USE_SCHEMASHEETS=No
 
 ###### linkml generator variables, used by makefile
 
 ## gen-project configuration file
-LINKML_GENERATORS_CONFIG_YAML= --config-file config.yaml
+LINKML_GENERATORS_CONFIG_YAML=config.yaml
 
 ## pass args if gendoc ignores config.yaml (i.e. --no-mergeimports)
 LINKML_GENERATORS_DOC_ARGS=
@@ -29,4 +31,3 @@ LINKML_GENERATORS_OWL_ARGS=
 ## pass args to trigger experimental java/typescript generation
 LINKML_GENERATORS_JAVA_ARGS=
 LINKML_GENERATORS_TYPESCRIPT_ARGS=
-

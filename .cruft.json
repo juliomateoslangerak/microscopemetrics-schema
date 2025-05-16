@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/linkml/linkml-project-cookiecutter",
-  "commit": "21dc84dd378e7aade7affaa329956ce93d38202d",
+  "commit": "494e28e5496acc76558c07c95dea62d2db05081c",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -20,7 +20,13 @@
       "google_sheet_tabs": "",
       "__google_sheet_module": "",
       "github_token_for_pypi_deployment": "PYPI_PASSWORD",
-      "_template": "https://github.com/linkml/linkml-project-cookiecutter"
+      "_copy_without_render": [
+        "justfile",
+        "src/docs/js/*",
+        "src/docs/javascript/*"
+      ],
+      "_template": "https://github.com/linkml/linkml-project-cookiecutter",
+      "_commit": "494e28e5496acc76558c07c95dea62d2db05081c"
     }
   },
   "directory": null
