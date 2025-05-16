@@ -98,7 +98,7 @@ message FieldIlluminationDataset
  }
 message FieldIlluminationInputData
  {
- repeated  image fieldIlluminationImage = 0
+ repeated  image fieldIlluminationImages = 0
  }
 message FieldIlluminationInputParameters
  {

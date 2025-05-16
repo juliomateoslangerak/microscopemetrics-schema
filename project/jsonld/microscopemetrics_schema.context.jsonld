@@ -302,9 +302,9 @@
          "@id": "core/excitation_wavelength_nm"
       },
       "orcid": "@id",
-      "field_illumination_image": {
+      "field_illumination_images": {
          "@type": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Image",
-         "@id": "analyses/field_illumination/field_illumination_image"
+         "@id": "analyses/field_illumination/field_illumination_images"
       },
       "intensity_profiles": {
          "@type": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Table",
@@ -754,7 +754,7 @@
       },
       "bead_diameter_micron": {
          "@type": "xsd:float",
-         "@id": "samples/beads/bead_diameter_micron"
+         "@id": "samples/psf_beads/bead_diameter_micron"
       },
       "analyzed_bead_centers": {
          "@type": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi",
@@ -1103,7 +1103,7 @@
          "@id": "core/Protocol"
       },
       "PSFBeads": {
-         "@id": "samples/beads/PSFBeads"
+         "@id": "samples/psf_beads/PSFBeads"
       },
       "PSFBeadsDataset": {
          "@id": "analyses/psf_beads/PSFBeadsDataset"

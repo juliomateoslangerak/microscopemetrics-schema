@@ -31,7 +31,7 @@ classes:
   FieldIlluminationInputData:
     is_a: MetricsInputData
     slots:
-      - field_illumination_image
+      - field_illumination_images
 
   FieldIlluminationInputParameters:
     is_a: MetricsInputParameters
@@ -153,7 +153,7 @@ classes:
 
 slots:
   # Inputs
-  field_illumination_image:
+  field_illumination_images:
     range: Image
     description: >-
       Input parameter: homogeneity image provided in the order TZYXC. While the analysis accepts
