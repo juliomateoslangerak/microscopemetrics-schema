@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-name: microscopemetrics_analyses_psf_beads
+name: psf_beads
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -7,8 +7,8 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - core_schema  # TODO: change to metrics:core_schema
-  - samples/beads
+  - ../core
+  - ../samples/beads
 
 default_range: string
 
@@ -18,7 +18,7 @@ classes:
     is_a: MetricsDataset
     description: >-
       A PSF beads dataset
-    attributes:
+    slot_usage:
       input_data:
         range: PSFBeadsInputData
       input_parameters:

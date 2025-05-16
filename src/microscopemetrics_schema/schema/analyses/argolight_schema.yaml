@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/argolight
-name: microscopemetrics_analyses_argolight
+name: argolight
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -7,7 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - core_schema  # TODO: change to metrics:core_schema
+  - ../core
 
 default_range: string
 
@@ -17,7 +17,7 @@ classes:
     is_a: MetricsDataset
     description: >-
       An Argolight sample pattern B dataset. This pattern consists of an array of circles
-    attributes:
+    slot_usage:
       input_data:
         range: ArgolightBInputData
       input_parameters:

@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/field_illumination
-name: microscopemetrics_analyses_field_illumination
+name: field_illumination
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -7,8 +7,8 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - core_schema  # TODO: change to metrics:core_schema
-  - samples/homogeneous_field
+  - ../core  # TODO: change to metrics:core_schema
+  - ../samples/homogeneous_field
 
 default_range: string
 
@@ -18,7 +18,7 @@ classes:
     is_a: MetricsDataset
     description: >-
       A field illumination dataset
-    attributes:
+    slot_usage:
       input_data:
         range: FieldIlluminationInputData
       input_parameters:

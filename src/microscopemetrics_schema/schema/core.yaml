@@ -1,5 +1,5 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core_schema
-name: core_schema
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+name: core
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -25,9 +25,17 @@ classes:
   NamedObject:
     description: An object with a name and a description
     abstract: true
-    slots:
-      - name
-      - description
+    attributes:
+      name:
+        range: string
+        description: The human readable name of an entity
+        required: false
+        multivalued: false
+      description:
+        range: string
+        description: A human readable description of an entity
+        required: false
+        multivalued: false
 
   DataReference:
     description: A reference to a data resource
@@ -157,25 +165,55 @@ classes:
     description: A base object on which microscope-metrics runs the analysis
     abstract: true
     tree_root: true
+    attributes:
+#      sample:
+#        range: Sample
+#        description: The physical sample that was imaged
+#        required: false
+#        multivalued: false
+      microscope:
+        range: Microscope
+        description: The microscope that was used to acquire the dataset
+        required: true
+        multivalued: false
+      experimenter:
+        range: Experimenter
+        description: The experimenter that performed the imaging experiment
+        multivalued: false
+      acquisition_protocol:
+        range: Protocol
+        description: The protocol used to acquire the dataset
+        required: false
+        multivalued: false
+        inlined: false
+#      input_data:
+#        range: MetricsInputData
+#        description: The input data for the analysis
+#        required: true
+#        multivalued: false
+#      input_parameters:
+#        range: MetricsInputParameters
+#        description: The input parameters for the analysis
+#        required: false
+#        multivalued: false
+      processed:
+        range: boolean
+        description: Has the dataset been processed by microscope-metrics
+        required: true
+        ifabsent: false
+        multivalued: false
+#      output:
+#        abstract: true
+#        range: MetricsOutput
+#        description: The output of the analysis
+#        required: false
+#        multivalued: false
     slots:
-      - microscope
-      - experimenter
-      - sample
       - acquisition_datetime
-      - acquisition_protocol
+      - sample
       - input_data
       - input_parameters
-      - processed
       - output
-    rules:
-      - preconditions:
-          slot_conditions:
-            processed:
-              equals_number: 1
-        postconditions:
-          slot_conditions:
-            output:
-              required: true
 
   MetricsInputData:
     description: An abstract class for analysis input data
@@ -188,16 +226,55 @@ classes:
   MetricsOutput:
     description: An abstract class for analysis outputs
     abstract: true
+    attributes:
+      processing_application:
+        range: string
+        description: The application used to process the dataset
+        required: true
+        multivalued: true
+      processing_version:
+        range: string
+        description: The version of the application used to process the dataset
+        required: true
+        multivalued: true
+      processing_entity:
+        range: string
+        description: The entity that processed the dataset
+        required: false
+        multivalued: true
+      processing_datetime:
+        range: datetime
+        description: The datetime of the processing by microscope-metrics
+        required: true
+        multivalued: false
+      processing_log:
+        range: string
+        description: The log of the processing by microscope-metrics
+        required: false
+        multivalued: false
+      warnings:
+        range: string
+        description: The warnings of the processing by microscope-metrics
+        required: false
+        multivalued: true
+      errors:
+        range: string
+        description: The errors of the processing by microscope-metrics
+        required: false
+        multivalued: true
+      validated:
+        range: boolean
+        description: Has the dataset been validated by a human
+        required: true
+        ifabsent: false
+        multivalued: false
+      validation_datetime:
+        range: datetime
+        description: The datetime of the validation
+        required: false
+        multivalued: false
     slots:
-      - processing_application
-      - processing_version
-      - processing_entity
-      - processing_datetime
-      - processing_log
-      - warnings
-      - errors
-      - validated
-      - validation_datetime
+      - key_measurements
       - comment
 
   Image:
@@ -560,16 +637,9 @@ classes:
 
 
 slots:
-  # NamedObject slots
-  name:
-    range: string
-    description: The human readable name of an entity
-    required: false
-    multivalued: false
-  description:
-    range: string
-    description: A human readable description of an entity
-    required: false
+  acquisition_datetime:
+    range: datetime
+    description: The datetime of the acquisition
     multivalued: false
 
   # DataReference slots
@@ -602,6 +672,39 @@ slots:
     required: false
     multivalued: true
 
+  # MetricsDataset slots
+  sample:
+    range: Sample
+    description: The physical sample that was imaged
+    required: false
+    multivalued: false
+  input_data:
+    range: MetricsInputData
+    description: The input data for the analysis
+    required: true
+    multivalued: false
+  input_parameters:
+    range: MetricsInputParameters
+    description: The input parameters for the analysis
+    required: false
+    multivalued: false
+  output:
+    abstract: true
+    range: MetricsOutput
+    description: The output of the analysis
+    required: false
+    multivalued: false
+
+  # MetricsOutput slots
+  key_measurements:
+    range: KeyMeasurements
+    description: >-
+      Key measurements is a table summarizing the most important 
+      measurements as a function of, for example, channels
+    required: true
+    multivalued: false
+
+
   # Sample slots
   preparation_protocol:
     range: Protocol
@@ -623,101 +726,6 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-
-  # MetricsDataset slots
-  sample:
-    range: Sample
-    description: The physical sample that was imaged
-    required: false
-    multivalued: false
-  microscope:
-    range: Microscope
-    description: The microscope that was used to acquire the dataset
-    required: true
-    multivalued: false
-  experimenter:
-    range: Experimenter
-    description: The experimenter that performed the imaging experiment
-    multivalued: false
-  acquisition_datetime:
-    range: datetime
-    description: The datetime of the acquisition
-    multivalued: false
-  acquisition_protocol:
-    range: Protocol
-    description: The protocol used to acquire the dataset
-    required: false
-    multivalued: false
-    inlined: false
-  input_data:
-    range: MetricsInputData
-    description: The input data for the analysis
-    required: true
-    multivalued: false
-  input_parameters:
-    range: MetricsInputParameters
-    description: The input parameters for the analysis
-    required: false
-    multivalued: false
-  processed:
-    range: boolean
-    description: Has the dataset been processed by microscope-metrics
-    required: true
-    ifabsent: false
-    multivalued: false
-  output:
-    range: MetricsOutput
-    description: The output of the analysis
-    required: false
-    multivalued: false
-
-  # MetricsOutput slots
-  processing_application:
-    range: string
-    description: The application used to process the dataset
-    required: true
-    multivalued: true
-  processing_version:
-    range: string
-    description: The version of the application used to process the dataset
-    required: true
-    multivalued: true
-  processing_entity:
-    range: string
-    description: The entity that processed the dataset
-    required: false
-    multivalued: true
-  processing_datetime:
-    range: datetime
-    description: The datetime of the processing by microscope-metrics
-    required: true
-    multivalued: false
-  processing_log:
-    range: string
-    description: The log of the processing by microscope-metrics
-    required: false
-    multivalued: false
-  warnings:
-    range: string
-    description: The warnings of the processing by microscope-metrics
-    required: false
-    multivalued: true
-  errors:
-    range: string
-    description: The errors of the processing by microscope-metrics
-    required: false
-    multivalued: true
-  validated:
-    range: boolean
-    description: Has the dataset been validated by a human
-    required: true
-    ifabsent: false
-    multivalued: false
-  validation_datetime:
-    range: datetime
-    description: The datetime of the validation
-    required: false
-    multivalued: false
 
   # Image slots
   voxel_size_x_micron:

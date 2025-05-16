@@ -1,4 +1,52 @@
 # metamodel_version: 1.7.0
+enum AxisEnum
+  {
+    X
+    Y
+    Z
+    C
+    T
+  }
+
+enum CommentTypesEnum
+  {
+    ACQUISITION
+    PROCESSING
+    OTHER
+  }
+
+enum MicroscopeTypeEnum
+  {
+    WIDEFIELD
+    CONFOCAL
+    STED
+    SIM3D
+    OTHER
+  }
+
+enum OMEROObjectTypeEnum
+  {
+    IMAGE
+    CHANNEL
+    DATASET
+    PROJECT
+    EXPERIMENTERGROUP
+    EXPERIMENTER
+    TABLE
+    KEY_VALUES
+    TAG
+    COMMENT
+    ROI
+    FILEANNOTATION
+  }
+
+enum PlaneAxisEnum
+  {
+    XY
+    XZ
+    YZ
+  }
+
 interface CentersFitted
   {
   }
@@ -99,12 +147,12 @@ type FieldIlluminationDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
     microscope: Microscope!
     experimenter: Experimenter
-    acquisitionDatetime: Datetime
     acquisitionProtocol: Protocol
     processed: Boolean!
-    inputData: FieldIlluminationInputData
+    inputData: FieldIlluminationInputData!
     inputParameters: FieldIlluminationInputParameters
     output: FieldIlluminationOutput
     sample: HomogeneousField
@@ -180,6 +228,7 @@ type FieldIlluminationKeyMeasurements
 
 type FieldIlluminationOutput
   {
+    comment: Comment
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
@@ -189,7 +238,6 @@ type FieldIlluminationOutput
     errors: [String]
     validated: Boolean!
     validationDatetime: Datetime
-    comment: Comment
     keyMeasurements: FieldIlluminationKeyMeasurements
     intensityProfiles: [Table]
     roiProfiles: [Roi]
@@ -286,77 +334,6 @@ interface KeyMeasurements
     tableData: MetaObject
   }
 
-type LightSource
-  {
-    wavelengthNm: Float!
-  }
-
-type LightSourcePower
-  {
-    name: String
-    description: String
-    preparationProtocol: Protocol!
-    manufacturer: String
-  }
-
-type LightSourcePowerDataset
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    microscope: Microscope!
-    experimenter: Experimenter
-    sample: Sample
-    acquisitionDatetime: Datetime
-    acquisitionProtocol: Protocol
-    processed: Boolean!
-    inputData: LightSourcePowerInputData
-    inputParameters: LightSourcePowerInputParameters
-    output: LightSourcePowerOutput
-  }
-
-type LightSourcePowerInputData
-  {
-    measurementDevice: PowerMeter!
-    powerSamples: [PowerSample]!
-  }
-
-type LightSourcePowerInputParameters
-  {
-  }
-
-type LightSourcePowerKeyMeasurements
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
-    lightSource: LightSource!
-    powerMeanMw: [Float]!
-    powerMedianMw: [Float]!
-    powerStdMw: [Float]!
-    powerMinMw: [Float]!
-    powerMaxMw: [Float]
-    linearity: [Float]!
-  }
-
-type LightSourcePowerOutput
-  {
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    comment: Comment
-    keyMeasurements: LightSourcePowerKeyMeasurements
-  }
-
 type Line
   {
     name: String
@@ -398,15 +375,15 @@ interface MetricsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    microscope: Microscope!
-    experimenter: Experimenter
-    sample: Sample
     acquisitionDatetime: Datetime
-    acquisitionProtocol: Protocol
+    sample: Sample
     inputData: MetricsInputData!
     inputParameters: MetricsInputParameters
-    processed: Boolean!
     output: MetricsOutput
+    microscope: Microscope!
+    experimenter: Experimenter
+    acquisitionProtocol: Protocol
+    processed: Boolean!
   }
 
 type MetricsDatasetCollection
@@ -436,6 +413,8 @@ interface MetricsObject
 
 interface MetricsOutput
   {
+    keyMeasurements: KeyMeasurements!
+    comment: Comment
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
@@ -445,7 +424,6 @@ interface MetricsOutput
     errors: [String]
     validated: Boolean!
     validationDatetime: Datetime
-    comment: Comment
   }
 
 type Microscope
@@ -523,24 +501,6 @@ type Polygon
     isOpen: Boolean!
   }
 
-type PowerMeter
-  {
-    name: String
-    description: String
-    manufacturer: String
-    model: String
-  }
-
-type PowerSample
-  {
-    acquisitionDatetime: Datetime!
-    lightSource: LightSource!
-    samplingLocation: SamplingLocationEnum!
-    powerSetPoint: Float!
-    powerMw: Float!
-    integrationTimeMs: Float
-  }
-
 interface ProfilesIntensity
   {
     intensityProfilesTable: Table
@@ -570,12 +530,12 @@ type PSFBeadsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
     microscope: Microscope!
     experimenter: Experimenter
-    acquisitionDatetime: Datetime
     acquisitionProtocol: Protocol
     processed: Boolean!
-    inputData: PSFBeadsInputData
+    inputData: PSFBeadsInputData!
     inputParameters: PSFBeadsInputParameters
     output: PSFBeadsOutput
     sample: PSFBeads
@@ -677,6 +637,7 @@ type PSFBeadsKeyMeasurements
 
 type PSFBeadsOutput
   {
+    comment: Comment
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
@@ -686,7 +647,6 @@ type PSFBeadsOutput
     errors: [String]
     validated: Boolean!
     validationDatetime: Datetime
-    comment: Comment
     analyzedBeadCenters: [Roi]
     consideredBeadCentersLateralEdge: [Roi]
     consideredBeadCentersSelfProximity: [Roi]
@@ -771,75 +731,6 @@ interface Table
 type TimeSeries
   {
     timePointsSec: [Float]!
-  }
-
-type UserExperiment
-  {
-    name: String
-    description: String
-    preparationProtocol: Protocol!
-    manufacturer: String
-  }
-
-type UserExperimentDataset
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    microscope: Microscope!
-    experimenter: Experimenter
-    acquisitionDatetime: Datetime
-    acquisitionProtocol: Protocol
-    processed: Boolean!
-    inputData: UserExperimentInputData
-    inputParameters: UserExperimentInputParameters
-    output: UserExperimentOutput
-    sample: UserExperiment
-  }
-
-type UserExperimentInputData
-  {
-    userExperimentImages: [Image]!
-    orthogonalRois: [Roi]
-    profileRois: [Roi]
-  }
-
-type UserExperimentInputParameters
-  {
-    bitDepth: Integer
-    saturationThreshold: Float
-  }
-
-type UserExperimentKeyMeasurements
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
-    channelName: [String]
-    channelNr: [Integer]
-    variationCoefficient: [Float]
-    saturatedChannels: [Integer]
-  }
-
-type UserExperimentOutput
-  {
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    comment: Comment
-    intensityProfiles: [Table]
-    orthogonalImages: [OrthogonalImage]
-    fftImages: [Image]
-    keyMeasurements: UserExperimentKeyMeasurements
   }
 
 type Vertex

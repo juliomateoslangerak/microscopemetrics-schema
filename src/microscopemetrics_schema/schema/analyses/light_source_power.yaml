@@ -1,5 +1,5 @@
 id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power
-name: microscopemetrics_analyses_light_source_power
+name: light_source_power
 prefixes:
 #  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
 #imports:
@@ -7,7 +7,7 @@ prefixes:
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
-  - core_schema  # TODO: change to metrics:core_schema
+  - ../core
 
 default_range: string
 
@@ -17,7 +17,7 @@ classes:
     is_a: MetricsDataset
     description: >-
       Power measurements dataset. A collection of power samples for different light sources.
-    attributes:
+    slot_usage:
       input_data:
         range: LightSourcePowerInputData
       input_parameters:
@@ -42,7 +42,6 @@ classes:
         range: LightSourcePowerKeyMeasurements
         description: >-
           Key-Value measurements for the power measurements.
-        multivalued: false
 
 
   LightSourcePowerKeyMeasurements:
