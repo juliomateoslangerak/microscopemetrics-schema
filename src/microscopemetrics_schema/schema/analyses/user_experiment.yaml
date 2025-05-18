@@ -8,7 +8,7 @@ prefixes:
 imports:
   - linkml:types
   - ../core
-  - ../samples/user_experiment
+  - ../samples/user_sample
 
 default_range: string
 
@@ -45,7 +45,7 @@ classes:
     is_a: MetricsOutput
     attributes:
       intensity_profiles:
-        range: Table
+        range: ProfilesIntensity
         description: >-
           Intensity profiles as measured in the provided profile_rois.
         multivalued: true
