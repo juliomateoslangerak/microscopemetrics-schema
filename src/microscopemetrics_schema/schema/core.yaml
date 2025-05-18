@@ -166,11 +166,6 @@ classes:
     abstract: true
     tree_root: true
     attributes:
-#      sample:
-#        range: Sample
-#        description: The physical sample that was imaged
-#        required: false
-#        multivalued: false
       microscope:
         range: Microscope
         description: The microscope that was used to acquire the dataset
@@ -186,28 +181,12 @@ classes:
         required: false
         multivalued: false
         inlined: false
-#      input_data:
-#        range: MetricsInputData
-#        description: The input data for the analysis
-#        required: true
-#        multivalued: false
-#      input_parameters:
-#        range: MetricsInputParameters
-#        description: The input parameters for the analysis
-#        required: false
-#        multivalued: false
       processed:
         range: boolean
         description: Has the dataset been processed by microscope-metrics
         required: true
         ifabsent: false
         multivalued: false
-#      output:
-#        abstract: true
-#        range: MetricsOutput
-#        description: The output of the analysis
-#        required: false
-#        multivalued: false
     slots:
       - acquisition_datetime
       - sample
