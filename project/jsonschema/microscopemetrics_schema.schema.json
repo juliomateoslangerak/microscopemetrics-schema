@@ -1758,6 +1758,416 @@
             "title": "ImageMask",
             "type": "object"
         },
+        "LightSource": {
+            "additionalProperties": false,
+            "description": "A light source.",
+            "properties": {
+                "wavelength_nm": {
+                    "description": "The wavelength of the light source in nanometers.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "wavelength_nm"
+            ],
+            "title": "LightSource",
+            "type": "object"
+        },
+        "LightSourcePower": {
+            "additionalProperties": false,
+            "description": "A sample providing measurements on light source power.",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "manufacturer": {
+                    "description": "A manufacturer",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_protocol": {
+                    "description": "The protocol used to prepare a sample",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "preparation_protocol"
+            ],
+            "title": "LightSourcePower",
+            "type": "object"
+        },
+        "LightSourcePowerDataset": {
+            "additionalProperties": false,
+            "description": "Power measurements dataset. A collection of power samples for different light sources.",
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "acquisition_protocol": {
+                    "description": "The protocol used to acquire the dataset",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "data_reference": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DataReference"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "experimenter": {
+                    "description": "The experimenter that performed the imaging experiment",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "input_data": {
+                    "$ref": "#/$defs/LightSourcePowerInputData",
+                    "description": "The input data for the analysis"
+                },
+                "input_parameters": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LightSourcePowerInputParameters"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The input parameters for the analysis"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "microscope": {
+                    "$ref": "#/$defs/Microscope",
+                    "description": "The microscope that was used to acquire the dataset"
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "output": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LightSourcePowerOutput"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The output of the analysis"
+                },
+                "processed": {
+                    "description": "Has the dataset been processed by microscope-metrics",
+                    "type": "boolean"
+                },
+                "sample": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Sample"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The physical sample that was imaged"
+                }
+            },
+            "required": [
+                "input_data",
+                "microscope",
+                "processed"
+            ],
+            "title": "LightSourcePowerDataset",
+            "type": "object"
+        },
+        "LightSourcePowerInputData": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "measurement_device": {
+                    "$ref": "#/$defs/PowerMeter",
+                    "description": "The power meter used to measure the power."
+                },
+                "power_samples": {
+                    "description": "This is a collection of power samples for different light sources.",
+                    "items": {
+                        "$ref": "#/$defs/PowerSample"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "measurement_device",
+                "power_samples"
+            ],
+            "title": "LightSourcePowerInputData",
+            "type": "object"
+        },
+        "LightSourcePowerInputParameters": {
+            "additionalProperties": false,
+            "description": "",
+            "title": "LightSourcePowerInputParameters",
+            "type": "object"
+        },
+        "LightSourcePowerKeyMeasurements": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "data_reference": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DataReference"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A reference to the data"
+                },
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "light_source": {
+                    "$ref": "#/$defs/LightSource",
+                    "description": "The light source under investigation."
+                },
+                "linearity": {
+                    "description": "The linearity of the power measurements.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "linked_references": {
+                    "description": "A list of linked references",
+                    "items": {
+                        "$ref": "#/$defs/DataReference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "power_max_mw": {
+                    "description": "The maximum power measured in milliwatts.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_mean_mw": {
+                    "description": "The mean power measured in milliwatts.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "power_median_mw": {
+                    "description": "The median power measured in milliwatts.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "power_min_mw": {
+                    "description": "The minimum power measured in milliwatts.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "power_std_mw": {
+                    "description": "The standard deviation of the power measured in milliwatts.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": "array"
+                },
+                "table_data": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/MetaObject"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A non-required slot for non-serializable table data object"
+                }
+            },
+            "required": [
+                "light_source",
+                "power_mean_mw",
+                "power_median_mw",
+                "power_std_mw",
+                "power_min_mw",
+                "linearity"
+            ],
+            "title": "LightSourcePowerKeyMeasurements",
+            "type": "object"
+        },
+        "LightSourcePowerOutput": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "comment": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Comment"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "A human readable comment"
+                },
+                "errors": {
+                    "description": "The errors of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "key_measurements": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LightSourcePowerKeyMeasurements"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Key-Value measurements for the power measurements."
+                },
+                "processing_application": {
+                    "description": "The application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "processing_datetime": {
+                    "description": "The datetime of the processing by microscope-metrics",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "processing_entity": {
+                    "description": "The entity that processed the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "processing_log": {
+                    "description": "The log of the processing by microscope-metrics",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "processing_version": {
+                    "description": "The version of the application used to process the dataset",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "validated": {
+                    "description": "Has the dataset been validated by a human",
+                    "type": "boolean"
+                },
+                "validation_datetime": {
+                    "description": "The datetime of the validation",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "warnings": {
+                    "description": "The warnings of the processing by microscope-metrics",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "processing_application",
+                "processing_version",
+                "processing_datetime",
+                "validated"
+            ],
+            "title": "LightSourcePowerOutput",
+            "type": "object"
+        },
         "Line": {
             "additionalProperties": false,
             "description": "A line as defined by x1, y1, x2, y2 coordinates",
@@ -3675,6 +4085,83 @@
             "title": "Polygon",
             "type": "object"
         },
+        "PowerMeter": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "manufacturer": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "model": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "PowerMeter",
+            "type": "object"
+        },
+        "PowerSample": {
+            "additionalProperties": false,
+            "description": "A single power measurement for a light source.",
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "integration_time_ms": {
+                    "description": "The integration time in milliseconds.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "light_source": {
+                    "$ref": "#/$defs/LightSource",
+                    "description": "The light source under investigation."
+                },
+                "power_mw": {
+                    "description": "The power measured in milliwatts.",
+                    "type": "number"
+                },
+                "power_set_point": {
+                    "description": "The power set point as a fraction of the nominal power of the light source.",
+                    "type": "number"
+                },
+                "sampling_location": {
+                    "$ref": "#/$defs/SamplingLocationEnum",
+                    "description": "The location at which the sampling was taken."
+                }
+            },
+            "required": [
+                "acquisition_datetime",
+                "light_source",
+                "sampling_location",
+                "power_set_point",
+                "power_mw"
+            ],
+            "title": "PowerSample",
+            "type": "object"
+        },
         "Protocol": {
             "additionalProperties": false,
             "description": "Set of instructions for preparing a sample or acquiring data",
@@ -3915,6 +4402,19 @@
             },
             "title": "Roi",
             "type": "object"
+        },
+        "SamplingLocationEnum": {
+            "description": "The location at which the sampling was taken.",
+            "enum": [
+                "SOURCE_EXIT",
+                "FIBER_EXIT",
+                "OBJECTIVE_BACKFOCAL",
+                "OBJECTIVE_EXIT",
+                "OBJECTIVE_FOCAL",
+                "OTHER"
+            ],
+            "title": "SamplingLocationEnum",
+            "type": "string"
         },
         "TimeSeries": {
             "additionalProperties": false,

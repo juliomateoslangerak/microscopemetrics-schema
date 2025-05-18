@@ -47,6 +47,16 @@ enum PlaneAxisEnum
     YZ
   }
 
+enum SamplingLocationEnum
+  {
+    SOURCE_EXIT
+    FIBER_EXIT
+    OBJECTIVE_BACKFOCAL
+    OBJECTIVE_EXIT
+    OBJECTIVE_FOCAL
+    OTHER
+  }
+
 interface CentersFitted
   {
   }
@@ -334,6 +344,77 @@ interface KeyMeasurements
     tableData: MetaObject
   }
 
+type LightSource
+  {
+    wavelengthNm: Float!
+  }
+
+type LightSourcePower
+  {
+    name: String
+    description: String
+    preparationProtocol: Protocol!
+    manufacturer: String
+  }
+
+type LightSourcePowerDataset
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
+    sample: Sample
+    microscope: Microscope!
+    experimenter: Experimenter
+    acquisitionProtocol: Protocol
+    processed: Boolean!
+    inputData: LightSourcePowerInputData!
+    inputParameters: LightSourcePowerInputParameters
+    output: LightSourcePowerOutput
+  }
+
+type LightSourcePowerInputData
+  {
+    measurementDevice: PowerMeter!
+    powerSamples: [PowerSample]!
+  }
+
+type LightSourcePowerInputParameters
+  {
+  }
+
+type LightSourcePowerKeyMeasurements
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    tableData: MetaObject
+    lightSource: LightSource!
+    powerMeanMw: [Float]!
+    powerMedianMw: [Float]!
+    powerStdMw: [Float]!
+    powerMinMw: [Float]!
+    powerMaxMw: [Float]
+    linearity: [Float]!
+  }
+
+type LightSourcePowerOutput
+  {
+    comment: Comment
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
+    keyMeasurements: LightSourcePowerKeyMeasurements
+  }
+
 type Line
   {
     name: String
@@ -499,6 +580,24 @@ type Polygon
     strokeWidth: Integer
     vertexes: [Vertex]!
     isOpen: Boolean!
+  }
+
+type PowerMeter
+  {
+    name: String
+    description: String
+    manufacturer: String
+    model: String
+  }
+
+type PowerSample
+  {
+    acquisitionDatetime: Datetime!
+    lightSource: LightSource!
+    samplingLocation: SamplingLocationEnum!
+    powerSetPoint: Float!
+    powerMw: Float!
+    integrationTimeMs: Float
   }
 
 interface ProfilesIntensity
