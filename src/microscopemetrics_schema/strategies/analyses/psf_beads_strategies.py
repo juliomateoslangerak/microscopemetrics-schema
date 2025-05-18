@@ -1,6 +1,7 @@
 from hypothesis import strategies as st
 from microscopemetrics_schema.datamodel import microscopemetrics_schema as mm_schema
 from microscopemetrics_schema.strategies import (
+    st_mm_metrics_object,
     st_mm_image,
     st_mm_dataset,
     st_mm_output,
@@ -43,11 +44,24 @@ def st_mm_psf_beads_input_parameters(
 
 
 @st.composite
+def st_mm_psf_beads_output_key_measurements(
+    draw,
+    mm_object=st_mm_metrics_object(),
+) -> mm_schema.PSFBeadsKeyMeasurements:
+    mm_object = draw(mm_object)
+    return mm_schema.PSFBeadsKeyMeasurements(
+        name=mm_object.name,
+        description=mm_object.description,
+    )
+
+
+@st.composite
 def st_mm_psf_beads_output(
     draw,
     output=st_mm_output(
         processing_entity=st.just("PSFBeadsAnalysis"),
     ),
+    key_measurements=st_mm_psf_beads_output_key_measurements(),
 ) -> mm_schema.PSFBeadsOutput:
     mm_output = draw(output)
     return mm_schema.PSFBeadsOutput(
@@ -55,6 +69,7 @@ def st_mm_psf_beads_output(
         processing_version=mm_output.processing_version,
         processing_entity=mm_output.processing_entity,
         processing_datetime=mm_output.processing_datetime,
+        key_measurements=draw(key_measurements),
         processing_log=mm_output.processing_log,
         warnings=mm_output.warnings,
         errors=mm_output.errors,
@@ -65,29 +80,42 @@ def st_mm_psf_beads_output(
 @st.composite
 def st_mm_psf_beads_unprocessed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.PSFBeadsDataset,
-        sample=st_mm_psf_beads_sample(),
-        processed=st.just(False),
-        input_data=st_mm_psf_beads_input_data(),
-        input_parameters=st_mm_psf_beads_input_parameters(),
-    )
+    processed=st.just(False),
+    input_data=st_mm_psf_beads_input_data(),
+    sample=st_mm_psf_beads_sample(),
+    input_parameters=st_mm_psf_beads_input_parameters(),
 ) -> mm_schema.PSFBeadsDataset:
-    return draw(dataset)
+    sample = draw(sample)
+    input_parameters = draw(input_parameters)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.PSFBeadsDataset,
+            processed=processed,
+            input_data=input_data,
+            sample=sample,
+            input_parameters=input_parameters,
+        )
+    )
 
 
 @st.composite
 def st_mm_psf_beads_processed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.PSFBeadsDataset,
-        sample=st_mm_psf_beads_sample(),
-        processed=st.just(True),
-        input_data=st_mm_psf_beads_input_data(),
-        input_parameters=st_mm_psf_beads_input_parameters(),
-        output=st_mm_psf_beads_output(),
-    )
+    processed=st.just(True),
+    input_data=st_mm_psf_beads_input_data(),
+    output=st_mm_psf_beads_output(),
+    sample=st_mm_psf_beads_sample(),
+    input_parameters=st_mm_psf_beads_input_parameters(),
 ) -> mm_schema.PSFBeadsDataset:
-    return draw(dataset)
-
-
+    sample = draw(sample)
+    input_parameters = draw(input_parameters)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.PSFBeadsDataset,
+            processed=processed,
+            input_data=input_data,
+            output=output,
+            sample=sample,
+            input_parameters=input_parameters,
+        )
+    )

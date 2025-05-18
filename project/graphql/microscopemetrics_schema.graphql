@@ -151,7 +151,7 @@ type Experimenter
     orcid: String!
   }
 
-type FieldIlluminationDataset
+type FieldIlluminationDataset implements HasSampleMixin, HasInputParametersMixin
   {
     name: String
     description: String
@@ -249,7 +249,7 @@ type FieldIlluminationOutput
     validated: Boolean!
     validationDatetime: Datetime
     keyMeasurements: FieldIlluminationKeyMeasurements
-    intensityProfiles: [Table]
+    intensityProfiles: [ProfilesIntensity]
     roiProfiles: [Roi]
     roiCorners: [Roi]
     roiCentersOfMass: [Roi]
@@ -283,6 +283,16 @@ type HarmonizedMetricsDatasetCollection
     linkedReferences: [DataReference]
     datasetCollection: [MetricsDataset]
     datasetClass: String!
+  }
+
+interface HasInputParametersMixin
+  {
+    inputParameters: MetricsInputParameters
+  }
+
+interface HasSampleMixin
+  {
+    sample: Sample
   }
 
 interface HomogeneousField
@@ -364,13 +374,11 @@ type LightSourcePowerDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     acquisitionDatetime: Datetime
-    sample: Sample
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: LightSourcePowerInputData!
-    inputParameters: LightSourcePowerInputParameters
     output: LightSourcePowerOutput
   }
 
@@ -457,9 +465,7 @@ interface MetricsDataset
     dataReference: DataReference
     linkedReferences: [DataReference]
     acquisitionDatetime: Datetime
-    sample: Sample
     inputData: MetricsInputData!
-    inputParameters: MetricsInputParameters
     output: MetricsOutput
     microscope: Microscope!
     experimenter: Experimenter
@@ -623,7 +629,7 @@ type PSFBeads
     beadDiameterMicron: Float!
   }
 
-type PSFBeadsDataset
+type PSFBeadsDataset implements HasSampleMixin, HasInputParametersMixin
   {
     name: String
     description: String
@@ -756,9 +762,9 @@ type PSFBeadsOutput
     consideredBeadCentersXFitQuality: [Roi]
     keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
-    beadProfilesZ: Table
-    beadProfilesY: Table
-    beadProfilesX: Table
+    beadProfilesZ: ProfilesIntensity
+    beadProfilesY: ProfilesIntensity
+    beadProfilesX: ProfilesIntensity
     averageBead: Image
   }
 
@@ -830,6 +836,75 @@ interface Table
 type TimeSeries
   {
     timePointsSec: [Float]!
+  }
+
+type UserExperiment
+  {
+    name: String
+    description: String
+    preparationProtocol: Protocol!
+    manufacturer: String
+  }
+
+type UserExperimentDataset implements HasSampleMixin, HasInputParametersMixin
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    acquisitionDatetime: Datetime
+    microscope: Microscope!
+    experimenter: Experimenter
+    acquisitionProtocol: Protocol
+    processed: Boolean!
+    inputData: UserExperimentInputData!
+    inputParameters: UserExperimentInputParameters
+    output: UserExperimentOutput
+    sample: UserExperiment
+  }
+
+type UserExperimentInputData
+  {
+    userExperimentImages: [Image]!
+    orthogonalRois: [Roi]
+    profileRois: [Roi]
+  }
+
+type UserExperimentInputParameters
+  {
+    bitDepth: Integer
+    saturationThreshold: Float
+  }
+
+type UserExperimentKeyMeasurements
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    tableData: MetaObject
+    channelName: [String]
+    channelNr: [Integer]
+    variationCoefficient: [Float]
+    saturatedChannels: [Integer]
+  }
+
+type UserExperimentOutput
+  {
+    comment: Comment
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: Datetime!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    validated: Boolean!
+    validationDatetime: Datetime
+    intensityProfilesB: [ProfilesIntensity]
+    orthogonalImages: [OrthogonalImage]
+    fftImages: [Image]
+    keyMeasurements: UserExperimentKeyMeasurements
   }
 
 type Vertex

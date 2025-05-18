@@ -189,10 +189,22 @@ classes:
         multivalued: false
     slots:
       - acquisition_datetime
-      - sample
       - input_data
-      - input_parameters
       - output
+
+  HasSampleMixin:
+    mixin: true
+    description: >-
+      A mixin for objects that have a sample.
+    slots:
+      - sample
+
+  HasInputParametersMixin:
+    mixin: true
+    description: >-
+      A mixin for objects that have input parameters.
+    slots:
+      - input_parameters
 
   MetricsInputData:
     description: An abstract class for analysis input data

@@ -1,7 +1,7 @@
 from hypothesis import strategies as st
 from microscopemetrics_schema.datamodel import microscopemetrics_schema as mm_schema
 from microscopemetrics_schema.strategies import (
-    st_mm_image,
+    st_mm_metrics_object,
     st_mm_dataset,
     st_mm_output,
 )
@@ -79,11 +79,41 @@ def st_mm_light_source_power_input_parameters(
 
 
 @st.composite
+def st_mm_light_source_power_output_key_measurements(
+    draw,
+    mm_object=st_mm_metrics_object(),
+) -> mm_schema.LightSourcePowerKeyMeasurements:
+    """
+    light_source: Union[dict, "LightSource"] = None
+    power_mean_mw: Union[float, list[float]] = None
+    power_median_mw: Union[float, list[float]] = None
+    power_std_mw: Union[float, list[float]] = None
+    power_min_mw: Union[float, list[float]] = None
+    linearity: Union[float, list[float]] = None
+    power_max_mw: Optional[Union[float, list[float]]] = empty_list()
+
+    """
+    mm_object = draw(mm_object)
+    return mm_schema.LightSourcePowerKeyMeasurements(
+        name=mm_object.name,
+        description=mm_object.description,
+        light_source=draw(st_mm_light_source()),
+        power_mean_mw=25.0,
+        power_median_mw=25.0,
+        power_std_mw=2.0,
+        power_min_mw=20.0,
+        power_max_mw=30.0,
+        linearity=0.95,
+    )
+
+
+@st.composite
 def st_mm_light_source_power_output(
     draw,
     output=st_mm_output(
         processing_entity=st.just("LightSourcePowerAnalysis"),
     ),
+    key_measurements=st_mm_light_source_power_output_key_measurements(),
 ) -> mm_schema.LightSourcePowerOutput:
     mm_output = draw(output)
     return mm_schema.LightSourcePowerOutput(
@@ -91,6 +121,7 @@ def st_mm_light_source_power_output(
         processing_version=mm_output.processing_version,
         processing_entity=mm_output.processing_entity,
         processing_datetime=mm_output.processing_datetime,
+        key_measurements=draw(key_measurements),
         processing_log=mm_output.processing_log,
         warnings=mm_output.warnings,
         errors=mm_output.errors,
@@ -101,25 +132,32 @@ def st_mm_light_source_power_output(
 @st.composite
 def st_mm_light_source_power_unprocessed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.LightSourcePowerDataset,
-        processed=st.just(False),
-        input_data=st_mm_light_source_power_input_data(),
-    )
+    processed=st.just(False),
+    input_data=st_mm_light_source_power_input_data(),
 ) -> mm_schema.LightSourcePowerDataset:
-    return draw(dataset)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.LightSourcePowerDataset,
+            processed=processed,
+            input_data=input_data,
 
+        )
+    )
 
 @st.composite
 def st_mm_light_source_power_processed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.LightSourcePowerDataset,
-        processed=st.just(True),
-        input_data=st_mm_light_source_power_input_data(),
-        output=st_mm_light_source_power_output(),
-    )
+    processed=st.just(True),
+    input_data=st_mm_light_source_power_input_data(),
+    output=st_mm_light_source_power_output(),
 ) -> mm_schema.LightSourcePowerDataset:
-    return draw(dataset)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.LightSourcePowerDataset,
+            processed=processed,
+            input_data=input_data,
+            output=output,
+        )
+    )
 
 

@@ -9,27 +9,21 @@ microscope:
   manufacturer: "Abberior"
   model: "STED 775 QUAD"
   serial_number: "123456"
-sample:
-  name: "ExampleSample"
-  preparation_protocol:
-    name: "ExampleProtocol"
-    version: "1.0"
-    authors:
-      - name: "John Doe"
-        orcid: "https://orcid.org/0000-0000-0000-0001"
-    url: "https://example.org/protocol/1"
 experimenter:
   name: "Jane Smith"
   orcid: "https://orcid.org/0000-0000-0000-0002"
 acquisition_datetime: "2024-01-15T12:00:00"
 processed: true
 input_data: "Any input data used for processing."
-input_parameters: "Any input parameters used for processing."
 output:
   processing_application: "microscope-metrics"
   processing_version: 0.1.0
   processing_entity: microscope-metrics/0.1.0/FIELD_ILLUMINATION
-  processing_datetime: '2024-01-17T00:00:00.000000'
+  processing_datetime: "2024-01-17T00:00:00.000000"
+  key_measurements:
+    table_data:
+      name: "Key measurement 1"
+      value: 42
   processing_log: "A log"
   warnings:
     - "A warning"

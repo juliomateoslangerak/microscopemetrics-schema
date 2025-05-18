@@ -18,6 +18,9 @@ classes:
     is_a: MetricsDataset
     description: >-
       A field illumination dataset
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
     slot_usage:
       input_data:
         range: FieldIlluminationInputData
@@ -53,7 +56,7 @@ classes:
           Key-Value pairs containing the Key measurements for the field illumination analysis
         multivalued: false
       intensity_profiles:
-        range: Table
+        range: ProfilesIntensity
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
         multivalued: true

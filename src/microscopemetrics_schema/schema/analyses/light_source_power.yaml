@@ -20,8 +20,6 @@ classes:
     slot_usage:
       input_data:
         range: LightSourcePowerInputData
-      input_parameters:
-        range: LightSourcePowerInputParameters
       output:
         range: LightSourcePowerOutput
 

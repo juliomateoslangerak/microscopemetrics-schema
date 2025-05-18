@@ -18,6 +18,9 @@ classes:
     is_a: MetricsDataset
     description: >-
       A PSF beads dataset
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
     slot_usage:
       input_data:
         range: PSFBeadsInputData
@@ -167,21 +170,21 @@ classes:
         inlined: true
         inlined_as_list: true
       bead_profiles_z:
-        range: Table
+        range: ProfilesIntensity
         description: >-
           The intensity profiles along the z axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
         inlined_as_list: true
       bead_profiles_y:
-        range: Table
+        range: ProfilesIntensity
         description: >-
           The intensity profiles along the y axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
         inlined_as_list: true
       bead_profiles_x:
-        range: Table
+        range: ProfilesIntensity
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
         multivalued: false

@@ -18,6 +18,9 @@ classes:
     is_a: MetricsDataset
     description: >-
       A dataset of non-standardized microscope samples produced during regular operation of a research project.
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
     slot_usage:
       input_data:
         range: UserExperimentInputData

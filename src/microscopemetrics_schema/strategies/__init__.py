@@ -161,6 +161,20 @@ def st_mm_input_parameters(
 ) -> mm_schema.MetricsInputParameters:
     return mm_schema.MetricsInputParameters(**draw(input))
 
+@st.composite
+def st_mm_key_measurement(
+    draw,
+    name=st.text(
+        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=32
+    ),
+    description=st.text(
+        alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
+    ),
+) -> mm_schema.KeyMeasurements:
+    return mm_schema.KeyMeasurements(
+        name=draw(name),
+        description=draw(description),
+    )
 
 @st.composite
 def st_mm_output(
@@ -170,6 +184,7 @@ def st_mm_output(
     processing_entity=st.just("MicroscopeMetricsAnalysis"),
     processing_datetime=st.datetimes(),
     processing_log=st.text(),
+    key_measurement=st_mm_key_measurement(),
     warnings=st.lists(st.text(), max_size=5),
     errors=st.lists(st.text(), max_size=5),
     comment=st_mm_comment(),
@@ -180,6 +195,7 @@ def st_mm_output(
         processing_entity=draw(processing_entity),
         processing_datetime=draw(processing_datetime),
         processing_log=draw(processing_log),
+        key_measurements=draw(key_measurement),
         warnings=draw(warnings),
         errors=draw(errors),
         comment=draw(comment),
@@ -192,13 +208,12 @@ def st_mm_dataset(
     target_class=None,
     metrics_object=st_mm_metrics_object(),
     microscope=st_mm_microscope(),
-    sample=st_mm_sample(),
     experimenter=st_mm_experimenter(),
     acquisition_datetime=st.datetimes(),
     processed=st.booleans(),
     input_data=st_mm_input_data(),
-    input_parameters=st_mm_input_parameters(),
     output=st_mm_output(),
+    **kwargs,
 ) -> mm_schema.MetricsDataset:
     metrics_object = draw(metrics_object)
     processed = draw(processed)
@@ -210,12 +225,10 @@ def st_mm_dataset(
             description=metrics_object.description,
             data_reference=metrics_object.data_reference,
             microscope=draw(microscope),
-            sample=draw(sample),
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
             input_data=draw(input_data),
-            input_parameters=draw(input_parameters),
             output=output,
         )
     else:
@@ -224,13 +237,12 @@ def st_mm_dataset(
             description=metrics_object.description,
             data_reference=metrics_object.data_reference,
             microscope=draw(microscope),
-            sample=draw(sample),
             experimenter=draw(experimenter),
             acquisition_datetime=draw(acquisition_datetime),
             processed=processed,
             input_data=draw(input_data),
-            input_parameters=draw(input_parameters),
             output=output,
+            **kwargs,
         )
 
 

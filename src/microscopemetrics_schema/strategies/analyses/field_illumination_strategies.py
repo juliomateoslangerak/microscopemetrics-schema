@@ -1,6 +1,7 @@
 from hypothesis import strategies as st
 from microscopemetrics_schema.datamodel import microscopemetrics_schema as mm_schema
 from microscopemetrics_schema.strategies import (
+    st_mm_metrics_object,
     st_mm_image,
     st_mm_dataset,
     st_mm_output,
@@ -17,7 +18,7 @@ def st_mm_field_illumination_input_data(
     field_illumination_image=st.lists(st_mm_image(), min_size=1, max_size=3),
 ) -> mm_schema.FieldIlluminationInputData:
     return mm_schema.FieldIlluminationInputData(
-        field_illumination_image=draw(field_illumination_image),
+        field_illumination_images=draw(field_illumination_image),
     )
 
 
@@ -38,11 +39,24 @@ def st_mm_field_illumination_input_parameters(
 
 
 @st.composite
+def st_mm_field_illumination_output_key_measurements(
+    draw,
+    mm_object=st_mm_metrics_object(),
+) -> mm_schema.FieldIlluminationKeyMeasurements:
+    mm_object = draw(mm_object)
+    return mm_schema.FieldIlluminationKeyMeasurements(
+        name=mm_object.name,
+        description=mm_object.description,
+    )
+
+
+@st.composite
 def st_mm_field_illumination_output(
     draw,
     output=st_mm_output(
         processing_entity=st.just("FieldIlluminationAnalysis"),
     ),
+    key_measurements=st_mm_field_illumination_output_key_measurements(),
 ) -> mm_schema.FieldIlluminationOutput:
     mm_output = draw(output)
     return mm_schema.FieldIlluminationOutput(
@@ -50,6 +64,7 @@ def st_mm_field_illumination_output(
         processing_version=mm_output.processing_version,
         processing_entity=mm_output.processing_entity,
         processing_datetime=mm_output.processing_datetime,
+        key_measurements=draw(key_measurements),
         processing_log=mm_output.processing_log,
         warnings=mm_output.warnings,
         errors=mm_output.errors,
@@ -60,34 +75,49 @@ def st_mm_field_illumination_output(
 @st.composite
 def st_mm_field_illumination_unprocessed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.FieldIlluminationDataset,
-        sample=st.one_of(
-            st_mm_homogeneous_thin_field_sample(),
-            st_mm_homogeneous_thick_field_sample(),
-        ),
-        processed=st.just(False),
-        input_data=st_mm_field_illumination_input_data(),
-        input_parameters=st_mm_field_illumination_input_parameters(),
-    )
+    processed=st.just(False),
+    input_data=st_mm_field_illumination_input_data(),
+    sample=st.one_of(
+        st_mm_homogeneous_thin_field_sample(),
+        st_mm_homogeneous_thick_field_sample(),
+    ),
+    input_parameters=st_mm_field_illumination_input_parameters(),
 ) -> mm_schema.FieldIlluminationDataset:
-    return draw(dataset)
+    sample = draw(sample)
+    input_parameters = draw(input_parameters)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.FieldIlluminationDataset,
+            processed=processed,
+            input_data=input_data,
+            sample=sample,
+            input_parameters=input_parameters,
+        )
+    )
 
 
 @st.composite
 def st_mm_field_illumination_processed_dataset(
     draw,
-    dataset=st_mm_dataset(
-        target_class=mm_schema.FieldIlluminationDataset,
-        processed=st.just(True),
-        input_data=st_mm_field_illumination_input_data(),
-        input_parameters=st_mm_field_illumination_input_parameters(),
-        output=st_mm_field_illumination_output(),
-        sample=st.one_of(
-            st_mm_homogeneous_thin_field_sample(),
-            st_mm_homogeneous_thick_field_sample(),
-        )
+    processed=st.just(True),
+    input_data=st_mm_field_illumination_input_data(),
+    output=st_mm_field_illumination_output(),
+    sample=st.one_of(
+        st_mm_homogeneous_thin_field_sample(),
+        st_mm_homogeneous_thick_field_sample(),
     ),
+    input_parameters=st_mm_field_illumination_input_parameters(),
 ) -> mm_schema.FieldIlluminationDataset:
-    return draw(dataset)
+    sample = draw(sample)
+    input_parameters = draw(input_parameters)
+    return draw(
+        st_mm_dataset(
+            target_class=mm_schema.FieldIlluminationDataset,
+            processed=processed,
+            input_data=input_data,
+            output=output,
+            sample=sample,
+            input_parameters=input_parameters,
+        )
+    )
 
