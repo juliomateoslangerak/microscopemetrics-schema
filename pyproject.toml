@@ -1,38 +1,43 @@
-[tool.poetry]
-name = "microscopemetrics_schema"
-version = "0.0.3.post273.dev0+fff72388"
-description = "A schema for microscope-metrics, a python package for microscope QC"
-authors = ["Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"]
-license = "GNU GPL v3.0"
-readme = "README.md"
-include = ["README.md", "src/microscopemetrics_schema/schema", "project"]
-
-[tool.poetry.dependencies]
-python = ">=3.9.18 <4"
-linkml-runtime = "^1.9.2"
-black = "^25.1.0"
-poetry = "^2.1.3"
-hypothesis = "^6.131.15"
-mkdocs-material = "^9.6.13"
-mkdocs-mermaid2-plugin = "^1.2.1"
-schemasheets = "^0.4.0"
-
-[tool.poetry.group.dev.dependencies]
-linkml = ">=1.9.1,<2.0.0"
-mkdocs-material = ">=9.6.13,<10.0.0"
-mkdocs-mermaid2-plugin = "^1.2.1"
-hypothesis = ">=6.131.15,<7.0.0"
-black = ">=25.1.0,<26.0.0"
-schemasheets = ">=0.4.0,<0.5.0"
-
-[tool.poetry-dynamic-versioning]
-enable = false
-vcs = "git"
-style = "pep440"
-
 [build-system]
 requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning"]
 build-backend = "poetry_dynamic_versioning.backend"
 
-[tool.poetry.extras]
-docs = ["linkml", "mkdocs-material"]
+[project]
+name = "microscopemetrics_schema"
+description = "A schema for microscope-metrics, a python package for microscope QC"
+authors = [
+  {name = "Julio Mateos Langerak", email = "<julio.mateos-langerak@igh.cnrs.fr>"},
+]
+license = "GNU GPL v3.0"
+readme = "README.md"
+include = ["README.md", "src/microscopemetrics_schema/schema", "project"]
+
+requires-python = ">=3.9.18,<4.0"
+
+dynamic = ["version"]
+
+dependencies = [
+  "linkml-runtime >=1.1.24",
+  "hypothesis >= 6.131.15",
+
+]
+
+[tool.poetry]
+requires-poetry = ">=2.0"
+version = "0.0.0"
+
+[tool.poetry.requires-plugins]
+poetry-dynamic-versioning = ">=1.5.2"
+
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+style = "pep440"
+
+[tool.poetry.group.dev.dependencies]
+linkml = ">=1.3.5"
+mkdocs-material = ">=8.2.8"
+mkdocs-mermaid2-plugin = ">=1.1.1"
+schemasheets = ">=0.1.14"
+jupyter = ">=1.0.0"
+mknotebooks = ">= 0.8.0"

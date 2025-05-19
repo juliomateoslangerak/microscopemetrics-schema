@@ -7,7 +7,8 @@ generator_args:
     mergeimports: true
     metaclasses: true
     type_objects: true
-    metadata_profile: rdfs
+    # throws 'Cannot handle metadata profile: rdfs'
+    # metadata_profile: rdfs
   markdown:
     mergeimports: true
   graphql:
