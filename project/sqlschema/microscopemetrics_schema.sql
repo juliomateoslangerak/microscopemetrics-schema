@@ -31,8 +31,6 @@
 --     * Slot: PSFBeadsKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: LightSourcePowerDataset_id Description: Autocreated FK slot
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: UserExperimentDataset_id Description: Autocreated FK slot
---     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
 -- # Abstract Class: "MetricsObject" Description: "A base object for all microscope-metrics objects."
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
@@ -132,8 +130,6 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: FieldIlluminationInputData_id Description: Autocreated FK slot
 --     * Slot: PSFBeadsInputData_id Description: Autocreated FK slot
---     * Slot: UserExperimentInputData_id Description: Autocreated FK slot
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
 --     * Slot: time_series_id Description: A series representing time for time-lapse images.
 --     * Slot: channel_series_id Description: A series representing channels for multi-channel images.
 --     * Slot: array_data_id Description: A non-required slot for non-serializable array data object
@@ -169,7 +165,6 @@
 --     * Slot: shape_t Description: The shape of an image in the t dimension
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
 --     * Slot: source_roi_id Description: The source ROI of the orthogonal image. The ROI has to contain a single point shape.
 --     * Slot: time_series_id Description: A series representing time for time-lapse images.
 --     * Slot: channel_series_id Description: A series representing channels for multi-channel images.
@@ -198,7 +193,6 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: PSFBeadsOutput_id Description: Autocreated FK slot
---     * Slot: UserExperimentInputData_id Description: Autocreated FK slot
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Abstract Class: "Shape" Description: "A shape"
 --     * Slot: id Description: 
@@ -314,8 +308,6 @@
 --     * Slot: id Description: 
 -- # Class: "ProfilesIntensity" Description: "Profiles computed on the image. Intended to be used with ROIs."
 --     * Slot: id Description: 
---     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
 --     * Slot: intensity_profiles_table_id Description: Linked table of profiles
 -- # Class: "RoiMeasurements" Description: "Measurements computed on the ROIs of an image. Intended to be used with ROIs."
 --     * Slot: id Description: 
@@ -330,6 +322,7 @@
 --     * Slot: id Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
+--     * Slot: FieldIlluminationOutput_id Description: Autocreated FK slot
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Abstract Class: "HomogeneousField" Description: "An homogeneous field."
@@ -489,46 +482,6 @@
 --     * Slot: model Description: 
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
--- # Class: "UserExperiment" Description: "A non-standardized microscope sample produced during regular operation of a research project."
---     * Slot: id Description: 
---     * Slot: preparation_protocol Description: The protocol used to prepare a sample
---     * Slot: manufacturer Description: A manufacturer
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
--- # Class: "UserExperimentDataset" Description: "A dataset of non-standardized microscope samples produced during regular operation of a research project."
---     * Slot: id Description: 
---     * Slot: acquisition_datetime Description: The datetime of the acquisition
---     * Slot: experimenter Description: The experimenter that performed the imaging experiment
---     * Slot: acquisition_protocol Description: The protocol used to acquire the dataset
---     * Slot: processed Description: Has the dataset been processed by microscope-metrics
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: sample_id Description: The physical sample that was imaged
---     * Slot: input_parameters_id Description: The input parameters for the analysis
---     * Slot: input_data_id Description: The input data for the analysis
---     * Slot: output_id Description: The output of the analysis
---     * Slot: microscope_id Description: The microscope that was used to acquire the dataset
---     * Slot: data_reference_id Description: A reference to the data
--- # Class: "UserExperimentInputData" Description: ""
---     * Slot: id Description: 
--- # Class: "UserExperimentInputParameters" Description: ""
---     * Slot: id Description: 
---     * Slot: bit_depth Description: Detector bit depth
---     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
--- # Class: "UserExperimentOutput" Description: ""
---     * Slot: id Description: 
---     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
---     * Slot: processing_log Description: The log of the processing by microscope-metrics
---     * Slot: validated Description: Has the dataset been validated by a human
---     * Slot: validation_datetime Description: The datetime of the validation
---     * Slot: key_measurements_id Description: The key measurements on the user_experiment dataset.
---     * Slot: comment_id Description: A human readable comment
--- # Class: "UserExperimentKeyMeasurements" Description: ""
---     * Slot: id Description: 
---     * Slot: name Description: The human readable name of an entity
---     * Slot: description Description: A human readable description of an entity
---     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
---     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "LightSourcePower" Description: "A sample providing measurements on light source power."
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
@@ -994,33 +947,6 @@
 -- # Class: "LightSourcePowerKeyMeasurements_linearity" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: linearity Description: The linearity of the power measurements.
--- # Class: "UserExperimentOutput_processing_application" Description: ""
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: processing_application Description: The application used to process the dataset
--- # Class: "UserExperimentOutput_processing_version" Description: ""
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: processing_version Description: The version of the application used to process the dataset
--- # Class: "UserExperimentOutput_processing_entity" Description: ""
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: processing_entity Description: The entity that processed the dataset
--- # Class: "UserExperimentOutput_warnings" Description: ""
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: warnings Description: The warnings of the processing by microscope-metrics
--- # Class: "UserExperimentOutput_errors" Description: ""
---     * Slot: UserExperimentOutput_id Description: Autocreated FK slot
---     * Slot: errors Description: The errors of the processing by microscope-metrics
--- # Class: "UserExperimentKeyMeasurements_channel_name" Description: ""
---     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: channel_name Description: The channel name to which the measurements apply
--- # Class: "UserExperimentKeyMeasurements_channel_nr" Description: ""
---     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: channel_nr Description: The channel number to which the measurements apply
--- # Class: "UserExperimentKeyMeasurements_variation_coefficient" Description: ""
---     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: variation_coefficient Description: The variation coefficient of the signal of the image. One value per channel.
--- # Class: "UserExperimentKeyMeasurements_saturated_channels" Description: ""
---     * Slot: UserExperimentKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: saturated_channels Description: The channels that are saturated in the image. One value per channel.
 
 CREATE TABLE "MetaObject" (
 	id INTEGER NOT NULL, 
@@ -1059,8 +985,6 @@ CREATE TABLE "DataReference" (
 	"PSFBeadsKeyMeasurements_id" INTEGER, 
 	"LightSourcePowerDataset_id" INTEGER, 
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
-	"UserExperimentDataset_id" INTEGER, 
-	"UserExperimentKeyMeasurements_id" INTEGER, 
 	PRIMARY KEY (id), 
 	UNIQUE (omero_host, omero_object_type, omero_object_id), 
 	FOREIGN KEY("MetricsObject_id") REFERENCES "MetricsObject" (id), 
@@ -1082,9 +1006,7 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("PSFBeadsDataset_id") REFERENCES "PSFBeadsDataset" (id), 
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY("LightSourcePowerDataset_id") REFERENCES "LightSourcePowerDataset" (id), 
-	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
-	FOREIGN KEY("UserExperimentDataset_id") REFERENCES "UserExperimentDataset" (id), 
-	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
 CREATE TABLE "MetricsObject" (
 	id INTEGER NOT NULL, 
@@ -1214,8 +1136,6 @@ CREATE TABLE "Image" (
 	description TEXT, 
 	"FieldIlluminationInputData_id" INTEGER, 
 	"PSFBeadsInputData_id" INTEGER, 
-	"UserExperimentInputData_id" INTEGER, 
-	"UserExperimentOutput_id" INTEGER, 
 	time_series_id INTEGER, 
 	channel_series_id INTEGER, 
 	array_data_id INTEGER, 
@@ -1223,8 +1143,6 @@ CREATE TABLE "Image" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY("FieldIlluminationInputData_id") REFERENCES "FieldIlluminationInputData" (id), 
 	FOREIGN KEY("PSFBeadsInputData_id") REFERENCES "PSFBeadsInputData" (id), 
-	FOREIGN KEY("UserExperimentInputData_id") REFERENCES "UserExperimentInputData" (id), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id), 
 	FOREIGN KEY(time_series_id) REFERENCES "TimeSeries" (id), 
 	FOREIGN KEY(channel_series_id) REFERENCES "ChannelSeries" (id), 
 	FOREIGN KEY(array_data_id) REFERENCES "MetaObject" (id), 
@@ -1267,14 +1185,12 @@ CREATE TABLE "OrthogonalImage" (
 	shape_t INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	"UserExperimentOutput_id" INTEGER, 
 	source_roi_id INTEGER NOT NULL, 
 	time_series_id INTEGER, 
 	channel_series_id INTEGER, 
 	array_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id), 
 	FOREIGN KEY(source_roi_id) REFERENCES "Roi" (id), 
 	FOREIGN KEY(time_series_id) REFERENCES "TimeSeries" (id), 
 	FOREIGN KEY(channel_series_id) REFERENCES "ChannelSeries" (id), 
@@ -1304,11 +1220,9 @@ CREATE TABLE "Roi" (
 	name TEXT, 
 	description TEXT, 
 	"PSFBeadsOutput_id" INTEGER, 
-	"UserExperimentInputData_id" INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id), 
-	FOREIGN KEY("UserExperimentInputData_id") REFERENCES "UserExperimentInputData" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "Vertex" (
@@ -1341,16 +1255,6 @@ CREATE TABLE "CentersMaxIntensity" (
 	id INTEGER NOT NULL, 
 	PRIMARY KEY (id)
 );
-CREATE TABLE "ProfilesIntensity" (
-	id INTEGER NOT NULL, 
-	"FieldIlluminationOutput_id" INTEGER, 
-	"UserExperimentOutput_id" INTEGER, 
-	intensity_profiles_table_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id), 
-	FOREIGN KEY(intensity_profiles_table_id) REFERENCES "Table" (id)
-);
 CREATE TABLE "KeyMeasurements" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
@@ -1365,9 +1269,11 @@ CREATE TABLE "Table" (
 	id INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
+	"FieldIlluminationOutput_id" INTEGER, 
 	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
+	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id), 
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1486,9 +1392,9 @@ CREATE TABLE "PSFBeadsOutput" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(key_measurements_id) REFERENCES "PSFBeadsKeyMeasurements" (id), 
 	FOREIGN KEY(bead_properties_id) REFERENCES "Table" (id), 
-	FOREIGN KEY(bead_profiles_z_id) REFERENCES "ProfilesIntensity" (id), 
-	FOREIGN KEY(bead_profiles_y_id) REFERENCES "ProfilesIntensity" (id), 
-	FOREIGN KEY(bead_profiles_x_id) REFERENCES "ProfilesIntensity" (id), 
+	FOREIGN KEY(bead_profiles_z_id) REFERENCES "Table" (id), 
+	FOREIGN KEY(bead_profiles_y_id) REFERENCES "Table" (id), 
+	FOREIGN KEY(bead_profiles_x_id) REFERENCES "Table" (id), 
 	FOREIGN KEY(average_bead_id) REFERENCES "Image" (id), 
 	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
 );
@@ -1562,62 +1468,6 @@ CREATE TABLE "PowerMeter" (
 	name TEXT, 
 	description TEXT, 
 	PRIMARY KEY (id)
-);
-CREATE TABLE "UserExperimentDataset" (
-	id INTEGER NOT NULL, 
-	acquisition_datetime DATETIME, 
-	experimenter TEXT, 
-	acquisition_protocol TEXT, 
-	processed BOOLEAN NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	sample_id INTEGER, 
-	input_parameters_id INTEGER, 
-	input_data_id INTEGER NOT NULL, 
-	output_id INTEGER, 
-	microscope_id INTEGER NOT NULL, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(experimenter) REFERENCES "Experimenter" (orcid), 
-	FOREIGN KEY(acquisition_protocol) REFERENCES "Protocol" (url), 
-	FOREIGN KEY(sample_id) REFERENCES "UserExperiment" (id), 
-	FOREIGN KEY(input_parameters_id) REFERENCES "UserExperimentInputParameters" (id), 
-	FOREIGN KEY(input_data_id) REFERENCES "UserExperimentInputData" (id), 
-	FOREIGN KEY(output_id) REFERENCES "UserExperimentOutput" (id), 
-	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
-);
-CREATE TABLE "UserExperimentInputData" (
-	id INTEGER NOT NULL, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "UserExperimentInputParameters" (
-	id INTEGER NOT NULL, 
-	bit_depth INTEGER, 
-	saturation_threshold FLOAT, 
-	PRIMARY KEY (id)
-);
-CREATE TABLE "UserExperimentOutput" (
-	id INTEGER NOT NULL, 
-	processing_datetime DATETIME NOT NULL, 
-	processing_log TEXT, 
-	validated BOOLEAN NOT NULL, 
-	validation_datetime DATETIME, 
-	key_measurements_id INTEGER, 
-	comment_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(key_measurements_id) REFERENCES "UserExperimentKeyMeasurements" (id), 
-	FOREIGN KEY(comment_id) REFERENCES "Comment" (id)
-);
-CREATE TABLE "UserExperimentKeyMeasurements" (
-	id INTEGER NOT NULL, 
-	name TEXT, 
-	description TEXT, 
-	table_data_id INTEGER, 
-	data_reference_id INTEGER, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
-	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
 CREATE TABLE "Sample" (
 	id INTEGER NOT NULL, 
@@ -1774,6 +1624,12 @@ CREATE TABLE "Mask" (
 	FOREIGN KEY(fill_color_id) REFERENCES "Color" (id), 
 	FOREIGN KEY(stroke_color_id) REFERENCES "Color" (id)
 );
+CREATE TABLE "ProfilesIntensity" (
+	id INTEGER NOT NULL, 
+	intensity_profiles_table_id INTEGER, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(intensity_profiles_table_id) REFERENCES "Table" (id)
+);
 CREATE TABLE "RoiMeasurements" (
 	id INTEGER NOT NULL, 
 	measurements_table_id INTEGER, 
@@ -1822,15 +1678,6 @@ CREATE TABLE "LightSourcePowerInputData" (
 	measurement_device_id INTEGER NOT NULL, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
-);
-CREATE TABLE "UserExperiment" (
-	id INTEGER NOT NULL, 
-	preparation_protocol TEXT NOT NULL, 
-	manufacturer TEXT, 
-	name TEXT, 
-	description TEXT, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
@@ -2757,60 +2604,6 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_linearity" (
 	linearity FLOAT NOT NULL, 
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", linearity), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);
-CREATE TABLE "UserExperimentOutput_processing_application" (
-	"UserExperimentOutput_id" INTEGER, 
-	processing_application TEXT NOT NULL, 
-	PRIMARY KEY ("UserExperimentOutput_id", processing_application), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
-);
-CREATE TABLE "UserExperimentOutput_processing_version" (
-	"UserExperimentOutput_id" INTEGER, 
-	processing_version TEXT NOT NULL, 
-	PRIMARY KEY ("UserExperimentOutput_id", processing_version), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
-);
-CREATE TABLE "UserExperimentOutput_processing_entity" (
-	"UserExperimentOutput_id" INTEGER, 
-	processing_entity TEXT, 
-	PRIMARY KEY ("UserExperimentOutput_id", processing_entity), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
-);
-CREATE TABLE "UserExperimentOutput_warnings" (
-	"UserExperimentOutput_id" INTEGER, 
-	warnings TEXT, 
-	PRIMARY KEY ("UserExperimentOutput_id", warnings), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
-);
-CREATE TABLE "UserExperimentOutput_errors" (
-	"UserExperimentOutput_id" INTEGER, 
-	errors TEXT, 
-	PRIMARY KEY ("UserExperimentOutput_id", errors), 
-	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
-);
-CREATE TABLE "UserExperimentKeyMeasurements_channel_name" (
-	"UserExperimentKeyMeasurements_id" INTEGER, 
-	channel_name TEXT, 
-	PRIMARY KEY ("UserExperimentKeyMeasurements_id", channel_name), 
-	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
-);
-CREATE TABLE "UserExperimentKeyMeasurements_channel_nr" (
-	"UserExperimentKeyMeasurements_id" INTEGER, 
-	channel_nr INTEGER, 
-	PRIMARY KEY ("UserExperimentKeyMeasurements_id", channel_nr), 
-	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
-);
-CREATE TABLE "UserExperimentKeyMeasurements_variation_coefficient" (
-	"UserExperimentKeyMeasurements_id" INTEGER, 
-	variation_coefficient FLOAT, 
-	PRIMARY KEY ("UserExperimentKeyMeasurements_id", variation_coefficient), 
-	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
-);
-CREATE TABLE "UserExperimentKeyMeasurements_saturated_channels" (
-	"UserExperimentKeyMeasurements_id" INTEGER, 
-	saturated_channels INTEGER, 
-	PRIMARY KEY ("UserExperimentKeyMeasurements_id", saturated_channels), 
-	FOREIGN KEY("UserExperimentKeyMeasurements_id") REFERENCES "UserExperimentKeyMeasurements" (id)
 );
 CREATE TABLE "HasSampleMixin" (
 	id INTEGER NOT NULL, 

@@ -249,7 +249,7 @@ type FieldIlluminationOutput
     validated: Boolean!
     validationDatetime: Datetime
     keyMeasurements: FieldIlluminationKeyMeasurements
-    intensityProfiles: [ProfilesIntensity]
+    intensityProfiles: [Table]
     roiProfiles: [Roi]
     roiCorners: [Roi]
     roiCentersOfMass: [Roi]
@@ -762,9 +762,9 @@ type PSFBeadsOutput
     consideredBeadCentersXFitQuality: [Roi]
     keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
-    beadProfilesZ: ProfilesIntensity
-    beadProfilesY: ProfilesIntensity
-    beadProfilesX: ProfilesIntensity
+    beadProfilesZ: Table
+    beadProfilesY: Table
+    beadProfilesX: Table
     averageBead: Image
   }
 
@@ -836,75 +836,6 @@ interface Table
 type TimeSeries
   {
     timePointsSec: [Float]!
-  }
-
-type UserExperiment
-  {
-    name: String
-    description: String
-    preparationProtocol: Protocol!
-    manufacturer: String
-  }
-
-type UserExperimentDataset implements HasSampleMixin, HasInputParametersMixin
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
-    microscope: Microscope!
-    experimenter: Experimenter
-    acquisitionProtocol: Protocol
-    processed: Boolean!
-    inputData: UserExperimentInputData!
-    inputParameters: UserExperimentInputParameters
-    output: UserExperimentOutput
-    sample: UserExperiment
-  }
-
-type UserExperimentInputData
-  {
-    userExperimentImages: [Image]!
-    orthogonalRois: [Roi]
-    profileRois: [Roi]
-  }
-
-type UserExperimentInputParameters
-  {
-    bitDepth: Integer
-    saturationThreshold: Float
-  }
-
-type UserExperimentKeyMeasurements
-  {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
-    channelName: [String]
-    channelNr: [Integer]
-    variationCoefficient: [Float]
-    saturatedChannels: [Integer]
-  }
-
-type UserExperimentOutput
-  {
-    comment: Comment
-    processingApplication: [String]!
-    processingVersion: [String]!
-    processingEntity: [String]
-    processingDatetime: Datetime!
-    processingLog: String
-    warnings: [String]
-    errors: [String]
-    validated: Boolean!
-    validationDatetime: Datetime
-    intensityProfilesB: [ProfilesIntensity]
-    orthogonalImages: [OrthogonalImage]
-    fftImages: [Image]
-    keyMeasurements: UserExperimentKeyMeasurements
   }
 
 type Vertex

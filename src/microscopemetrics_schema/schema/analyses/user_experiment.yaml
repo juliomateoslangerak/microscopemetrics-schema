@@ -48,7 +48,7 @@ classes:
     is_a: MetricsOutput
     attributes:
       intensity_profiles:
-        range: ProfilesIntensity
+        range: Table
         description: >-
           Intensity profiles as measured in the provided profile_rois.
         multivalued: true

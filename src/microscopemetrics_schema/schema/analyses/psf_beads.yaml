@@ -170,21 +170,21 @@ classes:
         inlined: true
         inlined_as_list: true
       bead_profiles_z:
-        range: ProfilesIntensity
+        range: Table
         description: >-
           The intensity profiles along the z axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
         inlined_as_list: true
       bead_profiles_y:
-        range: ProfilesIntensity
+        range: Table
         description: >-
           The intensity profiles along the y axis of the analyzed beads as well as the fits.
         multivalued: false
         inlined: true
         inlined_as_list: true
       bead_profiles_x:
-        range: ProfilesIntensity
+        range: Table
         description: >-
           The intensity profiles along the x axis of the analyzed beads as well as the fits.
         multivalued: false

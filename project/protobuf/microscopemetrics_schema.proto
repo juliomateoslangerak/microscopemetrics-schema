@@ -174,7 +174,7 @@ message FieldIlluminationOutput
   boolean validated = 0
   datetime validationDatetime = 0
   fieldIlluminationKeyMeasurements keyMeasurements = 0
- repeated  profilesIntensity intensityProfiles = 0
+ repeated  table intensityProfiles = 0
  repeated  roi roiProfiles = 0
  repeated  roi roiCorners = 0
  repeated  roi roiCentersOfMass = 0
@@ -587,9 +587,9 @@ message PSFBeadsOutput
  repeated  roi consideredBeadCentersXFitQuality = 0
   pSFBeadsKeyMeasurements keyMeasurements = 0
   table beadProperties = 0
-  profilesIntensity beadProfilesZ = 0
-  profilesIntensity beadProfilesY = 0
-  profilesIntensity beadProfilesX = 0
+  table beadProfilesZ = 0
+  table beadProfilesY = 0
+  table beadProfilesX = 0
   image averageBead = 0
  }
 // A rectangle as defined by x, y coordinates and width, height
@@ -626,71 +626,6 @@ message Roi
 message TimeSeries
  {
  repeated  float timePointsSec = 0
- }
-// A non-standardized microscope sample produced during regular operation of a research project.
-message UserExperiment
- {
-  string name = 0
-  string description = 0
-  protocol preparationProtocol = 0
-  string manufacturer = 0
- }
-// A dataset of non-standardized microscope samples produced during regular operation of a research project.
-message UserExperimentDataset
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  datetime acquisitionDatetime = 0
-  microscope microscope = 0
-  experimenter experimenter = 0
-  protocol acquisitionProtocol = 0
-  boolean processed = 0
-  userExperimentInputData inputData = 0
-  userExperimentInputParameters inputParameters = 0
-  userExperimentOutput output = 0
-  userExperiment sample = 0
- }
-message UserExperimentInputData
- {
- repeated  image userExperimentImages = 0
- repeated  roi orthogonalRois = 0
- repeated  roi profileRois = 0
- }
-message UserExperimentInputParameters
- {
-  integer bitDepth = 0
-  float saturationThreshold = 0
- }
-message UserExperimentKeyMeasurements
- {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
- repeated  string channelName = 0
- repeated  integer channelNr = 0
- repeated  float variationCoefficient = 0
- repeated  integer saturatedChannels = 0
- }
-message UserExperimentOutput
- {
-  comment comment = 0
- repeated  string processingApplication = 0
- repeated  string processingVersion = 0
- repeated  string processingEntity = 0
-  datetime processingDatetime = 0
-  string processingLog = 0
- repeated  string warnings = 0
- repeated  string errors = 0
-  boolean validated = 0
-  datetime validationDatetime = 0
- repeated  profilesIntensity intensityProfilesB = 0
- repeated  orthogonalImage orthogonalImages = 0
- repeated  image fftImages = 0
-  userExperimentKeyMeasurements keyMeasurements = 0
  }
 // A vertex as defined by x and y coordinates
 message Vertex

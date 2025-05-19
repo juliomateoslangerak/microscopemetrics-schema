@@ -12,18 +12,13 @@
     "analyses/field_illumination",
     "analyses/psf_beads",
     "analyses/light_source_power",
-    "analyses/user_experiment",
     "samples/homogeneous_field",
     "samples/beads",
     "samples/light_source_power",
-    "samples/user_sample",
     "core",
     "samples/homogeneous_field",
     "core",
     "samples/beads",
-    "core",
-    "core",
-    "samples/user_sample",
     "core",
     "core",
     "core",
@@ -1214,11 +1209,10 @@
       "description": "The channel number to which the measurements apply",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/channel_nr",
-      "owner": "UserExperimentKeyMeasurements",
+      "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements",
-        "PSFBeadsKeyMeasurements",
-        "UserExperimentKeyMeasurements"
+        "PSFBeadsKeyMeasurements"
       ],
       "range": "integer",
       "multivalued": true,
@@ -1231,11 +1225,10 @@
       "description": "The channel name to which the measurements apply",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/channel_name",
-      "owner": "UserExperimentKeyMeasurements",
+      "owner": "PSFBeadsKeyMeasurements",
       "domain_of": [
         "FieldIlluminationKeyMeasurements",
-        "PSFBeadsKeyMeasurements",
-        "UserExperimentKeyMeasurements"
+        "PSFBeadsKeyMeasurements"
       ],
       "range": "string",
       "multivalued": true,
@@ -1261,11 +1254,10 @@
       "description": "Detector bit depth",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/bit_depth",
-      "owner": "UserExperimentInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
         "FieldIlluminationInputParameters",
-        "PSFBeadsInputParameters",
-        "UserExperimentInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "integer",
       "minimum_value": 1,
@@ -1279,11 +1271,10 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/saturation_threshold",
       "ifabsent": "float(0.01)",
-      "owner": "UserExperimentInputParameters",
+      "owner": "PSFBeadsInputParameters",
       "domain_of": [
         "FieldIlluminationInputParameters",
-        "PSFBeadsInputParameters",
-        "UserExperimentInputParameters"
+        "PSFBeadsInputParameters"
       ],
       "range": "float",
       "minimum_value": 0.0,
@@ -3179,83 +3170,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "user_experiment_images",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/user_experiment_images",
-      "description": "The user_experiment images provided in the order TZYXC. More than one image can be provided if the image conditions are the same.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/user_experiment_images",
-      "owner": "UserExperimentInputData",
-      "domain_of": [
-        "UserExperimentInputData"
-      ],
-      "range": "Image",
-      "required": true,
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "orthogonal_rois",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_rois",
-      "description": "Rois containing a point shape where the orthogonal views are to be taken.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_rois",
-      "owner": "UserExperimentInputData",
-      "domain_of": [
-        "UserExperimentInputData"
-      ],
-      "range": "Roi",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "profile_rois",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/profile_rois",
-      "description": "Rois containing a line shape where a intensity profile is to be calculated.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/profile_rois",
-      "owner": "UserExperimentInputData",
-      "domain_of": [
-        "UserExperimentInputData"
-      ],
-      "range": "Roi",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "variation_coefficient",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/variation_coefficient",
-      "description": "The variation coefficient of the signal of the image. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/variation_coefficient",
-      "owner": "UserExperimentKeyMeasurements",
-      "domain_of": [
-        "UserExperimentKeyMeasurements"
-      ],
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "saturated_channels",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/saturated_channels",
-      "description": "The channels that are saturated in the image. One value per channel.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/saturated_channels",
-      "owner": "UserExperimentKeyMeasurements",
-      "domain_of": [
-        "UserExperimentKeyMeasurements"
-      ],
-      "range": "integer",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "namedObject__name",
       "description": "The human readable name of an entity",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
@@ -4098,7 +4012,7 @@
       "domain_of": [
         "FieldIlluminationOutput"
       ],
-      "range": "ProfilesIntensity",
+      "range": "Table",
       "multivalued": true,
       "inlined": true,
       "inlined_as_list": true,
@@ -4377,7 +4291,7 @@
       "domain_of": [
         "PSFBeadsOutput"
       ],
-      "range": "ProfilesIntensity",
+      "range": "Table",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4392,7 +4306,7 @@
       "domain_of": [
         "PSFBeadsOutput"
       ],
-      "range": "ProfilesIntensity",
+      "range": "Table",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4407,7 +4321,7 @@
       "domain_of": [
         "PSFBeadsOutput"
       ],
-      "range": "ProfilesIntensity",
+      "range": "Table",
       "inlined": true,
       "inlined_as_list": true,
       "@type": "SlotDefinition"
@@ -4463,69 +4377,6 @@
         "PowerMeter"
       ],
       "range": "string",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "userExperimentOutput__intensity_profiles_b",
-      "description": "Intensity profiles as measured in the provided profile_rois.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/intensity_profiles_b",
-      "alias": "intensity_profiles_b",
-      "owner": "UserExperimentOutput",
-      "domain_of": [
-        "UserExperimentOutput"
-      ],
-      "range": "ProfilesIntensity",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "userExperimentOutput__orthogonal_images",
-      "description": "Orthogonal images created from the provided orthogonal_rois.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/orthogonal_images",
-      "alias": "orthogonal_images",
-      "owner": "UserExperimentOutput",
-      "domain_of": [
-        "UserExperimentOutput"
-      ],
-      "range": "OrthogonalImage",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "userExperimentOutput__fft_images",
-      "description": "Fourier space transforms of the input images.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/fft_images",
-      "alias": "fft_images",
-      "owner": "UserExperimentOutput",
-      "domain_of": [
-        "UserExperimentOutput"
-      ],
-      "range": "Image",
-      "multivalued": true,
-      "inlined": true,
-      "inlined_as_list": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "userExperimentOutput__key_measurements",
-      "description": "The key measurements on the user_experiment dataset.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/key_measurements",
-      "alias": "key_measurements",
-      "owner": "UserExperimentOutput",
-      "domain_of": [
-        "UserExperimentOutput"
-      ],
-      "range": "UserExperimentKeyMeasurements",
-      "inlined": true,
-      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4837,84 +4688,6 @@
       "usage_slot_name": "acquisition_datetime",
       "range": "datetime",
       "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "UserExperimentDataset_input_data",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data",
-      "description": "The input data for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "input_data",
-      "domain": "UserExperimentDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data",
-      "alias": "input_data",
-      "owner": "UserExperimentDataset",
-      "domain_of": [
-        "UserExperimentDataset"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "input_data",
-      "range": "UserExperimentInputData",
-      "required": true,
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "UserExperimentDataset_input_parameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_parameters",
-      "description": "The input parameters for the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "input_parameters",
-      "domain": "UserExperimentDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_parameters",
-      "alias": "input_parameters",
-      "owner": "UserExperimentDataset",
-      "domain_of": [
-        "UserExperimentDataset"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "input_parameters",
-      "range": "UserExperimentInputParameters",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "UserExperimentDataset_output",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/output",
-      "description": "The output of the analysis",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "output",
-      "abstract": true,
-      "domain": "UserExperimentDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/output",
-      "alias": "output",
-      "owner": "UserExperimentDataset",
-      "domain_of": [
-        "UserExperimentDataset"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "output",
-      "range": "UserExperimentOutput",
-      "inlined": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "UserExperimentDataset_sample",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sample",
-      "description": "The physical sample that was imaged",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "sample",
-      "domain": "UserExperimentDataset",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sample",
-      "alias": "sample",
-      "owner": "UserExperimentDataset",
-      "domain_of": [
-        "UserExperimentDataset"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sample",
-      "range": "UserExperiment",
-      "inlined": true,
       "@type": "SlotDefinition"
     }
   ],
@@ -6247,7 +6020,7 @@
         {
           "name": "intensity_profiles",
           "description": "Intensity profiles for the field illumination analysis in the different directions",
-          "range": "ProfilesIntensity",
+          "range": "Table",
           "multivalued": true,
           "inlined": true,
           "inlined_as_list": true,
@@ -6553,7 +6326,7 @@
         {
           "name": "bead_profiles_z",
           "description": "The intensity profiles along the z axis of the analyzed beads as well as the fits.",
-          "range": "ProfilesIntensity",
+          "range": "Table",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6561,7 +6334,7 @@
         {
           "name": "bead_profiles_y",
           "description": "The intensity profiles along the y axis of the analyzed beads as well as the fits.",
-          "range": "ProfilesIntensity",
+          "range": "Table",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6569,7 +6342,7 @@
         {
           "name": "bead_profiles_x",
           "description": "The intensity profiles along the x axis of the analyzed beads as well as the fits.",
-          "range": "ProfilesIntensity",
+          "range": "Table",
           "inlined": true,
           "inlined_as_list": true,
           "@type": "SlotDefinition"
@@ -6824,144 +6597,6 @@
       "@type": "ClassDefinition"
     },
     {
-      "name": "UserExperimentDataset",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset",
-      "description": "A dataset of non-standardized microscope samples produced during regular operation of a research project.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "is_a": "MetricsDataset",
-      "mixins": [
-        "HasSampleMixin",
-        "HasInputParametersMixin"
-      ],
-      "slots": [
-        "namedObject__name",
-        "namedObject__description",
-        "data_reference",
-        "linked_references",
-        "acquisition_datetime",
-        "metricsDataset__microscope",
-        "metricsDataset__experimenter",
-        "metricsDataset__acquisition_protocol",
-        "metricsDataset__processed",
-        "UserExperimentDataset_input_data",
-        "UserExperimentDataset_input_parameters",
-        "UserExperimentDataset_output",
-        "UserExperimentDataset_sample"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentDataset",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "UserExperimentInputData",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "is_a": "MetricsInputData",
-      "slots": [
-        "user_experiment_images",
-        "orthogonal_rois",
-        "profile_rois"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputData",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "UserExperimentInputParameters",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "is_a": "MetricsInputParameters",
-      "slots": [
-        "bit_depth",
-        "saturation_threshold"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentInputParameters",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "UserExperimentOutput",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "is_a": "MetricsOutput",
-      "slots": [
-        "comment",
-        "metricsOutput__processing_application",
-        "metricsOutput__processing_version",
-        "metricsOutput__processing_entity",
-        "metricsOutput__processing_datetime",
-        "metricsOutput__processing_log",
-        "metricsOutput__warnings",
-        "metricsOutput__errors",
-        "metricsOutput__validated",
-        "metricsOutput__validation_datetime",
-        "userExperimentOutput__intensity_profiles_b",
-        "userExperimentOutput__orthogonal_images",
-        "userExperimentOutput__fft_images",
-        "userExperimentOutput__key_measurements"
-      ],
-      "slot_usage": {},
-      "attributes": [
-        {
-          "name": "intensity_profiles_b",
-          "description": "Intensity profiles as measured in the provided profile_rois.",
-          "range": "ProfilesIntensity",
-          "multivalued": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "orthogonal_images",
-          "description": "Orthogonal images created from the provided orthogonal_rois.",
-          "range": "OrthogonalImage",
-          "multivalued": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "fft_images",
-          "description": "Fourier space transforms of the input images.",
-          "range": "Image",
-          "multivalued": true,
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        },
-        {
-          "name": "key_measurements",
-          "description": "The key measurements on the user_experiment dataset.",
-          "range": "UserExperimentKeyMeasurements",
-          "inlined": true,
-          "inlined_as_list": true,
-          "@type": "SlotDefinition"
-        }
-      ],
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentOutput",
-      "@type": "ClassDefinition"
-    },
-    {
-      "name": "UserExperimentKeyMeasurements",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment",
-      "is_a": "KeyMeasurements",
-      "slots": [
-        "namedObject__name",
-        "namedObject__description",
-        "data_reference",
-        "linked_references",
-        "table_data",
-        "channel_name",
-        "channel_nr",
-        "variation_coefficient",
-        "saturated_channels"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/user_experiment/UserExperimentKeyMeasurements",
-      "@type": "ClassDefinition"
-    },
-    {
       "name": "HomogeneousField",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/HomogeneousField",
       "description": "An homogeneous field.",
@@ -7051,29 +6686,13 @@
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/light_source_power/LightSourcePower",
       "@type": "ClassDefinition"
-    },
-    {
-      "name": "UserExperiment",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_sample/UserExperiment",
-      "description": "A non-standardized microscope sample produced during regular operation of a research project.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_sample",
-      "is_a": "Sample",
-      "slots": [
-        "namedObject__name",
-        "namedObject__description",
-        "preparation_protocol",
-        "manufacturer"
-      ],
-      "slot_usage": {},
-      "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_sample/UserExperiment",
-      "@type": "ClassDefinition"
     }
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-05-18T09:22:04",
-  "source_file_size": 912,
-  "generation_date": "2025-05-18T09:31:43",
+  "source_file_date": "2025-05-19T11:54:42",
+  "source_file_size": 914,
+  "generation_date": "2025-05-19T14:57:25",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
@@ -7082,11 +6701,9 @@
     "analyses/field_illumination.context.jsonld",
     "analyses/psf_beads.context.jsonld",
     "analyses/light_source_power.context.jsonld",
-    "analyses/user_experiment.context.jsonld",
     "samples/homogeneous_field.context.jsonld",
     "samples/beads.context.jsonld",
     "samples/light_source_power.context.jsonld",
-    "samples/user_sample.context.jsonld",
     {
       "@base": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/"
     }
