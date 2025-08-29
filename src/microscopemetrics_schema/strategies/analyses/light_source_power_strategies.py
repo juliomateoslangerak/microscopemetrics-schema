@@ -31,11 +31,11 @@ def st_mm_power_meter(
 
 
 @st.composite
-def st_mm_light_source_power_sample(
+def st_mm_light_source_power_measurement(
     draw,
     acquisition_datetime=st.datetimes(),
     light_source=st_mm_light_source(),
-    sampling_location=st.sampled_from(
+    measuring_location=st.sampled_from(
         [
             "SOURCE_EXIT",
             "FIBER_EXIT",
@@ -49,10 +49,10 @@ def st_mm_light_source_power_sample(
     power_mw=st.floats(min_value=0.0, max_value=100.0),
     integration_time_ms=st.floats(min_value=0.0, max_value=1000.0),
 ) -> mm_schema.LightSourcePower:
-    return mm_schema.PowerSample(
+    return mm_schema.PowerMeasurement(
         acquisition_datetime=draw(acquisition_datetime),
         light_source=draw(light_source),
-        sampling_location=draw(sampling_location),
+        measuring_location=draw(measuring_location),
         power_set_point=draw(power_set_point),
         power_mw=draw(power_mw),
         integration_time_ms=draw(integration_time_ms),
@@ -63,11 +63,11 @@ def st_mm_light_source_power_sample(
 def st_mm_light_source_power_input_data(
     draw,
     measurement_device=st_mm_power_meter(),
-    light_source_power_samples=st.lists(st_mm_light_source_power_sample(), min_size=1, max_size=5),
+    light_source_power_measurements=st.lists(st_mm_light_source_power_measurement(), min_size=1, max_size=5),
 ) -> mm_schema.LightSourcePowerInputData:
     return mm_schema.LightSourcePowerInputData(
         measurement_device=draw(measurement_device),
-        power_samples=draw(light_source_power_samples),
+        power_measurements=draw(light_source_power_measurements),
     )
 
 

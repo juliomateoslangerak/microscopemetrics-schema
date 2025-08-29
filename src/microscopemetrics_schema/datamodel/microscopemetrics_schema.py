@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T06:58:33
+# Generation date: 2025-08-29T07:14:27
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2284,7 +2284,7 @@ class PSFBeadsKeyMeasurements(KeyMeasurements):
 @dataclass(repr=False)
 class LightSourcePowerDataset(MetricsDataset):
     """
-    Power measurements dataset. A collection of power samples for different light sources.
+    Power measurements dataset. A collection of power measurements.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2320,7 +2320,7 @@ class LightSourcePowerInputData(MetricsInputData):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerInputData
 
     measurement_device: Union[dict, "PowerMeter"] = None
-    power_samples: Union[Union[dict, "PowerSample"], list[Union[dict, "PowerSample"]]] = None
+    power_measurements: Union[Union[dict, "PowerMeasurement"], list[Union[dict, "PowerMeasurement"]]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.measurement_device):
@@ -2328,11 +2328,11 @@ class LightSourcePowerInputData(MetricsInputData):
         if not isinstance(self.measurement_device, PowerMeter):
             self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
 
-        if self._is_empty(self.power_samples):
-            self.MissingRequiredField("power_samples")
-        if not isinstance(self.power_samples, list):
-            self.power_samples = [self.power_samples] if self.power_samples is not None else []
-        self.power_samples = [v if isinstance(v, PowerSample) else PowerSample(**as_dict(v)) for v in self.power_samples]
+        if self._is_empty(self.power_measurements):
+            self.MissingRequiredField("power_measurements")
+        if not isinstance(self.power_measurements, list):
+            self.power_measurements = [self.power_measurements] if self.power_measurements is not None else []
+        self.power_measurements = [v if isinstance(v, PowerMeasurement) else PowerMeasurement(**as_dict(v)) for v in self.power_measurements]
 
         super().__post_init__(**kwargs)
 
@@ -2429,20 +2429,20 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
 
 
 @dataclass(repr=False)
-class PowerSample(YAMLRoot):
+class PowerMeasurement(YAMLRoot):
     """
     A single power measurement for a light source.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/light_source_power/PowerSample"]
-    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/light_source_power/PowerSample"
-    class_name: ClassVar[str] = "PowerSample"
-    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PowerSample
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/light_source_power/PowerMeasurement"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/light_source_power/PowerMeasurement"
+    class_name: ClassVar[str] = "PowerMeasurement"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PowerMeasurement
 
     acquisition_datetime: Union[str, XSDDateTime] = None
     light_source: Union[dict, "LightSource"] = None
-    sampling_location: Union[str, "SamplingLocationEnum"] = None
+    measuring_location: Union[str, "MeasuringLocationEnum"] = None
     power_set_point: float = None
     power_mw: float = None
     integration_time_ms: Optional[float] = None
@@ -2458,10 +2458,10 @@ class PowerSample(YAMLRoot):
         if not isinstance(self.light_source, LightSource):
             self.light_source = LightSource(**as_dict(self.light_source))
 
-        if self._is_empty(self.sampling_location):
-            self.MissingRequiredField("sampling_location")
-        if not isinstance(self.sampling_location, SamplingLocationEnum):
-            self.sampling_location = SamplingLocationEnum(self.sampling_location)
+        if self._is_empty(self.measuring_location):
+            self.MissingRequiredField("measuring_location")
+        if not isinstance(self.measuring_location, MeasuringLocationEnum):
+            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
 
         if self._is_empty(self.power_set_point):
             self.MissingRequiredField("power_set_point")
@@ -2739,9 +2739,9 @@ class OMEROObjectTypeEnum(EnumDefinitionImpl):
         description="The type of the OMERO object",
     )
 
-class SamplingLocationEnum(EnumDefinitionImpl):
+class MeasuringLocationEnum(EnumDefinitionImpl):
     """
-    The location at which the sampling was taken.
+    The location at which the measurement was taken.
     """
     SOURCE_EXIT = PermissibleValue(
         text="SOURCE_EXIT",
@@ -2763,8 +2763,8 @@ class SamplingLocationEnum(EnumDefinitionImpl):
         description="Other location")
 
     _defn = EnumDefinition(
-        name="SamplingLocationEnum",
-        description="The location at which the sampling was taken.",
+        name="MeasuringLocationEnum",
+        description="The location at which the measurement was taken.",
     )
 
 # Slots
@@ -3278,14 +3278,14 @@ slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_std, domain=None, range=Optional[Union[float, list[float]]])
 
-slots.power_samples = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_samples'], name="power_samples", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_samples'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_samples, domain=None, range=Union[Union[dict, PowerSample], list[Union[dict, PowerSample]]])
+slots.power_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_measurements'], name="power_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_measurements, domain=None, range=Union[Union[dict, PowerMeasurement], list[Union[dict, PowerMeasurement]]])
 
 slots.light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.light_source, domain=None, range=Union[dict, LightSource])
 
-slots.sampling_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/sampling_location'], name="sampling_location", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/sampling_location'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sampling_location, domain=None, range=Union[str, "SamplingLocationEnum"])
+slots.measuring_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measuring_location'], name="measuring_location", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measuring_location'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.measuring_location, domain=None, range=Union[str, "MeasuringLocationEnum"])
 
 slots.wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/wavelength_nm'], name="wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.wavelength_nm, domain=None, range=float)
@@ -3608,5 +3608,5 @@ slots.LightSourcePowerDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['co
 slots.LightSourcePowerDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'], name="LightSourcePowerDataset_output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_output, domain=LightSourcePowerDataset, range=Optional[Union[dict, "LightSourcePowerOutput"]])
 
-slots.PowerSample_acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/acquisition_datetime'], name="PowerSample_acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/acquisition_datetime'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PowerSample_acquisition_datetime, domain=PowerSample, range=Union[str, XSDDateTime])
+slots.PowerMeasurement_acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/acquisition_datetime'], name="PowerMeasurement_acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/acquisition_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PowerMeasurement_acquisition_datetime, domain=PowerMeasurement, range=Union[str, XSDDateTime])

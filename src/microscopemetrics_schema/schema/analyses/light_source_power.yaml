@@ -16,7 +16,7 @@ classes:
   LightSourcePowerDataset:
     is_a: MetricsDataset
     description: >-
-      Power measurements dataset. A collection of power samples for different light sources.
+      Power measurements dataset. A collection of power measurements.
     slot_usage:
       input_data:
         range: LightSourcePowerInputData
@@ -27,7 +27,7 @@ classes:
     is_a: MetricsInputData
     slots:
       - measurement_device  # TODO: is there a single device for all measurements in a dataset?
-      - power_samples
+      - power_measurements
 
   LightSourcePowerInputParameters:
     is_a: MetricsInputParameters
@@ -53,13 +53,13 @@ classes:
       - power_max_mw
       - linearity
 
-  PowerSample:
+  PowerMeasurement:
     description: >-
       A single power measurement for a light source.
     slots:
       - acquisition_datetime
       - light_source
-      - sampling_location
+      - measuring_location
       - power_set_point
       - power_mw
       - integration_time_ms
@@ -85,10 +85,10 @@ classes:
         multivalued: false
 
 slots:
-  power_samples:
-    range: PowerSample
+  power_measurements:
+    range: PowerMeasurement
     description: >-
-      This is a collection of power samples for different light sources.
+      This is a collection of power measurements for different light sources.
     required: true
     multivalued: true
     inlined: true
@@ -100,10 +100,10 @@ slots:
       The light source under investigation.
     required: true
     multivalued: false
-  sampling_location:
-    range: SamplingLocationEnum
+  measuring_location:
+    range: MeasuringLocationEnum
     description: >-
-      The location at which the sampling was taken.
+      The location at which the measurement was taken.
     required: true
     multivalued: false
   wavelength_nm:
@@ -176,9 +176,9 @@ slots:
     required: true
 
 enums:
-  SamplingLocationEnum:
+  MeasuringLocationEnum:
     description: >-
-      The location at which the sampling was taken.
+      The location at which the measurement was taken.
     permissible_values:
       SOURCE_EXIT:
         description: Power at the exit of the light source

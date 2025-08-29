@@ -15,6 +15,16 @@ enum CommentTypesEnum
     OTHER
   }
 
+enum MeasuringLocationEnum
+  {
+    SOURCE_EXIT
+    FIBER_EXIT
+    OBJECTIVE_BACKFOCAL
+    OBJECTIVE_EXIT
+    OBJECTIVE_FOCAL
+    OTHER
+  }
+
 enum MicroscopeTypeEnum
   {
     WIDEFIELD
@@ -45,16 +55,6 @@ enum PlaneAxisEnum
     XY
     XZ
     YZ
-  }
-
-enum SamplingLocationEnum
-  {
-    SOURCE_EXIT
-    FIBER_EXIT
-    OBJECTIVE_BACKFOCAL
-    OBJECTIVE_EXIT
-    OBJECTIVE_FOCAL
-    OTHER
   }
 
 interface CentersFitted
@@ -389,7 +389,7 @@ type LightSourcePowerDataset
 type LightSourcePowerInputData
   {
     measurementDevice: PowerMeter!
-    powerSamples: [PowerSample]!
+    powerMeasurements: [PowerMeasurement]!
   }
 
 type LightSourcePowerInputParameters
@@ -592,22 +592,22 @@ type Polygon
     isOpen: Boolean!
   }
 
+type PowerMeasurement
+  {
+    acquisitionDatetime: Datetime!
+    lightSource: LightSource!
+    measuringLocation: MeasuringLocationEnum!
+    powerSetPoint: Float!
+    powerMw: Float!
+    integrationTimeMs: Float
+  }
+
 type PowerMeter
   {
     name: String
     description: String
     manufacturer: String
     model: String
-  }
-
-type PowerSample
-  {
-    acquisitionDatetime: Datetime!
-    lightSource: LightSource!
-    samplingLocation: SamplingLocationEnum!
-    powerSetPoint: Float!
-    powerMw: Float!
-    integrationTimeMs: Float
   }
 
 interface ProfilesIntensity

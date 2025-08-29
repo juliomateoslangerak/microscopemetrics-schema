@@ -437,7 +437,7 @@
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "LightSourcePowerDataset" Description: "Power measurements dataset. A collection of power samples for different light sources."
+-- # Class: "LightSourcePowerDataset" Description: "Power measurements dataset. A collection of power measurements."
 --     * Slot: id Description: 
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
 --     * Slot: experimenter Description: The experimenter that performed the imaging experiment
@@ -469,10 +469,10 @@
 --     * Slot: light_source_id Description: The light source under investigation.
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
--- # Class: "PowerSample" Description: "A single power measurement for a light source."
+-- # Class: "PowerMeasurement" Description: "A single power measurement for a light source."
 --     * Slot: id Description: 
 --     * Slot: acquisition_datetime Description: The datetime of the acquisition
---     * Slot: sampling_location Description: The location at which the sampling was taken.
+--     * Slot: measuring_location Description: The location at which the measurement was taken.
 --     * Slot: power_set_point Description: The power set point as a fraction of the nominal power of the light source.
 --     * Slot: power_mw Description: The power measured in milliwatts.
 --     * Slot: integration_time_ms Description: The integration time in milliseconds.
@@ -2623,10 +2623,10 @@ CREATE TABLE "HasSampleMixin" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id)
 );
-CREATE TABLE "PowerSample" (
+CREATE TABLE "PowerMeasurement" (
 	id INTEGER NOT NULL, 
 	acquisition_datetime DATETIME NOT NULL, 
-	sampling_location VARCHAR(19) NOT NULL, 
+	measuring_location VARCHAR(19) NOT NULL, 
 	power_set_point FLOAT NOT NULL, 
 	power_mw FLOAT NOT NULL, 
 	integration_time_ms FLOAT, 

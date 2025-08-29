@@ -267,7 +267,7 @@ message LightSourcePower
   datetime preparationDatetime = 0
   string manufacturer = 0
  }
-// Power measurements dataset. A collection of power samples for different light sources.
+// Power measurements dataset. A collection of power measurements.
 message LightSourcePowerDataset
  {
   string name = 0
@@ -285,7 +285,7 @@ message LightSourcePowerDataset
 message LightSourcePowerInputData
  {
   powerMeter measurementDevice = 0
- repeated  powerSample powerSamples = 0
+ repeated  powerMeasurement powerMeasurements = 0
  }
 message LightSourcePowerKeyMeasurements
  {
@@ -425,22 +425,22 @@ message Polygon
  repeated  vertex vertexes = 0
   boolean isOpen = 0
  }
+// A single power measurement for a light source.
+message PowerMeasurement
+ {
+  datetime acquisitionDatetime = 0
+  lightSource lightSource = 0
+  measuringLocationEnum measuringLocation = 0
+  float powerSetPoint = 0
+  float powerMw = 0
+  float integrationTimeMs = 0
+ }
 message PowerMeter
  {
   string name = 0
   string description = 0
   string manufacturer = 0
   string model = 0
- }
-// A single power measurement for a light source.
-message PowerSample
- {
-  datetime acquisitionDatetime = 0
-  lightSource lightSource = 0
-  samplingLocationEnum samplingLocation = 0
-  float powerSetPoint = 0
-  float powerMw = 0
-  float integrationTimeMs = 0
  }
 // Set of instructions for preparing a sample or acquiring data
 message Protocol

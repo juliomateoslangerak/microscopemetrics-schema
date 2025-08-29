@@ -1835,7 +1835,7 @@
         },
         "LightSourcePowerDataset": {
             "additionalProperties": false,
-            "description": "Power measurements dataset. A collection of power samples for different light sources.",
+            "description": "Power measurements dataset. A collection of power measurements.",
             "properties": {
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
@@ -1934,17 +1934,17 @@
                     "$ref": "#/$defs/PowerMeter",
                     "description": "The power meter used to measure the power."
                 },
-                "power_samples": {
-                    "description": "This is a collection of power samples for different light sources.",
+                "power_measurements": {
+                    "description": "This is a collection of power measurements for different light sources.",
                     "items": {
-                        "$ref": "#/$defs/PowerSample"
+                        "$ref": "#/$defs/PowerMeasurement"
                     },
                     "type": "array"
                 }
             },
             "required": [
                 "measurement_device",
-                "power_samples"
+                "power_measurements"
             ],
             "title": "LightSourcePowerInputData",
             "type": "object"
@@ -2358,6 +2358,19 @@
             ],
             "title": "Mask",
             "type": "object"
+        },
+        "MeasuringLocationEnum": {
+            "description": "The location at which the measurement was taken.",
+            "enum": [
+                "SOURCE_EXIT",
+                "FIBER_EXIT",
+                "OBJECTIVE_BACKFOCAL",
+                "OBJECTIVE_EXIT",
+                "OBJECTIVE_FOCAL",
+                "OTHER"
+            ],
+            "title": "MeasuringLocationEnum",
+            "type": "string"
         },
         "MetaObject": {
             "additionalProperties": true,
@@ -4095,6 +4108,49 @@
             "title": "Polygon",
             "type": "object"
         },
+        "PowerMeasurement": {
+            "additionalProperties": false,
+            "description": "A single power measurement for a light source.",
+            "properties": {
+                "acquisition_datetime": {
+                    "description": "The datetime of the acquisition",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "integration_time_ms": {
+                    "description": "The integration time in milliseconds.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "light_source": {
+                    "$ref": "#/$defs/LightSource",
+                    "description": "The light source under investigation."
+                },
+                "measuring_location": {
+                    "$ref": "#/$defs/MeasuringLocationEnum",
+                    "description": "The location at which the measurement was taken."
+                },
+                "power_mw": {
+                    "description": "The power measured in milliwatts.",
+                    "type": "number"
+                },
+                "power_set_point": {
+                    "description": "The power set point as a fraction of the nominal power of the light source.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "acquisition_datetime",
+                "light_source",
+                "measuring_location",
+                "power_set_point",
+                "power_mw"
+            ],
+            "title": "PowerMeasurement",
+            "type": "object"
+        },
         "PowerMeter": {
             "additionalProperties": false,
             "description": "",
@@ -4127,49 +4183,6 @@
                 }
             },
             "title": "PowerMeter",
-            "type": "object"
-        },
-        "PowerSample": {
-            "additionalProperties": false,
-            "description": "A single power measurement for a light source.",
-            "properties": {
-                "acquisition_datetime": {
-                    "description": "The datetime of the acquisition",
-                    "format": "date-time",
-                    "type": "string"
-                },
-                "integration_time_ms": {
-                    "description": "The integration time in milliseconds.",
-                    "type": [
-                        "number",
-                        "null"
-                    ]
-                },
-                "light_source": {
-                    "$ref": "#/$defs/LightSource",
-                    "description": "The light source under investigation."
-                },
-                "power_mw": {
-                    "description": "The power measured in milliwatts.",
-                    "type": "number"
-                },
-                "power_set_point": {
-                    "description": "The power set point as a fraction of the nominal power of the light source.",
-                    "type": "number"
-                },
-                "sampling_location": {
-                    "$ref": "#/$defs/SamplingLocationEnum",
-                    "description": "The location at which the sampling was taken."
-                }
-            },
-            "required": [
-                "acquisition_datetime",
-                "light_source",
-                "sampling_location",
-                "power_set_point",
-                "power_mw"
-            ],
-            "title": "PowerSample",
             "type": "object"
         },
         "Protocol": {
@@ -4412,19 +4425,6 @@
             },
             "title": "Roi",
             "type": "object"
-        },
-        "SamplingLocationEnum": {
-            "description": "The location at which the sampling was taken.",
-            "enum": [
-                "SOURCE_EXIT",
-                "FIBER_EXIT",
-                "OBJECTIVE_BACKFOCAL",
-                "OBJECTIVE_EXIT",
-                "OBJECTIVE_FOCAL",
-                "OTHER"
-            ],
-            "title": "SamplingLocationEnum",
-            "type": "string"
         },
         "TimeSeries": {
             "additionalProperties": false,
