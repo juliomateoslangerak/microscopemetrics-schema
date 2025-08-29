@@ -4174,8 +4174,8 @@
                     "format": "date-time",
                     "type": "string"
                 },
-                "integration_time_ms": {
-                    "description": "The integration time in milliseconds.",
+                "integration_time_seconds": {
+                    "description": "The integration time in seconds.",
                     "type": [
                         "number",
                         "null"

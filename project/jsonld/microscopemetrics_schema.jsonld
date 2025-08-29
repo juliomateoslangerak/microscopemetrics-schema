@@ -3082,11 +3082,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "integration_time_ms",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms",
-      "description": "The integration time in milliseconds.",
+      "name": "integration_time_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_seconds",
+      "description": "The integration time in seconds.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_seconds",
       "owner": "PowerMeasurement",
       "domain_of": [
         "PowerMeasurement"
@@ -6669,7 +6669,7 @@
         "measuring_location",
         "power_set_point",
         "power_mw",
-        "integration_time_ms"
+        "integration_time_seconds"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeasurement",
@@ -6815,7 +6815,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-08-29T13:13:56",
+  "generation_date": "2025-08-29T13:58:41",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

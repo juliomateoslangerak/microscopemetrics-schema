@@ -606,7 +606,7 @@ type PowerMeasurement
     measuringLocation: MeasuringLocationEnum!
     powerSetPoint: Float!
     powerMw: Float!
-    integrationTimeMs: Float
+    integrationTimeSeconds: Float
   }
 
 type PowerMeter

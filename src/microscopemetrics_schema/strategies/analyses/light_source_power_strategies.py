@@ -52,7 +52,7 @@ def st_mm_light_source_power_measurement(
     ),
     power_set_point=st.floats(min_value=0.0, max_value=1.0),
     power_mw=st.floats(min_value=0.0, max_value=100.0),
-    integration_time_ms=st.floats(min_value=0.0, max_value=1000.0),
+    integration_time_seconds=st.floats(min_value=0.0, max_value=0.5),
 ) -> mm_schema.LightSourcePower:
     return mm_schema.PowerMeasurement(
         acquisition_datetime=draw(acquisition_datetime),
@@ -60,7 +60,7 @@ def st_mm_light_source_power_measurement(
         measuring_location=draw(measuring_location),
         power_set_point=draw(power_set_point),
         power_mw=draw(power_mw),
-        integration_time_ms=draw(integration_time_ms),
+        integration_time_seconds=draw(integration_time_seconds),
     )
 
 

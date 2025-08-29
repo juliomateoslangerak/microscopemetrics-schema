@@ -902,7 +902,7 @@ CLOSED {
           @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mw>
           @linkml:Float ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_ms>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/integration_time_seconds>
           @linkml:Float ?
        ) ;
        rdf:type [

@@ -476,7 +476,7 @@
 --     * Slot: measuring_location Description: The location at which the measurement was taken.
 --     * Slot: power_set_point Description: The power set point as a fraction of the nominal power of the light source.
 --     * Slot: power_mw Description: The power measured in milliwatts.
---     * Slot: integration_time_ms Description: The integration time in milliseconds.
+--     * Slot: integration_time_seconds Description: The integration time in seconds.
 --     * Slot: LightSourcePowerInputData_id Description: Autocreated FK slot
 --     * Slot: light_source_id Description: The light source under investigation.
 --     * Slot: measurement_device_id Description: The power meter used to measure the power.
@@ -1711,7 +1711,7 @@ CREATE TABLE "PowerMeasurement" (
 	measuring_location VARCHAR(19) NOT NULL, 
 	power_set_point FLOAT NOT NULL, 
 	power_mw FLOAT NOT NULL, 
-	integration_time_ms FLOAT, 
+	integration_time_seconds FLOAT, 
 	"LightSourcePowerInputData_id" INTEGER, 
 	light_source_id INTEGER NOT NULL, 
 	measurement_device_id INTEGER, 

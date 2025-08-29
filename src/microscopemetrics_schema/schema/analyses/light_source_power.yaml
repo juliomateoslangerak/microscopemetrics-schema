@@ -70,7 +70,7 @@ classes:
       - measuring_location
       - power_set_point
       - power_mw
-      - integration_time_ms
+      - integration_time_seconds
 #      - irradiance???
     slot_usage:
       acquisition_datetime:
@@ -143,10 +143,10 @@ slots:
       The power measured in milliwatts.
     multivalued: false
     required: true
-  integration_time_ms:
+  integration_time_seconds:
     range: float
     description: >-
-      The integration time in milliseconds.
+      The integration time in seconds.
     multivalued: false
     required: false
 

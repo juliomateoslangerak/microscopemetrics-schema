@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T13:13:58
+# Generation date: 2025-08-29T13:58:43
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2477,7 +2477,7 @@ class PowerMeasurement(YAMLRoot):
     power_mw: float = None
     measuring_location: Union[str, "MeasuringLocationEnum"] = 'OBJECTIVE_FOCAL'
     measurement_device: Optional[Union[dict, "PowerMeter"]] = None
-    integration_time_ms: Optional[float] = None
+    integration_time_seconds: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.acquisition_datetime):
@@ -2508,8 +2508,8 @@ class PowerMeasurement(YAMLRoot):
         if self.measurement_device is not None and not isinstance(self.measurement_device, PowerMeter):
             self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
 
-        if self.integration_time_ms is not None and not isinstance(self.integration_time_ms, float):
-            self.integration_time_ms = float(self.integration_time_ms)
+        if self.integration_time_seconds is not None and not isinstance(self.integration_time_seconds, float):
+            self.integration_time_seconds = float(self.integration_time_seconds)
 
         super().__post_init__(**kwargs)
 
@@ -3334,8 +3334,8 @@ slots.power_set_point = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source
 slots.power_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_mw'], name="power_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_mw, domain=None, range=float)
 
-slots.integration_time_ms = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_ms'], name="integration_time_ms", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_ms'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_ms, domain=None, range=Optional[float])
+slots.integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_seconds'], name="integration_time_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_seconds, domain=None, range=Optional[float])
 
 slots.short_long_term_threshold_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_long_term_threshold_seconds'], name="short_long_term_threshold_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_long_term_threshold_seconds'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_long_term_threshold_seconds, domain=None, range=float)

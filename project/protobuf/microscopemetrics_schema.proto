@@ -443,7 +443,7 @@ message PowerMeasurement
   measuringLocationEnum measuringLocation = 0
   float powerSetPoint = 0
   float powerMw = 0
-  float integrationTimeMs = 0
+  float integrationTimeSeconds = 0
  }
 message PowerMeter
  {
