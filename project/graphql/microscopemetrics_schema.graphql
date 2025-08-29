@@ -264,6 +264,7 @@ type FluorescentHomogeneousThickField
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
   }
 
@@ -272,6 +273,7 @@ type FluorescentHomogeneousThinField
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
   }
 
@@ -300,6 +302,7 @@ interface HomogeneousField
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
   }
 
@@ -364,6 +367,7 @@ type LightSourcePower
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
   }
 
@@ -625,6 +629,7 @@ type PSFBeads
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
     beadDiameterMicron: Float!
   }
@@ -808,6 +813,7 @@ interface Sample
     name: String
     description: String
     preparationProtocol: Protocol!
+    preparationDatetime: Datetime
     manufacturer: String
   }
 

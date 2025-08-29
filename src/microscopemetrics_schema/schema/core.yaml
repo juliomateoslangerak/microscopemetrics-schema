@@ -82,6 +82,7 @@ classes:
     abstract: true
     slots:
       - preparation_protocol
+      - preparation_datetime
       - manufacturer
 
   Protocol:
@@ -703,6 +704,12 @@ slots:
     required: true
     multivalued: false
     inlined: false
+  preparation_datetime:
+    range: datetime
+    description: The datetime when the sample was prepared
+    required: false
+    multivalued: false
+    inlined: true
 
   # MetricsObject slots
   data_reference:

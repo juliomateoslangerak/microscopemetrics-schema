@@ -1367,6 +1367,14 @@
                         "null"
                     ]
                 },
+                "preparation_datetime": {
+                    "description": "The datetime when the sample was prepared",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "preparation_protocol": {
                     "description": "The protocol used to prepare a sample",
                     "type": "string"
@@ -1398,6 +1406,14 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_datetime": {
+                    "description": "The datetime when the sample was prepared",
+                    "format": "date-time",
                     "type": [
                         "string",
                         "null"
@@ -1793,6 +1809,14 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_datetime": {
+                    "description": "The datetime when the sample was prepared",
+                    "format": "date-time",
                     "type": [
                         "string",
                         "null"
@@ -2703,6 +2727,14 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "preparation_datetime": {
+                    "description": "The datetime when the sample was prepared",
+                    "format": "date-time",
                     "type": [
                         "string",
                         "null"

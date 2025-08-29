@@ -119,12 +119,14 @@ def st_mm_sample(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
     ),
     preparation_protocol=st_mm_protocol(),
+    preparation_datetime=st.datetimes(),
     manufacturer=st.text(min_size=1, max_size=32),
 ) -> mm_schema.Sample:
     return mm_schema.Sample(
         name=draw(name),
         description=draw(description),
         preparation_protocol=draw(preparation_protocol),
+        preparation_datetime=draw(preparation_datetime),
         manufacturer=draw(manufacturer),
     )
 

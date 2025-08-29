@@ -50,6 +50,7 @@
 -- # Abstract Class: "Sample" Description: "A sample is a standard physical object that is imaged by a microscope"
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -328,18 +329,21 @@
 -- # Abstract Class: "HomogeneousField" Description: "An homogeneous field."
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FluorescentHomogeneousThickField" Description: "An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides."
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 -- # Class: "FluorescentHomogeneousThinField" Description: "An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer."
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -383,6 +387,7 @@
 --     * Slot: id Description: 
 --     * Slot: bead_diameter_micron Description: The diameter of the beads in the sample measured in microns.
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -485,6 +490,7 @@
 -- # Class: "LightSourcePower" Description: "A sample providing measurements on light source power."
 --     * Slot: id Description: 
 --     * Slot: preparation_protocol Description: The protocol used to prepare a sample
+--     * Slot: preparation_datetime Description: The datetime when the sample was prepared
 --     * Slot: manufacturer Description: A manufacturer
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
@@ -1472,6 +1478,7 @@ CREATE TABLE "PowerMeter" (
 CREATE TABLE "Sample" (
 	id INTEGER NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
@@ -1639,6 +1646,7 @@ CREATE TABLE "RoiMeasurements" (
 CREATE TABLE "HomogeneousField" (
 	id INTEGER NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
@@ -1648,6 +1656,7 @@ CREATE TABLE "HomogeneousField" (
 CREATE TABLE "FluorescentHomogeneousThickField" (
 	id INTEGER NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
@@ -1657,6 +1666,7 @@ CREATE TABLE "FluorescentHomogeneousThickField" (
 CREATE TABLE "FluorescentHomogeneousThinField" (
 	id INTEGER NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
@@ -1667,6 +1677,7 @@ CREATE TABLE "PSFBeads" (
 	id INTEGER NOT NULL, 
 	bead_diameter_micron FLOAT NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 
@@ -1682,6 +1693,7 @@ CREATE TABLE "LightSourcePowerInputData" (
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
 	preparation_protocol TEXT NOT NULL, 
+	preparation_datetime DATETIME, 
 	manufacturer TEXT, 
 	name TEXT, 
 	description TEXT, 

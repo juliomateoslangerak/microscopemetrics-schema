@@ -189,6 +189,7 @@ message FluorescentHomogeneousThickField
   string name = 0
   string description = 0
   protocol preparationProtocol = 0
+  datetime preparationDatetime = 0
   string manufacturer = 0
  }
 // An homogeneous field with a fluorescent thin sample. Similar to a dye thin layer.
@@ -197,6 +198,7 @@ message FluorescentHomogeneousThinField
   string name = 0
   string description = 0
   protocol preparationProtocol = 0
+  datetime preparationDatetime = 0
   string manufacturer = 0
  }
 // A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
@@ -262,6 +264,7 @@ message LightSourcePower
   string name = 0
   string description = 0
   protocol preparationProtocol = 0
+  datetime preparationDatetime = 0
   string manufacturer = 0
  }
 // Power measurements dataset. A collection of power samples for different light sources.
@@ -454,6 +457,7 @@ message PSFBeads
   string name = 0
   string description = 0
   protocol preparationProtocol = 0
+  datetime preparationDatetime = 0
   string manufacturer = 0
   float beadDiameterMicron = 0
  }

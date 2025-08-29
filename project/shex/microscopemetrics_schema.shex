@@ -1230,6 +1230,7 @@ CLOSED {
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/NamedObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/preparation_protocol>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Protocol> ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/preparation_datetime> @linkml:Datetime ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/manufacturer> @linkml:String ?
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Sample> ] ?

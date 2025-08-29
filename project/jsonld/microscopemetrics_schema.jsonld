@@ -739,6 +739,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "preparation_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/preparation_datetime",
+      "description": "The datetime when the sample was prepared",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/preparation_datetime",
+      "owner": "Sample",
+      "domain_of": [
+        "Sample"
+      ],
+      "range": "datetime",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "data_reference",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/data_reference",
       "description": "A reference to the data",
@@ -4820,6 +4834,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer"
       ],
       "slot_usage": {},
@@ -6607,6 +6622,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer"
       ],
       "slot_usage": {},
@@ -6623,6 +6639,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer"
       ],
       "slot_usage": {},
@@ -6639,6 +6656,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer"
       ],
       "slot_usage": {},
@@ -6655,6 +6673,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer",
         "pSFBeads__bead_diameter_micron"
       ],
@@ -6681,6 +6700,7 @@
         "namedObject__name",
         "namedObject__description",
         "preparation_protocol",
+        "preparation_datetime",
         "manufacturer"
       ],
       "slot_usage": {},
@@ -6690,9 +6710,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-05-19T11:54:42",
+  "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-05-19T14:57:25",
+  "generation_date": "2025-08-29T06:58:30",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

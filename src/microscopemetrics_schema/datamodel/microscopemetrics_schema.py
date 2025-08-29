@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-05-19T14:57:28
+# Generation date: 2025-08-29T06:58:33
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -243,6 +243,7 @@ class Sample(NamedObject):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Sample
 
     preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_datetime: Optional[Union[str, XSDDateTime]] = None
     manufacturer: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -250,6 +251,9 @@ class Sample(NamedObject):
             self.MissingRequiredField("preparation_protocol")
         if not isinstance(self.preparation_protocol, ProtocolUrl):
             self.preparation_protocol = ProtocolUrl(self.preparation_protocol)
+
+        if self.preparation_datetime is not None and not isinstance(self.preparation_datetime, XSDDateTime):
+            self.preparation_datetime = XSDDateTime(self.preparation_datetime)
 
         if self.manufacturer is not None and not isinstance(self.manufacturer, str):
             self.manufacturer = str(self.manufacturer)
@@ -2808,6 +2812,9 @@ slots.key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurement
 
 slots.preparation_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_protocol'], name="preparation_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_protocol'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[str, ProtocolUrl])
+
+slots.preparation_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_datetime'], name="preparation_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
 
 slots.data_reference = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/data_reference'], name="data_reference", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/data_reference'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.data_reference, domain=None, range=Optional[Union[dict, DataReference]])
