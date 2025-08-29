@@ -66,6 +66,7 @@ classes:
     slots:
       - acquisition_datetime
       - light_source
+      - measurement_device
       - measuring_location
       - power_set_point
       - power_mw

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T13:08:32
+# Generation date: 2025-08-29T13:13:58
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2476,6 +2476,7 @@ class PowerMeasurement(YAMLRoot):
     power_set_point: float = None
     power_mw: float = None
     measuring_location: Union[str, "MeasuringLocationEnum"] = 'OBJECTIVE_FOCAL'
+    measurement_device: Optional[Union[dict, "PowerMeter"]] = None
     integration_time_ms: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2503,6 +2504,9 @@ class PowerMeasurement(YAMLRoot):
             self.MissingRequiredField("power_mw")
         if not isinstance(self.power_mw, float):
             self.power_mw = float(self.power_mw)
+
+        if self.measurement_device is not None and not isinstance(self.measurement_device, PowerMeter):
+            self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
 
         if self.integration_time_ms is not None and not isinstance(self.integration_time_ms, float):
             self.integration_time_ms = float(self.integration_time_ms)

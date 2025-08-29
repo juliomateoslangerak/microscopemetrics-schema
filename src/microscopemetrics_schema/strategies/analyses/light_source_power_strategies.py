@@ -39,6 +39,7 @@ def st_mm_light_source_power_measurement(
     draw,
     acquisition_datetime=st.datetimes(),
     light_source=st_mm_light_source(),
+    measuring_device=st_mm_power_meter(),
     measuring_location=st.sampled_from(
         [
             "SOURCE_EXIT",
@@ -93,6 +94,7 @@ def st_mm_light_source_power_output_key_measurements(
         name=mm_object.name,
         description=mm_object.description,
         light_source=draw(st_mm_light_source()),
+        measurement_device=draw(st_mm_power_meter()),
         power_mean_mw=25.0,
         power_median_mw=25.0,
         power_std_mw=2.0,

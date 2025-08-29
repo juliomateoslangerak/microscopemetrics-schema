@@ -479,6 +479,7 @@
 --     * Slot: integration_time_ms Description: The integration time in milliseconds.
 --     * Slot: LightSourcePowerInputData_id Description: Autocreated FK slot
 --     * Slot: light_source_id Description: The light source under investigation.
+--     * Slot: measurement_device_id Description: The power meter used to measure the power.
 -- # Class: "LightSource" Description: "A light source."
 --     * Slot: id Description: 
 --     * Slot: wavelength_nm Description: The wavelength of the light source in nanometers.
@@ -1713,9 +1714,11 @@ CREATE TABLE "PowerMeasurement" (
 	integration_time_ms FLOAT, 
 	"LightSourcePowerInputData_id" INTEGER, 
 	light_source_id INTEGER NOT NULL, 
+	measurement_device_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("LightSourcePowerInputData_id") REFERENCES "LightSourcePowerInputData" (id), 
-	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
+	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
 );
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 

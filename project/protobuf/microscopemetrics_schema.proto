@@ -439,6 +439,7 @@ message PowerMeasurement
  {
   datetime acquisitionDatetime = 0
   lightSource lightSource = 0
+  powerMeter measurementDevice = 0
   measuringLocationEnum measuringLocation = 0
   float powerSetPoint = 0
   float powerMw = 0
