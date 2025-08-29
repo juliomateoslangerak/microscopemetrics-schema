@@ -409,7 +409,9 @@ type LightSourcePowerKeyMeasurements
     powerStdMw: [Float]!
     powerMinMw: [Float]!
     powerMaxMw: [Float]
-    linearity: [Float]!
+    powerLinearity: [Float]
+    shortTermPowerStability: [Float]
+    longTermPowerStability: [Float]
   }
 
 type LightSourcePowerOutput

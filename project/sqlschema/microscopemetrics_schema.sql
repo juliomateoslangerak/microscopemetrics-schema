@@ -950,9 +950,15 @@
 -- # Class: "LightSourcePowerKeyMeasurements_power_max_mw" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: power_max_mw Description: The maximum power measured in milliwatts.
--- # Class: "LightSourcePowerKeyMeasurements_linearity" Description: ""
+-- # Class: "LightSourcePowerKeyMeasurements_power_linearity" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: linearity Description: The linearity of the power measurements.
+--     * Slot: power_linearity Description: The linearity of the power measurements.
+-- # Class: "LightSourcePowerKeyMeasurements_short_term_power_stability" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: short_term_power_stability Description: The short term stability of the light source
+-- # Class: "LightSourcePowerKeyMeasurements_long_term_power_stability" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: long_term_power_stability Description: The long term stability of the light source
 
 CREATE TABLE "MetaObject" (
 	id INTEGER NOT NULL, 
@@ -2611,10 +2617,22 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_power_max_mw" (
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_max_mw), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
-CREATE TABLE "LightSourcePowerKeyMeasurements_linearity" (
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
-	linearity FLOAT NOT NULL, 
-	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", linearity), 
+	power_linearity FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_power_stability" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	short_term_power_stability FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", short_term_power_stability), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_power_stability" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	long_term_power_stability FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", long_term_power_stability), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
 CREATE TABLE "HasSampleMixin" (

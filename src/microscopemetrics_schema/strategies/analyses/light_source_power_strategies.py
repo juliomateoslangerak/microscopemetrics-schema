@@ -83,16 +83,6 @@ def st_mm_light_source_power_output_key_measurements(
     draw,
     mm_object=st_mm_metrics_object(),
 ) -> mm_schema.LightSourcePowerKeyMeasurements:
-    """
-    light_source: Union[dict, "LightSource"] = None
-    power_mean_mw: Union[float, list[float]] = None
-    power_median_mw: Union[float, list[float]] = None
-    power_std_mw: Union[float, list[float]] = None
-    power_min_mw: Union[float, list[float]] = None
-    linearity: Union[float, list[float]] = None
-    power_max_mw: Optional[Union[float, list[float]]] = empty_list()
-
-    """
     mm_object = draw(mm_object)
     return mm_schema.LightSourcePowerKeyMeasurements(
         name=mm_object.name,
@@ -103,7 +93,9 @@ def st_mm_light_source_power_output_key_measurements(
         power_std_mw=2.0,
         power_min_mw=20.0,
         power_max_mw=30.0,
-        linearity=0.95,
+        power_linearity=0.95,
+        short_term_power_stability=0.9,
+        long_term_power_stability=0.9,
     )
 
 
