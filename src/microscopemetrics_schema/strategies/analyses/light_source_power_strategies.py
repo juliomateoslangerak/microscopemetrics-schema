@@ -74,8 +74,11 @@ def st_mm_light_source_power_input_data(
 @st.composite
 def st_mm_light_source_power_input_parameters(
     draw,
+    short_long_term_threshold_seconds=st.floats(min_value=1.0, max_value=10.0),
 ) -> mm_schema.LightSourcePowerInputParameters:
-    return mm_schema.LightSourcePowerInputParameters()
+    return mm_schema.LightSourcePowerInputParameters(
+        short_long_term_threshold_seconds=draw(short_long_term_threshold_seconds)
+    )
 
 
 @st.composite
@@ -95,7 +98,9 @@ def st_mm_light_source_power_output_key_measurements(
         power_max_mw=30.0,
         power_linearity=0.95,
         short_term_power_stability=0.9,
+        short_term_measurement_duration_seconds=300.0,
         long_term_power_stability=0.9,
+        long_term_measurement_duration_seconds=7200.0,
     )
 
 
@@ -126,13 +131,15 @@ def st_mm_light_source_power_unprocessed_dataset(
     draw,
     processed=st.just(False),
     input_data=st_mm_light_source_power_input_data(),
+    input_parameters=st_mm_light_source_power_input_parameters(),
 ) -> mm_schema.LightSourcePowerDataset:
+    input_parameters = draw(input_parameters)
     return draw(
         st_mm_dataset(
             target_class=mm_schema.LightSourcePowerDataset,
             processed=processed,
             input_data=input_data,
-
+            input_parameters=input_parameters,
         )
     )
 
@@ -141,13 +148,16 @@ def st_mm_light_source_power_processed_dataset(
     draw,
     processed=st.just(True),
     input_data=st_mm_light_source_power_input_data(),
+    input_parameters=st_mm_light_source_power_input_parameters(),
     output=st_mm_light_source_power_output(),
 ) -> mm_schema.LightSourcePowerDataset:
+    input_parameters = draw(input_parameters)
     return draw(
         st_mm_dataset(
             target_class=mm_schema.LightSourcePowerDataset,
             processed=processed,
             input_data=input_data,
+            input_parameters=input_parameters,
             output=output,
         )
     )

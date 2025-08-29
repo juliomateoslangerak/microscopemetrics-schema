@@ -1952,6 +1952,15 @@
         "LightSourcePowerInputParameters": {
             "additionalProperties": false,
             "description": "",
+            "properties": {
+                "short_long_term_threshold_seconds": {
+                    "description": "The measurement interval, in seconds, that separates short and long term power stability calculations.",
+                    "type": "number"
+                }
+            },
+            "required": [
+                "short_long_term_threshold_seconds"
+            ],
             "title": "LightSourcePowerInputParameters",
             "type": "object"
         },
@@ -1985,6 +1994,16 @@
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "long_term_measurement_duration_seconds": {
+                    "description": "The duration of the long term measurement in seconds",
+                    "items": {
+                        "type": "number"
                     },
                     "type": [
                         "array",
@@ -2055,6 +2074,16 @@
                         "type": "number"
                     },
                     "type": "array"
+                },
+                "short_term_measurement_duration_seconds": {
+                    "description": "The duration of the short term measurement in seconds",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "short_term_power_stability": {
                     "description": "The short term stability of the light source",

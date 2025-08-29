@@ -383,6 +383,7 @@ type LightSourcePowerDataset
     acquisitionProtocol: Protocol
     processed: Boolean!
     inputData: LightSourcePowerInputData!
+    inputParameters: LightSourcePowerInputParameters
     output: LightSourcePowerOutput
   }
 
@@ -394,6 +395,7 @@ type LightSourcePowerInputData
 
 type LightSourcePowerInputParameters
   {
+    shortLongTermThresholdSeconds: Float!
   }
 
 type LightSourcePowerKeyMeasurements
@@ -411,7 +413,9 @@ type LightSourcePowerKeyMeasurements
     powerMaxMw: [Float]
     powerLinearity: [Float]
     shortTermPowerStability: [Float]
+    shortTermMeasurementDurationSeconds: [Float]
     longTermPowerStability: [Float]
+    longTermMeasurementDurationSeconds: [Float]
   }
 
 type LightSourcePowerOutput

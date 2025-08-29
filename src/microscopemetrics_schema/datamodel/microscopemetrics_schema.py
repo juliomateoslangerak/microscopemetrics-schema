@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T07:41:22
+# Generation date: 2025-08-29T08:22:34
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2296,6 +2296,7 @@ class LightSourcePowerDataset(MetricsDataset):
     microscope: Union[dict, Microscope] = None
     input_data: Union[dict, "LightSourcePowerInputData"] = None
     processed: Union[bool, Bool] = False
+    input_parameters: Optional[Union[dict, "LightSourcePowerInputParameters"]] = None
     output: Optional[Union[dict, "LightSourcePowerOutput"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2303,6 +2304,9 @@ class LightSourcePowerDataset(MetricsDataset):
             self.MissingRequiredField("input_data")
         if not isinstance(self.input_data, LightSourcePowerInputData):
             self.input_data = LightSourcePowerInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, LightSourcePowerInputParameters):
+            self.input_parameters = LightSourcePowerInputParameters(**as_dict(self.input_parameters))
 
         if self.output is not None and not isinstance(self.output, LightSourcePowerOutput):
             self.output = LightSourcePowerOutput(**as_dict(self.output))
@@ -2337,6 +2341,7 @@ class LightSourcePowerInputData(MetricsInputData):
         super().__post_init__(**kwargs)
 
 
+@dataclass(repr=False)
 class LightSourcePowerInputParameters(MetricsInputParameters):
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2344,6 +2349,16 @@ class LightSourcePowerInputParameters(MetricsInputParameters):
     class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/light_source_power/LightSourcePowerInputParameters"
     class_name: ClassVar[str] = "LightSourcePowerInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerInputParameters
+
+    short_long_term_threshold_seconds: float = 1.0
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.short_long_term_threshold_seconds):
+            self.MissingRequiredField("short_long_term_threshold_seconds")
+        if not isinstance(self.short_long_term_threshold_seconds, float):
+            self.short_long_term_threshold_seconds = float(self.short_long_term_threshold_seconds)
+
+        super().__post_init__(**kwargs)
 
 
 @dataclass(repr=False)
@@ -2385,7 +2400,9 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     power_max_mw: Optional[Union[float, list[float]]] = empty_list()
     power_linearity: Optional[Union[float, list[float]]] = empty_list()
     short_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
+    short_term_measurement_duration_seconds: Optional[Union[float, list[float]]] = empty_list()
     long_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
+    long_term_measurement_duration_seconds: Optional[Union[float, list[float]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.light_source):
@@ -2429,9 +2446,17 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.short_term_power_stability = [self.short_term_power_stability] if self.short_term_power_stability is not None else []
         self.short_term_power_stability = [v if isinstance(v, float) else float(v) for v in self.short_term_power_stability]
 
+        if not isinstance(self.short_term_measurement_duration_seconds, list):
+            self.short_term_measurement_duration_seconds = [self.short_term_measurement_duration_seconds] if self.short_term_measurement_duration_seconds is not None else []
+        self.short_term_measurement_duration_seconds = [v if isinstance(v, float) else float(v) for v in self.short_term_measurement_duration_seconds]
+
         if not isinstance(self.long_term_power_stability, list):
             self.long_term_power_stability = [self.long_term_power_stability] if self.long_term_power_stability is not None else []
         self.long_term_power_stability = [v if isinstance(v, float) else float(v) for v in self.long_term_power_stability]
+
+        if not isinstance(self.long_term_measurement_duration_seconds, list):
+            self.long_term_measurement_duration_seconds = [self.long_term_measurement_duration_seconds] if self.long_term_measurement_duration_seconds is not None else []
+        self.long_term_measurement_duration_seconds = [v if isinstance(v, float) else float(v) for v in self.long_term_measurement_duration_seconds]
 
         super().__post_init__(**kwargs)
 
@@ -3310,6 +3335,9 @@ slots.power_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/
 slots.integration_time_ms = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_ms'], name="integration_time_ms", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_ms'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_ms, domain=None, range=Optional[float])
 
+slots.short_long_term_threshold_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_long_term_threshold_seconds'], name="short_long_term_threshold_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_long_term_threshold_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_long_term_threshold_seconds, domain=None, range=float)
+
 slots.power_mean_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_mean_mw'], name="power_mean_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_mean_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_mean_mw, domain=None, range=Union[float, list[float]])
 
@@ -3331,8 +3359,14 @@ slots.power_linearity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source
 slots.short_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_power_stability'], name="short_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_power_stability, domain=None, range=Optional[Union[float, list[float]]])
 
+slots.short_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_measurement_duration_seconds'], name="short_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_measurement_duration_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_measurement_duration_seconds, domain=None, range=Optional[Union[float, list[float]]])
+
 slots.long_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_power_stability'], name="long_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_power_stability, domain=None, range=Optional[Union[float, list[float]]])
+
+slots.long_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_measurement_duration_seconds'], name="long_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_measurement_duration_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_measurement_duration_seconds, domain=None, range=Optional[Union[float, list[float]]])
 
 slots.namedObject__name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/name'], name="namedObject__name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.namedObject__name, domain=None, range=Optional[str])
@@ -3618,6 +3652,9 @@ slots.PSFBeadsInputParameters_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/
 
 slots.LightSourcePowerDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="LightSourcePowerDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_input_data, domain=LightSourcePowerDataset, range=Union[dict, "LightSourcePowerInputData"])
+
+slots.LightSourcePowerDataset_input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_parameters'], name="LightSourcePowerDataset_input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_input_parameters, domain=LightSourcePowerDataset, range=Optional[Union[dict, "LightSourcePowerInputParameters"]])
 
 slots.LightSourcePowerDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'], name="LightSourcePowerDataset_output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/output'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_output, domain=LightSourcePowerDataset, range=Optional[Union[dict, "LightSourcePowerOutput"]])

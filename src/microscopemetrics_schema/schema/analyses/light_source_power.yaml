@@ -20,6 +20,8 @@ classes:
     slot_usage:
       input_data:
         range: LightSourcePowerInputData
+      input_parameters:
+        range: LightSourcePowerInputParameters
       output:
         range: LightSourcePowerOutput
 
@@ -31,7 +33,8 @@ classes:
 
   LightSourcePowerInputParameters:
     is_a: MetricsInputParameters
-    # No input parameters for now
+    slots:
+      - short_long_term_threshold_seconds
 
   LightSourcePowerOutput:
     is_a: MetricsOutput
@@ -53,7 +56,9 @@ classes:
       - power_max_mw
       - power_linearity
       - short_term_power_stability
+      - short_term_measurement_duration_seconds
       - long_term_power_stability
+      - long_term_measurement_duration_seconds
 
   PowerMeasurement:
     description: >-
@@ -87,6 +92,7 @@ classes:
         multivalued: false
 
 slots:
+  # Input data
   power_measurements:
     range: PowerMeasurement
     description: >-
@@ -141,6 +147,16 @@ slots:
     multivalued: false
     required: false
 
+  # Input parameters
+  short_long_term_threshold_seconds:
+    range: float
+    description: >-
+      The measurement interval, in seconds, that separates short and long term power stability calculations.
+    multivalued: false
+    required: true
+    ifabsent: float(1.0)
+
+  # Output
   power_mean_mw:
     range: float
     description: >-
@@ -184,11 +200,25 @@ slots:
       The short term stability of the light source
     multivalued: true
     required: false
+  short_term_measurement_duration_seconds:
+    title: Short term measurement duration
+    range: float
+    description:
+      The duration of the short term measurement in seconds
+    multivalued: true
+    required: false
   long_term_power_stability:
     title: Long term stability
     range: float
     description:
       The long term stability of the light source
+    multivalued: true
+    required: false
+  long_term_measurement_duration_seconds:
+    title: Long term measurement duration
+    range: float
+    description:
+      The duration of the long term measurement in seconds
     multivalued: true
     required: false
 

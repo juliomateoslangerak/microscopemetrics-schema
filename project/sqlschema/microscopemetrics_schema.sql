@@ -454,6 +454,7 @@
 --     * Slot: measurement_device_id Description: The power meter used to measure the power.
 -- # Class: "LightSourcePowerInputParameters" Description: ""
 --     * Slot: id Description: 
+--     * Slot: short_long_term_threshold_seconds Description: The measurement interval, in seconds, that separates short and long term power stability calculations.
 -- # Class: "LightSourcePowerOutput" Description: ""
 --     * Slot: id Description: 
 --     * Slot: processing_datetime Description: The datetime of the processing by microscope-metrics
@@ -956,9 +957,15 @@
 -- # Class: "LightSourcePowerKeyMeasurements_short_term_power_stability" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: short_term_power_stability Description: The short term stability of the light source
+-- # Class: "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: short_term_measurement_duration_seconds Description: The duration of the short term measurement in seconds
 -- # Class: "LightSourcePowerKeyMeasurements_long_term_power_stability" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: long_term_power_stability Description: The long term stability of the light source
+-- # Class: "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: long_term_measurement_duration_seconds Description: The duration of the long term measurement in seconds
 
 CREATE TABLE "MetaObject" (
 	id INTEGER NOT NULL, 
@@ -1442,6 +1449,7 @@ CREATE TABLE "LightSourcePowerDataset" (
 );
 CREATE TABLE "LightSourcePowerInputParameters" (
 	id INTEGER NOT NULL, 
+	short_long_term_threshold_seconds FLOAT NOT NULL, 
 	PRIMARY KEY (id)
 );
 CREATE TABLE "LightSourcePowerOutput" (
@@ -2629,10 +2637,22 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_power_stability" (
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", short_term_power_stability), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
+CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	short_term_measurement_duration_seconds FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", short_term_measurement_duration_seconds), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
 CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_power_stability" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
 	long_term_power_stability FLOAT, 
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", long_term_power_stability), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	long_term_measurement_duration_seconds FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", long_term_measurement_duration_seconds), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
 CREATE TABLE "HasSampleMixin" (
