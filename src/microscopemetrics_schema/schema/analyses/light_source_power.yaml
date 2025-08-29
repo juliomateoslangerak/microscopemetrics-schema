@@ -105,6 +105,7 @@ slots:
     description: >-
       The location at which the measurement was taken.
     required: true
+    ifabsent: MeasuringLocationEnum(OBJECTIVE_FOCAL)
     multivalued: false
   wavelength_nm:
     range: float

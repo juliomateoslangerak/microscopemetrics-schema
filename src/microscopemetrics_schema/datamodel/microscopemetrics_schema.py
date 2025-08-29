@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T07:14:27
+# Generation date: 2025-08-29T07:27:24
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2442,9 +2442,9 @@ class PowerMeasurement(YAMLRoot):
 
     acquisition_datetime: Union[str, XSDDateTime] = None
     light_source: Union[dict, "LightSource"] = None
-    measuring_location: Union[str, "MeasuringLocationEnum"] = None
     power_set_point: float = None
     power_mw: float = None
+    measuring_location: Union[str, "MeasuringLocationEnum"] = 'OBJECTIVE_FOCAL'
     integration_time_ms: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2461,7 +2461,7 @@ class PowerMeasurement(YAMLRoot):
         if self._is_empty(self.measuring_location):
             self.MissingRequiredField("measuring_location")
         if not isinstance(self.measuring_location, MeasuringLocationEnum):
-            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
+            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
 
         if self._is_empty(self.power_set_point):
             self.MissingRequiredField("power_set_point")
