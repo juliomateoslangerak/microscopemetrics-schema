@@ -1930,10 +1930,6 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "measurement_device": {
-                    "$ref": "#/$defs/PowerMeter",
-                    "description": "The power meter used to measure the power."
-                },
                 "power_measurements": {
                     "description": "This is a collection of power measurements for different light sources.",
                     "items": {
@@ -1943,7 +1939,6 @@
                 }
             },
             "required": [
-                "measurement_device",
                 "power_measurements"
             ],
             "title": "LightSourcePowerInputData",
@@ -2019,6 +2014,17 @@
                         "array",
                         "null"
                     ]
+                },
+                "measurement_device": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PowerMeter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The power meter used to measure the power."
                 },
                 "name": {
                     "description": "The human readable name of an entity",

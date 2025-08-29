@@ -3044,12 +3044,11 @@
       "description": "The power meter used to measure the power.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
-      "owner": "LightSourcePowerInputData",
+      "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
-        "LightSourcePowerInputData"
+        "LightSourcePowerKeyMeasurements"
       ],
       "range": "PowerMeter",
-      "required": true,
       "inlined": true,
       "@type": "SlotDefinition"
     },
@@ -6581,7 +6580,6 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "is_a": "MetricsInputData",
       "slots": [
-        "measurement_device",
         "power_measurements"
       ],
       "slot_usage": {},
@@ -6642,6 +6640,7 @@
         "linked_references",
         "table_data",
         "light_source",
+        "measurement_device",
         "power_mean_mw",
         "power_median_mw",
         "power_std_mw",
@@ -6814,7 +6813,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-08-29T08:22:31",
+  "generation_date": "2025-08-29T13:08:29",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -389,7 +389,6 @@ type LightSourcePowerDataset
 
 type LightSourcePowerInputData
   {
-    measurementDevice: PowerMeter!
     powerMeasurements: [PowerMeasurement]!
   }
 
@@ -406,6 +405,7 @@ type LightSourcePowerKeyMeasurements
     linkedReferences: [DataReference]
     tableData: MetaObject
     lightSource: LightSource!
+    measurementDevice: PowerMeter
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
     powerStdMw: [Float]!

@@ -28,7 +28,6 @@ classes:
   LightSourcePowerInputData:
     is_a: MetricsInputData
     slots:
-      - measurement_device  # TODO: is there a single device for all measurements in a dataset?
       - power_measurements
 
   LightSourcePowerInputParameters:
@@ -49,6 +48,7 @@ classes:
     is_a: KeyMeasurements
     slots:
       - light_source
+      - measurement_device
       - power_mean_mw
       - power_median_mw
       - power_std_mw
@@ -126,7 +126,9 @@ slots:
     range: PowerMeter
     description: >-
       The power meter used to measure the power.
-    required: true
+    required: false
+    multivalued: false
+    inlined: false
 
   power_set_point:
     range: float

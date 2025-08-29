@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T08:22:34
+# Generation date: 2025-08-29T13:08:32
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2323,15 +2323,9 @@ class LightSourcePowerInputData(MetricsInputData):
     class_name: ClassVar[str] = "LightSourcePowerInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerInputData
 
-    measurement_device: Union[dict, "PowerMeter"] = None
     power_measurements: Union[Union[dict, "PowerMeasurement"], list[Union[dict, "PowerMeasurement"]]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.measurement_device):
-            self.MissingRequiredField("measurement_device")
-        if not isinstance(self.measurement_device, PowerMeter):
-            self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
-
         if self._is_empty(self.power_measurements):
             self.MissingRequiredField("power_measurements")
         if not isinstance(self.power_measurements, list):
@@ -2397,6 +2391,7 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     power_median_mw: Union[float, list[float]] = None
     power_std_mw: Union[float, list[float]] = None
     power_min_mw: Union[float, list[float]] = None
+    measurement_device: Optional[Union[dict, "PowerMeter"]] = None
     power_max_mw: Optional[Union[float, list[float]]] = empty_list()
     power_linearity: Optional[Union[float, list[float]]] = empty_list()
     short_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
@@ -2433,6 +2428,9 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
         if not isinstance(self.power_min_mw, list):
             self.power_min_mw = [self.power_min_mw] if self.power_min_mw is not None else []
         self.power_min_mw = [v if isinstance(v, float) else float(v) for v in self.power_min_mw]
+
+        if self.measurement_device is not None and not isinstance(self.measurement_device, PowerMeter):
+            self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
 
         if not isinstance(self.power_max_mw, list):
             self.power_max_mw = [self.power_max_mw] if self.power_max_mw is not None else []
@@ -3324,7 +3322,7 @@ slots.wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_p
                    model_uri=MICROSCOPEMETRICS_SCHEMA.wavelength_nm, domain=None, range=float)
 
 slots.measurement_device = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measurement_device'], name="measurement_device", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measurement_device'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.measurement_device, domain=None, range=Union[dict, PowerMeter])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.measurement_device, domain=None, range=Optional[Union[dict, PowerMeter]])
 
 slots.power_set_point = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_set_point'], name="power_set_point", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_set_point'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_set_point, domain=None, range=float)

@@ -21,10 +21,14 @@ def st_mm_light_source(
 @st.composite
 def st_mm_power_meter(
     draw,
+    name=st.text(min_size=1, max_size=32),
+    description=st.text(min_size=1, max_size=128),
     manufacturer=st.text(min_size=1, max_size=32),
     model=st.text(min_size=1, max_size=32),
 ) -> mm_schema.PowerMeter:
     return mm_schema.PowerMeter(
+        name=draw(name),
+        description=draw(description),
         manufacturer=draw(manufacturer),
         model=draw(model),
     )
@@ -62,11 +66,9 @@ def st_mm_light_source_power_measurement(
 @st.composite
 def st_mm_light_source_power_input_data(
     draw,
-    measurement_device=st_mm_power_meter(),
     light_source_power_measurements=st.lists(st_mm_light_source_power_measurement(), min_size=1, max_size=5),
 ) -> mm_schema.LightSourcePowerInputData:
     return mm_schema.LightSourcePowerInputData(
-        measurement_device=draw(measurement_device),
         power_measurements=draw(light_source_power_measurements),
     )
 

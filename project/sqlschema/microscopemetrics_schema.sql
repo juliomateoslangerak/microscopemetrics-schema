@@ -451,7 +451,6 @@
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "LightSourcePowerInputData" Description: ""
 --     * Slot: id Description: 
---     * Slot: measurement_device_id Description: The power meter used to measure the power.
 -- # Class: "LightSourcePowerInputParameters" Description: ""
 --     * Slot: id Description: 
 --     * Slot: short_long_term_threshold_seconds Description: The measurement interval, in seconds, that separates short and long term power stability calculations.
@@ -468,6 +467,7 @@
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: light_source_id Description: The light source under investigation.
+--     * Slot: measurement_device_id Description: The power meter used to measure the power.
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PowerMeasurement" Description: "A single power measurement for a light source."
@@ -1447,6 +1447,10 @@ CREATE TABLE "LightSourcePowerDataset" (
 	FOREIGN KEY(microscope_id) REFERENCES "Microscope" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
+CREATE TABLE "LightSourcePowerInputData" (
+	id INTEGER NOT NULL, 
+	PRIMARY KEY (id)
+);
 CREATE TABLE "LightSourcePowerInputParameters" (
 	id INTEGER NOT NULL, 
 	short_long_term_threshold_seconds FLOAT NOT NULL, 
@@ -1469,10 +1473,12 @@ CREATE TABLE "LightSourcePowerKeyMeasurements" (
 	name TEXT, 
 	description TEXT, 
 	light_source_id INTEGER NOT NULL, 
+	measurement_device_id INTEGER, 
 	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
+	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id), 
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -1698,11 +1704,18 @@ CREATE TABLE "PSFBeads" (
 	PRIMARY KEY (id), 
 	FOREIGN KEY(preparation_protocol) REFERENCES "Protocol" (url)
 );
-CREATE TABLE "LightSourcePowerInputData" (
+CREATE TABLE "PowerMeasurement" (
 	id INTEGER NOT NULL, 
-	measurement_device_id INTEGER NOT NULL, 
+	acquisition_datetime DATETIME NOT NULL, 
+	measuring_location VARCHAR(19) NOT NULL, 
+	power_set_point FLOAT NOT NULL, 
+	power_mw FLOAT NOT NULL, 
+	integration_time_ms FLOAT, 
+	"LightSourcePowerInputData_id" INTEGER, 
+	light_source_id INTEGER NOT NULL, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
+	FOREIGN KEY("LightSourcePowerInputData_id") REFERENCES "LightSourcePowerInputData" (id), 
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
 );
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
@@ -2660,19 +2673,6 @@ CREATE TABLE "HasSampleMixin" (
 	sample_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY(sample_id) REFERENCES "Sample" (id)
-);
-CREATE TABLE "PowerMeasurement" (
-	id INTEGER NOT NULL, 
-	acquisition_datetime DATETIME NOT NULL, 
-	measuring_location VARCHAR(19) NOT NULL, 
-	power_set_point FLOAT NOT NULL, 
-	power_mw FLOAT NOT NULL, 
-	integration_time_ms FLOAT, 
-	"LightSourcePowerInputData_id" INTEGER, 
-	light_source_id INTEGER NOT NULL, 
-	PRIMARY KEY (id), 
-	FOREIGN KEY("LightSourcePowerInputData_id") REFERENCES "LightSourcePowerInputData" (id), 
-	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
 );
 CREATE TABLE "Column_values" (
 	"Column_id" INTEGER, 

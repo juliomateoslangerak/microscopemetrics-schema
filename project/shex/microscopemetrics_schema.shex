@@ -564,8 +564,6 @@ CLOSED {
        $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerInputData_tes>
        (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputData_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputData> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_measurements>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeasurement>
           +
@@ -602,6 +600,8 @@ CLOSED {
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/KeyMeasurements> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw>
           @linkml:Float + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw>
