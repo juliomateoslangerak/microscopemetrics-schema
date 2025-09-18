@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-08-29T13:58:43
+# Generation date: 2025-09-18T07:31:49
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2387,6 +2387,7 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements
 
     light_source: Union[dict, "LightSource"] = None
+    nr_of_measurements: int = None
     power_mean_mw: Union[float, list[float]] = None
     power_median_mw: Union[float, list[float]] = None
     power_std_mw: Union[float, list[float]] = None
@@ -2404,6 +2405,11 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.MissingRequiredField("light_source")
         if not isinstance(self.light_source, LightSource):
             self.light_source = LightSource(**as_dict(self.light_source))
+
+        if self._is_empty(self.nr_of_measurements):
+            self.MissingRequiredField("nr_of_measurements")
+        if not isinstance(self.nr_of_measurements, int):
+            self.nr_of_measurements = int(self.nr_of_measurements)
 
         if self._is_empty(self.power_mean_mw):
             self.MissingRequiredField("power_mean_mw")
@@ -3339,6 +3345,9 @@ slots.integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/lig
 
 slots.short_long_term_threshold_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_long_term_threshold_seconds'], name="short_long_term_threshold_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_long_term_threshold_seconds'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_long_term_threshold_seconds, domain=None, range=float)
+
+slots.nr_of_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/nr_of_measurements'], name="nr_of_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/nr_of_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_measurements, domain=None, range=int)
 
 slots.power_mean_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_mean_mw'], name="power_mean_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_mean_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_mean_mw, domain=None, range=Union[float, list[float]])

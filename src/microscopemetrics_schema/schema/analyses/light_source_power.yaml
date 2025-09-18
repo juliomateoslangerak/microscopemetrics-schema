@@ -49,6 +49,7 @@ classes:
     slots:
       - light_source
       - measurement_device
+      - nr_of_measurements
       - power_mean_mw
       - power_median_mw
       - power_std_mw
@@ -160,6 +161,12 @@ slots:
     ifabsent: float(1.0)
 
   # Output
+  nr_of_measurements:
+    range: integer
+    description: >-
+      The number of power measurements taken.
+    multivalued: false
+    required: true
   power_mean_mw:
     range: float
     description: >-

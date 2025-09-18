@@ -3110,6 +3110,20 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "nr_of_measurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
+      "description": "The number of power measurements taken.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "integer",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "power_mean_mw",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw",
       "description": "The mean power measured in milliwatts.",
@@ -6642,6 +6656,7 @@
         "table_data",
         "light_source",
         "measurement_device",
+        "nr_of_measurements",
         "power_mean_mw",
         "power_median_mw",
         "power_std_mw",
@@ -6815,7 +6830,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-08-29T13:58:41",
+  "generation_date": "2025-09-18T07:31:47",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

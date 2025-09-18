@@ -95,6 +95,7 @@ def st_mm_light_source_power_output_key_measurements(
         description=mm_object.description,
         light_source=draw(st_mm_light_source()),
         measurement_device=draw(st_mm_power_meter()),
+        nr_of_measurements=100,
         power_mean_mw=25.0,
         power_median_mw=25.0,
         power_std_mw=2.0,

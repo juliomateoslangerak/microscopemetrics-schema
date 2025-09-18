@@ -406,6 +406,7 @@ type LightSourcePowerKeyMeasurements
     tableData: MetaObject
     lightSource: LightSource!
     measurementDevice: PowerMeter
+    nrOfMeasurements: Integer!
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
     powerStdMw: [Float]!

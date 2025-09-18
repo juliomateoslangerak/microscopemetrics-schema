@@ -300,6 +300,7 @@ message LightSourcePowerKeyMeasurements
   metaObject tableData = 0
   lightSource lightSource = 0
   powerMeter measurementDevice = 0
+  integer nrOfMeasurements = 0
  repeated  float powerMeanMw = 0
  repeated  float powerMedianMw = 0
  repeated  float powerStdMw = 0

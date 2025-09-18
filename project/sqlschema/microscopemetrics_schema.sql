@@ -464,6 +464,7 @@
 --     * Slot: comment_id Description: A human readable comment
 -- # Class: "LightSourcePowerKeyMeasurements" Description: ""
 --     * Slot: id Description: 
+--     * Slot: nr_of_measurements Description: The number of power measurements taken.
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
 --     * Slot: light_source_id Description: The light source under investigation.
@@ -1471,6 +1472,7 @@ CREATE TABLE "LightSourcePowerOutput" (
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements" (
 	id INTEGER NOT NULL, 
+	nr_of_measurements INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
 	light_source_id INTEGER NOT NULL, 
