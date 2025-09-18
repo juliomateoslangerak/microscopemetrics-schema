@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-18T07:31:49
+# Generation date: 2025-09-18T07:40:10
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2392,6 +2392,7 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     power_median_mw: Union[float, list[float]] = None
     power_std_mw: Union[float, list[float]] = None
     power_min_mw: Union[float, list[float]] = None
+    measuring_location: Union[str, "MeasuringLocationEnum"] = 'OBJECTIVE_FOCAL'
     measurement_device: Optional[Union[dict, "PowerMeter"]] = None
     power_max_mw: Optional[Union[float, list[float]]] = empty_list()
     power_linearity: Optional[Union[float, list[float]]] = empty_list()
@@ -2405,6 +2406,11 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.MissingRequiredField("light_source")
         if not isinstance(self.light_source, LightSource):
             self.light_source = LightSource(**as_dict(self.light_source))
+
+        if self._is_empty(self.measuring_location):
+            self.MissingRequiredField("measuring_location")
+        if not isinstance(self.measuring_location, MeasuringLocationEnum):
+            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
 
         if self._is_empty(self.nr_of_measurements):
             self.MissingRequiredField("nr_of_measurements")

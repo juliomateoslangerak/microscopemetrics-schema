@@ -49,6 +49,7 @@ classes:
     slots:
       - light_source
       - measurement_device
+      - measuring_location
       - nr_of_measurements
       - power_mean_mw
       - power_median_mw

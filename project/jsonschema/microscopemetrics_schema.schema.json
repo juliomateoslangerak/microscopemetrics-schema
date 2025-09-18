@@ -2026,6 +2026,10 @@
                     ],
                     "description": "The power meter used to measure the power."
                 },
+                "measuring_location": {
+                    "$ref": "#/$defs/MeasuringLocationEnum",
+                    "description": "The location at which the measurement was taken."
+                },
                 "name": {
                     "description": "The human readable name of an entity",
                     "type": [
@@ -2119,6 +2123,7 @@
             },
             "required": [
                 "light_source",
+                "measuring_location",
                 "nr_of_measurements",
                 "power_mean_mw",
                 "power_median_mw",

@@ -3018,6 +3018,7 @@
       "ifabsent": "MeasuringLocationEnum(OBJECTIVE_FOCAL)",
       "owner": "PowerMeasurement",
       "domain_of": [
+        "LightSourcePowerKeyMeasurements",
         "PowerMeasurement"
       ],
       "range": "MeasuringLocationEnum",
@@ -6656,6 +6657,7 @@
         "table_data",
         "light_source",
         "measurement_device",
+        "measuring_location",
         "nr_of_measurements",
         "power_mean_mw",
         "power_median_mw",
@@ -6830,7 +6832,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-09-18T07:31:47",
+  "generation_date": "2025-09-18T07:40:08",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
