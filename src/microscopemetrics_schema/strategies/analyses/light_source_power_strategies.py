@@ -76,7 +76,7 @@ def st_mm_light_source_power_input_data(
 
 @st.composite
 def st_mm_light_source_power_input_parameters(
-    draw,
+    draw,  # FIXME: draw is not used, but needed for st.composite
     short_long_term_threshold_seconds=st.floats(min_value=1.0, max_value=10.0),
 ) -> mm_schema.LightSourcePowerInputParameters:
     return mm_schema.LightSourcePowerInputParameters(
