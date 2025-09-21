@@ -599,9 +599,9 @@ CLOSED {
        (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/KeyMeasurements_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/KeyMeasurements> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ;
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> ? ;
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location>
           [
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#SOURCE_EXIT>
@@ -610,9 +610,9 @@ CLOSED {
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_EXIT>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_FOCAL>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OTHER>
-             ] ;
+             ] + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements>
-          @linkml:Integer ;
+          @linkml:Integer + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw>
           @linkml:Float + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw>
@@ -622,7 +622,7 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_min_mw>
           @linkml:Float + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_max_mw>
-          @linkml:Float * ;
+          @linkml:Float + ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity>
           @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability>

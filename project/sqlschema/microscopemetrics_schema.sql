@@ -464,12 +464,8 @@
 --     * Slot: comment_id Description: A human readable comment
 -- # Class: "LightSourcePowerKeyMeasurements" Description: ""
 --     * Slot: id Description: 
---     * Slot: measuring_location Description: The location at which the measurement was taken.
---     * Slot: nr_of_measurements Description: The number of power measurements taken.
 --     * Slot: name Description: The human readable name of an entity
 --     * Slot: description Description: A human readable description of an entity
---     * Slot: light_source_id Description: The light source under investigation.
---     * Slot: measurement_device_id Description: The power meter used to measure the power.
 --     * Slot: table_data_id Description: A non-required slot for non-serializable table data object
 --     * Slot: data_reference_id Description: A reference to the data
 -- # Class: "PowerMeasurement" Description: "A single power measurement for a light source."
@@ -939,6 +935,18 @@
 -- # Class: "LightSourcePowerOutput_errors" Description: ""
 --     * Slot: LightSourcePowerOutput_id Description: Autocreated FK slot
 --     * Slot: errors Description: The errors of the processing by microscope-metrics
+-- # Class: "LightSourcePowerKeyMeasurements_light_source" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: light_source_id Description: The light source under investigation.
+-- # Class: "LightSourcePowerKeyMeasurements_measurement_device" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: measurement_device_id Description: The power meter used to measure the power.
+-- # Class: "LightSourcePowerKeyMeasurements_measuring_location" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: measuring_location Description: The location at which the measurement was taken.
+-- # Class: "LightSourcePowerKeyMeasurements_nr_of_measurements" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: nr_of_measurements Description: The number of power measurements taken.
 -- # Class: "LightSourcePowerKeyMeasurements_power_mean_mw" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: power_mean_mw Description: The mean power measured in milliwatts.
@@ -1473,17 +1481,11 @@ CREATE TABLE "LightSourcePowerOutput" (
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements" (
 	id INTEGER NOT NULL, 
-	measuring_location VARCHAR(19) NOT NULL, 
-	nr_of_measurements INTEGER NOT NULL, 
 	name TEXT, 
 	description TEXT, 
-	light_source_id INTEGER NOT NULL, 
-	measurement_device_id INTEGER, 
 	table_data_id INTEGER, 
 	data_reference_id INTEGER, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
-	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id), 
 	FOREIGN KEY(table_data_id) REFERENCES "MetaObject" (id), 
 	FOREIGN KEY(data_reference_id) REFERENCES "DataReference" (id)
 );
@@ -2615,6 +2617,32 @@ CREATE TABLE "LightSourcePowerOutput_errors" (
 	PRIMARY KEY ("LightSourcePowerOutput_id", errors), 
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
 );
+CREATE TABLE "LightSourcePowerKeyMeasurements_light_source" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	light_source_id INTEGER NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", light_source_id), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
+	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_measurement_device" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	measurement_device_id INTEGER, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", measurement_device_id), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
+	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_measuring_location" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	measuring_location VARCHAR(19) NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", measuring_location), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_nr_of_measurements" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	nr_of_measurements INTEGER NOT NULL, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", nr_of_measurements), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_mean_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
 	power_mean_mw FLOAT NOT NULL, 
@@ -2641,7 +2669,7 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_power_min_mw" (
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_max_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
-	power_max_mw FLOAT, 
+	power_max_mw FLOAT NOT NULL, 
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_max_mw), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
