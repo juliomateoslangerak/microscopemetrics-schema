@@ -359,6 +359,8 @@ interface KeyMeasurements
 
 type LightSource
   {
+    name: String
+    description: String
     wavelengthNm: Float!
   }
 
@@ -858,4 +860,3 @@ type Vertex
     x: Float!
     y: Float!
   }
-

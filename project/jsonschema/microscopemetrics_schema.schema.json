@@ -1778,6 +1778,20 @@
             "additionalProperties": false,
             "description": "A light source.",
             "properties": {
+                "description": {
+                    "description": "A human readable description of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "The human readable name of an entity",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
                 "wavelength_nm": {
                     "description": "The wavelength of the light source in nanometers.",
                     "type": "number"

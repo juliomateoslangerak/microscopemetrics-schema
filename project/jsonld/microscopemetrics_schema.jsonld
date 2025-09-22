@@ -6970,7 +6970,10 @@
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource",
       "description": "A light source.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "NamedObject",
       "slots": [
+        "namedObject__name",
+        "namedObject__description",
         "wavelength_nm"
       ],
       "slot_usage": {},
@@ -7103,9 +7106,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-05-18T13:16:51",
+  "source_file_date": "2025-05-20T09:00:23",
   "source_file_size": 914,
-  "generation_date": "2025-09-22T01:36:40",
+  "generation_date": "2025-09-22T12:00:39",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

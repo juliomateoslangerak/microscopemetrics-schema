@@ -11,9 +11,13 @@ from microscopemetrics_schema.strategies import (
 @st.composite
 def st_mm_light_source(
     draw,
+    name=st.text(min_size=1, max_size=32),
+    description=st.text(min_size=1, max_size=128),
     wavelength=st.floats(min_value=350.0, max_value=800.0),
 ) -> mm_schema.LightSource:
     return mm_schema.LightSource(
+        name=draw(name),
+        description=draw(description),
         wavelength_nm=draw(wavelength),
     )
 
@@ -87,14 +91,16 @@ def st_mm_light_source_power_input_parameters(
 @st.composite
 def st_mm_light_source_power_output_key_measurements(
     draw,
+    light_source=st_mm_light_source(),
+    power_meter=st_mm_power_meter(),
     mm_object=st_mm_metrics_object(),
 ) -> mm_schema.LightSourcePowerKeyMeasurements:
     mm_object = draw(mm_object)
     return mm_schema.LightSourcePowerKeyMeasurements(
         name=mm_object.name,
         description=mm_object.description,
-        light_source=draw(st_mm_light_source()),
-        measurement_device=draw(st_mm_power_meter()),
+        light_source=draw(light_source),
+        measurement_device=draw(power_meter),
         measuring_location="OBJECTIVE_FOCAL",
         nr_of_measurements=100,
         power_mean_mw=25.0,

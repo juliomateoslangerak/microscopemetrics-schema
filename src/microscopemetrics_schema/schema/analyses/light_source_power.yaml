@@ -91,7 +91,6 @@ classes:
       long_term_measurement_duration_seconds:
         multivalued: true
 
-
   PowerMeasurement:
     description: >-
       A single power measurement for a light source.
@@ -103,12 +102,12 @@ classes:
       - power_set_point
       - power_mw
       - integration_time_seconds
-#      - irradiance???
     slot_usage:
       acquisition_datetime:
         required: true
 
   LightSource:
+    is_a: NamedObject
     description: >-
       A light source.
     slots:

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-22T01:36:42
+# Generation date: 2025-09-22T12:00:42
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2531,7 +2531,7 @@ class PowerMeasurement(YAMLRoot):
 
 
 @dataclass(repr=False)
-class LightSource(YAMLRoot):
+class LightSource(NamedObject):
     """
     A light source.
     """
