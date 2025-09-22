@@ -3136,7 +3136,6 @@
       ],
       "range": "float",
       "required": true,
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3151,7 +3150,6 @@
       ],
       "range": "float",
       "required": true,
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3166,7 +3164,6 @@
       ],
       "range": "float",
       "required": true,
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3181,7 +3178,6 @@
       ],
       "range": "float",
       "required": true,
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3195,7 +3191,7 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3210,7 +3206,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3225,7 +3220,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3240,7 +3234,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3255,7 +3248,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3270,7 +3262,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4792,6 +4783,288 @@
       "usage_slot_name": "output",
       "range": "LightSourcePowerOutput",
       "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_light_source",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source",
+      "description": "The light source under investigation.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "light_source",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/light_source",
+      "alias": "light_source",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "light_source",
+      "range": "LightSource",
+      "required": true,
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_measurement_device",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
+      "description": "The power meter used to measure the power.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "measurement_device",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
+      "alias": "measurement_device",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "measurement_device",
+      "range": "PowerMeter",
+      "multivalued": true,
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_measuring_location",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
+      "description": "The location at which the measurement was taken.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "measuring_location",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
+      "ifabsent": "MeasuringLocationEnum(OBJECTIVE_FOCAL)",
+      "alias": "measuring_location",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "measuring_location",
+      "range": "MeasuringLocationEnum",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_nr_of_measurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
+      "description": "The number of power measurements taken.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "nr_of_measurements",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
+      "alias": "nr_of_measurements",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "nr_of_measurements",
+      "range": "integer",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_mean_mw",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw",
+      "description": "The mean power measured in milliwatts.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_mean_mw",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw",
+      "alias": "power_mean_mw",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_mean_mw",
+      "range": "float",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_median_mw",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw",
+      "description": "The median power measured in milliwatts.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_median_mw",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw",
+      "alias": "power_median_mw",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_median_mw",
+      "range": "float",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_std_mw",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_std_mw",
+      "description": "The standard deviation of the power measured in milliwatts.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_std_mw",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_std_mw",
+      "alias": "power_std_mw",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_std_mw",
+      "range": "float",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_min_mw",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_min_mw",
+      "description": "The minimum power measured in milliwatts.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_min_mw",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_min_mw",
+      "alias": "power_min_mw",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_min_mw",
+      "range": "float",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_max_mw",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_max_mw",
+      "description": "The maximum power measured in milliwatts.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_max_mw",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_max_mw",
+      "alias": "power_max_mw",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_max_mw",
+      "range": "float",
+      "required": true,
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
+      "description": "The linearity of the power measurements.",
+      "title": "Linearity R2",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
+      "alias": "power_linearity",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_short_term_power_stability",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
+      "description": "The short term stability of the light source",
+      "title": "Short term stability",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "short_term_power_stability",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
+      "alias": "short_term_power_stability",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "short_term_power_stability",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
+      "description": "The duration of the short term measurement in seconds",
+      "title": "Short term measurement duration",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "short_term_measurement_duration_seconds",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
+      "alias": "short_term_measurement_duration_seconds",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "short_term_measurement_duration_seconds",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_long_term_power_stability",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
+      "description": "The long term stability of the light source",
+      "title": "Long term stability",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "long_term_power_stability",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
+      "alias": "long_term_power_stability",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "long_term_power_stability",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
+      "description": "The duration of the long term measurement in seconds",
+      "title": "Long term measurement duration",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "long_term_measurement_duration_seconds",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
+      "alias": "long_term_measurement_duration_seconds",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "long_term_measurement_duration_seconds",
+      "range": "float",
+      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -6655,20 +6928,20 @@
         "data_reference",
         "linked_references",
         "table_data",
-        "light_source",
-        "measurement_device",
-        "measuring_location",
-        "nr_of_measurements",
-        "power_mean_mw",
-        "power_median_mw",
-        "power_std_mw",
-        "power_min_mw",
-        "power_max_mw",
-        "power_linearity",
-        "short_term_power_stability",
-        "short_term_measurement_duration_seconds",
-        "long_term_power_stability",
-        "long_term_measurement_duration_seconds"
+        "LightSourcePowerKeyMeasurements_light_source",
+        "LightSourcePowerKeyMeasurements_measurement_device",
+        "LightSourcePowerKeyMeasurements_measuring_location",
+        "LightSourcePowerKeyMeasurements_nr_of_measurements",
+        "LightSourcePowerKeyMeasurements_power_mean_mw",
+        "LightSourcePowerKeyMeasurements_power_median_mw",
+        "LightSourcePowerKeyMeasurements_power_std_mw",
+        "LightSourcePowerKeyMeasurements_power_min_mw",
+        "LightSourcePowerKeyMeasurements_power_max_mw",
+        "LightSourcePowerKeyMeasurements_power_linearity",
+        "LightSourcePowerKeyMeasurements_short_term_power_stability",
+        "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
+        "LightSourcePowerKeyMeasurements_long_term_power_stability",
+        "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerKeyMeasurements",
@@ -6832,7 +7105,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-09-18T07:40:08",
+  "generation_date": "2025-09-22T01:36:40",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

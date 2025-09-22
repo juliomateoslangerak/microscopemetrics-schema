@@ -404,15 +404,15 @@ type LightSourcePowerKeyMeasurements
     dataReference: DataReference
     linkedReferences: [DataReference]
     tableData: MetaObject
-    lightSource: LightSource!
-    measurementDevice: PowerMeter
-    measuringLocation: MeasuringLocationEnum!
-    nrOfMeasurements: Integer!
+    lightSource: [LightSource]!
+    measurementDevice: [PowerMeter]
+    measuringLocation: [MeasuringLocationEnum]!
+    nrOfMeasurements: [Integer]!
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
     powerStdMw: [Float]!
     powerMinMw: [Float]!
-    powerMaxMw: [Float]
+    powerMaxMw: [Float]!
     powerLinearity: [Float]
     shortTermPowerStability: [Float]
     shortTermMeasurementDurationSeconds: [Float]

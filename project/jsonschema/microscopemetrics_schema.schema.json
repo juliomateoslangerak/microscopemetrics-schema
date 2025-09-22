@@ -1982,8 +1982,11 @@
                     ]
                 },
                 "light_source": {
-                    "$ref": "#/$defs/LightSource",
-                    "description": "The light source under investigation."
+                    "description": "The light source under investigation.",
+                    "items": {
+                        "$ref": "#/$defs/LightSource"
+                    },
+                    "type": "array"
                 },
                 "linked_references": {
                     "description": "A list of linked references",
@@ -2016,19 +2019,21 @@
                     ]
                 },
                 "measurement_device": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PowerMeter"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The power meter used to measure the power."
+                    "description": "The power meter used to measure the power.",
+                    "items": {
+                        "$ref": "#/$defs/PowerMeter"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "measuring_location": {
-                    "$ref": "#/$defs/MeasuringLocationEnum",
-                    "description": "The location at which the measurement was taken."
+                    "description": "The location at which the measurement was taken.",
+                    "items": {
+                        "$ref": "#/$defs/MeasuringLocationEnum"
+                    },
+                    "type": "array"
                 },
                 "name": {
                     "description": "The human readable name of an entity",
@@ -2039,7 +2044,10 @@
                 },
                 "nr_of_measurements": {
                     "description": "The number of power measurements taken.",
-                    "type": "integer"
+                    "items": {
+                        "type": "integer"
+                    },
+                    "type": "array"
                 },
                 "power_linearity": {
                     "description": "The linearity of the power measurements.",
@@ -2056,10 +2064,7 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_mean_mw": {
                     "description": "The mean power measured in milliwatts.",
@@ -2128,7 +2133,8 @@
                 "power_mean_mw",
                 "power_median_mw",
                 "power_std_mw",
-                "power_min_mw"
+                "power_min_mw",
+                "power_max_mw"
             ],
             "title": "LightSourcePowerKeyMeasurements",
             "type": "object"

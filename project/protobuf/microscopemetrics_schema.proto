@@ -298,10 +298,10 @@ message LightSourcePowerKeyMeasurements
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
   metaObject tableData = 0
-  lightSource lightSource = 0
-  powerMeter measurementDevice = 0
-  measuringLocationEnum measuringLocation = 0
-  integer nrOfMeasurements = 0
+ repeated  lightSource lightSource = 0
+ repeated  powerMeter measurementDevice = 0
+ repeated  measuringLocationEnum measuringLocation = 0
+ repeated  integer nrOfMeasurements = 0
  repeated  float powerMeanMw = 0
  repeated  float powerMedianMw = 0
  repeated  float powerStdMw = 0
