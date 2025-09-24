@@ -108,7 +108,7 @@ def st_mm_light_source_power_output_key_measurements(
         power_std_mw=2.0,
         power_min_mw=20.0,
         power_max_mw=30.0,
-        power_linearity=0.95,
+        power_linearity_coefficient_of_determination=0.95,
         short_term_power_stability=0.9,
         short_term_measurement_duration_seconds=300.0,
         long_term_power_stability=0.9,

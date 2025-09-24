@@ -3195,12 +3195,12 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "power_linearity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
-      "description": "The linearity of the power measurements.",
-      "title": "Linearity R2",
+      "name": "power_linearity_coefficient_of_determination",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
+      "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
+      "title": "Linearity coefficient of determination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
       "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
         "LightSourcePowerKeyMeasurements"
@@ -4968,21 +4968,21 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "LightSourcePowerKeyMeasurements_power_linearity",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
-      "description": "The linearity of the power measurements.",
-      "title": "Linearity R2",
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
+      "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
+      "title": "Linearity coefficient of determination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity",
+      "is_a": "power_linearity_coefficient_of_determination",
       "domain": "LightSourcePowerKeyMeasurements",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity",
-      "alias": "power_linearity",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
+      "alias": "power_linearity_coefficient_of_determination",
       "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
         "LightSourcePowerKeyMeasurements"
       ],
       "is_usage_slot": true,
-      "usage_slot_name": "power_linearity",
+      "usage_slot_name": "power_linearity_coefficient_of_determination",
       "range": "float",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -6937,7 +6937,7 @@
         "LightSourcePowerKeyMeasurements_power_std_mw",
         "LightSourcePowerKeyMeasurements_power_min_mw",
         "LightSourcePowerKeyMeasurements_power_max_mw",
-        "LightSourcePowerKeyMeasurements_power_linearity",
+        "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination",
         "LightSourcePowerKeyMeasurements_short_term_power_stability",
         "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
         "LightSourcePowerKeyMeasurements_long_term_power_stability",
@@ -7106,9 +7106,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-05-20T09:00:23",
+  "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-09-22T12:00:39",
+  "generation_date": "2025-09-24T02:01:03",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

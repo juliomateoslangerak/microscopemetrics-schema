@@ -2063,8 +2063,8 @@
                     },
                     "type": "array"
                 },
-                "power_linearity": {
-                    "description": "The linearity of the power measurements.",
+                "power_linearity_coefficient_of_determination": {
+                    "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
                     "items": {
                         "type": "number"
                     },

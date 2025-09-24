@@ -56,7 +56,7 @@ classes:
       - power_std_mw
       - power_min_mw
       - power_max_mw
-      - power_linearity
+      - power_linearity_coefficient_of_determination
       - short_term_power_stability
       - short_term_measurement_duration_seconds
       - long_term_power_stability
@@ -80,7 +80,7 @@ classes:
         multivalued: true
       power_max_mw:
         multivalued: true
-      power_linearity:
+      power_linearity_coefficient_of_determination:
         multivalued: true
       short_term_power_stability:
         multivalued: true
@@ -227,11 +227,11 @@ slots:
       The maximum power measured in milliwatts.
     multivalued: false
     required: true
-  power_linearity:
-    title: Linearity R2
+  power_linearity_coefficient_of_determination:
+    title: Linearity coefficient of determination
     range: float
     description: >-
-      The linearity of the power measurements.
+      The coefficient of determination a linear regression model fits output power as a function of the set point.
     multivalued: false
     required: false
   short_term_power_stability:
