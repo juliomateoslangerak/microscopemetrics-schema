@@ -585,6 +585,9 @@ CLOSED {
        (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputParameters_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputParameters> ] ? ;
 
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/linearity_required_measurements>
+          @linkml:Integer ? ;
+
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_measurement_interval_seconds>
           @linkml:Float ? ;
 

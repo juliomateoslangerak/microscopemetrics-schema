@@ -396,6 +396,7 @@ type LightSourcePowerInputData
 
 type LightSourcePowerInputParameters
   {
+    linearityRequiredMeasurements: Integer
     shortTermStabilityMeasurementIntervalSeconds: Float
     shortTermStabilityRequiredMeasurements: Integer
     shortTermStabilityRequiredIntegrationTimeSeconds: Float

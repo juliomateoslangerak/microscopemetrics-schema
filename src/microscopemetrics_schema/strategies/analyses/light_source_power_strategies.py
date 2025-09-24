@@ -81,6 +81,7 @@ def st_mm_light_source_power_input_data(
 @st.composite
 def st_mm_light_source_power_input_parameters(
     draw,
+    linearity_required_measurements=st.integers(min_value=5, max_value=20),
     short_term_stability_measurement_interval_seconds=st.floats(min_value=1.0, max_value=2.0),
     short_term_stability_required_measurements=st.integers(min_value=3, max_value=20),
     short_term_stability_required_integration_time_seconds=st.floats(min_value=0.01, max_value=0.1),
@@ -89,6 +90,7 @@ def st_mm_light_source_power_input_parameters(
     long_term_stability_required_integration_time_seconds=st.floats(min_value=0.1, max_value=1.0),
 ) -> mm_schema.LightSourcePowerInputParameters:
     return mm_schema.LightSourcePowerInputParameters(
+        linearity_required_measurements=draw(linearity_required_measurements),
         short_term_stability_measurement_interval_seconds=draw(short_term_stability_measurement_interval_seconds),
         short_term_stability_required_measurements=draw(short_term_stability_required_measurements),
         short_term_stability_required_integration_time_seconds=draw(short_term_stability_required_integration_time_seconds),

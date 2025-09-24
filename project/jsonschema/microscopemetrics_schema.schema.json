@@ -1962,6 +1962,13 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
+                "linearity_required_measurements": {
+                    "description": "The minimum number of measurements required to calculate power linearity.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
                 "long_term_stability_measurement_interval_seconds": {
                     "description": "The measurement interval, in seconds, used to calculate long term power stability.",
                     "type": [

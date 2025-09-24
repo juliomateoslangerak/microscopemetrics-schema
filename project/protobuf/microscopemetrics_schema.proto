@@ -291,6 +291,7 @@ message LightSourcePowerInputData
  }
 message LightSourcePowerInputParameters
  {
+  integer linearityRequiredMeasurements = 0
   float shortTermStabilityMeasurementIntervalSeconds = 0
   integer shortTermStabilityRequiredMeasurements = 0
   float shortTermStabilityRequiredIntegrationTimeSeconds = 0

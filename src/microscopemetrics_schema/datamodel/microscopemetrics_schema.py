@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-24T11:31:38
+# Generation date: 2025-09-24T11:41:46
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2344,6 +2344,7 @@ class LightSourcePowerInputParameters(MetricsInputParameters):
     class_name: ClassVar[str] = "LightSourcePowerInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerInputParameters
 
+    linearity_required_measurements: Optional[int] = 10
     short_term_stability_measurement_interval_seconds: Optional[float] = 1.0
     short_term_stability_required_measurements: Optional[int] = 300
     short_term_stability_required_integration_time_seconds: Optional[float] = 0.1
@@ -2352,6 +2353,9 @@ class LightSourcePowerInputParameters(MetricsInputParameters):
     long_term_stability_required_integration_time_seconds: Optional[float] = 1.0
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self.linearity_required_measurements is not None and not isinstance(self.linearity_required_measurements, int):
+            self.linearity_required_measurements = int(self.linearity_required_measurements)
+
         if self.short_term_stability_measurement_interval_seconds is not None and not isinstance(self.short_term_stability_measurement_interval_seconds, float):
             self.short_term_stability_measurement_interval_seconds = float(self.short_term_stability_measurement_interval_seconds)
 
@@ -3380,6 +3384,9 @@ slots.power_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/
 
 slots.integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_seconds'], name="integration_time_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_seconds'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_seconds, domain=None, range=Optional[float])
+
+slots.linearity_required_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/linearity_required_measurements'], name="linearity_required_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/linearity_required_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.linearity_required_measurements, domain=None, range=Optional[int])
 
 slots.short_term_stability_measurement_interval_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_stability_measurement_interval_seconds'], name="short_term_stability_measurement_interval_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_stability_measurement_interval_seconds'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_stability_measurement_interval_seconds, domain=None, range=Optional[float])

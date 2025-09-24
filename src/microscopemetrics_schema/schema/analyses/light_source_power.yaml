@@ -33,6 +33,7 @@ classes:
   LightSourcePowerInputParameters:
     is_a: MetricsInputParameters
     slots:
+      - linearity_required_measurements
       - short_term_stability_measurement_interval_seconds
       - short_term_stability_required_measurements
       - short_term_stability_required_integration_time_seconds
@@ -193,6 +194,13 @@ slots:
     required: false
 
   # Input parameters
+  linearity_required_measurements:
+    range: integer
+    description: >-
+      The minimum number of measurements required to calculate power linearity.
+    multivalued: false
+    required: false
+    ifabsent: int(10)
   short_term_stability_measurement_interval_seconds:
     range: float
     description: >-
