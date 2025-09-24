@@ -291,7 +291,12 @@ message LightSourcePowerInputData
  }
 message LightSourcePowerInputParameters
  {
-  float shortLongTermThresholdSeconds = 0
+  float shortTermStabilityMeasurementIntervalSeconds = 0
+  integer shortTermStabilityRequiredMeasurements = 0
+  float shortTermStabilityRequiredIntegrationTimeSeconds = 0
+  float longTermStabilityMeasurementIntervalSeconds = 0
+  integer longTermStabilityRequiredMeasurements = 0
+  float longTermStabilityRequiredIntegrationTimeSeconds = 0
  }
 message LightSourcePowerKeyMeasurements
  {
@@ -311,9 +316,7 @@ message LightSourcePowerKeyMeasurements
  repeated  float powerMaxMw = 0
  repeated  float powerLinearity = 0
  repeated  float shortTermPowerStability = 0
- repeated  float shortTermMeasurementDurationSeconds = 0
  repeated  float longTermPowerStability = 0
- repeated  float longTermMeasurementDurationSeconds = 0
  }
 message LightSourcePowerOutput
  {

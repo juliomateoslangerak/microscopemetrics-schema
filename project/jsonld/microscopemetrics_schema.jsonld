@@ -3096,18 +3096,87 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "short_long_term_threshold_seconds",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_long_term_threshold_seconds",
-      "description": "The measurement interval, in seconds, that separates short and long term power stability calculations.",
+      "name": "short_term_stability_measurement_interval_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_measurement_interval_seconds",
+      "description": "The measurement interval, in seconds, used to calculate short term power stability.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_long_term_threshold_seconds",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_measurement_interval_seconds",
       "ifabsent": "float(1.0)",
       "owner": "LightSourcePowerInputParameters",
       "domain_of": [
         "LightSourcePowerInputParameters"
       ],
       "range": "float",
-      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "short_term_stability_required_measurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_measurements",
+      "description": "The minimum number of measurements required to calculate short term power stability.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_measurements",
+      "ifabsent": "int(300)",
+      "owner": "LightSourcePowerInputParameters",
+      "domain_of": [
+        "LightSourcePowerInputParameters"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "short_term_stability_required_integration_time_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_integration_time_seconds",
+      "description": "The minimum integration time, in seconds, required to calculate short term power stability.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_integration_time_seconds",
+      "ifabsent": "float(0.1)",
+      "owner": "LightSourcePowerInputParameters",
+      "domain_of": [
+        "LightSourcePowerInputParameters"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "long_term_stability_measurement_interval_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_measurement_interval_seconds",
+      "description": "The measurement interval, in seconds, used to calculate long term power stability.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_measurement_interval_seconds",
+      "ifabsent": "float(30.0)",
+      "owner": "LightSourcePowerInputParameters",
+      "domain_of": [
+        "LightSourcePowerInputParameters"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "long_term_stability_required_measurements",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_measurements",
+      "description": "The minimum number of measurements required to calculate long term power stability.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_measurements",
+      "ifabsent": "int(240)",
+      "owner": "LightSourcePowerInputParameters",
+      "domain_of": [
+        "LightSourcePowerInputParameters"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "long_term_stability_required_integration_time_seconds",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_integration_time_seconds",
+      "description": "The minimum integration time, in seconds, required to calculate long term power stability.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_integration_time_seconds",
+      "ifabsent": "float(1.0)",
+      "owner": "LightSourcePowerInputParameters",
+      "domain_of": [
+        "LightSourcePowerInputParameters"
+      ],
+      "range": "float",
       "@type": "SlotDefinition"
     },
     {
@@ -3223,40 +3292,12 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "short_term_measurement_duration_seconds",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
-      "description": "The duration of the short term measurement in seconds",
-      "title": "Short term measurement duration",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
-      "owner": "LightSourcePowerKeyMeasurements",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurements"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "long_term_power_stability",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
       "description": "The long term stability of the light source",
       "title": "Long term stability",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
-      "owner": "LightSourcePowerKeyMeasurements",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurements"
-      ],
-      "range": "float",
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "long_term_measurement_duration_seconds",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
-      "description": "The duration of the long term measurement in seconds",
-      "title": "Long term measurement duration",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
       "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
         "LightSourcePowerKeyMeasurements"
@@ -5008,26 +5049,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
-      "description": "The duration of the short term measurement in seconds",
-      "title": "Short term measurement duration",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "short_term_measurement_duration_seconds",
-      "domain": "LightSourcePowerKeyMeasurements",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds",
-      "alias": "short_term_measurement_duration_seconds",
-      "owner": "LightSourcePowerKeyMeasurements",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurements"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "short_term_measurement_duration_seconds",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "LightSourcePowerKeyMeasurements_long_term_power_stability",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
       "description": "The long term stability of the light source",
@@ -5043,26 +5064,6 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "long_term_power_stability",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
-      "description": "The duration of the long term measurement in seconds",
-      "title": "Long term measurement duration",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "long_term_measurement_duration_seconds",
-      "domain": "LightSourcePowerKeyMeasurements",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds",
-      "alias": "long_term_measurement_duration_seconds",
-      "owner": "LightSourcePowerKeyMeasurements",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurements"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "long_term_measurement_duration_seconds",
       "range": "float",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -6881,7 +6882,12 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "is_a": "MetricsInputParameters",
       "slots": [
-        "short_long_term_threshold_seconds"
+        "short_term_stability_measurement_interval_seconds",
+        "short_term_stability_required_measurements",
+        "short_term_stability_required_integration_time_seconds",
+        "long_term_stability_measurement_interval_seconds",
+        "long_term_stability_required_measurements",
+        "long_term_stability_required_integration_time_seconds"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerInputParameters",
@@ -6939,9 +6945,7 @@
         "LightSourcePowerKeyMeasurements_power_max_mw",
         "LightSourcePowerKeyMeasurements_power_linearity",
         "LightSourcePowerKeyMeasurements_short_term_power_stability",
-        "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
-        "LightSourcePowerKeyMeasurements_long_term_power_stability",
-        "LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds"
+        "LightSourcePowerKeyMeasurements_long_term_power_stability"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerKeyMeasurements",
@@ -7108,7 +7112,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-20T09:00:23",
   "source_file_size": 914,
-  "generation_date": "2025-09-22T12:00:39",
+  "generation_date": "2025-09-24T11:13:24",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

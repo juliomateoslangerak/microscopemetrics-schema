@@ -80,11 +80,21 @@ def st_mm_light_source_power_input_data(
 
 @st.composite
 def st_mm_light_source_power_input_parameters(
-    draw,  # FIXME: draw is not used, but needed for st.composite
-    short_long_term_threshold_seconds=st.floats(min_value=1.0, max_value=10.0),
+    draw,
+    short_term_stability_measurement_interval_seconds=st.floats(min_value=1.0, max_value=2.0),
+    short_term_stability_required_measurements=st.integers(min_value=3, max_value=20),
+    short_term_stability_required_integration_time_seconds=st.floats(min_value=0.01, max_value=0.1),
+    long_term_stability_measurement_interval_seconds=st.floats(min_value=10, max_value=60.0),
+    long_term_stability_required_measurements=st.integers(min_value=10, max_value=200),
+    long_term_stability_required_integration_time_seconds=st.floats(min_value=0.1, max_value=1.0),
 ) -> mm_schema.LightSourcePowerInputParameters:
     return mm_schema.LightSourcePowerInputParameters(
-        short_long_term_threshold_seconds=draw(short_long_term_threshold_seconds)
+        short_term_stability_measurement_interval_seconds=draw(short_term_stability_measurement_interval_seconds),
+        short_term_stability_required_measurements=draw(short_term_stability_required_measurements),
+        short_term_stability_required_integration_time_seconds=draw(short_term_stability_required_integration_time_seconds),
+        long_term_stability_measurement_interval_seconds=draw(long_term_stability_measurement_interval_seconds),
+        long_term_stability_required_measurements=draw(long_term_stability_required_measurements),
+        long_term_stability_required_integration_time_seconds=draw(long_term_stability_required_integration_time_seconds),
     )
 
 
@@ -110,9 +120,7 @@ def st_mm_light_source_power_output_key_measurements(
         power_max_mw=30.0,
         power_linearity=0.95,
         short_term_power_stability=0.9,
-        short_term_measurement_duration_seconds=300.0,
         long_term_power_stability=0.9,
-        long_term_measurement_duration_seconds=7200.0,
     )
 
 

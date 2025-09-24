@@ -585,8 +585,23 @@ CLOSED {
        (  &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputParameters_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsInputParameters> ] ? ;
 
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_long_term_threshold_seconds>
-          @linkml:Float
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_measurement_interval_seconds>
+          @linkml:Float ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_measurements>
+          @linkml:Integer ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_stability_required_integration_time_seconds>
+          @linkml:Float ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_measurement_interval_seconds>
+          @linkml:Float ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_measurements>
+          @linkml:Integer ? ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_stability_required_integration_time_seconds>
+          @linkml:Float ?
        ) ;
        rdf:type [
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerInputParameters>
@@ -630,13 +645,7 @@ CLOSED {
           @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability>
           @linkml:Float * ;
-
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_measurement_duration_seconds>
-          @linkml:Float * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability>
-          @linkml:Float * ;
-
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_measurement_duration_seconds>
           @linkml:Float *
        ) ;
        rdf:type [

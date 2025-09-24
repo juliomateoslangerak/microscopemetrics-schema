@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-22T12:00:42
+# Generation date: 2025-09-24T11:13:27
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2344,13 +2344,31 @@ class LightSourcePowerInputParameters(MetricsInputParameters):
     class_name: ClassVar[str] = "LightSourcePowerInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerInputParameters
 
-    short_long_term_threshold_seconds: float = 1.0
+    short_term_stability_measurement_interval_seconds: Optional[float] = 1.0
+    short_term_stability_required_measurements: Optional[int] = 300
+    short_term_stability_required_integration_time_seconds: Optional[float] = 0.1
+    long_term_stability_measurement_interval_seconds: Optional[float] = 30.0
+    long_term_stability_required_measurements: Optional[int] = 240
+    long_term_stability_required_integration_time_seconds: Optional[float] = 1.0
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.short_long_term_threshold_seconds):
-            self.MissingRequiredField("short_long_term_threshold_seconds")
-        if not isinstance(self.short_long_term_threshold_seconds, float):
-            self.short_long_term_threshold_seconds = float(self.short_long_term_threshold_seconds)
+        if self.short_term_stability_measurement_interval_seconds is not None and not isinstance(self.short_term_stability_measurement_interval_seconds, float):
+            self.short_term_stability_measurement_interval_seconds = float(self.short_term_stability_measurement_interval_seconds)
+
+        if self.short_term_stability_required_measurements is not None and not isinstance(self.short_term_stability_required_measurements, int):
+            self.short_term_stability_required_measurements = int(self.short_term_stability_required_measurements)
+
+        if self.short_term_stability_required_integration_time_seconds is not None and not isinstance(self.short_term_stability_required_integration_time_seconds, float):
+            self.short_term_stability_required_integration_time_seconds = float(self.short_term_stability_required_integration_time_seconds)
+
+        if self.long_term_stability_measurement_interval_seconds is not None and not isinstance(self.long_term_stability_measurement_interval_seconds, float):
+            self.long_term_stability_measurement_interval_seconds = float(self.long_term_stability_measurement_interval_seconds)
+
+        if self.long_term_stability_required_measurements is not None and not isinstance(self.long_term_stability_required_measurements, int):
+            self.long_term_stability_required_measurements = int(self.long_term_stability_required_measurements)
+
+        if self.long_term_stability_required_integration_time_seconds is not None and not isinstance(self.long_term_stability_required_integration_time_seconds, float):
+            self.long_term_stability_required_integration_time_seconds = float(self.long_term_stability_required_integration_time_seconds)
 
         super().__post_init__(**kwargs)
 
@@ -2397,9 +2415,7 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     measurement_device: Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]] = empty_list()
     power_linearity: Optional[Union[float, list[float]]] = empty_list()
     short_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
-    short_term_measurement_duration_seconds: Optional[Union[float, list[float]]] = empty_list()
     long_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
-    long_term_measurement_duration_seconds: Optional[Union[float, list[float]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.light_source):
@@ -2460,17 +2476,9 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.short_term_power_stability = [self.short_term_power_stability] if self.short_term_power_stability is not None else []
         self.short_term_power_stability = [v if isinstance(v, float) else float(v) for v in self.short_term_power_stability]
 
-        if not isinstance(self.short_term_measurement_duration_seconds, list):
-            self.short_term_measurement_duration_seconds = [self.short_term_measurement_duration_seconds] if self.short_term_measurement_duration_seconds is not None else []
-        self.short_term_measurement_duration_seconds = [v if isinstance(v, float) else float(v) for v in self.short_term_measurement_duration_seconds]
-
         if not isinstance(self.long_term_power_stability, list):
             self.long_term_power_stability = [self.long_term_power_stability] if self.long_term_power_stability is not None else []
         self.long_term_power_stability = [v if isinstance(v, float) else float(v) for v in self.long_term_power_stability]
-
-        if not isinstance(self.long_term_measurement_duration_seconds, list):
-            self.long_term_measurement_duration_seconds = [self.long_term_measurement_duration_seconds] if self.long_term_measurement_duration_seconds is not None else []
-        self.long_term_measurement_duration_seconds = [v if isinstance(v, float) else float(v) for v in self.long_term_measurement_duration_seconds]
 
         super().__post_init__(**kwargs)
 
@@ -3353,8 +3361,23 @@ slots.power_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/
 slots.integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/integration_time_seconds'], name="integration_time_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/integration_time_seconds'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.integration_time_seconds, domain=None, range=Optional[float])
 
-slots.short_long_term_threshold_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_long_term_threshold_seconds'], name="short_long_term_threshold_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_long_term_threshold_seconds'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_long_term_threshold_seconds, domain=None, range=float)
+slots.short_term_stability_measurement_interval_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_stability_measurement_interval_seconds'], name="short_term_stability_measurement_interval_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_stability_measurement_interval_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_stability_measurement_interval_seconds, domain=None, range=Optional[float])
+
+slots.short_term_stability_required_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_stability_required_measurements'], name="short_term_stability_required_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_stability_required_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_stability_required_measurements, domain=None, range=Optional[int])
+
+slots.short_term_stability_required_integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_stability_required_integration_time_seconds'], name="short_term_stability_required_integration_time_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_stability_required_integration_time_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_stability_required_integration_time_seconds, domain=None, range=Optional[float])
+
+slots.long_term_stability_measurement_interval_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_stability_measurement_interval_seconds'], name="long_term_stability_measurement_interval_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_stability_measurement_interval_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_stability_measurement_interval_seconds, domain=None, range=Optional[float])
+
+slots.long_term_stability_required_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_stability_required_measurements'], name="long_term_stability_required_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_stability_required_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_stability_required_measurements, domain=None, range=Optional[int])
+
+slots.long_term_stability_required_integration_time_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_stability_required_integration_time_seconds'], name="long_term_stability_required_integration_time_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_stability_required_integration_time_seconds'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_stability_required_integration_time_seconds, domain=None, range=Optional[float])
 
 slots.nr_of_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/nr_of_measurements'], name="nr_of_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/nr_of_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.nr_of_measurements, domain=None, range=int)
@@ -3380,14 +3403,8 @@ slots.power_linearity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source
 slots.short_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_power_stability'], name="short_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_power_stability, domain=None, range=Optional[float])
 
-slots.short_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_measurement_duration_seconds'], name="short_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_measurement_duration_seconds'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_measurement_duration_seconds, domain=None, range=Optional[float])
-
 slots.long_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_power_stability'], name="long_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_power_stability, domain=None, range=Optional[float])
-
-slots.long_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_measurement_duration_seconds'], name="long_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_measurement_duration_seconds'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_measurement_duration_seconds, domain=None, range=Optional[float])
 
 slots.namedObject__name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/name'], name="namedObject__name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.namedObject__name, domain=None, range=Optional[str])
@@ -3713,14 +3730,8 @@ slots.LightSourcePowerKeyMeasurements_power_linearity = Slot(uri=MICROSCOPEMETRI
 slots.LightSourcePowerKeyMeasurements_short_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_power_stability'], name="LightSourcePowerKeyMeasurements_short_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_short_term_power_stability, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
 
-slots.LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_measurement_duration_seconds'], name="LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_measurement_duration_seconds'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
-
 slots.LightSourcePowerKeyMeasurements_long_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_power_stability'], name="LightSourcePowerKeyMeasurements_long_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_long_term_power_stability, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
-
-slots.LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_measurement_duration_seconds'], name="LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_measurement_duration_seconds'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_long_term_measurement_duration_seconds, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
 
 slots.PowerMeasurement_acquisition_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/acquisition_datetime'], name="PowerMeasurement_acquisition_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/acquisition_datetime'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PowerMeasurement_acquisition_datetime, domain=PowerMeasurement, range=Union[str, XSDDateTime])

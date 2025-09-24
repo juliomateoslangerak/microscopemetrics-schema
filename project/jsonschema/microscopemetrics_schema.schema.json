@@ -1962,14 +1962,49 @@
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "short_long_term_threshold_seconds": {
-                    "description": "The measurement interval, in seconds, that separates short and long term power stability calculations.",
-                    "type": "number"
+                "long_term_stability_measurement_interval_seconds": {
+                    "description": "The measurement interval, in seconds, used to calculate long term power stability.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "long_term_stability_required_integration_time_seconds": {
+                    "description": "The minimum integration time, in seconds, required to calculate long term power stability.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "long_term_stability_required_measurements": {
+                    "description": "The minimum number of measurements required to calculate long term power stability.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "short_term_stability_measurement_interval_seconds": {
+                    "description": "The measurement interval, in seconds, used to calculate short term power stability.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "short_term_stability_required_integration_time_seconds": {
+                    "description": "The minimum integration time, in seconds, required to calculate short term power stability.",
+                    "type": [
+                        "number",
+                        "null"
+                    ]
+                },
+                "short_term_stability_required_measurements": {
+                    "description": "The minimum number of measurements required to calculate short term power stability.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
                 }
             },
-            "required": [
-                "short_long_term_threshold_seconds"
-            ],
             "title": "LightSourcePowerInputParameters",
             "type": "object"
         },
@@ -2006,16 +2041,6 @@
                     "description": "A list of linked references",
                     "items": {
                         "$ref": "#/$defs/DataReference"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "long_term_measurement_duration_seconds": {
-                    "description": "The duration of the long term measurement in seconds",
-                    "items": {
-                        "type": "number"
                     },
                     "type": [
                         "array",
@@ -2107,16 +2132,6 @@
                         "type": "number"
                     },
                     "type": "array"
-                },
-                "short_term_measurement_duration_seconds": {
-                    "description": "The duration of the short term measurement in seconds",
-                    "items": {
-                        "type": "number"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
                 },
                 "short_term_power_stability": {
                     "description": "The short term stability of the light source",

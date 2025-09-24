@@ -396,7 +396,12 @@ type LightSourcePowerInputData
 
 type LightSourcePowerInputParameters
   {
-    shortLongTermThresholdSeconds: Float!
+    shortTermStabilityMeasurementIntervalSeconds: Float
+    shortTermStabilityRequiredMeasurements: Integer
+    shortTermStabilityRequiredIntegrationTimeSeconds: Float
+    longTermStabilityMeasurementIntervalSeconds: Float
+    longTermStabilityRequiredMeasurements: Integer
+    longTermStabilityRequiredIntegrationTimeSeconds: Float
   }
 
 type LightSourcePowerKeyMeasurements
@@ -417,9 +422,7 @@ type LightSourcePowerKeyMeasurements
     powerMaxMw: [Float]!
     powerLinearity: [Float]
     shortTermPowerStability: [Float]
-    shortTermMeasurementDurationSeconds: [Float]
     longTermPowerStability: [Float]
-    longTermMeasurementDurationSeconds: [Float]
   }
 
 type LightSourcePowerOutput
