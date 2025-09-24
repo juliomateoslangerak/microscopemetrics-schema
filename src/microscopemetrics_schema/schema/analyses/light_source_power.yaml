@@ -56,7 +56,11 @@ classes:
       - power_std_mw
       - power_min_mw
       - power_max_mw
+      - power_linearity_slope
+      - power_linearity_intercept
       - power_linearity_coefficient_of_determination
+      - power_linearity_p_value
+      - power_linearity_std_err
       - short_term_power_stability
       - short_term_measurement_duration_seconds
       - long_term_power_stability
@@ -80,7 +84,15 @@ classes:
         multivalued: true
       power_max_mw:
         multivalued: true
+      power_linearity_slope:
+        multivalued: true
+      power_linearity_intercept:
+        multivalued: true
       power_linearity_coefficient_of_determination:
+        multivalued: true
+      power_linearity_p_value:
+        multivalued: true
+      power_linearity_std_err:
         multivalued: true
       short_term_power_stability:
         multivalued: true
@@ -227,11 +239,39 @@ slots:
       The maximum power measured in milliwatts.
     multivalued: false
     required: true
+  power_linearity_slope:
+    title: Linearity slope
+    range: float
+    description: >-
+      The slope of the linear regression model that fits output power as a function of the set point.
+    multivalued: false
+    required: false
+  power_linearity_intercept:
+    title: Linearity intercept
+    range: float
+    description: >-
+      The intercept of the linear regression model that fits output power as a function of the set point.
+    multivalued: false
+    required: false
   power_linearity_coefficient_of_determination:
     title: Linearity coefficient of determination
     range: float
     description: >-
       The coefficient of determination a linear regression model fits output power as a function of the set point.
+    multivalued: false
+    required: false
+  power_linearity_p_value:
+    title: Linearity p-value
+    range: float
+    description: >-
+      The p-value of the linear regression model that fits output power as a function of the set point.
+    multivalued: false
+    required: false
+  power_linearity_std_err:
+    title: Linearity standard error
+    range: float
+    description: >-
+      The standard error of the linear regression model that fits output power as a function of the set point.
     multivalued: false
     required: false
   short_term_power_stability:

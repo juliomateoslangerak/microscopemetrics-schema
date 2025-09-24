@@ -964,9 +964,21 @@
 -- # Class: "LightSourcePowerKeyMeasurements_power_max_mw" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: power_max_mw Description: The maximum power measured in milliwatts.
+-- # Class: "LightSourcePowerKeyMeasurements_power_linearity_slope" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_linearity_slope Description: The slope of the linear regression model that fits output power as a function of the set point.
+-- # Class: "LightSourcePowerKeyMeasurements_power_linearity_intercept" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_linearity_intercept Description: The intercept of the linear regression model that fits output power as a function of the set point.
 -- # Class: "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: power_linearity_coefficient_of_determination Description: The coefficient of determination a linear regression model fits output power as a function of the set point.
+-- # Class: "LightSourcePowerKeyMeasurements_power_linearity_p_value" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_linearity_p_value Description: The p-value of the linear regression model that fits output power as a function of the set point.
+-- # Class: "LightSourcePowerKeyMeasurements_power_linearity_std_err" Description: ""
+--     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
+--     * Slot: power_linearity_std_err Description: The standard error of the linear regression model that fits output power as a function of the set point.
 -- # Class: "LightSourcePowerKeyMeasurements_short_term_power_stability" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: short_term_power_stability Description: The short term stability of the light source
@@ -2677,10 +2689,34 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_power_max_mw" (
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_max_mw), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_slope" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_linearity_slope FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_slope), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_intercept" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_linearity_intercept FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_intercept), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
 	power_linearity_coefficient_of_determination FLOAT, 
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_coefficient_of_determination), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_p_value" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_linearity_p_value FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_p_value), 
+	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
+);
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_std_err" (
+	"LightSourcePowerKeyMeasurements_id" INTEGER, 
+	power_linearity_std_err FLOAT, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_std_err), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_power_stability" (

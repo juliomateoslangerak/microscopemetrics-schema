@@ -415,7 +415,11 @@ type LightSourcePowerKeyMeasurements
     powerStdMw: [Float]!
     powerMinMw: [Float]!
     powerMaxMw: [Float]!
+    powerLinearitySlope: [Float]
+    powerLinearityIntercept: [Float]
     powerLinearityCoefficientOfDetermination: [Float]
+    powerLinearityPValue: [Float]
+    powerLinearityStdErr: [Float]
     shortTermPowerStability: [Float]
     shortTermMeasurementDurationSeconds: [Float]
     longTermPowerStability: [Float]

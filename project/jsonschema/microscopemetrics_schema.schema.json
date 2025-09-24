@@ -2073,6 +2073,46 @@
                         "null"
                     ]
                 },
+                "power_linearity_intercept": {
+                    "description": "The intercept of the linear regression model that fits output power as a function of the set point.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_linearity_p_value": {
+                    "description": "The p-value of the linear regression model that fits output power as a function of the set point.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_linearity_slope": {
+                    "description": "The slope of the linear regression model that fits output power as a function of the set point.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_linearity_std_err": {
+                    "description": "The standard error of the linear regression model that fits output power as a function of the set point.",
+                    "items": {
+                        "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "power_max_mw": {
                     "description": "The maximum power measured in milliwatts.",
                     "items": {

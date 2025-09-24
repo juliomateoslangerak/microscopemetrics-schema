@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-24T02:01:05
+# Generation date: 2025-09-24T02:15:51
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2395,7 +2395,11 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     power_max_mw: Union[float, list[float]] = None
     measuring_location: Union[Union[str, "MeasuringLocationEnum"], list[Union[str, "MeasuringLocationEnum"]]] = 'OBJECTIVE_FOCAL'
     measurement_device: Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]] = empty_list()
+    power_linearity_slope: Optional[Union[float, list[float]]] = empty_list()
+    power_linearity_intercept: Optional[Union[float, list[float]]] = empty_list()
     power_linearity_coefficient_of_determination: Optional[Union[float, list[float]]] = empty_list()
+    power_linearity_p_value: Optional[Union[float, list[float]]] = empty_list()
+    power_linearity_std_err: Optional[Union[float, list[float]]] = empty_list()
     short_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
     short_term_measurement_duration_seconds: Optional[Union[float, list[float]]] = empty_list()
     long_term_power_stability: Optional[Union[float, list[float]]] = empty_list()
@@ -2452,9 +2456,25 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.measurement_device = [self.measurement_device] if self.measurement_device is not None else []
         self.measurement_device = [v if isinstance(v, PowerMeter) else PowerMeter(**as_dict(v)) for v in self.measurement_device]
 
+        if not isinstance(self.power_linearity_slope, list):
+            self.power_linearity_slope = [self.power_linearity_slope] if self.power_linearity_slope is not None else []
+        self.power_linearity_slope = [v if isinstance(v, float) else float(v) for v in self.power_linearity_slope]
+
+        if not isinstance(self.power_linearity_intercept, list):
+            self.power_linearity_intercept = [self.power_linearity_intercept] if self.power_linearity_intercept is not None else []
+        self.power_linearity_intercept = [v if isinstance(v, float) else float(v) for v in self.power_linearity_intercept]
+
         if not isinstance(self.power_linearity_coefficient_of_determination, list):
             self.power_linearity_coefficient_of_determination = [self.power_linearity_coefficient_of_determination] if self.power_linearity_coefficient_of_determination is not None else []
         self.power_linearity_coefficient_of_determination = [v if isinstance(v, float) else float(v) for v in self.power_linearity_coefficient_of_determination]
+
+        if not isinstance(self.power_linearity_p_value, list):
+            self.power_linearity_p_value = [self.power_linearity_p_value] if self.power_linearity_p_value is not None else []
+        self.power_linearity_p_value = [v if isinstance(v, float) else float(v) for v in self.power_linearity_p_value]
+
+        if not isinstance(self.power_linearity_std_err, list):
+            self.power_linearity_std_err = [self.power_linearity_std_err] if self.power_linearity_std_err is not None else []
+        self.power_linearity_std_err = [v if isinstance(v, float) else float(v) for v in self.power_linearity_std_err]
 
         if not isinstance(self.short_term_power_stability, list):
             self.short_term_power_stability = [self.short_term_power_stability] if self.short_term_power_stability is not None else []
@@ -3374,8 +3394,20 @@ slots.power_min_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_po
 slots.power_max_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_max_mw'], name="power_max_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_max_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_max_mw, domain=None, range=float)
 
+slots.power_linearity_slope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_slope'], name="power_linearity_slope", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_slope'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_linearity_slope, domain=None, range=Optional[float])
+
+slots.power_linearity_intercept = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_intercept'], name="power_linearity_intercept", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_intercept'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_linearity_intercept, domain=None, range=Optional[float])
+
 slots.power_linearity_coefficient_of_determination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_coefficient_of_determination'], name="power_linearity_coefficient_of_determination", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_coefficient_of_determination'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_linearity_coefficient_of_determination, domain=None, range=Optional[float])
+
+slots.power_linearity_p_value = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_p_value'], name="power_linearity_p_value", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_p_value'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_linearity_p_value, domain=None, range=Optional[float])
+
+slots.power_linearity_std_err = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_std_err'], name="power_linearity_std_err", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_std_err'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_linearity_std_err, domain=None, range=Optional[float])
 
 slots.short_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_power_stability'], name="short_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.short_term_power_stability, domain=None, range=Optional[float])
@@ -3707,8 +3739,20 @@ slots.LightSourcePowerKeyMeasurements_power_min_mw = Slot(uri=MICROSCOPEMETRICS_
 slots.LightSourcePowerKeyMeasurements_power_max_mw = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_max_mw'], name="LightSourcePowerKeyMeasurements_power_max_mw", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_max_mw'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_max_mw, domain=LightSourcePowerKeyMeasurements, range=Union[float, list[float]])
 
+slots.LightSourcePowerKeyMeasurements_power_linearity_slope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_slope'], name="LightSourcePowerKeyMeasurements_power_linearity_slope", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_slope'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_linearity_slope, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
+
+slots.LightSourcePowerKeyMeasurements_power_linearity_intercept = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_intercept'], name="LightSourcePowerKeyMeasurements_power_linearity_intercept", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_intercept'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_linearity_intercept, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
+
 slots.LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_coefficient_of_determination'], name="LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_coefficient_of_determination'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
+
+slots.LightSourcePowerKeyMeasurements_power_linearity_p_value = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_p_value'], name="LightSourcePowerKeyMeasurements_power_linearity_p_value", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_p_value'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_linearity_p_value, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
+
+slots.LightSourcePowerKeyMeasurements_power_linearity_std_err = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_linearity_std_err'], name="LightSourcePowerKeyMeasurements_power_linearity_std_err", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_linearity_std_err'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_linearity_std_err, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])
 
 slots.LightSourcePowerKeyMeasurements_short_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/short_term_power_stability'], name="LightSourcePowerKeyMeasurements_short_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/short_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_short_term_power_stability, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[float, list[float]]])

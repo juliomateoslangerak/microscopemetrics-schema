@@ -3195,12 +3195,68 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "power_linearity_slope",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
+      "description": "The slope of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity slope",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "power_linearity_intercept",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
+      "description": "The intercept of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity intercept",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "power_linearity_coefficient_of_determination",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
       "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
       "title": "Linearity coefficient of determination",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "power_linearity_p_value",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
+      "description": "The p-value of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity p-value",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "power_linearity_std_err",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
+      "description": "The standard error of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity standard error",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
       "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
         "LightSourcePowerKeyMeasurements"
@@ -4968,6 +5024,46 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_slope",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
+      "description": "The slope of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity slope",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_slope",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
+      "alias": "power_linearity_slope",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_slope",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_intercept",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
+      "description": "The intercept of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity intercept",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_intercept",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
+      "alias": "power_linearity_intercept",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_intercept",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
       "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
@@ -4983,6 +5079,46 @@
       ],
       "is_usage_slot": true,
       "usage_slot_name": "power_linearity_coefficient_of_determination",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_p_value",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
+      "description": "The p-value of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity p-value",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_p_value",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
+      "alias": "power_linearity_p_value",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_p_value",
+      "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_std_err",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
+      "description": "The standard error of the linear regression model that fits output power as a function of the set point.",
+      "title": "Linearity standard error",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_std_err",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
+      "alias": "power_linearity_std_err",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_std_err",
       "range": "float",
       "multivalued": true,
       "@type": "SlotDefinition"
@@ -6937,7 +7073,11 @@
         "LightSourcePowerKeyMeasurements_power_std_mw",
         "LightSourcePowerKeyMeasurements_power_min_mw",
         "LightSourcePowerKeyMeasurements_power_max_mw",
+        "LightSourcePowerKeyMeasurements_power_linearity_slope",
+        "LightSourcePowerKeyMeasurements_power_linearity_intercept",
         "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination",
+        "LightSourcePowerKeyMeasurements_power_linearity_p_value",
+        "LightSourcePowerKeyMeasurements_power_linearity_std_err",
         "LightSourcePowerKeyMeasurements_short_term_power_stability",
         "LightSourcePowerKeyMeasurements_short_term_measurement_duration_seconds",
         "LightSourcePowerKeyMeasurements_long_term_power_stability",
@@ -7108,7 +7248,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-18T13:16:51",
   "source_file_size": 914,
-  "generation_date": "2025-09-24T02:01:03",
+  "generation_date": "2025-09-24T02:15:49",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
