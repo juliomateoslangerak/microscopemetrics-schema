@@ -2064,6 +2064,28 @@
                         "null"
                     ]
                 },
+                "long_term_power_stability_end_datetime": {
+                    "description": "The datetime of the last measurement used to calculate long term power stability.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "long_term_power_stability_start_datetime": {
+                    "description": "The datetime of the first measurement used to calculate long term power stability.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "measurement_device": {
                     "description": "The power meter used to measure the power.",
                     "items": {
@@ -2105,6 +2127,17 @@
                         "null"
                     ]
                 },
+                "power_linearity_end_datetime": {
+                    "description": "The datetime of the last measurement used to calculate power linearity.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
                 "power_linearity_intercept": {
                     "description": "The intercept of the linear regression model that fits output power as a function of the set point.",
                     "items": {
@@ -2129,6 +2162,17 @@
                     "description": "The slope of the linear regression model that fits output power as a function of the set point.",
                     "items": {
                         "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "power_linearity_start_datetime": {
+                    "description": "The datetime of the first measurement used to calculate power linearity.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -2184,6 +2228,28 @@
                     "description": "The short term stability of the light source",
                     "items": {
                         "type": "number"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "short_term_power_stability_end_datetime": {
+                    "description": "The datetime of the last measurement used to calculate short term power stability.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "short_term_power_stability_start_datetime": {
+                    "description": "The datetime of the first measurement used to calculate short term power stability.",
+                    "items": {
+                        "format": "date-time",
+                        "type": "string"
                     },
                     "type": [
                         "array",

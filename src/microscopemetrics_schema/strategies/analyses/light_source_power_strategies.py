@@ -5,6 +5,7 @@ from microscopemetrics_schema.strategies import (
     st_mm_dataset,
     st_mm_output,
 )
+from datetime import datetime
 
 
 # Light Source Power
@@ -120,12 +121,18 @@ def st_mm_light_source_power_output_key_measurements(
         power_std_mw=2.0,
         power_min_mw=20.0,
         power_max_mw=30.0,
+        power_linearity_start_datetime=datetime(2023, 1, 1, 12, 0, 0),
+        power_linearity_end_datetime=datetime(2023, 1, 1, 12, 30, 0),
         power_linearity_slope=0.80,
         power_linearity_intercept=0.2,
         power_linearity_coefficient_of_determination=0.95,
         power_linearity_p_value=0.01,
         power_linearity_std_err=0.05,
+        short_term_power_stability_start_datetime=datetime(2023, 1, 1, 13, 0, 0),
+        short_term_power_stability_end_datetime=datetime(2023, 1, 1, 13, 10, 0),
         short_term_power_stability=0.9,
+        long_term_power_stability_start_datetime=datetime(2023, 1, 1, 14, 0, 0),
+        long_term_power_stability_end_datetime=datetime(2023, 1, 1, 15, 0, 0),
         long_term_power_stability=0.9,
     )
 

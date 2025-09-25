@@ -3278,6 +3278,34 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "power_linearity_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
+      "description": "The datetime of the first measurement used to calculate power linearity.",
+      "title": "Linearity start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "power_linearity_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
+      "description": "The datetime of the last measurement used to calculate power linearity.",
+      "title": "Linearity end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "power_linearity_slope",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
       "description": "The slope of the linear regression model that fits output power as a function of the set point.",
@@ -3348,6 +3376,34 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "short_term_power_stability_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
+      "description": "The datetime of the first measurement used to calculate short term power stability.",
+      "title": "Short term stability start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "short_term_power_stability_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
+      "description": "The datetime of the last measurement used to calculate short term power stability.",
+      "title": "Short term stability end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "short_term_power_stability",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
       "description": "The short term stability of the light source",
@@ -3359,6 +3415,34 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "long_term_power_stability_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
+      "description": "The datetime of the first measurement used to calculate long term power stability.",
+      "title": "Long term stability start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "long_term_power_stability_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
+      "description": "The datetime of the last measurement used to calculate long term power stability.",
+      "title": "Long term stability end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "range": "datetime",
       "@type": "SlotDefinition"
     },
     {
@@ -5079,6 +5163,46 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
+      "description": "The datetime of the first measurement used to calculate power linearity.",
+      "title": "Linearity start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_start_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
+      "alias": "power_linearity_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_start_datetime",
+      "range": "datetime",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_power_linearity_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
+      "description": "The datetime of the last measurement used to calculate power linearity.",
+      "title": "Linearity end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "power_linearity_end_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
+      "alias": "power_linearity_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "power_linearity_end_datetime",
+      "range": "datetime",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "LightSourcePowerKeyMeasurements_power_linearity_slope",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
       "description": "The slope of the linear regression model that fits output power as a function of the set point.",
@@ -5179,6 +5303,46 @@
       "@type": "SlotDefinition"
     },
     {
+      "name": "LightSourcePowerKeyMeasurements_short_term_power_stability_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
+      "description": "The datetime of the first measurement used to calculate short term power stability.",
+      "title": "Short term stability start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "short_term_power_stability_start_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
+      "alias": "short_term_power_stability_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "short_term_power_stability_start_datetime",
+      "range": "datetime",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
+      "description": "The datetime of the last measurement used to calculate short term power stability.",
+      "title": "Short term stability end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "short_term_power_stability_end_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
+      "alias": "short_term_power_stability_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "short_term_power_stability_end_datetime",
+      "range": "datetime",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
       "name": "LightSourcePowerKeyMeasurements_short_term_power_stability",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
       "description": "The short term stability of the light source",
@@ -5195,6 +5359,46 @@
       "is_usage_slot": true,
       "usage_slot_name": "short_term_power_stability",
       "range": "float",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
+      "description": "The datetime of the first measurement used to calculate long term power stability.",
+      "title": "Long term stability start datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "long_term_power_stability_start_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
+      "alias": "long_term_power_stability_start_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "long_term_power_stability_start_datetime",
+      "range": "datetime",
+      "multivalued": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
+      "description": "The datetime of the last measurement used to calculate long term power stability.",
+      "title": "Long term stability end datetime",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
+      "is_a": "long_term_power_stability_end_datetime",
+      "domain": "LightSourcePowerKeyMeasurements",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
+      "alias": "long_term_power_stability_end_datetime",
+      "owner": "LightSourcePowerKeyMeasurements",
+      "domain_of": [
+        "LightSourcePowerKeyMeasurements"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "long_term_power_stability_end_datetime",
+      "range": "datetime",
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -7094,12 +7298,18 @@
         "LightSourcePowerKeyMeasurements_power_std_mw",
         "LightSourcePowerKeyMeasurements_power_min_mw",
         "LightSourcePowerKeyMeasurements_power_max_mw",
+        "LightSourcePowerKeyMeasurements_power_linearity_start_datetime",
+        "LightSourcePowerKeyMeasurements_power_linearity_end_datetime",
         "LightSourcePowerKeyMeasurements_power_linearity_slope",
         "LightSourcePowerKeyMeasurements_power_linearity_intercept",
         "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination",
         "LightSourcePowerKeyMeasurements_power_linearity_p_value",
         "LightSourcePowerKeyMeasurements_power_linearity_std_err",
+        "LightSourcePowerKeyMeasurements_short_term_power_stability_start_datetime",
+        "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime",
         "LightSourcePowerKeyMeasurements_short_term_power_stability",
+        "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime",
+        "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime",
         "LightSourcePowerKeyMeasurements_long_term_power_stability"
       ],
       "slot_usage": {},
@@ -7267,7 +7477,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-20T09:00:23",
   "source_file_size": 914,
-  "generation_date": "2025-09-24T11:41:43",
+  "generation_date": "2025-09-25T15:16:51",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

@@ -315,12 +315,18 @@ message LightSourcePowerKeyMeasurements
  repeated  float powerStdMw = 0
  repeated  float powerMinMw = 0
  repeated  float powerMaxMw = 0
+ repeated  datetime powerLinearityStartDatetime = 0
+ repeated  datetime powerLinearityEndDatetime = 0
  repeated  float powerLinearitySlope = 0
  repeated  float powerLinearityIntercept = 0
  repeated  float powerLinearityCoefficientOfDetermination = 0
  repeated  float powerLinearityPValue = 0
  repeated  float powerLinearityStdErr = 0
+ repeated  datetime shortTermPowerStabilityStartDatetime = 0
+ repeated  datetime shortTermPowerStabilityEndDatetime = 0
  repeated  float shortTermPowerStability = 0
+ repeated  datetime longTermPowerStabilityStartDatetime = 0
+ repeated  datetime longTermPowerStabilityEndDatetime = 0
  repeated  float longTermPowerStability = 0
  }
 message LightSourcePowerOutput
