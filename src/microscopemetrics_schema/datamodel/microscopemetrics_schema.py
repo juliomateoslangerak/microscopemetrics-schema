@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-09-25T15:16:54
+# Generation date: 2025-10-20T14:59:23
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1796,9 +1796,8 @@ class PSFBeadsInputParameters(MetricsInputParameters):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters
 
     min_lateral_distance_factor: float = 20
-    sigma_z: float = 1.0
-    sigma_y: float = 1.0
-    sigma_x: float = 1.0
+    sigma_min: float = 1.0
+    sigma_max: float = 5.0
     snr_threshold: float = 10.0
     fitting_r2_threshold: float = 0.85
     intensity_robust_z_score_threshold: float = 2.0
@@ -1811,20 +1810,15 @@ class PSFBeadsInputParameters(MetricsInputParameters):
         if not isinstance(self.min_lateral_distance_factor, float):
             self.min_lateral_distance_factor = float(self.min_lateral_distance_factor)
 
-        if self._is_empty(self.sigma_z):
-            self.MissingRequiredField("sigma_z")
-        if not isinstance(self.sigma_z, float):
-            self.sigma_z = float(self.sigma_z)
+        if self._is_empty(self.sigma_min):
+            self.MissingRequiredField("sigma_min")
+        if not isinstance(self.sigma_min, float):
+            self.sigma_min = float(self.sigma_min)
 
-        if self._is_empty(self.sigma_y):
-            self.MissingRequiredField("sigma_y")
-        if not isinstance(self.sigma_y, float):
-            self.sigma_y = float(self.sigma_y)
-
-        if self._is_empty(self.sigma_x):
-            self.MissingRequiredField("sigma_x")
-        if not isinstance(self.sigma_x, float):
-            self.sigma_x = float(self.sigma_x)
+        if self._is_empty(self.sigma_max):
+            self.MissingRequiredField("sigma_max")
+        if not isinstance(self.sigma_max, float):
+            self.sigma_max = float(self.sigma_max)
 
         if self._is_empty(self.snr_threshold):
             self.MissingRequiredField("snr_threshold")
@@ -3187,6 +3181,12 @@ slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/p
 slots.min_lateral_distance_factor = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/min_lateral_distance_factor'], name="min_lateral_distance_factor", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/min_lateral_distance_factor'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
 
+slots.sigma_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sigma_min'], name="sigma_min", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/sigma_min'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_min, domain=None, range=float)
+
+slots.sigma_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sigma_max'], name="sigma_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/sigma_max'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_max, domain=None, range=float)
+
 slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/snr_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
 
@@ -3765,15 +3765,6 @@ slots.PSFBeadsDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'],
 
 slots.PSFBeadsDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sample'], name="PSFBeadsDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sample'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsDataset_sample, domain=PSFBeadsDataset, range=Optional[Union[dict, "PSFBeads"]])
-
-slots.PSFBeadsInputParameters_sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_z'], name="PSFBeadsInputParameters_sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_z, domain=PSFBeadsInputParameters, range=float)
-
-slots.PSFBeadsInputParameters_sigma_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_y'], name="PSFBeadsInputParameters_sigma_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_y, domain=PSFBeadsInputParameters, range=float)
-
-slots.PSFBeadsInputParameters_sigma_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_x'], name="PSFBeadsInputParameters_sigma_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters_sigma_x, domain=PSFBeadsInputParameters, range=float)
 
 slots.LightSourcePowerDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="LightSourcePowerDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_input_data, domain=LightSourcePowerDataset, range=Union[dict, "LightSourcePowerInputData"])

@@ -515,9 +515,8 @@ message PSFBeadsInputParameters
   integer bitDepth = 0
   float saturationThreshold = 0
   float minLateralDistanceFactor = 0
-  float sigmaZ = 0
-  float sigmaY = 0
-  float sigmaX = 0
+  float sigmaMin = 0
+  float sigmaMax = 0
   float snrThreshold = 0
   float fittingR2Threshold = 0
   float intensityRobustZScoreThreshold = 0

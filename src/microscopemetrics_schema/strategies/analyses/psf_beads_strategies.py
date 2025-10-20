@@ -25,18 +25,16 @@ def st_mm_psf_beads_input_data(
 def st_mm_psf_beads_input_parameters(
     draw,
     min_lateral_distance_factor=st.floats(min_value=15.0, max_value=25.0),
-    sigma_z=st.floats(min_value=0.7, max_value=2.0),
-    sigma_y=st.floats(min_value=0.7, max_value=2.0),
-    sigma_x=st.floats(min_value=0.7, max_value=2.0),
+    sigma_min=st.floats(min_value=0.9, max_value=1.2),
+    sigma_max=st.floats(min_value=3.0, max_value=5.0),
     snr_threshold=st.just(10.0),
     fitting_r2_threshold=st.just(0.85),
     intensity_robust_z_score_threshold=st.just(2.0),
 ) -> mm_schema.PSFBeadsInputParameters:
     return mm_schema.PSFBeadsInputParameters(
         min_lateral_distance_factor=draw(min_lateral_distance_factor),
-        sigma_z=draw(sigma_z),
-        sigma_y=draw(sigma_y),
-        sigma_x=draw(sigma_x),
+        sigma_min=draw(sigma_min),
+        sigma_max=draw(sigma_max),
         snr_threshold=draw(snr_threshold),
         fitting_r2_threshold=draw(fitting_r2_threshold),
         intensity_robust_z_score_threshold=draw(intensity_robust_z_score_threshold),

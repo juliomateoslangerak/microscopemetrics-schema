@@ -3149,16 +3149,12 @@
                         "null"
                     ]
                 },
-                "sigma_x": {
-                    "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
+                "sigma_max": {
+                    "description": "Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect  larger objects as beads.",
                     "type": "number"
                 },
-                "sigma_y": {
-                    "description": "Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection. Does not apply to resolution measurements",
-                    "type": "number"
-                },
-                "sigma_z": {
-                    "description": "Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection. Does not apply to resolution measurements",
+                "sigma_min": {
+                    "description": "Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include  noisy pixels as beads.",
                     "type": "number"
                 },
                 "snr_threshold": {
@@ -3168,9 +3164,8 @@
             },
             "required": [
                 "min_lateral_distance_factor",
-                "sigma_z",
-                "sigma_y",
-                "sigma_x",
+                "sigma_min",
+                "sigma_max",
                 "snr_threshold",
                 "fitting_r2_threshold",
                 "intensity_robust_z_score_threshold"

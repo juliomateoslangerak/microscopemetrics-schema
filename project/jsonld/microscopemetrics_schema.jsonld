@@ -1301,10 +1301,6 @@
       "description": "Smoothing sigma to be applied to the image in the Z axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_z",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
       "range": "float",
       "@type": "SlotDefinition"
     },
@@ -1314,10 +1310,6 @@
       "description": "Smoothing sigma to be applied to the image in the Y axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_y",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
       "range": "float",
       "@type": "SlotDefinition"
     },
@@ -1327,10 +1319,6 @@
       "description": "Smoothing sigma to be applied to the image in the X axis.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_x",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
       "range": "float",
       "@type": "SlotDefinition"
     },
@@ -2019,6 +2007,36 @@
       "required": true,
       "minimum_value": 10.0,
       "maximum_value": 30.0,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sigma_min",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_min",
+      "description": "Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include  noisy pixels as beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_min",
+      "ifabsent": "float(1.0)",
+      "owner": "PSFBeadsInputParameters",
+      "domain_of": [
+        "PSFBeadsInputParameters"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "sigma_max",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max",
+      "description": "Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect  larger objects as beads.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max",
+      "ifabsent": "float(5.0)",
+      "owner": "PSFBeadsInputParameters",
+      "domain_of": [
+        "PSFBeadsInputParameters"
+      ],
+      "range": "float",
+      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4862,66 +4880,6 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "PSFBeadsInputParameters_sigma_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_z",
-      "description": "Gaussian smoothing sigma to be applied to the image in the Z axis prior to bead detection. Does not apply to resolution measurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "sigma_z",
-      "domain": "PSFBeadsInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_z",
-      "ifabsent": "float(1.0)",
-      "alias": "sigma_z",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_z",
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "PSFBeadsInputParameters_sigma_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_y",
-      "description": "Gaussian smoothing sigma to be applied to the image in teh Y axis prior to bead detection. Does not apply to resolution measurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "sigma_y",
-      "domain": "PSFBeadsInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_y",
-      "ifabsent": "float(1.0)",
-      "alias": "sigma_y",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_y",
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "PSFBeadsInputParameters_sigma_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_x",
-      "description": "Gaussian smoothing sigma to be applied to the image in the X axis prior to bead detection. Does not apply to resolution measurements",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "sigma_x",
-      "domain": "PSFBeadsInputParameters",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_x",
-      "ifabsent": "float(1.0)",
-      "alias": "sigma_x",
-      "owner": "PSFBeadsInputParameters",
-      "domain_of": [
-        "PSFBeadsInputParameters"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "sigma_x",
-      "range": "float",
-      "required": true,
-      "@type": "SlotDefinition"
-    },
-    {
       "name": "LightSourcePowerDataset_input_data",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data",
       "description": "The input data for the analysis",
@@ -6943,9 +6901,8 @@
         "bit_depth",
         "saturation_threshold",
         "min_lateral_distance_factor",
-        "PSFBeadsInputParameters_sigma_z",
-        "PSFBeadsInputParameters_sigma_y",
-        "PSFBeadsInputParameters_sigma_x",
+        "sigma_min",
+        "sigma_max",
         "snr_threshold",
         "fitting_r2_threshold",
         "intensity_robust_z_score_threshold"
@@ -7475,9 +7432,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-05-20T09:00:23",
+  "source_file_date": "2025-10-20T13:17:27",
   "source_file_size": 914,
-  "generation_date": "2025-09-25T15:16:51",
+  "generation_date": "2025-10-20T14:59:22",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

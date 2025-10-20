@@ -1050,9 +1050,8 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/saturation_threshold> @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor>
           @linkml:Float ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_z> @linkml:Float ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_y> @linkml:Float ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_x> @linkml:Float ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_min> @linkml:Float ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max> @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold> @linkml:Float
           ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold>
@@ -1366,3 +1365,4 @@ CLOSED {
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Vertex> ] ?
     )
 }
+

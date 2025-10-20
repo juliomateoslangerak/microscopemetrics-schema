@@ -686,9 +686,8 @@ type PSFBeadsInputParameters
     bitDepth: Integer
     saturationThreshold: Float
     minLateralDistanceFactor: Float!
-    sigmaZ: Float!
-    sigmaY: Float!
-    sigmaX: Float!
+    sigmaMin: Float!
+    sigmaMax: Float!
     snrThreshold: Float!
     fittingR2Threshold: Float!
     intensityRobustZScoreThreshold: Float!
@@ -874,3 +873,4 @@ type Vertex
     x: Float!
     y: Float!
   }
+
