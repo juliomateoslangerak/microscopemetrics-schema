@@ -288,13 +288,12 @@ slots:
       larger objects as beads.
     required: true
     ifabsent: float(5.0)
-
   snr_threshold:
     range: float
     description: >-
       Signal to noise ratio threshold to be used for bead detection.
     required: true
-    ifabsent: float(10.0)
+    ifabsent: float(5.0)
   fitting_r2_threshold:
     range: float
     description: >-
@@ -307,7 +306,6 @@ slots:
       Threshold for the robust z-score of the intensity of the bead to be considered good.
     required: true
     ifabsent: float(2.0)
-
 
   # Outputs
   total_bead_count:
