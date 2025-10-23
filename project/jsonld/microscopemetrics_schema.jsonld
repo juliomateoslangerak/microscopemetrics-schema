@@ -2045,7 +2045,7 @@
       "description": "Signal to noise ratio threshold to be used for bead detection.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold",
-      "ifabsent": "float(5.0)",
+      "ifabsent": "float(10.0)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
         "PSFBeadsInputParameters"
@@ -7434,7 +7434,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-10-20T13:17:27",
   "source_file_size": 914,
-  "generation_date": "2025-10-23T17:18:01",
+  "generation_date": "2025-10-23T18:02:57",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

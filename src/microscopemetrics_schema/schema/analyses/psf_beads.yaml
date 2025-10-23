@@ -293,7 +293,7 @@ slots:
     description: >-
       Signal to noise ratio threshold to be used for bead detection.
     required: true
-    ifabsent: float(5.0)
+    ifabsent: float(10.0)
   fitting_r2_threshold:
     range: float
     description: >-
