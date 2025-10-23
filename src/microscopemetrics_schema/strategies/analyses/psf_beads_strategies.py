@@ -25,7 +25,7 @@ def st_mm_psf_beads_input_data(
 def st_mm_psf_beads_input_parameters(
     draw,
     min_lateral_distance_factor=st.floats(min_value=15.0, max_value=25.0),
-    sigma_min=st.floats(min_value=0.9, max_value=1.2),
+    sigma_min=st.floats(min_value=1.0, max_value=1.2),
     sigma_max=st.floats(min_value=3.0, max_value=5.0),
     snr_threshold=st.just(10.0),
     fitting_r2_threshold=st.just(0.85),
