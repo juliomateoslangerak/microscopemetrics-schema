@@ -113,7 +113,7 @@ def st_mm_light_source_power_output_key_measurements(
         name=mm_object.name,
         description=mm_object.description,
         light_source=draw(light_source),
-        measurement_device=draw(power_meter),
+        power_meter=draw(power_meter),
         measuring_location="OBJECTIVE_FOCAL",
         nr_of_measurements=100,
         power_mean_mw=25.0,

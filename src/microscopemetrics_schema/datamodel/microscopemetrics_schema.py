@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-10-23T18:02:58
+# Generation date: 2025-11-21T19:41:59
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2410,7 +2410,7 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
     power_min_mw: Union[float, list[float]] = None
     power_max_mw: Union[float, list[float]] = None
     measuring_location: Union[Union[str, "MeasuringLocationEnum"], list[Union[str, "MeasuringLocationEnum"]]] = 'OBJECTIVE_FOCAL'
-    measurement_device: Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]] = empty_list()
+    power_meter: Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]] = empty_list()
     power_linearity_start_datetime: Optional[Union[Union[str, XSDDateTime], list[Union[str, XSDDateTime]]]] = empty_list()
     power_linearity_end_datetime: Optional[Union[Union[str, XSDDateTime], list[Union[str, XSDDateTime]]]] = empty_list()
     power_linearity_slope: Optional[Union[float, list[float]]] = empty_list()
@@ -2472,9 +2472,9 @@ class LightSourcePowerKeyMeasurements(KeyMeasurements):
             self.power_max_mw = [self.power_max_mw] if self.power_max_mw is not None else []
         self.power_max_mw = [v if isinstance(v, float) else float(v) for v in self.power_max_mw]
 
-        if not isinstance(self.measurement_device, list):
-            self.measurement_device = [self.measurement_device] if self.measurement_device is not None else []
-        self.measurement_device = [v if isinstance(v, PowerMeter) else PowerMeter(**as_dict(v)) for v in self.measurement_device]
+        if not isinstance(self.power_meter, list):
+            self.power_meter = [self.power_meter] if self.power_meter is not None else []
+        self.power_meter = [v if isinstance(v, PowerMeter) else PowerMeter(**as_dict(v)) for v in self.power_meter]
 
         if not isinstance(self.power_linearity_start_datetime, list):
             self.power_linearity_start_datetime = [self.power_linearity_start_datetime] if self.power_linearity_start_datetime is not None else []
@@ -2548,7 +2548,7 @@ class PowerMeasurement(YAMLRoot):
     power_set_point: float = None
     power_mw: float = None
     measuring_location: Union[str, "MeasuringLocationEnum"] = 'OBJECTIVE_FOCAL'
-    measurement_device: Optional[Union[dict, "PowerMeter"]] = None
+    power_meter: Optional[Union[dict, "PowerMeter"]] = None
     integration_time_seconds: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2577,8 +2577,8 @@ class PowerMeasurement(YAMLRoot):
         if not isinstance(self.power_mw, float):
             self.power_mw = float(self.power_mw)
 
-        if self.measurement_device is not None and not isinstance(self.measurement_device, PowerMeter):
-            self.measurement_device = PowerMeter(**as_dict(self.measurement_device))
+        if self.power_meter is not None and not isinstance(self.power_meter, PowerMeter):
+            self.power_meter = PowerMeter(**as_dict(self.power_meter))
 
         if self.integration_time_seconds is not None and not isinstance(self.integration_time_seconds, float):
             self.integration_time_seconds = float(self.integration_time_seconds)
@@ -3403,8 +3403,8 @@ slots.measuring_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_sou
 slots.wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/wavelength_nm'], name="wavelength_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/wavelength_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.wavelength_nm, domain=None, range=float)
 
-slots.measurement_device = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measurement_device'], name="measurement_device", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measurement_device'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.measurement_device, domain=None, range=Optional[Union[dict, PowerMeter]])
+slots.power_meter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_meter'], name="power_meter", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_meter'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_meter, domain=None, range=Optional[Union[dict, PowerMeter]])
 
 slots.power_set_point = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_set_point'], name="power_set_point", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_set_point'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_set_point, domain=None, range=float)
@@ -3778,8 +3778,8 @@ slots.LightSourcePowerDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/o
 slots.LightSourcePowerKeyMeasurements_light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="LightSourcePowerKeyMeasurements_light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_light_source, domain=LightSourcePowerKeyMeasurements, range=Union[Union[dict, "LightSource"], list[Union[dict, "LightSource"]]])
 
-slots.LightSourcePowerKeyMeasurements_measurement_device = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measurement_device'], name="LightSourcePowerKeyMeasurements_measurement_device", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measurement_device'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_measurement_device, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]])
+slots.LightSourcePowerKeyMeasurements_power_meter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_meter'], name="LightSourcePowerKeyMeasurements_power_meter", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_meter'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_power_meter, domain=LightSourcePowerKeyMeasurements, range=Optional[Union[Union[dict, "PowerMeter"], list[Union[dict, "PowerMeter"]]]])
 
 slots.LightSourcePowerKeyMeasurements_measuring_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measuring_location'], name="LightSourcePowerKeyMeasurements_measuring_location", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measuring_location'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurements_measuring_location, domain=LightSourcePowerKeyMeasurements, range=Union[Union[str, "MeasuringLocationEnum"], list[Union[str, "MeasuringLocationEnum"]]])

@@ -54,7 +54,7 @@ classes:
     is_a: KeyMeasurements
     slots:
       - light_source
-      - measurement_device
+      - power_meter
       - measuring_location
       - nr_of_measurements
       - power_mean_mw
@@ -78,7 +78,7 @@ classes:
     slot_usage:
       light_source:
         multivalued: true
-      measurement_device:
+      power_meter:
         multivalued: true
       measuring_location:
         multivalued: true
@@ -127,7 +127,7 @@ classes:
     slots:
       - acquisition_datetime
       - light_source
-      - measurement_device
+      - power_meter
       - measuring_location
       - power_set_point
       - power_mw
@@ -184,7 +184,7 @@ slots:
     required: true
     multivalued: false
 
-  measurement_device:
+  power_meter:
     range: PowerMeter
     description: >-
       The power meter used to measure the power.
