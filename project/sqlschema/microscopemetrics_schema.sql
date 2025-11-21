@@ -411,7 +411,7 @@
 --     * Slot: id Description: 
 --     * Slot: bit_depth Description: Detector bit depth
 --     * Slot: saturation_threshold Description: Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.
---     * Slot: min_lateral_distance_factor Description: Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.
+--     * Slot: min_lateral_distance_factor Description: Minimal distance that has to separate laterally the beads represented as the  number of times the expected FWHM of the beads.
 --     * Slot: sigma_min Description: Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include  noisy pixels as beads.
 --     * Slot: sigma_max Description: Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect  larger objects as beads.
 --     * Slot: snr_threshold Description: Signal to noise ratio threshold to be used for bead detection.
@@ -482,7 +482,7 @@
 --     * Slot: integration_time_seconds Description: The integration time in seconds.
 --     * Slot: LightSourcePowerInputData_id Description: Autocreated FK slot
 --     * Slot: light_source_id Description: The light source under investigation.
---     * Slot: measurement_device_id Description: The power meter used to measure the power.
+--     * Slot: power_meter_id Description: The power meter used to measure the power.
 -- # Class: "LightSource" Description: "A light source."
 --     * Slot: id Description: 
 --     * Slot: wavelength_nm Description: The wavelength of the light source in nanometers.
@@ -945,9 +945,9 @@
 -- # Class: "LightSourcePowerKeyMeasurements_light_source" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: light_source_id Description: The light source under investigation.
--- # Class: "LightSourcePowerKeyMeasurements_measurement_device" Description: ""
+-- # Class: "LightSourcePowerKeyMeasurements_power_meter" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
---     * Slot: measurement_device_id Description: The power meter used to measure the power.
+--     * Slot: power_meter_id Description: The power meter used to measure the power.
 -- # Class: "LightSourcePowerKeyMeasurements_measuring_location" Description: ""
 --     * Slot: LightSourcePowerKeyMeasurements_id Description: Autocreated FK slot
 --     * Slot: measuring_location Description: The location at which the measurement was taken.
@@ -1758,11 +1758,11 @@ CREATE TABLE "PowerMeasurement" (
 	integration_time_seconds FLOAT, 
 	"LightSourcePowerInputData_id" INTEGER, 
 	light_source_id INTEGER NOT NULL, 
-	measurement_device_id INTEGER, 
+	power_meter_id INTEGER, 
 	PRIMARY KEY (id), 
 	FOREIGN KEY("LightSourcePowerInputData_id") REFERENCES "LightSourcePowerInputData" (id), 
 	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id), 
-	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
+	FOREIGN KEY(power_meter_id) REFERENCES "PowerMeter" (id)
 );
 CREATE TABLE "LightSourcePower" (
 	id INTEGER NOT NULL, 
@@ -2662,12 +2662,12 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_light_source" (
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
 	FOREIGN KEY(light_source_id) REFERENCES "LightSource" (id)
 );
-CREATE TABLE "LightSourcePowerKeyMeasurements_measurement_device" (
+CREATE TABLE "LightSourcePowerKeyMeasurements_power_meter" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 
-	measurement_device_id INTEGER, 
-	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", measurement_device_id), 
+	power_meter_id INTEGER, 
+	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_meter_id), 
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id), 
-	FOREIGN KEY(measurement_device_id) REFERENCES "PowerMeter" (id)
+	FOREIGN KEY(power_meter_id) REFERENCES "PowerMeter" (id)
 );
 CREATE TABLE "LightSourcePowerKeyMeasurements_measuring_location" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER, 

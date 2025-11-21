@@ -1995,7 +1995,7 @@
     {
       "name": "min_lateral_distance_factor",
       "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor",
-      "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
+      "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the expected FWHM of the beads.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor",
       "ifabsent": "float(20)",
@@ -3058,11 +3058,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "measurement_device",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
+      "name": "power_meter",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_meter",
       "description": "The power meter used to measure the power.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_meter",
       "owner": "PowerMeasurement",
       "domain_of": [
         "LightSourcePowerKeyMeasurements",
@@ -4960,20 +4960,20 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "LightSourcePowerKeyMeasurements_measurement_device",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
+      "name": "LightSourcePowerKeyMeasurements_power_meter",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_meter",
       "description": "The power meter used to measure the power.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "measurement_device",
+      "is_a": "power_meter",
       "domain": "LightSourcePowerKeyMeasurements",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measurement_device",
-      "alias": "measurement_device",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_meter",
+      "alias": "power_meter",
       "owner": "LightSourcePowerKeyMeasurements",
       "domain_of": [
         "LightSourcePowerKeyMeasurements"
       ],
       "is_usage_slot": true,
-      "usage_slot_name": "measurement_device",
+      "usage_slot_name": "power_meter",
       "range": "PowerMeter",
       "multivalued": true,
       "inlined": true,
@@ -7247,7 +7247,7 @@
         "linked_references",
         "table_data",
         "LightSourcePowerKeyMeasurements_light_source",
-        "LightSourcePowerKeyMeasurements_measurement_device",
+        "LightSourcePowerKeyMeasurements_power_meter",
         "LightSourcePowerKeyMeasurements_measuring_location",
         "LightSourcePowerKeyMeasurements_nr_of_measurements",
         "LightSourcePowerKeyMeasurements_power_mean_mw",
@@ -7281,7 +7281,7 @@
       "slots": [
         "PowerMeasurement_acquisition_datetime",
         "light_source",
-        "measurement_device",
+        "power_meter",
         "measuring_location",
         "power_set_point",
         "power_mw",
@@ -7432,9 +7432,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-10-20T13:17:27",
+  "source_file_date": "2025-05-20T19:32:44",
   "source_file_size": 914,
-  "generation_date": "2025-10-23T18:02:57",
+  "generation_date": "2025-11-21T18:44:24",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

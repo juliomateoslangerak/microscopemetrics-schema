@@ -2086,16 +2086,6 @@
                         "null"
                     ]
                 },
-                "measurement_device": {
-                    "description": "The power meter used to measure the power.",
-                    "items": {
-                        "$ref": "#/$defs/PowerMeter"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
                 "measuring_location": {
                     "description": "The location at which the measurement was taken.",
                     "items": {
@@ -2209,6 +2199,16 @@
                         "type": "number"
                     },
                     "type": "array"
+                },
+                "power_meter": {
+                    "description": "The power meter used to measure the power.",
+                    "items": {
+                        "$ref": "#/$defs/PowerMeter"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
                 },
                 "power_min_mw": {
                     "description": "The minimum power measured in milliwatts.",
@@ -3135,7 +3135,7 @@
                     "type": "number"
                 },
                 "min_lateral_distance_factor": {
-                    "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the FWHM of the beads.",
+                    "description": "Minimal distance that has to separate laterally the beads represented as the  number of times the expected FWHM of the beads.",
                     "maximum": 30.0,
                     "minimum": 10.0,
                     "type": "number"
@@ -4338,7 +4338,11 @@
                     "$ref": "#/$defs/LightSource",
                     "description": "The light source under investigation."
                 },
-                "measurement_device": {
+                "measuring_location": {
+                    "$ref": "#/$defs/MeasuringLocationEnum",
+                    "description": "The location at which the measurement was taken."
+                },
+                "power_meter": {
                     "anyOf": [
                         {
                             "$ref": "#/$defs/PowerMeter"
@@ -4348,10 +4352,6 @@
                         }
                     ],
                     "description": "The power meter used to measure the power."
-                },
-                "measuring_location": {
-                    "$ref": "#/$defs/MeasuringLocationEnum",
-                    "description": "The location at which the measurement was taken."
                 },
                 "power_mw": {
                     "description": "The power measured in milliwatts.",
