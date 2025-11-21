@@ -269,7 +269,7 @@ slots:
     range: float
     description: >-
       Minimal distance that has to separate laterally the beads represented as the 
-      number of times the FWHM of the beads.
+      number of times the expected FWHM of the beads.
     minimum_value: 10.0
     maximum_value: 30.0
     required: true
