@@ -256,9 +256,9 @@ message ImageMask
 // A light source.
 message LightSource
  {
-  string name = 0
   string description = 0
   float wavelengthNm = 0
+  string name = 0
  }
 // A sample providing measurements on light source power.
 message LightSourcePower
@@ -465,10 +465,10 @@ message PowerMeasurement
  }
 message PowerMeter
  {
-  string name = 0
   string description = 0
   string manufacturer = 0
   string model = 0
+  string name = 0
  }
 // Set of instructions for preparing a sample or acquiring data
 message Protocol

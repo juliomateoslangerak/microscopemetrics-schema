@@ -3024,7 +3024,6 @@
       ],
       "range": "LightSource",
       "required": true,
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3069,7 +3068,6 @@
         "PowerMeasurement"
       ],
       "range": "PowerMeter",
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4956,7 +4954,6 @@
       "range": "LightSource",
       "required": true,
       "multivalued": true,
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4976,7 +4973,6 @@
       "usage_slot_name": "power_meter",
       "range": "PowerMeter",
       "multivalued": true,
-      "inlined": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5396,6 +5392,42 @@
       "is_usage_slot": true,
       "usage_slot_name": "acquisition_datetime",
       "range": "datetime",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "LightSource_name",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
+      "is_a": "namedObject__name",
+      "domain": "LightSource",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/name",
+      "identifier": true,
+      "alias": "name",
+      "owner": "LightSource",
+      "domain_of": [
+        "LightSource"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "PowerMeter_name",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema",
+      "is_a": "namedObject__name",
+      "domain": "PowerMeter",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/name",
+      "identifier": true,
+      "alias": "name",
+      "owner": "PowerMeter",
+      "domain_of": [
+        "PowerMeter"
+      ],
+      "is_usage_slot": true,
+      "usage_slot_name": "name",
+      "range": "string",
       "required": true,
       "@type": "SlotDefinition"
     }
@@ -7298,9 +7330,9 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "is_a": "NamedObject",
       "slots": [
-        "namedObject__name",
         "namedObject__description",
-        "wavelength_nm"
+        "wavelength_nm",
+        "LightSource_name"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource",
@@ -7312,10 +7344,10 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "is_a": "NamedObject",
       "slots": [
-        "namedObject__name",
         "namedObject__description",
         "powerMeter__manufacturer",
-        "powerMeter__model"
+        "powerMeter__model",
+        "PowerMeter_name"
       ],
       "slot_usage": {},
       "attributes": [
@@ -7434,7 +7466,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-20T19:32:44",
   "source_file_size": 914,
-  "generation_date": "2025-11-21T19:41:57",
+  "generation_date": "2025-11-22T10:10:29",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

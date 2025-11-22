@@ -359,9 +359,9 @@ interface KeyMeasurements
 
 type LightSource
   {
-    name: String
     description: String
     wavelengthNm: Float!
+    name: String!
   }
 
 type LightSourcePower
@@ -629,10 +629,10 @@ type PowerMeasurement
 
 type PowerMeter
   {
-    name: String
     description: String
     manufacturer: String
     model: String
+    name: String!
   }
 
 interface ProfilesIntensity

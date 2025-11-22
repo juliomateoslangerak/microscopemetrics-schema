@@ -527,7 +527,7 @@ CLOSED {
           @linkml:Float
        ) ;
        rdf:type [
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ] ?
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ]
     )
 }
 
@@ -975,7 +975,7 @@ CLOSED {
           @linkml:String ?
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter>
-          ] ?
+          ]
     )
 }
 

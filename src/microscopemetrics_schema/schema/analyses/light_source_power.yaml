@@ -78,8 +78,10 @@ classes:
     slot_usage:
       light_source:
         multivalued: true
+        inlined: false
       power_meter:
         multivalued: true
+        inlined: false
       measuring_location:
         multivalued: true
       nr_of_measurements:
@@ -142,6 +144,10 @@ classes:
       A light source.
     slots:
       - wavelength_nm
+    slot_usage:
+      name:
+        required: true
+        identifier: true
 
   PowerMeter:
     is_a: NamedObject
@@ -152,6 +158,10 @@ classes:
       model:
         range: string
         multivalued: false
+    slot_usage:
+      name:
+        required: true
+        identifier: true
 
 slots:
   # Input data

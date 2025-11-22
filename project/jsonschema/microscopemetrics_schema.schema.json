@@ -1787,10 +1787,7 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "wavelength_nm": {
                     "description": "The wavelength of the light source in nanometers.",
@@ -1798,7 +1795,8 @@
                 }
             },
             "required": [
-                "wavelength_nm"
+                "wavelength_nm",
+                "name"
             ],
             "title": "LightSource",
             "type": "object"
@@ -2040,7 +2038,7 @@
                 "light_source": {
                     "description": "The light source under investigation.",
                     "items": {
-                        "$ref": "#/$defs/LightSource"
+                        "type": "string"
                     },
                     "type": "array"
                 },
@@ -2203,7 +2201,7 @@
                 "power_meter": {
                     "description": "The power meter used to measure the power.",
                     "items": {
-                        "$ref": "#/$defs/PowerMeter"
+                        "type": "string"
                     },
                     "type": [
                         "array",
@@ -4335,23 +4333,19 @@
                     ]
                 },
                 "light_source": {
-                    "$ref": "#/$defs/LightSource",
-                    "description": "The light source under investigation."
+                    "description": "The light source under investigation.",
+                    "type": "string"
                 },
                 "measuring_location": {
                     "$ref": "#/$defs/MeasuringLocationEnum",
                     "description": "The location at which the measurement was taken."
                 },
                 "power_meter": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PowerMeter"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The power meter used to measure the power."
+                    "description": "The power meter used to measure the power.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "power_mw": {
                     "description": "The power measured in milliwatts.",
@@ -4397,12 +4391,12 @@
                 },
                 "name": {
                     "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
+            "required": [
+                "name"
+            ],
             "title": "PowerMeter",
             "type": "object"
         },
