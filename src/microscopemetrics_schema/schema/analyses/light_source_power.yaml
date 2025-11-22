@@ -79,49 +79,71 @@ classes:
       light_source:
         multivalued: true
         inlined: false
+        required: false
       power_meter:
         multivalued: true
         inlined: false
+        required: false
       measuring_location:
         multivalued: true
+        required: false
       nr_of_measurements:
         multivalued: true
+        required: false
       power_mean_mw:
         multivalued: true
+        required: false
       power_median_mw:
         multivalued: true
+        required: false
       power_std_mw:
         multivalued: true
+        required: false
       power_min_mw:
         multivalued: true
+        required: false
       power_max_mw:
         multivalued: true
+        required: false
       power_linearity_start_datetime:
         multivalued: true
+        required: false
       power_linearity_end_datetime:
         multivalued: true
+        required: false
       power_linearity_slope:
         multivalued: true
+        required: false
       power_linearity_intercept:
         multivalued: true
+        required: false
       power_linearity_coefficient_of_determination:
         multivalued: true
+        required: false
       power_linearity_p_value:
         multivalued: true
+        required: false
       power_linearity_std_err:
         multivalued: true
+        required: false
       short_term_power_stability_start_datetime:
         multivalued: true
+        required: false
       short_term_power_stability_end_datetime:
         multivalued: true
+        required: false
       short_term_power_stability:
         multivalued: true
+        required: false
       long_term_power_stability_start_datetime:
         multivalued: true
+        required: false
       long_term_power_stability_end_datetime:
         multivalued: true
+        required: false
       long_term_power_stability:
         multivalued: true
+        required: false
 
   PowerMeasurement:
     description: >-

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-11-22T10:10:31
+# Generation date: 2025-11-22T10:51:08
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -233,7 +233,9 @@ class Microscope(MetricsObject):
         if self.serial_number is not None and not isinstance(self.serial_number, str):
             self.serial_number = str(self.serial_number)
 
-        self._normalize_inlined_as_dict(slot_name="comment_collection", slot_type=Comment, key_name="datetime", keyed=False)
+        if not isinstance(self.comment_collection, list):
+            self.comment_collection = [self.comment_collection] if self.comment_collection is not None else []
+        self.comment_collection = [v if isinstance(v, Comment) else Comment(**as_dict(v)) for v in self.comment_collection]
 
         super().__post_init__(**kwargs)
 
@@ -1096,7 +1098,9 @@ class Polygon(Shape):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
-        self._normalize_inlined_as_dict(slot_name="vertexes", slot_type=Vertex, key_name="x", keyed=False)
+        if not isinstance(self.vertexes, list):
+            self.vertexes = [self.vertexes] if self.vertexes is not None else []
+        self.vertexes = [v if isinstance(v, Vertex) else Vertex(**as_dict(v)) for v in self.vertexes]
 
         if self._is_empty(self.is_open):
             self.MissingRequiredField("is_open")
