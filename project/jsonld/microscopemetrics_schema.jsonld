@@ -3037,7 +3037,6 @@
         "PowerMeasurement"
       ],
       "range": "LightSource",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3053,7 +3052,6 @@
         "PowerMeasurement"
       ],
       "range": "MeasuringLocationEnum",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3067,7 +3065,6 @@
         "LightSource"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3095,7 +3092,6 @@
         "PowerMeasurement"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3109,7 +3105,6 @@
         "PowerMeasurement"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3234,7 +3229,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "integer",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3248,7 +3242,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3262,7 +3255,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3276,7 +3268,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3290,7 +3281,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3304,7 +3294,6 @@
         "LightSourcePowerKeyMeasurements"
       ],
       "range": "float",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4996,7 +4985,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "light_source",
       "range": "LightSource",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5036,7 +5024,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "measuring_location",
       "range": "MeasuringLocationEnum",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5056,7 +5043,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "nr_of_measurements",
       "range": "integer",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5076,7 +5062,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_mean_mw",
       "range": "float",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5096,7 +5081,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_median_mw",
       "range": "float",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5116,7 +5100,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_std_mw",
       "range": "float",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5136,7 +5119,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_min_mw",
       "range": "float",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5156,7 +5138,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_max_mw",
       "range": "float",
-      "required": true,
       "multivalued": true,
       "@type": "SlotDefinition"
     },
@@ -5418,25 +5399,6 @@
       "usage_slot_name": "long_term_power_stability",
       "range": "float",
       "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "PowerMeasurement_acquisition_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/acquisition_datetime",
-      "description": "The datetime of the acquisition",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core",
-      "is_a": "acquisition_datetime",
-      "domain": "PowerMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/acquisition_datetime",
-      "alias": "acquisition_datetime",
-      "owner": "PowerMeasurement",
-      "domain_of": [
-        "PowerMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "acquisition_datetime",
-      "range": "datetime",
-      "required": true,
       "@type": "SlotDefinition"
     },
     {
@@ -7355,7 +7317,7 @@
       "description": "A single power measurement for a light source.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slots": [
-        "PowerMeasurement_acquisition_datetime",
+        "acquisition_datetime",
         "light_source",
         "power_meter",
         "measuring_location",
@@ -7510,7 +7472,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-05-20T19:32:44",
   "source_file_size": 914,
-  "generation_date": "2025-11-22T10:51:06",
+  "generation_date": "2025-11-23T16:16:12",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

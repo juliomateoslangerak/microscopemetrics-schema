@@ -1791,11 +1791,13 @@
                 },
                 "wavelength_nm": {
                     "description": "The wavelength of the light source in nanometers.",
-                    "type": "number"
+                    "type": [
+                        "number",
+                        "null"
+                    ]
                 }
             },
             "required": [
-                "wavelength_nm",
                 "name"
             ],
             "title": "LightSource",
@@ -4337,7 +4339,10 @@
                 "acquisition_datetime": {
                     "description": "The datetime of the acquisition",
                     "format": "date-time",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "integration_time_seconds": {
                     "description": "The integration time in seconds.",
@@ -4348,7 +4353,10 @@
                 },
                 "light_source": {
                     "description": "The light source under investigation.",
-                    "type": "string"
+                    "type": [
+                        "string",
+                        "null"
+                    ]
                 },
                 "measuring_location": {
                     "$ref": "#/$defs/MeasuringLocationEnum",
@@ -4363,20 +4371,19 @@
                 },
                 "power_mw": {
                     "description": "The power measured in milliwatts.",
-                    "type": "number"
+                    "type": [
+                        "number",
+                        "null"
+                    ]
                 },
                 "power_set_point": {
                     "description": "The power set point as a fraction of the nominal power of the light source.",
-                    "type": "number"
+                    "type": [
+                        "number",
+                        "null"
+                    ]
                 }
             },
-            "required": [
-                "acquisition_datetime",
-                "light_source",
-                "measuring_location",
-                "power_set_point",
-                "power_mw"
-            ],
             "title": "PowerMeasurement",
             "type": "object"
         },
