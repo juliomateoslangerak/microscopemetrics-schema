@@ -79,71 +79,49 @@ classes:
       light_source:
         multivalued: true
         inlined: false
-        required: false
       power_meter:
         multivalued: true
         inlined: false
-        required: false
       measuring_location:
         multivalued: true
-        required: false
       nr_of_measurements:
         multivalued: true
-        required: false
       power_mean_mw:
         multivalued: true
-        required: false
       power_median_mw:
         multivalued: true
-        required: false
       power_std_mw:
         multivalued: true
-        required: false
       power_min_mw:
         multivalued: true
-        required: false
       power_max_mw:
         multivalued: true
-        required: false
       power_linearity_start_datetime:
         multivalued: true
-        required: false
       power_linearity_end_datetime:
         multivalued: true
-        required: false
       power_linearity_slope:
         multivalued: true
-        required: false
       power_linearity_intercept:
         multivalued: true
-        required: false
       power_linearity_coefficient_of_determination:
         multivalued: true
-        required: false
       power_linearity_p_value:
         multivalued: true
-        required: false
       power_linearity_std_err:
         multivalued: true
-        required: false
       short_term_power_stability_start_datetime:
         multivalued: true
-        required: false
       short_term_power_stability_end_datetime:
         multivalued: true
-        required: false
       short_term_power_stability:
         multivalued: true
-        required: false
       long_term_power_stability_start_datetime:
         multivalued: true
-        required: false
       long_term_power_stability_end_datetime:
         multivalued: true
-        required: false
       long_term_power_stability:
         multivalued: true
-        required: false
 
   PowerMeasurement:
     description: >-
@@ -156,9 +134,6 @@ classes:
       - power_set_point
       - power_mw
       - integration_time_seconds
-    slot_usage:
-      acquisition_datetime:
-        required: true
 
   LightSource:
     is_a: NamedObject
@@ -196,52 +171,44 @@ slots:
     inlined: true
     inlined_as_list: true
 
+  # TODO: We have to redefine which slots are required. Change KeyMeasurements to a list ot KeyMeasurements more than a collection of lists
   light_source:
     range: LightSource
     description: >-
       The light source under investigation.
-    required: true
     multivalued: false
   measuring_location:
     range: MeasuringLocationEnum
     description: >-
       The location at which the measurement was taken.
-    required: true
     ifabsent: MeasuringLocationEnum(OBJECTIVE_FOCAL)
     multivalued: false
   wavelength_nm:
     range: float
     description: >-
       The wavelength of the light source in nanometers.
-    required: true
     multivalued: false
-
   power_meter:
     range: PowerMeter
     description: >-
       The power meter used to measure the power.
-    required: false
     multivalued: false
     inlined: false
-
   power_set_point:
     range: float
     description: >-
       The power set point as a fraction of the nominal power of the light source.
     multivalued: false
-    required: true
   power_mw:
     range: float
     description: >-
       The power measured in milliwatts.
     multivalued: false
-    required: true
   integration_time_seconds:
     range: float
     description: >-
       The integration time in seconds.
     multivalued: false
-    required: false
 
   # Input parameters
   linearity_required_measurements:

@@ -360,7 +360,7 @@ interface KeyMeasurements
 type LightSource
   {
     description: String
-    wavelengthNm: Float!
+    wavelengthNm: Float
     name: String!
   }
 
@@ -412,9 +412,9 @@ type LightSourcePowerKeyMeasurements
     dataReference: DataReference
     linkedReferences: [DataReference]
     tableData: MetaObject
-    lightSource: [LightSource]!
+    lightSource: [LightSource]
     powerMeter: [PowerMeter]
-    measuringLocation: [MeasuringLocationEnum]!
+    measuringLocation: [MeasuringLocationEnum]
     nrOfMeasurements: [Int]!
     powerMeanMw: [Float]!
     powerMedianMw: [Float]!
@@ -616,12 +616,12 @@ type Polygon
 
 type PowerMeasurement
   {
-    acquisitionDatetime: String!
-    lightSource: LightSource!
+    acquisitionDatetime: String
+    lightSource: LightSource
     powerMeter: PowerMeter
-    measuringLocation: MeasuringLocationEnum!
-    powerSetPoint: Float!
-    powerMw: Float!
+    measuringLocation: MeasuringLocationEnum
+    powerSetPoint: Float
+    powerMw: Float
     integrationTimeSeconds: Float
   }
 
