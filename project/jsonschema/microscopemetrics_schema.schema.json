@@ -2111,10 +2111,7 @@
                     "items": {
                         "type": "integer"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_linearity_coefficient_of_determination": {
                     "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
@@ -2193,30 +2190,21 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_mean_mw": {
                     "description": "The mean power measured in milliwatts.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_median_mw": {
                     "description": "The median power measured in milliwatts.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_meter": {
                     "description": "The power meter used to measure the power.",
@@ -2233,20 +2221,14 @@
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "power_std_mw": {
                     "description": "The standard deviation of the power measured in milliwatts.",
                     "items": {
                         "type": "number"
                     },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
+                    "type": "array"
                 },
                 "short_term_power_stability": {
                     "description": "The short term stability of the light source",
@@ -2292,6 +2274,14 @@
                     "description": "A non-required slot for non-serializable table data object"
                 }
             },
+            "required": [
+                "nr_of_measurements",
+                "power_mean_mw",
+                "power_median_mw",
+                "power_std_mw",
+                "power_min_mw",
+                "power_max_mw"
+            ],
             "title": "LightSourcePowerKeyMeasurements",
             "type": "object"
         },

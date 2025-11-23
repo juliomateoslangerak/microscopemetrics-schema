@@ -1790,13 +1790,13 @@ CREATE TABLE "Protocol_authors" (
 	PRIMARY KEY ("Protocol_url", authors_orcid),
 	FOREIGN KEY("Protocol_url") REFERENCES "Protocol" (url),
 	FOREIGN KEY(authors_orcid) REFERENCES "Experimenter" (orcid)
-);CREATE INDEX "ix_Protocol_authors_Protocol_url" ON "Protocol_authors" ("Protocol_url");CREATE INDEX "ix_Protocol_authors_authors_orcid" ON "Protocol_authors" (authors_orcid);
+);CREATE INDEX "ix_Protocol_authors_authors_orcid" ON "Protocol_authors" (authors_orcid);CREATE INDEX "ix_Protocol_authors_Protocol_url" ON "Protocol_authors" ("Protocol_url");
 CREATE TABLE "MetricsOutput_processing_application" (
 	"MetricsOutput_id" INTEGER,
 	processing_application TEXT NOT NULL,
 	PRIMARY KEY ("MetricsOutput_id", processing_application),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);CREATE INDEX "ix_MetricsOutput_processing_application_processing_application" ON "MetricsOutput_processing_application" (processing_application);CREATE INDEX "ix_MetricsOutput_processing_application_MetricsOutput_id" ON "MetricsOutput_processing_application" ("MetricsOutput_id");
+);CREATE INDEX "ix_MetricsOutput_processing_application_MetricsOutput_id" ON "MetricsOutput_processing_application" ("MetricsOutput_id");CREATE INDEX "ix_MetricsOutput_processing_application_processing_application" ON "MetricsOutput_processing_application" (processing_application);
 CREATE TABLE "MetricsOutput_processing_version" (
 	"MetricsOutput_id" INTEGER,
 	processing_version TEXT NOT NULL,
@@ -1814,26 +1814,26 @@ CREATE TABLE "MetricsOutput_warnings" (
 	warnings TEXT,
 	PRIMARY KEY ("MetricsOutput_id", warnings),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);CREATE INDEX "ix_MetricsOutput_warnings_warnings" ON "MetricsOutput_warnings" (warnings);CREATE INDEX "ix_MetricsOutput_warnings_MetricsOutput_id" ON "MetricsOutput_warnings" ("MetricsOutput_id");
+);CREATE INDEX "ix_MetricsOutput_warnings_MetricsOutput_id" ON "MetricsOutput_warnings" ("MetricsOutput_id");CREATE INDEX "ix_MetricsOutput_warnings_warnings" ON "MetricsOutput_warnings" (warnings);
 CREATE TABLE "MetricsOutput_errors" (
 	"MetricsOutput_id" INTEGER,
 	errors TEXT,
 	PRIMARY KEY ("MetricsOutput_id", errors),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
-);CREATE INDEX "ix_MetricsOutput_errors_MetricsOutput_id" ON "MetricsOutput_errors" ("MetricsOutput_id");CREATE INDEX "ix_MetricsOutput_errors_errors" ON "MetricsOutput_errors" (errors);
+);CREATE INDEX "ix_MetricsOutput_errors_errors" ON "MetricsOutput_errors" (errors);CREATE INDEX "ix_MetricsOutput_errors_MetricsOutput_id" ON "MetricsOutput_errors" ("MetricsOutput_id");
 CREATE TABLE "ChannelSeries_channels" (
 	"ChannelSeries_id" INTEGER,
 	channels_id INTEGER NOT NULL,
 	PRIMARY KEY ("ChannelSeries_id", channels_id),
 	FOREIGN KEY("ChannelSeries_id") REFERENCES "ChannelSeries" (id),
 	FOREIGN KEY(channels_id) REFERENCES "Channel" (id)
-);CREATE INDEX "ix_ChannelSeries_channels_channels_id" ON "ChannelSeries_channels" (channels_id);CREATE INDEX "ix_ChannelSeries_channels_ChannelSeries_id" ON "ChannelSeries_channels" ("ChannelSeries_id");
+);CREATE INDEX "ix_ChannelSeries_channels_ChannelSeries_id" ON "ChannelSeries_channels" ("ChannelSeries_id");CREATE INDEX "ix_ChannelSeries_channels_channels_id" ON "ChannelSeries_channels" (channels_id);
 CREATE TABLE "TimeSeries_time_points_sec" (
 	"TimeSeries_id" INTEGER,
 	time_points_sec FLOAT NOT NULL,
 	PRIMARY KEY ("TimeSeries_id", time_points_sec),
 	FOREIGN KEY("TimeSeries_id") REFERENCES "TimeSeries" (id)
-);CREATE INDEX "ix_TimeSeries_time_points_sec_TimeSeries_id" ON "TimeSeries_time_points_sec" ("TimeSeries_id");CREATE INDEX "ix_TimeSeries_time_points_sec_time_points_sec" ON "TimeSeries_time_points_sec" (time_points_sec);
+);CREATE INDEX "ix_TimeSeries_time_points_sec_time_points_sec" ON "TimeSeries_time_points_sec" (time_points_sec);CREATE INDEX "ix_TimeSeries_time_points_sec_TimeSeries_id" ON "TimeSeries_time_points_sec" ("TimeSeries_id");
 CREATE TABLE "FieldIlluminationOutput_roi_profiles" (
 	"FieldIlluminationOutput_id" INTEGER,
 	roi_profiles_id INTEGER,
@@ -1868,7 +1868,7 @@ CREATE TABLE "FieldIlluminationOutput_roi_centers_fitted" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", roi_centers_fitted_id),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_centers_fitted_id) REFERENCES "Roi" (id)
-);CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_fitted" ("FieldIlluminationOutput_id");CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_roi_centers_fitted_id" ON "FieldIlluminationOutput_roi_centers_fitted" (roi_centers_fitted_id);
+);CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_roi_centers_fitted_id" ON "FieldIlluminationOutput_roi_centers_fitted" (roi_centers_fitted_id);CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_fitted" ("FieldIlluminationOutput_id");
 CREATE TABLE "FieldIlluminationOutput_roi_centers_max_intensity" (
 	"FieldIlluminationOutput_id" INTEGER,
 	roi_centers_max_intensity_id INTEGER,
@@ -1882,7 +1882,7 @@ CREATE TABLE "FieldIlluminationOutput_roi_center_region" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", roi_center_region_id),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_center_region_id) REFERENCES "Roi" (id)
-);CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_center_region" ("FieldIlluminationOutput_id");CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_roi_center_region_id" ON "FieldIlluminationOutput_roi_center_region" (roi_center_region_id);
+);CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_roi_center_region_id" ON "FieldIlluminationOutput_roi_center_region" (roi_center_region_id);CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_center_region" ("FieldIlluminationOutput_id");
 CREATE TABLE "FieldIlluminationOutput_processing_application" (
 	"FieldIlluminationOutput_id" INTEGER,
 	processing_application TEXT NOT NULL,
@@ -1894,7 +1894,7 @@ CREATE TABLE "FieldIlluminationOutput_processing_version" (
 	processing_version TEXT NOT NULL,
 	PRIMARY KEY ("FieldIlluminationOutput_id", processing_version),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id)
-);CREATE INDEX "ix_FieldIlluminationOutput_processing_version_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_processing_version" ("FieldIlluminationOutput_id");CREATE INDEX "ix_FieldIlluminationOutput_processing_version_processing_version" ON "FieldIlluminationOutput_processing_version" (processing_version);
+);CREATE INDEX "ix_FieldIlluminationOutput_processing_version_processing_version" ON "FieldIlluminationOutput_processing_version" (processing_version);CREATE INDEX "ix_FieldIlluminationOutput_processing_version_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_processing_version" ("FieldIlluminationOutput_id");
 CREATE TABLE "FieldIlluminationOutput_processing_entity" (
 	"FieldIlluminationOutput_id" INTEGER,
 	processing_entity TEXT,
@@ -1906,7 +1906,7 @@ CREATE TABLE "FieldIlluminationOutput_warnings" (
 	warnings TEXT,
 	PRIMARY KEY ("FieldIlluminationOutput_id", warnings),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id)
-);CREATE INDEX "ix_FieldIlluminationOutput_warnings_warnings" ON "FieldIlluminationOutput_warnings" (warnings);CREATE INDEX "ix_FieldIlluminationOutput_warnings_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_warnings" ("FieldIlluminationOutput_id");
+);CREATE INDEX "ix_FieldIlluminationOutput_warnings_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_warnings" ("FieldIlluminationOutput_id");CREATE INDEX "ix_FieldIlluminationOutput_warnings_warnings" ON "FieldIlluminationOutput_warnings" (warnings);
 CREATE TABLE "FieldIlluminationOutput_errors" (
 	"FieldIlluminationOutput_id" INTEGER,
 	errors TEXT,
@@ -1990,13 +1990,13 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_y" (
 	center_geometric_y FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_y),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_center_geometric_y" ON "FieldIlluminationKeyMeasurements_center_geometric_y" (center_geometric_y);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_geometric_y" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_geometric_y" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_center_geometric_y" ON "FieldIlluminationKeyMeasurements_center_geometric_y" (center_geometric_y);
 CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_y_relative" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	center_geometric_y_relative FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_geometric_y_relative),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_relative_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_geometric_y_relative" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_relative_center_geometric_y_relative" ON "FieldIlluminationKeyMeasurements_center_geometric_y_relative" (center_geometric_y_relative);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_relative_center_geometric_y_relative" ON "FieldIlluminationKeyMeasurements_center_geometric_y_relative" (center_geometric_y_relative);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_geometric_y_relative_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_geometric_y_relative" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "FieldIlluminationKeyMeasurements_center_geometric_x" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	center_geometric_x FLOAT,
@@ -2044,7 +2044,7 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" 
 	center_fitted_distance_relative FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", center_fitted_distance_relative),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_fitted_distance_relative_center_fitted_distance_relative" ON "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" (center_fitted_distance_relative);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_fitted_distance_relative_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_fitted_distance_relative_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_center_fitted_distance_relative_center_fitted_distance_relative" ON "FieldIlluminationKeyMeasurements_center_fitted_distance_relative" (center_fitted_distance_relative);
 CREATE TABLE "FieldIlluminationKeyMeasurements_max_intensity" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	max_intensity FLOAT,
@@ -2098,7 +2098,7 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_top_center_intensity_mean" (
 	top_center_intensity_mean FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_center_intensity_mean),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_center_intensity_mean_top_center_intensity_mean" ON "FieldIlluminationKeyMeasurements_top_center_intensity_mean" (top_center_intensity_mean);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_center_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_center_intensity_mean" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_center_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_center_intensity_mean" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_center_intensity_mean_top_center_intensity_mean" ON "FieldIlluminationKeyMeasurements_top_center_intensity_mean" (top_center_intensity_mean);
 CREATE TABLE "FieldIlluminationKeyMeasurements_top_center_intensity_ratio" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	top_center_intensity_ratio FLOAT,
@@ -2110,25 +2110,25 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_top_right_intensity_mean" (
 	top_right_intensity_mean FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_right_intensity_mean),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_mean_top_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_top_right_intensity_mean" (top_right_intensity_mean);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_mean_top_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_top_right_intensity_mean" (top_right_intensity_mean);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	top_right_intensity_ratio FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", top_right_intensity_ratio),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_ratio_top_right_intensity_ratio" ON "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" (top_right_intensity_ratio);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_top_right_intensity_ratio_top_right_intensity_ratio" ON "FieldIlluminationKeyMeasurements_top_right_intensity_ratio" (top_right_intensity_ratio);
 CREATE TABLE "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	middle_left_intensity_mean FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_left_intensity_mean),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_mean_middle_left_intensity_mean" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" (middle_left_intensity_mean);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_mean_middle_left_intensity_mean" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" (middle_left_intensity_mean);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_mean" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	middle_left_intensity_ratio FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_left_intensity_ratio),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_ratio_middle_left_intensity_ratio" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" (middle_left_intensity_ratio);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_ratio_middle_left_intensity_ratio" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" (middle_left_intensity_ratio);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_left_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_left_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "FieldIlluminationKeyMeasurements_middle_center_intensity_mean" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	middle_center_intensity_mean FLOAT,
@@ -2146,7 +2146,7 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" (
 	middle_right_intensity_mean FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", middle_right_intensity_mean),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_right_intensity_mean_middle_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" (middle_right_intensity_mean);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_middle_right_intensity_mean_middle_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_middle_right_intensity_mean" (middle_right_intensity_mean);
 CREATE TABLE "FieldIlluminationKeyMeasurements_middle_right_intensity_ratio" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	middle_right_intensity_ratio FLOAT,
@@ -2164,7 +2164,7 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" (
 	bottom_left_intensity_ratio FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_left_intensity_ratio),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio_bottom_left_intensity_ratio" ON "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" (bottom_left_intensity_ratio);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio_bottom_left_intensity_ratio" ON "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" (bottom_left_intensity_ratio);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_left_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_center_intensity_mean" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	bottom_center_intensity_mean FLOAT,
@@ -2182,13 +2182,13 @@ CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" (
 	bottom_right_intensity_mean FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_right_intensity_mean),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_mean_bottom_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" (bottom_right_intensity_mean);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_mean_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_mean_bottom_right_intensity_mean" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_mean" (bottom_right_intensity_mean);
 CREATE TABLE "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" (
 	"FieldIlluminationKeyMeasurements_id" INTEGER,
 	bottom_right_intensity_ratio FLOAT,
 	PRIMARY KEY ("FieldIlluminationKeyMeasurements_id", bottom_right_intensity_ratio),
 	FOREIGN KEY("FieldIlluminationKeyMeasurements_id") REFERENCES "FieldIlluminationKeyMeasurements" (id)
-);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio_bottom_right_intensity_ratio" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" (bottom_right_intensity_ratio);
+);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio_bottom_right_intensity_ratio" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" (bottom_right_intensity_ratio);CREATE INDEX "ix_FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio_FieldIlluminationKeyMeasurements_id" ON "FieldIlluminationKeyMeasurements_bottom_right_intensity_ratio" ("FieldIlluminationKeyMeasurements_id");
 CREATE TABLE "PSFBeadsOutput_processing_application" (
 	"PSFBeadsOutput_id" INTEGER,
 	processing_application TEXT NOT NULL,
@@ -2212,7 +2212,7 @@ CREATE TABLE "PSFBeadsOutput_warnings" (
 	warnings TEXT,
 	PRIMARY KEY ("PSFBeadsOutput_id", warnings),
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
-);CREATE INDEX "ix_PSFBeadsOutput_warnings_warnings" ON "PSFBeadsOutput_warnings" (warnings);CREATE INDEX "ix_PSFBeadsOutput_warnings_PSFBeadsOutput_id" ON "PSFBeadsOutput_warnings" ("PSFBeadsOutput_id");
+);CREATE INDEX "ix_PSFBeadsOutput_warnings_PSFBeadsOutput_id" ON "PSFBeadsOutput_warnings" ("PSFBeadsOutput_id");CREATE INDEX "ix_PSFBeadsOutput_warnings_warnings" ON "PSFBeadsOutput_warnings" (warnings);
 CREATE TABLE "PSFBeadsOutput_errors" (
 	"PSFBeadsOutput_id" INTEGER,
 	errors TEXT,
@@ -2224,7 +2224,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_channel_name" (
 	channel_name TEXT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", channel_name),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_channel_name_channel_name" ON "PSFBeadsKeyMeasurements_channel_name" (channel_name);CREATE INDEX "ix_PSFBeadsKeyMeasurements_channel_name_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_channel_name" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_channel_name_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_channel_name" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_channel_name_channel_name" ON "PSFBeadsKeyMeasurements_channel_name" (channel_name);
 CREATE TABLE "PSFBeadsKeyMeasurements_channel_nr" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	channel_nr INTEGER,
@@ -2242,7 +2242,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_considered_valid_count" (
 	considered_valid_count INTEGER,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_valid_count),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_valid_count_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_considered_valid_count" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_valid_count_considered_valid_count" ON "PSFBeadsKeyMeasurements_considered_valid_count" (considered_valid_count);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_valid_count_considered_valid_count" ON "PSFBeadsKeyMeasurements_considered_valid_count" (considered_valid_count);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_valid_count_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_considered_valid_count" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_considered_self_proximity_count" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	considered_self_proximity_count INTEGER,
@@ -2278,7 +2278,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_considered_bad_fit_y_count" (
 	considered_bad_fit_y_count INTEGER,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", considered_bad_fit_y_count),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_bad_fit_y_count_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_considered_bad_fit_y_count" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_bad_fit_y_count_considered_bad_fit_y_count" ON "PSFBeadsKeyMeasurements_considered_bad_fit_y_count" (considered_bad_fit_y_count);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_bad_fit_y_count_considered_bad_fit_y_count" ON "PSFBeadsKeyMeasurements_considered_bad_fit_y_count" (considered_bad_fit_y_count);CREATE INDEX "ix_PSFBeadsKeyMeasurements_considered_bad_fit_y_count_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_considered_bad_fit_y_count" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_considered_bad_fit_x_count" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	considered_bad_fit_x_count INTEGER,
@@ -2296,7 +2296,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_intensity_integrated_median" (
 	intensity_integrated_median FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_integrated_median),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_integrated_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_integrated_median" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_integrated_median_intensity_integrated_median" ON "PSFBeadsKeyMeasurements_intensity_integrated_median" (intensity_integrated_median);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_integrated_median_intensity_integrated_median" ON "PSFBeadsKeyMeasurements_intensity_integrated_median" (intensity_integrated_median);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_integrated_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_integrated_median" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_intensity_integrated_std" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	intensity_integrated_std FLOAT,
@@ -2308,7 +2308,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_intensity_max_mean" (
 	intensity_max_mean FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_max_mean),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_max_mean_intensity_max_mean" ON "PSFBeadsKeyMeasurements_intensity_max_mean" (intensity_max_mean);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_max_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_max_mean" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_max_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_max_mean" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_max_mean_intensity_max_mean" ON "PSFBeadsKeyMeasurements_intensity_max_mean" (intensity_max_mean);
 CREATE TABLE "PSFBeadsKeyMeasurements_intensity_max_median" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	intensity_max_median FLOAT,
@@ -2326,7 +2326,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_intensity_min_mean" (
 	intensity_min_mean FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_min_mean),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_min_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_min_mean" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_min_mean_intensity_min_mean" ON "PSFBeadsKeyMeasurements_intensity_min_mean" (intensity_min_mean);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_min_mean_intensity_min_mean" ON "PSFBeadsKeyMeasurements_intensity_min_mean" (intensity_min_mean);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_min_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_min_mean" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_intensity_min_median" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	intensity_min_median FLOAT,
@@ -2344,7 +2344,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_intensity_std_mean" (
 	intensity_std_mean FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", intensity_std_mean),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_std_mean_intensity_std_mean" ON "PSFBeadsKeyMeasurements_intensity_std_mean" (intensity_std_mean);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_std_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_std_mean" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_std_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_intensity_std_mean" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_intensity_std_mean_intensity_std_mean" ON "PSFBeadsKeyMeasurements_intensity_std_mean" (intensity_std_mean);
 CREATE TABLE "PSFBeadsKeyMeasurements_intensity_std_median" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	intensity_std_median FLOAT,
@@ -2362,13 +2362,13 @@ CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_mean" (
 	fit_r2_z_mean FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_z_mean),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_mean_fit_r2_z_mean" ON "PSFBeadsKeyMeasurements_fit_r2_z_mean" (fit_r2_z_mean);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_z_mean" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_mean_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_z_mean" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_mean_fit_r2_z_mean" ON "PSFBeadsKeyMeasurements_fit_r2_z_mean" (fit_r2_z_mean);
 CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_median" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fit_r2_z_median FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_z_median),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_median_fit_r2_z_median" ON "PSFBeadsKeyMeasurements_fit_r2_z_median" (fit_r2_z_median);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_z_median" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_z_median" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_z_median_fit_r2_z_median" ON "PSFBeadsKeyMeasurements_fit_r2_z_median" (fit_r2_z_median);
 CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_z_std" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fit_r2_z_std FLOAT,
@@ -2392,7 +2392,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_y_std" (
 	fit_r2_y_std FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_y_std),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_y_std_fit_r2_y_std" ON "PSFBeadsKeyMeasurements_fit_r2_y_std" (fit_r2_y_std);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_y_std_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_y_std" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_y_std_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_y_std" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_y_std_fit_r2_y_std" ON "PSFBeadsKeyMeasurements_fit_r2_y_std" (fit_r2_y_std);
 CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_mean" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fit_r2_x_mean FLOAT,
@@ -2404,13 +2404,13 @@ CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_median" (
 	fit_r2_x_median FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_x_median),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_median_fit_r2_x_median" ON "PSFBeadsKeyMeasurements_fit_r2_x_median" (fit_r2_x_median);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_x_median" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_x_median" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_median_fit_r2_x_median" ON "PSFBeadsKeyMeasurements_fit_r2_x_median" (fit_r2_x_median);
 CREATE TABLE "PSFBeadsKeyMeasurements_fit_r2_x_std" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fit_r2_x_std FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fit_r2_x_std),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_std_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_x_std" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_std_fit_r2_x_std" ON "PSFBeadsKeyMeasurements_fit_r2_x_std" (fit_r2_x_std);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_std_fit_r2_x_std" ON "PSFBeadsKeyMeasurements_fit_r2_x_std" (fit_r2_x_std);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fit_r2_x_std_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fit_r2_x_std" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_pixel_z_mean" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fwhm_pixel_z_mean FLOAT,
@@ -2494,7 +2494,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_y_median" (
 	fwhm_micron_y_median FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", fwhm_micron_y_median),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fwhm_micron_y_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fwhm_micron_y_median" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_fwhm_micron_y_median_fwhm_micron_y_median" ON "PSFBeadsKeyMeasurements_fwhm_micron_y_median" (fwhm_micron_y_median);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fwhm_micron_y_median_fwhm_micron_y_median" ON "PSFBeadsKeyMeasurements_fwhm_micron_y_median" (fwhm_micron_y_median);CREATE INDEX "ix_PSFBeadsKeyMeasurements_fwhm_micron_y_median_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_fwhm_micron_y_median" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_fwhm_micron_y_std" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	fwhm_micron_y_std FLOAT,
@@ -2566,7 +2566,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y" (
 	average_bead_fwhm_pixel_y FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_fwhm_pixel_y),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y_average_bead_fwhm_pixel_y" ON "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y" (average_bead_fwhm_pixel_y);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y" ("PSFBeadsKeyMeasurements_id");
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y_average_bead_fwhm_pixel_y" ON "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_y" (average_bead_fwhm_pixel_y);
 CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_fwhm_pixel_x" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	average_bead_fwhm_pixel_x FLOAT,
@@ -2602,7 +2602,7 @@ CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_integrated" (
 	average_bead_intensity_integrated FLOAT,
 	PRIMARY KEY ("PSFBeadsKeyMeasurements_id", average_bead_intensity_integrated),
 	FOREIGN KEY("PSFBeadsKeyMeasurements_id") REFERENCES "PSFBeadsKeyMeasurements" (id)
-);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_intensity_integrated_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_average_bead_intensity_integrated" ("PSFBeadsKeyMeasurements_id");CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_intensity_integrated_average_bead_intensity_integrated" ON "PSFBeadsKeyMeasurements_average_bead_intensity_integrated" (average_bead_intensity_integrated);
+);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_intensity_integrated_average_bead_intensity_integrated" ON "PSFBeadsKeyMeasurements_average_bead_intensity_integrated" (average_bead_intensity_integrated);CREATE INDEX "ix_PSFBeadsKeyMeasurements_average_bead_intensity_integrated_PSFBeadsKeyMeasurements_id" ON "PSFBeadsKeyMeasurements_average_bead_intensity_integrated" ("PSFBeadsKeyMeasurements_id");
 CREATE TABLE "PSFBeadsKeyMeasurements_average_bead_intensity_max" (
 	"PSFBeadsKeyMeasurements_id" INTEGER,
 	average_bead_intensity_max FLOAT,
@@ -2632,7 +2632,7 @@ CREATE TABLE "LightSourcePowerOutput_processing_version" (
 	processing_version TEXT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerOutput_id", processing_version),
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
-);CREATE INDEX "ix_LightSourcePowerOutput_processing_version_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_processing_version" ("LightSourcePowerOutput_id");CREATE INDEX "ix_LightSourcePowerOutput_processing_version_processing_version" ON "LightSourcePowerOutput_processing_version" (processing_version);
+);CREATE INDEX "ix_LightSourcePowerOutput_processing_version_processing_version" ON "LightSourcePowerOutput_processing_version" (processing_version);CREATE INDEX "ix_LightSourcePowerOutput_processing_version_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_processing_version" ("LightSourcePowerOutput_id");
 CREATE TABLE "LightSourcePowerOutput_processing_entity" (
 	"LightSourcePowerOutput_id" INTEGER,
 	processing_entity TEXT,
@@ -2650,7 +2650,7 @@ CREATE TABLE "LightSourcePowerOutput_errors" (
 	errors TEXT,
 	PRIMARY KEY ("LightSourcePowerOutput_id", errors),
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
-);CREATE INDEX "ix_LightSourcePowerOutput_errors_errors" ON "LightSourcePowerOutput_errors" (errors);CREATE INDEX "ix_LightSourcePowerOutput_errors_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_errors" ("LightSourcePowerOutput_id");
+);CREATE INDEX "ix_LightSourcePowerOutput_errors_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_errors" ("LightSourcePowerOutput_id");CREATE INDEX "ix_LightSourcePowerOutput_errors_errors" ON "LightSourcePowerOutput_errors" (errors);
 CREATE TABLE "LightSourcePowerKeyMeasurements_light_source" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	light_source_name TEXT,
@@ -2673,37 +2673,37 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_measuring_location" (
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_measuring_location_measuring_location" ON "LightSourcePowerKeyMeasurements_measuring_location" (measuring_location);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_measuring_location_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_measuring_location" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_nr_of_measurements" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	nr_of_measurements INTEGER,
+	nr_of_measurements INTEGER NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", nr_of_measurements),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_nr_of_measurements_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_nr_of_measurements" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_nr_of_measurements_nr_of_measurements" ON "LightSourcePowerKeyMeasurements_nr_of_measurements" (nr_of_measurements);
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_mean_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	power_mean_mw FLOAT,
+	power_mean_mw FLOAT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_mean_mw),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_mean_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_mean_mw" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_mean_mw_power_mean_mw" ON "LightSourcePowerKeyMeasurements_power_mean_mw" (power_mean_mw);
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_median_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	power_median_mw FLOAT,
+	power_median_mw FLOAT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_median_mw),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_median_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_median_mw" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_median_mw_power_median_mw" ON "LightSourcePowerKeyMeasurements_power_median_mw" (power_median_mw);
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_median_mw_power_median_mw" ON "LightSourcePowerKeyMeasurements_power_median_mw" (power_median_mw);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_median_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_median_mw" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_std_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	power_std_mw FLOAT,
+	power_std_mw FLOAT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_std_mw),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_std_mw_power_std_mw" ON "LightSourcePowerKeyMeasurements_power_std_mw" (power_std_mw);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_std_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_std_mw" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_min_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	power_min_mw FLOAT,
+	power_min_mw FLOAT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_min_mw),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_min_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_min_mw" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_min_mw_power_min_mw" ON "LightSourcePowerKeyMeasurements_power_min_mw" (power_min_mw);
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_max_mw" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
-	power_max_mw FLOAT,
+	power_max_mw FLOAT NOT NULL,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_max_mw),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
 );CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_max_mw_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_max_mw" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_max_mw_power_max_mw" ON "LightSourcePowerKeyMeasurements_power_max_mw" (power_max_mw);
@@ -2718,7 +2718,7 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_end_datetime" (
 	power_linearity_end_datetime DATETIME,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_end_datetime),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_linearity_end_datetime" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_end_datetime_power_linearity_end_datetime" ON "LightSourcePowerKeyMeasurements_power_linearity_end_datetime" (power_linearity_end_datetime);
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_end_datetime_power_linearity_end_datetime" ON "LightSourcePowerKeyMeasurements_power_linearity_end_datetime" (power_linearity_end_datetime);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_linearity_end_datetime" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_slope" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	power_linearity_slope FLOAT,
@@ -2730,7 +2730,7 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_intercept" (
 	power_linearity_intercept FLOAT,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", power_linearity_intercept),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_intercept_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_linearity_intercept" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_intercept_power_linearity_intercept" ON "LightSourcePowerKeyMeasurements_power_linearity_intercept" (power_linearity_intercept);
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_intercept_power_linearity_intercept" ON "LightSourcePowerKeyMeasurements_power_linearity_intercept" (power_linearity_intercept);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_power_linearity_intercept_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_power_linearity_intercept" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_power_linearity_coefficient_of_determination" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	power_linearity_coefficient_of_determination FLOAT,
@@ -2760,7 +2760,7 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_power_stability_end_dat
 	short_term_power_stability_end_datetime DATETIME,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", short_term_power_stability_end_datetime),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime_short_term_power_stability_end_datetime" ON "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime" (short_term_power_stability_end_datetime);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime" ("LightSourcePowerKeyMeasurements_id");
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime_short_term_power_stability_end_datetime" ON "LightSourcePowerKeyMeasurements_short_term_power_stability_end_datetime" (short_term_power_stability_end_datetime);
 CREATE TABLE "LightSourcePowerKeyMeasurements_short_term_power_stability" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	short_term_power_stability FLOAT,
@@ -2772,13 +2772,13 @@ CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_power_stability_start_da
 	long_term_power_stability_start_datetime DATETIME,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", long_term_power_stability_start_datetime),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime_long_term_power_stability_start_datetime" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime" (long_term_power_stability_start_datetime);
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime_long_term_power_stability_start_datetime" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime" (long_term_power_stability_start_datetime);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_start_datetime" ("LightSourcePowerKeyMeasurements_id");
 CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	long_term_power_stability_end_datetime DATETIME,
 	PRIMARY KEY ("LightSourcePowerKeyMeasurements_id", long_term_power_stability_end_datetime),
 	FOREIGN KEY("LightSourcePowerKeyMeasurements_id") REFERENCES "LightSourcePowerKeyMeasurements" (id)
-);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime_long_term_power_stability_end_datetime" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime" (long_term_power_stability_end_datetime);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime" ("LightSourcePowerKeyMeasurements_id");
+);CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime_LightSourcePowerKeyMeasurements_id" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime" ("LightSourcePowerKeyMeasurements_id");CREATE INDEX "ix_LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime_long_term_power_stability_end_datetime" ON "LightSourcePowerKeyMeasurements_long_term_power_stability_end_datetime" (long_term_power_stability_end_datetime);
 CREATE TABLE "LightSourcePowerKeyMeasurements_long_term_power_stability" (
 	"LightSourcePowerKeyMeasurements_id" INTEGER,
 	long_term_power_stability FLOAT,
@@ -2796,7 +2796,7 @@ CREATE TABLE "Column_values" (
 	"values" TEXT,
 	PRIMARY KEY ("Column_id", "values"),
 	FOREIGN KEY("Column_id") REFERENCES "Column" (id)
-);CREATE INDEX "ix_Column_values_Column_id" ON "Column_values" ("Column_id");CREATE INDEX "ix_Column_values_values" ON "Column_values" ("values");
+);CREATE INDEX "ix_Column_values_values" ON "Column_values" ("values");CREATE INDEX "ix_Column_values_Column_id" ON "Column_values" ("Column_id");
 CREATE TABLE "Polygon_vertexes" (
 	"Polygon_id" INTEGER,
 	vertexes_id INTEGER NOT NULL,
