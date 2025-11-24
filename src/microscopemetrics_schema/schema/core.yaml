@@ -695,7 +695,13 @@ slots:
       measurements as a function of, for example, channels
     required: true
     multivalued: false
-
+  intensity_profiles:
+    range: Table
+    description: >-
+      Intensity profiles
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
 
   # Sample slots
   preparation_protocol:

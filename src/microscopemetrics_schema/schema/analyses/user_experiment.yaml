@@ -47,13 +47,6 @@ classes:
   UserExperimentOutput:
     is_a: MetricsOutput
     attributes:
-      intensity_profiles:
-        range: Table
-        description: >-
-          Intensity profiles as measured in the provided profile_rois.
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       orthogonal_images:
         range: OrthogonalImage
         description: >-
@@ -77,6 +70,12 @@ classes:
         multivalued: false
         inlined: true
         inlined_as_list: true
+    slots:
+      - intensity_profiles
+    slot_usage:
+      intensity_profiles:
+        description: >-
+          Intensity profiles along the profile_rois provided as input.
 
   UserExperimentKeyMeasurements:
     is_a: KeyMeasurements

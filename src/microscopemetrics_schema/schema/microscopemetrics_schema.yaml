@@ -23,8 +23,8 @@ imports:
   - analyses/field_illumination
   - analyses/psf_beads
   - analyses/light_source_power
-#  - analyses/user_experiment
+  - analyses/user_experiment
   - samples/homogeneous_field
   - samples/beads
   - samples/light_source_power
-#  - samples/user_sample
+  - samples/user_sample

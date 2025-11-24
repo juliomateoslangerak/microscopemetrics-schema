@@ -176,6 +176,7 @@ def st_mm_light_source_power_unprocessed_dataset(
         )
     )
 
+
 @st.composite
 def st_mm_light_source_power_processed_dataset(
     draw,
@@ -194,5 +195,3 @@ def st_mm_light_source_power_processed_dataset(
             output=output,
         )
     )
-
-

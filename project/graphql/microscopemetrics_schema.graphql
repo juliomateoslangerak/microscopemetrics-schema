@@ -248,8 +248,8 @@ type FieldIlluminationOutput
     errors: [String]
     validated: Boolean!
     validationDatetime: String
-    keyMeasurements: FieldIlluminationKeyMeasurements
     intensityProfiles: [Table]
+    keyMeasurements: FieldIlluminationKeyMeasurements
     roiProfiles: [Roi]
     roiCorners: [Roi]
     roiCentersOfMass: [Roi]
@@ -864,6 +864,76 @@ interface Table
 type TimeSeries
   {
     timePointsSec: [Float]!
+  }
+
+type UserExperiment
+  {
+    name: String
+    description: String
+    preparationProtocol: Protocol!
+    preparationDatetime: String
+    manufacturer: String
+  }
+
+type UserExperimentDataset implements HasSampleMixin, HasInputParametersMixin
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    acquisitionDatetime: String
+    microscope: Microscope!
+    experimenter: Experimenter
+    acquisitionProtocol: Protocol
+    processed: Boolean!
+    inputData: UserExperimentInputData!
+    inputParameters: UserExperimentInputParameters
+    output: UserExperimentOutput
+    sample: UserExperiment
+  }
+
+type UserExperimentInputData
+  {
+    userExperimentImages: [Image]!
+    orthogonalRois: [Roi]
+    profileRois: [Roi]
+  }
+
+type UserExperimentInputParameters
+  {
+    bitDepth: Int
+    saturationThreshold: Float
+  }
+
+type UserExperimentKeyMeasurements
+  {
+    name: String
+    description: String
+    dataReference: DataReference
+    linkedReferences: [DataReference]
+    tableData: MetaObject
+    channelName: [String]
+    channelNr: [Int]
+    variationCoefficient: [Float]
+    saturatedChannels: [Int]
+  }
+
+type UserExperimentOutput
+  {
+    comment: Comment
+    processingApplication: [String]!
+    processingVersion: [String]!
+    processingEntity: [String]
+    processingDatetime: String!
+    processingLog: String
+    warnings: [String]
+    errors: [String]
+    validated: Boolean!
+    validationDatetime: String
+    intensityProfiles: [Table]
+    orthogonalImages: [OrthogonalImage]
+    fftImages: [Image]
+    keyMeasurements: UserExperimentKeyMeasurements
   }
 
 type Vertex

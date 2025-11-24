@@ -55,13 +55,6 @@ classes:
         description: >-
           Key-Value pairs containing the Key measurements for the field illumination analysis
         multivalued: false
-      intensity_profiles:
-        range: Table
-        description: >-
-          Intensity profiles for the field illumination analysis in the different directions
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       roi_profiles:
         range: Roi
         description: line ROIs used to compute the intensity profiles
@@ -102,6 +95,12 @@ classes:
           Mask ROIs marking the area of maximum illumination.
           One mask per channel.
         multivalued: true
+    slots:
+      - intensity_profiles
+    slot_usage:
+      intensity_profiles:
+        description: >-
+          Intensity profiles for the field illumination analysis in the different directions
 
   FieldIlluminationKeyMeasurements:
     is_a: KeyMeasurements
