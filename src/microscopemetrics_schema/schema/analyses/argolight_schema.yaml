@@ -117,8 +117,8 @@ classes:
     mixins:
       - CentersOfMass
 
-  ArgolightBIntensityKeyMeasurements:
-    is_a: KeyMeasurements
+  ArgolightBIntensityKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - channel_nr
       - nr_of_spots
@@ -132,8 +132,8 @@ classes:
       - mad_mean_intensity
       - min_max_intensity_ratio
 
-  ArgolightBDistanceKeyMeasurements:
-    is_a: KeyMeasurements
+  ArgolightBDistanceKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - channel_A
       - channel_B
@@ -197,8 +197,8 @@ classes:
           Intensity profiles of the argolight lines provided as tables. One table per channel
         multivalued: false
 
-  ArgolightEKeyMeasurements:
-    is_a: KeyMeasurements
+  ArgolightEKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - channel_nr
       - focus_slice

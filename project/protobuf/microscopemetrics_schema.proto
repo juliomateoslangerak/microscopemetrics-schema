@@ -107,13 +107,8 @@ message FieldIlluminationInputParameters
   float cornerFraction = 0
   float sigma = 0
  }
-message FieldIlluminationKeyMeasurements
+message FieldIlluminationKeyMeasurement
  {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
  repeated  string imageName = 0
  repeated  string imageId = 0
  repeated  string channelName = 0
@@ -174,7 +169,6 @@ message FieldIlluminationOutput
   boolean validated = 0
   datetime validationDatetime = 0
  repeated  table intensityProfiles = 0
-  fieldIlluminationKeyMeasurements keyMeasurements = 0
  repeated  roi roiProfiles = 0
  repeated  roi roiCorners = 0
  repeated  roi roiCentersOfMass = 0
@@ -182,6 +176,7 @@ message FieldIlluminationOutput
  repeated  roi roiCentersFitted = 0
  repeated  roi roiCentersMaxIntensity = 0
  repeated  roi roiCenterRegion = 0
+ repeated  fieldIlluminationKeyMeasurement keyMeasurements = 0
  }
 // An homogeneous field with a fluorescent thick sample. Similar to the Chroma slides.
 message FluorescentHomogeneousThickField
@@ -299,13 +294,8 @@ message LightSourcePowerInputParameters
   integer longTermStabilityRequiredMeasurements = 0
   float longTermStabilityRequiredIntegrationTimeSeconds = 0
  }
-message LightSourcePowerKeyMeasurements
+message LightSourcePowerKeyMeasurement
  {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
  repeated  lightSource lightSource = 0
  repeated  powerMeter powerMeter = 0
  repeated  measuringLocationEnum measuringLocation = 0
@@ -341,7 +331,7 @@ message LightSourcePowerOutput
  repeated  string errors = 0
   boolean validated = 0
   datetime validationDatetime = 0
-  lightSourcePowerKeyMeasurements keyMeasurements = 0
+ repeated  lightSourcePowerKeyMeasurement keyMeasurements = 0
  }
 // A line as defined by x1, y1, x2, y2 coordinates
 message Line
@@ -521,13 +511,8 @@ message PSFBeadsInputParameters
   float fittingR2Threshold = 0
   float intensityRobustZScoreThreshold = 0
  }
-message PSFBeadsKeyMeasurements
+message PSFBeadsKeyMeasurement
  {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
  repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  integer totalBeadCount = 0
@@ -616,12 +601,12 @@ message PSFBeadsOutput
  repeated  roi consideredBeadCentersZFitQuality = 0
  repeated  roi consideredBeadCentersYFitQuality = 0
  repeated  roi consideredBeadCentersXFitQuality = 0
-  pSFBeadsKeyMeasurements keyMeasurements = 0
   table beadProperties = 0
   table beadProfilesZ = 0
   table beadProfilesY = 0
   table beadProfilesX = 0
   image averageBead = 0
+ repeated  pSFBeadsKeyMeasurement keyMeasurements = 0
  }
 // A rectangle as defined by x, y coordinates and width, height
 message Rectangle
@@ -695,13 +680,8 @@ message UserExperimentInputParameters
   integer bitDepth = 0
   float saturationThreshold = 0
  }
-message UserExperimentKeyMeasurements
+message UserExperimentKeyMeasurement
  {
-  string name = 0
-  string description = 0
-  dataReference dataReference = 0
- repeated  dataReference linkedReferences = 0
-  metaObject tableData = 0
  repeated  string channelName = 0
  repeated  integer channelNr = 0
  repeated  float variationCoefficient = 0
@@ -722,7 +702,7 @@ message UserExperimentOutput
  repeated  table intensityProfiles = 0
  repeated  orthogonalImage orthogonalImages = 0
  repeated  image fftImages = 0
-  userExperimentKeyMeasurements keyMeasurements = 0
+ repeated  userExperimentKeyMeasurement keyMeasurements = 0
  }
 // A vertex as defined by x and y coordinates
 message Vertex

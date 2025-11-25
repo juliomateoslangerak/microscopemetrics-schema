@@ -43,15 +43,13 @@ classes:
 
   LightSourcePowerOutput:
     is_a: MetricsOutput
-    attributes:
+    slot_usage:
       key_measurements:
-        range: LightSourcePowerKeyMeasurements
-        description: >-
-          Key-Value measurements for the power measurements.
+        range: LightSourcePowerKeyMeasurement
 
 
-  LightSourcePowerKeyMeasurements:
-    is_a: KeyMeasurements
+  LightSourcePowerKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - light_source
       - power_meter
@@ -171,7 +169,7 @@ slots:
     inlined: true
     inlined_as_list: true
 
-  # TODO: We have to redefine which slots are required. Change KeyMeasurements to a list ot KeyMeasurements more than a collection of lists
+  # TODO: We have to redefine which slots are required. Change KeyMeasurement to a list ot KeyMeasurement more than a collection of lists
   light_source:
     range: LightSource
     description: >-

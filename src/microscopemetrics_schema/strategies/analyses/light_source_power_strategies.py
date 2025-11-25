@@ -102,18 +102,14 @@ def st_mm_light_source_power_input_parameters(
 
 
 @st.composite
-def st_mm_light_source_power_output_key_measurements(
+def st_mm_light_source_power_key_measurement(
     draw,
     light_source=st_mm_light_source(),
     power_meter=st_mm_power_meter(),
-    mm_object=st_mm_metrics_object(),
-) -> mm_schema.LightSourcePowerKeyMeasurements:
-    mm_object = draw(mm_object)
-    return mm_schema.LightSourcePowerKeyMeasurements(
-        name=mm_object.name,
-        description=mm_object.description,
-        light_source=draw(light_source),
-        power_meter=draw(power_meter),
+) -> mm_schema.LightSourcePowerKeyMeasurement:
+    return mm_schema.LightSourcePowerKeyMeasurement(
+        light_source=draw(light_source).name,
+        power_meter=draw(power_meter).name,
         measuring_location="OBJECTIVE_FOCAL",
         nr_of_measurements=100,
         power_mean_mw=25.0,
@@ -142,8 +138,8 @@ def st_mm_light_source_power_output(
     draw,
     output=st_mm_output(
         processing_entity=st.just("LightSourcePowerAnalysis"),
+        key_measurements=st.lists(st_mm_light_source_power_key_measurement(), min_size=1, max_size=3)
     ),
-    key_measurements=st_mm_light_source_power_output_key_measurements(),
 ) -> mm_schema.LightSourcePowerOutput:
     mm_output = draw(output)
     return mm_schema.LightSourcePowerOutput(
@@ -151,7 +147,7 @@ def st_mm_light_source_power_output(
         processing_version=mm_output.processing_version,
         processing_entity=mm_output.processing_entity,
         processing_datetime=mm_output.processing_datetime,
-        key_measurements=draw(key_measurements),
+        key_measurements=mm_output.key_measurements,
         processing_log=mm_output.processing_log,
         warnings=mm_output.warnings,
         errors=mm_output.errors,

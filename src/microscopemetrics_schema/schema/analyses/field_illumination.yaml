@@ -50,11 +50,6 @@ classes:
   FieldIlluminationOutput:
     is_a: MetricsOutput
     attributes:
-      key_measurements:
-        range: FieldIlluminationKeyMeasurements
-        description: >-
-          Key-Value pairs containing the Key measurements for the field illumination analysis
-        multivalued: false
       roi_profiles:
         range: Roi
         description: line ROIs used to compute the intensity profiles
@@ -101,9 +96,12 @@ classes:
       intensity_profiles:
         description: >-
           Intensity profiles for the field illumination analysis in the different directions
+      key_measurements:
+        range: FieldIlluminationKeyMeasurement
 
-  FieldIlluminationKeyMeasurements:
-    is_a: KeyMeasurements
+
+  FieldIlluminationKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - image_name
       - image_id

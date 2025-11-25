@@ -181,13 +181,8 @@ type FieldIlluminationInputParameters
     sigma: Float!
   }
 
-type FieldIlluminationKeyMeasurements
+type FieldIlluminationKeyMeasurement
   {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
     imageName: [String]
     imageId: [String]
     channelName: [String]
@@ -249,7 +244,6 @@ type FieldIlluminationOutput
     validated: Boolean!
     validationDatetime: String
     intensityProfiles: [Table]
-    keyMeasurements: FieldIlluminationKeyMeasurements
     roiProfiles: [Roi]
     roiCorners: [Roi]
     roiCentersOfMass: [Roi]
@@ -257,6 +251,7 @@ type FieldIlluminationOutput
     roiCentersFitted: [Roi]
     roiCentersMaxIntensity: [Roi]
     roiCenterRegion: [Roi]
+    keyMeasurements: [FieldIlluminationKeyMeasurement]!
   }
 
 type FluorescentHomogeneousThickField
@@ -348,13 +343,8 @@ type ImageMask
     arrayData: MetaObject
   }
 
-interface KeyMeasurements
+interface KeyMeasurement
   {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
   }
 
 type LightSource
@@ -405,13 +395,8 @@ type LightSourcePowerInputParameters
     longTermStabilityRequiredIntegrationTimeSeconds: Float
   }
 
-type LightSourcePowerKeyMeasurements
+type LightSourcePowerKeyMeasurement
   {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
     lightSource: [LightSource]
     powerMeter: [PowerMeter]
     measuringLocation: [MeasuringLocationEnum]
@@ -448,7 +433,7 @@ type LightSourcePowerOutput
     errors: [String]
     validated: Boolean!
     validationDatetime: String
-    keyMeasurements: LightSourcePowerKeyMeasurements
+    keyMeasurements: [LightSourcePowerKeyMeasurement]!
   }
 
 type Line
@@ -526,7 +511,7 @@ interface MetricsObject
 
 interface MetricsOutput
   {
-    keyMeasurements: KeyMeasurements!
+    keyMeasurements: [KeyMeasurement]!
     comment: Comment
     processingApplication: [String]!
     processingVersion: [String]!
@@ -691,13 +676,8 @@ type PSFBeadsInputParameters
     intensityRobustZScoreThreshold: Float!
   }
 
-type PSFBeadsKeyMeasurements
+type PSFBeadsKeyMeasurement
   {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
     channelName: [String]
     channelNr: [Int]
     totalBeadCount: [Int]
@@ -787,12 +767,12 @@ type PSFBeadsOutput
     consideredBeadCentersZFitQuality: [Roi]
     consideredBeadCentersYFitQuality: [Roi]
     consideredBeadCentersXFitQuality: [Roi]
-    keyMeasurements: PSFBeadsKeyMeasurements
     beadProperties: Table
     beadProfilesZ: Table
     beadProfilesY: Table
     beadProfilesX: Table
     averageBead: Image
+    keyMeasurements: [PSFBeadsKeyMeasurement]!
   }
 
 type Rectangle
@@ -905,13 +885,8 @@ type UserExperimentInputParameters
     saturationThreshold: Float
   }
 
-type UserExperimentKeyMeasurements
+type UserExperimentKeyMeasurement
   {
-    name: String
-    description: String
-    dataReference: DataReference
-    linkedReferences: [DataReference]
-    tableData: MetaObject
     channelName: [String]
     channelNr: [Int]
     variationCoefficient: [Float]
@@ -933,7 +908,7 @@ type UserExperimentOutput
     intensityProfiles: [Table]
     orthogonalImages: [OrthogonalImage]
     fftImages: [Image]
-    keyMeasurements: UserExperimentKeyMeasurements
+    keyMeasurements: [UserExperimentKeyMeasurement]!
   }
 
 type Vertex

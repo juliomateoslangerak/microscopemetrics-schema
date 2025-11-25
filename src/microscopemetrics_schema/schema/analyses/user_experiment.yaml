@@ -63,22 +63,18 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      key_measurements:
-        range: UserExperimentKeyMeasurements
-        description: >-
-          The key measurements on the user_experiment dataset.
-        multivalued: false
-        inlined: true
-        inlined_as_list: true
     slots:
       - intensity_profiles
     slot_usage:
       intensity_profiles:
         description: >-
           Intensity profiles along the profile_rois provided as input.
+      key_measurements:
+        range: UserExperimentKeyMeasurement
 
-  UserExperimentKeyMeasurements:
-    is_a: KeyMeasurements
+
+  UserExperimentKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - channel_name
       - channel_nr

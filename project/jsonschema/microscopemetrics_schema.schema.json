@@ -615,7 +615,7 @@
             "title": "FieldIlluminationInputParameters",
             "type": "object"
         },
-        "FieldIlluminationKeyMeasurements": {
+        "FieldIlluminationKeyMeasurement": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -902,24 +902,6 @@
                         "null"
                     ]
                 },
-                "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "image_id": {
                     "description": "The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.",
                     "items": {
@@ -934,16 +916,6 @@
                     "description": "The name of the image where the measurement was taken",
                     "items": {
                         "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
                     },
                     "type": [
                         "array",
@@ -1076,24 +1048,6 @@
                         "null"
                     ]
                 },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A non-required slot for non-serializable table data object"
-                },
                 "top_center_intensity_mean": {
                     "description": "The mean intensity of the top-center of the image",
                     "items": {
@@ -1155,7 +1109,7 @@
                     ]
                 }
             },
-            "title": "FieldIlluminationKeyMeasurements",
+            "title": "FieldIlluminationKeyMeasurement",
             "type": "object"
         },
         "FieldIlluminationOutput": {
@@ -1194,15 +1148,11 @@
                     ]
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/FieldIlluminationKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Key-Value pairs containing the Key measurements for the field illumination analysis"
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "items": {
+                        "$ref": "#/$defs/FieldIlluminationKeyMeasurement"
+                    },
+                    "type": "array"
                 },
                 "processing_application": {
                     "description": "The application used to process the dataset",
@@ -1334,6 +1284,7 @@
                 }
             },
             "required": [
+                "key_measurements",
                 "processing_application",
                 "processing_version",
                 "processing_datetime",
@@ -2015,42 +1966,14 @@
             "title": "LightSourcePowerInputParameters",
             "type": "object"
         },
-        "LightSourcePowerKeyMeasurements": {
+        "LightSourcePowerKeyMeasurement": {
             "additionalProperties": false,
             "description": "",
             "properties": {
-                "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "light_source": {
                     "description": "The light source under investigation.",
                     "items": {
                         "type": "string"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
                     },
                     "type": [
                         "array",
@@ -2096,13 +2019,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
                         "null"
                     ]
                 },
@@ -2279,20 +2195,9 @@
                         "array",
                         "null"
                     ]
-                },
-                "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A non-required slot for non-serializable table data object"
                 }
             },
-            "title": "LightSourcePowerKeyMeasurements",
+            "title": "LightSourcePowerKeyMeasurement",
             "type": "object"
         },
         "LightSourcePowerOutput": {
@@ -2321,15 +2226,11 @@
                     ]
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/LightSourcePowerKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "Key-Value measurements for the power measurements."
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "items": {
+                        "$ref": "#/$defs/LightSourcePowerKeyMeasurement"
+                    },
+                    "type": "array"
                 },
                 "processing_application": {
                     "description": "The application used to process the dataset",
@@ -2391,6 +2292,7 @@
                 }
             },
             "required": [
+                "key_measurements",
                 "processing_application",
                 "processing_version",
                 "processing_datetime",
@@ -3187,7 +3089,7 @@
             "title": "PSFBeadsInputParameters",
             "type": "object"
         },
-        "PSFBeadsKeyMeasurements": {
+        "PSFBeadsKeyMeasurement": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -3363,7 +3265,7 @@
                     ]
                 },
                 "considered_bad_fit_x_count": {
-                    "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
+                    "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
@@ -3373,7 +3275,7 @@
                     ]
                 },
                 "considered_bad_fit_y_count": {
-                    "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
+                    "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
@@ -3383,7 +3285,7 @@
                     ]
                 },
                 "considered_bad_fit_z_count": {
-                    "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are  not averaged into the key measurements. One value per channel.",
+                    "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
                     "items": {
                         "type": "integer"
                     },
@@ -3429,24 +3331,6 @@
                     },
                     "type": [
                         "array",
-                        "null"
-                    ]
-                },
-                "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
                         "null"
                     ]
                 },
@@ -3870,34 +3754,6 @@
                         "null"
                     ]
                 },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A non-required slot for non-serializable table data object"
-                },
                 "total_bead_count": {
                     "description": "Total number of beads detected in the image. One value per channel.",
                     "items": {
@@ -3909,7 +3765,7 @@
                     ]
                 }
             },
-            "title": "PSFBeadsKeyMeasurements",
+            "title": "PSFBeadsKeyMeasurement",
             "type": "object"
         },
         "PSFBeadsOutput": {
@@ -4073,15 +3929,11 @@
                     ]
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/PSFBeadsKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The key measurements of the PSF beads analysis."
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "items": {
+                        "$ref": "#/$defs/PSFBeadsKeyMeasurement"
+                    },
+                    "type": "array"
                 },
                 "processing_application": {
                     "description": "The application used to process the dataset",
@@ -4143,6 +3995,7 @@
                 }
             },
             "required": [
+                "key_measurements",
                 "processing_application",
                 "processing_version",
                 "processing_datetime",
@@ -4903,7 +4756,7 @@
             "title": "UserExperimentInputParameters",
             "type": "object"
         },
-        "UserExperimentKeyMeasurements": {
+        "UserExperimentKeyMeasurement": {
             "additionalProperties": false,
             "description": "",
             "properties": {
@@ -4928,41 +4781,6 @@
                         "null"
                     ]
                 },
-                "data_reference": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/DataReference"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A reference to the data"
-                },
-                "description": {
-                    "description": "A human readable description of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
-                "linked_references": {
-                    "description": "A list of linked references",
-                    "items": {
-                        "$ref": "#/$defs/DataReference"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "name": {
-                    "description": "The human readable name of an entity",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
-                },
                 "saturated_channels": {
                     "description": "The channels that are saturated in the image. One value per channel.",
                     "items": {
@@ -4972,17 +4790,6 @@
                         "array",
                         "null"
                     ]
-                },
-                "table_data": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/MetaObject"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "A non-required slot for non-serializable table data object"
                 },
                 "variation_coefficient": {
                     "description": "The variation coefficient of the signal of the image. One value per channel.",
@@ -4995,7 +4802,7 @@
                     ]
                 }
             },
-            "title": "UserExperimentKeyMeasurements",
+            "title": "UserExperimentKeyMeasurement",
             "type": "object"
         },
         "UserExperimentOutput": {
@@ -5044,15 +4851,11 @@
                     ]
                 },
                 "key_measurements": {
-                    "anyOf": [
-                        {
-                            "$ref": "#/$defs/UserExperimentKeyMeasurements"
-                        },
-                        {
-                            "type": "null"
-                        }
-                    ],
-                    "description": "The key measurements on the user_experiment dataset."
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "items": {
+                        "$ref": "#/$defs/UserExperimentKeyMeasurement"
+                    },
+                    "type": "array"
                 },
                 "orthogonal_images": {
                     "description": "Orthogonal images created from the provided orthogonal_rois.",
@@ -5124,6 +4927,7 @@
                 }
             },
             "required": [
+                "key_measurements",
                 "processing_application",
                 "processing_version",
                 "processing_datetime",

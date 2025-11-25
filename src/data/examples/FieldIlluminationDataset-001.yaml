@@ -68,96 +68,48 @@ output:
     comment_type: "OTHER"
     text: "This dataset is for testing purposes only."
   key_measurements:
-    data_reference:
-      data_uri: "https://omero.example.org/datasets/430000000"
-      omero_host: "omero.example.org"
-      omero_port: 4064
-      omero_object_type: "KEY_VALUES"
-      omero_object_id: 430000000
-    channel_name:
-    - DAPI
-    center_region_intensity_fraction:
-    - 0.8548346166225148
-    center_region_area_fraction:
-    - 0.25
-    center_of_mass_x:
-    - 264.1675555226803
-    center_of_mass_x_relative:
-    - 0.2084306164054108
-    center_of_mass_y:
-    - 288.2084306164054
-    center_of_mass_y_relative:
-    - 0.2264306164054108
-    center_of_mass_distance_relative:
-    - 0.1064306164054108
-    center_geometric_x:
-    - 264.0
-    center_geometric_x_relative:
-    - 0.20833333333333334
-    center_geometric_y:
-    - 288.0
-    center_geometric_y_relative:
-    - 0.22625
-    center_geometric_distance_relative:
-    - 0.10583333333333333
-    center_fitted_x:
-    - 264.0
-    center_fitted_x_relative:
-    - 0.20833333333333334
-    center_fitted_y:
-    - 288.0
-    center_fitted_y_relative:
-    - 0.22625
-    center_fitted_distance_relative:
-    - 0.10583333333333333
-    max_intensity:
-    - 239.0
-    max_intensity_pos_x:
-    - 329.0
-    max_intensity_pos_x_relative:
-    - 0.25916666666666666
-    max_intensity_pos_y:
-    - 342.0
-    max_intensity_pos_y_relative:
-    - 0.26875
-    max_intensity_distance_relative:
-    - 0.13458333333333333
-    top_left_intensity_mean:
-    - 183.5840061514802
-    top_left_intensity_ratio:
-    - 0.7681339169518
-    top_center_intensity_mean:
-    - 192.84803921568627
-    top_center_intensity_ratio:
-    - 0.8068955615719091
-    top_right_intensity_mean:
-    - 195.7686274509804
-    top_right_intensity_ratio:
-    - 0.8191155960292067
-    middle_left_intensity_mean:
-    - 189.84879336349925
-    middle_left_intensity_ratio:
-    - 0.7943464157468588
-    middle_center_intensity_mean:
-    - 204.30547337278105
-    middle_center_intensity_ratio:
-    - 0.8548346166225148
-    middle_right_intensity_mean:
-    - 205.46807692307692
-    middle_right_intensity_ratio:
-    - 0.8596990666237528
-    bottom_left_intensity_mean:
-    - 185.88823529411764
-    bottom_left_intensity_ratio:
-    - 0.7777750430716219
-    bottom_center_intensity_mean:
-    - 190.04
-    bottom_center_intensity_ratio:
-    - 0.7951464435146444
-    bottom_right_intensity_mean:
-    - 194.0332
-    bottom_right_intensity_ratio:
-    - 0.8118543933054393
+    - channel_name: DAPI
+      center_region_intensity_fraction: 0.8548346166225148
+      center_region_area_fraction: 0.25
+      center_of_mass_x: 264.1675555226803
+      center_of_mass_x_relative: 0.2084306164054108
+      center_of_mass_y: 288.2084306164054
+      center_of_mass_y_relative: 0.2264306164054108
+      center_of_mass_distance_relative: 0.1064306164054108
+      center_geometric_x: 264.0
+      center_geometric_x_relative: 0.20833333333333334
+      center_geometric_y: 288.0
+      center_geometric_y_relative: 0.22625
+      center_geometric_distance_relative: 0.10583333333333333
+      center_fitted_x: 264.0
+      center_fitted_x_relative: 0.20833333333333334
+      center_fitted_y: 288.0
+      center_fitted_y_relative: 0.22625
+      center_fitted_distance_relative: 0.10583333333333333
+      max_intensity: 239.0
+      max_intensity_pos_x: 329.0
+      max_intensity_pos_x_relative: 0.25916666666666666
+      max_intensity_pos_y: 342.0
+      max_intensity_pos_y_relative: 0.26875
+      max_intensity_distance_relative: 0.13458333333333333
+      top_left_intensity_mean: 183.5840061514802
+      top_left_intensity_ratio: 0.7681339169518
+      top_center_intensity_mean: 192.84803921568627
+      top_center_intensity_ratio: 0.8068955615719091
+      top_right_intensity_mean: 195.7686274509804
+      top_right_intensity_ratio: 0.8191155960292067
+      middle_left_intensity_mean: 189.84879336349925
+      middle_left_intensity_ratio: 0.7943464157468588
+      middle_center_intensity_mean: 204.30547337278105
+      middle_center_intensity_ratio: 0.8548346166225148
+      middle_right_intensity_mean: 205.46807692307692
+      middle_right_intensity_ratio: 0.8596990666237528
+      bottom_left_intensity_mean: 185.88823529411764
+      bottom_left_intensity_ratio: 0.7777750430716219
+      bottom_center_intensity_mean: 190.04
+      bottom_center_intensity_ratio: 0.7951464435146444
+      bottom_right_intensity_mean: 194.0332
+      bottom_right_intensity_ratio: 0.8118543933054393
   intensity_profiles:
     - name: intensity_profiles
       description: "Intensity profiles"

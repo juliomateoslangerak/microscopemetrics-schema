@@ -134,13 +134,6 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      key_measurements:
-        range: PSFBeadsKeyMeasurements
-        description: >-
-          The key measurements of the PSF beads analysis.
-        multivalued: false
-        inlined: true
-        inlined_as_list: true
       bead_properties:
         range: Table
         description: >-
@@ -181,9 +174,12 @@ classes:
         multivalued: false
         inlined: true
         inlined_as_list: true
+    slot_usage:
+      key_measurements:
+        range: PSFBeadsKeyMeasurement
 
-  PSFBeadsKeyMeasurements:
-    is_a: KeyMeasurements
+  PSFBeadsKeyMeasurement:
+    is_a: KeyMeasurement
     slots:
       - channel_name
       - channel_nr
@@ -346,19 +342,19 @@ slots:
   considered_bad_fit_z_count:
     range: integer
     description: >-
-      Number of beads considered as having a bad fit quality in the z axis. The fitting meassureemnts are 
+      Number of beads considered as having a bad fit quality in the z axis. The fitting measurements are 
       not averaged into the key measurements. One value per channel.
     multivalued: true
   considered_bad_fit_y_count:
     range: integer
     description: >-
-      Number of beads considered as having a bad fit quality in the y axis. The fitting meassureemnts are 
+      Number of beads considered as having a bad fit quality in the y axis. The fitting measurements are 
       not averaged into the key measurements. One value per channel.
     multivalued: true
   considered_bad_fit_x_count:
     range: integer
     description: >-
-      Number of beads considered as having a bad fit quality in the x axis. The fitting meassureemnts are 
+      Number of beads considered as having a bad fit quality in the x axis. The fitting measurements are 
       not averaged into the key measurements. One value per channel.
     multivalued: true
   intensity_integrated_mean:

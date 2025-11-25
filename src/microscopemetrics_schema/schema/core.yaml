@@ -603,12 +603,9 @@ classes:
         required: false
         multivalued: false
 
-  KeyMeasurements:
-    is_a: MetricsObject
-    description: A table of key measurements
+  KeyMeasurement:
+    description: A dict-like of key measurements.
     abstract: true
-    slots:
-      - table_data
 
   Table:
     is_a: MetricsObject
@@ -689,12 +686,13 @@ slots:
 
   # MetricsOutput slots
   key_measurements:
-    range: KeyMeasurements
+    range: KeyMeasurement
     description: >-
-      Key measurements is a table summarizing the most important 
+      A list of KeyMeasurement subclasses summarizing the most important 
       measurements as a function of, for example, channels
     required: true
-    multivalued: false
+    multivalued: true
+    inlined: true
   intensity_profiles:
     range: Table
     description: >-
