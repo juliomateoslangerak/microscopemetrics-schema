@@ -75,51 +75,9 @@ classes:
       - long_term_power_stability
     slot_usage:
       light_source:
-        multivalued: true
         inlined: false
       power_meter:
-        multivalued: true
         inlined: false
-      measuring_location:
-        multivalued: true
-      nr_of_measurements:
-        multivalued: true
-      power_mean_mw:
-        multivalued: true
-      power_median_mw:
-        multivalued: true
-      power_std_mw:
-        multivalued: true
-      power_min_mw:
-        multivalued: true
-      power_max_mw:
-        multivalued: true
-      power_linearity_start_datetime:
-        multivalued: true
-      power_linearity_end_datetime:
-        multivalued: true
-      power_linearity_slope:
-        multivalued: true
-      power_linearity_intercept:
-        multivalued: true
-      power_linearity_coefficient_of_determination:
-        multivalued: true
-      power_linearity_p_value:
-        multivalued: true
-      power_linearity_std_err:
-        multivalued: true
-      short_term_power_stability_start_datetime:
-        multivalued: true
-      short_term_power_stability_end_datetime:
-        multivalued: true
-      short_term_power_stability:
-        multivalued: true
-      long_term_power_stability_start_datetime:
-        multivalued: true
-      long_term_power_stability_end_datetime:
-        multivalued: true
-      long_term_power_stability:
-        multivalued: true
 
   PowerMeasurement:
     description: >-

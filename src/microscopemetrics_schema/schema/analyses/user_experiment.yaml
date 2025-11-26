@@ -115,9 +115,9 @@ slots:
     range: float
     description: >-
       The variation coefficient of the signal of the image. One value per channel.
-    multivalued: true
+    multivalued: false
   saturated_channels:
     range: integer
     description: >-
       The channels that are saturated in the image. One value per channel.
-    multivalued: true
+    multivalued: false

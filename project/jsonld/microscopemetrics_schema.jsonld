@@ -1424,7 +1424,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1440,7 +1439,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1456,7 +1454,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1470,7 +1467,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1486,7 +1482,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1500,7 +1495,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1516,7 +1510,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1532,7 +1525,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1546,7 +1538,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1562,7 +1553,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1576,7 +1566,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1592,7 +1581,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1608,7 +1596,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1622,7 +1609,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1638,7 +1624,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1652,7 +1637,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1668,7 +1652,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1684,7 +1667,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1698,7 +1680,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1712,7 +1693,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1728,7 +1708,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1742,7 +1721,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": -1.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1758,7 +1736,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "minimum_value": 0.0,
       "maximum_value": 1.0,
       "@type": "SlotDefinition"
@@ -1774,7 +1751,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1788,7 +1764,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1802,7 +1777,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1816,7 +1790,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1830,7 +1803,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1844,7 +1816,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1858,7 +1829,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1872,7 +1842,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1886,7 +1855,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1900,7 +1868,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1914,7 +1881,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1928,7 +1894,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1942,7 +1907,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1956,7 +1920,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1970,7 +1933,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1984,7 +1946,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1998,7 +1959,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2012,7 +1972,6 @@
         "FieldIlluminationKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2135,7 +2094,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2149,7 +2107,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2163,7 +2120,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2177,7 +2133,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2191,7 +2146,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2205,7 +2159,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2219,7 +2172,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2233,7 +2185,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2247,7 +2198,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2261,7 +2211,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2275,7 +2224,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2289,7 +2237,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2303,7 +2250,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2317,7 +2263,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2331,7 +2276,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2345,7 +2289,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2359,7 +2302,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2373,7 +2315,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2387,7 +2328,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2401,7 +2341,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2415,7 +2354,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2429,7 +2367,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2443,7 +2380,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2457,7 +2393,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2471,7 +2406,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2485,7 +2419,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2499,7 +2432,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2513,7 +2445,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2527,7 +2458,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2541,7 +2471,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2555,7 +2484,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2569,7 +2497,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2583,7 +2510,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2597,7 +2523,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2611,7 +2536,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2625,7 +2549,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2639,7 +2562,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2653,7 +2575,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2667,7 +2588,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2681,7 +2601,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2695,7 +2614,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2709,7 +2627,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2723,7 +2640,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2737,7 +2653,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2751,7 +2666,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2765,7 +2679,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2779,7 +2692,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2793,7 +2705,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2807,7 +2718,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2821,7 +2731,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2835,7 +2744,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2849,7 +2757,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2863,7 +2770,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2877,7 +2783,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2891,7 +2796,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2905,7 +2809,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2919,7 +2822,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2933,7 +2835,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2947,7 +2848,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2961,7 +2861,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2975,7 +2874,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2989,7 +2887,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3003,7 +2900,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3017,7 +2913,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3031,7 +2926,6 @@
         "PSFBeadsKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3564,7 +3458,6 @@
         "UserExperimentKeyMeasurement"
       ],
       "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3578,7 +3471,6 @@
         "UserExperimentKeyMeasurement"
       ],
       "range": "integer",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5146,7 +5038,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "light_source",
       "range": "LightSource",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5165,401 +5056,6 @@
       "is_usage_slot": true,
       "usage_slot_name": "power_meter",
       "range": "PowerMeter",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_measuring_location",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
-      "description": "The location at which the measurement was taken.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "measuring_location",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
-      "ifabsent": "MeasuringLocationEnum(OBJECTIVE_FOCAL)",
-      "alias": "measuring_location",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "measuring_location",
-      "range": "MeasuringLocationEnum",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_nr_of_measurements",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
-      "description": "The number of power measurements taken.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "nr_of_measurements",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements",
-      "alias": "nr_of_measurements",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "nr_of_measurements",
-      "range": "integer",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_mean_mw",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw",
-      "description": "The mean power measured in milliwatts.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_mean_mw",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_mean_mw",
-      "alias": "power_mean_mw",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_mean_mw",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_median_mw",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw",
-      "description": "The median power measured in milliwatts.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_median_mw",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_median_mw",
-      "alias": "power_median_mw",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_median_mw",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_std_mw",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_std_mw",
-      "description": "The standard deviation of the power measured in milliwatts.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_std_mw",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_std_mw",
-      "alias": "power_std_mw",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_std_mw",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_min_mw",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_min_mw",
-      "description": "The minimum power measured in milliwatts.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_min_mw",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_min_mw",
-      "alias": "power_min_mw",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_min_mw",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_max_mw",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_max_mw",
-      "description": "The maximum power measured in milliwatts.",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_max_mw",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_max_mw",
-      "alias": "power_max_mw",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_max_mw",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_start_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
-      "description": "The datetime of the first measurement used to calculate power linearity.",
-      "title": "Linearity start datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_start_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_start_datetime",
-      "alias": "power_linearity_start_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_start_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_end_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
-      "description": "The datetime of the last measurement used to calculate power linearity.",
-      "title": "Linearity end datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_end_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_end_datetime",
-      "alias": "power_linearity_end_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_end_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_slope",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
-      "description": "The slope of the linear regression model that fits output power as a function of the set point.",
-      "title": "Linearity slope",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_slope",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_slope",
-      "alias": "power_linearity_slope",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_slope",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_intercept",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
-      "description": "The intercept of the linear regression model that fits output power as a function of the set point.",
-      "title": "Linearity intercept",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_intercept",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_intercept",
-      "alias": "power_linearity_intercept",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_intercept",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_coefficient_of_determination",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
-      "description": "The coefficient of determination a linear regression model fits output power as a function of the set point.",
-      "title": "Linearity coefficient of determination",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_coefficient_of_determination",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_coefficient_of_determination",
-      "alias": "power_linearity_coefficient_of_determination",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_coefficient_of_determination",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_p_value",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
-      "description": "The p-value of the linear regression model that fits output power as a function of the set point.",
-      "title": "Linearity p-value",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_p_value",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_p_value",
-      "alias": "power_linearity_p_value",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_p_value",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_power_linearity_std_err",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
-      "description": "The standard error of the linear regression model that fits output power as a function of the set point.",
-      "title": "Linearity standard error",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "power_linearity_std_err",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_linearity_std_err",
-      "alias": "power_linearity_std_err",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "power_linearity_std_err",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_short_term_power_stability_start_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
-      "description": "The datetime of the first measurement used to calculate short term power stability.",
-      "title": "Short term stability start datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "short_term_power_stability_start_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_start_datetime",
-      "alias": "short_term_power_stability_start_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "short_term_power_stability_start_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_short_term_power_stability_end_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
-      "description": "The datetime of the last measurement used to calculate short term power stability.",
-      "title": "Short term stability end datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "short_term_power_stability_end_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability_end_datetime",
-      "alias": "short_term_power_stability_end_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "short_term_power_stability_end_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_short_term_power_stability",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
-      "description": "The short term stability of the light source",
-      "title": "Short term stability",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "short_term_power_stability",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/short_term_power_stability",
-      "alias": "short_term_power_stability",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "short_term_power_stability",
-      "range": "float",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_long_term_power_stability_start_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
-      "description": "The datetime of the first measurement used to calculate long term power stability.",
-      "title": "Long term stability start datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "long_term_power_stability_start_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_start_datetime",
-      "alias": "long_term_power_stability_start_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "long_term_power_stability_start_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_long_term_power_stability_end_datetime",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
-      "description": "The datetime of the last measurement used to calculate long term power stability.",
-      "title": "Long term stability end datetime",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "long_term_power_stability_end_datetime",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability_end_datetime",
-      "alias": "long_term_power_stability_end_datetime",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "long_term_power_stability_end_datetime",
-      "range": "datetime",
-      "multivalued": true,
-      "@type": "SlotDefinition"
-    },
-    {
-      "name": "LightSourcePowerKeyMeasurement_long_term_power_stability",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
-      "description": "The long term stability of the light source",
-      "title": "Long term stability",
-      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
-      "is_a": "long_term_power_stability",
-      "domain": "LightSourcePowerKeyMeasurement",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/long_term_power_stability",
-      "alias": "long_term_power_stability",
-      "owner": "LightSourcePowerKeyMeasurement",
-      "domain_of": [
-        "LightSourcePowerKeyMeasurement"
-      ],
-      "is_usage_slot": true,
-      "usage_slot_name": "long_term_power_stability",
-      "range": "float",
-      "multivalued": true,
       "@type": "SlotDefinition"
     },
     {
@@ -7518,26 +7014,26 @@
       "slots": [
         "LightSourcePowerKeyMeasurement_light_source",
         "LightSourcePowerKeyMeasurement_power_meter",
-        "LightSourcePowerKeyMeasurement_measuring_location",
-        "LightSourcePowerKeyMeasurement_nr_of_measurements",
-        "LightSourcePowerKeyMeasurement_power_mean_mw",
-        "LightSourcePowerKeyMeasurement_power_median_mw",
-        "LightSourcePowerKeyMeasurement_power_std_mw",
-        "LightSourcePowerKeyMeasurement_power_min_mw",
-        "LightSourcePowerKeyMeasurement_power_max_mw",
-        "LightSourcePowerKeyMeasurement_power_linearity_start_datetime",
-        "LightSourcePowerKeyMeasurement_power_linearity_end_datetime",
-        "LightSourcePowerKeyMeasurement_power_linearity_slope",
-        "LightSourcePowerKeyMeasurement_power_linearity_intercept",
-        "LightSourcePowerKeyMeasurement_power_linearity_coefficient_of_determination",
-        "LightSourcePowerKeyMeasurement_power_linearity_p_value",
-        "LightSourcePowerKeyMeasurement_power_linearity_std_err",
-        "LightSourcePowerKeyMeasurement_short_term_power_stability_start_datetime",
-        "LightSourcePowerKeyMeasurement_short_term_power_stability_end_datetime",
-        "LightSourcePowerKeyMeasurement_short_term_power_stability",
-        "LightSourcePowerKeyMeasurement_long_term_power_stability_start_datetime",
-        "LightSourcePowerKeyMeasurement_long_term_power_stability_end_datetime",
-        "LightSourcePowerKeyMeasurement_long_term_power_stability"
+        "measuring_location",
+        "nr_of_measurements",
+        "power_mean_mw",
+        "power_median_mw",
+        "power_std_mw",
+        "power_min_mw",
+        "power_max_mw",
+        "power_linearity_start_datetime",
+        "power_linearity_end_datetime",
+        "power_linearity_slope",
+        "power_linearity_intercept",
+        "power_linearity_coefficient_of_determination",
+        "power_linearity_p_value",
+        "power_linearity_std_err",
+        "short_term_power_stability_start_datetime",
+        "short_term_power_stability_end_datetime",
+        "short_term_power_stability",
+        "long_term_power_stability_start_datetime",
+        "long_term_power_stability_end_datetime",
+        "long_term_power_stability"
       ],
       "slot_usage": {},
       "class_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerKeyMeasurement",
@@ -7837,7 +7333,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-11-24T07:16:00",
   "source_file_size": 912,
-  "generation_date": "2025-11-25T02:13:58",
+  "generation_date": "2025-11-26T12:11:58",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
