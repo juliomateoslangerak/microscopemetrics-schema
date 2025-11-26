@@ -189,7 +189,7 @@ slots:
       That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range.
       microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   center_region_area_fraction:
@@ -198,35 +198,35 @@ slots:
       The fraction of the area occupied by the center of illumination region. If the centre upper intensity
       fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   center_of_mass_y:
     range: float
     description: >-
       The y coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
-    multivalued: true
+    multivalued: false
   center_of_mass_y_relative:
     range: float
     description: >-
       The relative y position of the center of mass of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_of_mass_x:
     range: float
     description: >-
       The x coordinate of the center of mass of the center of illumination region. In pixels. One value per channel.
-    multivalued: true
+    multivalued: false
   center_of_mass_x_relative:
     range: float
     description: >-
       The relative x position of the center of mass of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_of_mass_distance_relative:
@@ -235,34 +235,34 @@ slots:
       The relative distance of the centers of mass to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   center_geometric_y:
     range: float
     description: >-
       The y coordinate of the geometric center of the center of illumination region. In pixels. One value per channel.
-    multivalued: true
+    multivalued: false
   center_geometric_y_relative:
     range: float
     description: >-
       The relative y position of the geometric center of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
       One value per channel.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_geometric_x:
     range: float
     description: >-
       The x coordinate of the geometric center of the center of illumination region. In pixels
-    multivalued: true
+    multivalued: false
   center_geometric_x_relative:
     range: float
     description: >-
       The relative x position of the geometric center of the center of illumination region. 
       Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_geometric_distance_relative:
@@ -270,33 +270,33 @@ slots:
     description: >-
       The relative distance of the geometric center to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   center_fitted_y:
     range: float
     description: >-
       The y coordinate of the fitted center of illumination. In pixels
-    multivalued: true
+    multivalued: false
   center_fitted_y_relative:
     range: float
     description: >-
       The relative y position of the fitted center of illumination. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_fitted_x:
     range: float
     description: >-
       The x coordinate of the fitted center of illumination. In pixels
-    multivalued: true
+    multivalued: false
   center_fitted_x_relative:
     range: float
     description: >-
       The relative x position of the fitted center of illumination. 
       Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   center_fitted_distance_relative:
@@ -304,38 +304,38 @@ slots:
     description: >-
       The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   max_intensity:
     range: float
     description: >-
       The maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   max_intensity_pos_y:
     range: float
     description: >-
       The y coordinate of the maximum intensity of the center of illumination. In pixels
-    multivalued: true
+    multivalued: false
   max_intensity_pos_y_relative:
     range: float
     description: >-
       The relative y position of the maximum intensity of the center of illumination. 
       Relative to the image size along that axis. -1.0 is upper edge, 0.0 is center and 1.0 is lower edge.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   max_intensity_pos_x:
     range: float
     description: >-
       The x coordinate of the maximum intensity of the center of illumination. In pixels
-    multivalued: true
+    multivalued: false
   max_intensity_pos_x_relative:
     range: float
     description: >-
       The relative x position of the maximum intensity of the center of illumination. 
       Relative to the image size along that axis. -1.0 is left edge, 0.0 is center and 1.0 is right edge.
-    multivalued: true
+    multivalued: false
     minimum_value: -1.0
     maximum_value: 1.0
   max_intensity_distance_relative:
@@ -343,105 +343,105 @@ slots:
     description: >-
       The relative distance of the maximum intensity to the center of the image. Relative to the distance to 
       an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
-    multivalued: true
+    multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
   top_left_intensity_mean:
     range: float
     description: >-
       The mean intensity of the top-left corner of the image
-    multivalued: true
+    multivalued: false
   top_left_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the top-left corner of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   top_center_intensity_mean:
     range: float
     description: >-
       The mean intensity of the top-center of the image
-    multivalued: true
+    multivalued: false
   top_center_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the top-center of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   top_right_intensity_mean:
     range: float
     description: >-
       The mean intensity of the top-right corner of the image
-    multivalued: true
+    multivalued: false
   top_right_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the top-right corner of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   middle_left_intensity_mean:
     range: float
     description: >-
       The mean intensity of the middle-left of the image
-    multivalued: true
+    multivalued: false
   middle_left_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the middle-left of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   middle_center_intensity_mean:
     range: float
     description: >-
       The mean intensity of the middle-center of the image
-    multivalued: true
+    multivalued: false
   middle_center_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the middle-center of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   middle_right_intensity_mean:
     range: float
     description: >-
       The mean intensity of the middle-right of the image
-    multivalued: true
+    multivalued: false
   middle_right_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the middle-right of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   bottom_left_intensity_mean:
     range: float
     description: >-
       The mean intensity of the bottom-left of the image
-    multivalued: true
+    multivalued: false
   bottom_left_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the bottom-left of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   bottom_center_intensity_mean:
     range: float
     description: >-
       The mean intensity of the bottom-center of the image
-    multivalued: true
+    multivalued: false
   bottom_center_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the bottom-center of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
   bottom_right_intensity_mean:
     range: float
     description: >-
       The mean intensity of the bottom-right of the image
-    multivalued: true
+    multivalued: false
   bottom_right_intensity_ratio:
     range: float
     description: >-
       The mean intensity of the bottom-right of the image 
       divided by the maximum intensity of the center of illumination
-    multivalued: true
+    multivalued: false
