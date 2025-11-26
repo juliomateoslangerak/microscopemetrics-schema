@@ -44,7 +44,7 @@ def st_mm_light_source_power_measurement(
     draw,
     acquisition_datetime=st.datetimes(),
     light_source=st_mm_light_source(),
-    measuring_device=st_mm_power_meter(),
+    power_meter=st_mm_power_meter(),
     measuring_location=st.sampled_from(
         [
             "SOURCE_EXIT",
@@ -62,6 +62,7 @@ def st_mm_light_source_power_measurement(
     return mm_schema.PowerMeasurement(
         acquisition_datetime=draw(acquisition_datetime),
         light_source=draw(light_source),
+        power_meter=draw(power_meter),
         measuring_location=draw(measuring_location),
         power_set_point=draw(power_set_point),
         power_mw=draw(power_mw),
