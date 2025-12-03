@@ -2946,7 +2946,6 @@
       "description": "The location at which the measurement was taken.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
-      "ifabsent": "MeasuringLocationEnum(OBJECTIVE_FOCAL)",
       "owner": "PowerMeasurement",
       "domain_of": [
         "LightSourcePowerKeyMeasurement",
@@ -7278,7 +7277,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-12-03T13:42:02",
   "source_file_size": 912,
-  "generation_date": "2025-12-03T13:44:41",
+  "generation_date": "2025-12-03T14:00:14",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
