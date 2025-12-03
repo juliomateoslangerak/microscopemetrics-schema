@@ -137,7 +137,7 @@ slots:
     range: MeasuringLocationEnum
     description: >-
       The location at which the measurement was taken.
-    ifabsent: MeasuringLocationEnum(OBJECTIVE_FOCAL)
+    ifabsent: MeasuringLocationEnum(OBJECTIVEFOCAL)
     multivalued: false
   wavelength_nm:
     range: float
@@ -332,15 +332,15 @@ enums:
     description: >-
       The location at which the measurement was taken.
     permissible_values:
-      SOURCE_EXIT:
+      SOURCEEXIT:
         description: Power at the exit of the light source
-      FIBER_EXIT:
+      FIBEREXIT:
         description: Power at the exit of the fiber
-      OBJECTIVE_BACKFOCAL:
+      OBJECTIVEBACKFOCAL:
         description: Power at the back focal plane of the objective
-      OBJECTIVE_EXIT:
+      OBJECTIVEEXIT:
         description: Power at the exit of the objective
-      OBJECTIVE_FOCAL:
+      OBJECTIVEFOCAL:
         description: Power at the focal plane of the objective
       OTHER:
         description: Other location

@@ -47,11 +47,11 @@ def st_mm_light_source_power_measurement(
     power_meter=st_mm_power_meter(),
     measuring_location=st.sampled_from(
         [
-            "SOURCE_EXIT",
-            "FIBER_EXIT",
-            "OBJECTIVE_BACKFOCAL",
-            "OBJECTIVE_EXIT",
-            "OBJECTIVE_FOCAL",
+            "SOURCEEXIT",
+            "FIBEREXIT",
+            "OBJECTIVEBACKFOCAL",
+            "OBJECTIVEEXIT",
+            "OBJECTIVEFOCAL",
             "OTHER",
         ]
     ),
@@ -111,7 +111,7 @@ def st_mm_light_source_power_key_measurement(
     return mm_schema.LightSourcePowerKeyMeasurement(
         light_source=draw(light_source).name,
         power_meter=draw(power_meter).name,
-        measuring_location="OBJECTIVE_FOCAL",
+        measuring_location="OBJECTIVEFOCAL",
         nr_of_measurements=100,
         power_mean_mw=25.0,
         power_median_mw=25.0,

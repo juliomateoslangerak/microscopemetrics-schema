@@ -621,11 +621,11 @@ CLOSED {
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location>
           [
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#SOURCE_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#FIBER_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_BACKFOCAL>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_FOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#SOURCEEXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#FIBEREXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEBACKFOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEEXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEFOCAL>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OTHER>
              ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/nr_of_measurements>
@@ -944,11 +944,11 @@ CLOSED {
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location>
           [
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#SOURCE_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#FIBER_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_BACKFOCAL>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_EXIT>
-             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVE_FOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#SOURCEEXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#FIBEREXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEBACKFOCAL>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEEXIT>
+             <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OBJECTIVEFOCAL>
              <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/MeasuringLocationEnum#OTHER>
              ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/power_set_point>
@@ -1471,3 +1471,4 @@ CLOSED {
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Vertex> ] ?
     )
 }
+

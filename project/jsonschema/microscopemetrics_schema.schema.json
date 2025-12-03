@@ -2286,11 +2286,11 @@
         "MeasuringLocationEnum": {
             "description": "The location at which the measurement was taken.",
             "enum": [
-                "SOURCE_EXIT",
-                "FIBER_EXIT",
-                "OBJECTIVE_BACKFOCAL",
-                "OBJECTIVE_EXIT",
-                "OBJECTIVE_FOCAL",
+                "SOURCEEXIT",
+                "FIBEREXIT",
+                "OBJECTIVEBACKFOCAL",
+                "OBJECTIVEEXIT",
+                "OBJECTIVEFOCAL",
                 "OTHER"
             ],
             "title": "MeasuringLocationEnum",
