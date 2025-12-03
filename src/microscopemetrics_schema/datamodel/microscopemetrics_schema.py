@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-03T12:33:11
+# Generation date: 2025-12-03T12:59:24
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2307,7 +2307,7 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
 
     light_source: Optional[Union[str, LightSourceName]] = None
     power_meter: Optional[Union[str, PowerMeterName]] = None
-    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = 'OBJECTIVEFOCAL'
+    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
     nr_of_measurements: Optional[int] = None
     power_mean_mw: Optional[float] = None
     power_median_mw: Optional[float] = None
@@ -2336,7 +2336,7 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
             self.power_meter = PowerMeterName(self.power_meter)
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
-            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
+            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
 
         if self.nr_of_measurements is not None and not isinstance(self.nr_of_measurements, int):
             self.nr_of_measurements = int(self.nr_of_measurements)
@@ -2413,7 +2413,7 @@ class PowerMeasurement(YAMLRoot):
     acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
     light_source: Optional[Union[str, LightSourceName]] = None
     power_meter: Optional[Union[str, PowerMeterName]] = None
-    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = 'OBJECTIVEFOCAL'
+    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
     power_set_point: Optional[float] = None
     power_mw: Optional[float] = None
     integration_time_seconds: Optional[float] = None
@@ -2429,7 +2429,7 @@ class PowerMeasurement(YAMLRoot):
             self.power_meter = PowerMeterName(self.power_meter)
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
-            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
+            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
 
         if self.power_set_point is not None and not isinstance(self.power_set_point, float):
             self.power_set_point = float(self.power_set_point)
