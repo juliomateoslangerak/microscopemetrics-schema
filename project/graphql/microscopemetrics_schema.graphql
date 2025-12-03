@@ -17,11 +17,11 @@ enum CommentTypesEnum
 
 enum MeasuringLocationEnum
   {
-    SOURCEEXIT
-    FIBEREXIT
-    OBJECTIVEBACKFOCAL
-    OBJECTIVEEXIT
-    OBJECTIVEFOCAL
+    SOURCE_EXIT
+    FIBER_EXIT
+    OBJECTIVE_BACKFOCAL
+    OBJECTIVE_EXIT
+    OBJECTIVE_FOCAL
     OTHER
   }
 
@@ -90,10 +90,10 @@ type ChannelSeries
 
 type Color
   {
-    r: Integer!
-    g: Integer!
-    b: Integer!
-    alpha: Integer
+    r: Int!
+    g: Int!
+    b: Int!
+    alpha: Int
   }
 
 type Column
@@ -111,7 +111,7 @@ type Comment
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    datetime: Datetime!
+    datetime: String!
     author: Experimenter
     commentType: CommentTypesEnum!
     text: String!
@@ -121,9 +121,9 @@ type DataReference
   {
     dataUri: String
     omeroHost: String
-    omeroPort: Integer
+    omeroPort: Int
     omeroObjectType: OMEROObjectTypeEnum
-    omeroObjectId: Integer
+    omeroObjectId: Int
   }
 
 type Ellipse
@@ -131,11 +131,11 @@ type Ellipse
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     x: Float!
     y: Float!
     w: Float!
@@ -157,7 +157,7 @@ type FieldIlluminationDataset implements HasSampleMixin, HasInputParametersMixin
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionProtocol: Protocol
@@ -175,7 +175,7 @@ type FieldIlluminationInputData
 
 type FieldIlluminationInputParameters
   {
-    bitDepth: Integer
+    bitDepth: Int
     saturationThreshold: Float!
     cornerFraction: Float!
     sigma: Float!
@@ -186,7 +186,7 @@ type FieldIlluminationKeyMeasurement
     imageName: String
     imageId: String
     channelName: String
-    channelNr: Integer
+    channelNr: Int
     channelId: String
     centerRegionIntensityFraction: Float
     centerRegionAreaFraction: Float
@@ -237,12 +237,12 @@ type FieldIlluminationOutput
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
-    processingDatetime: Datetime!
+    processingDatetime: String!
     processingLog: String
     warnings: [String]
     errors: [String]
     validated: Boolean!
-    validationDatetime: Datetime
+    validationDatetime: String
     intensityProfiles: [Table]
     roiProfiles: [Roi]
     roiCorners: [Roi]
@@ -259,7 +259,7 @@ type FluorescentHomogeneousThickField
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -268,7 +268,7 @@ type FluorescentHomogeneousThinField
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -297,7 +297,7 @@ interface HomogeneousField
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -307,15 +307,15 @@ type Image
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
+    shapeX: Int!
+    shapeY: Int!
+    shapeZ: Int!
+    shapeC: Int!
+    shapeT: Int!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
     sourceImages: [DataReference]
@@ -328,15 +328,15 @@ type ImageMask
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
+    shapeX: Int!
+    shapeY: Int!
+    shapeZ: Int!
+    shapeC: Int!
+    shapeT: Int!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
     sourceImages: [DataReference]
@@ -359,7 +359,7 @@ type LightSourcePower
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -369,7 +369,7 @@ type LightSourcePowerDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionProtocol: Protocol
@@ -386,12 +386,12 @@ type LightSourcePowerInputData
 
 type LightSourcePowerInputParameters
   {
-    linearityRequiredMeasurements: Integer
+    linearityRequiredMeasurements: Int
     shortTermStabilityMeasurementIntervalSeconds: Float
-    shortTermStabilityRequiredMeasurements: Integer
+    shortTermStabilityRequiredMeasurements: Int
     shortTermStabilityRequiredIntegrationTimeSeconds: Float
     longTermStabilityMeasurementIntervalSeconds: Float
-    longTermStabilityRequiredMeasurements: Integer
+    longTermStabilityRequiredMeasurements: Int
     longTermStabilityRequiredIntegrationTimeSeconds: Float
   }
 
@@ -400,24 +400,24 @@ type LightSourcePowerKeyMeasurement
     lightSource: LightSource
     powerMeter: PowerMeter
     measuringLocation: MeasuringLocationEnum
-    nrOfMeasurements: Integer
+    nrOfMeasurements: Int
     powerMeanMw: Float
     powerMedianMw: Float
     powerStdMw: Float
     powerMinMw: Float
     powerMaxMw: Float
-    powerLinearityStartDatetime: Datetime
-    powerLinearityEndDatetime: Datetime
+    powerLinearityStartDatetime: String
+    powerLinearityEndDatetime: String
     powerLinearitySlope: Float
     powerLinearityIntercept: Float
     powerLinearityCoefficientOfDetermination: Float
     powerLinearityPValue: Float
     powerLinearityStdErr: Float
-    shortTermPowerStabilityStartDatetime: Datetime
-    shortTermPowerStabilityEndDatetime: Datetime
+    shortTermPowerStabilityStartDatetime: String
+    shortTermPowerStabilityEndDatetime: String
     shortTermPowerStability: Float
-    longTermPowerStabilityStartDatetime: Datetime
-    longTermPowerStabilityEndDatetime: Datetime
+    longTermPowerStabilityStartDatetime: String
+    longTermPowerStabilityEndDatetime: String
     longTermPowerStability: Float
   }
 
@@ -427,12 +427,12 @@ type LightSourcePowerOutput
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
-    processingDatetime: Datetime!
+    processingDatetime: String!
     processingLog: String
     warnings: [String]
     errors: [String]
     validated: Boolean!
-    validationDatetime: Datetime
+    validationDatetime: String
     keyMeasurements: [LightSourcePowerKeyMeasurement]!
   }
 
@@ -441,11 +441,11 @@ type Line
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     x1: Float!
     y1: Float!
     x2: Float!
@@ -457,19 +457,17 @@ type Mask
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     x: Float!
     y: Float!
     mask: ImageMask
   }
 
-type MetaObject
-  {
-  }
+scalar MetaObject
 
 interface MetricsDataset
   {
@@ -477,7 +475,7 @@ interface MetricsDataset
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     inputData: MetricsInputData!
     output: MetricsOutput
     microscope: Microscope!
@@ -518,12 +516,12 @@ interface MetricsOutput
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
-    processingDatetime: Datetime!
+    processingDatetime: String!
     processingLog: String
     warnings: [String]
     errors: [String]
     validated: Boolean!
-    validationDatetime: Datetime
+    validationDatetime: String
   }
 
 type Microscope
@@ -556,15 +554,15 @@ type OrthogonalImage
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     voxelSizeXMicron: Float
     voxelSizeYMicron: Float
     voxelSizeZMicron: Float
-    shapeX: Integer!
-    shapeY: Integer!
-    shapeZ: Integer!
-    shapeC: Integer!
-    shapeT: Integer!
+    shapeX: Int!
+    shapeY: Int!
+    shapeZ: Int!
+    shapeC: Int!
+    shapeT: Int!
     timeSeries: TimeSeries
     channelSeries: ChannelSeries
     sourceImages: [DataReference]
@@ -578,11 +576,11 @@ type Point
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     x: Float!
     y: Float!
   }
@@ -592,18 +590,18 @@ type Polygon
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     vertexes: [Vertex]!
     isOpen: Boolean!
   }
 
 type PowerMeasurement
   {
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     lightSource: LightSource
     powerMeter: PowerMeter
     measuringLocation: MeasuringLocationEnum
@@ -639,7 +637,7 @@ type PSFBeads
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
     beadDiameterMicron: Float!
   }
@@ -650,7 +648,7 @@ type PSFBeadsDataset implements HasSampleMixin, HasInputParametersMixin
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionProtocol: Protocol
@@ -668,7 +666,7 @@ type PSFBeadsInputData
 
 type PSFBeadsInputParameters
   {
-    bitDepth: Integer
+    bitDepth: Int
     saturationThreshold: Float
     minLateralDistanceFactor: Float!
     sigmaMin: Float!
@@ -681,16 +679,16 @@ type PSFBeadsInputParameters
 type PSFBeadsKeyMeasurement
   {
     channelName: String
-    channelNr: Integer
-    totalBeadCount: Integer
-    consideredValidCount: Integer
-    consideredSelfProximityCount: Integer
-    consideredLateralEdgeCount: Integer
-    consideredAxialEdgeCount: Integer
-    consideredIntensityOutlierCount: Integer
-    consideredBadFitZCount: Integer
-    consideredBadFitYCount: Integer
-    consideredBadFitXCount: Integer
+    channelNr: Int
+    totalBeadCount: Int
+    consideredValidCount: Int
+    consideredSelfProximityCount: Int
+    consideredLateralEdgeCount: Int
+    consideredAxialEdgeCount: Int
+    consideredIntensityOutlierCount: Int
+    consideredBadFitZCount: Int
+    consideredBadFitYCount: Int
+    consideredBadFitXCount: Int
     intensityIntegratedMean: Float
     intensityIntegratedMedian: Float
     intensityIntegratedStd: Float
@@ -755,12 +753,12 @@ type PSFBeadsOutput
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
-    processingDatetime: Datetime!
+    processingDatetime: String!
     processingLog: String
     warnings: [String]
     errors: [String]
     validated: Boolean!
-    validationDatetime: Datetime
+    validationDatetime: String
     analyzedBeadCenters: [Roi]
     consideredBeadCentersLateralEdge: [Roi]
     consideredBeadCentersSelfProximity: [Roi]
@@ -782,11 +780,11 @@ type Rectangle
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
     x: Float!
     y: Float!
     w: Float!
@@ -817,7 +815,7 @@ interface Sample
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -826,11 +824,11 @@ interface Shape
     name: String
     description: String
     z: Float
-    c: Integer
-    t: Integer
+    c: Int
+    t: Int
     fillColor: Color
     strokeColor: Color
-    strokeWidth: Integer
+    strokeWidth: Int
   }
 
 interface Table
@@ -853,7 +851,7 @@ type UserExperiment
     name: String
     description: String
     preparationProtocol: Protocol!
-    preparationDatetime: Datetime
+    preparationDatetime: String
     manufacturer: String
   }
 
@@ -863,7 +861,7 @@ type UserExperimentDataset implements HasSampleMixin, HasInputParametersMixin
     description: String
     dataReference: DataReference
     linkedReferences: [DataReference]
-    acquisitionDatetime: Datetime
+    acquisitionDatetime: String
     microscope: Microscope!
     experimenter: Experimenter
     acquisitionProtocol: Protocol
@@ -883,16 +881,16 @@ type UserExperimentInputData
 
 type UserExperimentInputParameters
   {
-    bitDepth: Integer
+    bitDepth: Int
     saturationThreshold: Float
   }
 
 type UserExperimentKeyMeasurement
   {
     channelName: String
-    channelNr: Integer
+    channelNr: Int
     variationCoefficient: Float
-    saturatedChannels: Integer
+    saturatedChannels: Int
   }
 
 type UserExperimentOutput
@@ -901,12 +899,12 @@ type UserExperimentOutput
     processingApplication: [String]!
     processingVersion: [String]!
     processingEntity: [String]
-    processingDatetime: Datetime!
+    processingDatetime: String!
     processingLog: String
     warnings: [String]
     errors: [String]
     validated: Boolean!
-    validationDatetime: Datetime
+    validationDatetime: String
     intensityProfiles: [Table]
     orthogonalImages: [OrthogonalImage]
     fftImages: [Image]
@@ -918,4 +916,3 @@ type Vertex
     x: Float!
     y: Float!
   }
-

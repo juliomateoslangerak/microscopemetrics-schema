@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-03T12:59:24
+# Generation date: 2025-11-26T12:45:37
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -233,7 +233,9 @@ class Microscope(MetricsObject):
         if self.serial_number is not None and not isinstance(self.serial_number, str):
             self.serial_number = str(self.serial_number)
 
-        self._normalize_inlined_as_dict(slot_name="comment_collection", slot_type=Comment, key_name="datetime", keyed=False)
+        if not isinstance(self.comment_collection, list):
+            self.comment_collection = [self.comment_collection] if self.comment_collection is not None else []
+        self.comment_collection = [v if isinstance(v, Comment) else Comment(**as_dict(v)) for v in self.comment_collection]
 
         super().__post_init__(**kwargs)
 
@@ -1097,7 +1099,9 @@ class Polygon(Shape):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
-        self._normalize_inlined_as_dict(slot_name="vertexes", slot_type=Vertex, key_name="x", keyed=False)
+        if not isinstance(self.vertexes, list):
+            self.vertexes = [self.vertexes] if self.vertexes is not None else []
+        self.vertexes = [v if isinstance(v, Vertex) else Vertex(**as_dict(v)) for v in self.vertexes]
 
         if self._is_empty(self.is_open):
             self.MissingRequiredField("is_open")
@@ -2307,7 +2311,7 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
 
     light_source: Optional[Union[str, LightSourceName]] = None
     power_meter: Optional[Union[str, PowerMeterName]] = None
-    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
+    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = 'OBJECTIVE_FOCAL'
     nr_of_measurements: Optional[int] = None
     power_mean_mw: Optional[float] = None
     power_median_mw: Optional[float] = None
@@ -2336,7 +2340,7 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
             self.power_meter = PowerMeterName(self.power_meter)
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
-            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
+            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
 
         if self.nr_of_measurements is not None and not isinstance(self.nr_of_measurements, int):
             self.nr_of_measurements = int(self.nr_of_measurements)
@@ -2413,7 +2417,7 @@ class PowerMeasurement(YAMLRoot):
     acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
     light_source: Optional[Union[str, LightSourceName]] = None
     power_meter: Optional[Union[str, PowerMeterName]] = None
-    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
+    measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = 'OBJECTIVE_FOCAL'
     power_set_point: Optional[float] = None
     power_mw: Optional[float] = None
     integration_time_seconds: Optional[float] = None
@@ -2429,7 +2433,7 @@ class PowerMeasurement(YAMLRoot):
             self.power_meter = PowerMeterName(self.power_meter)
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
-            self.measuring_location = MeasuringLocationEnum(self.measuring_location)
+            self.measuring_location = getattr(MeasuringLocationEnum, self.measuring_location)
 
         if self.power_set_point is not None and not isinstance(self.power_set_point, float):
             self.power_set_point = float(self.power_set_point)
@@ -2891,20 +2895,20 @@ class MeasuringLocationEnum(EnumDefinitionImpl):
     """
     The location at which the measurement was taken.
     """
-    SOURCEEXIT = PermissibleValue(
-        text="SOURCEEXIT",
+    SOURCE_EXIT = PermissibleValue(
+        text="SOURCE_EXIT",
         description="Power at the exit of the light source")
-    FIBEREXIT = PermissibleValue(
-        text="FIBEREXIT",
+    FIBER_EXIT = PermissibleValue(
+        text="FIBER_EXIT",
         description="Power at the exit of the fiber")
-    OBJECTIVEBACKFOCAL = PermissibleValue(
-        text="OBJECTIVEBACKFOCAL",
+    OBJECTIVE_BACKFOCAL = PermissibleValue(
+        text="OBJECTIVE_BACKFOCAL",
         description="Power at the back focal plane of the objective")
-    OBJECTIVEEXIT = PermissibleValue(
-        text="OBJECTIVEEXIT",
+    OBJECTIVE_EXIT = PermissibleValue(
+        text="OBJECTIVE_EXIT",
         description="Power at the exit of the objective")
-    OBJECTIVEFOCAL = PermissibleValue(
-        text="OBJECTIVEFOCAL",
+    OBJECTIVE_FOCAL = PermissibleValue(
+        text="OBJECTIVE_FOCAL",
         description="Power at the focal plane of the objective")
     OTHER = PermissibleValue(
         text="OTHER",

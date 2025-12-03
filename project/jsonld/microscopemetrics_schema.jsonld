@@ -525,23 +525,23 @@
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "permissible_values": [
         {
-          "text": "SOURCEEXIT",
+          "text": "SOURCE_EXIT",
           "description": "Power at the exit of the light source"
         },
         {
-          "text": "FIBEREXIT",
+          "text": "FIBER_EXIT",
           "description": "Power at the exit of the fiber"
         },
         {
-          "text": "OBJECTIVEBACKFOCAL",
+          "text": "OBJECTIVE_BACKFOCAL",
           "description": "Power at the back focal plane of the objective"
         },
         {
-          "text": "OBJECTIVEEXIT",
+          "text": "OBJECTIVE_EXIT",
           "description": "Power at the exit of the objective"
         },
         {
-          "text": "OBJECTIVEFOCAL",
+          "text": "OBJECTIVE_FOCAL",
           "description": "Power at the focal plane of the objective"
         },
         {
@@ -654,6 +654,7 @@
       "range": "Comment",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -668,6 +669,7 @@
       ],
       "range": "Sample",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -683,6 +685,7 @@
       "range": "MetricsInputData",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -697,6 +700,7 @@
       ],
       "range": "MetricsInputParameters",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -712,6 +716,7 @@
       ],
       "range": "MetricsOutput",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -728,6 +733,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -787,6 +793,7 @@
       ],
       "range": "DataReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -932,6 +939,7 @@
       ],
       "range": "TimeSeries",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -949,6 +957,7 @@
       ],
       "range": "ChannelSeries",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -979,6 +988,7 @@
       ],
       "range": "MetaObject",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -993,6 +1003,7 @@
       ],
       "range": "MetaObject",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1114,6 +1125,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1128,6 +1140,7 @@
       ],
       "range": "Comment",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -1143,6 +1156,7 @@
       "range": "Comment",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -2946,6 +2960,7 @@
       "description": "The location at which the measurement was taken.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power",
       "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/measuring_location",
+      "ifabsent": "MeasuringLocationEnum(OBJECTIVE_FOCAL)",
       "owner": "PowerMeasurement",
       "domain_of": [
         "LightSourcePowerKeyMeasurement",
@@ -3635,6 +3650,7 @@
       "range": "Microscope",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3818,6 +3834,7 @@
       "range": "Roi",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3851,6 +3868,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -3887,6 +3905,7 @@
       ],
       "range": "DataReference",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4026,6 +4045,7 @@
       ],
       "range": "Color",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4040,6 +4060,7 @@
       ],
       "range": "Color",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4126,6 +4147,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4155,6 +4177,7 @@
       ],
       "range": "ImageMask",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4236,6 +4259,7 @@
       ],
       "range": "Table",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4250,6 +4274,7 @@
       ],
       "range": "Table",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4285,6 +4310,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4300,6 +4326,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4315,6 +4342,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4330,6 +4358,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4345,6 +4374,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4360,6 +4390,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4375,6 +4406,7 @@
       "range": "Roi",
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4668,6 +4700,7 @@
       "range": "FieldIlluminationInputData",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4687,6 +4720,7 @@
       "usage_slot_name": "input_parameters",
       "range": "FieldIlluminationInputParameters",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4707,6 +4741,7 @@
       "usage_slot_name": "output",
       "range": "FieldIlluminationOutput",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4726,6 +4761,7 @@
       "usage_slot_name": "sample",
       "range": "HomogeneousField",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4790,6 +4826,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4810,6 +4847,7 @@
       "range": "PSFBeadsInputData",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4829,6 +4867,7 @@
       "usage_slot_name": "input_parameters",
       "range": "PSFBeadsInputParameters",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4849,6 +4888,7 @@
       "usage_slot_name": "output",
       "range": "PSFBeadsOutput",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4868,6 +4908,7 @@
       "usage_slot_name": "sample",
       "range": "PSFBeads",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4889,6 +4930,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4909,6 +4951,7 @@
       "range": "LightSourcePowerInputData",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4928,6 +4971,7 @@
       "usage_slot_name": "input_parameters",
       "range": "LightSourcePowerInputParameters",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4948,6 +4992,7 @@
       "usage_slot_name": "output",
       "range": "LightSourcePowerOutput",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -4969,6 +5014,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5061,6 +5107,7 @@
       "range": "UserExperimentInputData",
       "required": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5080,6 +5127,7 @@
       "usage_slot_name": "input_parameters",
       "range": "UserExperimentInputParameters",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5100,6 +5148,7 @@
       "usage_slot_name": "output",
       "range": "UserExperimentOutput",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5119,6 +5168,7 @@
       "usage_slot_name": "sample",
       "range": "UserExperiment",
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     },
     {
@@ -5161,6 +5211,7 @@
       "required": true,
       "multivalued": true,
       "inlined": true,
+      "inlined_as_list": true,
       "@type": "SlotDefinition"
     }
   ],
@@ -7275,9 +7326,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-12-03T12:33:07",
-  "source_file_size": 908,
-  "generation_date": "2025-12-03T12:59:23",
+  "source_file_date": "2025-11-24T07:16:00",
+  "source_file_size": 912,
+  "generation_date": "2025-11-26T12:45:34",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",
