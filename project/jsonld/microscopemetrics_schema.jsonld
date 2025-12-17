@@ -2035,11 +2035,26 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fitting_r2_threshold",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold",
-      "description": "Threshold for the coefficient of determination (R^2) of the fit to be considered good.",
+      "name": "fitting_airy_r2_threshold",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_airy_r2_threshold",
+      "description": "Threshold for the coefficient of determination (R^2) of the airy fit to be considered good.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_airy_r2_threshold",
+      "ifabsent": "float(0.85)",
+      "owner": "PSFBeadsInputParameters",
+      "domain_of": [
+        "PSFBeadsInputParameters"
+      ],
+      "range": "float",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fitting_gaussian_r2_threshold",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_gaussian_r2_threshold",
+      "description": "Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_gaussian_r2_threshold",
       "ifabsent": "float(0.85)",
       "owner": "PSFBeadsInputParameters",
       "domain_of": [
@@ -2143,11 +2158,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_fit_z_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_z_count",
-      "description": "Number of beads considered as having a bad fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "name": "considered_bad_fit_airy_z_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_z_count",
+      "description": "Number of beads considered as having a bad airy fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_z_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_z_count",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2156,11 +2171,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_fit_y_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_y_count",
-      "description": "Number of beads considered as having a bad fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "name": "considered_bad_fit_airy_y_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_y_count",
+      "description": "Number of beads considered as having a bad airy fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_y_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_y_count",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2169,11 +2184,50 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "considered_bad_fit_x_count",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_x_count",
-      "description": "Number of beads considered as having a bad fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "name": "considered_bad_fit_airy_x_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_x_count",
+      "description": "Number of beads considered as having a bad airy fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_x_count",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_x_count",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "considered_bad_fit_gaussian_z_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_z_count",
+      "description": "Number of beads considered as having a bad gaussian fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_z_count",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "considered_bad_fit_gaussian_y_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_y_count",
+      "description": "Number of beads considered as having a bad gaussian fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_y_count",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "integer",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "considered_bad_fit_gaussian_x_count",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_x_count",
+      "description": "Number of beads considered as having a bad gaussian fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_x_count",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2338,11 +2392,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_z_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_mean",
-      "description": "Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_z_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_mean",
+      "description": "Mean coefficient of determination (R^2) for the airy fit in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_mean",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_mean",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2351,11 +2405,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_z_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_median",
-      "description": "Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_z_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_median",
+      "description": "Median coefficient of determination (R^2) for the airy fit  in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_median",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_median",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2364,11 +2418,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_z_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_std",
-      "description": "Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_z_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the airy fit  in the z axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_std",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_std",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2377,11 +2431,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_y_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_mean",
-      "description": "Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_y_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_mean",
+      "description": "Mean coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_mean",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_mean",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2390,11 +2444,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_y_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_median",
-      "description": "Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_y_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_median",
+      "description": "Median coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_median",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_median",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2403,11 +2457,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_y_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_std",
-      "description": "Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_y_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_std",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_std",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2416,11 +2470,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_x_mean",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_mean",
-      "description": "Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_x_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_mean",
+      "description": "Mean coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_mean",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_mean",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2429,11 +2483,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_x_median",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_median",
-      "description": "Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_x_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_median",
+      "description": "Median coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_median",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_median",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2442,11 +2496,128 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "fit_r2_x_std",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_std",
-      "description": "Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.",
+      "name": "fit_airy_r2_x_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_std",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_std",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_z_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_mean",
+      "description": "Mean coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_mean",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_z_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_median",
+      "description": "Median coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_median",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_z_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_std",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_y_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_mean",
+      "description": "Mean coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_mean",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_y_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_median",
+      "description": "Median coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_median",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_y_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_std",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_x_mean",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_mean",
+      "description": "Mean coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_mean",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_x_median",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_median",
+      "description": "Median coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_median",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "fit_gaussian_r2_x_std",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_std",
+      "description": "Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_std",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2728,11 +2899,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "average_bead_fit_r2_z",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_z",
-      "description": "Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.",
+      "name": "average_bead_fit_airy_r2_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_z",
+      "description": "Coefficient of determination (R^2) for the airy fit in the Z axis of the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_z",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_z",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2741,11 +2912,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "average_bead_fit_r2_y",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_y",
-      "description": "Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.",
+      "name": "average_bead_fit_airy_r2_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_y",
+      "description": "Coefficient of determination (R^2) for the airy fit in the Y axis of the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_y",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_y",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -2754,11 +2925,50 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "average_bead_fit_r2_x",
-      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_x",
-      "description": "Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.",
+      "name": "average_bead_fit_airy_r2_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_x",
+      "description": "Coefficient of determination (R^2) for the airy fit in the X axis of the average bead. One value per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_x",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_x",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_gaussian_r2_z",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_z",
+      "description": "Coefficient of determination (R^2) for the gaussian fit in the Z axis of the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_z",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_gaussian_r2_y",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_y",
+      "description": "Coefficient of determination (R^2) for the gaussian fit in the Y axis of the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_y",
+      "owner": "PSFBeadsKeyMeasurement",
+      "domain_of": [
+        "PSFBeadsKeyMeasurement"
+      ],
+      "range": "float",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "average_bead_fit_gaussian_r2_x",
+      "definition_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_x",
+      "description": "Coefficient of determination (R^2) for the gaussian fit in the X axis of the average bead. One value per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_x",
       "owner": "PSFBeadsKeyMeasurement",
       "domain_of": [
         "PSFBeadsKeyMeasurement"
@@ -4458,11 +4668,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "name": "pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality",
+      "description": "The centers of the beads detected but considered as the airy fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_quality",
-      "alias": "considered_bead_centers_z_fit_quality",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_airy_quality",
+      "alias": "considered_bead_centers_z_fit_airy_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -4474,11 +4684,11 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "name": "pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality",
+      "description": "The centers of the beads detected but considered as the airy fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_quality",
-      "alias": "considered_bead_centers_y_fit_quality",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_airy_quality",
+      "alias": "considered_bead_centers_y_fit_airy_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -4490,11 +4700,59 @@
       "@type": "SlotDefinition"
     },
     {
-      "name": "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
-      "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "name": "pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality",
+      "description": "The centers of the beads detected but considered as the airy fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
       "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
-      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_quality",
-      "alias": "considered_bead_centers_x_fit_quality",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_airy_quality",
+      "alias": "considered_bead_centers_x_fit_airy_quality",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "Roi",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality",
+      "description": "The centers of the beads detected but considered as the gaussian fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_gaussian_quality",
+      "alias": "considered_bead_centers_z_fit_gaussian_quality",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "Roi",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality",
+      "description": "The centers of the beads detected but considered as the gaussian fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_gaussian_quality",
+      "alias": "considered_bead_centers_y_fit_gaussian_quality",
+      "owner": "PSFBeadsOutput",
+      "domain_of": [
+        "PSFBeadsOutput"
+      ],
+      "range": "Roi",
+      "multivalued": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality",
+      "description": "The centers of the beads detected but considered as the airy gaussian quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+      "from_schema": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads",
+      "slot_uri": "https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality",
+      "alias": "considered_bead_centers_x_fit_gaussian_quality",
       "owner": "PSFBeadsOutput",
       "domain_of": [
         "PSFBeadsOutput"
@@ -6640,7 +6898,8 @@
         "sigma_min",
         "sigma_max",
         "snr_threshold",
-        "fitting_r2_threshold",
+        "fitting_gaussian_r2_threshold",
+        "fitting_airy_r2_threshold",
         "intensity_robust_z_score_threshold"
       ],
       "slot_usage": {},
@@ -6668,9 +6927,12 @@
         "pSFBeadsOutput__considered_bead_centers_self_proximity",
         "pSFBeadsOutput__considered_bead_centers_axial_edge",
         "pSFBeadsOutput__considered_bead_centers_intensity_outlier",
-        "pSFBeadsOutput__considered_bead_centers_z_fit_quality",
-        "pSFBeadsOutput__considered_bead_centers_y_fit_quality",
-        "pSFBeadsOutput__considered_bead_centers_x_fit_quality",
+        "pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality",
+        "pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality",
+        "pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality",
+        "pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality",
+        "pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality",
+        "pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality",
         "pSFBeadsOutput__bead_properties",
         "pSFBeadsOutput__bead_profiles_z",
         "pSFBeadsOutput__bead_profiles_y",
@@ -6726,8 +6988,8 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "considered_bead_centers_z_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "name": "considered_bead_centers_z_fit_airy_quality",
+          "description": "The centers of the beads detected but considered as the airy fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "range": "Roi",
           "multivalued": true,
           "inlined": true,
@@ -6735,8 +6997,8 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "considered_bead_centers_y_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "name": "considered_bead_centers_y_fit_airy_quality",
+          "description": "The centers of the beads detected but considered as the airy fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "range": "Roi",
           "multivalued": true,
           "inlined": true,
@@ -6744,8 +7006,35 @@
           "@type": "SlotDefinition"
         },
         {
-          "name": "considered_bead_centers_x_fit_quality",
-          "description": "The centers of the beads detected but considered as the fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "name": "considered_bead_centers_x_fit_airy_quality",
+          "description": "The centers of the beads detected but considered as the airy fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "range": "Roi",
+          "multivalued": true,
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "considered_bead_centers_z_fit_gaussian_quality",
+          "description": "The centers of the beads detected but considered as the gaussian fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "range": "Roi",
+          "multivalued": true,
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "considered_bead_centers_y_fit_gaussian_quality",
+          "description": "The centers of the beads detected but considered as the gaussian fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
+          "range": "Roi",
+          "multivalued": true,
+          "inlined": true,
+          "inlined_as_list": true,
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "considered_bead_centers_x_fit_gaussian_quality",
+          "description": "The centers of the beads detected but considered as the airy gaussian quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.",
           "range": "Roi",
           "multivalued": true,
           "inlined": true,
@@ -6810,9 +7099,12 @@
         "considered_lateral_edge_count",
         "considered_axial_edge_count",
         "considered_intensity_outlier_count",
-        "considered_bad_fit_z_count",
-        "considered_bad_fit_y_count",
-        "considered_bad_fit_x_count",
+        "considered_bad_fit_airy_z_count",
+        "considered_bad_fit_airy_y_count",
+        "considered_bad_fit_airy_x_count",
+        "considered_bad_fit_gaussian_z_count",
+        "considered_bad_fit_gaussian_y_count",
+        "considered_bad_fit_gaussian_x_count",
         "intensity_integrated_mean",
         "intensity_integrated_median",
         "intensity_integrated_std",
@@ -6825,15 +7117,24 @@
         "intensity_std_mean",
         "intensity_std_median",
         "intensity_std_std",
-        "fit_r2_z_mean",
-        "fit_r2_z_median",
-        "fit_r2_z_std",
-        "fit_r2_y_mean",
-        "fit_r2_y_median",
-        "fit_r2_y_std",
-        "fit_r2_x_mean",
-        "fit_r2_x_median",
-        "fit_r2_x_std",
+        "fit_airy_r2_z_mean",
+        "fit_airy_r2_z_median",
+        "fit_airy_r2_z_std",
+        "fit_airy_r2_y_mean",
+        "fit_airy_r2_y_median",
+        "fit_airy_r2_y_std",
+        "fit_airy_r2_x_mean",
+        "fit_airy_r2_x_median",
+        "fit_airy_r2_x_std",
+        "fit_gaussian_r2_z_mean",
+        "fit_gaussian_r2_z_median",
+        "fit_gaussian_r2_z_std",
+        "fit_gaussian_r2_y_mean",
+        "fit_gaussian_r2_y_median",
+        "fit_gaussian_r2_y_std",
+        "fit_gaussian_r2_x_mean",
+        "fit_gaussian_r2_x_median",
+        "fit_gaussian_r2_x_std",
         "fwhm_pixel_z_mean",
         "fwhm_pixel_z_median",
         "fwhm_pixel_z_std",
@@ -6855,9 +7156,12 @@
         "fwhm_lateral_asymmetry_ratio_mean",
         "fwhm_lateral_asymmetry_ratio_median",
         "fwhm_lateral_asymmetry_ratio_std",
-        "average_bead_fit_r2_z",
-        "average_bead_fit_r2_y",
-        "average_bead_fit_r2_x",
+        "average_bead_fit_airy_r2_z",
+        "average_bead_fit_airy_r2_y",
+        "average_bead_fit_airy_r2_x",
+        "average_bead_fit_gaussian_r2_z",
+        "average_bead_fit_gaussian_r2_y",
+        "average_bead_fit_gaussian_r2_x",
         "average_bead_fwhm_pixel_z",
         "average_bead_fwhm_pixel_y",
         "average_bead_fwhm_pixel_x",
@@ -7277,7 +7581,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-12-03T13:42:02",
   "source_file_size": 912,
-  "generation_date": "2025-12-03T14:00:14",
+  "generation_date": "2025-12-17T13:32:57",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

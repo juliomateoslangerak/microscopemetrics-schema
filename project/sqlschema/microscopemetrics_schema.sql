@@ -455,7 +455,8 @@
 --     * Slot: sigma_min Description: Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include  noisy pixels as beads.
 --     * Slot: sigma_max Description: Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect  larger objects as beads.
 --     * Slot: snr_threshold Description: Signal to noise ratio threshold to be used for bead detection.
---     * Slot: fitting_r2_threshold Description: Threshold for the coefficient of determination (R^2) of the fit to be considered good.
+--     * Slot: fitting_gaussian_r2_threshold Description: Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.
+--     * Slot: fitting_airy_r2_threshold Description: Threshold for the coefficient of determination (R^2) of the airy fit to be considered good.
 --     * Slot: intensity_robust_z_score_threshold Description: Threshold for the robust z-score of the intensity of the bead to be considered good.
 -- # Class: "PSFBeadsOutput" Description: ""
 --     * Slot: id Description: 
@@ -479,9 +480,12 @@
 --     * Slot: considered_lateral_edge_count Description: Number of beads considered for being too close to the edge of the image. One value per channel.
 --     * Slot: considered_axial_edge_count Description: Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.
 --     * Slot: considered_intensity_outlier_count Description: Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.
---     * Slot: considered_bad_fit_z_count Description: Number of beads considered as having a bad fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
---     * Slot: considered_bad_fit_y_count Description: Number of beads considered as having a bad fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
---     * Slot: considered_bad_fit_x_count Description: Number of beads considered as having a bad fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_airy_z_count Description: Number of beads considered as having a bad airy fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_airy_y_count Description: Number of beads considered as having a bad airy fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_airy_x_count Description: Number of beads considered as having a bad airy fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_gaussian_z_count Description: Number of beads considered as having a bad gaussian fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_gaussian_y_count Description: Number of beads considered as having a bad gaussian fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
+--     * Slot: considered_bad_fit_gaussian_x_count Description: Number of beads considered as having a bad gaussian fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.
 --     * Slot: intensity_integrated_mean Description: Mean integrated intensity of the analyzed beads. One value per channel.
 --     * Slot: intensity_integrated_median Description: Median integrated intensity of the analyzed beads. One value per channel.
 --     * Slot: intensity_integrated_std Description: Standard deviation of the integrated intensity of the analyzed beads. One value per channel.
@@ -494,15 +498,24 @@
 --     * Slot: intensity_std_mean Description: Mean standard deviation of the intensity of the analyzed beads. One value per channel.
 --     * Slot: intensity_std_median Description: Median standard deviation of the intensity of the analyzed beads. One value per channel.
 --     * Slot: intensity_std_std Description: Standard deviation of the standard deviation of the intensity of the analyzed beads. One value per channel.
---     * Slot: fit_r2_z_mean Description: Mean coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_z_median Description: Median coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_z_std Description: Standard deviation of the coefficient of determination (R^2) in the z axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_y_mean Description: Mean coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_y_median Description: Median coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_y_std Description: Standard deviation of the coefficient of determination (R^2) in the y axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_x_mean Description: Mean coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_x_median Description: Median coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
---     * Slot: fit_r2_x_std Description: Standard deviation of the coefficient of determination (R^2) in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_z_mean Description: Mean coefficient of determination (R^2) for the airy fit in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_z_median Description: Median coefficient of determination (R^2) for the airy fit  in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_z_std Description: Standard deviation of the coefficient of determination (R^2) for the airy fit  in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_y_mean Description: Mean coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_y_median Description: Median coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_y_std Description: Standard deviation of the coefficient of determination (R^2) for the airy fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_x_mean Description: Mean coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_x_median Description: Median coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_airy_r2_x_std Description: Standard deviation of the coefficient of determination (R^2) for the airy fit  in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_z_mean Description: Mean coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_z_median Description: Median coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_z_std Description: Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the z axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_y_mean Description: Mean coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_y_median Description: Median coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_y_std Description: Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the y axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_x_mean Description: Mean coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_x_median Description: Median coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.
+--     * Slot: fit_gaussian_r2_x_std Description: Standard deviation of the coefficient of determination (R^2) for the gaussian fit  in the x axis for the analyzed beads. One value per channel.
 --     * Slot: fwhm_pixel_z_mean Description: Mean FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
 --     * Slot: fwhm_pixel_z_median Description: Median FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
 --     * Slot: fwhm_pixel_z_std Description: Standard deviation of the FWHM for the analyzed beads in the Z axis in pixels. One value per channel.
@@ -524,9 +537,12 @@
 --     * Slot: fwhm_lateral_asymmetry_ratio_mean Description: Mean lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
 --     * Slot: fwhm_lateral_asymmetry_ratio_median Description: Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
 --     * Slot: fwhm_lateral_asymmetry_ratio_std Description: Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
---     * Slot: average_bead_fit_r2_z Description: Average coefficient of determination (R^2) for the fits in the Z axis of the beads. One value per channel.
---     * Slot: average_bead_fit_r2_y Description: Average coefficient of determination (R^2) for the fits in the Y axis of the beads. One value per channel.
---     * Slot: average_bead_fit_r2_x Description: Average coefficient of determination (R^2) for the fits in the X axis of the beads. One value per channel.
+--     * Slot: average_bead_fit_airy_r2_z Description: Coefficient of determination (R^2) for the airy fit in the Z axis of the average bead. One value per channel.
+--     * Slot: average_bead_fit_airy_r2_y Description: Coefficient of determination (R^2) for the airy fit in the Y axis of the average bead. One value per channel.
+--     * Slot: average_bead_fit_airy_r2_x Description: Coefficient of determination (R^2) for the airy fit in the X axis of the average bead. One value per channel.
+--     * Slot: average_bead_fit_gaussian_r2_z Description: Coefficient of determination (R^2) for the gaussian fit in the Z axis of the average bead. One value per channel.
+--     * Slot: average_bead_fit_gaussian_r2_y Description: Coefficient of determination (R^2) for the gaussian fit in the Y axis of the average bead. One value per channel.
+--     * Slot: average_bead_fit_gaussian_r2_x Description: Coefficient of determination (R^2) for the gaussian fit in the X axis of the average bead. One value per channel.
 --     * Slot: average_bead_fwhm_pixel_z Description: FWHM for the average bead in the Z axis in pixels. One value per channel.
 --     * Slot: average_bead_fwhm_pixel_y Description: FWHM for the average bead in the Y axis in pixels. One value per channel.
 --     * Slot: average_bead_fwhm_pixel_x Description: FWHM for the average bead in the X axis in pixels. One value per channel.
@@ -1182,7 +1198,8 @@ CREATE TABLE "PSFBeadsInputParameters" (
 	sigma_min FLOAT NOT NULL, 
 	sigma_max FLOAT NOT NULL, 
 	snr_threshold FLOAT NOT NULL, 
-	fitting_r2_threshold FLOAT NOT NULL, 
+	fitting_gaussian_r2_threshold FLOAT NOT NULL, 
+	fitting_airy_r2_threshold FLOAT NOT NULL, 
 	intensity_robust_z_score_threshold FLOAT NOT NULL, 
 	PRIMARY KEY (id)
 );
@@ -1585,9 +1602,12 @@ CREATE TABLE "PSFBeadsKeyMeasurement" (
 	considered_lateral_edge_count INTEGER, 
 	considered_axial_edge_count INTEGER, 
 	considered_intensity_outlier_count INTEGER, 
-	considered_bad_fit_z_count INTEGER, 
-	considered_bad_fit_y_count INTEGER, 
-	considered_bad_fit_x_count INTEGER, 
+	considered_bad_fit_airy_z_count INTEGER, 
+	considered_bad_fit_airy_y_count INTEGER, 
+	considered_bad_fit_airy_x_count INTEGER, 
+	considered_bad_fit_gaussian_z_count INTEGER, 
+	considered_bad_fit_gaussian_y_count INTEGER, 
+	considered_bad_fit_gaussian_x_count INTEGER, 
 	intensity_integrated_mean FLOAT, 
 	intensity_integrated_median FLOAT, 
 	intensity_integrated_std FLOAT, 
@@ -1600,15 +1620,24 @@ CREATE TABLE "PSFBeadsKeyMeasurement" (
 	intensity_std_mean FLOAT, 
 	intensity_std_median FLOAT, 
 	intensity_std_std FLOAT, 
-	fit_r2_z_mean FLOAT, 
-	fit_r2_z_median FLOAT, 
-	fit_r2_z_std FLOAT, 
-	fit_r2_y_mean FLOAT, 
-	fit_r2_y_median FLOAT, 
-	fit_r2_y_std FLOAT, 
-	fit_r2_x_mean FLOAT, 
-	fit_r2_x_median FLOAT, 
-	fit_r2_x_std FLOAT, 
+	fit_airy_r2_z_mean FLOAT, 
+	fit_airy_r2_z_median FLOAT, 
+	fit_airy_r2_z_std FLOAT, 
+	fit_airy_r2_y_mean FLOAT, 
+	fit_airy_r2_y_median FLOAT, 
+	fit_airy_r2_y_std FLOAT, 
+	fit_airy_r2_x_mean FLOAT, 
+	fit_airy_r2_x_median FLOAT, 
+	fit_airy_r2_x_std FLOAT, 
+	fit_gaussian_r2_z_mean FLOAT, 
+	fit_gaussian_r2_z_median FLOAT, 
+	fit_gaussian_r2_z_std FLOAT, 
+	fit_gaussian_r2_y_mean FLOAT, 
+	fit_gaussian_r2_y_median FLOAT, 
+	fit_gaussian_r2_y_std FLOAT, 
+	fit_gaussian_r2_x_mean FLOAT, 
+	fit_gaussian_r2_x_median FLOAT, 
+	fit_gaussian_r2_x_std FLOAT, 
 	fwhm_pixel_z_mean FLOAT, 
 	fwhm_pixel_z_median FLOAT, 
 	fwhm_pixel_z_std FLOAT, 
@@ -1630,9 +1659,12 @@ CREATE TABLE "PSFBeadsKeyMeasurement" (
 	fwhm_lateral_asymmetry_ratio_mean FLOAT, 
 	fwhm_lateral_asymmetry_ratio_median FLOAT, 
 	fwhm_lateral_asymmetry_ratio_std FLOAT, 
-	average_bead_fit_r2_z FLOAT, 
-	average_bead_fit_r2_y FLOAT, 
-	average_bead_fit_r2_x FLOAT, 
+	average_bead_fit_airy_r2_z FLOAT, 
+	average_bead_fit_airy_r2_y FLOAT, 
+	average_bead_fit_airy_r2_x FLOAT, 
+	average_bead_fit_gaussian_r2_z FLOAT, 
+	average_bead_fit_gaussian_r2_y FLOAT, 
+	average_bead_fit_gaussian_r2_x FLOAT, 
 	average_bead_fwhm_pixel_z FLOAT, 
 	average_bead_fwhm_pixel_y FLOAT, 
 	average_bead_fwhm_pixel_x FLOAT, 

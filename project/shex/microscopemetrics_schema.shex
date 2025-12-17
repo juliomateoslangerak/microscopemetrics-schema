@@ -1053,7 +1053,9 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max> @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold> @linkml:Float
           ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_r2_threshold>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_gaussian_r2_threshold>
+          @linkml:Float ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_airy_r2_threshold>
           @linkml:Float ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_robust_z_score_threshold>
           @linkml:Float
@@ -1081,11 +1083,17 @@ CLOSED {
           @linkml:Integer ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_intensity_outlier_count>
           @linkml:Integer ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_z_count>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_z_count>
           @linkml:Integer ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_y_count>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_y_count>
           @linkml:Integer ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_x_count>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_x_count>
+          @linkml:Integer ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_z_count>
+          @linkml:Integer ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_y_count>
+          @linkml:Integer ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_x_count>
           @linkml:Integer ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_integrated_mean>
           @linkml:Float ? ;
@@ -1111,24 +1119,42 @@ CLOSED {
           @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/intensity_std_std>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_mean> @linkml:Float
-          ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_median>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_mean>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_z_std> @linkml:Float
-          ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_mean> @linkml:Float
-          ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_median>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_median>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_y_std> @linkml:Float
-          ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_mean> @linkml:Float
-          ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_median>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_z_std>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_r2_x_std> @linkml:Float
-          ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_mean>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_median>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_y_std>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_mean>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_median>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_airy_r2_x_std>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_mean>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_median>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_z_std>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_mean>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_median>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_y_std>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_mean>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_median>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fit_gaussian_r2_x_std>
+          @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_mean>
           @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_pixel_z_median>
@@ -1171,11 +1197,17 @@ CLOSED {
           @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_z>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_z>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_y>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_y>
           @linkml:Float ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_r2_x>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_airy_r2_x>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_z>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_y>
+          @linkml:Float ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fit_gaussian_r2_x>
           @linkml:Float ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/average_bead_fwhm_pixel_z>
           @linkml:Float ? ;
@@ -1223,13 +1255,22 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_intensity_outlier>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
 
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_quality>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_airy_quality>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
 
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_quality>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_airy_quality>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
 
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_quality>
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_airy_quality>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_gaussian_quality>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_gaussian_quality>
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
+
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Roi> * ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_properties>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Table> ? ;

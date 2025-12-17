@@ -674,7 +674,8 @@ type PSFBeadsInputParameters
     sigmaMin: Float!
     sigmaMax: Float!
     snrThreshold: Float!
-    fittingR2Threshold: Float!
+    fittingGaussianR2Threshold: Float!
+    fittingAiryR2Threshold: Float!
     intensityRobustZScoreThreshold: Float!
   }
 
@@ -688,9 +689,12 @@ type PSFBeadsKeyMeasurement
     consideredLateralEdgeCount: Integer
     consideredAxialEdgeCount: Integer
     consideredIntensityOutlierCount: Integer
-    consideredBadFitZCount: Integer
-    consideredBadFitYCount: Integer
-    consideredBadFitXCount: Integer
+    consideredBadFitAiryZCount: Integer
+    consideredBadFitAiryYCount: Integer
+    consideredBadFitAiryXCount: Integer
+    consideredBadFitGaussianZCount: Integer
+    consideredBadFitGaussianYCount: Integer
+    consideredBadFitGaussianXCount: Integer
     intensityIntegratedMean: Float
     intensityIntegratedMedian: Float
     intensityIntegratedStd: Float
@@ -703,15 +707,24 @@ type PSFBeadsKeyMeasurement
     intensityStdMean: Float
     intensityStdMedian: Float
     intensityStdStd: Float
-    fitR2ZMean: Float
-    fitR2ZMedian: Float
-    fitR2ZStd: Float
-    fitR2YMean: Float
-    fitR2YMedian: Float
-    fitR2YStd: Float
-    fitR2XMean: Float
-    fitR2XMedian: Float
-    fitR2XStd: Float
+    fitAiryR2ZMean: Float
+    fitAiryR2ZMedian: Float
+    fitAiryR2ZStd: Float
+    fitAiryR2YMean: Float
+    fitAiryR2YMedian: Float
+    fitAiryR2YStd: Float
+    fitAiryR2XMean: Float
+    fitAiryR2XMedian: Float
+    fitAiryR2XStd: Float
+    fitGaussianR2ZMean: Float
+    fitGaussianR2ZMedian: Float
+    fitGaussianR2ZStd: Float
+    fitGaussianR2YMean: Float
+    fitGaussianR2YMedian: Float
+    fitGaussianR2YStd: Float
+    fitGaussianR2XMean: Float
+    fitGaussianR2XMedian: Float
+    fitGaussianR2XStd: Float
     fwhmPixelZMean: Float
     fwhmPixelZMedian: Float
     fwhmPixelZStd: Float
@@ -733,9 +746,12 @@ type PSFBeadsKeyMeasurement
     fwhmLateralAsymmetryRatioMean: Float
     fwhmLateralAsymmetryRatioMedian: Float
     fwhmLateralAsymmetryRatioStd: Float
-    averageBeadFitR2Z: Float
-    averageBeadFitR2Y: Float
-    averageBeadFitR2X: Float
+    averageBeadFitAiryR2Z: Float
+    averageBeadFitAiryR2Y: Float
+    averageBeadFitAiryR2X: Float
+    averageBeadFitGaussianR2Z: Float
+    averageBeadFitGaussianR2Y: Float
+    averageBeadFitGaussianR2X: Float
     averageBeadFwhmPixelZ: Float
     averageBeadFwhmPixelY: Float
     averageBeadFwhmPixelX: Float
@@ -766,9 +782,12 @@ type PSFBeadsOutput
     consideredBeadCentersSelfProximity: [Roi]
     consideredBeadCentersAxialEdge: [Roi]
     consideredBeadCentersIntensityOutlier: [Roi]
-    consideredBeadCentersZFitQuality: [Roi]
-    consideredBeadCentersYFitQuality: [Roi]
-    consideredBeadCentersXFitQuality: [Roi]
+    consideredBeadCentersZFitAiryQuality: [Roi]
+    consideredBeadCentersYFitAiryQuality: [Roi]
+    consideredBeadCentersXFitAiryQuality: [Roi]
+    consideredBeadCentersZFitGaussianQuality: [Roi]
+    consideredBeadCentersYFitGaussianQuality: [Roi]
+    consideredBeadCentersXFitGaussianQuality: [Roi]
     beadProperties: Table
     beadProfilesZ: Table
     beadProfilesY: Table

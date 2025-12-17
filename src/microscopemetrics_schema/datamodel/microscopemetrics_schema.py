@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2025-12-03T14:00:15
+# Generation date: 2025-12-17T13:32:58
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1763,7 +1763,8 @@ class PSFBeadsInputParameters(MetricsInputParameters):
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
-    fitting_r2_threshold: float = 0.85
+    fitting_gaussian_r2_threshold: float = 0.85
+    fitting_airy_r2_threshold: float = 0.85
     intensity_robust_z_score_threshold: float = 2.0
     bit_depth: Optional[int] = None
     saturation_threshold: Optional[float] = 0.01
@@ -1789,10 +1790,15 @@ class PSFBeadsInputParameters(MetricsInputParameters):
         if not isinstance(self.snr_threshold, float):
             self.snr_threshold = float(self.snr_threshold)
 
-        if self._is_empty(self.fitting_r2_threshold):
-            self.MissingRequiredField("fitting_r2_threshold")
-        if not isinstance(self.fitting_r2_threshold, float):
-            self.fitting_r2_threshold = float(self.fitting_r2_threshold)
+        if self._is_empty(self.fitting_gaussian_r2_threshold):
+            self.MissingRequiredField("fitting_gaussian_r2_threshold")
+        if not isinstance(self.fitting_gaussian_r2_threshold, float):
+            self.fitting_gaussian_r2_threshold = float(self.fitting_gaussian_r2_threshold)
+
+        if self._is_empty(self.fitting_airy_r2_threshold):
+            self.MissingRequiredField("fitting_airy_r2_threshold")
+        if not isinstance(self.fitting_airy_r2_threshold, float):
+            self.fitting_airy_r2_threshold = float(self.fitting_airy_r2_threshold)
 
         if self._is_empty(self.intensity_robust_z_score_threshold):
             self.MissingRequiredField("intensity_robust_z_score_threshold")
@@ -1827,9 +1833,12 @@ class PSFBeadsOutput(MetricsOutput):
     considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_intensity_outlier: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    considered_bead_centers_z_fit_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    considered_bead_centers_y_fit_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    considered_bead_centers_x_fit_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_z_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_y_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_x_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_z_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_y_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_x_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     bead_properties: Optional[Union[dict, Table]] = None
     bead_profiles_z: Optional[Union[dict, Table]] = None
     bead_profiles_y: Optional[Union[dict, Table]] = None
@@ -1863,17 +1872,29 @@ class PSFBeadsOutput(MetricsOutput):
             self.considered_bead_centers_intensity_outlier = [self.considered_bead_centers_intensity_outlier] if self.considered_bead_centers_intensity_outlier is not None else []
         self.considered_bead_centers_intensity_outlier = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_intensity_outlier]
 
-        if not isinstance(self.considered_bead_centers_z_fit_quality, list):
-            self.considered_bead_centers_z_fit_quality = [self.considered_bead_centers_z_fit_quality] if self.considered_bead_centers_z_fit_quality is not None else []
-        self.considered_bead_centers_z_fit_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_z_fit_quality]
+        if not isinstance(self.considered_bead_centers_z_fit_airy_quality, list):
+            self.considered_bead_centers_z_fit_airy_quality = [self.considered_bead_centers_z_fit_airy_quality] if self.considered_bead_centers_z_fit_airy_quality is not None else []
+        self.considered_bead_centers_z_fit_airy_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_z_fit_airy_quality]
 
-        if not isinstance(self.considered_bead_centers_y_fit_quality, list):
-            self.considered_bead_centers_y_fit_quality = [self.considered_bead_centers_y_fit_quality] if self.considered_bead_centers_y_fit_quality is not None else []
-        self.considered_bead_centers_y_fit_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_y_fit_quality]
+        if not isinstance(self.considered_bead_centers_y_fit_airy_quality, list):
+            self.considered_bead_centers_y_fit_airy_quality = [self.considered_bead_centers_y_fit_airy_quality] if self.considered_bead_centers_y_fit_airy_quality is not None else []
+        self.considered_bead_centers_y_fit_airy_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_y_fit_airy_quality]
 
-        if not isinstance(self.considered_bead_centers_x_fit_quality, list):
-            self.considered_bead_centers_x_fit_quality = [self.considered_bead_centers_x_fit_quality] if self.considered_bead_centers_x_fit_quality is not None else []
-        self.considered_bead_centers_x_fit_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_x_fit_quality]
+        if not isinstance(self.considered_bead_centers_x_fit_airy_quality, list):
+            self.considered_bead_centers_x_fit_airy_quality = [self.considered_bead_centers_x_fit_airy_quality] if self.considered_bead_centers_x_fit_airy_quality is not None else []
+        self.considered_bead_centers_x_fit_airy_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_x_fit_airy_quality]
+
+        if not isinstance(self.considered_bead_centers_z_fit_gaussian_quality, list):
+            self.considered_bead_centers_z_fit_gaussian_quality = [self.considered_bead_centers_z_fit_gaussian_quality] if self.considered_bead_centers_z_fit_gaussian_quality is not None else []
+        self.considered_bead_centers_z_fit_gaussian_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_z_fit_gaussian_quality]
+
+        if not isinstance(self.considered_bead_centers_y_fit_gaussian_quality, list):
+            self.considered_bead_centers_y_fit_gaussian_quality = [self.considered_bead_centers_y_fit_gaussian_quality] if self.considered_bead_centers_y_fit_gaussian_quality is not None else []
+        self.considered_bead_centers_y_fit_gaussian_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_y_fit_gaussian_quality]
+
+        if not isinstance(self.considered_bead_centers_x_fit_gaussian_quality, list):
+            self.considered_bead_centers_x_fit_gaussian_quality = [self.considered_bead_centers_x_fit_gaussian_quality] if self.considered_bead_centers_x_fit_gaussian_quality is not None else []
+        self.considered_bead_centers_x_fit_gaussian_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_x_fit_gaussian_quality]
 
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
@@ -1910,9 +1931,12 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     considered_lateral_edge_count: Optional[int] = None
     considered_axial_edge_count: Optional[int] = None
     considered_intensity_outlier_count: Optional[int] = None
-    considered_bad_fit_z_count: Optional[int] = None
-    considered_bad_fit_y_count: Optional[int] = None
-    considered_bad_fit_x_count: Optional[int] = None
+    considered_bad_fit_airy_z_count: Optional[int] = None
+    considered_bad_fit_airy_y_count: Optional[int] = None
+    considered_bad_fit_airy_x_count: Optional[int] = None
+    considered_bad_fit_gaussian_z_count: Optional[int] = None
+    considered_bad_fit_gaussian_y_count: Optional[int] = None
+    considered_bad_fit_gaussian_x_count: Optional[int] = None
     intensity_integrated_mean: Optional[float] = None
     intensity_integrated_median: Optional[float] = None
     intensity_integrated_std: Optional[float] = None
@@ -1925,15 +1949,24 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     intensity_std_mean: Optional[float] = None
     intensity_std_median: Optional[float] = None
     intensity_std_std: Optional[float] = None
-    fit_r2_z_mean: Optional[float] = None
-    fit_r2_z_median: Optional[float] = None
-    fit_r2_z_std: Optional[float] = None
-    fit_r2_y_mean: Optional[float] = None
-    fit_r2_y_median: Optional[float] = None
-    fit_r2_y_std: Optional[float] = None
-    fit_r2_x_mean: Optional[float] = None
-    fit_r2_x_median: Optional[float] = None
-    fit_r2_x_std: Optional[float] = None
+    fit_airy_r2_z_mean: Optional[float] = None
+    fit_airy_r2_z_median: Optional[float] = None
+    fit_airy_r2_z_std: Optional[float] = None
+    fit_airy_r2_y_mean: Optional[float] = None
+    fit_airy_r2_y_median: Optional[float] = None
+    fit_airy_r2_y_std: Optional[float] = None
+    fit_airy_r2_x_mean: Optional[float] = None
+    fit_airy_r2_x_median: Optional[float] = None
+    fit_airy_r2_x_std: Optional[float] = None
+    fit_gaussian_r2_z_mean: Optional[float] = None
+    fit_gaussian_r2_z_median: Optional[float] = None
+    fit_gaussian_r2_z_std: Optional[float] = None
+    fit_gaussian_r2_y_mean: Optional[float] = None
+    fit_gaussian_r2_y_median: Optional[float] = None
+    fit_gaussian_r2_y_std: Optional[float] = None
+    fit_gaussian_r2_x_mean: Optional[float] = None
+    fit_gaussian_r2_x_median: Optional[float] = None
+    fit_gaussian_r2_x_std: Optional[float] = None
     fwhm_pixel_z_mean: Optional[float] = None
     fwhm_pixel_z_median: Optional[float] = None
     fwhm_pixel_z_std: Optional[float] = None
@@ -1955,9 +1988,12 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     fwhm_lateral_asymmetry_ratio_mean: Optional[float] = None
     fwhm_lateral_asymmetry_ratio_median: Optional[float] = None
     fwhm_lateral_asymmetry_ratio_std: Optional[float] = None
-    average_bead_fit_r2_z: Optional[float] = None
-    average_bead_fit_r2_y: Optional[float] = None
-    average_bead_fit_r2_x: Optional[float] = None
+    average_bead_fit_airy_r2_z: Optional[float] = None
+    average_bead_fit_airy_r2_y: Optional[float] = None
+    average_bead_fit_airy_r2_x: Optional[float] = None
+    average_bead_fit_gaussian_r2_z: Optional[float] = None
+    average_bead_fit_gaussian_r2_y: Optional[float] = None
+    average_bead_fit_gaussian_r2_x: Optional[float] = None
     average_bead_fwhm_pixel_z: Optional[float] = None
     average_bead_fwhm_pixel_y: Optional[float] = None
     average_bead_fwhm_pixel_x: Optional[float] = None
@@ -1995,14 +2031,23 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
         if self.considered_intensity_outlier_count is not None and not isinstance(self.considered_intensity_outlier_count, int):
             self.considered_intensity_outlier_count = int(self.considered_intensity_outlier_count)
 
-        if self.considered_bad_fit_z_count is not None and not isinstance(self.considered_bad_fit_z_count, int):
-            self.considered_bad_fit_z_count = int(self.considered_bad_fit_z_count)
+        if self.considered_bad_fit_airy_z_count is not None and not isinstance(self.considered_bad_fit_airy_z_count, int):
+            self.considered_bad_fit_airy_z_count = int(self.considered_bad_fit_airy_z_count)
 
-        if self.considered_bad_fit_y_count is not None and not isinstance(self.considered_bad_fit_y_count, int):
-            self.considered_bad_fit_y_count = int(self.considered_bad_fit_y_count)
+        if self.considered_bad_fit_airy_y_count is not None and not isinstance(self.considered_bad_fit_airy_y_count, int):
+            self.considered_bad_fit_airy_y_count = int(self.considered_bad_fit_airy_y_count)
 
-        if self.considered_bad_fit_x_count is not None and not isinstance(self.considered_bad_fit_x_count, int):
-            self.considered_bad_fit_x_count = int(self.considered_bad_fit_x_count)
+        if self.considered_bad_fit_airy_x_count is not None and not isinstance(self.considered_bad_fit_airy_x_count, int):
+            self.considered_bad_fit_airy_x_count = int(self.considered_bad_fit_airy_x_count)
+
+        if self.considered_bad_fit_gaussian_z_count is not None and not isinstance(self.considered_bad_fit_gaussian_z_count, int):
+            self.considered_bad_fit_gaussian_z_count = int(self.considered_bad_fit_gaussian_z_count)
+
+        if self.considered_bad_fit_gaussian_y_count is not None and not isinstance(self.considered_bad_fit_gaussian_y_count, int):
+            self.considered_bad_fit_gaussian_y_count = int(self.considered_bad_fit_gaussian_y_count)
+
+        if self.considered_bad_fit_gaussian_x_count is not None and not isinstance(self.considered_bad_fit_gaussian_x_count, int):
+            self.considered_bad_fit_gaussian_x_count = int(self.considered_bad_fit_gaussian_x_count)
 
         if self.intensity_integrated_mean is not None and not isinstance(self.intensity_integrated_mean, float):
             self.intensity_integrated_mean = float(self.intensity_integrated_mean)
@@ -2040,32 +2085,59 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
         if self.intensity_std_std is not None and not isinstance(self.intensity_std_std, float):
             self.intensity_std_std = float(self.intensity_std_std)
 
-        if self.fit_r2_z_mean is not None and not isinstance(self.fit_r2_z_mean, float):
-            self.fit_r2_z_mean = float(self.fit_r2_z_mean)
+        if self.fit_airy_r2_z_mean is not None and not isinstance(self.fit_airy_r2_z_mean, float):
+            self.fit_airy_r2_z_mean = float(self.fit_airy_r2_z_mean)
 
-        if self.fit_r2_z_median is not None and not isinstance(self.fit_r2_z_median, float):
-            self.fit_r2_z_median = float(self.fit_r2_z_median)
+        if self.fit_airy_r2_z_median is not None and not isinstance(self.fit_airy_r2_z_median, float):
+            self.fit_airy_r2_z_median = float(self.fit_airy_r2_z_median)
 
-        if self.fit_r2_z_std is not None and not isinstance(self.fit_r2_z_std, float):
-            self.fit_r2_z_std = float(self.fit_r2_z_std)
+        if self.fit_airy_r2_z_std is not None and not isinstance(self.fit_airy_r2_z_std, float):
+            self.fit_airy_r2_z_std = float(self.fit_airy_r2_z_std)
 
-        if self.fit_r2_y_mean is not None and not isinstance(self.fit_r2_y_mean, float):
-            self.fit_r2_y_mean = float(self.fit_r2_y_mean)
+        if self.fit_airy_r2_y_mean is not None and not isinstance(self.fit_airy_r2_y_mean, float):
+            self.fit_airy_r2_y_mean = float(self.fit_airy_r2_y_mean)
 
-        if self.fit_r2_y_median is not None and not isinstance(self.fit_r2_y_median, float):
-            self.fit_r2_y_median = float(self.fit_r2_y_median)
+        if self.fit_airy_r2_y_median is not None and not isinstance(self.fit_airy_r2_y_median, float):
+            self.fit_airy_r2_y_median = float(self.fit_airy_r2_y_median)
 
-        if self.fit_r2_y_std is not None and not isinstance(self.fit_r2_y_std, float):
-            self.fit_r2_y_std = float(self.fit_r2_y_std)
+        if self.fit_airy_r2_y_std is not None and not isinstance(self.fit_airy_r2_y_std, float):
+            self.fit_airy_r2_y_std = float(self.fit_airy_r2_y_std)
 
-        if self.fit_r2_x_mean is not None and not isinstance(self.fit_r2_x_mean, float):
-            self.fit_r2_x_mean = float(self.fit_r2_x_mean)
+        if self.fit_airy_r2_x_mean is not None and not isinstance(self.fit_airy_r2_x_mean, float):
+            self.fit_airy_r2_x_mean = float(self.fit_airy_r2_x_mean)
 
-        if self.fit_r2_x_median is not None and not isinstance(self.fit_r2_x_median, float):
-            self.fit_r2_x_median = float(self.fit_r2_x_median)
+        if self.fit_airy_r2_x_median is not None and not isinstance(self.fit_airy_r2_x_median, float):
+            self.fit_airy_r2_x_median = float(self.fit_airy_r2_x_median)
 
-        if self.fit_r2_x_std is not None and not isinstance(self.fit_r2_x_std, float):
-            self.fit_r2_x_std = float(self.fit_r2_x_std)
+        if self.fit_airy_r2_x_std is not None and not isinstance(self.fit_airy_r2_x_std, float):
+            self.fit_airy_r2_x_std = float(self.fit_airy_r2_x_std)
+
+        if self.fit_gaussian_r2_z_mean is not None and not isinstance(self.fit_gaussian_r2_z_mean, float):
+            self.fit_gaussian_r2_z_mean = float(self.fit_gaussian_r2_z_mean)
+
+        if self.fit_gaussian_r2_z_median is not None and not isinstance(self.fit_gaussian_r2_z_median, float):
+            self.fit_gaussian_r2_z_median = float(self.fit_gaussian_r2_z_median)
+
+        if self.fit_gaussian_r2_z_std is not None and not isinstance(self.fit_gaussian_r2_z_std, float):
+            self.fit_gaussian_r2_z_std = float(self.fit_gaussian_r2_z_std)
+
+        if self.fit_gaussian_r2_y_mean is not None and not isinstance(self.fit_gaussian_r2_y_mean, float):
+            self.fit_gaussian_r2_y_mean = float(self.fit_gaussian_r2_y_mean)
+
+        if self.fit_gaussian_r2_y_median is not None and not isinstance(self.fit_gaussian_r2_y_median, float):
+            self.fit_gaussian_r2_y_median = float(self.fit_gaussian_r2_y_median)
+
+        if self.fit_gaussian_r2_y_std is not None and not isinstance(self.fit_gaussian_r2_y_std, float):
+            self.fit_gaussian_r2_y_std = float(self.fit_gaussian_r2_y_std)
+
+        if self.fit_gaussian_r2_x_mean is not None and not isinstance(self.fit_gaussian_r2_x_mean, float):
+            self.fit_gaussian_r2_x_mean = float(self.fit_gaussian_r2_x_mean)
+
+        if self.fit_gaussian_r2_x_median is not None and not isinstance(self.fit_gaussian_r2_x_median, float):
+            self.fit_gaussian_r2_x_median = float(self.fit_gaussian_r2_x_median)
+
+        if self.fit_gaussian_r2_x_std is not None and not isinstance(self.fit_gaussian_r2_x_std, float):
+            self.fit_gaussian_r2_x_std = float(self.fit_gaussian_r2_x_std)
 
         if self.fwhm_pixel_z_mean is not None and not isinstance(self.fwhm_pixel_z_mean, float):
             self.fwhm_pixel_z_mean = float(self.fwhm_pixel_z_mean)
@@ -2130,14 +2202,23 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
         if self.fwhm_lateral_asymmetry_ratio_std is not None and not isinstance(self.fwhm_lateral_asymmetry_ratio_std, float):
             self.fwhm_lateral_asymmetry_ratio_std = float(self.fwhm_lateral_asymmetry_ratio_std)
 
-        if self.average_bead_fit_r2_z is not None and not isinstance(self.average_bead_fit_r2_z, float):
-            self.average_bead_fit_r2_z = float(self.average_bead_fit_r2_z)
+        if self.average_bead_fit_airy_r2_z is not None and not isinstance(self.average_bead_fit_airy_r2_z, float):
+            self.average_bead_fit_airy_r2_z = float(self.average_bead_fit_airy_r2_z)
 
-        if self.average_bead_fit_r2_y is not None and not isinstance(self.average_bead_fit_r2_y, float):
-            self.average_bead_fit_r2_y = float(self.average_bead_fit_r2_y)
+        if self.average_bead_fit_airy_r2_y is not None and not isinstance(self.average_bead_fit_airy_r2_y, float):
+            self.average_bead_fit_airy_r2_y = float(self.average_bead_fit_airy_r2_y)
 
-        if self.average_bead_fit_r2_x is not None and not isinstance(self.average_bead_fit_r2_x, float):
-            self.average_bead_fit_r2_x = float(self.average_bead_fit_r2_x)
+        if self.average_bead_fit_airy_r2_x is not None and not isinstance(self.average_bead_fit_airy_r2_x, float):
+            self.average_bead_fit_airy_r2_x = float(self.average_bead_fit_airy_r2_x)
+
+        if self.average_bead_fit_gaussian_r2_z is not None and not isinstance(self.average_bead_fit_gaussian_r2_z, float):
+            self.average_bead_fit_gaussian_r2_z = float(self.average_bead_fit_gaussian_r2_z)
+
+        if self.average_bead_fit_gaussian_r2_y is not None and not isinstance(self.average_bead_fit_gaussian_r2_y, float):
+            self.average_bead_fit_gaussian_r2_y = float(self.average_bead_fit_gaussian_r2_y)
+
+        if self.average_bead_fit_gaussian_r2_x is not None and not isinstance(self.average_bead_fit_gaussian_r2_x, float):
+            self.average_bead_fit_gaussian_r2_x = float(self.average_bead_fit_gaussian_r2_x)
 
         if self.average_bead_fwhm_pixel_z is not None and not isinstance(self.average_bead_fwhm_pixel_z, float):
             self.average_bead_fwhm_pixel_z = float(self.average_bead_fwhm_pixel_z)
@@ -3234,8 +3315,11 @@ slots.sigma_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sigma_ma
 slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/snr_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
 
-slots.fitting_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_r2_threshold'], name="fitting_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_r2_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_r2_threshold, domain=None, range=float)
+slots.fitting_airy_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_airy_r2_threshold'], name="fitting_airy_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_airy_r2_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_airy_r2_threshold, domain=None, range=float)
+
+slots.fitting_gaussian_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_gaussian_r2_threshold'], name="fitting_gaussian_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_gaussian_r2_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_gaussian_r2_threshold, domain=None, range=float)
 
 slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
@@ -3258,14 +3342,23 @@ slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/
 slots.considered_intensity_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_intensity_outlier_count'], name="considered_intensity_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_intensity_outlier_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_intensity_outlier_count, domain=None, range=Optional[int])
 
-slots.considered_bad_fit_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_z_count'], name="considered_bad_fit_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_z_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_z_count, domain=None, range=Optional[int])
+slots.considered_bad_fit_airy_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_airy_z_count'], name="considered_bad_fit_airy_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_airy_z_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_airy_z_count, domain=None, range=Optional[int])
 
-slots.considered_bad_fit_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_y_count'], name="considered_bad_fit_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_y_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_y_count, domain=None, range=Optional[int])
+slots.considered_bad_fit_airy_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_airy_y_count'], name="considered_bad_fit_airy_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_airy_y_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_airy_y_count, domain=None, range=Optional[int])
 
-slots.considered_bad_fit_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_x_count'], name="considered_bad_fit_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_x_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_x_count, domain=None, range=Optional[int])
+slots.considered_bad_fit_airy_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_airy_x_count'], name="considered_bad_fit_airy_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_airy_x_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_airy_x_count, domain=None, range=Optional[int])
+
+slots.considered_bad_fit_gaussian_z_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_gaussian_z_count'], name="considered_bad_fit_gaussian_z_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_gaussian_z_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_gaussian_z_count, domain=None, range=Optional[int])
+
+slots.considered_bad_fit_gaussian_y_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_gaussian_y_count'], name="considered_bad_fit_gaussian_y_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_gaussian_y_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_gaussian_y_count, domain=None, range=Optional[int])
+
+slots.considered_bad_fit_gaussian_x_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bad_fit_gaussian_x_count'], name="considered_bad_fit_gaussian_x_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bad_fit_gaussian_x_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bad_fit_gaussian_x_count, domain=None, range=Optional[int])
 
 slots.intensity_integrated_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_integrated_mean'], name="intensity_integrated_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_integrated_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_integrated_mean, domain=None, range=Optional[float])
@@ -3303,32 +3396,59 @@ slots.intensity_std_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_bea
 slots.intensity_std_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_std_std'], name="intensity_std_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_std_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_std_std, domain=None, range=Optional[float])
 
-slots.fit_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_mean'], name="fit_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_mean, domain=None, range=Optional[float])
+slots.fit_airy_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_z_mean'], name="fit_airy_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_z_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_z_mean, domain=None, range=Optional[float])
 
-slots.fit_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_median'], name="fit_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_median, domain=None, range=Optional[float])
+slots.fit_airy_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_z_median'], name="fit_airy_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_z_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_z_median, domain=None, range=Optional[float])
 
-slots.fit_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_z_std'], name="fit_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_z_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_z_std, domain=None, range=Optional[float])
+slots.fit_airy_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_z_std'], name="fit_airy_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_z_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_z_std, domain=None, range=Optional[float])
 
-slots.fit_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_mean'], name="fit_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_mean, domain=None, range=Optional[float])
+slots.fit_airy_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_y_mean'], name="fit_airy_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_y_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_y_mean, domain=None, range=Optional[float])
 
-slots.fit_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_median'], name="fit_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_median, domain=None, range=Optional[float])
+slots.fit_airy_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_y_median'], name="fit_airy_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_y_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_y_median, domain=None, range=Optional[float])
 
-slots.fit_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_y_std'], name="fit_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_y_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_y_std, domain=None, range=Optional[float])
+slots.fit_airy_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_y_std'], name="fit_airy_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_y_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_y_std, domain=None, range=Optional[float])
 
-slots.fit_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_mean'], name="fit_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_mean, domain=None, range=Optional[float])
+slots.fit_airy_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_x_mean'], name="fit_airy_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_x_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_x_mean, domain=None, range=Optional[float])
 
-slots.fit_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_median'], name="fit_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_median, domain=None, range=Optional[float])
+slots.fit_airy_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_x_median'], name="fit_airy_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_x_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_x_median, domain=None, range=Optional[float])
 
-slots.fit_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_r2_x_std'], name="fit_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_r2_x_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_r2_x_std, domain=None, range=Optional[float])
+slots.fit_airy_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_airy_r2_x_std'], name="fit_airy_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_airy_r2_x_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_airy_r2_x_std, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_z_mean'], name="fit_gaussian_r2_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_z_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_z_mean, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_z_median'], name="fit_gaussian_r2_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_z_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_z_median, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_z_std'], name="fit_gaussian_r2_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_z_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_z_std, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_y_mean'], name="fit_gaussian_r2_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_y_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_y_mean, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_y_median'], name="fit_gaussian_r2_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_y_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_y_median, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_y_std'], name="fit_gaussian_r2_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_y_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_y_std, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_x_mean'], name="fit_gaussian_r2_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_x_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_x_mean, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_x_median'], name="fit_gaussian_r2_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_x_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_x_median, domain=None, range=Optional[float])
+
+slots.fit_gaussian_r2_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fit_gaussian_r2_x_std'], name="fit_gaussian_r2_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fit_gaussian_r2_x_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fit_gaussian_r2_x_std, domain=None, range=Optional[float])
 
 slots.fwhm_pixel_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_pixel_z_mean'], name="fwhm_pixel_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_pixel_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_pixel_z_mean, domain=None, range=Optional[float])
@@ -3393,14 +3513,23 @@ slots.fwhm_lateral_asymmetry_ratio_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['a
 slots.fwhm_lateral_asymmetry_ratio_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'], name="fwhm_lateral_asymmetry_ratio_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_lateral_asymmetry_ratio_std, domain=None, range=Optional[float])
 
-slots.average_bead_fit_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_z'], name="average_bead_fit_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_z'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_z, domain=None, range=Optional[float])
+slots.average_bead_fit_airy_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_airy_r2_z'], name="average_bead_fit_airy_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_airy_r2_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_airy_r2_z, domain=None, range=Optional[float])
 
-slots.average_bead_fit_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_y'], name="average_bead_fit_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_y'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_y, domain=None, range=Optional[float])
+slots.average_bead_fit_airy_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_airy_r2_y'], name="average_bead_fit_airy_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_airy_r2_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_airy_r2_y, domain=None, range=Optional[float])
 
-slots.average_bead_fit_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_r2_x'], name="average_bead_fit_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_r2_x'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_r2_x, domain=None, range=Optional[float])
+slots.average_bead_fit_airy_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_airy_r2_x'], name="average_bead_fit_airy_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_airy_r2_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_airy_r2_x, domain=None, range=Optional[float])
+
+slots.average_bead_fit_gaussian_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_gaussian_r2_z'], name="average_bead_fit_gaussian_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_gaussian_r2_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_gaussian_r2_z, domain=None, range=Optional[float])
+
+slots.average_bead_fit_gaussian_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_gaussian_r2_y'], name="average_bead_fit_gaussian_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_gaussian_r2_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_gaussian_r2_y, domain=None, range=Optional[float])
+
+slots.average_bead_fit_gaussian_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_gaussian_r2_x'], name="average_bead_fit_gaussian_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_gaussian_r2_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_gaussian_r2_x, domain=None, range=Optional[float])
 
 slots.average_bead_fwhm_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_pixel_z'], name="average_bead_fwhm_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_pixel_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_pixel_z, domain=None, range=Optional[float])
@@ -3753,14 +3882,23 @@ slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEME
 slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_intensity_outlier'], name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_intensity_outlier'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_z_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_z_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_z_fit_quality'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+slots.pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_z_fit_airy_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_z_fit_airy_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_y_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_y_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_y_fit_quality'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+slots.pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_y_fit_airy_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_y_fit_airy_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__considered_bead_centers_x_fit_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_x_fit_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_x_fit_quality'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+slots.pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_x_fit_airy_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_x_fit_airy_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_z_fit_gaussian_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_z_fit_gaussian_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_y_fit_gaussian_quality'], name="pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_y_fit_gaussian_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
 slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_properties'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, Table]])
