@@ -344,13 +344,13 @@ slots:
     description: >-
       Threshold for the coefficient of determination (R^2) of the airy fit to be considered good.
     required: true
-    ifabsent: float(0.85)
+    ifabsent: float(0.5)
   fitting_gaussian_r2_threshold:
     range: float
     description: >-
       Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.
     required: true
-    ifabsent: float(0.85)
+    ifabsent: float(0.95)
   intensity_robust_z_score_threshold:
     range: float
     description: >-
