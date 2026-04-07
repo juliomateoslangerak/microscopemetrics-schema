@@ -152,7 +152,7 @@ classes:
   HarmonizedMetricsDatasetCollection:
     is_a: MetricsDatasetCollection
     description: >-
-      A collection of harmonized microscope-metrics datasets. All of the datasets 
+      A collection of harmonized microscope-metrics datasets. All of the datasets
       in the collection share the same analysis and processing parameters.
     attributes:
       dataset_class:
@@ -688,7 +688,7 @@ slots:
   key_measurements:
     range: KeyMeasurement
     description: >-
-      A list of KeyMeasurement subclasses summarizing the most important 
+      A list of KeyMeasurement subclasses summarizing the most important
       measurements as a function of, for example, channels
     required: true
     multivalued: true
@@ -909,7 +909,7 @@ slots:
   saturation_threshold:
     range: float
     description: >-
-      Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, 
+      Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,
       the image is considered as saturated and the analysis is not performed.
     multivalued: false
     ifabsent: float(0.01)
@@ -927,7 +927,7 @@ slots:
     range: float
     description: >-
       Smoothing sigma to be applied to the image in the X axis.
-      
+
 
 subsets:
   critical_parameter:
