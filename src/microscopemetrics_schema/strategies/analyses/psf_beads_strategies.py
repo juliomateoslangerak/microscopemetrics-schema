@@ -14,7 +14,7 @@ from microscopemetrics_schema.strategies.samples.psf_beads_strategies import (
 @st.composite
 def st_mm_psf_beads_input_data(
     draw,
-    psf_beads_images=st_mm_image(),
+    psf_beads_images=st.lists(st_mm_image(), min_size=1, max_size=3),
 ) -> mm_schema.PSFBeadsInputData:
     return mm_schema.PSFBeadsInputData(
         psf_beads_images=draw(psf_beads_images),
