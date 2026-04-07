@@ -40,7 +40,7 @@ message Comment
   string description = 0
   dataReference dataReference = 0
  repeated  dataReference linkedReferences = 0
-  datetime datetime = 0
+  datetime commentDatetime = 0
   experimenter author = 0
   commentTypesEnum commentType = 0
   string text = 0
@@ -196,7 +196,7 @@ message FluorescentHomogeneousThinField
   datetime preparationDatetime = 0
   string manufacturer = 0
  }
-// A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.
+// A collection of harmonized microscope-metrics datasets. All of the datasets in the collection share the same analysis and processing parameters.
 message HarmonizedMetricsDatasetCollection
  {
   string name = 0

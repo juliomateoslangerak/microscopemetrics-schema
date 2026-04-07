@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-04-07T13:16:31
+# Generation date: 2026-04-07T21:50:32
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -72,20 +72,7 @@ DEFAULT_ = MICROSCOPEMETRICS_SCHEMA
 # Types
 
 # Class references
-class ProtocolUrl(extended_str):
-    pass
 
-
-class ExperimenterOrcid(extended_str):
-    pass
-
-
-class LightSourceName(extended_str):
-    pass
-
-
-class PowerMeterName(extended_str):
-    pass
 
 
 MetaObject = Any
@@ -233,9 +220,7 @@ class Microscope(MetricsObject):
         if self.serial_number is not None and not isinstance(self.serial_number, str):
             self.serial_number = str(self.serial_number)
 
-        if not isinstance(self.comment_collection, list):
-            self.comment_collection = [self.comment_collection] if self.comment_collection is not None else []
-        self.comment_collection = [v if isinstance(v, Comment) else Comment(**as_dict(v)) for v in self.comment_collection]
+        self._normalize_inlined_as_list(slot_name="comment_collection", slot_type=Comment, key_name="comment_datetime", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -252,15 +237,15 @@ class Sample(NamedObject):
     class_name: ClassVar[str] = "Sample"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Sample
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, "Protocol"] = None
     preparation_datetime: Optional[Union[str, XSDDateTime]] = None
     manufacturer: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.preparation_protocol):
             self.MissingRequiredField("preparation_protocol")
-        if not isinstance(self.preparation_protocol, ProtocolUrl):
-            self.preparation_protocol = ProtocolUrl(self.preparation_protocol)
+        if not isinstance(self.preparation_protocol, Protocol):
+            self.preparation_protocol = Protocol(**as_dict(self.preparation_protocol))
 
         if self.preparation_datetime is not None and not isinstance(self.preparation_datetime, XSDDateTime):
             self.preparation_datetime = XSDDateTime(self.preparation_datetime)
@@ -283,24 +268,24 @@ class Protocol(NamedObject):
     class_name: ClassVar[str] = "Protocol"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Protocol
 
-    url: Union[str, ProtocolUrl] = None
     version: str = None
-    authors: Optional[Union[Union[str, ExperimenterOrcid], list[Union[str, ExperimenterOrcid]]]] = empty_list()
+    url: str = None
+    authors: Optional[Union[Union[dict, "Experimenter"], list[Union[dict, "Experimenter"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.url):
-            self.MissingRequiredField("url")
-        if not isinstance(self.url, ProtocolUrl):
-            self.url = ProtocolUrl(self.url)
-
         if self._is_empty(self.version):
             self.MissingRequiredField("version")
         if not isinstance(self.version, str):
             self.version = str(self.version)
 
+        if self._is_empty(self.url):
+            self.MissingRequiredField("url")
+        if not isinstance(self.url, str):
+            self.url = str(self.url)
+
         if not isinstance(self.authors, list):
             self.authors = [self.authors] if self.authors is not None else []
-        self.authors = [v if isinstance(v, ExperimenterOrcid) else ExperimenterOrcid(v) for v in self.authors]
+        self.authors = [v if isinstance(v, Experimenter) else Experimenter(**as_dict(v)) for v in self.authors]
 
         super().__post_init__(**kwargs)
 
@@ -317,13 +302,11 @@ class Experimenter(MetricsObject):
     class_name: ClassVar[str] = "Experimenter"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Experimenter
 
-    orcid: Union[str, ExperimenterOrcid] = None
+    orcid: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.orcid):
-            self.MissingRequiredField("orcid")
-        if not isinstance(self.orcid, ExperimenterOrcid):
-            self.orcid = ExperimenterOrcid(self.orcid)
+        if self.orcid is not None and not isinstance(self.orcid, str):
+            self.orcid = str(self.orcid)
 
         super().__post_init__(**kwargs)
 
@@ -340,16 +323,16 @@ class Comment(MetricsObject):
     class_name: ClassVar[str] = "Comment"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.Comment
 
-    datetime: Union[str, XSDDateTime] = None
+    comment_datetime: Union[str, XSDDateTime] = None
     comment_type: Union[str, "CommentTypesEnum"] = None
     text: str = None
-    author: Optional[Union[str, ExperimenterOrcid]] = None
+    author: Optional[Union[dict, Experimenter]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.datetime):
-            self.MissingRequiredField("datetime")
-        if not isinstance(self.datetime, XSDDateTime):
-            self.datetime = XSDDateTime(self.datetime)
+        if self._is_empty(self.comment_datetime):
+            self.MissingRequiredField("comment_datetime")
+        if not isinstance(self.comment_datetime, XSDDateTime):
+            self.comment_datetime = XSDDateTime(self.comment_datetime)
 
         if self._is_empty(self.comment_type):
             self.MissingRequiredField("comment_type")
@@ -361,8 +344,8 @@ class Comment(MetricsObject):
         if not isinstance(self.text, str):
             self.text = str(self.text)
 
-        if self.author is not None and not isinstance(self.author, ExperimenterOrcid):
-            self.author = ExperimenterOrcid(self.author)
+        if self.author is not None and not isinstance(self.author, Experimenter):
+            self.author = Experimenter(**as_dict(self.author))
 
         super().__post_init__(**kwargs)
 
@@ -382,9 +365,7 @@ class MetricsDatasetCollection(MetricsObject):
     dataset_collection: Optional[Union[Union[dict, "MetricsDataset"], list[Union[dict, "MetricsDataset"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.dataset_collection, list):
-            self.dataset_collection = [self.dataset_collection] if self.dataset_collection is not None else []
-        self.dataset_collection = [v if isinstance(v, MetricsDataset) else MetricsDataset(**as_dict(v)) for v in self.dataset_collection]
+        self._normalize_inlined_as_list(slot_name="dataset_collection", slot_type=MetricsDataset, key_name="processed", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -430,8 +411,8 @@ class MetricsDataset(MetricsObject):
     processed: Union[bool, Bool] = False
     acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
     output: Optional[Union[dict, "MetricsOutput"]] = None
-    experimenter: Optional[Union[str, ExperimenterOrcid]] = None
-    acquisition_protocol: Optional[Union[str, ProtocolUrl]] = None
+    experimenter: Optional[Union[dict, Experimenter]] = None
+    acquisition_protocol: Optional[Union[dict, Protocol]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.input_data):
@@ -455,11 +436,11 @@ class MetricsDataset(MetricsObject):
         if self.output is not None and not isinstance(self.output, MetricsOutput):
             self.output = MetricsOutput(**as_dict(self.output))
 
-        if self.experimenter is not None and not isinstance(self.experimenter, ExperimenterOrcid):
-            self.experimenter = ExperimenterOrcid(self.experimenter)
+        if self.experimenter is not None and not isinstance(self.experimenter, Experimenter):
+            self.experimenter = Experimenter(**as_dict(self.experimenter))
 
-        if self.acquisition_protocol is not None and not isinstance(self.acquisition_protocol, ProtocolUrl):
-            self.acquisition_protocol = ProtocolUrl(self.acquisition_protocol)
+        if self.acquisition_protocol is not None and not isinstance(self.acquisition_protocol, Protocol):
+            self.acquisition_protocol = Protocol(**as_dict(self.acquisition_protocol))
 
         super().__post_init__(**kwargs)
 
@@ -861,29 +842,17 @@ class Roi(MetricsObject):
     masks: Optional[Union[Union[dict, "Mask"], list[Union[dict, "Mask"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if not isinstance(self.points, list):
-            self.points = [self.points] if self.points is not None else []
-        self.points = [v if isinstance(v, Point) else Point(**as_dict(v)) for v in self.points]
+        self._normalize_inlined_as_list(slot_name="points", slot_type=Point, key_name="x", keyed=False)
 
-        if not isinstance(self.lines, list):
-            self.lines = [self.lines] if self.lines is not None else []
-        self.lines = [v if isinstance(v, Line) else Line(**as_dict(v)) for v in self.lines]
+        self._normalize_inlined_as_list(slot_name="lines", slot_type=Line, key_name="x1", keyed=False)
 
-        if not isinstance(self.rectangles, list):
-            self.rectangles = [self.rectangles] if self.rectangles is not None else []
-        self.rectangles = [v if isinstance(v, Rectangle) else Rectangle(**as_dict(v)) for v in self.rectangles]
+        self._normalize_inlined_as_list(slot_name="rectangles", slot_type=Rectangle, key_name="x", keyed=False)
 
-        if not isinstance(self.ellipses, list):
-            self.ellipses = [self.ellipses] if self.ellipses is not None else []
-        self.ellipses = [v if isinstance(v, Ellipse) else Ellipse(**as_dict(v)) for v in self.ellipses]
+        self._normalize_inlined_as_list(slot_name="ellipses", slot_type=Ellipse, key_name="x", keyed=False)
 
-        if not isinstance(self.polygons, list):
-            self.polygons = [self.polygons] if self.polygons is not None else []
-        self.polygons = [v if isinstance(v, Polygon) else Polygon(**as_dict(v)) for v in self.polygons]
+        self._normalize_inlined_as_list(slot_name="polygons", slot_type=Polygon, key_name="is_open", keyed=False)
 
-        if not isinstance(self.masks, list):
-            self.masks = [self.masks] if self.masks is not None else []
-        self.masks = [v if isinstance(v, Mask) else Mask(**as_dict(v)) for v in self.masks]
+        self._normalize_inlined_as_list(slot_name="masks", slot_type=Mask, key_name="x", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1099,9 +1068,7 @@ class Polygon(Shape):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.vertexes):
             self.MissingRequiredField("vertexes")
-        if not isinstance(self.vertexes, list):
-            self.vertexes = [self.vertexes] if self.vertexes is not None else []
-        self.vertexes = [v if isinstance(v, Vertex) else Vertex(**as_dict(v)) for v in self.vertexes]
+        self._normalize_inlined_as_list(slot_name="vertexes", slot_type=Vertex, key_name="x", keyed=False)
 
         if self._is_empty(self.is_open):
             self.MissingRequiredField("is_open")
@@ -1332,9 +1299,7 @@ class Table(MetricsObject):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.columns):
             self.MissingRequiredField("columns")
-        if not isinstance(self.columns, list):
-            self.columns = [self.columns] if self.columns is not None else []
-        self.columns = [v if isinstance(v, Column) else Column(**as_dict(v)) for v in self.columns]
+        self._normalize_inlined_as_list(slot_name="columns", slot_type=Column, key_name="data_type", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1390,9 +1355,7 @@ class FieldIlluminationInputData(MetricsInputData):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.field_illumination_images):
             self.MissingRequiredField("field_illumination_images")
-        if not isinstance(self.field_illumination_images, list):
-            self.field_illumination_images = [self.field_illumination_images] if self.field_illumination_images is not None else []
-        self.field_illumination_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.field_illumination_images]
+        self._normalize_inlined_as_list(slot_name="field_illumination_images", slot_type=Image, key_name="shape_x", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -1747,9 +1710,7 @@ class PSFBeadsInputData(MetricsInputData):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.psf_beads_images):
             self.MissingRequiredField("psf_beads_images")
-        if not isinstance(self.psf_beads_images, list):
-            self.psf_beads_images = [self.psf_beads_images] if self.psf_beads_images is not None else []
-        self.psf_beads_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.psf_beads_images]
+        self._normalize_inlined_as_list(slot_name="psf_beads_images", slot_type=Image, key_name="shape_x", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -2390,8 +2351,8 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
     class_name: ClassVar[str] = "LightSourcePowerKeyMeasurement"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement
 
-    light_source: Optional[Union[str, LightSourceName]] = None
-    power_meter: Optional[Union[str, PowerMeterName]] = None
+    light_source: Optional[Union[dict, "LightSource"]] = None
+    power_meter: Optional[Union[dict, "PowerMeter"]] = None
     measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
     nr_of_measurements: Optional[int] = None
     power_mean_mw: Optional[float] = None
@@ -2414,11 +2375,11 @@ class LightSourcePowerKeyMeasurement(KeyMeasurement):
     long_term_power_stability: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.light_source is not None and not isinstance(self.light_source, LightSourceName):
-            self.light_source = LightSourceName(self.light_source)
+        if self.light_source is not None and not isinstance(self.light_source, LightSource):
+            self.light_source = LightSource(**as_dict(self.light_source))
 
-        if self.power_meter is not None and not isinstance(self.power_meter, PowerMeterName):
-            self.power_meter = PowerMeterName(self.power_meter)
+        if self.power_meter is not None and not isinstance(self.power_meter, PowerMeter):
+            self.power_meter = PowerMeter(**as_dict(self.power_meter))
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
             self.measuring_location = MeasuringLocationEnum(self.measuring_location)
@@ -2496,8 +2457,8 @@ class PowerMeasurement(YAMLRoot):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PowerMeasurement
 
     acquisition_datetime: Optional[Union[str, XSDDateTime]] = None
-    light_source: Optional[Union[str, LightSourceName]] = None
-    power_meter: Optional[Union[str, PowerMeterName]] = None
+    light_source: Optional[Union[dict, "LightSource"]] = None
+    power_meter: Optional[Union[dict, "PowerMeter"]] = None
     measuring_location: Optional[Union[str, "MeasuringLocationEnum"]] = None
     power_set_point: Optional[float] = None
     power_mw: Optional[float] = None
@@ -2507,11 +2468,11 @@ class PowerMeasurement(YAMLRoot):
         if self.acquisition_datetime is not None and not isinstance(self.acquisition_datetime, XSDDateTime):
             self.acquisition_datetime = XSDDateTime(self.acquisition_datetime)
 
-        if self.light_source is not None and not isinstance(self.light_source, LightSourceName):
-            self.light_source = LightSourceName(self.light_source)
+        if self.light_source is not None and not isinstance(self.light_source, LightSource):
+            self.light_source = LightSource(**as_dict(self.light_source))
 
-        if self.power_meter is not None and not isinstance(self.power_meter, PowerMeterName):
-            self.power_meter = PowerMeterName(self.power_meter)
+        if self.power_meter is not None and not isinstance(self.power_meter, PowerMeter):
+            self.power_meter = PowerMeter(**as_dict(self.power_meter))
 
         if self.measuring_location is not None and not isinstance(self.measuring_location, MeasuringLocationEnum):
             self.measuring_location = MeasuringLocationEnum(self.measuring_location)
@@ -2540,14 +2501,14 @@ class LightSource(NamedObject):
     class_name: ClassVar[str] = "LightSource"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSource
 
-    name: Union[str, LightSourceName] = None
+    name: str = None
     wavelength_nm: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
             self.MissingRequiredField("name")
-        if not isinstance(self.name, LightSourceName):
-            self.name = LightSourceName(self.name)
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
 
         if self.wavelength_nm is not None and not isinstance(self.wavelength_nm, float):
             self.wavelength_nm = float(self.wavelength_nm)
@@ -2564,15 +2525,15 @@ class PowerMeter(NamedObject):
     class_name: ClassVar[str] = "PowerMeter"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PowerMeter
 
-    name: Union[str, PowerMeterName] = None
+    name: str = None
     manufacturer: Optional[str] = None
     model: Optional[str] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.name):
             self.MissingRequiredField("name")
-        if not isinstance(self.name, PowerMeterName):
-            self.name = PowerMeterName(self.name)
+        if not isinstance(self.name, str):
+            self.name = str(self.name)
 
         if self.manufacturer is not None and not isinstance(self.manufacturer, str):
             self.manufacturer = str(self.manufacturer)
@@ -2636,9 +2597,7 @@ class UserExperimentInputData(MetricsInputData):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.user_experiment_images):
             self.MissingRequiredField("user_experiment_images")
-        if not isinstance(self.user_experiment_images, list):
-            self.user_experiment_images = [self.user_experiment_images] if self.user_experiment_images is not None else []
-        self.user_experiment_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.user_experiment_images]
+        self._normalize_inlined_as_list(slot_name="user_experiment_images", slot_type=Image, key_name="shape_x", keyed=False)
 
         if not isinstance(self.orthogonal_rois, list):
             self.orthogonal_rois = [self.orthogonal_rois] if self.orthogonal_rois is not None else []
@@ -2702,13 +2661,9 @@ class UserExperimentOutput(MetricsOutput):
             self.intensity_profiles = [self.intensity_profiles] if self.intensity_profiles is not None else []
         self.intensity_profiles = [v if isinstance(v, Table) else Table(**as_dict(v)) for v in self.intensity_profiles]
 
-        if not isinstance(self.orthogonal_images, list):
-            self.orthogonal_images = [self.orthogonal_images] if self.orthogonal_images is not None else []
-        self.orthogonal_images = [v if isinstance(v, OrthogonalImage) else OrthogonalImage(**as_dict(v)) for v in self.orthogonal_images]
+        self._normalize_inlined_as_list(slot_name="orthogonal_images", slot_type=OrthogonalImage, key_name="shape_x", keyed=False)
 
-        if not isinstance(self.fft_images, list):
-            self.fft_images = [self.fft_images] if self.fft_images is not None else []
-        self.fft_images = [v if isinstance(v, Image) else Image(**as_dict(v)) for v in self.fft_images]
+        self._normalize_inlined_as_list(slot_name="fft_images", slot_type=Image, key_name="shape_x", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -2755,7 +2710,7 @@ class HomogeneousField(Sample):
     class_name: ClassVar[str] = "HomogeneousField"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.HomogeneousField
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
 
 @dataclass(repr=False)
 class FluorescentHomogeneousThickField(HomogeneousField):
@@ -2769,7 +2724,7 @@ class FluorescentHomogeneousThickField(HomogeneousField):
     class_name: ClassVar[str] = "FluorescentHomogeneousThickField"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FluorescentHomogeneousThickField
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
 
 @dataclass(repr=False)
 class FluorescentHomogeneousThinField(HomogeneousField):
@@ -2783,7 +2738,7 @@ class FluorescentHomogeneousThinField(HomogeneousField):
     class_name: ClassVar[str] = "FluorescentHomogeneousThinField"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FluorescentHomogeneousThinField
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
 
 @dataclass(repr=False)
 class PSFBeads(Sample):
@@ -2797,7 +2752,7 @@ class PSFBeads(Sample):
     class_name: ClassVar[str] = "PSFBeads"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeads
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
     bead_diameter_micron: float = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2821,7 +2776,7 @@ class LightSourcePower(Sample):
     class_name: ClassVar[str] = "LightSourcePower"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.LightSourcePower
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
 
 @dataclass(repr=False)
 class UserExperiment(Sample):
@@ -2835,7 +2790,7 @@ class UserExperiment(Sample):
     class_name: ClassVar[str] = "UserExperiment"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.UserExperiment
 
-    preparation_protocol: Union[str, ProtocolUrl] = None
+    preparation_protocol: Union[dict, Protocol] = None
 
 # Enumerations
 class PlaneAxisEnum(EnumDefinitionImpl):
@@ -3047,7 +3002,7 @@ slots.intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/intensity_pro
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], list[Union[dict, Table]]]])
 
 slots.preparation_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_protocol'], name="preparation_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_protocol'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[str, ProtocolUrl])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[dict, Protocol])
 
 slots.preparation_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_datetime'], name="preparation_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_datetime'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_datetime, domain=None, range=Optional[Union[str, XSDDateTime]])
@@ -3572,7 +3527,7 @@ slots.power_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_sou
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_measurements, domain=None, range=Union[Union[dict, PowerMeasurement], list[Union[dict, PowerMeasurement]]])
 
 slots.light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.light_source, domain=None, range=Optional[Union[str, LightSourceName]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.light_source, domain=None, range=Optional[Union[dict, LightSource]])
 
 slots.measuring_location = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/measuring_location'], name="measuring_location", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/measuring_location'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.measuring_location, domain=None, range=Optional[Union[str, "MeasuringLocationEnum"]])
@@ -3581,7 +3536,7 @@ slots.wavelength_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_p
                    model_uri=MICROSCOPEMETRICS_SCHEMA.wavelength_nm, domain=None, range=Optional[float])
 
 slots.power_meter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_meter'], name="power_meter", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_meter'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_meter, domain=None, range=Optional[Union[str, PowerMeterName]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.power_meter, domain=None, range=Optional[Union[dict, PowerMeter]])
 
 slots.power_set_point = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_set_point'], name="power_set_point", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_set_point'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_set_point, domain=None, range=Optional[float])
@@ -3695,19 +3650,19 @@ slots.protocol__version = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/version'], nam
                    model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__version, domain=None, range=str)
 
 slots.protocol__authors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/authors'], name="protocol__authors", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/authors'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__authors, domain=None, range=Optional[Union[Union[str, ExperimenterOrcid], list[Union[str, ExperimenterOrcid]]]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__authors, domain=None, range=Optional[Union[Union[dict, Experimenter], list[Union[dict, Experimenter]]]])
 
 slots.protocol__url = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/url'], name="protocol__url", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/url'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__url, domain=None, range=URIRef)
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.protocol__url, domain=None, range=str)
 
 slots.experimenter__orcid = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/orcid'], name="experimenter__orcid", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/orcid'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.experimenter__orcid, domain=None, range=URIRef)
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.experimenter__orcid, domain=None, range=Optional[str])
 
-slots.comment__datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/datetime'], name="comment__datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/datetime'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__datetime, domain=None, range=Union[str, XSDDateTime])
+slots.comment__comment_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/comment_datetime'], name="comment__comment_datetime", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/comment_datetime'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_datetime, domain=None, range=Union[str, XSDDateTime])
 
 slots.comment__author = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/author'], name="comment__author", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/author'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__author, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.comment__author, domain=None, range=Optional[Union[dict, Experimenter]])
 
 slots.comment__comment_type = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/comment_type'], name="comment__comment_type", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/comment_type'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.comment__comment_type, domain=None, range=Union[str, "CommentTypesEnum"])
@@ -3725,10 +3680,10 @@ slots.metricsDataset__microscope = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/micro
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__microscope, domain=None, range=Union[dict, Microscope])
 
 slots.metricsDataset__experimenter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/experimenter'], name="metricsDataset__experimenter", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/experimenter'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__experimenter, domain=None, range=Optional[Union[str, ExperimenterOrcid]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__experimenter, domain=None, range=Optional[Union[dict, Experimenter]])
 
 slots.metricsDataset__acquisition_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/acquisition_protocol'], name="metricsDataset__acquisition_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/acquisition_protocol'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__acquisition_protocol, domain=None, range=Optional[Union[str, ProtocolUrl]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__acquisition_protocol, domain=None, range=Optional[Union[dict, Protocol]])
 
 slots.metricsDataset__processed = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/processed'], name="metricsDataset__processed", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/processed'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.metricsDataset__processed, domain=None, range=Union[bool, Bool])
@@ -3983,16 +3938,16 @@ slots.LightSourcePowerOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEM
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerOutput_key_measurements, domain=LightSourcePowerOutput, range=Union[Union[dict, "LightSourcePowerKeyMeasurement"], list[Union[dict, "LightSourcePowerKeyMeasurement"]]])
 
 slots.LightSourcePowerKeyMeasurement_light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="LightSourcePowerKeyMeasurement_light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_light_source, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[str, LightSourceName]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_light_source, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[dict, "LightSource"]])
 
 slots.LightSourcePowerKeyMeasurement_power_meter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_meter'], name="LightSourcePowerKeyMeasurement_power_meter", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_meter'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_power_meter, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[str, PowerMeterName]])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_power_meter, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[dict, "PowerMeter"]])
 
 slots.LightSource_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA.name, name="LightSource_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('name'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSource_name, domain=LightSource, range=Union[str, LightSourceName])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSource_name, domain=LightSource, range=str)
 
 slots.PowerMeter_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA.name, name="PowerMeter_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('name'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.PowerMeter_name, domain=PowerMeter, range=Union[str, PowerMeterName])
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.PowerMeter_name, domain=PowerMeter, range=str)
 
 slots.UserExperimentDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="UserExperimentDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.UserExperimentDataset_input_data, domain=UserExperimentDataset, range=Union[dict, "UserExperimentInputData"])

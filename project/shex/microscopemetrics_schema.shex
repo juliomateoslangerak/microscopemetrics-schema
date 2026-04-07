@@ -115,7 +115,7 @@ linkml:Sparqlpath xsd:string
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Comment_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsObject_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsObject> ] ? ;
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/datetime> @linkml:Datetime ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/comment_datetime> @linkml:Datetime ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/author>
           @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/comment_type> [
@@ -169,9 +169,10 @@ linkml:Sparqlpath xsd:string
 <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> CLOSED {
     (  $<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter_tes> ( 
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsObject_tes> ;
-          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsObject> ] ?
+          rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/MetricsObject> ] ? ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/orcid> @linkml:String ?
        ) ;
-       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> ]
+       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> ] ?
     )
 }
 
@@ -520,10 +521,11 @@ CLOSED {
           &<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/NamedObject_tes> ;
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/NamedObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/wavelength_nm>
-          @linkml:Float ?
+          @linkml:Float ? ;
+          <name> @linkml:String
        ) ;
        rdf:type [
-          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ]
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSource> ] ?
     )
 }
 
@@ -971,10 +973,11 @@ CLOSED {
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/manufacturer>
           @linkml:String ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/model>
-          @linkml:String ?
+          @linkml:String ? ;
+          <name> @linkml:String
        ) ;
        rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/PowerMeter>
-          ]
+          ] ?
     )
 }
 
@@ -992,9 +995,10 @@ CLOSED {
           rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/NamedObject> ] ? ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/version> @linkml:String ;
           <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/authors>
-          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> *
+          @<https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Experimenter> * ;
+          <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/url> @linkml:String
        ) ;
-       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Protocol> ]
+       rdf:type [ <https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/Protocol> ] ?
     )
 }
 

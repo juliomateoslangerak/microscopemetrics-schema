@@ -234,6 +234,10 @@
          "@type": "@id",
          "@id": "core/author"
       },
+      "comment_datetime": {
+         "@type": "xsd:dateTime",
+         "@id": "core/comment_datetime"
+      },
       "comment_type": {
          "@context": {
             "text": "skos:notation",
@@ -241,10 +245,6 @@
             "meaning": "@id"
          },
          "@id": "core/comment_type"
-      },
-      "datetime": {
-         "@type": "xsd:dateTime",
-         "@id": "core/datetime"
       },
       "text": {
          "@id": "core/text"
@@ -320,7 +320,9 @@
          "@type": "xsd:float",
          "@id": "core/excitation_wavelength_nm"
       },
-      "orcid": "@id",
+      "orcid": {
+         "@id": "core/orcid"
+      },
       "field_illumination_images": {
          "@type": "@id",
          "@id": "analyses/field_illumination/field_illumination_images"
@@ -606,7 +608,6 @@
          "@type": "@id",
          "@id": "analyses/light_source_power/light_source"
       },
-      "name": "@id",
       "x1": {
          "@type": "xsd:float",
          "@id": "core/x1"
@@ -790,6 +791,9 @@
       "description": {
          "@id": "core/description"
       },
+      "name": {
+         "@id": "core/name"
+      },
       "nr_of_measurements": {
          "@type": "xsd:integer",
          "@id": "analyses/light_source_power/nr_of_measurements"
@@ -925,7 +929,9 @@
          "@type": "@id",
          "@id": "core/authors"
       },
-      "url": "@id",
+      "url": {
+         "@id": "core/url"
+      },
       "version": {
          "@id": "core/version"
       },

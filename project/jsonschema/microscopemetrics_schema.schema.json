@@ -182,11 +182,20 @@
             "description": "A comment",
             "properties": {
                 "author": {
-                    "description": "The author of the comment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Experimenter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The author of the comment"
+                },
+                "comment_datetime": {
+                    "description": "The datetime to which the comment is referring",
+                    "format": "date-time",
+                    "type": "string"
                 },
                 "comment_type": {
                     "$ref": "#/$defs/CommentTypesEnum",
@@ -202,11 +211,6 @@
                         }
                     ],
                     "description": "A reference to the data"
-                },
-                "datetime": {
-                    "description": "The datetime to which the comment is referring",
-                    "format": "date-time",
-                    "type": "string"
                 },
                 "description": {
                     "description": "A human readable description of an entity",
@@ -238,7 +242,7 @@
                 }
             },
             "required": [
-                "datetime",
+                "comment_datetime",
                 "comment_type",
                 "text"
             ],
@@ -436,9 +440,6 @@
                     ]
                 }
             },
-            "required": [
-                "orcid"
-            ],
             "title": "Experimenter",
             "type": "object"
         },
@@ -455,11 +456,15 @@
                     ]
                 },
                 "acquisition_protocol": {
-                    "description": "The protocol used to acquire the dataset",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Protocol"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The protocol used to acquire the dataset"
                 },
                 "data_reference": {
                     "anyOf": [
@@ -480,11 +485,15 @@
                     ]
                 },
                 "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Experimenter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The experimenter that performed the imaging experiment"
                 },
                 "input_data": {
                     "$ref": "#/$defs/FieldIlluminationInputData",
@@ -595,7 +604,7 @@
                     "type": "number"
                 },
                 "saturation_threshold": {
-                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1.0,
                     "minimum": 0.0,
                     "type": "number"
@@ -1010,7 +1019,7 @@
                     ]
                 },
                 "key_measurements": {
-                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels",
                     "items": {
                         "$ref": "#/$defs/FieldIlluminationKeyMeasurement"
                     },
@@ -1189,8 +1198,8 @@
                     ]
                 },
                 "preparation_protocol": {
-                    "description": "The protocol used to prepare a sample",
-                    "type": "string"
+                    "$ref": "#/$defs/Protocol",
+                    "description": "The protocol used to prepare a sample"
                 }
             },
             "required": [
@@ -1233,8 +1242,8 @@
                     ]
                 },
                 "preparation_protocol": {
-                    "description": "The protocol used to prepare a sample",
-                    "type": "string"
+                    "$ref": "#/$defs/Protocol",
+                    "description": "The protocol used to prepare a sample"
                 }
             },
             "required": [
@@ -1245,7 +1254,7 @@
         },
         "HarmonizedMetricsDatasetCollection": {
             "additionalProperties": false,
-            "description": "A collection of harmonized microscope-metrics datasets. All of the datasets  in the collection share the same analysis and processing parameters.",
+            "description": "A collection of harmonized microscope-metrics datasets. All of the datasets in the collection share the same analysis and processing parameters.",
             "properties": {
                 "data_reference": {
                     "anyOf": [
@@ -1650,8 +1659,8 @@
                     ]
                 },
                 "preparation_protocol": {
-                    "description": "The protocol used to prepare a sample",
-                    "type": "string"
+                    "$ref": "#/$defs/Protocol",
+                    "description": "The protocol used to prepare a sample"
                 }
             },
             "required": [
@@ -1673,11 +1682,15 @@
                     ]
                 },
                 "acquisition_protocol": {
-                    "description": "The protocol used to acquire the dataset",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Protocol"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The protocol used to acquire the dataset"
                 },
                 "data_reference": {
                     "anyOf": [
@@ -1698,11 +1711,15 @@
                     ]
                 },
                 "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Experimenter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The experimenter that performed the imaging experiment"
                 },
                 "input_data": {
                     "$ref": "#/$defs/LightSourcePowerInputData",
@@ -1833,11 +1850,15 @@
             "description": "",
             "properties": {
                 "light_source": {
-                    "description": "The light source under investigation.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LightSource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The light source under investigation."
                 },
                 "long_term_power_stability": {
                     "description": "The long term stability of the light source",
@@ -1946,11 +1967,15 @@
                     ]
                 },
                 "power_meter": {
-                    "description": "The power meter used to measure the power.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PowerMeter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The power meter used to measure the power."
                 },
                 "power_min_mw": {
                     "description": "The minimum power measured in milliwatts.",
@@ -2019,7 +2044,7 @@
                     ]
                 },
                 "key_measurements": {
-                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels",
                     "items": {
                         "$ref": "#/$defs/LightSourcePowerKeyMeasurement"
                     },
@@ -2678,8 +2703,8 @@
                     ]
                 },
                 "preparation_protocol": {
-                    "description": "The protocol used to prepare a sample",
-                    "type": "string"
+                    "$ref": "#/$defs/Protocol",
+                    "description": "The protocol used to prepare a sample"
                 }
             },
             "required": [
@@ -2702,11 +2727,15 @@
                     ]
                 },
                 "acquisition_protocol": {
-                    "description": "The protocol used to acquire the dataset",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Protocol"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The protocol used to acquire the dataset"
                 },
                 "data_reference": {
                     "anyOf": [
@@ -2727,11 +2756,15 @@
                     ]
                 },
                 "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Experimenter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The experimenter that performed the imaging experiment"
                 },
                 "input_data": {
                     "$ref": "#/$defs/PSFBeadsInputData",
@@ -2854,7 +2887,7 @@
                     "type": "number"
                 },
                 "saturation_threshold": {
-                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1.0,
                     "minimum": 0.0,
                     "type": [
@@ -3661,7 +3694,7 @@
                     ]
                 },
                 "key_measurements": {
-                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels",
                     "items": {
                         "$ref": "#/$defs/PSFBeadsKeyMeasurement"
                     },
@@ -3937,22 +3970,30 @@
                     ]
                 },
                 "light_source": {
-                    "description": "The light source under investigation.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/LightSource"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The light source under investigation."
                 },
                 "measuring_location": {
                     "$ref": "#/$defs/MeasuringLocationEnum",
                     "description": "The location at which the measurement was taken."
                 },
                 "power_meter": {
-                    "description": "The power meter used to measure the power.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/PowerMeter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The power meter used to measure the power."
                 },
                 "power_mw": {
                     "description": "The power measured in milliwatts.",
@@ -4013,7 +4054,7 @@
                 "authors": {
                     "description": "The authors of the protocol",
                     "items": {
-                        "type": "string"
+                        "$ref": "#/$defs/Experimenter"
                     },
                     "type": [
                         "array",
@@ -4299,8 +4340,8 @@
                     ]
                 },
                 "preparation_protocol": {
-                    "description": "The protocol used to prepare a sample",
-                    "type": "string"
+                    "$ref": "#/$defs/Protocol",
+                    "description": "The protocol used to prepare a sample"
                 }
             },
             "required": [
@@ -4322,11 +4363,15 @@
                     ]
                 },
                 "acquisition_protocol": {
-                    "description": "The protocol used to acquire the dataset",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Protocol"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The protocol used to acquire the dataset"
                 },
                 "data_reference": {
                     "anyOf": [
@@ -4347,11 +4392,15 @@
                     ]
                 },
                 "experimenter": {
-                    "description": "The experimenter that performed the imaging experiment",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Experimenter"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "The experimenter that performed the imaging experiment"
                 },
                 "input_data": {
                     "$ref": "#/$defs/UserExperimentInputData",
@@ -4476,7 +4525,7 @@
                     ]
                 },
                 "saturation_threshold": {
-                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold,  the image is considered as saturated and the analysis is not performed.",
+                    "description": "Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.",
                     "maximum": 1.0,
                     "minimum": 0.0,
                     "type": [
@@ -4571,7 +4620,7 @@
                     ]
                 },
                 "key_measurements": {
-                    "description": "A list of KeyMeasurement subclasses summarizing the most important  measurements as a function of, for example, channels",
+                    "description": "A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels",
                     "items": {
                         "$ref": "#/$defs/UserExperimentKeyMeasurement"
                     },
