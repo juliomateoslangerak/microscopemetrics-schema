@@ -6,20 +6,20 @@ build-backend = "poetry_dynamic_versioning.backend"
 name = "microscopemetrics_schema"
 description = "A schema for microscope-metrics, a python package for microscope QC"
 authors = [
-  {name = "Julio Mateos Langerak", email = "<julio.mateos-langerak@igh.cnrs.fr>"},
+  {name = "Julio Mateos Langerak", email = "julio.mateos-langerak@igh.cnrs.fr"},
 ]
-license = "GNU GPL v3.0"
+license = {text = "GNU GPL v3.0"}
 readme = "README.md"
 include = ["README.md", "src/microscopemetrics_schema/schema", "project"]
 
-requires-python = ">=3.9.18,<4.0"
+# We can't use caret ^ requirement specifiers here. They are a Poetry speciality.
+requires-python = ">=3.11,<4.0"
 
 dynamic = ["version"]
 
 dependencies = [
-  "linkml-runtime >=1.1.24",
-  "hypothesis >= 6.131.15",
-
+  "linkml-runtime >=1.8.0",
+  "hypothesis >= 6.151.11",
 ]
 
 [tool.poetry]
@@ -27,7 +27,7 @@ requires-poetry = ">=2.0"
 version = "0.0.0"
 
 [tool.poetry.requires-plugins]
-poetry-dynamic-versioning = ">=1.5.2"
+poetry-dynamic-versioning = ">=1.7.0"
 
 [tool.poetry-dynamic-versioning]
 enable = true

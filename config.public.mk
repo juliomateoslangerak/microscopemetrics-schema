@@ -1,22 +1,24 @@
 # config.public.mk
 
 # This file is public in git. No sensitive info allowed.
-# These variables are sourced in Makefile, following make-file conventions.
-# Be aware that this file does not follow python or bash conventions, so may appear a little unfamiliar.
+# These variables are sourced in justfile and/or Makefile..
 
-###### schema definition variables, used by makefile
+###### schema definition variables, used by justfile/Makefile
 
-# Note: makefile variables should not be quoted, as makefile handles quoting differently than bash
+# Note: 
+# - just works fine with quoted variables of dot-env files like this one
+# - make does not support standard dot-env files. If you use make remove the quotes.
+#   see also https://github.com/linkml/linkml-project-cookiecutter/issues/106
 LINKML_SCHEMA_NAME="microscopemetrics_schema"
 LINKML_SCHEMA_AUTHOR="Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"
 LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC"
 LINKML_SCHEMA_SOURCE_PATH="src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml"
-LINKML_SCHEMA_GOOGLE_SHEET_MODULE=""
+LINKML_SCHEMA_GOOGLE_SHEET_MODULE="personinfo_enums"
 LINKML_SCHEMA_GOOGLE_SHEET_ID=""
-LINKML_SCHEMA_GOOGLE_SHEET_TABS=""
+LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"
 LINKML_USE_SCHEMASHEETS=No
 
-###### linkml generator variables, used by makefile
+###### linkml generator variables, used by justfile/Makefile
 
 ## gen-project configuration file
 LINKML_GENERATORS_CONFIG_YAML=config.yaml

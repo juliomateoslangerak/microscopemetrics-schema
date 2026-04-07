@@ -1,5 +1,6 @@
-# Example data object
+# Example for an invalid data object
 ---
-id: this is not a valid id
+id: "001"
 name: foo bar
-description: This is a test object
+primary_email: not-an-email-address
+age_in_years: 33

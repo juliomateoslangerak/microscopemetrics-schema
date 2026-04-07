@@ -7631,7 +7631,7 @@
   "source_file": "microscopemetrics_schema.yaml",
   "source_file_date": "2025-11-24T07:16:00",
   "source_file_size": 912,
-  "generation_date": "2026-04-07T13:16:28",
+  "generation_date": "2026-04-07T15:44:55",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

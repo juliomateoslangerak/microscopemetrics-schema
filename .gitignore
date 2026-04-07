@@ -1,11 +1,7 @@
 /docs/
 /project/docs/
 /tmp/
-
-# IDE directories
-.idea/
-.vscode/
-
+.idea/  # PyCharm files
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -135,3 +131,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# pycharm
+.idea
+# Local vscode editor config
+.vscode
