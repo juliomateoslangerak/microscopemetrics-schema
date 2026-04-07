@@ -100,7 +100,6 @@ classes:
     slot_usage:
       name:
         required: true
-        identifier: true
 
   PowerMeter:
     is_a: NamedObject
@@ -114,7 +113,6 @@ classes:
     slot_usage:
       name:
         required: true
-        identifier: true
 
 slots:
   # Input data

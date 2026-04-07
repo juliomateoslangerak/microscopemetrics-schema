@@ -102,7 +102,6 @@ classes:
         range: string
         description: The URL where the protocol can be found
         required: true
-        identifier: true
 
   Experimenter:
     is_a: MetricsObject
@@ -111,7 +110,6 @@ classes:
       orcid:
         range: string
         description: The ORCID of the experimenter
-        identifier: true
 
   Comment:
     is_a: MetricsObject
@@ -707,7 +705,7 @@ slots:
     description: The protocol used to prepare a sample
     required: true
     multivalued: false
-    inlined: false
+    inlined: true
   preparation_datetime:
     range: datetime
     description: The datetime when the sample was prepared

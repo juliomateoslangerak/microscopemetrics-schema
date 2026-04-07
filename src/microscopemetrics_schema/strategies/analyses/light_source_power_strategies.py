@@ -109,8 +109,8 @@ def st_mm_light_source_power_key_measurement(
     power_meter=st_mm_power_meter(),
 ) -> mm_schema.LightSourcePowerKeyMeasurement:
     return mm_schema.LightSourcePowerKeyMeasurement(
-        light_source=draw(light_source).name,
-        power_meter=draw(power_meter).name,
+        light_source=draw(light_source),
+        power_meter=draw(power_meter),
         measuring_location="OBJECTIVE_FOCAL",
         nr_of_measurements=100,
         power_mean_mw=25.0,
