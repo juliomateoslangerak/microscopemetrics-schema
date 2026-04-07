@@ -32,6 +32,6 @@ output:
     - "An error"
     - "Another error"
   comment:
-    datetime: "2024-01-15T00:00:00Z"
+    comment_datetime: "2024-01-15T00:00:00Z"
     comment_type: "OTHER"
     text: "This dataset is for testing purposes only."

@@ -134,7 +134,7 @@ def st_mm_sample(
 @st.composite
 def st_mm_comment(
     draw,
-    datetime=st.datetimes(),
+    comment_datetime=st.datetimes(),
     author=st_mm_experimenter(),
     text=st.text(
         alphabet=st.characters(codec="latin-1"), min_size=1, max_size=256
@@ -142,7 +142,7 @@ def st_mm_comment(
     comment_type=st.sampled_from(["ACQUISITION", "PROCESSING", "OTHER"]),
 ) -> mm_schema.Comment:
     return mm_schema.Comment(
-        datetime=draw(datetime),
+        comment_datetime=draw(comment_datetime),
         author=draw(author),
         comment_type=draw(comment_type),
         text=draw(text),
@@ -210,7 +210,7 @@ def st_mm_dataset(
     metrics_object = draw(metrics_object)
     processed = draw(processed)
     output = draw(output) if processed else None
-    
+
     if target_class is None:
         return mm_schema.MetricsDataset(
             name=metrics_object.name,

@@ -115,7 +115,7 @@ classes:
     is_a: MetricsObject
     description: A comment
     attributes:
-      datetime:
+      comment_datetime:
         range: datetime
         description: The datetime to which the comment is referring
         required: true
