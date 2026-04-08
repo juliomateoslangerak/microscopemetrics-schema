@@ -10,7 +10,7 @@ prefixes:
   ome: https://www.openmicroscopy.org/Schemas/Documentation/Generated/OME-2016-06/ome.html#
   ORCID: https://orcid.org/
   wiki: https://en.wikipedia.org/wiki/
-  ucum: https://unitsofmeasure.org/ucum/
+#  ucum: https://unitsofmeasure.org/ucum/
 
 imports:
   - linkml:types
@@ -337,8 +337,8 @@ classes:
         implements:
           - linkml:elements
         required: true
-        unit:
-          ucum_code: s
+#        unit:
+#          ucum_code: s
 
   Column:
     is_a: NamedObject
