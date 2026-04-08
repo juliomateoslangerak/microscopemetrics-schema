@@ -1,24 +1,17 @@
 # config.public.mk
 
 # This file is public in git. No sensitive info allowed.
-# These variables are sourced in justfile and/or Makefile..
 
-###### schema definition variables, used by justfile/Makefile
+###### schema definition variables, used by justfile
 
-# Note: 
+# Note:
 # - just works fine with quoted variables of dot-env files like this one
-# - make does not support standard dot-env files. If you use make remove the quotes.
-#   see also https://github.com/linkml/linkml-project-cookiecutter/issues/106
 LINKML_SCHEMA_NAME="microscopemetrics_schema"
 LINKML_SCHEMA_AUTHOR="Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"
-LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC"
-LINKML_SCHEMA_SOURCE_PATH="src/microscopemetrics_schema/schema/microscopemetrics_schema.yaml"
-LINKML_SCHEMA_GOOGLE_SHEET_MODULE="personinfo_enums"
-LINKML_SCHEMA_GOOGLE_SHEET_ID=""
-LINKML_SCHEMA_GOOGLE_SHEET_TABS="personinfo enums"
-LINKML_USE_SCHEMASHEETS=No
+LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC."
+LINKML_SCHEMA_SOURCE_DIR="src/microscopemetrics_schema/schema"
 
-###### linkml generator variables, used by justfile/Makefile
+###### linkml generator variables, used by justfile
 
 ## gen-project configuration file
 LINKML_GENERATORS_CONFIG_YAML=config.yaml
@@ -27,9 +20,10 @@ LINKML_GENERATORS_CONFIG_YAML=config.yaml
 LINKML_GENERATORS_DOC_ARGS=
 
 ## pass args to workaround genowl rdfs config bug (linkml#1453)
-##   (i.e. --no-type-objects --no-metaclasses --metadata-profile rdfs)
+##   (i.e. --no-type-objects --no-metaclasses --metadata-profile=rdfs)
+# LINKML_GENERATORS_OWL_ARGS="--no-type-objects --no-metaclasses --metadata-profile=rdfs"
 LINKML_GENERATORS_OWL_ARGS=
 
-## pass args to trigger experimental java/typescript generation
-LINKML_GENERATORS_JAVA_ARGS=
-LINKML_GENERATORS_TYPESCRIPT_ARGS=
+## pass args to pydantic generator which isn't supported by gen-project
+## https://github.com/linkml/linkml/issues/2537
+LINKML_GENERATORS_PYDANTIC_ARGS=
