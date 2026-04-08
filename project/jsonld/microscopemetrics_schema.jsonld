@@ -4104,6 +4104,10 @@
       "range": "float",
       "required": true,
       "multivalued": true,
+      "unit": {
+        "ucum_code": "s",
+        "@type": "UnitOfMeasure"
+      },
       "@type": "SlotDefinition"
     },
     {
@@ -6143,6 +6147,10 @@
           "range": "float",
           "required": true,
           "multivalued": true,
+          "unit": {
+            "ucum_code": "s",
+            "@type": "UnitOfMeasure"
+          },
           "@type": "SlotDefinition"
         }
       ],
@@ -7627,9 +7635,9 @@
   ],
   "metamodel_version": "1.7.0",
   "source_file": "microscopemetrics_schema.yaml",
-  "source_file_date": "2025-11-24T07:16:00",
+  "source_file_date": "2025-12-03T13:42:02",
   "source_file_size": 912,
-  "generation_date": "2026-04-07T21:50:29",
+  "generation_date": "2026-04-08T13:30:29",
   "@type": "SchemaDefinition",
   "@context": [
     "project/jsonld/microscopemetrics_schema.context.jsonld",

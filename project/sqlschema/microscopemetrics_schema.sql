@@ -857,8 +857,8 @@ CREATE TABLE "DataReference" (
 	FOREIGN KEY("LightSourcePowerDataset_id") REFERENCES "LightSourcePowerDataset" (id),
 	FOREIGN KEY("UserExperimentDataset_id") REFERENCES "UserExperimentDataset" (id)
 );
-CREATE INDEX "DataReference_omero_host_omero_object_type_omero_object_id_idx" ON "DataReference" (omero_host, omero_object_type, omero_object_id);
 CREATE INDEX "ix_DataReference_id" ON "DataReference" (id);
+CREATE INDEX "DataReference_omero_host_omero_object_type_omero_object_id_idx" ON "DataReference" (omero_host, omero_object_type, omero_object_id);
 
 CREATE TABLE "MetricsObject" (
 	id INTEGER NOT NULL,
@@ -1923,8 +1923,8 @@ CREATE TABLE "Microscope_comment_collection" (
 	FOREIGN KEY("Microscope_id") REFERENCES "Microscope" (id),
 	FOREIGN KEY(comment_collection_id) REFERENCES "Comment" (id)
 );
-CREATE INDEX "ix_Microscope_comment_collection_comment_collection_id" ON "Microscope_comment_collection" (comment_collection_id);
 CREATE INDEX "ix_Microscope_comment_collection_Microscope_id" ON "Microscope_comment_collection" ("Microscope_id");
+CREATE INDEX "ix_Microscope_comment_collection_comment_collection_id" ON "Microscope_comment_collection" (comment_collection_id);
 
 CREATE TABLE "Protocol_authors" (
 	"Protocol_id" INTEGER,
@@ -1933,8 +1933,8 @@ CREATE TABLE "Protocol_authors" (
 	FOREIGN KEY("Protocol_id") REFERENCES "Protocol" (id),
 	FOREIGN KEY(authors_id) REFERENCES "Experimenter" (id)
 );
-CREATE INDEX "ix_Protocol_authors_authors_id" ON "Protocol_authors" (authors_id);
 CREATE INDEX "ix_Protocol_authors_Protocol_id" ON "Protocol_authors" ("Protocol_id");
+CREATE INDEX "ix_Protocol_authors_authors_id" ON "Protocol_authors" (authors_id);
 
 CREATE TABLE "MetricsOutput_processing_application" (
 	"MetricsOutput_id" INTEGER,
@@ -1942,8 +1942,8 @@ CREATE TABLE "MetricsOutput_processing_application" (
 	PRIMARY KEY ("MetricsOutput_id", processing_application),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );
-CREATE INDEX "ix_MetricsOutput_processing_application_processing_application" ON "MetricsOutput_processing_application" (processing_application);
 CREATE INDEX "ix_MetricsOutput_processing_application_MetricsOutput_id" ON "MetricsOutput_processing_application" ("MetricsOutput_id");
+CREATE INDEX "ix_MetricsOutput_processing_application_processing_application" ON "MetricsOutput_processing_application" (processing_application);
 
 CREATE TABLE "MetricsOutput_processing_version" (
 	"MetricsOutput_id" INTEGER,
@@ -1951,8 +1951,8 @@ CREATE TABLE "MetricsOutput_processing_version" (
 	PRIMARY KEY ("MetricsOutput_id", processing_version),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );
-CREATE INDEX "ix_MetricsOutput_processing_version_processing_version" ON "MetricsOutput_processing_version" (processing_version);
 CREATE INDEX "ix_MetricsOutput_processing_version_MetricsOutput_id" ON "MetricsOutput_processing_version" ("MetricsOutput_id");
+CREATE INDEX "ix_MetricsOutput_processing_version_processing_version" ON "MetricsOutput_processing_version" (processing_version);
 
 CREATE TABLE "MetricsOutput_processing_entity" (
 	"MetricsOutput_id" INTEGER,
@@ -1969,8 +1969,8 @@ CREATE TABLE "MetricsOutput_warnings" (
 	PRIMARY KEY ("MetricsOutput_id", warnings),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );
-CREATE INDEX "ix_MetricsOutput_warnings_warnings" ON "MetricsOutput_warnings" (warnings);
 CREATE INDEX "ix_MetricsOutput_warnings_MetricsOutput_id" ON "MetricsOutput_warnings" ("MetricsOutput_id");
+CREATE INDEX "ix_MetricsOutput_warnings_warnings" ON "MetricsOutput_warnings" (warnings);
 
 CREATE TABLE "MetricsOutput_errors" (
 	"MetricsOutput_id" INTEGER,
@@ -1978,8 +1978,8 @@ CREATE TABLE "MetricsOutput_errors" (
 	PRIMARY KEY ("MetricsOutput_id", errors),
 	FOREIGN KEY("MetricsOutput_id") REFERENCES "MetricsOutput" (id)
 );
-CREATE INDEX "ix_MetricsOutput_errors_errors" ON "MetricsOutput_errors" (errors);
 CREATE INDEX "ix_MetricsOutput_errors_MetricsOutput_id" ON "MetricsOutput_errors" ("MetricsOutput_id");
+CREATE INDEX "ix_MetricsOutput_errors_errors" ON "MetricsOutput_errors" (errors);
 
 CREATE TABLE "ChannelSeries_channels" (
 	"ChannelSeries_id" INTEGER,
@@ -1988,8 +1988,8 @@ CREATE TABLE "ChannelSeries_channels" (
 	FOREIGN KEY("ChannelSeries_id") REFERENCES "ChannelSeries" (id),
 	FOREIGN KEY(channels_id) REFERENCES "Channel" (id)
 );
-CREATE INDEX "ix_ChannelSeries_channels_channels_id" ON "ChannelSeries_channels" (channels_id);
 CREATE INDEX "ix_ChannelSeries_channels_ChannelSeries_id" ON "ChannelSeries_channels" ("ChannelSeries_id");
+CREATE INDEX "ix_ChannelSeries_channels_channels_id" ON "ChannelSeries_channels" (channels_id);
 
 CREATE TABLE "TimeSeries_time_points_sec" (
 	"TimeSeries_id" INTEGER,
@@ -2007,8 +2007,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_profiles" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_profiles_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_profiles_roi_profiles_id" ON "FieldIlluminationOutput_roi_profiles" (roi_profiles_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_profiles_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_profiles" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_profiles_roi_profiles_id" ON "FieldIlluminationOutput_roi_profiles" (roi_profiles_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_corners" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2017,8 +2017,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_corners" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_corners_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_corners_roi_corners_id" ON "FieldIlluminationOutput_roi_corners" (roi_corners_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_corners_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_corners" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_corners_roi_corners_id" ON "FieldIlluminationOutput_roi_corners" (roi_corners_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_centers_of_mass" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2027,8 +2027,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_centers_of_mass" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_centers_of_mass_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_of_mass_roi_centers_of_mass_id" ON "FieldIlluminationOutput_roi_centers_of_mass" (roi_centers_of_mass_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_of_mass_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_of_mass" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_of_mass_roi_centers_of_mass_id" ON "FieldIlluminationOutput_roi_centers_of_mass" (roi_centers_of_mass_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_centers_geometric" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2037,8 +2037,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_centers_geometric" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_centers_geometric_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_geometric_roi_centers_geometric_id" ON "FieldIlluminationOutput_roi_centers_geometric" (roi_centers_geometric_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_geometric_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_geometric" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_geometric_roi_centers_geometric_id" ON "FieldIlluminationOutput_roi_centers_geometric" (roi_centers_geometric_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_centers_fitted" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2047,8 +2047,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_centers_fitted" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_centers_fitted_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_roi_centers_fitted_id" ON "FieldIlluminationOutput_roi_centers_fitted" (roi_centers_fitted_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_fitted" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_fitted_roi_centers_fitted_id" ON "FieldIlluminationOutput_roi_centers_fitted" (roi_centers_fitted_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_centers_max_intensity" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2057,8 +2057,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_centers_max_intensity" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_centers_max_intensity_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_max_intensity_roi_centers_max_intensity_id" ON "FieldIlluminationOutput_roi_centers_max_intensity" (roi_centers_max_intensity_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_max_intensity_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_centers_max_intensity" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_centers_max_intensity_roi_centers_max_intensity_id" ON "FieldIlluminationOutput_roi_centers_max_intensity" (roi_centers_max_intensity_id);
 
 CREATE TABLE "FieldIlluminationOutput_roi_center_region" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2067,8 +2067,8 @@ CREATE TABLE "FieldIlluminationOutput_roi_center_region" (
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id),
 	FOREIGN KEY(roi_center_region_id) REFERENCES "Roi" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_roi_center_region_id" ON "FieldIlluminationOutput_roi_center_region" (roi_center_region_id);
 CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_roi_center_region" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_roi_center_region_roi_center_region_id" ON "FieldIlluminationOutput_roi_center_region" (roi_center_region_id);
 
 CREATE TABLE "FieldIlluminationOutput_processing_application" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2103,8 +2103,8 @@ CREATE TABLE "FieldIlluminationOutput_warnings" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", warnings),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_warnings_warnings" ON "FieldIlluminationOutput_warnings" (warnings);
 CREATE INDEX "ix_FieldIlluminationOutput_warnings_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_warnings" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_warnings_warnings" ON "FieldIlluminationOutput_warnings" (warnings);
 
 CREATE TABLE "FieldIlluminationOutput_errors" (
 	"FieldIlluminationOutput_id" INTEGER,
@@ -2112,8 +2112,8 @@ CREATE TABLE "FieldIlluminationOutput_errors" (
 	PRIMARY KEY ("FieldIlluminationOutput_id", errors),
 	FOREIGN KEY("FieldIlluminationOutput_id") REFERENCES "FieldIlluminationOutput" (id)
 );
-CREATE INDEX "ix_FieldIlluminationOutput_errors_errors" ON "FieldIlluminationOutput_errors" (errors);
 CREATE INDEX "ix_FieldIlluminationOutput_errors_FieldIlluminationOutput_id" ON "FieldIlluminationOutput_errors" ("FieldIlluminationOutput_id");
+CREATE INDEX "ix_FieldIlluminationOutput_errors_errors" ON "FieldIlluminationOutput_errors" (errors);
 
 CREATE TABLE "PSFBeadsOutput_processing_application" (
 	"PSFBeadsOutput_id" INTEGER,
@@ -2139,8 +2139,8 @@ CREATE TABLE "PSFBeadsOutput_processing_entity" (
 	PRIMARY KEY ("PSFBeadsOutput_id", processing_entity),
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
 );
-CREATE INDEX "ix_PSFBeadsOutput_processing_entity_PSFBeadsOutput_id" ON "PSFBeadsOutput_processing_entity" ("PSFBeadsOutput_id");
 CREATE INDEX "ix_PSFBeadsOutput_processing_entity_processing_entity" ON "PSFBeadsOutput_processing_entity" (processing_entity);
+CREATE INDEX "ix_PSFBeadsOutput_processing_entity_PSFBeadsOutput_id" ON "PSFBeadsOutput_processing_entity" ("PSFBeadsOutput_id");
 
 CREATE TABLE "PSFBeadsOutput_warnings" (
 	"PSFBeadsOutput_id" INTEGER,
@@ -2148,8 +2148,8 @@ CREATE TABLE "PSFBeadsOutput_warnings" (
 	PRIMARY KEY ("PSFBeadsOutput_id", warnings),
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
 );
-CREATE INDEX "ix_PSFBeadsOutput_warnings_PSFBeadsOutput_id" ON "PSFBeadsOutput_warnings" ("PSFBeadsOutput_id");
 CREATE INDEX "ix_PSFBeadsOutput_warnings_warnings" ON "PSFBeadsOutput_warnings" (warnings);
+CREATE INDEX "ix_PSFBeadsOutput_warnings_PSFBeadsOutput_id" ON "PSFBeadsOutput_warnings" ("PSFBeadsOutput_id");
 
 CREATE TABLE "PSFBeadsOutput_errors" (
 	"PSFBeadsOutput_id" INTEGER,
@@ -2157,8 +2157,8 @@ CREATE TABLE "PSFBeadsOutput_errors" (
 	PRIMARY KEY ("PSFBeadsOutput_id", errors),
 	FOREIGN KEY("PSFBeadsOutput_id") REFERENCES "PSFBeadsOutput" (id)
 );
-CREATE INDEX "ix_PSFBeadsOutput_errors_PSFBeadsOutput_id" ON "PSFBeadsOutput_errors" ("PSFBeadsOutput_id");
 CREATE INDEX "ix_PSFBeadsOutput_errors_errors" ON "PSFBeadsOutput_errors" (errors);
+CREATE INDEX "ix_PSFBeadsOutput_errors_PSFBeadsOutput_id" ON "PSFBeadsOutput_errors" ("PSFBeadsOutput_id");
 
 CREATE TABLE "LightSourcePowerOutput_processing_application" (
 	"LightSourcePowerOutput_id" INTEGER,
@@ -2166,8 +2166,8 @@ CREATE TABLE "LightSourcePowerOutput_processing_application" (
 	PRIMARY KEY ("LightSourcePowerOutput_id", processing_application),
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
 );
-CREATE INDEX "ix_LightSourcePowerOutput_processing_application_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_processing_application" ("LightSourcePowerOutput_id");
 CREATE INDEX "ix_LightSourcePowerOutput_processing_application_processing_application" ON "LightSourcePowerOutput_processing_application" (processing_application);
+CREATE INDEX "ix_LightSourcePowerOutput_processing_application_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_processing_application" ("LightSourcePowerOutput_id");
 
 CREATE TABLE "LightSourcePowerOutput_processing_version" (
 	"LightSourcePowerOutput_id" INTEGER,
@@ -2175,8 +2175,8 @@ CREATE TABLE "LightSourcePowerOutput_processing_version" (
 	PRIMARY KEY ("LightSourcePowerOutput_id", processing_version),
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
 );
-CREATE INDEX "ix_LightSourcePowerOutput_processing_version_processing_version" ON "LightSourcePowerOutput_processing_version" (processing_version);
 CREATE INDEX "ix_LightSourcePowerOutput_processing_version_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_processing_version" ("LightSourcePowerOutput_id");
+CREATE INDEX "ix_LightSourcePowerOutput_processing_version_processing_version" ON "LightSourcePowerOutput_processing_version" (processing_version);
 
 CREATE TABLE "LightSourcePowerOutput_processing_entity" (
 	"LightSourcePowerOutput_id" INTEGER,
@@ -2202,8 +2202,8 @@ CREATE TABLE "LightSourcePowerOutput_errors" (
 	PRIMARY KEY ("LightSourcePowerOutput_id", errors),
 	FOREIGN KEY("LightSourcePowerOutput_id") REFERENCES "LightSourcePowerOutput" (id)
 );
-CREATE INDEX "ix_LightSourcePowerOutput_errors_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_errors" ("LightSourcePowerOutput_id");
 CREATE INDEX "ix_LightSourcePowerOutput_errors_errors" ON "LightSourcePowerOutput_errors" (errors);
+CREATE INDEX "ix_LightSourcePowerOutput_errors_LightSourcePowerOutput_id" ON "LightSourcePowerOutput_errors" ("LightSourcePowerOutput_id");
 
 CREATE TABLE "UserExperimentOutput_processing_application" (
 	"UserExperimentOutput_id" INTEGER,
@@ -2211,8 +2211,8 @@ CREATE TABLE "UserExperimentOutput_processing_application" (
 	PRIMARY KEY ("UserExperimentOutput_id", processing_application),
 	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
 );
-CREATE INDEX "ix_UserExperimentOutput_processing_application_processing_application" ON "UserExperimentOutput_processing_application" (processing_application);
 CREATE INDEX "ix_UserExperimentOutput_processing_application_UserExperimentOutput_id" ON "UserExperimentOutput_processing_application" ("UserExperimentOutput_id");
+CREATE INDEX "ix_UserExperimentOutput_processing_application_processing_application" ON "UserExperimentOutput_processing_application" (processing_application);
 
 CREATE TABLE "UserExperimentOutput_processing_version" (
 	"UserExperimentOutput_id" INTEGER,
@@ -2220,8 +2220,8 @@ CREATE TABLE "UserExperimentOutput_processing_version" (
 	PRIMARY KEY ("UserExperimentOutput_id", processing_version),
 	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
 );
-CREATE INDEX "ix_UserExperimentOutput_processing_version_processing_version" ON "UserExperimentOutput_processing_version" (processing_version);
 CREATE INDEX "ix_UserExperimentOutput_processing_version_UserExperimentOutput_id" ON "UserExperimentOutput_processing_version" ("UserExperimentOutput_id");
+CREATE INDEX "ix_UserExperimentOutput_processing_version_processing_version" ON "UserExperimentOutput_processing_version" (processing_version);
 
 CREATE TABLE "UserExperimentOutput_processing_entity" (
 	"UserExperimentOutput_id" INTEGER,
@@ -2229,8 +2229,8 @@ CREATE TABLE "UserExperimentOutput_processing_entity" (
 	PRIMARY KEY ("UserExperimentOutput_id", processing_entity),
 	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
 );
-CREATE INDEX "ix_UserExperimentOutput_processing_entity_processing_entity" ON "UserExperimentOutput_processing_entity" (processing_entity);
 CREATE INDEX "ix_UserExperimentOutput_processing_entity_UserExperimentOutput_id" ON "UserExperimentOutput_processing_entity" ("UserExperimentOutput_id");
+CREATE INDEX "ix_UserExperimentOutput_processing_entity_processing_entity" ON "UserExperimentOutput_processing_entity" (processing_entity);
 
 CREATE TABLE "UserExperimentOutput_warnings" (
 	"UserExperimentOutput_id" INTEGER,
@@ -2247,8 +2247,8 @@ CREATE TABLE "UserExperimentOutput_errors" (
 	PRIMARY KEY ("UserExperimentOutput_id", errors),
 	FOREIGN KEY("UserExperimentOutput_id") REFERENCES "UserExperimentOutput" (id)
 );
-CREATE INDEX "ix_UserExperimentOutput_errors_errors" ON "UserExperimentOutput_errors" (errors);
 CREATE INDEX "ix_UserExperimentOutput_errors_UserExperimentOutput_id" ON "UserExperimentOutput_errors" ("UserExperimentOutput_id");
+CREATE INDEX "ix_UserExperimentOutput_errors_errors" ON "UserExperimentOutput_errors" (errors);
 
 CREATE TABLE "HasSampleMixin" (
 	id INTEGER NOT NULL,
@@ -2264,8 +2264,8 @@ CREATE TABLE "Column_values" (
 	PRIMARY KEY ("Column_id", "values"),
 	FOREIGN KEY("Column_id") REFERENCES "Column" (id)
 );
-CREATE INDEX "ix_Column_values_values" ON "Column_values" ("values");
 CREATE INDEX "ix_Column_values_Column_id" ON "Column_values" ("Column_id");
+CREATE INDEX "ix_Column_values_values" ON "Column_values" ("values");
 
 CREATE TABLE "Polygon_vertexes" (
 	"Polygon_id" INTEGER,
@@ -2274,5 +2274,5 @@ CREATE TABLE "Polygon_vertexes" (
 	FOREIGN KEY("Polygon_id") REFERENCES "Polygon" (id),
 	FOREIGN KEY(vertexes_id) REFERENCES "Vertex" (id)
 );
-CREATE INDEX "ix_Polygon_vertexes_vertexes_id" ON "Polygon_vertexes" (vertexes_id);
 CREATE INDEX "ix_Polygon_vertexes_Polygon_id" ON "Polygon_vertexes" ("Polygon_id");
+CREATE INDEX "ix_Polygon_vertexes_vertexes_id" ON "Polygon_vertexes" (vertexes_id);
