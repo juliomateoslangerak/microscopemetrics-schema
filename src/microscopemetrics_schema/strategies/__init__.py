@@ -1,3 +1,4 @@
+import string
 from hypothesis import strategies as st
 
 from ..datamodel import microscopemetrics_schema as mm_schema
@@ -165,6 +166,16 @@ def st_mm_input_parameters(
 
 
 @st.composite
+def st_mm_key_measurement(
+    draw,
+    measurements=st.dictionaries(
+        keys=st.text(alphabet=string.ascii_letters, min_size=1, max_size=10), values=st.floats(), min_size=1, max_size=3
+    )
+):
+    return mm_schema.KeyMeasurement(**draw(measurements))
+
+
+@st.composite
 def st_mm_output(
     draw,
     processing_application=st.just("MicroscopeMetrics"),
@@ -172,11 +183,7 @@ def st_mm_output(
     processing_entity=st.just("MicroscopeMetricsAnalysis"),
     processing_datetime=st.datetimes(),
     processing_log=st.text(),
-    key_measurements=st.lists(
-        st.dictionaries(
-            keys=st.text(min_size=1, max_size=10), values=st.floats(), min_size=0, max_size=3
-        ), min_size=1, max_size=3
-    ),
+    key_measurements=st.lists(st_mm_key_measurement(), min_size=1, max_size=5),
     warnings=st.lists(st.text(), max_size=5),
     errors=st.lists(st.text(), max_size=5),
     comment=st_mm_comment(),
