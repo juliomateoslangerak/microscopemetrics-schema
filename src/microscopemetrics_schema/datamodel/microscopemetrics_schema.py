@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-04-07T21:50:32
+# Generation date: 2026-06-24T08:33:26
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -59,7 +59,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Boolean, Datetime, Float, Integer, String
 from linkml_runtime.utils.metamodelcore import Bool, XSDDateTime
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = None
 
 # Namespaces
