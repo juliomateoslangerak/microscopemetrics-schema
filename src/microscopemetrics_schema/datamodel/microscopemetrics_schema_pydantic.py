@@ -1059,13 +1059,64 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     bottom_right_intensity_ratio: Optional[float] = Field(default=None, description="""The mean intensity of the bottom-right of the image  divided by the maximum intensity of the center of illumination""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
 
 
-class PSFBeads(Sample):
+class FLuorescentBeads(Sample):
     """
-    A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+    A sample of fluorescent beads.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
+         'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
+
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    preparation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime when the sample was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    manufacturer: Optional[str] = Field(default=None, description="""A manufacturer""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microscope', 'Sample', 'PowerMeter']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class MultiWavelengthBeads(FLuorescentBeads):
+    """
+    A sample of beads fluorescent in different wavelengths.
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
 
-    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeads']} })
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    preparation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime when the sample was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    manufacturer: Optional[str] = Field(default=None, description="""A manufacturer""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microscope', 'Sample', 'PowerMeter']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class PSFBeads(FLuorescentBeads):
+    """
+    A sample of beads with subresolution size used for PSF estimation.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
+
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    preparation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime when the sample was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    manufacturer: Optional[str] = Field(default=None, description="""A manufacturer""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microscope', 'Sample', 'PowerMeter']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class NonPSFBeads(FLuorescentBeads):
+    """
+    A sample of beads without subresolution size.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
+
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
     preparation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime when the sample was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
     manufacturer: Optional[str] = Field(default=None, description="""A manufacturer""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microscope', 'Sample', 'PowerMeter']} })
@@ -1542,7 +1593,10 @@ FieldIlluminationInputData.model_rebuild()
 FieldIlluminationInputParameters.model_rebuild()
 FieldIlluminationOutput.model_rebuild()
 FieldIlluminationKeyMeasurement.model_rebuild()
+FLuorescentBeads.model_rebuild()
+MultiWavelengthBeads.model_rebuild()
 PSFBeads.model_rebuild()
+NonPSFBeads.model_rebuild()
 PSFBeadsDataset.model_rebuild()
 PSFBeadsInputData.model_rebuild()
 PSFBeadsInputParameters.model_rebuild()

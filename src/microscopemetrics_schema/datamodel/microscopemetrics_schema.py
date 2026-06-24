@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-24T08:33:26
+# Generation date: 2026-06-24T12:50:50
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2741,9 +2741,64 @@ class FluorescentHomogeneousThinField(HomogeneousField):
     preparation_protocol: Union[dict, Protocol] = None
 
 @dataclass(repr=False)
-class PSFBeads(Sample):
+class FLuorescentBeads(Sample):
     """
-    A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+    A sample of fluorescent beads.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/beads/FLuorescentBeads"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/beads/FLuorescentBeads"
+    class_name: ClassVar[str] = "FLuorescentBeads"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.FLuorescentBeads
+
+    preparation_protocol: Union[dict, Protocol] = None
+    bead_diameter_micron: float = None
+    excitation_wavelengths_nm: Union[float, list[float]] = None
+    emission_wavelengths_nm: Union[float, list[float]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.bead_diameter_micron):
+            self.MissingRequiredField("bead_diameter_micron")
+        if not isinstance(self.bead_diameter_micron, float):
+            self.bead_diameter_micron = float(self.bead_diameter_micron)
+
+        if self._is_empty(self.excitation_wavelengths_nm):
+            self.MissingRequiredField("excitation_wavelengths_nm")
+        if not isinstance(self.excitation_wavelengths_nm, list):
+            self.excitation_wavelengths_nm = [self.excitation_wavelengths_nm] if self.excitation_wavelengths_nm is not None else []
+        self.excitation_wavelengths_nm = [v if isinstance(v, float) else float(v) for v in self.excitation_wavelengths_nm]
+
+        if self._is_empty(self.emission_wavelengths_nm):
+            self.MissingRequiredField("emission_wavelengths_nm")
+        if not isinstance(self.emission_wavelengths_nm, list):
+            self.emission_wavelengths_nm = [self.emission_wavelengths_nm] if self.emission_wavelengths_nm is not None else []
+        self.emission_wavelengths_nm = [v if isinstance(v, float) else float(v) for v in self.emission_wavelengths_nm]
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class MultiWavelengthBeads(FLuorescentBeads):
+    """
+    A sample of beads fluorescent in different wavelengths.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/beads/MultiWavelengthBeads"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/beads/MultiWavelengthBeads"
+    class_name: ClassVar[str] = "MultiWavelengthBeads"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.MultiWavelengthBeads
+
+    preparation_protocol: Union[dict, Protocol] = None
+    bead_diameter_micron: float = None
+    excitation_wavelengths_nm: Union[float, list[float]] = None
+    emission_wavelengths_nm: Union[float, list[float]] = None
+
+@dataclass(repr=False)
+class PSFBeads(FLuorescentBeads):
+    """
+    A sample of beads with subresolution size used for PSF estimation.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
@@ -2754,15 +2809,25 @@ class PSFBeads(Sample):
 
     preparation_protocol: Union[dict, Protocol] = None
     bead_diameter_micron: float = None
+    excitation_wavelengths_nm: Union[float, list[float]] = None
+    emission_wavelengths_nm: Union[float, list[float]] = None
 
-    def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.bead_diameter_micron):
-            self.MissingRequiredField("bead_diameter_micron")
-        if not isinstance(self.bead_diameter_micron, float):
-            self.bead_diameter_micron = float(self.bead_diameter_micron)
+@dataclass(repr=False)
+class NonPSFBeads(FLuorescentBeads):
+    """
+    A sample of beads without subresolution size.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
 
-        super().__post_init__(**kwargs)
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/beads/NonPSFBeads"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/beads/NonPSFBeads"
+    class_name: ClassVar[str] = "NonPSFBeads"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.NonPSFBeads
 
+    preparation_protocol: Union[dict, Protocol] = None
+    bead_diameter_micron: float = None
+    excitation_wavelengths_nm: Union[float, list[float]] = None
+    emission_wavelengths_nm: Union[float, list[float]] = None
 
 @dataclass(repr=False)
 class LightSourcePower(Sample):
@@ -3886,8 +3951,14 @@ slots.userExperimentOutput__orthogonal_images = Slot(uri=MICROSCOPEMETRICS_SCHEM
 slots.userExperimentOutput__fft_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/fft_images'], name="userExperimentOutput__fft_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/fft_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.userExperimentOutput__fft_images, domain=None, range=Optional[Union[Union[dict, Image], list[Union[dict, Image]]]])
 
-slots.pSFBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="pSFBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeads__bead_diameter_micron, domain=None, range=float)
+slots.fLuorescentBeads__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/bead_diameter_micron'], name="fLuorescentBeads__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/bead_diameter_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fLuorescentBeads__bead_diameter_micron, domain=None, range=float)
+
+slots.fLuorescentBeads__excitation_wavelengths_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/excitation_wavelengths_nm'], name="fLuorescentBeads__excitation_wavelengths_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/excitation_wavelengths_nm'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fLuorescentBeads__excitation_wavelengths_nm, domain=None, range=Union[float, list[float]])
+
+slots.fLuorescentBeads__emission_wavelengths_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/emission_wavelengths_nm'], name="fLuorescentBeads__emission_wavelengths_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/emission_wavelengths_nm'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fLuorescentBeads__emission_wavelengths_nm, domain=None, range=Union[float, list[float]])
 
 slots.FieldIlluminationDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="FieldIlluminationDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset_input_data, domain=FieldIlluminationDataset, range=Union[dict, "FieldIlluminationInputData"])

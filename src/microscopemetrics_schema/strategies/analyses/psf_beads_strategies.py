@@ -6,7 +6,7 @@ from microscopemetrics_schema.strategies import (
     st_mm_dataset,
     st_mm_output,
 )
-from microscopemetrics_schema.strategies.samples.psf_beads_strategies import (
+from microscopemetrics_schema.strategies.samples.fluorescent_beads_strategies import (
     st_mm_psf_beads_sample,
 )
 

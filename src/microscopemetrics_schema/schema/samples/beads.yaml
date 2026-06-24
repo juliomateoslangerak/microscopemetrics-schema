@@ -13,11 +13,35 @@ default_range: string
 
 
 classes:
-  PSFBeads:
+  FLuorescentBeads:
     is_a: Sample
-    description: A sample of sub-resolution sized beads used to measure the PSF of a microscope.
+    description: A sample of fluorescent beads.
+    abstract: true
     attributes:
       bead_diameter_micron:
         description: The diameter of the beads in the sample measured in microns.
         required: true
         range: float
+      excitation_wavelengths_nm:
+        description: The excitation wavelength of the beads.
+        required: true
+        range: float
+        multivalued: true
+      emission_wavelengths_nm:
+        description: The emission wavelength of the beads.
+        required: true
+        range: float
+        multivalued: true
+
+  MultiWavelengthBeads:
+    is_a: FLuorescentBeads
+    description: A sample of beads fluorescent in different wavelengths.
+
+  PSFBeads:
+    is_a: FLuorescentBeads
+    description: A sample of beads with subresolution size used for PSF estimation.
+
+  NonPSFBeads:
+    is_a: FLuorescentBeads
+    description: A sample of beads without subresolution size.
+
