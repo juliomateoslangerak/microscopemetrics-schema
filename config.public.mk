@@ -8,7 +8,7 @@
 # - just works fine with quoted variables of dot-env files like this one
 LINKML_SCHEMA_NAME="microscopemetrics_schema"
 LINKML_SCHEMA_AUTHOR="Julio Mateos Langerak <julio.mateos-langerak@igh.cnrs.fr>"
-LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC."
+LINKML_SCHEMA_DESCRIPTION="A schema for microscope-metrics, a python package for microscope QC"
 LINKML_SCHEMA_SOURCE_DIR="src/microscopemetrics_schema/schema"
 
 ###### linkml generator variables, used by justfile
