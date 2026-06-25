@@ -1,0 +1,96 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coalignment
+name: coalignment
+prefixes:
+#  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
+#imports:
+#  - metrics:types
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - ../core
+  - ../samples/beads
+
+default_range: string
+
+
+classes:
+  CoAlignmentDataset:
+    is_a: MetricsDataset
+    description: >-
+      A dataset containing the results of the coalignment analysis.
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
+    slot_usage:
+      input_data:
+        range: CoAlignmentInputData
+      input_parameters:
+        range: CoAlignmentInputParameters
+      output:
+        range: CoAlignmentOutput
+      sample:
+        range: MultiWavelengthBeads
+
+  CoAlignmentInputData:
+    is_a: MetricsInputData
+    slots:
+      - multiwaavelength_beads_images
+
+  CoAlignmentInputParameters:
+    is_a: MetricsInputParameters
+    slots:
+      - bit_depth
+      - saturation_threshold
+      - sigma_min
+      - sigma_max
+      - snr_threshold
+
+  CoAlignmentOutput:
+    is_a: MetricsOutput
+    attributes:
+      analyzed_bead_centers:
+        range: Roi
+        description: >-
+          The centers of the beads that have been analyzed.
+          One point shape will be provided per bead correctly detected.
+          One ROI per channel.
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      bead_properties:
+        range: Table
+        description: >-
+          Properties associated with the analysis of the beads.
+        multivalued: false
+        inlined: true
+        inlined_as_list: true
+    slot_usage:
+      key_measurements:
+        range: CoAlignmentKeyMeasurement
+
+  CoAlignmentKeyMeasurement:
+    is_a: KeyMeasurement
+    slots:
+      - channel_name
+      - channel_nr
+      - bead_count
+
+
+slots:
+  # Inputs
+  multiwaavelength_beads_images:
+    range: Image
+    description: >-
+      The image containing the beads Images. At least two channels are required.
+      More than one image can be provided if the image conditions are the same.
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  # Outputs
+  bead_count:
+    range: integer
+    description: >-
+      The number of beads detected in the image. The number will be the same for each channel.
+    multivalued: false

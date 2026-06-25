@@ -913,6 +913,26 @@ slots:
     ifabsent: float(0.01)
     minimum_value: 0.0
     maximum_value: 1.0
+  snr_threshold:
+    range: float
+    description: >-
+      Signal to noise ratio threshold to be used for bead detection.
+    required: true
+    ifabsent: float(10.0)
+  sigma_min:
+    range: float
+    description: >-
+      Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include
+      noisy pixels as beads.
+    required: true
+    ifabsent: float(1.0)
+  sigma_max:
+    range: float
+    description: >-
+      Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect
+      larger objects as beads.
+    required: true
+    ifabsent: float(5.0)
   sigma_z:
     range: float
     description: >-
