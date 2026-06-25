@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-24T19:13:08
+# Generation date: 2026-06-25T10:30:40
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1794,6 +1794,7 @@ class PSFBeadsOutput(MetricsOutput):
     key_measurements: Union[Union[dict, "PSFBeadsKeyMeasurement"], list[Union[dict, "PSFBeadsKeyMeasurement"]]] = None
     validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    bead_properties: Optional[Union[dict, Table]] = None
     considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
@@ -1804,7 +1805,6 @@ class PSFBeadsOutput(MetricsOutput):
     considered_bead_centers_z_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_y_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_x_fit_gaussian_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    bead_properties: Optional[Union[dict, Table]] = None
     bead_profiles_z: Optional[Union[dict, Table]] = None
     bead_profiles_y: Optional[Union[dict, Table]] = None
     bead_profiles_x: Optional[Union[dict, Table]] = None
@@ -1820,6 +1820,9 @@ class PSFBeadsOutput(MetricsOutput):
         if not isinstance(self.analyzed_bead_centers, list):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
         self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
+
+        if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
+            self.bead_properties = Table(**as_dict(self.bead_properties))
 
         if not isinstance(self.considered_bead_centers_lateral_edge, list):
             self.considered_bead_centers_lateral_edge = [self.considered_bead_centers_lateral_edge] if self.considered_bead_centers_lateral_edge is not None else []
@@ -1860,9 +1863,6 @@ class PSFBeadsOutput(MetricsOutput):
         if not isinstance(self.considered_bead_centers_x_fit_gaussian_quality, list):
             self.considered_bead_centers_x_fit_gaussian_quality = [self.considered_bead_centers_x_fit_gaussian_quality] if self.considered_bead_centers_x_fit_gaussian_quality is not None else []
         self.considered_bead_centers_x_fit_gaussian_quality = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_x_fit_gaussian_quality]
-
-        if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
-            self.bead_properties = Table(**as_dict(self.bead_properties))
 
         if self.bead_profiles_z is not None and not isinstance(self.bead_profiles_z, Table):
             self.bead_profiles_z = Table(**as_dict(self.bead_profiles_z))
@@ -2217,6 +2217,162 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
         if self.average_bead_intensity_std is not None and not isinstance(self.average_bead_intensity_std, float):
             self.average_bead_intensity_std = float(self.average_bead_intensity_std)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CoRegistrationDataset(MetricsDataset):
+    """
+    A dataset containing the results of the coregistration analysis.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/coregistration/CoRegistrationDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/coregistration/CoRegistrationDataset"
+    class_name: ClassVar[str] = "CoRegistrationDataset"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationDataset
+
+    microscope: Union[dict, Microscope] = None
+    input_data: Union[dict, "CoRegistrationInputData"] = None
+    processed: Union[bool, Bool] = False
+    input_parameters: Optional[Union[dict, "CoRegistrationInputParameters"]] = None
+    output: Optional[Union[dict, "CoRegistrationOutput"]] = None
+    sample: Optional[Union[dict, "MultiWavelengthBeads"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.input_data):
+            self.MissingRequiredField("input_data")
+        if not isinstance(self.input_data, CoRegistrationInputData):
+            self.input_data = CoRegistrationInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, CoRegistrationInputParameters):
+            self.input_parameters = CoRegistrationInputParameters(**as_dict(self.input_parameters))
+
+        if self.output is not None and not isinstance(self.output, CoRegistrationOutput):
+            self.output = CoRegistrationOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, MultiWavelengthBeads):
+            self.sample = MultiWavelengthBeads(**as_dict(self.sample))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CoRegistrationInputData(MetricsInputData):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/coregistration/CoRegistrationInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/coregistration/CoRegistrationInputData"
+    class_name: ClassVar[str] = "CoRegistrationInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputData
+
+    multiwaavelength_beads_images: Union[Union[dict, Image], list[Union[dict, Image]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.multiwaavelength_beads_images):
+            self.MissingRequiredField("multiwaavelength_beads_images")
+        self._normalize_inlined_as_list(slot_name="multiwaavelength_beads_images", slot_type=Image, key_name="shape_x", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CoRegistrationInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/coregistration/CoRegistrationInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/coregistration/CoRegistrationInputParameters"
+    class_name: ClassVar[str] = "CoRegistrationInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputParameters
+
+    sigma_min: float = 1.0
+    sigma_max: float = 5.0
+    snr_threshold: float = 10.0
+    bit_depth: Optional[int] = None
+    saturation_threshold: Optional[float] = 0.01
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.sigma_min):
+            self.MissingRequiredField("sigma_min")
+        if not isinstance(self.sigma_min, float):
+            self.sigma_min = float(self.sigma_min)
+
+        if self._is_empty(self.sigma_max):
+            self.MissingRequiredField("sigma_max")
+        if not isinstance(self.sigma_max, float):
+            self.sigma_max = float(self.sigma_max)
+
+        if self._is_empty(self.snr_threshold):
+            self.MissingRequiredField("snr_threshold")
+        if not isinstance(self.snr_threshold, float):
+            self.snr_threshold = float(self.snr_threshold)
+
+        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
+            self.bit_depth = int(self.bit_depth)
+
+        if self.saturation_threshold is not None and not isinstance(self.saturation_threshold, float):
+            self.saturation_threshold = float(self.saturation_threshold)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CoRegistrationOutput(MetricsOutput):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/coregistration/CoRegistrationOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/coregistration/CoRegistrationOutput"
+    class_name: ClassVar[str] = "CoRegistrationOutput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationOutput
+
+    processing_application: Union[str, list[str]] = None
+    processing_version: Union[str, list[str]] = None
+    processing_datetime: Union[str, XSDDateTime] = None
+    key_measurements: Union[Union[dict, "CoRegistrationKeyMeasurement"], list[Union[dict, "CoRegistrationKeyMeasurement"]]] = None
+    validated: Union[bool, Bool] = False
+    analyzed_bead_centers: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    bead_properties: Optional[Union[dict, Table]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.key_measurements):
+            self.MissingRequiredField("key_measurements")
+        if not isinstance(self.key_measurements, list):
+            self.key_measurements = [self.key_measurements] if self.key_measurements is not None else []
+        self.key_measurements = [v if isinstance(v, CoRegistrationKeyMeasurement) else CoRegistrationKeyMeasurement(**as_dict(v)) for v in self.key_measurements]
+
+        if not isinstance(self.analyzed_bead_centers, list):
+            self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
+        self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
+
+        if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
+            self.bead_properties = Table(**as_dict(self.bead_properties))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class CoRegistrationKeyMeasurement(KeyMeasurement):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/coregistration/CoRegistrationKeyMeasurement"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/coregistration/CoRegistrationKeyMeasurement"
+    class_name: ClassVar[str] = "CoRegistrationKeyMeasurement"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationKeyMeasurement
+
+    channel_name: Optional[str] = None
+    channel_nr: Optional[int] = None
+    bead_count: Optional[int] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.channel_name is not None and not isinstance(self.channel_name, str):
+            self.channel_name = str(self.channel_name)
+
+        if self.channel_nr is not None and not isinstance(self.channel_nr, int):
+            self.channel_nr = int(self.channel_nr)
+
+        if self.bead_count is not None and not isinstance(self.bead_count, int):
+            self.bead_count = int(self.bead_count)
 
         super().__post_init__(**kwargs)
 
@@ -3066,6 +3222,12 @@ slots.key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurement
 slots.intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/intensity_profiles'], name="intensity_profiles", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/intensity_profiles'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_profiles, domain=None, range=Optional[Union[Union[dict, Table], list[Union[dict, Table]]]])
 
+slots.bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bead_properties'], name="bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/bead_properties'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.bead_properties, domain=None, range=Optional[Union[dict, Table]])
+
+slots.analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/analyzed_bead_centers'], name="analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/analyzed_bead_centers'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
 slots.preparation_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_protocol'], name="preparation_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_protocol'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[dict, Protocol])
 
@@ -3182,6 +3344,15 @@ slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bit_depth'], name="bit
 
 slots.saturation_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/saturation_threshold'], name="saturation_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/saturation_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.saturation_threshold, domain=None, range=Optional[float])
+
+slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/snr_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
+
+slots.sigma_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_min'], name="sigma_min", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_min'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_min, domain=None, range=float)
+
+slots.sigma_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_max'], name="sigma_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_max'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_max, domain=None, range=float)
 
 slots.sigma_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sigma_z'], name="sigma_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sigma_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_z, domain=None, range=Optional[float])
@@ -3329,15 +3500,6 @@ slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/p
 
 slots.min_lateral_distance_factor = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/min_lateral_distance_factor'], name="min_lateral_distance_factor", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/min_lateral_distance_factor'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_factor, domain=None, range=float)
-
-slots.sigma_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sigma_min'], name="sigma_min", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/sigma_min'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_min, domain=None, range=float)
-
-slots.sigma_max = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/sigma_max'], name="sigma_max", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/sigma_max'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.sigma_max, domain=None, range=float)
-
-slots.snr_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/snr_threshold'], name="snr_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/snr_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.snr_threshold, domain=None, range=float)
 
 slots.fitting_airy_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_airy_r2_threshold'], name="fitting_airy_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_airy_r2_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_airy_r2_threshold, domain=None, range=float)
@@ -3587,6 +3749,12 @@ slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 
 slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_std, domain=None, range=Optional[float])
+
+slots.multiwaavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/multiwaavelength_beads_images'], name="multiwaavelength_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/multiwaavelength_beads_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.multiwaavelength_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
+
+slots.bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/bead_count'], name="bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/bead_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.bead_count, domain=None, range=Optional[int])
 
 slots.power_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_measurements'], name="power_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_measurements, domain=None, range=Union[Union[dict, PowerMeasurement], list[Union[dict, PowerMeasurement]]])
@@ -3891,9 +4059,6 @@ slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEME
 slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_center_region'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
-slots.pSFBeadsOutput__analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/analyzed_bead_centers'], name="pSFBeadsOutput__analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/analyzed_bead_centers'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
 slots.pSFBeadsOutput__considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_lateral_edge'], name="pSFBeadsOutput__considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_lateral_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
@@ -3923,9 +4088,6 @@ slots.pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality = Slot(uri=
 
 slots.pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality'], name="pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
-slots.pSFBeadsOutput__bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_properties'], name="pSFBeadsOutput__bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_properties'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_properties, domain=None, range=Optional[Union[dict, Table]])
 
 slots.pSFBeadsOutput__bead_profiles_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/bead_profiles_z'], name="pSFBeadsOutput__bead_profiles_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/bead_profiles_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__bead_profiles_z, domain=None, range=Optional[Union[dict, Table]])
@@ -3995,6 +4157,21 @@ slots.PSFBeadsDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sample'],
 
 slots.PSFBeadsOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="PSFBeadsOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PSFBeadsOutput_key_measurements, domain=PSFBeadsOutput, range=Union[Union[dict, "PSFBeadsKeyMeasurement"], list[Union[dict, "PSFBeadsKeyMeasurement"]]])
+
+slots.CoRegistrationDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="CoRegistrationDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationDataset_input_data, domain=CoRegistrationDataset, range=Union[dict, "CoRegistrationInputData"])
+
+slots.CoRegistrationDataset_input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_parameters'], name="CoRegistrationDataset_input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationDataset_input_parameters, domain=CoRegistrationDataset, range=Optional[Union[dict, "CoRegistrationInputParameters"]])
+
+slots.CoRegistrationDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'], name="CoRegistrationDataset_output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationDataset_output, domain=CoRegistrationDataset, range=Optional[Union[dict, "CoRegistrationOutput"]])
+
+slots.CoRegistrationDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sample'], name="CoRegistrationDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationDataset_sample, domain=CoRegistrationDataset, range=Optional[Union[dict, "MultiWavelengthBeads"]])
+
+slots.CoRegistrationOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="CoRegistrationOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationOutput_key_measurements, domain=CoRegistrationOutput, range=Union[Union[dict, "CoRegistrationKeyMeasurement"], list[Union[dict, "CoRegistrationKeyMeasurement"]]])
 
 slots.LightSourcePowerDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="LightSourcePowerDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_input_data, domain=LightSourcePowerDataset, range=Union[dict, "LightSourcePowerInputData"])

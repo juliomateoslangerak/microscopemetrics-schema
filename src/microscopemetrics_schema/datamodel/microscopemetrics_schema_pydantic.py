@@ -75,6 +75,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'microscopemetrics_schema',
                  'core',
                  'analyses/field_illumination',
                  'analyses/psf_beads',
+                 'analyses/coregistration',
                  'analyses/light_source_power',
                  'analyses/user_experiment',
                  'samples/homogeneous_field',
@@ -964,9 +965,11 @@ class FieldIlluminationInputParameters(MetricsInputParameters):
 
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: float = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
     corner_fraction: float = Field(default=0.1, description="""Input parameter: the proportion of the image to be considered as corner or center""", ge=0.01, le=0.49, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters'], 'ifabsent': 'float(0.1)'} })
@@ -1011,9 +1014,11 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     image_id: Optional[str] = Field(default=None, description="""The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_id: Optional[str] = Field(default=None, description="""The channel id to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
     center_region_intensity_fraction: Optional[float] = Field(default=None, description="""The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
@@ -1163,15 +1168,20 @@ class PSFBeadsInputParameters(MetricsInputParameters):
 
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
-    min_lateral_distance_factor: float = Field(default=20, description="""Minimal distance that has to separate laterally the beads represented as the  number of times the expected FWHM of the beads.""", ge=10.0, le=30.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(20)'} })
-    sigma_min: float = Field(default=1.0, description="""Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include  noisy pixels as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(1.0)'} })
-    sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect  larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(5.0)'} })
-    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(10.0)'} })
+    min_lateral_distance_factor: float = Field(default=20, description="""Minimal distance that has to separate laterally the beads represented as the number of times the expected FWHM of the beads.""", ge=10.0, le=30.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(20)'} })
+    sigma_min: float = Field(default=1.0, description="""Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include noisy pixels as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(1.0)'} })
+    sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(5.0)'} })
+    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(10.0)'} })
     fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(0.95)'} })
     fitting_airy_r2_threshold: float = Field(default=0.5, description="""Threshold for the coefficient of determination (R^2) of the airy fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(0.5)'} })
     intensity_robust_z_score_threshold: float = Field(default=2.0, description="""Threshold for the robust z-score of the intensity of the bead to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(2.0)'} })
@@ -1182,18 +1192,18 @@ class PSFBeadsOutput(MetricsOutput):
          'slot_usage': {'key_measurements': {'name': 'key_measurements',
                                              'range': 'PSFBeadsKeyMeasurement'}}})
 
-    analyzed_bead_centers: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    analyzed_bead_centers: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
+    bead_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
     considered_bead_centers_lateral_edge: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as too close to the edge of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     considered_bead_centers_self_proximity: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as too close to another bead. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     considered_bead_centers_axial_edge: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     considered_bead_centers_intensity_outlier: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as being too intense and potentially represent a cluster of beads. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_z_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_y_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_x_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_z_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the gaussian fit quality in z was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_y_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the gaussian fit quality in y was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    considered_bead_centers_x_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy gaussian quality in x was not good enough.  coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
-    bead_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_z_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in z was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_y_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in y was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_x_fit_airy_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy fit quality in x was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_z_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the gaussian fit quality in z was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in z for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_y_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the gaussian fit quality in y was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in y for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
+    considered_bead_centers_x_fit_gaussian_quality: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as the airy gaussian quality in x was not good enough. coefficient of determination (R^2) (R^2) over requested threshold. Measurements in x for this bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     bead_profiles_z: Optional[Table] = Field(default=None, description="""The intensity profiles along the z axis of the analyzed beads as well as the fits.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     bead_profiles_y: Optional[Table] = Field(default=None, description="""The intensity profiles along the y axis of the analyzed beads as well as the fits.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
     bead_profiles_x: Optional[Table] = Field(default=None, description="""The intensity profiles along the x axis of the analyzed beads as well as the fits.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput']} })
@@ -1216,9 +1226,11 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
@@ -1226,12 +1238,12 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     considered_lateral_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to the edge of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     considered_axial_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     considered_intensity_outlier_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_airy_z_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_airy_y_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_airy_x_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_gaussian_z_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the z axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_gaussian_y_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the y axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_bad_fit_gaussian_x_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the x axis. The fitting measurements are  not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_airy_z_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the z axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_airy_y_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the y axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_airy_x_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the x axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_gaussian_z_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the z axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_gaussian_y_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the y axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    considered_bad_fit_gaussian_x_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad gaussian fit quality in the x axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     intensity_integrated_mean: Optional[float] = Field(default=None, description="""Mean integrated intensity of the analyzed beads. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     intensity_integrated_median: Optional[float] = Field(default=None, description="""Median integrated intensity of the analyzed beads. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     intensity_integrated_std: Optional[float] = Field(default=None, description="""Standard deviation of the integrated intensity of the analyzed beads. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
@@ -1300,6 +1312,94 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     average_bead_intensity_max: Optional[float] = Field(default=None, description="""Maximum intensity for the average bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     average_bead_intensity_min: Optional[float] = Field(default=None, description="""Minimum intensity for the average bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     average_bead_intensity_std: Optional[float] = Field(default=None, description="""Standard deviation of the intensity for the average bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+
+
+class CoRegistrationDataset(HasInputParametersMixin, HasSampleMixin, MetricsDataset):
+    """
+    A dataset containing the results of the coregistration analysis.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration',
+         'mixins': ['HasSampleMixin', 'HasInputParametersMixin'],
+         'slot_usage': {'input_data': {'name': 'input_data',
+                                       'range': 'CoRegistrationInputData'},
+                        'input_parameters': {'name': 'input_parameters',
+                                             'range': 'CoRegistrationInputParameters'},
+                        'output': {'name': 'output', 'range': 'CoRegistrationOutput'},
+                        'sample': {'name': 'sample', 'range': 'MultiWavelengthBeads'}}})
+
+    sample: Optional[MultiWavelengthBeads] = Field(default=None, description="""The physical sample that was imaged""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasSampleMixin']} })
+    input_parameters: Optional[CoRegistrationInputParameters] = Field(default=None, description="""The input parameters for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasInputParametersMixin']} })
+    acquisition_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the acquisition""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset', 'Image', 'PowerMeasurement']} })
+    input_data: CoRegistrationInputData = Field(default=..., description="""The input data for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    output: Optional[CoRegistrationOutput] = Field(default=None, description="""The output of the analysis""", json_schema_extra = { "linkml_meta": {'abstract': True, 'domain_of': ['MetricsDataset']} })
+    microscope: Microscope = Field(default=..., description="""The microscope that was used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    experimenter: Optional[Experimenter] = Field(default=None, description="""The experimenter that performed the imaging experiment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    acquisition_protocol: Optional[Protocol] = Field(default=None, description="""The protocol used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    processed: bool = Field(default=False, description="""Has the dataset been processed by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset'], 'ifabsent': 'False'} })
+    data_reference: Optional[DataReference] = Field(default=None, description="""A reference to the data""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    linked_references: Optional[list[DataReference]] = Field(default=None, description="""A list of linked references""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class CoRegistrationInputData(MetricsInputData):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
+
+    multiwaavelength_beads_images: list[Image] = Field(default=..., description="""The image containing the beads Images. At least two channels are required. More than one image can be provided if the image conditions are the same.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputData']} })
+
+
+class CoRegistrationInputParameters(MetricsInputParameters):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
+
+    bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
+                       'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'UserExperimentInputParameters']} })
+    saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
+                       'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'UserExperimentInputParameters'],
+         'ifabsent': 'float(0.01)'} })
+    sigma_min: float = Field(default=1.0, description="""Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include noisy pixels as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(1.0)'} })
+    sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(5.0)'} })
+    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(10.0)'} })
+
+
+class CoRegistrationOutput(MetricsOutput):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration',
+         'slot_usage': {'key_measurements': {'name': 'key_measurements',
+                                             'range': 'CoRegistrationKeyMeasurement'}}})
+
+    analyzed_bead_centers: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
+    bead_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
+    key_measurements: list[CoRegistrationKeyMeasurement] = Field(default=..., description="""A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    comment: Optional[Comment] = Field(default=None, description="""A human readable comment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_application: list[str] = Field(default=..., description="""The application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_version: list[str] = Field(default=..., description="""The version of the application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_entity: Optional[list[str]] = Field(default=None, description="""The entity that processed the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_datetime: datetime  = Field(default=..., description="""The datetime of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_log: Optional[str] = Field(default=None, description="""The log of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    warnings: Optional[list[str]] = Field(default=None, description="""The warnings of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    errors: Optional[list[str]] = Field(default=None, description="""The errors of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    validated: bool = Field(default=False, description="""Has the dataset been validated by a human""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput'], 'ifabsent': 'False'} })
+    validation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+
+
+class CoRegistrationKeyMeasurement(KeyMeasurement):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
+
+    channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'UserExperimentKeyMeasurement']} })
+    channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'UserExperimentKeyMeasurement']} })
+    bead_count: Optional[int] = Field(default=None, description="""The number of beads detected in the image. The number will be the same for each channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
 
 
 class LightSourcePowerDataset(MetricsDataset):
@@ -1483,9 +1583,11 @@ class UserExperimentInputParameters(MetricsInputParameters):
 
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
 
@@ -1520,9 +1622,11 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     variation_coefficient: Optional[float] = Field(default=None, description="""The variation coefficient of the signal of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })
     saturated_channels: Optional[int] = Field(default=None, description="""The channels that are saturated in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })
@@ -1602,6 +1706,11 @@ PSFBeadsInputData.model_rebuild()
 PSFBeadsInputParameters.model_rebuild()
 PSFBeadsOutput.model_rebuild()
 PSFBeadsKeyMeasurement.model_rebuild()
+CoRegistrationDataset.model_rebuild()
+CoRegistrationInputData.model_rebuild()
+CoRegistrationInputParameters.model_rebuild()
+CoRegistrationOutput.model_rebuild()
+CoRegistrationKeyMeasurement.model_rebuild()
 LightSourcePowerDataset.model_rebuild()
 LightSourcePowerInputData.model_rebuild()
 LightSourcePowerInputParameters.model_rebuild()

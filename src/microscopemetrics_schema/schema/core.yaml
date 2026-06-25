@@ -698,6 +698,23 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  bead_properties:
+    range: Table
+    description: >-
+      Properties associated with the analysis of the beads.
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  analyzed_bead_centers:
+    range: Roi
+    description: >-
+      The centers of the beads that have been analyzed.
+      One point shape will be provided per bead correctly detected.
+      One ROI per channel.
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
 
   # Sample slots
   preparation_protocol:

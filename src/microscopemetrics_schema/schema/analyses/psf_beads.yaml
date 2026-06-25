@@ -52,15 +52,6 @@ classes:
   PSFBeadsOutput:
     is_a: MetricsOutput
     attributes:
-      analyzed_bead_centers:
-        range: Roi
-        description: >-
-          The centers of the beads that have been analyzed.
-          One point shape will be provided per bead correctly detected.
-          One ROI per channel.
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       considered_bead_centers_lateral_edge:
         range: Roi
         description: >-
@@ -168,13 +159,6 @@ classes:
         multivalued: true
         inlined: true
         inlined_as_list: true
-      bead_properties:
-        range: Table
-        description: >-
-          Properties associated with the analysis of the beads.
-        multivalued: false
-        inlined: true
-        inlined_as_list: true
       bead_profiles_z:
         range: Table
         description: >-
@@ -208,6 +192,9 @@ classes:
         multivalued: false
         inlined: true
         inlined_as_list: true
+    slots:
+      - analyzed_bead_centers
+      - bead_properties
     slot_usage:
       key_measurements:
         range: PSFBeadsKeyMeasurement

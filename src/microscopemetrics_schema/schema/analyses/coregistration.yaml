@@ -1,9 +1,6 @@
-id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coalignment
-name: coalignment
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+name: coregistration
 prefixes:
-#  metrics: https://github.com/MontpellierRessourcesImagerie/microscope-metrics/blob/main/src/microscopemetrics/model/
-#imports:
-#  - metrics:types
   linkml: https://w3id.org/linkml/
 imports:
   - linkml:types
@@ -14,29 +11,29 @@ default_range: string
 
 
 classes:
-  CoAlignmentDataset:
+  CoRegistrationDataset:
     is_a: MetricsDataset
     description: >-
-      A dataset containing the results of the coalignment analysis.
+      A dataset containing the results of the coregistration analysis.
     mixins:
       - HasSampleMixin
       - HasInputParametersMixin
     slot_usage:
       input_data:
-        range: CoAlignmentInputData
+        range: CoRegistrationInputData
       input_parameters:
-        range: CoAlignmentInputParameters
+        range: CoRegistrationInputParameters
       output:
-        range: CoAlignmentOutput
+        range: CoRegistrationOutput
       sample:
         range: MultiWavelengthBeads
 
-  CoAlignmentInputData:
+  CoRegistrationInputData:
     is_a: MetricsInputData
     slots:
       - multiwaavelength_beads_images
 
-  CoAlignmentInputParameters:
+  CoRegistrationInputParameters:
     is_a: MetricsInputParameters
     slots:
       - bit_depth
@@ -45,30 +42,17 @@ classes:
       - sigma_max
       - snr_threshold
 
-  CoAlignmentOutput:
+  CoRegistrationOutput:
     is_a: MetricsOutput
     attributes:
-      analyzed_bead_centers:
-        range: Roi
-        description: >-
-          The centers of the beads that have been analyzed.
-          One point shape will be provided per bead correctly detected.
-          One ROI per channel.
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
-      bead_properties:
-        range: Table
-        description: >-
-          Properties associated with the analysis of the beads.
-        multivalued: false
-        inlined: true
-        inlined_as_list: true
+    slots:
+      - analyzed_bead_centers
+      - bead_properties
     slot_usage:
       key_measurements:
-        range: CoAlignmentKeyMeasurement
+        range: CoRegistrationKeyMeasurement
 
-  CoAlignmentKeyMeasurement:
+  CoRegistrationKeyMeasurement:
     is_a: KeyMeasurement
     slots:
       - channel_name

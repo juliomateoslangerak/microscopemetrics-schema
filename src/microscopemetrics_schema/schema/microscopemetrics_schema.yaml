@@ -22,8 +22,8 @@ imports:
   - core
   - analyses/field_illumination
   - analyses/psf_beads
+  - analyses/coregistration
   - analyses/light_source_power
-  - analyses/coalignment
   - analyses/user_experiment
   - samples/homogeneous_field
   - samples/beads
