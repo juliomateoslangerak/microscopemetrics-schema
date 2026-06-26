@@ -9,6 +9,7 @@ imports:
 - core
 - analyses/field_illumination
 - analyses/psf_beads
+- analyses/coregistration
 - analyses/light_source_power
 - analyses/user_experiment
 - samples/homogeneous_field
@@ -17,6 +18,8 @@ imports:
 - samples/user_sample
 - core
 - samples/homogeneous_field
+- core
+- samples/beads
 - core
 - samples/beads
 - core
@@ -627,6 +630,35 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  bead_properties:
+    name: bead_properties
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/bead_properties
+    description: Properties associated with the analysis of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/bead_properties
+    owner: CoRegistrationOutput
+    domain_of:
+    - PSFBeadsOutput
+    - CoRegistrationOutput
+    range: Table
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  analyzed_bead_centers:
+    name: analyzed_bead_centers
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/analyzed_bead_centers
+    description: The centers of the beads that have been analyzed. One point shape
+      will be provided per bead correctly detected. One ROI per channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/analyzed_bead_centers
+    owner: CoRegistrationOutput
+    domain_of:
+    - PSFBeadsOutput
+    - CoRegistrationOutput
+    range: Roi
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
   preparation_protocol:
     name: preparation_protocol
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/preparation_protocol
@@ -1073,6 +1105,7 @@ slots:
     domain_of:
     - FieldIlluminationKeyMeasurement
     - PSFBeadsKeyMeasurement
+    - CoRegistrationKeyMeasurement
     - UserExperimentKeyMeasurement
     range: integer
     multivalued: false
@@ -1087,6 +1120,7 @@ slots:
     domain_of:
     - FieldIlluminationKeyMeasurement
     - PSFBeadsKeyMeasurement
+    - CoRegistrationKeyMeasurement
     - UserExperimentKeyMeasurement
     range: string
     multivalued: false
@@ -1111,6 +1145,7 @@ slots:
     domain_of:
     - FieldIlluminationInputParameters
     - PSFBeadsInputParameters
+    - CoRegistrationInputParameters
     - UserExperimentInputParameters
     range: integer
     multivalued: false
@@ -1129,11 +1164,53 @@ slots:
     domain_of:
     - FieldIlluminationInputParameters
     - PSFBeadsInputParameters
+    - CoRegistrationInputParameters
     - UserExperimentInputParameters
     range: float
     multivalued: false
     minimum_value: 0.0
     maximum_value: 1.0
+  snr_threshold:
+    name: snr_threshold
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/snr_threshold
+    description: Signal to noise ratio threshold to be used for bead detection.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/snr_threshold
+    ifabsent: float(10.0)
+    owner: CoRegistrationInputParameters
+    domain_of:
+    - PSFBeadsInputParameters
+    - CoRegistrationInputParameters
+    range: float
+    required: true
+  sigma_min:
+    name: sigma_min
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_min
+    description: Min value for the range of sigmas used in for the detection of the
+      beads. Lower values will tend to include noisy pixels as beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_min
+    ifabsent: float(1.0)
+    owner: CoRegistrationInputParameters
+    domain_of:
+    - PSFBeadsInputParameters
+    - CoRegistrationInputParameters
+    range: float
+    required: true
+  sigma_max:
+    name: sigma_max
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_max
+    description: Max value for the range of sigmas used in for the detection of the
+      beads. Higher values will tend to detect larger objects as beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_max
+    ifabsent: float(5.0)
+    owner: CoRegistrationInputParameters
+    domain_of:
+    - PSFBeadsInputParameters
+    - CoRegistrationInputParameters
+    range: float
+    required: true
   sigma_z:
     name: sigma_z
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sigma_z
@@ -1746,7 +1823,7 @@ slots:
     name: min_lateral_distance_factor
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor
     description: Minimal distance that has to separate laterally the beads represented
-      as the  number of times the expected FWHM of the beads.
+      as the number of times the expected FWHM of the beads.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/min_lateral_distance_factor
     ifabsent: float(20)
@@ -1757,44 +1834,6 @@ slots:
     required: true
     minimum_value: 10.0
     maximum_value: 30.0
-  sigma_min:
-    name: sigma_min
-    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_min
-    description: Min value for the range of sigmas used in for the detection of the
-      beads. Lower values will tend to include  noisy pixels as beads.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_min
-    ifabsent: float(1.0)
-    owner: PSFBeadsInputParameters
-    domain_of:
-    - PSFBeadsInputParameters
-    range: float
-    required: true
-  sigma_max:
-    name: sigma_max
-    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max
-    description: Max value for the range of sigmas used in for the detection of the
-      beads. Higher values will tend to detect  larger objects as beads.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/sigma_max
-    ifabsent: float(5.0)
-    owner: PSFBeadsInputParameters
-    domain_of:
-    - PSFBeadsInputParameters
-    range: float
-    required: true
-  snr_threshold:
-    name: snr_threshold
-    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold
-    description: Signal to noise ratio threshold to be used for bead detection.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/snr_threshold
-    ifabsent: float(10.0)
-    owner: PSFBeadsInputParameters
-    domain_of:
-    - PSFBeadsInputParameters
-    range: float
-    required: true
   fitting_airy_r2_threshold:
     name: fitting_airy_r2_threshold
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/fitting_airy_r2_threshold
@@ -1911,7 +1950,7 @@ slots:
     name: considered_bad_fit_airy_z_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_z_count
     description: Number of beads considered as having a bad airy fit quality in the
-      z axis. The fitting measurements are  not averaged into the key measurements.
+      z axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_z_count
@@ -1924,7 +1963,7 @@ slots:
     name: considered_bad_fit_airy_y_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_y_count
     description: Number of beads considered as having a bad airy fit quality in the
-      y axis. The fitting measurements are  not averaged into the key measurements.
+      y axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_y_count
@@ -1937,7 +1976,7 @@ slots:
     name: considered_bad_fit_airy_x_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_x_count
     description: Number of beads considered as having a bad airy fit quality in the
-      x axis. The fitting measurements are  not averaged into the key measurements.
+      x axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_airy_x_count
@@ -1950,7 +1989,7 @@ slots:
     name: considered_bad_fit_gaussian_z_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_z_count
     description: Number of beads considered as having a bad gaussian fit quality in
-      the z axis. The fitting measurements are  not averaged into the key measurements.
+      the z axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_z_count
@@ -1963,7 +2002,7 @@ slots:
     name: considered_bad_fit_gaussian_y_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_y_count
     description: Number of beads considered as having a bad gaussian fit quality in
-      the y axis. The fitting measurements are  not averaged into the key measurements.
+      the y axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_y_count
@@ -1976,7 +2015,7 @@ slots:
     name: considered_bad_fit_gaussian_x_count
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_x_count
     description: Number of beads considered as having a bad gaussian fit quality in
-      the x axis. The fitting measurements are  not averaged into the key measurements.
+      the x axis. The fitting measurements are not averaged into the key measurements.
       One value per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bad_fit_gaussian_x_count
@@ -2809,6 +2848,34 @@ slots:
     - PSFBeadsKeyMeasurement
     range: float
     required: false
+    multivalued: false
+  multiwaavelength_beads_images:
+    name: multiwaavelength_beads_images
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/multiwaavelength_beads_images
+    description: The image containing the beads Images. At least two channels are
+      required. More than one image can be provided if the image conditions are the
+      same.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/multiwaavelength_beads_images
+    owner: CoRegistrationInputData
+    domain_of:
+    - CoRegistrationInputData
+    range: Image
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  bead_count:
+    name: bead_count
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/bead_count
+    description: The number of beads detected in the image. The number will be the
+      same for each channel.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/bead_count
+    owner: CoRegistrationKeyMeasurement
+    domain_of:
+    - CoRegistrationKeyMeasurement
+    range: integer
     multivalued: false
   power_measurements:
     name: power_measurements
@@ -4117,20 +4184,6 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  pSFBeadsOutput__analyzed_bead_centers:
-    name: pSFBeadsOutput__analyzed_bead_centers
-    description: The centers of the beads that have been analyzed. One point shape
-      will be provided per bead correctly detected. One ROI per channel.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/analyzed_bead_centers
-    alias: analyzed_bead_centers
-    owner: PSFBeadsOutput
-    domain_of:
-    - PSFBeadsOutput
-    range: Roi
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
   pSFBeadsOutput__considered_bead_centers_lateral_edge:
     name: pSFBeadsOutput__considered_bead_centers_lateral_edge
     description: The centers of the beads detected but considered as too close to
@@ -4195,9 +4248,9 @@ slots:
   pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality:
     name: pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality
     description: The centers of the beads detected but considered as the airy fit
-      quality in z was not good enough.  coefficient of determination (R^2) (R^2)
-      over requested threshold. Measurements in z for this bead not considered for
-      the dataset analysis. One point will be provided per bead. One ROI per channel.
+      quality in z was not good enough. coefficient of determination (R^2) (R^2) over
+      requested threshold. Measurements in z for this bead not considered for the
+      dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_z_fit_airy_quality
     alias: considered_bead_centers_z_fit_airy_quality
@@ -4211,9 +4264,9 @@ slots:
   pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality:
     name: pSFBeadsOutput__considered_bead_centers_y_fit_airy_quality
     description: The centers of the beads detected but considered as the airy fit
-      quality in y was not good enough.  coefficient of determination (R^2) (R^2)
-      over requested threshold. Measurements in y for this bead not considered for
-      the dataset analysis. One point will be provided per bead. One ROI per channel.
+      quality in y was not good enough. coefficient of determination (R^2) (R^2) over
+      requested threshold. Measurements in y for this bead not considered for the
+      dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_y_fit_airy_quality
     alias: considered_bead_centers_y_fit_airy_quality
@@ -4227,9 +4280,9 @@ slots:
   pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality:
     name: pSFBeadsOutput__considered_bead_centers_x_fit_airy_quality
     description: The centers of the beads detected but considered as the airy fit
-      quality in x was not good enough.  coefficient of determination (R^2) (R^2)
-      over requested threshold. Measurements in x for this bead not considered for
-      the dataset analysis. One point will be provided per bead. One ROI per channel.
+      quality in x was not good enough. coefficient of determination (R^2) (R^2) over
+      requested threshold. Measurements in x for this bead not considered for the
+      dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_airy_quality
     alias: considered_bead_centers_x_fit_airy_quality
@@ -4243,7 +4296,7 @@ slots:
   pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality:
     name: pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality
     description: The centers of the beads detected but considered as the gaussian
-      fit quality in z was not good enough.  coefficient of determination (R^2) (R^2)
+      fit quality in z was not good enough. coefficient of determination (R^2) (R^2)
       over requested threshold. Measurements in z for this bead not considered for
       the dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
@@ -4259,7 +4312,7 @@ slots:
   pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality:
     name: pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality
     description: The centers of the beads detected but considered as the gaussian
-      fit quality in y was not good enough.  coefficient of determination (R^2) (R^2)
+      fit quality in y was not good enough. coefficient of determination (R^2) (R^2)
       over requested threshold. Measurements in y for this bead not considered for
       the dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
@@ -4275,9 +4328,9 @@ slots:
   pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality:
     name: pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality
     description: The centers of the beads detected but considered as the airy gaussian
-      quality in x was not good enough.  coefficient of determination (R^2) (R^2)
-      over requested threshold. Measurements in x for this bead not considered for
-      the dataset analysis. One point will be provided per bead. One ROI per channel.
+      quality in x was not good enough. coefficient of determination (R^2) (R^2) over
+      requested threshold. Measurements in x for this bead not considered for the
+      dataset analysis. One point will be provided per bead. One ROI per channel.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/considered_bead_centers_x_fit_gaussian_quality
     alias: considered_bead_centers_x_fit_gaussian_quality
@@ -4286,19 +4339,6 @@ slots:
     - PSFBeadsOutput
     range: Roi
     multivalued: true
-    inlined: true
-    inlined_as_list: true
-  pSFBeadsOutput__bead_properties:
-    name: pSFBeadsOutput__bead_properties
-    description: Properties associated with the analysis of the beads.
-    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads
-    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/bead_properties
-    alias: bead_properties
-    owner: PSFBeadsOutput
-    domain_of:
-    - PSFBeadsOutput
-    range: Table
-    multivalued: false
     inlined: true
     inlined_as_list: true
   pSFBeadsOutput__bead_profiles_z:
@@ -4408,17 +4448,41 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  pSFBeads__bead_diameter_micron:
-    name: pSFBeads__bead_diameter_micron
+  fLuorescentBeads__bead_diameter_micron:
+    name: fLuorescentBeads__bead_diameter_micron
     description: The diameter of the beads in the sample measured in microns.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
     slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/bead_diameter_micron
     alias: bead_diameter_micron
-    owner: PSFBeads
+    owner: FLuorescentBeads
     domain_of:
-    - PSFBeads
+    - FLuorescentBeads
     range: float
     required: true
+  fLuorescentBeads__excitation_wavelengths_nm:
+    name: fLuorescentBeads__excitation_wavelengths_nm
+    description: The excitation wavelength of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/excitation_wavelengths_nm
+    alias: excitation_wavelengths_nm
+    owner: FLuorescentBeads
+    domain_of:
+    - FLuorescentBeads
+    range: float
+    required: true
+    multivalued: true
+  fLuorescentBeads__emission_wavelengths_nm:
+    name: fLuorescentBeads__emission_wavelengths_nm
+    description: The emission wavelength of the beads.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/emission_wavelengths_nm
+    alias: emission_wavelengths_nm
+    owner: FLuorescentBeads
+    domain_of:
+    - FLuorescentBeads
+    range: float
+    required: true
+    multivalued: true
   FieldIlluminationDataset_input_data:
     name: FieldIlluminationDataset_input_data
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data
@@ -4650,6 +4714,103 @@ slots:
     is_usage_slot: true
     usage_slot_name: key_measurements
     range: PSFBeadsKeyMeasurement
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  CoRegistrationDataset_input_data:
+    name: CoRegistrationDataset_input_data
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data
+    description: The input data for the analysis
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    is_a: input_data
+    domain: CoRegistrationDataset
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_data
+    alias: input_data
+    owner: CoRegistrationDataset
+    domain_of:
+    - CoRegistrationDataset
+    is_usage_slot: true
+    usage_slot_name: input_data
+    range: CoRegistrationInputData
+    required: true
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  CoRegistrationDataset_input_parameters:
+    name: CoRegistrationDataset_input_parameters
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_parameters
+    description: The input parameters for the analysis
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    is_a: input_parameters
+    domain: CoRegistrationDataset
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/input_parameters
+    alias: input_parameters
+    owner: CoRegistrationDataset
+    domain_of:
+    - CoRegistrationDataset
+    is_usage_slot: true
+    usage_slot_name: input_parameters
+    range: CoRegistrationInputParameters
+    required: false
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  CoRegistrationDataset_output:
+    name: CoRegistrationDataset_output
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/output
+    description: The output of the analysis
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    is_a: output
+    abstract: true
+    domain: CoRegistrationDataset
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/output
+    alias: output
+    owner: CoRegistrationDataset
+    domain_of:
+    - CoRegistrationDataset
+    is_usage_slot: true
+    usage_slot_name: output
+    range: CoRegistrationOutput
+    required: false
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  CoRegistrationDataset_sample:
+    name: CoRegistrationDataset_sample
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sample
+    description: The physical sample that was imaged
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    is_a: sample
+    domain: CoRegistrationDataset
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/sample
+    alias: sample
+    owner: CoRegistrationDataset
+    domain_of:
+    - CoRegistrationDataset
+    is_usage_slot: true
+    usage_slot_name: sample
+    range: MultiWavelengthBeads
+    required: false
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
+  CoRegistrationOutput_key_measurements:
+    name: CoRegistrationOutput_key_measurements
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/key_measurements
+    description: A list of KeyMeasurement subclasses summarizing the most important
+      measurements as a function of, for example, channels
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core
+    is_a: key_measurements
+    domain: CoRegistrationOutput
+    slot_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/core/key_measurements
+    alias: key_measurements
+    owner: CoRegistrationOutput
+    domain_of:
+    - CoRegistrationOutput
+    is_usage_slot: true
+    usage_slot_name: key_measurements
+    range: CoRegistrationKeyMeasurement
     required: true
     multivalued: true
     inlined: true
@@ -6162,7 +6323,8 @@ classes:
     - metricsOutput__errors
     - metricsOutput__validated
     - metricsOutput__validation_datetime
-    - pSFBeadsOutput__analyzed_bead_centers
+    - analyzed_bead_centers
+    - bead_properties
     - pSFBeadsOutput__considered_bead_centers_lateral_edge
     - pSFBeadsOutput__considered_bead_centers_self_proximity
     - pSFBeadsOutput__considered_bead_centers_axial_edge
@@ -6173,7 +6335,6 @@ classes:
     - pSFBeadsOutput__considered_bead_centers_z_fit_gaussian_quality
     - pSFBeadsOutput__considered_bead_centers_y_fit_gaussian_quality
     - pSFBeadsOutput__considered_bead_centers_x_fit_gaussian_quality
-    - pSFBeadsOutput__bead_properties
     - pSFBeadsOutput__bead_profiles_z
     - pSFBeadsOutput__bead_profiles_y
     - pSFBeadsOutput__bead_profiles_x
@@ -6184,14 +6345,6 @@ classes:
         name: key_measurements
         range: PSFBeadsKeyMeasurement
     attributes:
-      analyzed_bead_centers:
-        name: analyzed_bead_centers
-        description: The centers of the beads that have been analyzed. One point shape
-          will be provided per bead correctly detected. One ROI per channel.
-        range: Roi
-        multivalued: true
-        inlined: true
-        inlined_as_list: true
       considered_bead_centers_lateral_edge:
         name: considered_bead_centers_lateral_edge
         description: The centers of the beads detected but considered as too close
@@ -6233,7 +6386,7 @@ classes:
       considered_bead_centers_z_fit_airy_quality:
         name: considered_bead_centers_z_fit_airy_quality
         description: The centers of the beads detected but considered as the airy
-          fit quality in z was not good enough.  coefficient of determination (R^2)
+          fit quality in z was not good enough. coefficient of determination (R^2)
           (R^2) over requested threshold. Measurements in z for this bead not considered
           for the dataset analysis. One point will be provided per bead. One ROI per
           channel.
@@ -6244,7 +6397,7 @@ classes:
       considered_bead_centers_y_fit_airy_quality:
         name: considered_bead_centers_y_fit_airy_quality
         description: The centers of the beads detected but considered as the airy
-          fit quality in y was not good enough.  coefficient of determination (R^2)
+          fit quality in y was not good enough. coefficient of determination (R^2)
           (R^2) over requested threshold. Measurements in y for this bead not considered
           for the dataset analysis. One point will be provided per bead. One ROI per
           channel.
@@ -6255,7 +6408,7 @@ classes:
       considered_bead_centers_x_fit_airy_quality:
         name: considered_bead_centers_x_fit_airy_quality
         description: The centers of the beads detected but considered as the airy
-          fit quality in x was not good enough.  coefficient of determination (R^2)
+          fit quality in x was not good enough. coefficient of determination (R^2)
           (R^2) over requested threshold. Measurements in x for this bead not considered
           for the dataset analysis. One point will be provided per bead. One ROI per
           channel.
@@ -6266,7 +6419,7 @@ classes:
       considered_bead_centers_z_fit_gaussian_quality:
         name: considered_bead_centers_z_fit_gaussian_quality
         description: The centers of the beads detected but considered as the gaussian
-          fit quality in z was not good enough.  coefficient of determination (R^2)
+          fit quality in z was not good enough. coefficient of determination (R^2)
           (R^2) over requested threshold. Measurements in z for this bead not considered
           for the dataset analysis. One point will be provided per bead. One ROI per
           channel.
@@ -6277,7 +6430,7 @@ classes:
       considered_bead_centers_y_fit_gaussian_quality:
         name: considered_bead_centers_y_fit_gaussian_quality
         description: The centers of the beads detected but considered as the gaussian
-          fit quality in y was not good enough.  coefficient of determination (R^2)
+          fit quality in y was not good enough. coefficient of determination (R^2)
           (R^2) over requested threshold. Measurements in y for this bead not considered
           for the dataset analysis. One point will be provided per bead. One ROI per
           channel.
@@ -6288,19 +6441,12 @@ classes:
       considered_bead_centers_x_fit_gaussian_quality:
         name: considered_bead_centers_x_fit_gaussian_quality
         description: The centers of the beads detected but considered as the airy
-          gaussian quality in x was not good enough.  coefficient of determination
+          gaussian quality in x was not good enough. coefficient of determination
           (R^2) (R^2) over requested threshold. Measurements in x for this bead not
           considered for the dataset analysis. One point will be provided per bead.
           One ROI per channel.
         range: Roi
         multivalued: true
-        inlined: true
-        inlined_as_list: true
-      bead_properties:
-        name: bead_properties
-        description: Properties associated with the analysis of the beads.
-        range: Table
-        multivalued: false
         inlined: true
         inlined_as_list: true
       bead_profiles_z:
@@ -6429,6 +6575,97 @@ classes:
     - average_bead_intensity_min
     - average_bead_intensity_std
     class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/psf_beads/PSFBeadsKeyMeasurement
+  CoRegistrationDataset:
+    name: CoRegistrationDataset
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationDataset
+    description: A dataset containing the results of the coregistration analysis.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    is_a: MetricsDataset
+    mixins:
+    - HasSampleMixin
+    - HasInputParametersMixin
+    slots:
+    - namedObject__name
+    - namedObject__description
+    - data_reference
+    - linked_references
+    - acquisition_datetime
+    - metricsDataset__microscope
+    - metricsDataset__experimenter
+    - metricsDataset__acquisition_protocol
+    - metricsDataset__processed
+    - CoRegistrationDataset_input_data
+    - CoRegistrationDataset_input_parameters
+    - CoRegistrationDataset_output
+    - CoRegistrationDataset_sample
+    slot_usage:
+      input_data:
+        name: input_data
+        range: CoRegistrationInputData
+      input_parameters:
+        name: input_parameters
+        range: CoRegistrationInputParameters
+      output:
+        name: output
+        range: CoRegistrationOutput
+      sample:
+        name: sample
+        range: MultiWavelengthBeads
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationDataset
+  CoRegistrationInputData:
+    name: CoRegistrationInputData
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationInputData
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    is_a: MetricsInputData
+    slots:
+    - multiwaavelength_beads_images
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationInputData
+  CoRegistrationInputParameters:
+    name: CoRegistrationInputParameters
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationInputParameters
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    is_a: MetricsInputParameters
+    slots:
+    - bit_depth
+    - saturation_threshold
+    - sigma_min
+    - sigma_max
+    - snr_threshold
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationInputParameters
+  CoRegistrationOutput:
+    name: CoRegistrationOutput
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationOutput
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    is_a: MetricsOutput
+    slots:
+    - comment
+    - metricsOutput__processing_application
+    - metricsOutput__processing_version
+    - metricsOutput__processing_entity
+    - metricsOutput__processing_datetime
+    - metricsOutput__processing_log
+    - metricsOutput__warnings
+    - metricsOutput__errors
+    - metricsOutput__validated
+    - metricsOutput__validation_datetime
+    - analyzed_bead_centers
+    - bead_properties
+    - CoRegistrationOutput_key_measurements
+    slot_usage:
+      key_measurements:
+        name: key_measurements
+        range: CoRegistrationKeyMeasurement
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationOutput
+  CoRegistrationKeyMeasurement:
+    name: CoRegistrationKeyMeasurement
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationKeyMeasurement
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration
+    is_a: KeyMeasurement
+    slots:
+    - channel_name
+    - channel_nr
+    - bead_count
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration/CoRegistrationKeyMeasurement
   LightSourcePowerDataset:
     name: LightSourcePowerDataset
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power/LightSourcePowerDataset
@@ -6749,27 +6986,89 @@ classes:
     - preparation_datetime
     - manufacturer
     class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/homogeneous_field/FluorescentHomogeneousThinField
-  PSFBeads:
-    name: PSFBeads
-    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads
-    description: A sample of sub-resolution sized beads used to measure the PSF of
-      a microscope.
+  FLuorescentBeads:
+    name: FLuorescentBeads
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/FLuorescentBeads
+    description: A sample of fluorescent beads.
     from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
     is_a: Sample
+    abstract: true
     slots:
     - namedObject__name
     - namedObject__description
     - preparation_protocol
     - preparation_datetime
     - manufacturer
-    - pSFBeads__bead_diameter_micron
+    - fLuorescentBeads__bead_diameter_micron
+    - fLuorescentBeads__excitation_wavelengths_nm
+    - fLuorescentBeads__emission_wavelengths_nm
     attributes:
       bead_diameter_micron:
         name: bead_diameter_micron
         description: The diameter of the beads in the sample measured in microns.
         range: float
         required: true
+      excitation_wavelengths_nm:
+        name: excitation_wavelengths_nm
+        description: The excitation wavelength of the beads.
+        range: float
+        required: true
+        multivalued: true
+      emission_wavelengths_nm:
+        name: emission_wavelengths_nm
+        description: The emission wavelength of the beads.
+        range: float
+        required: true
+        multivalued: true
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/FLuorescentBeads
+  MultiWavelengthBeads:
+    name: MultiWavelengthBeads
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/MultiWavelengthBeads
+    description: A sample of beads fluorescent in different wavelengths.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+    is_a: FLuorescentBeads
+    slots:
+    - namedObject__name
+    - namedObject__description
+    - preparation_protocol
+    - preparation_datetime
+    - manufacturer
+    - fLuorescentBeads__bead_diameter_micron
+    - fLuorescentBeads__excitation_wavelengths_nm
+    - fLuorescentBeads__emission_wavelengths_nm
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/MultiWavelengthBeads
+  PSFBeads:
+    name: PSFBeads
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads
+    description: A sample of beads with subresolution size used for PSF estimation.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+    is_a: FLuorescentBeads
+    slots:
+    - namedObject__name
+    - namedObject__description
+    - preparation_protocol
+    - preparation_datetime
+    - manufacturer
+    - fLuorescentBeads__bead_diameter_micron
+    - fLuorescentBeads__excitation_wavelengths_nm
+    - fLuorescentBeads__emission_wavelengths_nm
     class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/PSFBeads
+  NonPSFBeads:
+    name: NonPSFBeads
+    definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/NonPSFBeads
+    description: A sample of beads without subresolution size.
+    from_schema: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads
+    is_a: FLuorescentBeads
+    slots:
+    - namedObject__name
+    - namedObject__description
+    - preparation_protocol
+    - preparation_datetime
+    - manufacturer
+    - fLuorescentBeads__bead_diameter_micron
+    - fLuorescentBeads__excitation_wavelengths_nm
+    - fLuorescentBeads__emission_wavelengths_nm
+    class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads/NonPSFBeads
   LightSourcePower:
     name: LightSourcePower
     definition_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/light_source_power/LightSourcePower
@@ -6799,7 +7098,7 @@ classes:
     class_uri: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/user_sample/UserExperiment
 metamodel_version: 1.11.0
 source_file: microscopemetrics_schema.yaml
-source_file_date: '2026-06-24T08:33:12'
-source_file_size: 912
-generation_date: '2026-06-24T10:00:28'
+source_file_date: '2026-06-25T10:30:33'
+source_file_size: 940
+generation_date: '2026-06-25T13:00:24'
 
