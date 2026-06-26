@@ -116,6 +116,20 @@ class TestPSFBeadsSchemaElements(unittest.TestCase):
         self.assertTrue(dataset.processed)
 
 
+class TestCoRegistrationSchemaElements(unittest.TestCase):
+    """Test the strategies for the CoRegistration schema elements."""
+
+    @given(st_mm_co_registration_unprocessed_dataset())
+    def test_co_registration_unprocessed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.CoRegistrationDataset)
+        self.assertFalse(dataset.processed)
+
+    @given(st_mm_co_registration_processed_dataset())
+    def test_co_registration_processed_dataset(self, dataset):
+        self.assertIsInstance(dataset, mm_schema.CoRegistrationDataset)
+        self.assertTrue(dataset.processed)
+
+
 class TestLightSourcePower(unittest.TestCase):
     """Test the strategies for the LightSourcePower schema elements."""
 

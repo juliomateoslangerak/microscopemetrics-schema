@@ -26,7 +26,7 @@ def st_mm_psf_beads_sample(
 def st_mm_non_psf_beads_sample(
     draw,
     sample=st_mm_sample(),
-) -> mm_schema.PSFBeads:
+) -> mm_schema.NonPSFBeads:
     nr_wavelengths = draw(st.integers(min_value=1, max_value=3))
 
     return mm_schema.NonPSFBeads(
@@ -45,7 +45,7 @@ def st_mm_non_psf_beads_sample(
 def st_mm_multi_wavelength_beads_sample(
     draw,
     sample=st_mm_sample(),
-) -> mm_schema.PSFBeads:
+) -> mm_schema.MultiWavelengthBeads:
     nr_wavelengths = draw(st.integers(min_value=1, max_value=3))
 
     return mm_schema.MultiWavelengthBeads(
