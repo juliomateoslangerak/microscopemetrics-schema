@@ -48,6 +48,9 @@ classes:
     attributes:
     slots:
       - analyzed_bead_centers
+      - considered_bead_centers_lateral_edge
+      - considered_bead_centers_self_proximity
+      - considered_bead_centers_axial_edge
       - bead_properties
       - image_properties
     slot_usage:

@@ -1,7 +1,6 @@
 from hypothesis import strategies as st
 from microscopemetrics_schema.datamodel import microscopemetrics_schema as mm_schema
 from microscopemetrics_schema.strategies import (
-    st_mm_metrics_object,
     st_mm_image,
     st_mm_dataset,
     st_mm_output,

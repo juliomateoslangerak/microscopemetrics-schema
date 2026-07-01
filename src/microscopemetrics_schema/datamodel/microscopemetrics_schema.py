@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-01T21:48:21
+# Generation date: 2026-07-01T22:12:25
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1794,11 +1794,11 @@ class PSFBeadsOutput(MetricsOutput):
     key_measurements: Union[Union[dict, "PSFBeadsKeyMeasurement"], list[Union[dict, "PSFBeadsKeyMeasurement"]]] = None
     validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    bead_properties: Optional[Union[dict, Table]] = None
     considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_intensity_outlier: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    bead_properties: Optional[Union[dict, Table]] = None
     considered_bead_centers_z_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_y_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_x_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
@@ -1821,9 +1821,6 @@ class PSFBeadsOutput(MetricsOutput):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
         self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
 
-        if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
-            self.bead_properties = Table(**as_dict(self.bead_properties))
-
         if not isinstance(self.considered_bead_centers_lateral_edge, list):
             self.considered_bead_centers_lateral_edge = [self.considered_bead_centers_lateral_edge] if self.considered_bead_centers_lateral_edge is not None else []
         self.considered_bead_centers_lateral_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_lateral_edge]
@@ -1839,6 +1836,9 @@ class PSFBeadsOutput(MetricsOutput):
         if not isinstance(self.considered_bead_centers_intensity_outlier, list):
             self.considered_bead_centers_intensity_outlier = [self.considered_bead_centers_intensity_outlier] if self.considered_bead_centers_intensity_outlier is not None else []
         self.considered_bead_centers_intensity_outlier = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_intensity_outlier]
+
+        if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
+            self.bead_properties = Table(**as_dict(self.bead_properties))
 
         if not isinstance(self.considered_bead_centers_z_fit_airy_quality, list):
             self.considered_bead_centers_z_fit_airy_quality = [self.considered_bead_centers_z_fit_airy_quality] if self.considered_bead_centers_z_fit_airy_quality is not None else []
@@ -2338,6 +2338,9 @@ class CoRegistrationOutput(MetricsOutput):
     key_measurements: Union[Union[dict, "CoRegistrationKeyMeasurement"], list[Union[dict, "CoRegistrationKeyMeasurement"]]] = None
     validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     bead_properties: Optional[Union[dict, Table]] = None
     image_properties: Optional[Union[dict, Table]] = None
 
@@ -2349,6 +2352,18 @@ class CoRegistrationOutput(MetricsOutput):
         if not isinstance(self.analyzed_bead_centers, list):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
         self.analyzed_bead_centers = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analyzed_bead_centers]
+
+        if not isinstance(self.considered_bead_centers_lateral_edge, list):
+            self.considered_bead_centers_lateral_edge = [self.considered_bead_centers_lateral_edge] if self.considered_bead_centers_lateral_edge is not None else []
+        self.considered_bead_centers_lateral_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_lateral_edge]
+
+        if not isinstance(self.considered_bead_centers_self_proximity, list):
+            self.considered_bead_centers_self_proximity = [self.considered_bead_centers_self_proximity] if self.considered_bead_centers_self_proximity is not None else []
+        self.considered_bead_centers_self_proximity = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_self_proximity]
+
+        if not isinstance(self.considered_bead_centers_axial_edge, list):
+            self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
+        self.considered_bead_centers_axial_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_axial_edge]
 
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
@@ -3281,6 +3296,18 @@ slots.image_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/image_propertie
 slots.analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/analyzed_bead_centers'], name="analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
+slots.considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_lateral_edge'], name="considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_lateral_edge'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_self_proximity'], name="considered_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_self_proximity'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_axial_edge'], name="considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_axial_edge'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_intensity_outlier'], name="considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_intensity_outlier'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
 slots.total_bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/total_bead_count'], name="total_bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/total_bead_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.total_bead_count, domain=None, range=Optional[int])
 
@@ -4132,18 +4159,6 @@ slots.fieldIlluminationOutput__roi_centers_max_intensity = Slot(uri=MICROSCOPEME
 
 slots.fieldIlluminationOutput__roi_center_region = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/roi_center_region'], name="fieldIlluminationOutput__roi_center_region", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/roi_center_region'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fieldIlluminationOutput__roi_center_region, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
-slots.pSFBeadsOutput__considered_bead_centers_lateral_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_lateral_edge'], name="pSFBeadsOutput__considered_bead_centers_lateral_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_lateral_edge'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_lateral_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
-slots.pSFBeadsOutput__considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_self_proximity'], name="pSFBeadsOutput__considered_bead_centers_self_proximity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_self_proximity'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_self_proximity, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
-slots.pSFBeadsOutput__considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_axial_edge'], name="pSFBeadsOutput__considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_axial_edge'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
-
-slots.pSFBeadsOutput__considered_bead_centers_intensity_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_intensity_outlier'], name="pSFBeadsOutput__considered_bead_centers_intensity_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_intensity_outlier'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_intensity_outlier, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
 slots.pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_bead_centers_z_fit_airy_quality'], name="pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_bead_centers_z_fit_airy_quality'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__considered_bead_centers_z_fit_airy_quality, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
