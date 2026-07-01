@@ -36,6 +36,7 @@ classes:
   CoRegistrationInputParameters:
     is_a: MetricsInputParameters
     slots:
+      - reference_channel_nb
       - bit_depth
       - saturation_threshold
       - sigma_min
@@ -71,6 +72,14 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
+  reference_channel_nb:
+    range: integer
+    description: >-
+      The channel number of the reference channel. This channel will be used to
+      detect the beads and to align the images to.
+    required: true
+    multivalued: false
+    ifabsent: integer(0)
 
   # Outputs
   bead_count:
