@@ -1014,11 +1014,9 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     image_id: Optional[str] = Field(default=None, description="""The id of the image where the measurement was taken. If images are originary in OMERO this is the image_id.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_id: Optional[str] = Field(default=None, description="""The channel id to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
     center_region_intensity_fraction: Optional[float] = Field(default=None, description="""The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
@@ -1226,17 +1224,15 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
-    total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_self_proximity_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to another bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_lateral_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to the edge of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
-    considered_axial_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
+    total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_self_proximity_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to another bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_lateral_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to the edge of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_axial_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
     considered_intensity_outlier_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too intense and potentially represent a cluster of beads. These beads have a robust z-score over the requested threshold. Measurements on these beads are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     considered_bad_fit_airy_z_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the z axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
     considered_bad_fit_airy_y_count: Optional[int] = Field(default=None, description="""Number of beads considered as having a bad airy fit quality in the y axis. The fitting measurements are not averaged into the key measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement']} })
@@ -1351,7 +1347,8 @@ class CoRegistrationInputData(MetricsInputData):
 class CoRegistrationInputParameters(MetricsInputParameters):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
-    reference_channel_nb: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters'], 'ifabsent': 'integer(0)'} })
+    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters', 'CoRegistrationKeyMeasurement'],
+         'ifabsent': 'integer(0)'} })
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
@@ -1393,15 +1390,16 @@ class CoRegistrationOutput(MetricsOutput):
 class CoRegistrationKeyMeasurement(KeyMeasurement):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
-    channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
-                       'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
-                       'UserExperimentKeyMeasurement']} })
-    channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
-                       'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
-                       'UserExperimentKeyMeasurement']} })
-    bead_count: Optional[int] = Field(default=None, description="""The number of beads detected in the image. The number will be the same for each channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    reference_channel_name: Optional[str] = Field(default=None, description="""The name of the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters', 'CoRegistrationKeyMeasurement'],
+         'ifabsent': 'integer(0)'} })
+    moving_channel_name: Optional[str] = Field(default=None, description="""The name of the channel which is being registered to the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    moving_channel_nr: Optional[int] = Field(default=None, description="""The number of the channel which is being registered to the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_self_proximity_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to another bead. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_lateral_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered for being too close to the edge of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
+    considered_axial_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
     translation_x_mean: Optional[float] = Field(default=None, description="""The mean translation in the x direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_y_mean: Optional[float] = Field(default=None, description="""The mean translation in the y direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_z_mean: Optional[float] = Field(default=None, description="""The mean translation in the z direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
@@ -1628,11 +1626,9 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
-                       'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     variation_coefficient: Optional[float] = Field(default=None, description="""The variation coefficient of the signal of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })
     saturated_channels: Optional[int] = Field(default=None, description="""The channels that are saturated in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })

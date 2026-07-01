@@ -36,7 +36,7 @@ classes:
   CoRegistrationInputParameters:
     is_a: MetricsInputParameters
     slots:
-      - reference_channel_nb
+      - reference_channel_nr
       - bit_depth
       - saturation_threshold
       - sigma_min
@@ -57,9 +57,15 @@ classes:
   CoRegistrationKeyMeasurement:
     is_a: KeyMeasurement
     slots:
-      - channel_name
-      - channel_nr
-      - bead_count
+      - reference_channel_name
+      - reference_channel_nr
+      - moving_channel_name
+      - moving_channel_nr
+      - total_bead_count
+      - considered_valid_count
+      - considered_self_proximity_count
+      - considered_lateral_edge_count
+      - considered_axial_edge_count
       - translation_x_mean
       - translation_y_mean
       - translation_z_mean
@@ -77,7 +83,7 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  reference_channel_nb:
+  reference_channel_nr:
     range: integer
     description: >-
       The channel number of the reference channel. This channel will be used to
@@ -87,11 +93,21 @@ slots:
     ifabsent: integer(0)
 
   # Outputs
-  bead_count:
+  reference_channel_name:
+    range: string
+    description: >-
+      The name of the reference channel.
+    multivalued: false
+  moving_channel_name:
+    range: string
+    description: >-
+      The name of the channel which is being registered to the reference channel.
+    multivalued: false
+  moving_channel_nr:
     range: integer
     description: >-
-      The number of beads detected in the image. The number will be the same for each channel.
-    multivalued: false
+      The number of the channel which is being registered to the reference channel.
+
   translation_x_mean:
     range: float
     description: >-

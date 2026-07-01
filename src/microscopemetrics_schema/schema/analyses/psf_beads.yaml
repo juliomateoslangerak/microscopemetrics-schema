@@ -326,33 +326,6 @@ slots:
     ifabsent: float(2.0)
 
   # Outputs
-  total_bead_count:
-    range: integer
-    description: >-
-      Total number of beads detected in the image. One value per channel.
-    multivalued: false
-  considered_valid_count:
-    range: integer
-    description: >-
-      Number of beads analyzed. One value per channel.
-    multivalued: false
-  considered_lateral_edge_count:
-    range: integer
-    description: >-
-      Number of beads considered for being too close to the edge of the image. One value per channel.
-    multivalued: false
-  considered_self_proximity_count:
-    range: integer
-    description: >-
-      Number of beads considered for being too close to another bead. One value per channel.
-    multivalued: false
-  considered_axial_edge_count:
-    range: integer
-    description: >-
-      Number of beads considered as being too close to the top and or bottom of the image. These beads
-      are not considered for the z axis FWHM measurements.
-      One value per channel.
-    multivalued: false
   considered_intensity_outlier_count:
     range: integer
     description: >-

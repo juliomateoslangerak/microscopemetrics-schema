@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-01T19:48:29
+# Generation date: 2026-07-01T21:48:21
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2286,7 +2286,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     class_name: ClassVar[str] = "CoRegistrationInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputParameters
 
-    reference_channel_nb: int = 0
+    reference_channel_nr: int = 0
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
@@ -2294,10 +2294,10 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     saturation_threshold: Optional[float] = 0.01
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.reference_channel_nb):
-            self.MissingRequiredField("reference_channel_nb")
-        if not isinstance(self.reference_channel_nb, int):
-            self.reference_channel_nb = int(self.reference_channel_nb)
+        if self._is_empty(self.reference_channel_nr):
+            self.MissingRequiredField("reference_channel_nr")
+        if not isinstance(self.reference_channel_nr, int):
+            self.reference_channel_nr = int(self.reference_channel_nr)
 
         if self._is_empty(self.sigma_min):
             self.MissingRequiredField("sigma_min")
@@ -2344,9 +2344,7 @@ class CoRegistrationOutput(MetricsOutput):
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.key_measurements):
             self.MissingRequiredField("key_measurements")
-        if not isinstance(self.key_measurements, list):
-            self.key_measurements = [self.key_measurements] if self.key_measurements is not None else []
-        self.key_measurements = [v if isinstance(v, CoRegistrationKeyMeasurement) else CoRegistrationKeyMeasurement(**as_dict(v)) for v in self.key_measurements]
+        self._normalize_inlined_as_list(slot_name="key_measurements", slot_type=CoRegistrationKeyMeasurement, key_name="reference_channel_nr", keyed=False)
 
         if not isinstance(self.analyzed_bead_centers, list):
             self.analyzed_bead_centers = [self.analyzed_bead_centers] if self.analyzed_bead_centers is not None else []
@@ -2370,23 +2368,49 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     class_name: ClassVar[str] = "CoRegistrationKeyMeasurement"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationKeyMeasurement
 
-    channel_name: Optional[str] = None
-    channel_nr: Optional[int] = None
-    bead_count: Optional[int] = None
+    reference_channel_nr: int = 0
+    reference_channel_name: Optional[str] = None
+    moving_channel_name: Optional[str] = None
+    moving_channel_nr: Optional[int] = None
+    total_bead_count: Optional[int] = None
+    considered_valid_count: Optional[int] = None
+    considered_self_proximity_count: Optional[int] = None
+    considered_lateral_edge_count: Optional[int] = None
+    considered_axial_edge_count: Optional[int] = None
     translation_x_mean: Optional[float] = None
     translation_y_mean: Optional[float] = None
     translation_z_mean: Optional[float] = None
     rotation_z_mean: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self.channel_name is not None and not isinstance(self.channel_name, str):
-            self.channel_name = str(self.channel_name)
+        if self._is_empty(self.reference_channel_nr):
+            self.MissingRequiredField("reference_channel_nr")
+        if not isinstance(self.reference_channel_nr, int):
+            self.reference_channel_nr = int(self.reference_channel_nr)
 
-        if self.channel_nr is not None and not isinstance(self.channel_nr, int):
-            self.channel_nr = int(self.channel_nr)
+        if self.reference_channel_name is not None and not isinstance(self.reference_channel_name, str):
+            self.reference_channel_name = str(self.reference_channel_name)
 
-        if self.bead_count is not None and not isinstance(self.bead_count, int):
-            self.bead_count = int(self.bead_count)
+        if self.moving_channel_name is not None and not isinstance(self.moving_channel_name, str):
+            self.moving_channel_name = str(self.moving_channel_name)
+
+        if self.moving_channel_nr is not None and not isinstance(self.moving_channel_nr, int):
+            self.moving_channel_nr = int(self.moving_channel_nr)
+
+        if self.total_bead_count is not None and not isinstance(self.total_bead_count, int):
+            self.total_bead_count = int(self.total_bead_count)
+
+        if self.considered_valid_count is not None and not isinstance(self.considered_valid_count, int):
+            self.considered_valid_count = int(self.considered_valid_count)
+
+        if self.considered_self_proximity_count is not None and not isinstance(self.considered_self_proximity_count, int):
+            self.considered_self_proximity_count = int(self.considered_self_proximity_count)
+
+        if self.considered_lateral_edge_count is not None and not isinstance(self.considered_lateral_edge_count, int):
+            self.considered_lateral_edge_count = int(self.considered_lateral_edge_count)
+
+        if self.considered_axial_edge_count is not None and not isinstance(self.considered_axial_edge_count, int):
+            self.considered_axial_edge_count = int(self.considered_axial_edge_count)
 
         if self.translation_x_mean is not None and not isinstance(self.translation_x_mean, float):
             self.translation_x_mean = float(self.translation_x_mean)
@@ -3257,6 +3281,21 @@ slots.image_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/image_propertie
 slots.analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/analyzed_bead_centers'], name="analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
+slots.total_bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/total_bead_count'], name="total_bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/total_bead_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.total_bead_count, domain=None, range=Optional[int])
+
+slots.considered_valid_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_valid_count'], name="considered_valid_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_valid_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_valid_count, domain=None, range=Optional[int])
+
+slots.considered_lateral_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_lateral_edge_count'], name="considered_lateral_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_lateral_edge_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_lateral_edge_count, domain=None, range=Optional[int])
+
+slots.considered_self_proximity_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_self_proximity_count'], name="considered_self_proximity_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_self_proximity_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_self_proximity_count, domain=None, range=Optional[int])
+
+slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_axial_edge_count'], name="considered_axial_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_axial_edge_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_axial_edge_count, domain=None, range=Optional[int])
+
 slots.preparation_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_protocol'], name="preparation_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_protocol'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[dict, Protocol])
 
@@ -3539,21 +3578,6 @@ slots.fitting_gaussian_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyse
 slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
 
-slots.total_bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/total_bead_count'], name="total_bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/total_bead_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.total_bead_count, domain=None, range=Optional[int])
-
-slots.considered_valid_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_valid_count'], name="considered_valid_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_valid_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_valid_count, domain=None, range=Optional[int])
-
-slots.considered_lateral_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_lateral_edge_count'], name="considered_lateral_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_lateral_edge_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_lateral_edge_count, domain=None, range=Optional[int])
-
-slots.considered_self_proximity_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_self_proximity_count'], name="considered_self_proximity_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_self_proximity_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_self_proximity_count, domain=None, range=Optional[int])
-
-slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_axial_edge_count'], name="considered_axial_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_axial_edge_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_axial_edge_count, domain=None, range=Optional[int])
-
 slots.considered_intensity_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/considered_intensity_outlier_count'], name="considered_intensity_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/considered_intensity_outlier_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_intensity_outlier_count, domain=None, range=Optional[int])
 
@@ -3782,11 +3806,17 @@ slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 slots.multiwavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/multiwavelength_beads_images'], name="multiwavelength_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/multiwavelength_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.multiwavelength_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
 
-slots.reference_channel_nb = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nb'], name="reference_channel_nb", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nb'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_nb, domain=None, range=int)
+slots.reference_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nr'], name="reference_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_nr, domain=None, range=int)
 
-slots.bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/bead_count'], name="bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/bead_count'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.bead_count, domain=None, range=Optional[int])
+slots.reference_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_name'], name="reference_channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_name'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_name, domain=None, range=Optional[str])
+
+slots.moving_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/moving_channel_name'], name="moving_channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/moving_channel_name'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.moving_channel_name, domain=None, range=Optional[str])
+
+slots.moving_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/moving_channel_nr'], name="moving_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/moving_channel_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.moving_channel_nr, domain=None, range=Optional[int])
 
 slots.translation_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_x_mean'], name="translation_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_x_mean, domain=None, range=Optional[float])

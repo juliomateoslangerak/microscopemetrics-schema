@@ -27,26 +27,46 @@ def st_mm_co_registration_input_parameters(
     sigma_min=st.floats(min_value=1.0, max_value=1.2),
     sigma_max=st.floats(min_value=3.0, max_value=5.0),
     snr_threshold=st.just(10.0),
-    reference_channel_nb=st.just(0),
+    reference_channel_nr=st.just(0),
 ) -> mm_schema.CoRegistrationInputParameters:
     return mm_schema.CoRegistrationInputParameters(
         sigma_min=draw(sigma_min),
         sigma_max=draw(sigma_max),
         snr_threshold=draw(snr_threshold),
-        reference_channel_nb=draw(reference_channel_nb),
+        reference_channel_nr=draw(reference_channel_nr),
     )
 
 @st.composite
 def st_mm_co_registration_key_measurement(
     draw,
-    channel_name=st.just("channel_0"),
-    channel_nr=st.just(0),
-    bead_count=st.just(15),
+    reference_channel_name=st.just("channel_0"),
+    reference_channel_nr=st.just(0),
+    moving_channel_name=st.just("channel_1"),
+    moving_channel_nr=st.just(1),
+    total_bead_count=st.just(15),
+    considered_valid_count=st.just(10),
+    considered_self_proximity_count=st.just(2),
+    considered_lateral_edge_count=st.just(2),
+    considered_axial_edge_count=st.just(1),
+    translation_x_mean=st.just(0.1),
+    translation_y_mean=st.just(0.2),
+    translation_z_mean=st.just(0.3),
+    rotation_z_mean=st.just(0.4),
 ) -> mm_schema.CoRegistrationKeyMeasurement:
     return mm_schema.CoRegistrationKeyMeasurement(
-        channel_name=draw(channel_name),
-        channel_nr=draw(channel_nr),
-        bead_count=draw(bead_count),
+        reference_channel_name=draw(reference_channel_name),
+        reference_channel_nr=draw(reference_channel_nr),
+        moving_channel_name=draw(moving_channel_name),
+        moving_channel_nr=draw(moving_channel_nr),
+        total_bead_count=draw(total_bead_count),
+        considered_valid_count=draw(considered_valid_count),
+        considered_self_proximity_count=draw(considered_self_proximity_count),
+        considered_lateral_edge_count=draw(considered_lateral_edge_count),
+        considered_axial_edge_count=draw(considered_axial_edge_count),
+        translation_x_mean=draw(translation_x_mean),
+        translation_y_mean=draw(translation_y_mean),
+        translation_z_mean=draw(translation_z_mean),
+        rotation_z_mean=draw(rotation_z_mean),
     )
 
 
