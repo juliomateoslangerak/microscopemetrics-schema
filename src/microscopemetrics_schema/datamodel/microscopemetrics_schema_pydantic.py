@@ -1376,6 +1376,7 @@ class CoRegistrationOutput(MetricsOutput):
 
     analyzed_bead_centers: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads that have been analyzed. One point shape will be provided per bead correctly detected. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
     bead_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
+    image_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationOutput']} })
     key_measurements: list[CoRegistrationKeyMeasurement] = Field(default=..., description="""A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
     comment: Optional[Comment] = Field(default=None, description="""A human readable comment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
     processing_application: list[str] = Field(default=..., description="""The application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
@@ -1401,6 +1402,10 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
                        'CoRegistrationKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     bead_count: Optional[int] = Field(default=None, description="""The number of beads detected in the image. The number will be the same for each channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_x_mean: Optional[float] = Field(default=None, description="""The mean translation in the x direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_y_mean: Optional[float] = Field(default=None, description="""The mean translation in the y direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_z_mean: Optional[float] = Field(default=None, description="""The mean translation in the z direction.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    rotation_z_mean: Optional[float] = Field(default=None, description="""The mean rotation around the z axis in degrees.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
 
 
 class LightSourcePowerDataset(MetricsDataset):

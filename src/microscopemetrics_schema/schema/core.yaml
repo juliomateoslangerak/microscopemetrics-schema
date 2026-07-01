@@ -705,6 +705,13 @@ slots:
     multivalued: false
     inlined: true
     inlined_as_list: true
+  image_properties:
+    range: Table
+    description: >-
+      Properties associated with the analysis of the image.
+    multivalued: false
+    inlined: true
+    inlined_as_list: true
   analyzed_bead_centers:
     range: Roi
     description: >-

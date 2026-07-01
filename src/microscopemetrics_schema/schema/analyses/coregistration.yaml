@@ -49,6 +49,7 @@ classes:
     slots:
       - analyzed_bead_centers
       - bead_properties
+      - image_properties
     slot_usage:
       key_measurements:
         range: CoRegistrationKeyMeasurement
@@ -59,6 +60,10 @@ classes:
       - channel_name
       - channel_nr
       - bead_count
+      - translation_x_mean
+      - translation_y_mean
+      - translation_z_mean
+      - rotation_z_mean
 
 
 slots:
@@ -87,3 +92,24 @@ slots:
     description: >-
       The number of beads detected in the image. The number will be the same for each channel.
     multivalued: false
+  translation_x_mean:
+    range: float
+    description: >-
+      The mean translation in the x direction.
+    multivalued: false
+  translation_y_mean:
+    range: float
+    description: >-
+      The mean translation in the y direction.
+    multivalued: false
+  translation_z_mean:
+    range: float
+    description: >-
+      The mean translation in the z direction.
+    multivalued: false
+  rotation_z_mean:
+    range: float
+    description: >-
+      The mean rotation around the z axis in degrees.
+    multivalued: false
+

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-01T12:47:28
+# Generation date: 2026-07-01T19:48:29
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2339,6 +2339,7 @@ class CoRegistrationOutput(MetricsOutput):
     validated: Union[bool, Bool] = False
     analyzed_bead_centers: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     bead_properties: Optional[Union[dict, Table]] = None
+    image_properties: Optional[Union[dict, Table]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.key_measurements):
@@ -2353,6 +2354,9 @@ class CoRegistrationOutput(MetricsOutput):
 
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
+
+        if self.image_properties is not None and not isinstance(self.image_properties, Table):
+            self.image_properties = Table(**as_dict(self.image_properties))
 
         super().__post_init__(**kwargs)
 
@@ -2369,6 +2373,10 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
     bead_count: Optional[int] = None
+    translation_x_mean: Optional[float] = None
+    translation_y_mean: Optional[float] = None
+    translation_z_mean: Optional[float] = None
+    rotation_z_mean: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self.channel_name is not None and not isinstance(self.channel_name, str):
@@ -2379,6 +2387,18 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
 
         if self.bead_count is not None and not isinstance(self.bead_count, int):
             self.bead_count = int(self.bead_count)
+
+        if self.translation_x_mean is not None and not isinstance(self.translation_x_mean, float):
+            self.translation_x_mean = float(self.translation_x_mean)
+
+        if self.translation_y_mean is not None and not isinstance(self.translation_y_mean, float):
+            self.translation_y_mean = float(self.translation_y_mean)
+
+        if self.translation_z_mean is not None and not isinstance(self.translation_z_mean, float):
+            self.translation_z_mean = float(self.translation_z_mean)
+
+        if self.rotation_z_mean is not None and not isinstance(self.rotation_z_mean, float):
+            self.rotation_z_mean = float(self.rotation_z_mean)
 
         super().__post_init__(**kwargs)
 
@@ -3231,6 +3251,9 @@ slots.intensity_profiles = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/intensity_pro
 slots.bead_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bead_properties'], name="bead_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/bead_properties'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bead_properties, domain=None, range=Optional[Union[dict, Table]])
 
+slots.image_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/image_properties'], name="image_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/image_properties'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.image_properties, domain=None, range=Optional[Union[dict, Table]])
+
 slots.analyzed_bead_centers = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/analyzed_bead_centers'], name="analyzed_bead_centers", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/analyzed_bead_centers'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.analyzed_bead_centers, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
@@ -3764,6 +3787,18 @@ slots.reference_channel_nb = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregis
 
 slots.bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/bead_count'], name="bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/bead_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bead_count, domain=None, range=Optional[int])
+
+slots.translation_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_x_mean'], name="translation_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_x_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_x_mean, domain=None, range=Optional[float])
+
+slots.translation_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_y_mean'], name="translation_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_y_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_y_mean, domain=None, range=Optional[float])
+
+slots.translation_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_z_mean'], name="translation_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_z_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_z_mean, domain=None, range=Optional[float])
+
+slots.rotation_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/rotation_z_mean'], name="rotation_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/rotation_z_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.rotation_z_mean, domain=None, range=Optional[float])
 
 slots.power_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_measurements'], name="power_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_measurements, domain=None, range=Union[Union[dict, PowerMeasurement], list[Union[dict, PowerMeasurement]]])
