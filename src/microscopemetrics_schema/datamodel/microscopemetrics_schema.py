@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-01T12:10:38
+# Generation date: 2026-07-01T12:47:28
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2267,12 +2267,12 @@ class CoRegistrationInputData(MetricsInputData):
     class_name: ClassVar[str] = "CoRegistrationInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputData
 
-    multiwaavelength_beads_images: Union[Union[dict, Image], list[Union[dict, Image]]] = None
+    multiwavelength_beads_images: Union[Union[dict, Image], list[Union[dict, Image]]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.multiwaavelength_beads_images):
-            self.MissingRequiredField("multiwaavelength_beads_images")
-        self._normalize_inlined_as_list(slot_name="multiwaavelength_beads_images", slot_type=Image, key_name="shape_x", keyed=False)
+        if self._is_empty(self.multiwavelength_beads_images):
+            self.MissingRequiredField("multiwavelength_beads_images")
+        self._normalize_inlined_as_list(slot_name="multiwavelength_beads_images", slot_type=Image, key_name="shape_x", keyed=False)
 
         super().__post_init__(**kwargs)
 
@@ -3756,8 +3756,8 @@ slots.average_bead_intensity_min = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_std'], name="average_bead_intensity_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_std, domain=None, range=Optional[float])
 
-slots.multiwaavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/multiwaavelength_beads_images'], name="multiwaavelength_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/multiwaavelength_beads_images'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.multiwaavelength_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
+slots.multiwavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/multiwavelength_beads_images'], name="multiwavelength_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/multiwavelength_beads_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.multiwavelength_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
 
 slots.reference_channel_nb = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nb'], name="reference_channel_nb", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nb'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_nb, domain=None, range=int)

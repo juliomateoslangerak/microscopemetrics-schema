@@ -17,7 +17,7 @@ def st_mm_co_registration_input_data(
     multiwavelength_beads_images=st.lists(st_mm_image(), min_size=1, max_size=3),
 ) -> mm_schema.CoRegistrationInputData:
     return mm_schema.CoRegistrationInputData(
-        multiwaavelength_beads_images=draw(multiwavelength_beads_images),
+        multiwavelength_beads_images=draw(multiwavelength_beads_images),
     )
 
 

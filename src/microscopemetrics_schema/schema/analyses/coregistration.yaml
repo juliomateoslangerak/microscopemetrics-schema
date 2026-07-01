@@ -31,7 +31,7 @@ classes:
   CoRegistrationInputData:
     is_a: MetricsInputData
     slots:
-      - multiwaavelength_beads_images
+      - multiwavelength_beads_images
 
   CoRegistrationInputParameters:
     is_a: MetricsInputParameters
@@ -63,7 +63,7 @@ classes:
 
 slots:
   # Inputs
-  multiwaavelength_beads_images:
+  multiwavelength_beads_images:
     range: Image
     description: >-
       The image containing the beads Images. At least two channels are required.

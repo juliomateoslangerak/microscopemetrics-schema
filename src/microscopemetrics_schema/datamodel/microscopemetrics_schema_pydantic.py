@@ -1345,7 +1345,7 @@ class CoRegistrationDataset(HasInputParametersMixin, HasSampleMixin, MetricsData
 class CoRegistrationInputData(MetricsInputData):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
-    multiwaavelength_beads_images: list[Image] = Field(default=..., description="""The image containing the beads Images. At least two channels are required. More than one image can be provided if the image conditions are the same.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputData']} })
+    multiwavelength_beads_images: list[Image] = Field(default=..., description="""The image containing the beads Images. At least two channels are required. More than one image can be provided if the image conditions are the same.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputData']} })
 
 
 class CoRegistrationInputParameters(MetricsInputParameters):
