@@ -1351,6 +1351,7 @@ class CoRegistrationInputData(MetricsInputData):
 class CoRegistrationInputParameters(MetricsInputParameters):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
+    reference_channel_nb: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters'], 'ifabsent': 'integer(0)'} })
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',

@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-25T10:30:40
+# Generation date: 2026-07-01T12:10:38
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2286,6 +2286,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     class_name: ClassVar[str] = "CoRegistrationInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputParameters
 
+    reference_channel_nb: int = 0
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
@@ -2293,6 +2294,11 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     saturation_threshold: Optional[float] = 0.01
 
     def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.reference_channel_nb):
+            self.MissingRequiredField("reference_channel_nb")
+        if not isinstance(self.reference_channel_nb, int):
+            self.reference_channel_nb = int(self.reference_channel_nb)
+
         if self._is_empty(self.sigma_min):
             self.MissingRequiredField("sigma_min")
         if not isinstance(self.sigma_min, float):
@@ -3752,6 +3758,9 @@ slots.average_bead_intensity_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 
 slots.multiwaavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/multiwaavelength_beads_images'], name="multiwaavelength_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/multiwaavelength_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.multiwaavelength_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
+
+slots.reference_channel_nb = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nb'], name="reference_channel_nb", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nb'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_nb, domain=None, range=int)
 
 slots.bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/bead_count'], name="bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/bead_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bead_count, domain=None, range=Optional[int])
