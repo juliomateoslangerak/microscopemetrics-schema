@@ -47,9 +47,13 @@ def st_mm_co_registration_key_measurement(
     considered_self_proximity_count=st.just(2),
     considered_lateral_edge_count=st.just(2),
     considered_axial_edge_count=st.just(1),
-    translation_x_mean=st.just(0.1),
-    translation_y_mean=st.just(0.2),
-    translation_z_mean=st.just(0.3),
+    translation_abs_mean_pixel_x=st.just(0.1),
+    translation_abs_mean_pixel_y=st.just(0.2),
+    translation_abs_mean_pixel_z=st.just(0.3),
+    translation_abs_mean_micron_x=st.just(0.1),
+    translation_abs_mean_micron_y=st.just(0.2),
+    translation_abs_mean_micron_z=st.just(0.3),
+    distance_mean_micron_3d=st.just(0.4),
     rotation_z_mean=st.just(0.4),
 ) -> mm_schema.CoRegistrationKeyMeasurement:
     return mm_schema.CoRegistrationKeyMeasurement(
@@ -62,9 +66,13 @@ def st_mm_co_registration_key_measurement(
         considered_self_proximity_count=draw(considered_self_proximity_count),
         considered_lateral_edge_count=draw(considered_lateral_edge_count),
         considered_axial_edge_count=draw(considered_axial_edge_count),
-        translation_x_mean=draw(translation_x_mean),
-        translation_y_mean=draw(translation_y_mean),
-        translation_z_mean=draw(translation_z_mean),
+        translation_abs_mean_pixel_x=draw(translation_abs_mean_pixel_x),
+        translation_abs_mean_pixel_y=draw(translation_abs_mean_pixel_y),
+        translation_abs_mean_pixel_z=draw(translation_abs_mean_pixel_z),
+        translation_abs_mean_micron_x=draw(translation_abs_mean_micron_x),
+        translation_abs_mean_micron_y=draw(translation_abs_mean_micron_y),
+        translation_abs_mean_micron_z=draw(translation_abs_mean_micron_z),
+        distance_mean_micron_3d=draw(distance_mean_micron_3d),
         rotation_z_mean=draw(rotation_z_mean),
     )
 

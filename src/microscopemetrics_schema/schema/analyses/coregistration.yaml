@@ -69,9 +69,13 @@ classes:
       - considered_self_proximity_count
       - considered_lateral_edge_count
       - considered_axial_edge_count
-      - translation_x_mean
-      - translation_y_mean
-      - translation_z_mean
+      - translation_abs_mean_pixel_x
+      - translation_abs_mean_pixel_y
+      - translation_abs_mean_pixel_z
+      - translation_abs_mean_micron_x
+      - translation_abs_mean_micron_y
+      - translation_abs_mean_micron_z
+      - distance_mean_micron_3d
       - rotation_z_mean
 
 
@@ -110,21 +114,41 @@ slots:
     range: integer
     description: >-
       The number of the channel which is being registered to the reference channel.
-
-  translation_x_mean:
-    range: float
-    description: >-
-      The mean translation in the x direction.
     multivalued: false
-  translation_y_mean:
+  translation_abs_mean_pixel_x:
     range: float
     description: >-
-      The mean translation in the y direction.
+      The mean absolute translation in the x direction in pixels.
     multivalued: false
-  translation_z_mean:
+  translation_abs_mean_pixel_y:
     range: float
     description: >-
-      The mean translation in the z direction.
+      The mean absolute translation in the y direction in pixels.
+    multivalued: false
+  translation_abs_mean_pixel_z:
+    range: float
+    description: >-
+      The mean absolute translation in the z direction in pixels.
+    multivalued: false
+  translation_abs_mean_micron_x:
+    range: float
+    description: >-
+      The mean absolute translation in the x direction in microns.
+    multivalued: false
+  translation_abs_mean_micron_y:
+    range: float
+    description: >-
+      The mean absolute translation in the y direction in microns.
+    multivalued: false
+  translation_abs_mean_micron_z:
+    range: float
+    description: >-
+      The mean absolute translation in the z direction in microns.
+    multivalued: false
+  distance_mean_micron_3d:
+    range: float
+    description: >-
+      The mean euclidean distance between the reference and moving channels in microns.
     multivalued: false
   rotation_z_mean:
     range: float
