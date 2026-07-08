@@ -73,11 +73,6 @@ classes:
       - long_term_power_stability_start_datetime
       - long_term_power_stability_end_datetime
       - long_term_power_stability
-    slot_usage:
-      light_source:
-        inlined: false
-      power_meter:
-        inlined: false
 
   PowerMeasurement:
     description: >-
@@ -147,7 +142,6 @@ slots:
     description: >-
       The power meter used to measure the power.
     multivalued: false
-    inlined: false
   power_set_point:
     range: float
     description: >-

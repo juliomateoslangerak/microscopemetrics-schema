@@ -1475,9 +1475,7 @@ class LightSourcePowerOutput(MetricsOutput):
 
 
 class LightSourcePowerKeyMeasurement(KeyMeasurement):
-    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power',
-         'slot_usage': {'light_source': {'inlined': False, 'name': 'light_source'},
-                        'power_meter': {'inlined': False, 'name': 'power_meter'}}})
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/light_source_power'})
 
     light_source: Optional[LightSource] = Field(default=None, description="""The light source under investigation.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LightSourcePowerKeyMeasurement', 'PowerMeasurement']} })
     power_meter: Optional[PowerMeter] = Field(default=None, description="""The power meter used to measure the power.""", json_schema_extra = { "linkml_meta": {'domain_of': ['LightSourcePowerKeyMeasurement', 'PowerMeasurement']} })

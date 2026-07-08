@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-02T22:21:29
+# Generation date: 2026-07-08T19:36:39
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -4301,12 +4301,6 @@ slots.LightSourcePowerDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/o
 
 slots.LightSourcePowerOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="LightSourcePowerOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerOutput_key_measurements, domain=LightSourcePowerOutput, range=Union[Union[dict, "LightSourcePowerKeyMeasurement"], list[Union[dict, "LightSourcePowerKeyMeasurement"]]])
-
-slots.LightSourcePowerKeyMeasurement_light_source = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/light_source'], name="LightSourcePowerKeyMeasurement_light_source", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/light_source'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_light_source, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[dict, "LightSource"]])
-
-slots.LightSourcePowerKeyMeasurement_power_meter = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_meter'], name="LightSourcePowerKeyMeasurement_power_meter", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_meter'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerKeyMeasurement_power_meter, domain=LightSourcePowerKeyMeasurement, range=Optional[Union[dict, "PowerMeter"]])
 
 slots.LightSource_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA.name, name="LightSource_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSource_name, domain=LightSource, range=str)
