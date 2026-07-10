@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-10T16:47:29
+# Generation date: 2026-07-10T17:22:21
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1474,6 +1474,8 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     image_id: Optional[str] = None
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
     center_region_intensity_fraction: Optional[float] = None
     center_region_area_fraction: Optional[float] = None
     center_of_mass_y: Optional[float] = None
@@ -1528,6 +1530,12 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
 
         if self.channel_nr is not None and not isinstance(self.channel_nr, int):
             self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
 
         if self.center_region_intensity_fraction is not None and not isinstance(self.center_region_intensity_fraction, float):
             self.center_region_intensity_fraction = float(self.center_region_intensity_fraction)
@@ -1886,6 +1894,8 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
     total_bead_count: Optional[int] = None
     considered_valid_count: Optional[int] = None
     considered_self_proximity_count: Optional[int] = None
@@ -1973,6 +1983,12 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
         if self.channel_nr is not None and not isinstance(self.channel_nr, int):
             self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
 
         if self.total_bead_count is not None and not isinstance(self.total_bead_count, int):
             self.total_bead_count = int(self.total_bead_count)
@@ -2381,8 +2397,10 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
 
     reference_channel_nr: int = 0
     reference_channel_name: Optional[str] = None
-    moving_channel_name: Optional[str] = None
-    moving_channel_nr: Optional[int] = None
+    channel_name: Optional[str] = None
+    channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
     total_bead_count: Optional[int] = None
     considered_valid_count: Optional[int] = None
     considered_self_proximity_count: Optional[int] = None
@@ -2406,11 +2424,17 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
         if self.reference_channel_name is not None and not isinstance(self.reference_channel_name, str):
             self.reference_channel_name = str(self.reference_channel_name)
 
-        if self.moving_channel_name is not None and not isinstance(self.moving_channel_name, str):
-            self.moving_channel_name = str(self.moving_channel_name)
+        if self.channel_name is not None and not isinstance(self.channel_name, str):
+            self.channel_name = str(self.channel_name)
 
-        if self.moving_channel_nr is not None and not isinstance(self.moving_channel_nr, int):
-            self.moving_channel_nr = int(self.moving_channel_nr)
+        if self.channel_nr is not None and not isinstance(self.channel_nr, int):
+            self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
 
         if self.total_bead_count is not None and not isinstance(self.total_bead_count, int):
             self.total_bead_count = int(self.total_bead_count)
@@ -2912,6 +2936,8 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
 
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
     variation_coefficient: Optional[float] = None
     saturated_channels: Optional[int] = None
 
@@ -2921,6 +2947,12 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
 
         if self.channel_nr is not None and not isinstance(self.channel_nr, int):
             self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
 
         if self.variation_coefficient is not None and not isinstance(self.variation_coefficient, float):
             self.variation_coefficient = float(self.variation_coefficient)
@@ -3847,12 +3879,6 @@ slots.reference_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregis
 
 slots.reference_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_name'], name="reference_channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_name, domain=None, range=Optional[str])
-
-slots.moving_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/moving_channel_name'], name="moving_channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/moving_channel_name'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.moving_channel_name, domain=None, range=Optional[str])
-
-slots.moving_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/moving_channel_nr'], name="moving_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/moving_channel_nr'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.moving_channel_nr, domain=None, range=Optional[int])
 
 slots.translation_abs_mean_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_pixel_x'], name="translation_abs_mean_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_pixel_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_pixel_x, domain=None, range=Optional[float])

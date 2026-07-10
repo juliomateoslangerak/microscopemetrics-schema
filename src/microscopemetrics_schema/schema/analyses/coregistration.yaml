@@ -62,8 +62,10 @@ classes:
     slots:
       - reference_channel_name
       - reference_channel_nr
-      - moving_channel_name
-      - moving_channel_nr
+      - channel_name
+      - channel_nr
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
       - total_bead_count
       - considered_valid_count
       - considered_self_proximity_count
@@ -104,16 +106,6 @@ slots:
     range: string
     description: >-
       The name of the reference channel.
-    multivalued: false
-  moving_channel_name:
-    range: string
-    description: >-
-      The name of the channel which is being registered to the reference channel.
-    multivalued: false
-  moving_channel_nr:
-    range: integer
-    description: >-
-      The number of the channel which is being registered to the reference channel.
     multivalued: false
   translation_abs_mean_pixel_x:
     range: float

@@ -107,6 +107,8 @@ classes:
       - image_id
       - channel_name
       - channel_nr
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
       - center_region_intensity_fraction
       - center_region_area_fraction
       - center_of_mass_y

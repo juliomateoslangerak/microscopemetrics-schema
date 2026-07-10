@@ -48,6 +48,8 @@ def st_mm_psf_beads_key_measurement(
     draw,
     channel_name=st.just("channel_0"),
     channel_nr=st.just(0),
+    excitation_wavelength_nm=st.just(488),
+    emission_wavelength_nm=st.just(520),
     total_bead_count=st.just(15),
     considered_valid_count=st.just(10),
     considered_self_proximity_count=st.just(2),
@@ -131,6 +133,8 @@ def st_mm_psf_beads_key_measurement(
     return mm_schema.PSFBeadsKeyMeasurement(
         channel_name=draw(channel_name),
         channel_nr=draw(channel_nr),
+        excitation_wavelength_nm=draw(excitation_wavelength_nm),
+        emission_wavelength_nm=draw(emission_wavelength_nm),
         total_bead_count=draw(total_bead_count),
         considered_valid_count=draw(considered_valid_count),
         considered_self_proximity_count=draw(considered_self_proximity_count),

@@ -78,6 +78,8 @@ classes:
     slots:
       - channel_name
       - channel_nr
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
       - variation_coefficient
       - saturated_channels
 
