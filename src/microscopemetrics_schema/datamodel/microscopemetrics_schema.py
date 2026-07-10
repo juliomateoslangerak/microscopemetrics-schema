@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-07-08T19:36:39
+# Generation date: 2026-07-10T16:47:29
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1474,7 +1474,6 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     image_id: Optional[str] = None
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
-    channel_id: Optional[str] = None
     center_region_intensity_fraction: Optional[float] = None
     center_region_area_fraction: Optional[float] = None
     center_of_mass_y: Optional[float] = None
@@ -1529,9 +1528,6 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
 
         if self.channel_nr is not None and not isinstance(self.channel_nr, int):
             self.channel_nr = int(self.channel_nr)
-
-        if self.channel_id is not None and not isinstance(self.channel_id, str):
-            self.channel_id = str(self.channel_id)
 
         if self.center_region_intensity_fraction is not None and not isinstance(self.center_region_intensity_fraction, float):
             self.center_region_intensity_fraction = float(self.center_region_intensity_fraction)
@@ -3446,9 +3442,6 @@ slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_nr'], name="c
 
 slots.channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_name'], name="channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/channel_name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel_name, domain=None, range=Optional[str])
-
-slots.channel_id = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_id'], name="channel_id", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/channel_id'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.channel_id, domain=None, range=Optional[str])
 
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])

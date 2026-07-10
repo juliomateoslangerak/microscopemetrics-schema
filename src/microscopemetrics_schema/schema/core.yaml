@@ -984,11 +984,6 @@ slots:
     description: >-
       The channel name to which the measurements apply
     multivalued: false
-  channel_id:
-    range: string
-    description: >-
-      The channel id to which the measurements apply
-    multivalued: false
   bit_depth:
     range: integer
     description: >-
