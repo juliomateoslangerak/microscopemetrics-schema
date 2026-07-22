@@ -12,30 +12,28 @@ from datetime import datetime
 @st.composite
 def st_mm_light_source(
     draw,
-    name=st.text(min_size=1, max_size=32),
-    description=st.text(min_size=1, max_size=128),
     wavelength=st.floats(min_value=350.0, max_value=800.0),
 ) -> mm_schema.LightSource:
+    wavelength = draw(wavelength)
     return mm_schema.LightSource(
-        name=draw(name),
-        description=draw(description),
-        wavelength_nm=draw(wavelength),
+        name=f"My Light Source at {wavelength}nm",
+        description=f"Description of light source at {wavelength}nm",
+        wavelength_nm=wavelength,
     )
 
 
 @st.composite
 def st_mm_power_meter(
     draw,
-    name=st.text(min_size=1, max_size=32),
-    description=st.text(min_size=1, max_size=128),
     manufacturer=st.text(min_size=1, max_size=32),
     model=st.text(min_size=1, max_size=32),
 ) -> mm_schema.PowerMeter:
+    model = draw(model)
     return mm_schema.PowerMeter(
-        name=draw(name),
-        description=draw(description),
+        name=f"My power meter {model}",
+        description=f"Description of power meter {model}",
         manufacturer=draw(manufacturer),
-        model=draw(model),
+        model=model,
     )
 
 
