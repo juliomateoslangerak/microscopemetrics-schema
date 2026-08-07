@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-07T13:21:05
+# Generation date: 2026-08-07T16:01:02
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2302,6 +2302,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
+    robust_z_score_threshold: float = 2.0
     bit_depth: Optional[int] = None
     saturation_threshold: Optional[float] = 0.01
 
@@ -2325,6 +2326,11 @@ class CoRegistrationInputParameters(MetricsInputParameters):
             self.MissingRequiredField("snr_threshold")
         if not isinstance(self.snr_threshold, float):
             self.snr_threshold = float(self.snr_threshold)
+
+        if self._is_empty(self.robust_z_score_threshold):
+            self.MissingRequiredField("robust_z_score_threshold")
+        if not isinstance(self.robust_z_score_threshold, float):
+            self.robust_z_score_threshold = float(self.robust_z_score_threshold)
 
         if self.bit_depth is not None and not isinstance(self.bit_depth, int):
             self.bit_depth = int(self.bit_depth)
@@ -3876,6 +3882,9 @@ slots.multiwavelength_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses
 
 slots.reference_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nr'], name="reference_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nr'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_nr, domain=None, range=int)
+
+slots.robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/robust_z_score_threshold'], name="robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/robust_z_score_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.robust_z_score_threshold, domain=None, range=float)
 
 slots.reference_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_name'], name="reference_channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_name, domain=None, range=Optional[str])

@@ -1395,6 +1395,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
          'ifabsent': 'float(5.0)'} })
     snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(10.0)'} })
+    robust_z_score_threshold: float = Field(default=2.0, description="""Threshold for the robust z-score of the 3d distance between beads to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters'], 'ifabsent': 'float(2.0)'} })
 
 
 class CoRegistrationOutput(MetricsOutput):

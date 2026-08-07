@@ -26,12 +26,14 @@ def st_mm_co_registration_input_parameters(
     sigma_min=st.floats(min_value=1.0, max_value=1.2),
     sigma_max=st.floats(min_value=3.0, max_value=5.0),
     snr_threshold=st.just(10.0),
+    robust_z_score_threshold=st.just(2.0),
     reference_channel_nr=st.just(0),
 ) -> mm_schema.CoRegistrationInputParameters:
     return mm_schema.CoRegistrationInputParameters(
         sigma_min=draw(sigma_min),
         sigma_max=draw(sigma_max),
         snr_threshold=draw(snr_threshold),
+        robust_z_score_threshold=draw(robust_z_score_threshold),
         reference_channel_nr=draw(reference_channel_nr),
     )
 

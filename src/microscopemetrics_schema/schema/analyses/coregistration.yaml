@@ -42,6 +42,7 @@ classes:
       - sigma_min
       - sigma_max
       - snr_threshold
+      - robust_z_score_threshold
 
   CoRegistrationOutput:
     is_a: MetricsOutput
@@ -100,6 +101,13 @@ slots:
     required: true
     multivalued: false
     ifabsent: integer(0)
+  robust_z_score_threshold:
+    range: float
+    description: >-
+      Threshold for the robust z-score of the 3d distance between beads to be considered good.
+    required: true
+    ifabsent: float(2.0)
+
 
   # Outputs
   reference_channel_name:
