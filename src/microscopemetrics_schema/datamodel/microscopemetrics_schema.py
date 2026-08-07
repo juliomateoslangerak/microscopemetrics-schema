@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-07T16:01:02
+# Generation date: 2026-08-07T16:11:26
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1801,7 +1801,7 @@ class PSFBeadsOutput(MetricsOutput):
     considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
-    considered_bead_centers_intensity_std_outlier: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_outlier: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     bead_properties: Optional[Union[dict, Table]] = None
     considered_bead_centers_z_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_y_fit_airy_quality: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
@@ -1837,9 +1837,9 @@ class PSFBeadsOutput(MetricsOutput):
             self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
         self.considered_bead_centers_axial_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_axial_edge]
 
-        if not isinstance(self.considered_bead_centers_intensity_std_outlier, list):
-            self.considered_bead_centers_intensity_std_outlier = [self.considered_bead_centers_intensity_std_outlier] if self.considered_bead_centers_intensity_std_outlier is not None else []
-        self.considered_bead_centers_intensity_std_outlier = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_intensity_std_outlier]
+        if not isinstance(self.considered_bead_centers_outlier, list):
+            self.considered_bead_centers_outlier = [self.considered_bead_centers_outlier] if self.considered_bead_centers_outlier is not None else []
+        self.considered_bead_centers_outlier = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_outlier]
 
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
@@ -2359,6 +2359,7 @@ class CoRegistrationOutput(MetricsOutput):
     considered_bead_centers_lateral_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_self_proximity: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     considered_bead_centers_axial_edge: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    considered_bead_centers_outlier: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
     bead_properties: Optional[Union[dict, Table]] = None
     image_properties: Optional[Union[dict, Table]] = None
 
@@ -2382,6 +2383,10 @@ class CoRegistrationOutput(MetricsOutput):
         if not isinstance(self.considered_bead_centers_axial_edge, list):
             self.considered_bead_centers_axial_edge = [self.considered_bead_centers_axial_edge] if self.considered_bead_centers_axial_edge is not None else []
         self.considered_bead_centers_axial_edge = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_axial_edge]
+
+        if not isinstance(self.considered_bead_centers_outlier, list):
+            self.considered_bead_centers_outlier = [self.considered_bead_centers_outlier] if self.considered_bead_centers_outlier is not None else []
+        self.considered_bead_centers_outlier = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.considered_bead_centers_outlier]
 
         if self.bead_properties is not None and not isinstance(self.bead_properties, Table):
             self.bead_properties = Table(**as_dict(self.bead_properties))
@@ -3355,8 +3360,8 @@ slots.considered_bead_centers_self_proximity = Slot(uri=MICROSCOPEMETRICS_SCHEMA
 slots.considered_bead_centers_axial_edge = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_axial_edge'], name="considered_bead_centers_axial_edge", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_axial_edge'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_axial_edge, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
-slots.considered_bead_centers_intensity_std_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_intensity_std_outlier'], name="considered_bead_centers_intensity_std_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_intensity_std_outlier'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_intensity_std_outlier, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+slots.considered_bead_centers_outlier = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_bead_centers_outlier'], name="considered_bead_centers_outlier", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_bead_centers_outlier'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_bead_centers_outlier, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
 slots.total_bead_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/total_bead_count'], name="total_bead_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/total_bead_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.total_bead_count, domain=None, range=Optional[int])
