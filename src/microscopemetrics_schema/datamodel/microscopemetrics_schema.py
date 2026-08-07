@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-07T16:11:26
+# Generation date: 2026-08-07T16:28:46
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2417,6 +2417,7 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     considered_self_proximity_count: Optional[int] = None
     considered_lateral_edge_count: Optional[int] = None
     considered_axial_edge_count: Optional[int] = None
+    considered_outlier_count: Optional[int] = None
     translation_abs_mean_pixel_x: Optional[float] = None
     translation_abs_mean_pixel_y: Optional[float] = None
     translation_abs_mean_pixel_z: Optional[float] = None
@@ -2461,6 +2462,9 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
 
         if self.considered_axial_edge_count is not None and not isinstance(self.considered_axial_edge_count, int):
             self.considered_axial_edge_count = int(self.considered_axial_edge_count)
+
+        if self.considered_outlier_count is not None and not isinstance(self.considered_outlier_count, int):
+            self.considered_outlier_count = int(self.considered_outlier_count)
 
         if self.translation_abs_mean_pixel_x is not None and not isinstance(self.translation_abs_mean_pixel_x, float):
             self.translation_abs_mean_pixel_x = float(self.translation_abs_mean_pixel_x)
@@ -3377,6 +3381,9 @@ slots.considered_self_proximity_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/
 
 slots.considered_axial_edge_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_axial_edge_count'], name="considered_axial_edge_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_axial_edge_count'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.considered_axial_edge_count, domain=None, range=Optional[int])
+
+slots.considered_outlier_count = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/considered_outlier_count'], name="considered_outlier_count", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/considered_outlier_count'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.considered_outlier_count, domain=None, range=Optional[int])
 
 slots.preparation_protocol = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/preparation_protocol'], name="preparation_protocol", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/preparation_protocol'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.preparation_protocol, domain=None, range=Union[dict, Protocol])

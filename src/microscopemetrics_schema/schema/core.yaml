@@ -790,6 +790,11 @@ slots:
       are not considered for the z axis FWHM measurements.
       One value per channel.
     multivalued: false
+  considered_outlier_count:
+    range: integer
+    description: >-
+      Number of beads considered as outliers. One value per channel.
+    multivalued: false
 
   # Sample slots
   preparation_protocol:

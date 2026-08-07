@@ -73,6 +73,7 @@ classes:
       - considered_self_proximity_count
       - considered_lateral_edge_count
       - considered_axial_edge_count
+      - considered_outlier_count
       - translation_abs_mean_pixel_x
       - translation_abs_mean_pixel_y
       - translation_abs_mean_pixel_z
