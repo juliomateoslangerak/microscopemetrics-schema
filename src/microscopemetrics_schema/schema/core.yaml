@@ -751,11 +751,12 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  considered_bead_centers_intensity_outlier:
+  considered_bead_centers_intensity_std_outlier:
     range: Roi
     description: >-
       The centers of the beads detected but considered as being too intense and potentially
-      represent a cluster of beads. Intensity robust z-score over requested threshold.
+      represent a cluster of beads. This is calculated using the standard deviation of the intensity.
+      Intensity robust z-score over requested threshold.
       Measurements on these bead not considered for the dataset analysis.
       One point will be provided per bead.
       One ROI per channel.

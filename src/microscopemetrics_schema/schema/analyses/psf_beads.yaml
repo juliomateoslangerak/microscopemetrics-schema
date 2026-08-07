@@ -156,7 +156,7 @@ classes:
       - considered_bead_centers_lateral_edge
       - considered_bead_centers_self_proximity
       - considered_bead_centers_axial_edge
-      - considered_bead_centers_intensity_outlier
+      - considered_bead_centers_intensity_std_outlier
       - bead_properties
     slot_usage:
       key_measurements:
@@ -174,7 +174,7 @@ classes:
       - considered_self_proximity_count
       - considered_lateral_edge_count
       - considered_axial_edge_count
-      - considered_intensity_outlier_count
+      - considered_intensity_std_outlier_count
       - considered_bad_fit_airy_z_count
       - considered_bad_fit_airy_y_count
       - considered_bad_fit_airy_x_count
@@ -291,11 +291,11 @@ slots:
     ifabsent: float(2.0)
 
   # Outputs
-  considered_intensity_outlier_count:
+  considered_intensity_std_outlier_count:
     range: integer
     description: >-
       Number of beads considered as being too intense and potentially represent a cluster of beads. These beads
-      have a robust z-score over the requested threshold.
+      have a robust z-score over the requested threshold for the standard deviation of the intensity.
       Measurements on these beads are not averaged into the key measurements.
       One value per channel.
     multivalued: false
