@@ -41,7 +41,8 @@ classes:
     slots:
       - bit_depth
       - saturation_threshold
-      - min_lateral_distance_factor
+      - min_lateral_distance_px
+      - min_axial_distance_px
       - sigma_min
       - sigma_max
       - snr_threshold
@@ -262,15 +263,24 @@ slots:
     multivalued: true
     inlined: true
     inlined_as_list: true
-  min_lateral_distance_factor:
+  min_lateral_distance_px:
     range: float
     description: >-
-      Minimal distance that has to separate laterally the beads represented as the
-      number of times the expected FWHM of the beads.
-    minimum_value: 10.0
-    maximum_value: 30.0
+      Minimal distance that has to separate laterally the beads represented in pixels. This distance is also
+      used to calculate the minimal distance to the edge of the image.
+    minimum_value: 20.0
+    maximum_value: 100.0
     required: true
-    ifabsent: float(20)
+    ifabsent: float(40)
+  min_axial_distance_px:
+    range: float
+    description: >-
+      Minimal distance that has to separate axially the beads represented in pixels. This distance is also
+      used to calculate the minimal distance to the edge of the image.
+    minimum_value: 10.0
+    maximum_value: 100.0
+    required: true
+    ifabsent: float(16)
   fitting_airy_r2_threshold:
     range: float
     description: >-
