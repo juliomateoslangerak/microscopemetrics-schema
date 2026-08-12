@@ -39,6 +39,8 @@ classes:
       - reference_channel_nr
       - bit_depth
       - saturation_threshold
+      - min_lateral_distance_px
+      - min_axial_distance_px
       - sigma_min
       - sigma_max
       - snr_threshold

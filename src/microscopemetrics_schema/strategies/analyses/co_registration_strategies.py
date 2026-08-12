@@ -23,13 +23,19 @@ def st_mm_co_registration_input_data(
 @st.composite
 def st_mm_co_registration_input_parameters(
     draw,
+    reference_channel_nr=st.just(0),
+    saturation_threshold=st.just(0.01),
+    min_lateral_distance_px=st.just(40),
+    min_axial_distance_px=st.just(20),
     sigma_min=st.floats(min_value=1.0, max_value=1.2),
     sigma_max=st.floats(min_value=3.0, max_value=5.0),
     snr_threshold=st.just(10.0),
     robust_z_score_threshold=st.just(2.0),
-    reference_channel_nr=st.just(0),
 ) -> mm_schema.CoRegistrationInputParameters:
     return mm_schema.CoRegistrationInputParameters(
+        saturation_threshold=draw(saturation_threshold),
+        min_lateral_distance_px=draw(min_lateral_distance_px),
+        min_axial_distance_px=draw(min_axial_distance_px),
         sigma_min=draw(sigma_min),
         sigma_max=draw(sigma_max),
         snr_threshold=draw(snr_threshold),

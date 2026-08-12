@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-10T15:10:02
+# Generation date: 2026-08-12T10:08:00
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1729,7 +1729,7 @@ class PSFBeadsInputParameters(MetricsInputParameters):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters
 
     min_lateral_distance_px: float = 40
-    min_axial_distance_px: float = 16
+    min_axial_distance_px: float = 20
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
@@ -2305,6 +2305,8 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputParameters
 
     reference_channel_nr: int = 0
+    min_lateral_distance_px: float = 40
+    min_axial_distance_px: float = 20
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
@@ -2317,6 +2319,16 @@ class CoRegistrationInputParameters(MetricsInputParameters):
             self.MissingRequiredField("reference_channel_nr")
         if not isinstance(self.reference_channel_nr, int):
             self.reference_channel_nr = int(self.reference_channel_nr)
+
+        if self._is_empty(self.min_lateral_distance_px):
+            self.MissingRequiredField("min_lateral_distance_px")
+        if not isinstance(self.min_lateral_distance_px, float):
+            self.min_lateral_distance_px = float(self.min_lateral_distance_px)
+
+        if self._is_empty(self.min_axial_distance_px):
+            self.MissingRequiredField("min_axial_distance_px")
+        if not isinstance(self.min_axial_distance_px, float):
+            self.min_axial_distance_px = float(self.min_axial_distance_px)
 
         if self._is_empty(self.sigma_min):
             self.MissingRequiredField("sigma_min")
@@ -3499,6 +3511,12 @@ slots.channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_nr'], name="c
 slots.channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_name'], name="channel_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/channel_name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.channel_name, domain=None, range=Optional[str])
 
+slots.min_lateral_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/min_lateral_distance_px'], name="min_lateral_distance_px", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/min_lateral_distance_px'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_px, domain=None, range=float)
+
+slots.min_axial_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/min_axial_distance_px'], name="min_axial_distance_px", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/min_axial_distance_px'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_axial_distance_px, domain=None, range=float)
+
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])
 
@@ -3657,12 +3675,6 @@ slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses
 
 slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/psf_beads_images'], name="psf_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/psf_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
-
-slots.min_lateral_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/min_lateral_distance_px'], name="min_lateral_distance_px", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/min_lateral_distance_px'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_lateral_distance_px, domain=None, range=float)
-
-slots.min_axial_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/min_axial_distance_px'], name="min_axial_distance_px", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/min_axial_distance_px'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_axial_distance_px, domain=None, range=float)
 
 slots.fitting_airy_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_airy_r2_threshold'], name="fitting_airy_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_airy_r2_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_airy_r2_threshold, domain=None, range=float)

@@ -989,6 +989,24 @@ slots:
     description: >-
       The channel name to which the measurements apply
     multivalued: false
+  min_lateral_distance_px:
+    range: float
+    description: >-
+      Minimal distance that has to separate laterally the beads represented in pixels. This distance is also
+      used to calculate the minimal distance to the edge of the image.
+    minimum_value: 20.0
+    maximum_value: 100.0
+    required: true
+    ifabsent: float(40)
+  min_axial_distance_px:
+    range: float
+    description: >-
+      Minimal distance that has to separate axially the beads represented in pixels. This distance is also
+      used to calculate the minimal distance to the edge of the image.
+    minimum_value: 10.0
+    maximum_value: 100.0
+    required: true
+    ifabsent: float(20)
   bit_depth:
     range: integer
     description: >-

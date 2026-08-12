@@ -1192,8 +1192,10 @@ class PSFBeadsInputParameters(MetricsInputParameters):
                        'CoRegistrationInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
-    min_lateral_distance_px: float = Field(default=40, description="""Minimal distance that has to separate laterally the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=20.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(40)'} })
-    min_axial_distance_px: float = Field(default=16, description="""Minimal distance that has to separate axially the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=10.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(16)'} })
+    min_lateral_distance_px: float = Field(default=40, description="""Minimal distance that has to separate laterally the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=20.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(40)'} })
+    min_axial_distance_px: float = Field(default=20, description="""Minimal distance that has to separate axially the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=10.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(20)'} })
     sigma_min: float = Field(default=1.0, description="""Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include noisy pixels as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(1.0)'} })
     sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
@@ -1390,6 +1392,10 @@ class CoRegistrationInputParameters(MetricsInputParameters):
                        'CoRegistrationInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
+    min_lateral_distance_px: float = Field(default=40, description="""Minimal distance that has to separate laterally the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=20.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(40)'} })
+    min_axial_distance_px: float = Field(default=20, description="""Minimal distance that has to separate axially the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=10.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(20)'} })
     sigma_min: float = Field(default=1.0, description="""Min value for the range of sigmas used in for the detection of the beads. Lower values will tend to include noisy pixels as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(1.0)'} })
     sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
