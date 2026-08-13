@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-12T10:08:00
+# Generation date: 2026-08-13T13:11:39
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1728,7 +1728,7 @@ class PSFBeadsInputParameters(MetricsInputParameters):
     class_name: ClassVar[str] = "PSFBeadsInputParameters"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.PSFBeadsInputParameters
 
-    min_lateral_distance_px: float = 40
+    min_lateral_distance_px: float = 20
     min_axial_distance_px: float = 20
     sigma_min: float = 1.0
     sigma_max: float = 5.0
@@ -2305,7 +2305,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.CoRegistrationInputParameters
 
     reference_channel_nr: int = 0
-    min_lateral_distance_px: float = 40
+    min_lateral_distance_px: float = 20
     min_axial_distance_px: float = 20
     sigma_min: float = 1.0
     sigma_max: float = 5.0

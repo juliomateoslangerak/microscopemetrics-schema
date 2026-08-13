@@ -994,10 +994,10 @@ slots:
     description: >-
       Minimal distance that has to separate laterally the beads represented in pixels. This distance is also
       used to calculate the minimal distance to the edge of the image.
-    minimum_value: 20.0
+    minimum_value: 10.0
     maximum_value: 100.0
     required: true
-    ifabsent: float(40)
+    ifabsent: float(20)
   min_axial_distance_px:
     range: float
     description: >-
