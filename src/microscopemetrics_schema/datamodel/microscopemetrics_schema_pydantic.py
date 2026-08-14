@@ -1202,7 +1202,8 @@ class PSFBeadsInputParameters(MetricsInputParameters):
          'ifabsent': 'float(5.0)'} })
     snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(10.0)'} })
-    fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(0.95)'} })
+    fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(0.95)'} })
     fitting_airy_r2_threshold: float = Field(default=0.5, description="""Threshold for the coefficient of determination (R^2) of the airy fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(0.5)'} })
     intensity_robust_z_score_threshold: float = Field(default=2.0, description="""Threshold for the robust z-score of the intensity of the bead to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters'], 'ifabsent': 'float(2.0)'} })
 
@@ -1402,6 +1403,8 @@ class CoRegistrationInputParameters(MetricsInputParameters):
          'ifabsent': 'float(5.0)'} })
     snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(10.0)'} })
+    fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+         'ifabsent': 'float(0.95)'} })
     robust_z_score_threshold: float = Field(default=2.0, description="""Threshold for the robust z-score of the 3d distance between beads to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters'], 'ifabsent': 'float(2.0)'} })
 
 
@@ -1461,12 +1464,26 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     considered_axial_edge_count: Optional[int] = Field(default=None, description="""Number of beads considered as being too close to the top and or bottom of the image. These beads are not considered for the z axis FWHM measurements. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
     considered_outlier_count: Optional[int] = Field(default=None, description="""Number of beads considered as outliers. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_pixel_x: Optional[float] = Field(default=None, description="""The mean absolute translation in the x direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_pixel_x: Optional[float] = Field(default=None, description="""The median absolute translation in the x direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_pixel_x: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the x direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_pixel_y: Optional[float] = Field(default=None, description="""The mean absolute translation in the y direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_pixel_y: Optional[float] = Field(default=None, description="""The median absolute translation in the y direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_pixel_y: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the y direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_pixel_z: Optional[float] = Field(default=None, description="""The mean absolute translation in the z direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_pixel_z: Optional[float] = Field(default=None, description="""The median absolute translation in the z direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_pixel_z: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the z direction in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_micron_x: Optional[float] = Field(default=None, description="""The mean absolute translation in the x direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_micron_x: Optional[float] = Field(default=None, description="""The median absolute translation in the x direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_micron_x: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the x direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_micron_y: Optional[float] = Field(default=None, description="""The mean absolute translation in the y direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_micron_y: Optional[float] = Field(default=None, description="""The median absolute translation in the y direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_micron_y: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the y direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     translation_abs_mean_micron_z: Optional[float] = Field(default=None, description="""The mean absolute translation in the z direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_median_micron_z: Optional[float] = Field(default=None, description="""The median absolute translation in the z direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    translation_abs_std_micron_z: Optional[float] = Field(default=None, description="""The standard deviation of the mean absolute translation in the z direction in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     distance_mean_micron_3d: Optional[float] = Field(default=None, description="""The mean euclidean distance between the reference and moving channels in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    distance_median_micron_3d: Optional[float] = Field(default=None, description="""The median euclidean distance between the reference and moving channels in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    distance_std_micron_3d: Optional[float] = Field(default=None, description="""The standard deviation of the mean euclidean distance between the reference and moving channels in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     rotation_z_mean: Optional[float] = Field(default=None, description="""The mean rotation around the z axis in degrees.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
 
 

@@ -44,6 +44,7 @@ classes:
       - sigma_min
       - sigma_max
       - snr_threshold
+      - fitting_gaussian_r2_threshold
       - robust_z_score_threshold
 
   CoRegistrationOutput:
@@ -77,12 +78,26 @@ classes:
       - considered_axial_edge_count
       - considered_outlier_count
       - translation_abs_mean_pixel_x
+      - translation_abs_median_pixel_x
+      - translation_abs_std_pixel_x
       - translation_abs_mean_pixel_y
+      - translation_abs_median_pixel_y
+      - translation_abs_std_pixel_y
       - translation_abs_mean_pixel_z
+      - translation_abs_median_pixel_z
+      - translation_abs_std_pixel_z
       - translation_abs_mean_micron_x
+      - translation_abs_median_micron_x
+      - translation_abs_std_micron_x
       - translation_abs_mean_micron_y
+      - translation_abs_median_micron_y
+      - translation_abs_std_micron_y
       - translation_abs_mean_micron_z
+      - translation_abs_median_micron_z
+      - translation_abs_std_micron_z
       - distance_mean_micron_3d
+      - distance_median_micron_3d
+      - distance_std_micron_3d
       - rotation_z_mean
 
 
@@ -124,35 +139,105 @@ slots:
     description: >-
       The mean absolute translation in the x direction in pixels.
     multivalued: false
+  translation_abs_median_pixel_x:
+    range: float
+    description: >-
+      The median absolute translation in the x direction in pixels.
+    multivalued: false
+  translation_abs_std_pixel_x:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the x direction in pixels.
+    multivalued: false
   translation_abs_mean_pixel_y:
     range: float
     description: >-
       The mean absolute translation in the y direction in pixels.
+    multivalued: false
+  translation_abs_median_pixel_y:
+    range: float
+    description: >-
+      The median absolute translation in the y direction in pixels.
+    multivalued: false
+  translation_abs_std_pixel_y:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the y direction in pixels.
     multivalued: false
   translation_abs_mean_pixel_z:
     range: float
     description: >-
       The mean absolute translation in the z direction in pixels.
     multivalued: false
+  translation_abs_median_pixel_z:
+    range: float
+    description: >-
+      The median absolute translation in the z direction in pixels.
+    multivalued: false
+  translation_abs_std_pixel_z:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the z direction in pixels.
+    multivalued: false
   translation_abs_mean_micron_x:
     range: float
     description: >-
       The mean absolute translation in the x direction in microns.
+    multivalued: false
+  translation_abs_median_micron_x:
+    range: float
+    description: >-
+      The median absolute translation in the x direction in microns.
+    multivalued: false
+  translation_abs_std_micron_x:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the x direction in microns.
     multivalued: false
   translation_abs_mean_micron_y:
     range: float
     description: >-
       The mean absolute translation in the y direction in microns.
     multivalued: false
+  translation_abs_median_micron_y:
+    range: float
+    description: >-
+      The median absolute translation in the y direction in microns.
+    multivalued: false
+  translation_abs_std_micron_y:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the y direction in microns.
+    multivalued: false
   translation_abs_mean_micron_z:
     range: float
     description: >-
       The mean absolute translation in the z direction in microns.
     multivalued: false
+  translation_abs_median_micron_z:
+    range: float
+    description: >-
+      The median absolute translation in the z direction in microns.
+    multivalued: false
+  translation_abs_std_micron_z:
+    range: float
+    description: >-
+      The standard deviation of the mean absolute translation in the z direction in microns.
+    multivalued: false
   distance_mean_micron_3d:
     range: float
     description: >-
       The mean euclidean distance between the reference and moving channels in microns.
+    multivalued: false
+  distance_median_micron_3d:
+    range: float
+    description: >-
+      The median euclidean distance between the reference and moving channels in microns.
+    multivalued: false
+  distance_std_micron_3d:
+    range: float
+    description: >-
+      The standard deviation of the mean euclidean distance between the reference and moving channels in microns.
     multivalued: false
   rotation_z_mean:
     range: float

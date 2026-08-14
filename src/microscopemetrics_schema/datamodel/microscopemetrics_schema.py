@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-13T13:11:39
+# Generation date: 2026-08-14T09:37:34
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2310,6 +2310,7 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     sigma_min: float = 1.0
     sigma_max: float = 5.0
     snr_threshold: float = 10.0
+    fitting_gaussian_r2_threshold: float = 0.95
     robust_z_score_threshold: float = 2.0
     bit_depth: Optional[int] = None
     saturation_threshold: Optional[float] = 0.01
@@ -2344,6 +2345,11 @@ class CoRegistrationInputParameters(MetricsInputParameters):
             self.MissingRequiredField("snr_threshold")
         if not isinstance(self.snr_threshold, float):
             self.snr_threshold = float(self.snr_threshold)
+
+        if self._is_empty(self.fitting_gaussian_r2_threshold):
+            self.MissingRequiredField("fitting_gaussian_r2_threshold")
+        if not isinstance(self.fitting_gaussian_r2_threshold, float):
+            self.fitting_gaussian_r2_threshold = float(self.fitting_gaussian_r2_threshold)
 
         if self._is_empty(self.robust_z_score_threshold):
             self.MissingRequiredField("robust_z_score_threshold")
@@ -2437,12 +2443,26 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     considered_axial_edge_count: Optional[int] = None
     considered_outlier_count: Optional[int] = None
     translation_abs_mean_pixel_x: Optional[float] = None
+    translation_abs_median_pixel_x: Optional[float] = None
+    translation_abs_std_pixel_x: Optional[float] = None
     translation_abs_mean_pixel_y: Optional[float] = None
+    translation_abs_median_pixel_y: Optional[float] = None
+    translation_abs_std_pixel_y: Optional[float] = None
     translation_abs_mean_pixel_z: Optional[float] = None
+    translation_abs_median_pixel_z: Optional[float] = None
+    translation_abs_std_pixel_z: Optional[float] = None
     translation_abs_mean_micron_x: Optional[float] = None
+    translation_abs_median_micron_x: Optional[float] = None
+    translation_abs_std_micron_x: Optional[float] = None
     translation_abs_mean_micron_y: Optional[float] = None
+    translation_abs_median_micron_y: Optional[float] = None
+    translation_abs_std_micron_y: Optional[float] = None
     translation_abs_mean_micron_z: Optional[float] = None
+    translation_abs_median_micron_z: Optional[float] = None
+    translation_abs_std_micron_z: Optional[float] = None
     distance_mean_micron_3d: Optional[float] = None
+    distance_median_micron_3d: Optional[float] = None
+    distance_std_micron_3d: Optional[float] = None
     rotation_z_mean: Optional[float] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -2487,23 +2507,65 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
         if self.translation_abs_mean_pixel_x is not None and not isinstance(self.translation_abs_mean_pixel_x, float):
             self.translation_abs_mean_pixel_x = float(self.translation_abs_mean_pixel_x)
 
+        if self.translation_abs_median_pixel_x is not None and not isinstance(self.translation_abs_median_pixel_x, float):
+            self.translation_abs_median_pixel_x = float(self.translation_abs_median_pixel_x)
+
+        if self.translation_abs_std_pixel_x is not None and not isinstance(self.translation_abs_std_pixel_x, float):
+            self.translation_abs_std_pixel_x = float(self.translation_abs_std_pixel_x)
+
         if self.translation_abs_mean_pixel_y is not None and not isinstance(self.translation_abs_mean_pixel_y, float):
             self.translation_abs_mean_pixel_y = float(self.translation_abs_mean_pixel_y)
+
+        if self.translation_abs_median_pixel_y is not None and not isinstance(self.translation_abs_median_pixel_y, float):
+            self.translation_abs_median_pixel_y = float(self.translation_abs_median_pixel_y)
+
+        if self.translation_abs_std_pixel_y is not None and not isinstance(self.translation_abs_std_pixel_y, float):
+            self.translation_abs_std_pixel_y = float(self.translation_abs_std_pixel_y)
 
         if self.translation_abs_mean_pixel_z is not None and not isinstance(self.translation_abs_mean_pixel_z, float):
             self.translation_abs_mean_pixel_z = float(self.translation_abs_mean_pixel_z)
 
+        if self.translation_abs_median_pixel_z is not None and not isinstance(self.translation_abs_median_pixel_z, float):
+            self.translation_abs_median_pixel_z = float(self.translation_abs_median_pixel_z)
+
+        if self.translation_abs_std_pixel_z is not None and not isinstance(self.translation_abs_std_pixel_z, float):
+            self.translation_abs_std_pixel_z = float(self.translation_abs_std_pixel_z)
+
         if self.translation_abs_mean_micron_x is not None and not isinstance(self.translation_abs_mean_micron_x, float):
             self.translation_abs_mean_micron_x = float(self.translation_abs_mean_micron_x)
+
+        if self.translation_abs_median_micron_x is not None and not isinstance(self.translation_abs_median_micron_x, float):
+            self.translation_abs_median_micron_x = float(self.translation_abs_median_micron_x)
+
+        if self.translation_abs_std_micron_x is not None and not isinstance(self.translation_abs_std_micron_x, float):
+            self.translation_abs_std_micron_x = float(self.translation_abs_std_micron_x)
 
         if self.translation_abs_mean_micron_y is not None and not isinstance(self.translation_abs_mean_micron_y, float):
             self.translation_abs_mean_micron_y = float(self.translation_abs_mean_micron_y)
 
+        if self.translation_abs_median_micron_y is not None and not isinstance(self.translation_abs_median_micron_y, float):
+            self.translation_abs_median_micron_y = float(self.translation_abs_median_micron_y)
+
+        if self.translation_abs_std_micron_y is not None and not isinstance(self.translation_abs_std_micron_y, float):
+            self.translation_abs_std_micron_y = float(self.translation_abs_std_micron_y)
+
         if self.translation_abs_mean_micron_z is not None and not isinstance(self.translation_abs_mean_micron_z, float):
             self.translation_abs_mean_micron_z = float(self.translation_abs_mean_micron_z)
 
+        if self.translation_abs_median_micron_z is not None and not isinstance(self.translation_abs_median_micron_z, float):
+            self.translation_abs_median_micron_z = float(self.translation_abs_median_micron_z)
+
+        if self.translation_abs_std_micron_z is not None and not isinstance(self.translation_abs_std_micron_z, float):
+            self.translation_abs_std_micron_z = float(self.translation_abs_std_micron_z)
+
         if self.distance_mean_micron_3d is not None and not isinstance(self.distance_mean_micron_3d, float):
             self.distance_mean_micron_3d = float(self.distance_mean_micron_3d)
+
+        if self.distance_median_micron_3d is not None and not isinstance(self.distance_median_micron_3d, float):
+            self.distance_median_micron_3d = float(self.distance_median_micron_3d)
+
+        if self.distance_std_micron_3d is not None and not isinstance(self.distance_std_micron_3d, float):
+            self.distance_std_micron_3d = float(self.distance_std_micron_3d)
 
         if self.rotation_z_mean is not None and not isinstance(self.rotation_z_mean, float):
             self.rotation_z_mean = float(self.rotation_z_mean)
@@ -3517,6 +3579,12 @@ slots.min_lateral_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/min_late
 slots.min_axial_distance_px = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/min_axial_distance_px'], name="min_axial_distance_px", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/min_axial_distance_px'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.min_axial_distance_px, domain=None, range=float)
 
+slots.fitting_airy_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/fitting_airy_r2_threshold'], name="fitting_airy_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/fitting_airy_r2_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_airy_r2_threshold, domain=None, range=float)
+
+slots.fitting_gaussian_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/fitting_gaussian_r2_threshold'], name="fitting_gaussian_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/fitting_gaussian_r2_threshold'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_gaussian_r2_threshold, domain=None, range=float)
+
 slots.bit_depth = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/bit_depth'], name="bit_depth", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/bit_depth'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.bit_depth, domain=None, range=Optional[int])
 
@@ -3675,12 +3743,6 @@ slots.bottom_right_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses
 
 slots.psf_beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/psf_beads_images'], name="psf_beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/psf_beads_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.psf_beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
-
-slots.fitting_airy_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_airy_r2_threshold'], name="fitting_airy_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_airy_r2_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_airy_r2_threshold, domain=None, range=float)
-
-slots.fitting_gaussian_r2_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fitting_gaussian_r2_threshold'], name="fitting_gaussian_r2_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fitting_gaussian_r2_threshold'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.fitting_gaussian_r2_threshold, domain=None, range=float)
 
 slots.intensity_robust_z_score_threshold = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/intensity_robust_z_score_threshold'], name="intensity_robust_z_score_threshold", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/intensity_robust_z_score_threshold'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.intensity_robust_z_score_threshold, domain=None, range=float)
@@ -3925,23 +3987,65 @@ slots.reference_channel_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coreg
 slots.translation_abs_mean_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_pixel_x'], name="translation_abs_mean_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_pixel_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_pixel_x, domain=None, range=Optional[float])
 
+slots.translation_abs_median_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_pixel_x'], name="translation_abs_median_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_pixel_x, domain=None, range=Optional[float])
+
+slots.translation_abs_std_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_pixel_x'], name="translation_abs_std_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_pixel_x, domain=None, range=Optional[float])
+
 slots.translation_abs_mean_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_pixel_y'], name="translation_abs_mean_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_pixel_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_pixel_y, domain=None, range=Optional[float])
+
+slots.translation_abs_median_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_pixel_y'], name="translation_abs_median_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_pixel_y, domain=None, range=Optional[float])
+
+slots.translation_abs_std_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_pixel_y'], name="translation_abs_std_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_pixel_y, domain=None, range=Optional[float])
 
 slots.translation_abs_mean_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_pixel_z'], name="translation_abs_mean_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_pixel_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_pixel_z, domain=None, range=Optional[float])
 
+slots.translation_abs_median_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_pixel_z'], name="translation_abs_median_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_pixel_z, domain=None, range=Optional[float])
+
+slots.translation_abs_std_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_pixel_z'], name="translation_abs_std_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_pixel_z, domain=None, range=Optional[float])
+
 slots.translation_abs_mean_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_micron_x'], name="translation_abs_mean_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_micron_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_micron_x, domain=None, range=Optional[float])
+
+slots.translation_abs_median_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_micron_x'], name="translation_abs_median_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_micron_x, domain=None, range=Optional[float])
+
+slots.translation_abs_std_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_micron_x'], name="translation_abs_std_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_micron_x, domain=None, range=Optional[float])
 
 slots.translation_abs_mean_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_micron_y'], name="translation_abs_mean_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_micron_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_micron_y, domain=None, range=Optional[float])
 
+slots.translation_abs_median_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_micron_y'], name="translation_abs_median_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_micron_y, domain=None, range=Optional[float])
+
+slots.translation_abs_std_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_micron_y'], name="translation_abs_std_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_micron_y, domain=None, range=Optional[float])
+
 slots.translation_abs_mean_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_mean_micron_z'], name="translation_abs_mean_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_mean_micron_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_mean_micron_z, domain=None, range=Optional[float])
 
+slots.translation_abs_median_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_median_micron_z'], name="translation_abs_median_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_median_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_median_micron_z, domain=None, range=Optional[float])
+
+slots.translation_abs_std_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/translation_abs_std_micron_z'], name="translation_abs_std_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/translation_abs_std_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.translation_abs_std_micron_z, domain=None, range=Optional[float])
+
 slots.distance_mean_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/distance_mean_micron_3d'], name="distance_mean_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/distance_mean_micron_3d'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.distance_mean_micron_3d, domain=None, range=Optional[float])
+
+slots.distance_median_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/distance_median_micron_3d'], name="distance_median_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/distance_median_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.distance_median_micron_3d, domain=None, range=Optional[float])
+
+slots.distance_std_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/distance_std_micron_3d'], name="distance_std_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/distance_std_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.distance_std_micron_3d, domain=None, range=Optional[float])
 
 slots.rotation_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/rotation_z_mean'], name="rotation_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/rotation_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.rotation_z_mean, domain=None, range=Optional[float])
