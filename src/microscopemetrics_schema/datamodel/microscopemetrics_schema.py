@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-14T09:37:34
+# Generation date: 2026-08-17T16:38:45
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1965,6 +1965,9 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     fwhm_lateral_asymmetry_ratio_mean: Optional[float] = None
     fwhm_lateral_asymmetry_ratio_median: Optional[float] = None
     fwhm_lateral_asymmetry_ratio_std: Optional[float] = None
+    fwhm_axial_asymmetry_ratio_mean: Optional[float] = None
+    fwhm_axial_asymmetry_ratio_median: Optional[float] = None
+    fwhm_axial_asymmetry_ratio_std: Optional[float] = None
     average_bead_fit_airy_r2_z: Optional[float] = None
     average_bead_fit_airy_r2_y: Optional[float] = None
     average_bead_fit_airy_r2_x: Optional[float] = None
@@ -2184,6 +2187,15 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
         if self.fwhm_lateral_asymmetry_ratio_std is not None and not isinstance(self.fwhm_lateral_asymmetry_ratio_std, float):
             self.fwhm_lateral_asymmetry_ratio_std = float(self.fwhm_lateral_asymmetry_ratio_std)
+
+        if self.fwhm_axial_asymmetry_ratio_mean is not None and not isinstance(self.fwhm_axial_asymmetry_ratio_mean, float):
+            self.fwhm_axial_asymmetry_ratio_mean = float(self.fwhm_axial_asymmetry_ratio_mean)
+
+        if self.fwhm_axial_asymmetry_ratio_median is not None and not isinstance(self.fwhm_axial_asymmetry_ratio_median, float):
+            self.fwhm_axial_asymmetry_ratio_median = float(self.fwhm_axial_asymmetry_ratio_median)
+
+        if self.fwhm_axial_asymmetry_ratio_std is not None and not isinstance(self.fwhm_axial_asymmetry_ratio_std, float):
+            self.fwhm_axial_asymmetry_ratio_std = float(self.fwhm_axial_asymmetry_ratio_std)
 
         if self.average_bead_fit_airy_r2_z is not None and not isinstance(self.average_bead_fit_airy_r2_z, float):
             self.average_bead_fit_airy_r2_z = float(self.average_bead_fit_airy_r2_z)
@@ -3920,6 +3932,15 @@ slots.fwhm_lateral_asymmetry_ratio_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['a
 
 slots.fwhm_lateral_asymmetry_ratio_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'], name="fwhm_lateral_asymmetry_ratio_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_lateral_asymmetry_ratio_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_lateral_asymmetry_ratio_std, domain=None, range=Optional[float])
+
+slots.fwhm_axial_asymmetry_ratio_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_axial_asymmetry_ratio_mean'], name="fwhm_axial_asymmetry_ratio_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_axial_asymmetry_ratio_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_axial_asymmetry_ratio_mean, domain=None, range=Optional[float])
+
+slots.fwhm_axial_asymmetry_ratio_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_axial_asymmetry_ratio_median'], name="fwhm_axial_asymmetry_ratio_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_axial_asymmetry_ratio_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_axial_asymmetry_ratio_median, domain=None, range=Optional[float])
+
+slots.fwhm_axial_asymmetry_ratio_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/fwhm_axial_asymmetry_ratio_std'], name="fwhm_axial_asymmetry_ratio_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/fwhm_axial_asymmetry_ratio_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.fwhm_axial_asymmetry_ratio_std, domain=None, range=Optional[float])
 
 slots.average_bead_fit_airy_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fit_airy_r2_z'], name="average_bead_fit_airy_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fit_airy_r2_z'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fit_airy_r2_z, domain=None, range=Optional[float])

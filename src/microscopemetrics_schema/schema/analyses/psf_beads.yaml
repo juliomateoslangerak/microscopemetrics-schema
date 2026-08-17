@@ -233,6 +233,9 @@ classes:
       - fwhm_lateral_asymmetry_ratio_mean
       - fwhm_lateral_asymmetry_ratio_median
       - fwhm_lateral_asymmetry_ratio_std
+      - fwhm_axial_asymmetry_ratio_mean
+      - fwhm_axial_asymmetry_ratio_median
+      - fwhm_axial_asymmetry_ratio_std
       - average_bead_fit_airy_r2_z
       - average_bead_fit_airy_r2_y
       - average_bead_fit_airy_r2_x
@@ -566,6 +569,21 @@ slots:
       Median lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
     multivalued: false
   fwhm_lateral_asymmetry_ratio_std:
+    range: float
+    description: >-
+      Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
+    multivalued: false
+  fwhm_axial_asymmetry_ratio_mean:
+    range: float
+    description: >-
+      Mean axial FWHM asymmetry ratio for the analyzed beads. One value per channel.
+    multivalued: false
+  fwhm_axial_asymmetry_ratio_median:
+    range: float
+    description: >-
+      Median axial FWHM asymmetry ratio for the analyzed beads. One value per channel.
+    multivalued: false
+  fwhm_axial_asymmetry_ratio_std:
     range: float
     description: >-
       Standard deviation of the lateral FWHM asymmetry ratio for the analyzed beads. One value per channel.
