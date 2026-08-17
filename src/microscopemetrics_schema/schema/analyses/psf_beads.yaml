@@ -249,6 +249,7 @@ classes:
       - average_bead_fwhm_micron_y
       - average_bead_fwhm_micron_x
       - average_bead_fwhm_lateral_asymmetry_ratio
+      - average_bead_fwhm_axial_asymmetry_ratio
       - average_bead_intensity_integrated
       - average_bead_intensity_max
       - average_bead_intensity_min
@@ -664,6 +665,12 @@ slots:
     range: float
     description: >-
       Lateral FWHM asymmetry ratio for the average bead. One value per channel.
+    required: false
+    multivalued: false
+  average_bead_fwhm_axial_asymmetry_ratio:
+    range: float
+    description: >-
+      Axial FWHM asymmetry ratio for the average bead. One value per channel.
     required: false
     multivalued: false
   average_bead_intensity_integrated:

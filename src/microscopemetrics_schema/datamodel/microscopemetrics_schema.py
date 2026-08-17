@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-17T16:38:45
+# Generation date: 2026-08-17T16:54:27
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1981,6 +1981,7 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     average_bead_fwhm_micron_y: Optional[float] = None
     average_bead_fwhm_micron_x: Optional[float] = None
     average_bead_fwhm_lateral_asymmetry_ratio: Optional[float] = None
+    average_bead_fwhm_axial_asymmetry_ratio: Optional[float] = None
     average_bead_intensity_integrated: Optional[float] = None
     average_bead_intensity_max: Optional[float] = None
     average_bead_intensity_min: Optional[float] = None
@@ -2235,6 +2236,9 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
 
         if self.average_bead_fwhm_lateral_asymmetry_ratio is not None and not isinstance(self.average_bead_fwhm_lateral_asymmetry_ratio, float):
             self.average_bead_fwhm_lateral_asymmetry_ratio = float(self.average_bead_fwhm_lateral_asymmetry_ratio)
+
+        if self.average_bead_fwhm_axial_asymmetry_ratio is not None and not isinstance(self.average_bead_fwhm_axial_asymmetry_ratio, float):
+            self.average_bead_fwhm_axial_asymmetry_ratio = float(self.average_bead_fwhm_axial_asymmetry_ratio)
 
         if self.average_bead_intensity_integrated is not None and not isinstance(self.average_bead_intensity_integrated, float):
             self.average_bead_intensity_integrated = float(self.average_bead_intensity_integrated)
@@ -3980,6 +3984,9 @@ slots.average_bead_fwhm_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/p
 
 slots.average_bead_fwhm_lateral_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio'], name="average_bead_fwhm_lateral_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_lateral_asymmetry_ratio'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_lateral_asymmetry_ratio, domain=None, range=Optional[float])
+
+slots.average_bead_fwhm_axial_asymmetry_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_fwhm_axial_asymmetry_ratio'], name="average_bead_fwhm_axial_asymmetry_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_fwhm_axial_asymmetry_ratio'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_fwhm_axial_asymmetry_ratio, domain=None, range=Optional[float])
 
 slots.average_bead_intensity_integrated = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead_intensity_integrated'], name="average_bead_intensity_integrated", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead_intensity_integrated'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.average_bead_intensity_integrated, domain=None, range=Optional[float])
