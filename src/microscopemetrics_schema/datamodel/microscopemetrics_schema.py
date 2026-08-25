@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-17T16:54:27
+# Generation date: 2026-08-25T12:16:32
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -1494,6 +1494,9 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     center_fitted_x_relative: Optional[float] = None
     center_fitted_distance_relative: Optional[float] = None
     max_intensity: Optional[float] = None
+    max_min_intensity_ratio: Optional[float] = None
+    mean_corner_intensity_ratio: Optional[float] = None
+    min_corner_intensity_ratio: Optional[float] = None
     max_intensity_pos_y: Optional[float] = None
     max_intensity_pos_y_relative: Optional[float] = None
     max_intensity_pos_x: Optional[float] = None
@@ -1590,6 +1593,15 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
 
         if self.max_intensity is not None and not isinstance(self.max_intensity, float):
             self.max_intensity = float(self.max_intensity)
+
+        if self.max_min_intensity_ratio is not None and not isinstance(self.max_min_intensity_ratio, float):
+            self.max_min_intensity_ratio = float(self.max_min_intensity_ratio)
+
+        if self.mean_corner_intensity_ratio is not None and not isinstance(self.mean_corner_intensity_ratio, float):
+            self.mean_corner_intensity_ratio = float(self.mean_corner_intensity_ratio)
+
+        if self.min_corner_intensity_ratio is not None and not isinstance(self.min_corner_intensity_ratio, float):
+            self.min_corner_intensity_ratio = float(self.min_corner_intensity_ratio)
 
         if self.max_intensity_pos_y is not None and not isinstance(self.max_intensity_pos_y, float):
             self.max_intensity_pos_y = float(self.max_intensity_pos_y)
@@ -3687,6 +3699,15 @@ slots.center_fitted_distance_relative = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analy
 
 slots.max_intensity = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity'], name="max_intensity", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity, domain=None, range=Optional[float])
+
+slots.max_min_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_min_intensity_ratio'], name="max_min_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_min_intensity_ratio'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_min_intensity_ratio, domain=None, range=Optional[float])
+
+slots.mean_corner_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/mean_corner_intensity_ratio'], name="mean_corner_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/mean_corner_intensity_ratio'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.mean_corner_intensity_ratio, domain=None, range=Optional[float])
+
+slots.min_corner_intensity_ratio = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/min_corner_intensity_ratio'], name="min_corner_intensity_ratio", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/min_corner_intensity_ratio'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.min_corner_intensity_ratio, domain=None, range=Optional[float])
 
 slots.max_intensity_pos_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/field_illumination/max_intensity_pos_y'], name="max_intensity_pos_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/field_illumination/max_intensity_pos_y'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.max_intensity_pos_y, domain=None, range=Optional[float])

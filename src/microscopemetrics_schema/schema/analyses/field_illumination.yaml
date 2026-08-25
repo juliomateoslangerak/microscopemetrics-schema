@@ -127,6 +127,9 @@ classes:
       - center_fitted_x_relative
       - center_fitted_distance_relative
       - max_intensity
+      - max_min_intensity_ratio
+      - mean_corner_intensity_ratio
+      - min_corner_intensity_ratio
       - max_intensity_pos_y
       - max_intensity_pos_y_relative
       - max_intensity_pos_x
@@ -234,10 +237,10 @@ slots:
     range: float
     description: >-
       The relative distance of the centers of mass to the center of the image. Relative to the distance to
-      an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
-      One value per channel.
+      an image edge. 1.0 is centered, 0.0 is at the lateral edge. Negative values when center is towards the corner
+      of the image.
     multivalued: false
-    minimum_value: 0.0
+    minimum_value: -1.0
     maximum_value: 1.0
   center_geometric_y:
     range: float
@@ -270,9 +273,10 @@ slots:
     range: float
     description: >-
       The relative distance of the geometric center to the center of the image. Relative to the distance to
-      an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
+      an image edge. 1.0 is centered, 0.0 is at the lateral edge. Negative values when center is towards the corner
+      of the image.
     multivalued: false
-    minimum_value: 0.0
+    minimum_value: -1.0
     maximum_value: 1.0
   center_fitted_y:
     range: float
@@ -304,15 +308,37 @@ slots:
     range: float
     description: >-
       The relative distance of the fitted center of illumination to the center of the image. Relative to the distance to
-      an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
+      an image edge. 1.0 is centered, 0.0 is at the lateral edge. Negative values when center is towards the corner
+      of the image.
     multivalued: false
-    minimum_value: 0.0
+    minimum_value: -1.0
     maximum_value: 1.0
   max_intensity:
     range: float
     description: >-
       The maximum intensity of the center of illumination
     multivalued: false
+  max_min_intensity_ratio:
+    range: float
+    description: >-
+      The intensity ratio between the maximum and minimum intensity (min_int/max_int).
+    multivalued: false
+    minimum_value: 0.0
+    maximum_value: 1.0
+  mean_corner_intensity_ratio:
+    range: float
+    description: >-
+      The intensity ratio between the center of illumination and the mean of all four corners.
+    multivalued: false
+    minimum_value: 0.0
+    maximum_value: 1.0
+  min_corner_intensity_ratio:
+    range: float
+    description: >-
+      The intensity ratio between the center of illumination and the lowest intensity corner.
+    multivalued: false
+    minimum_value: 0.0
+    maximum_value: 1.0
   max_intensity_pos_y:
     range: float
     description: >-
@@ -343,9 +369,10 @@ slots:
     range: float
     description: >-
       The relative distance of the maximum intensity to the center of the image. Relative to the distance to
-      an image corner. 0.0 is centered and 1.0 at a distance equal to the the corner of the image.
+      an image edge. 1.0 is centered, 0.0 is at the lateral edge. Negative values when center is towards the corner
+      of the image.
     multivalued: false
-    minimum_value: 0.0
+    minimum_value: -1.0
     maximum_value: 1.0
   top_left_intensity_mean:
     range: float
