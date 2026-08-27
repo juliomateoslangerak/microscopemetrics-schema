@@ -15,16 +15,19 @@ from microscopemetrics_schema.strategies.samples.fluorescent_beads_strategies im
 @st.composite
 def st_mm_stage_drift_input_data(
     draw,
-    beads_image=st_mm_image(),
-    analysis_roi=st_mm_roi(
-        shapes=st.lists(
-            st_mm_rectangle(), min_size=1, max_size=1, unique_by=lambda shape: shape.name
+    beads_images=st.lists(st_mm_image(), min_size=1, max_size=3),
+    analysis_rois=st.lists(
+        st_mm_roi(
+            shapes=st.lists(
+                st_mm_rectangle(), min_size=1, max_size=1, unique_by=lambda shape: shape.name
+            ),
         ),
+        min_size=1, max_size=3
     ),
 ) -> mm_schema.StageDriftInputData:
     return mm_schema.StageDriftInputData(
-        beads_image=draw(beads_image),
-        analysis_roi=draw(analysis_roi),
+        beads_images=draw(beads_images),
+        analysis_rois=draw(analysis_rois),
     )
 
 

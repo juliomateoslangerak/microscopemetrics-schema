@@ -1664,8 +1664,8 @@ class StageDriftDataset(HasInputParametersMixin, HasSampleMixin, MetricsDataset)
 class StageDriftInputData(MetricsInputData):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift'})
 
-    beads_image: Image = Field(default=..., description="""The image containing the beads. A time-lapse is required in 2 or 3D.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
-    analysis_roi: Optional[Roi] = Field(default=None, description="""A ROI with a single rectangle delimiting the region to use for analysis. If not provided the analysis will be performed on the whole image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
+    beads_images: list[Image] = Field(default=..., description="""The images containing the beads. Time-lapses is required in 2 or 3D.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
+    analysis_rois: Optional[list[Roi]] = Field(default=None, description="""ROIs with a single rectangle delimiting the regions to use for analysis. If not provided the analysis will be performed on the whole image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
 
 
 class StageDriftInputParameters(MetricsInputParameters):

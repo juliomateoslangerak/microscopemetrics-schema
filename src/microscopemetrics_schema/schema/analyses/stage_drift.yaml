@@ -31,8 +31,8 @@ classes:
   StageDriftInputData:
     is_a: MetricsInputData
     slots:
-      - beads_image
-      - analysis_roi
+      - beads_images
+      - analysis_rois
 
   StageDriftInputParameters:
     is_a: MetricsInputParameters
@@ -142,17 +142,18 @@ classes:
 
 slots:
   # Inputs
-  beads_image:
+  beads_images:
     range: Image
     description: >-
-      The image containing the beads. A time-lapse is required in 2 or 3D.
+      The images containing the beads. Time-lapses is required in 2 or 3D.
     required: true
-    multivalued: false
-  analysis_roi:
+    multivalued: true
+  analysis_rois:
     range: Roi
     description: >-
-      A ROI with a single rectangle delimiting the region to use for analysis.
+      ROIs with a single rectangle delimiting the regions to use for analysis.
       If not provided the analysis will be performed on the whole image.
+    multivalued: true
   reference_frame_nr:
     range: integer
     description: >-

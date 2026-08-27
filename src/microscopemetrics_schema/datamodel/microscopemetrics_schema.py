@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-27T23:54:50
+# Generation date: 2026-08-28T00:10:59
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2970,17 +2970,17 @@ class StageDriftInputData(MetricsInputData):
     class_name: ClassVar[str] = "StageDriftInputData"
     class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftInputData
 
-    beads_image: Union[dict, Image] = None
-    analysis_roi: Optional[Union[dict, Roi]] = None
+    beads_images: Union[Union[dict, Image], list[Union[dict, Image]]] = None
+    analysis_rois: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.beads_image):
-            self.MissingRequiredField("beads_image")
-        if not isinstance(self.beads_image, Image):
-            self.beads_image = Image(**as_dict(self.beads_image))
+        if self._is_empty(self.beads_images):
+            self.MissingRequiredField("beads_images")
+        self._normalize_inlined_as_list(slot_name="beads_images", slot_type=Image, key_name="shape_x", keyed=False)
 
-        if self.analysis_roi is not None and not isinstance(self.analysis_roi, Roi):
-            self.analysis_roi = Roi(**as_dict(self.analysis_roi))
+        if not isinstance(self.analysis_rois, list):
+            self.analysis_rois = [self.analysis_rois] if self.analysis_rois is not None else []
+        self.analysis_rois = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.analysis_rois]
 
         super().__post_init__(**kwargs)
 
@@ -4663,11 +4663,11 @@ slots.long_term_power_stability_end_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA
 slots.long_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_power_stability'], name="long_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_power_stability, domain=None, range=Optional[float])
 
-slots.beads_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/beads_image'], name="beads_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/beads_image'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.beads_image, domain=None, range=Union[dict, Image])
+slots.beads_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/beads_images'], name="beads_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/beads_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.beads_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
 
-slots.analysis_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/analysis_roi'], name="analysis_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/analysis_roi'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.analysis_roi, domain=None, range=Optional[Union[dict, Roi]])
+slots.analysis_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/analysis_rois'], name="analysis_rois", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/analysis_rois'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.analysis_rois, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
 
 slots.reference_frame_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/reference_frame_nr'], name="reference_frame_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/reference_frame_nr'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_frame_nr, domain=None, range=int)
