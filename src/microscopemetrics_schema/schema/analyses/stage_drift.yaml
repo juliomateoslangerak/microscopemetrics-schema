@@ -1,0 +1,565 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift
+name: stage_drift
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - ../core
+  - ../samples/beads
+
+default_range: string
+
+
+classes:
+  StageDriftDataset:
+    is_a: MetricsDataset
+    description: >-
+      A dataset containing the results of the StageDrift analysis.
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
+    slot_usage:
+      input_data:
+        range: StageDriftInputData
+      input_parameters:
+        range: StageDriftInputParameters
+      output:
+        range: StageDriftOutput
+      sample:
+        range: NonPSFBeads
+
+  StageDriftInputData:
+    is_a: MetricsInputData
+    slots:
+      - beads_image
+      - analysis_roi
+
+  StageDriftInputParameters:
+    is_a: MetricsInputParameters
+    slots:
+      - channel_nr
+      - reference_frame_nr
+      - bit_depth
+      - saturation_threshold
+      - snr_threshold
+    slot_usage:
+      channel_nr:
+        ifabsent: integer(0)
+
+
+  StageDriftOutput:
+    is_a: MetricsOutput
+    attributes:
+    slots:
+      - image_properties
+    slot_usage:
+      key_measurements:
+        range: StageDriftKeyMeasurement
+
+  StageDriftKeyMeasurement:
+    is_a: KeyMeasurement
+    slots:
+      - stabilization_timepoint_x
+      - stabilization_timepoint_y
+      - stabilization_timepoint_z
+      - stabilization_timepoint_3d
+      - relative_position_mean_pixel_x
+      - relative_position_median_pixel_x
+      - relative_position_std_pixel_x
+      - relative_position_mean_pixel_y
+      - relative_position_median_pixel_y
+      - relative_position_std_pixel_y
+      - relative_position_mean_pixel_z
+      - relative_position_median_pixel_z
+      - relative_position_std_pixel_z
+      - relative_position_mean_micron_x
+      - relative_position_median_micron_x
+      - relative_position_std_micron_x
+      - relative_position_mean_micron_y
+      - relative_position_median_micron_y
+      - relative_position_std_micron_y
+      - relative_position_mean_micron_z
+      - relative_position_median_micron_z
+      - relative_position_std_micron_z
+      - displacement_mean_pixel_x
+      - displacement_median_pixel_x
+      - displacement_std_pixel_x
+      - displacement_mean_pixel_y
+      - displacement_median_pixel_y
+      - displacement_std_pixel_y
+      - displacement_mean_pixel_z
+      - displacement_median_pixel_z
+      - displacement_mean_micron_x
+      - displacement_median_micron_x
+      - displacement_std_micron_x
+      - displacement_mean_micron_y
+      - displacement_median_micron_y
+      - displacement_std_micron_y
+      - displacement_mean_micron_z
+      - displacement_median_micron_z
+      - displacement_std_micron_z
+      - displacement_mean_micron_3d
+      - displacement_median_micron_3d
+      - displacement_std_micron_3d
+      - velocity_mean_pixel_x
+      - velocity_median_pixel_x
+      - velocity_std_pixel_x
+      - velocity_mean_pixel_y
+      - velocity_median_pixel_y
+      - velocity_std_pixel_y
+      - velocity_mean_pixel_z
+      - velocity_median_pixel_z
+      - velocity_mean_micron_x
+      - velocity_median_micron_x
+      - velocity_std_micron_x
+      - velocity_mean_micron_y
+      - velocity_median_micron_y
+      - velocity_std_micron_y
+      - velocity_mean_micron_z
+      - velocity_median_micron_z
+      - velocity_std_micron_z
+      - velocity_mean_micron_3d
+      - velocity_median_micron_3d
+      - velocity_std_micron_3d
+      - msd_slope_pixel_x
+      - msd_slope_pixel_y
+      - msd_slope_pixel_z
+      - msd_slope_micron_x
+      - msd_slope_micron_y
+      - msd_slope_micron_z
+      - msd_slope_micron_3d
+      - msd_intercept_pixel_x
+      - msd_intercept_pixel_y
+      - msd_intercept_pixel_z
+      - msd_intercept_micron_x
+      - msd_intercept_micron_y
+      - msd_intercept_micron_z
+      - msd_intercept_micron_3d
+      - msd_r2_x
+      - msd_r2_y
+      - msd_r2_z
+      - msd_r2_3d
+
+slots:
+  # Inputs
+  beads_image:
+    range: Image
+    description: >-
+      The image containing the beads. A time-lapse is required in 2 or 3D.
+    required: true
+    multivalued: false
+  analysis_roi:
+    range: Roi
+    description: >-
+      A ROI with a single rectangle delimiting the region to use for analysis.
+      If not provided the analysis will be performed on the whole image.
+  reference_frame_nr:
+    range: integer
+    description: >-
+      The number of the reference timepoint. This timepoint will be used as reference
+      for all the measurements.
+    required: true
+    multivalued: false
+    ifabsent: integer(0)
+
+  # Outputs
+  stabilization_timepoint_x:
+    range: integer
+    description: >-
+      The timepoint at which the stage achieves relative stabilization in x.
+    multivalued: false
+  stabilization_timepoint_y:
+    range: integer
+    description: >-
+      The timepoint at which the stage achieves relative stabilization in y.
+    multivalued: false
+  stabilization_timepoint_z:
+    range: integer
+    description: >-
+      The timepoint at which the stage achieves relative stabilization in z.
+    multivalued: false
+  stabilization_timepoint_3d:
+    range: integer
+    description: >-
+      The timepoint at which the stage achieves relative stabilization in 3d.
+    multivalued: false
+  relative_position_mean_pixel_x:
+    range: float
+    description: >-
+      The mean relative position of the stage in x in pixels.
+    multivalued: false
+  relative_position_median_pixel_x:
+    range: float
+    description: >-
+      The median relative position of the stage in x in pixels.
+    multivalued: false
+  relative_position_std_pixel_x:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in x in pixels.
+    multivalued: false
+  relative_position_mean_pixel_y:
+    range: float
+    description: >-
+      The mean relative position of the stage in y in pixels.
+    multivalued: false
+  relative_position_median_pixel_y:
+    range: float
+    description: >-
+      The median relative position of the stage in y in pixels.
+    multivalued: false
+  relative_position_std_pixel_y:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in y in pixels.
+    multivalued: false
+  relative_position_mean_pixel_z:
+    range: float
+    description: >-
+      The mean relative position of the stage in z in pixels.
+    multivalued: false
+  relative_position_median_pixel_z:
+    range: float
+    description: >-
+      The median relative position of the stage in z in pixels.
+    multivalued: false
+  relative_position_std_pixel_z:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in z in pixels.
+    multivalued: false
+  relative_position_mean_micron_x:
+    range: float
+    description: >-
+      The mean relative position of the stage in x in microns.
+    multivalued: false
+  relative_position_median_micron_x:
+    range: float
+    description: >-
+      The median relative position of the stage in x in microns.
+    multivalued: false
+  relative_position_std_micron_x:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in x in microns.
+    multivalued: false
+  relative_position_mean_micron_y:
+    range: float
+    description: >-
+      The mean relative position of the stage in y in microns.
+    multivalued: false
+  relative_position_median_micron_y:
+    range: float
+    description: >-
+      The median relative position of the stage in y in microns.
+    multivalued: false
+  relative_position_std_micron_y:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in y in microns.
+    multivalued: false
+  relative_position_mean_micron_z:
+    range: float
+    description: >-
+      The mean relative position of the stage in z in microns.
+    multivalued: false
+  relative_position_median_micron_z:
+    range: float
+    description: >-
+      The median relative position of the stage in z in microns.
+    multivalued: false
+  relative_position_std_micron_z:
+    range: float
+    description: >-
+      The standard deviation of the relative position of the stage in z in microns.
+    multivalued: false
+  displacement_mean_pixel_x:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in x in pixels.
+    multivalued: false
+  displacement_median_pixel_x:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in x in pixels.
+    multivalued: false
+  displacement_std_pixel_x:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in x in pixels.
+    multivalued: false
+  displacement_mean_pixel_y:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in y in pixels.
+    multivalued: false
+  displacement_median_pixel_y:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in y in pixels.
+    multivalued: false
+  displacement_std_pixel_y:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in y in pixels.
+    multivalued: false
+  displacement_mean_pixel_z:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in z in pixels.
+    multivalued: false
+  displacement_median_pixel_z:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in z in pixels.
+    multivalued: false
+  displacement_mean_micron_x:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in x in microns.
+    multivalued: false
+  displacement_median_micron_x:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in x in microns.
+    multivalued: false
+  displacement_std_micron_x:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in x in microns.
+    multivalued: false
+  displacement_mean_micron_y:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in y in microns.
+    multivalued: false
+  displacement_median_micron_y:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in y in microns.
+    multivalued: false
+  displacement_std_micron_y:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in y in microns.
+    multivalued: false
+  displacement_mean_micron_z:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in z in microns.
+    multivalued: false
+  displacement_median_micron_z:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in z in microns.
+    multivalued: false
+  displacement_std_micron_z:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in z in microns.
+    multivalued: false
+  displacement_mean_micron_3d:
+    range: float
+    description: >-
+      The mean absolute displacement of the stage in 3d in microns.
+    multivalued: false
+  displacement_median_micron_3d:
+    range: float
+    description: >-
+      The median absolute displacement of the stage in 3d in microns.
+    multivalued: false
+  displacement_std_micron_3d:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in 3d in microns.
+    multivalued: false
+  velocity_mean_pixel_x:
+    range: float
+    description: >-
+      The velocity at which the stage moves in x in pixels per second
+    multivalued: false
+  velocity_median_pixel_x:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in x in pixels per second.
+    multivalued: false
+  velocity_std_pixel_x:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in x in pixels per second.
+    multivalued: false
+  velocity_mean_pixel_y:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in y in pixels per second.
+    multivalued: false
+  velocity_median_pixel_y:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in y in pixels per second.
+    multivalued: false
+  velocity_std_pixel_y:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in y in pixels per second.
+    multivalued: false
+  velocity_mean_pixel_z:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in z in pixels per second.
+    multivalued: false
+  velocity_median_pixel_z:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in z in pixels per second.
+    multivalued: false
+  velocity_mean_micron_x:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in x in microns per second.
+    multivalued: false
+  velocity_median_micron_x:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in x in microns per second.
+    multivalued: false
+  velocity_std_micron_x:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in x in microns per second.
+    multivalued: false
+  velocity_mean_micron_y:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in y in microns per second.
+    multivalued: false
+  velocity_median_micron_y:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in y in microns per second.
+    multivalued: false
+  velocity_std_micron_y:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in y in microns per second.
+    multivalued: false
+  velocity_mean_micron_z:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in z in microns per second.
+    multivalued: false
+  velocity_median_micron_z:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in z in microns per second.
+    multivalued: false
+  velocity_std_micron_z:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in z in microns per second.
+    multivalued: false
+  velocity_mean_micron_3d:
+    range: float
+    description: >-
+      The mean velocity at which the stage moves in 3d in microns per second.
+    multivalued: false
+  velocity_median_micron_3d:
+    range: float
+    description: >-
+      The median velocity at which the stage moves in 3d in microns per second.
+    multivalued: false
+  velocity_std_micron_3d:
+    range: float
+    description: >-
+      The standard deviation of the velocity at which the stage moves in 3d in microns per second.
+    multivalued: false
+  msd_slope_pixel_x:
+    range: float
+    description: >-
+      The slope of the MSD in x in pixels^2.
+    multivalued: false
+  msd_slope_pixel_y:
+    range: float
+    description: >-
+      The slope of the MSD in y in pixels^2.
+    multivalued: false
+  msd_slope_pixel_z:
+    range: float
+    description: >-
+      The slope of the MSD in z in pixels^2.
+    multivalued: false
+  msd_slope_micron_x:
+    range: float
+    description: >-
+      The slope of the MSD in x in microns^2.
+    multivalued: false
+  msd_slope_micron_y:
+    range: float
+    description: >-
+      The slope of the MSD in y in microns^2.
+    multivalued: false
+  msd_slope_micron_z:
+    range: float
+    description: >-
+      The slope of the MSD in z in microns^2.
+    multivalued: false
+  msd_slope_micron_3d:
+    range: float
+    description: >-
+      The slope of the MSD in 3d in microns^2.
+    multivalued: false
+  msd_intercept_pixel_x:
+    range: float
+    description: >-
+      The intercept of the MSD in x in pixels^2.
+    multivalued: false
+  msd_intercept_pixel_y:
+    range: float
+    description: >-
+      The intercept of the MSD in y in pixels^2.
+    multivalued: false
+  msd_intercept_pixel_z:
+    range: float
+    description: >-
+      The intercept of the MSD in z in pixels^2.
+    multivalued: false
+  msd_intercept_micron_x:
+    range: float
+    description: >-
+      The intercept of the MSD in x in microns^2.
+    multivalued: false
+  msd_intercept_micron_y:
+    range: float
+    description: >-
+      The intercept of the MSD in y in microns^2.
+    multivalued: false
+  msd_intercept_micron_z:
+    range: float
+    description: >-
+      The intercept of the MSD in z in microns^2.
+    multivalued: false
+  msd_intercept_micron_3d:
+    range: float
+    description: >-
+      The intercept of the MSD in 3d in microns^2.
+    multivalued: false
+  msd_r2_x:
+    range: float
+    description: >-
+      The R^2 of the MSD in x.
+    multivalued: false
+  msd_r2_y:
+    range: float
+    description: >-
+      The R^2 of the MSD in y.
+    multivalued: false
+  msd_r2_z:
+    range: float
+    description: >-
+      The R^2 of the MSD in z.
+    multivalued: false
+  msd_r2_3d:
+    range: float
+    description: >-
+      The R^2 of the MSD in 3d.
+    multivalued: false

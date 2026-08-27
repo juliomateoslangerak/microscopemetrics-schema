@@ -77,6 +77,7 @@ linkml_meta = LinkMLMeta({'default_prefix': 'microscopemetrics_schema',
                  'analyses/psf_beads',
                  'analyses/coregistration',
                  'analyses/light_source_power',
+                 'analyses/stage_drift',
                  'analyses/user_experiment',
                  'samples/homogeneous_field',
                  'samples/beads',
@@ -974,10 +975,12 @@ class FieldIlluminationInputParameters(MetricsInputParameters):
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: float = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
     corner_fraction: float = Field(default=0.1, description="""Input parameter: the proportion of the image to be considered as corner or center""", ge=0.01, le=0.49, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters'], 'ifabsent': 'float(0.1)'} })
@@ -1027,6 +1030,7 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
@@ -1189,10 +1193,12 @@ class PSFBeadsInputParameters(MetricsInputParameters):
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
     min_lateral_distance_px: float = Field(default=20, description="""Minimal distance that has to separate laterally the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=10.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
@@ -1203,7 +1209,9 @@ class PSFBeadsInputParameters(MetricsInputParameters):
          'ifabsent': 'float(1.0)'} })
     sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(5.0)'} })
-    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'StageDriftInputParameters'],
          'ifabsent': 'float(10.0)'} })
     fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(0.95)'} })
@@ -1255,6 +1263,7 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
@@ -1394,10 +1403,12 @@ class CoRegistrationInputParameters(MetricsInputParameters):
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
     min_lateral_distance_px: float = Field(default=20, description="""Minimal distance that has to separate laterally the beads represented in pixels. This distance is also used to calculate the minimal distance to the edge of the image.""", ge=10.0, le=100.0, json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
@@ -1408,7 +1419,9 @@ class CoRegistrationInputParameters(MetricsInputParameters):
          'ifabsent': 'float(1.0)'} })
     sigma_max: float = Field(default=5.0, description="""Max value for the range of sigmas used in for the detection of the beads. Higher values will tend to detect larger objects as beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(5.0)'} })
-    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
+    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'StageDriftInputParameters'],
          'ifabsent': 'float(10.0)'} })
     fitting_gaussian_r2_threshold: float = Field(default=0.95, description="""Threshold for the coefficient of determination (R^2) of the gaussian fit to be considered good.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters', 'CoRegistrationInputParameters'],
          'ifabsent': 'float(0.95)'} })
@@ -1426,7 +1439,7 @@ class CoRegistrationOutput(MetricsOutput):
     considered_bead_centers_axial_edge: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as too close to the top and or bottom of the image. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
     considered_bead_centers_outlier: Optional[list[Roi]] = Field(default=None, description="""The centers of the beads detected but considered as being outliers. Intensity robust z-score over requested threshold. Measurements on these bead not considered for the dataset analysis. One point will be provided per bead. One ROI per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
     bead_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsOutput', 'CoRegistrationOutput']} })
-    image_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationOutput']} })
+    image_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationOutput', 'StageDriftOutput']} })
     key_measurements: list[CoRegistrationKeyMeasurement] = Field(default=..., description="""A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
     comment: Optional[Comment] = Field(default=None, description="""A human readable comment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
     processing_application: list[str] = Field(default=..., description="""The application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
@@ -1453,6 +1466,7 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
@@ -1619,6 +1633,173 @@ class PowerMeter(NamedObject):
     description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
 
 
+class StageDriftDataset(HasInputParametersMixin, HasSampleMixin, MetricsDataset):
+    """
+    A dataset containing the results of the StageDrift analysis.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift',
+         'mixins': ['HasSampleMixin', 'HasInputParametersMixin'],
+         'slot_usage': {'input_data': {'name': 'input_data',
+                                       'range': 'StageDriftInputData'},
+                        'input_parameters': {'name': 'input_parameters',
+                                             'range': 'StageDriftInputParameters'},
+                        'output': {'name': 'output', 'range': 'StageDriftOutput'},
+                        'sample': {'name': 'sample', 'range': 'NonPSFBeads'}}})
+
+    sample: Optional[NonPSFBeads] = Field(default=None, description="""The physical sample that was imaged""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasSampleMixin']} })
+    input_parameters: Optional[StageDriftInputParameters] = Field(default=None, description="""The input parameters for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasInputParametersMixin']} })
+    acquisition_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the acquisition""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset', 'Image', 'PowerMeasurement']} })
+    input_data: StageDriftInputData = Field(default=..., description="""The input data for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    output: Optional[StageDriftOutput] = Field(default=None, description="""The output of the analysis""", json_schema_extra = { "linkml_meta": {'abstract': True, 'domain_of': ['MetricsDataset']} })
+    microscope: Microscope = Field(default=..., description="""The microscope that was used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    experimenter: Optional[Experimenter] = Field(default=None, description="""The experimenter that performed the imaging experiment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    acquisition_protocol: Optional[Protocol] = Field(default=None, description="""The protocol used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    processed: bool = Field(default=False, description="""Has the dataset been processed by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset'], 'ifabsent': 'False'} })
+    data_reference: Optional[DataReference] = Field(default=None, description="""A reference to the data""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    linked_references: Optional[list[DataReference]] = Field(default=None, description="""A list of linked references""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class StageDriftInputData(MetricsInputData):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift'})
+
+    beads_image: Image = Field(default=..., description="""The image containing the beads. A time-lapse is required in 2 or 3D.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
+    analysis_roi: Optional[Roi] = Field(default=None, description="""A ROI with a single rectangle delimiting the region to use for analysis. If not provided the analysis will be performed on the whole image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputData']} })
+
+
+class StageDriftInputParameters(MetricsInputParameters):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift',
+         'slot_usage': {'channel_nr': {'ifabsent': 'integer(0)', 'name': 'channel_nr'}}})
+
+    channel_nr: Optional[int] = Field(default=0, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'StageDriftInputParameters',
+                       'UserExperimentKeyMeasurement'],
+         'ifabsent': 'integer(0)'} })
+    reference_frame_nr: int = Field(default=0, description="""The number of the reference timepoint. This timepoint will be used as reference for all the measurements.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftInputParameters'], 'ifabsent': 'integer(0)'} })
+    bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
+                       'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
+                       'UserExperimentInputParameters']} })
+    saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
+                       'PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
+                       'UserExperimentInputParameters'],
+         'ifabsent': 'float(0.01)'} })
+    snr_threshold: float = Field(default=10.0, description="""Signal to noise ratio threshold to be used for bead detection.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsInputParameters',
+                       'CoRegistrationInputParameters',
+                       'StageDriftInputParameters'],
+         'ifabsent': 'float(10.0)'} })
+
+
+class StageDriftOutput(MetricsOutput):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift',
+         'slot_usage': {'key_measurements': {'name': 'key_measurements',
+                                             'range': 'StageDriftKeyMeasurement'}}})
+
+    image_properties: Optional[Table] = Field(default=None, description="""Properties associated with the analysis of the image.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationOutput', 'StageDriftOutput']} })
+    key_measurements: list[StageDriftKeyMeasurement] = Field(default=..., description="""A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    comment: Optional[Comment] = Field(default=None, description="""A human readable comment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_application: list[str] = Field(default=..., description="""The application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_version: list[str] = Field(default=..., description="""The version of the application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_entity: Optional[list[str]] = Field(default=None, description="""The entity that processed the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_datetime: datetime  = Field(default=..., description="""The datetime of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_log: Optional[str] = Field(default=None, description="""The log of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    warnings: Optional[list[str]] = Field(default=None, description="""The warnings of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    errors: Optional[list[str]] = Field(default=None, description="""The errors of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    validated: bool = Field(default=False, description="""Has the dataset been validated by a human""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput'], 'ifabsent': 'False'} })
+    validation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+
+
+class StageDriftKeyMeasurement(KeyMeasurement):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/stage_drift'})
+
+    stabilization_timepoint_x: Optional[int] = Field(default=None, description="""The timepoint at which the stage achieves relative stabilization in x.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    stabilization_timepoint_y: Optional[int] = Field(default=None, description="""The timepoint at which the stage achieves relative stabilization in y.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    stabilization_timepoint_z: Optional[int] = Field(default=None, description="""The timepoint at which the stage achieves relative stabilization in z.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    stabilization_timepoint_3d: Optional[int] = Field(default=None, description="""The timepoint at which the stage achieves relative stabilization in 3d.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_pixel_x: Optional[float] = Field(default=None, description="""The mean relative position of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_pixel_x: Optional[float] = Field(default=None, description="""The median relative position of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_pixel_x: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_pixel_y: Optional[float] = Field(default=None, description="""The mean relative position of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_pixel_y: Optional[float] = Field(default=None, description="""The median relative position of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_pixel_y: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_pixel_z: Optional[float] = Field(default=None, description="""The mean relative position of the stage in z in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_pixel_z: Optional[float] = Field(default=None, description="""The median relative position of the stage in z in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_pixel_z: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in z in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_micron_x: Optional[float] = Field(default=None, description="""The mean relative position of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_micron_x: Optional[float] = Field(default=None, description="""The median relative position of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_micron_x: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_micron_y: Optional[float] = Field(default=None, description="""The mean relative position of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_micron_y: Optional[float] = Field(default=None, description="""The median relative position of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_micron_y: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_mean_micron_z: Optional[float] = Field(default=None, description="""The mean relative position of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_median_micron_z: Optional[float] = Field(default=None, description="""The median relative position of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    relative_position_std_micron_z: Optional[float] = Field(default=None, description="""The standard deviation of the relative position of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_pixel_x: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_pixel_x: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_pixel_x: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in x in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_pixel_y: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_pixel_y: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_pixel_y: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in y in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_pixel_z: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in z in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_pixel_z: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in z in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_micron_x: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_micron_x: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_micron_x: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in x in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_micron_y: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_micron_y: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_micron_y: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in y in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_micron_z: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_micron_z: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_micron_z: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in z in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_mean_micron_3d: Optional[float] = Field(default=None, description="""The mean absolute displacement of the stage in 3d in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_median_micron_3d: Optional[float] = Field(default=None, description="""The median absolute displacement of the stage in 3d in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    displacement_std_micron_3d: Optional[float] = Field(default=None, description="""The standard deviation of the absolute displacement of the stage in 3d in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_pixel_x: Optional[float] = Field(default=None, description="""The velocity at which the stage moves in x in pixels per second""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_pixel_x: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in x in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_pixel_x: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in x in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_pixel_y: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in y in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_pixel_y: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in y in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_pixel_y: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in y in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_pixel_z: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in z in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_pixel_z: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in z in pixels per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_micron_x: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in x in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_micron_x: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in x in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_micron_x: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in x in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_micron_y: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in y in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_micron_y: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in y in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_micron_y: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in y in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_micron_z: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in z in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_micron_z: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in z in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_micron_z: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in z in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_mean_micron_3d: Optional[float] = Field(default=None, description="""The mean velocity at which the stage moves in 3d in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_median_micron_3d: Optional[float] = Field(default=None, description="""The median velocity at which the stage moves in 3d in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    velocity_std_micron_3d: Optional[float] = Field(default=None, description="""The standard deviation of the velocity at which the stage moves in 3d in microns per second.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_pixel_x: Optional[float] = Field(default=None, description="""The slope of the MSD in x in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_pixel_y: Optional[float] = Field(default=None, description="""The slope of the MSD in y in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_pixel_z: Optional[float] = Field(default=None, description="""The slope of the MSD in z in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_micron_x: Optional[float] = Field(default=None, description="""The slope of the MSD in x in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_micron_y: Optional[float] = Field(default=None, description="""The slope of the MSD in y in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_micron_z: Optional[float] = Field(default=None, description="""The slope of the MSD in z in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_slope_micron_3d: Optional[float] = Field(default=None, description="""The slope of the MSD in 3d in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_pixel_x: Optional[float] = Field(default=None, description="""The intercept of the MSD in x in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_pixel_y: Optional[float] = Field(default=None, description="""The intercept of the MSD in y in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_pixel_z: Optional[float] = Field(default=None, description="""The intercept of the MSD in z in pixels^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_micron_x: Optional[float] = Field(default=None, description="""The intercept of the MSD in x in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_micron_y: Optional[float] = Field(default=None, description="""The intercept of the MSD in y in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_micron_z: Optional[float] = Field(default=None, description="""The intercept of the MSD in z in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_intercept_micron_3d: Optional[float] = Field(default=None, description="""The intercept of the MSD in 3d in microns^2.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_r2_x: Optional[float] = Field(default=None, description="""The R^2 of the MSD in x.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_r2_y: Optional[float] = Field(default=None, description="""The R^2 of the MSD in y.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_r2_z: Optional[float] = Field(default=None, description="""The R^2 of the MSD in z.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+    msd_r2_3d: Optional[float] = Field(default=None, description="""The R^2 of the MSD in 3d.""", json_schema_extra = { "linkml_meta": {'domain_of': ['StageDriftKeyMeasurement']} })
+
+
 class UserExperiment(Sample):
     """
     A non-standardized microscope sample produced during regular operation of a research project.
@@ -1674,10 +1855,12 @@ class UserExperimentInputParameters(MetricsInputParameters):
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters']} })
     saturation_threshold: Optional[float] = Field(default=0.01, description="""Tolerated saturation threshold. If the amount of saturated pixels is above this threshold, the image is considered as saturated and the analysis is not performed.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
                        'CoRegistrationInputParameters',
+                       'StageDriftInputParameters',
                        'UserExperimentInputParameters'],
          'ifabsent': 'float(0.01)'} })
 
@@ -1717,6 +1900,7 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
@@ -1819,6 +2003,11 @@ LightSourcePowerKeyMeasurement.model_rebuild()
 PowerMeasurement.model_rebuild()
 LightSource.model_rebuild()
 PowerMeter.model_rebuild()
+StageDriftDataset.model_rebuild()
+StageDriftInputData.model_rebuild()
+StageDriftInputParameters.model_rebuild()
+StageDriftOutput.model_rebuild()
+StageDriftKeyMeasurement.model_rebuild()
 UserExperiment.model_rebuild()
 UserExperimentDataset.model_rebuild()
 UserExperimentInputData.model_rebuild()

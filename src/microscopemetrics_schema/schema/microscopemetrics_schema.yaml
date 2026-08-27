@@ -24,6 +24,7 @@ imports:
   - analyses/psf_beads
   - analyses/coregistration
   - analyses/light_source_power
+  - analyses/stage_drift
   - analyses/user_experiment
   - samples/homogeneous_field
   - samples/beads

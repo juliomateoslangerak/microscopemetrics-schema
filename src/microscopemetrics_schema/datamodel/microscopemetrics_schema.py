@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-25T12:16:32
+# Generation date: 2026-08-27T15:13:01
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2925,6 +2925,468 @@ class PowerMeter(NamedObject):
 
 
 @dataclass(repr=False)
+class StageDriftDataset(MetricsDataset):
+    """
+    A dataset containing the results of the StageDrift analysis.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/stage_drift/StageDriftDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/stage_drift/StageDriftDataset"
+    class_name: ClassVar[str] = "StageDriftDataset"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftDataset
+
+    microscope: Union[dict, Microscope] = None
+    input_data: Union[dict, "StageDriftInputData"] = None
+    processed: Union[bool, Bool] = False
+    input_parameters: Optional[Union[dict, "StageDriftInputParameters"]] = None
+    output: Optional[Union[dict, "StageDriftOutput"]] = None
+    sample: Optional[Union[dict, "NonPSFBeads"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.input_data):
+            self.MissingRequiredField("input_data")
+        if not isinstance(self.input_data, StageDriftInputData):
+            self.input_data = StageDriftInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, StageDriftInputParameters):
+            self.input_parameters = StageDriftInputParameters(**as_dict(self.input_parameters))
+
+        if self.output is not None and not isinstance(self.output, StageDriftOutput):
+            self.output = StageDriftOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, NonPSFBeads):
+            self.sample = NonPSFBeads(**as_dict(self.sample))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class StageDriftInputData(MetricsInputData):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/stage_drift/StageDriftInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/stage_drift/StageDriftInputData"
+    class_name: ClassVar[str] = "StageDriftInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftInputData
+
+    beads_image: Union[dict, Image] = None
+    analysis_roi: Optional[Union[dict, Roi]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.beads_image):
+            self.MissingRequiredField("beads_image")
+        if not isinstance(self.beads_image, Image):
+            self.beads_image = Image(**as_dict(self.beads_image))
+
+        if self.analysis_roi is not None and not isinstance(self.analysis_roi, Roi):
+            self.analysis_roi = Roi(**as_dict(self.analysis_roi))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class StageDriftInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/stage_drift/StageDriftInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/stage_drift/StageDriftInputParameters"
+    class_name: ClassVar[str] = "StageDriftInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftInputParameters
+
+    reference_frame_nr: int = 0
+    snr_threshold: float = 10.0
+    channel_nr: Optional[int] = 0
+    bit_depth: Optional[int] = None
+    saturation_threshold: Optional[float] = 0.01
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.reference_frame_nr):
+            self.MissingRequiredField("reference_frame_nr")
+        if not isinstance(self.reference_frame_nr, int):
+            self.reference_frame_nr = int(self.reference_frame_nr)
+
+        if self._is_empty(self.snr_threshold):
+            self.MissingRequiredField("snr_threshold")
+        if not isinstance(self.snr_threshold, float):
+            self.snr_threshold = float(self.snr_threshold)
+
+        if self.channel_nr is not None and not isinstance(self.channel_nr, int):
+            self.channel_nr = int(self.channel_nr)
+
+        if self.bit_depth is not None and not isinstance(self.bit_depth, int):
+            self.bit_depth = int(self.bit_depth)
+
+        if self.saturation_threshold is not None and not isinstance(self.saturation_threshold, float):
+            self.saturation_threshold = float(self.saturation_threshold)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class StageDriftOutput(MetricsOutput):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/stage_drift/StageDriftOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/stage_drift/StageDriftOutput"
+    class_name: ClassVar[str] = "StageDriftOutput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftOutput
+
+    processing_application: Union[str, list[str]] = None
+    processing_version: Union[str, list[str]] = None
+    processing_datetime: Union[str, XSDDateTime] = None
+    key_measurements: Union[Union[dict, "StageDriftKeyMeasurement"], list[Union[dict, "StageDriftKeyMeasurement"]]] = None
+    validated: Union[bool, Bool] = False
+    image_properties: Optional[Union[dict, Table]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.key_measurements):
+            self.MissingRequiredField("key_measurements")
+        if not isinstance(self.key_measurements, list):
+            self.key_measurements = [self.key_measurements] if self.key_measurements is not None else []
+        self.key_measurements = [v if isinstance(v, StageDriftKeyMeasurement) else StageDriftKeyMeasurement(**as_dict(v)) for v in self.key_measurements]
+
+        if self.image_properties is not None and not isinstance(self.image_properties, Table):
+            self.image_properties = Table(**as_dict(self.image_properties))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class StageDriftKeyMeasurement(KeyMeasurement):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/stage_drift/StageDriftKeyMeasurement"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/stage_drift/StageDriftKeyMeasurement"
+    class_name: ClassVar[str] = "StageDriftKeyMeasurement"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.StageDriftKeyMeasurement
+
+    stabilization_timepoint_x: Optional[int] = None
+    stabilization_timepoint_y: Optional[int] = None
+    stabilization_timepoint_z: Optional[int] = None
+    stabilization_timepoint_3d: Optional[int] = None
+    relative_position_mean_pixel_x: Optional[float] = None
+    relative_position_median_pixel_x: Optional[float] = None
+    relative_position_std_pixel_x: Optional[float] = None
+    relative_position_mean_pixel_y: Optional[float] = None
+    relative_position_median_pixel_y: Optional[float] = None
+    relative_position_std_pixel_y: Optional[float] = None
+    relative_position_mean_pixel_z: Optional[float] = None
+    relative_position_median_pixel_z: Optional[float] = None
+    relative_position_std_pixel_z: Optional[float] = None
+    relative_position_mean_micron_x: Optional[float] = None
+    relative_position_median_micron_x: Optional[float] = None
+    relative_position_std_micron_x: Optional[float] = None
+    relative_position_mean_micron_y: Optional[float] = None
+    relative_position_median_micron_y: Optional[float] = None
+    relative_position_std_micron_y: Optional[float] = None
+    relative_position_mean_micron_z: Optional[float] = None
+    relative_position_median_micron_z: Optional[float] = None
+    relative_position_std_micron_z: Optional[float] = None
+    displacement_mean_pixel_x: Optional[float] = None
+    displacement_median_pixel_x: Optional[float] = None
+    displacement_std_pixel_x: Optional[float] = None
+    displacement_mean_pixel_y: Optional[float] = None
+    displacement_median_pixel_y: Optional[float] = None
+    displacement_std_pixel_y: Optional[float] = None
+    displacement_mean_pixel_z: Optional[float] = None
+    displacement_median_pixel_z: Optional[float] = None
+    displacement_mean_micron_x: Optional[float] = None
+    displacement_median_micron_x: Optional[float] = None
+    displacement_std_micron_x: Optional[float] = None
+    displacement_mean_micron_y: Optional[float] = None
+    displacement_median_micron_y: Optional[float] = None
+    displacement_std_micron_y: Optional[float] = None
+    displacement_mean_micron_z: Optional[float] = None
+    displacement_median_micron_z: Optional[float] = None
+    displacement_std_micron_z: Optional[float] = None
+    displacement_mean_micron_3d: Optional[float] = None
+    displacement_median_micron_3d: Optional[float] = None
+    displacement_std_micron_3d: Optional[float] = None
+    velocity_mean_pixel_x: Optional[float] = None
+    velocity_median_pixel_x: Optional[float] = None
+    velocity_std_pixel_x: Optional[float] = None
+    velocity_mean_pixel_y: Optional[float] = None
+    velocity_median_pixel_y: Optional[float] = None
+    velocity_std_pixel_y: Optional[float] = None
+    velocity_mean_pixel_z: Optional[float] = None
+    velocity_median_pixel_z: Optional[float] = None
+    velocity_mean_micron_x: Optional[float] = None
+    velocity_median_micron_x: Optional[float] = None
+    velocity_std_micron_x: Optional[float] = None
+    velocity_mean_micron_y: Optional[float] = None
+    velocity_median_micron_y: Optional[float] = None
+    velocity_std_micron_y: Optional[float] = None
+    velocity_mean_micron_z: Optional[float] = None
+    velocity_median_micron_z: Optional[float] = None
+    velocity_std_micron_z: Optional[float] = None
+    velocity_mean_micron_3d: Optional[float] = None
+    velocity_median_micron_3d: Optional[float] = None
+    velocity_std_micron_3d: Optional[float] = None
+    msd_slope_pixel_x: Optional[float] = None
+    msd_slope_pixel_y: Optional[float] = None
+    msd_slope_pixel_z: Optional[float] = None
+    msd_slope_micron_x: Optional[float] = None
+    msd_slope_micron_y: Optional[float] = None
+    msd_slope_micron_z: Optional[float] = None
+    msd_slope_micron_3d: Optional[float] = None
+    msd_intercept_pixel_x: Optional[float] = None
+    msd_intercept_pixel_y: Optional[float] = None
+    msd_intercept_pixel_z: Optional[float] = None
+    msd_intercept_micron_x: Optional[float] = None
+    msd_intercept_micron_y: Optional[float] = None
+    msd_intercept_micron_z: Optional[float] = None
+    msd_intercept_micron_3d: Optional[float] = None
+    msd_r2_x: Optional[float] = None
+    msd_r2_y: Optional[float] = None
+    msd_r2_z: Optional[float] = None
+    msd_r2_3d: Optional[float] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.stabilization_timepoint_x is not None and not isinstance(self.stabilization_timepoint_x, int):
+            self.stabilization_timepoint_x = int(self.stabilization_timepoint_x)
+
+        if self.stabilization_timepoint_y is not None and not isinstance(self.stabilization_timepoint_y, int):
+            self.stabilization_timepoint_y = int(self.stabilization_timepoint_y)
+
+        if self.stabilization_timepoint_z is not None and not isinstance(self.stabilization_timepoint_z, int):
+            self.stabilization_timepoint_z = int(self.stabilization_timepoint_z)
+
+        if self.stabilization_timepoint_3d is not None and not isinstance(self.stabilization_timepoint_3d, int):
+            self.stabilization_timepoint_3d = int(self.stabilization_timepoint_3d)
+
+        if self.relative_position_mean_pixel_x is not None and not isinstance(self.relative_position_mean_pixel_x, float):
+            self.relative_position_mean_pixel_x = float(self.relative_position_mean_pixel_x)
+
+        if self.relative_position_median_pixel_x is not None and not isinstance(self.relative_position_median_pixel_x, float):
+            self.relative_position_median_pixel_x = float(self.relative_position_median_pixel_x)
+
+        if self.relative_position_std_pixel_x is not None and not isinstance(self.relative_position_std_pixel_x, float):
+            self.relative_position_std_pixel_x = float(self.relative_position_std_pixel_x)
+
+        if self.relative_position_mean_pixel_y is not None and not isinstance(self.relative_position_mean_pixel_y, float):
+            self.relative_position_mean_pixel_y = float(self.relative_position_mean_pixel_y)
+
+        if self.relative_position_median_pixel_y is not None and not isinstance(self.relative_position_median_pixel_y, float):
+            self.relative_position_median_pixel_y = float(self.relative_position_median_pixel_y)
+
+        if self.relative_position_std_pixel_y is not None and not isinstance(self.relative_position_std_pixel_y, float):
+            self.relative_position_std_pixel_y = float(self.relative_position_std_pixel_y)
+
+        if self.relative_position_mean_pixel_z is not None and not isinstance(self.relative_position_mean_pixel_z, float):
+            self.relative_position_mean_pixel_z = float(self.relative_position_mean_pixel_z)
+
+        if self.relative_position_median_pixel_z is not None and not isinstance(self.relative_position_median_pixel_z, float):
+            self.relative_position_median_pixel_z = float(self.relative_position_median_pixel_z)
+
+        if self.relative_position_std_pixel_z is not None and not isinstance(self.relative_position_std_pixel_z, float):
+            self.relative_position_std_pixel_z = float(self.relative_position_std_pixel_z)
+
+        if self.relative_position_mean_micron_x is not None and not isinstance(self.relative_position_mean_micron_x, float):
+            self.relative_position_mean_micron_x = float(self.relative_position_mean_micron_x)
+
+        if self.relative_position_median_micron_x is not None and not isinstance(self.relative_position_median_micron_x, float):
+            self.relative_position_median_micron_x = float(self.relative_position_median_micron_x)
+
+        if self.relative_position_std_micron_x is not None and not isinstance(self.relative_position_std_micron_x, float):
+            self.relative_position_std_micron_x = float(self.relative_position_std_micron_x)
+
+        if self.relative_position_mean_micron_y is not None and not isinstance(self.relative_position_mean_micron_y, float):
+            self.relative_position_mean_micron_y = float(self.relative_position_mean_micron_y)
+
+        if self.relative_position_median_micron_y is not None and not isinstance(self.relative_position_median_micron_y, float):
+            self.relative_position_median_micron_y = float(self.relative_position_median_micron_y)
+
+        if self.relative_position_std_micron_y is not None and not isinstance(self.relative_position_std_micron_y, float):
+            self.relative_position_std_micron_y = float(self.relative_position_std_micron_y)
+
+        if self.relative_position_mean_micron_z is not None and not isinstance(self.relative_position_mean_micron_z, float):
+            self.relative_position_mean_micron_z = float(self.relative_position_mean_micron_z)
+
+        if self.relative_position_median_micron_z is not None and not isinstance(self.relative_position_median_micron_z, float):
+            self.relative_position_median_micron_z = float(self.relative_position_median_micron_z)
+
+        if self.relative_position_std_micron_z is not None and not isinstance(self.relative_position_std_micron_z, float):
+            self.relative_position_std_micron_z = float(self.relative_position_std_micron_z)
+
+        if self.displacement_mean_pixel_x is not None and not isinstance(self.displacement_mean_pixel_x, float):
+            self.displacement_mean_pixel_x = float(self.displacement_mean_pixel_x)
+
+        if self.displacement_median_pixel_x is not None and not isinstance(self.displacement_median_pixel_x, float):
+            self.displacement_median_pixel_x = float(self.displacement_median_pixel_x)
+
+        if self.displacement_std_pixel_x is not None and not isinstance(self.displacement_std_pixel_x, float):
+            self.displacement_std_pixel_x = float(self.displacement_std_pixel_x)
+
+        if self.displacement_mean_pixel_y is not None and not isinstance(self.displacement_mean_pixel_y, float):
+            self.displacement_mean_pixel_y = float(self.displacement_mean_pixel_y)
+
+        if self.displacement_median_pixel_y is not None and not isinstance(self.displacement_median_pixel_y, float):
+            self.displacement_median_pixel_y = float(self.displacement_median_pixel_y)
+
+        if self.displacement_std_pixel_y is not None and not isinstance(self.displacement_std_pixel_y, float):
+            self.displacement_std_pixel_y = float(self.displacement_std_pixel_y)
+
+        if self.displacement_mean_pixel_z is not None and not isinstance(self.displacement_mean_pixel_z, float):
+            self.displacement_mean_pixel_z = float(self.displacement_mean_pixel_z)
+
+        if self.displacement_median_pixel_z is not None and not isinstance(self.displacement_median_pixel_z, float):
+            self.displacement_median_pixel_z = float(self.displacement_median_pixel_z)
+
+        if self.displacement_mean_micron_x is not None and not isinstance(self.displacement_mean_micron_x, float):
+            self.displacement_mean_micron_x = float(self.displacement_mean_micron_x)
+
+        if self.displacement_median_micron_x is not None and not isinstance(self.displacement_median_micron_x, float):
+            self.displacement_median_micron_x = float(self.displacement_median_micron_x)
+
+        if self.displacement_std_micron_x is not None and not isinstance(self.displacement_std_micron_x, float):
+            self.displacement_std_micron_x = float(self.displacement_std_micron_x)
+
+        if self.displacement_mean_micron_y is not None and not isinstance(self.displacement_mean_micron_y, float):
+            self.displacement_mean_micron_y = float(self.displacement_mean_micron_y)
+
+        if self.displacement_median_micron_y is not None and not isinstance(self.displacement_median_micron_y, float):
+            self.displacement_median_micron_y = float(self.displacement_median_micron_y)
+
+        if self.displacement_std_micron_y is not None and not isinstance(self.displacement_std_micron_y, float):
+            self.displacement_std_micron_y = float(self.displacement_std_micron_y)
+
+        if self.displacement_mean_micron_z is not None and not isinstance(self.displacement_mean_micron_z, float):
+            self.displacement_mean_micron_z = float(self.displacement_mean_micron_z)
+
+        if self.displacement_median_micron_z is not None and not isinstance(self.displacement_median_micron_z, float):
+            self.displacement_median_micron_z = float(self.displacement_median_micron_z)
+
+        if self.displacement_std_micron_z is not None and not isinstance(self.displacement_std_micron_z, float):
+            self.displacement_std_micron_z = float(self.displacement_std_micron_z)
+
+        if self.displacement_mean_micron_3d is not None and not isinstance(self.displacement_mean_micron_3d, float):
+            self.displacement_mean_micron_3d = float(self.displacement_mean_micron_3d)
+
+        if self.displacement_median_micron_3d is not None and not isinstance(self.displacement_median_micron_3d, float):
+            self.displacement_median_micron_3d = float(self.displacement_median_micron_3d)
+
+        if self.displacement_std_micron_3d is not None and not isinstance(self.displacement_std_micron_3d, float):
+            self.displacement_std_micron_3d = float(self.displacement_std_micron_3d)
+
+        if self.velocity_mean_pixel_x is not None and not isinstance(self.velocity_mean_pixel_x, float):
+            self.velocity_mean_pixel_x = float(self.velocity_mean_pixel_x)
+
+        if self.velocity_median_pixel_x is not None and not isinstance(self.velocity_median_pixel_x, float):
+            self.velocity_median_pixel_x = float(self.velocity_median_pixel_x)
+
+        if self.velocity_std_pixel_x is not None and not isinstance(self.velocity_std_pixel_x, float):
+            self.velocity_std_pixel_x = float(self.velocity_std_pixel_x)
+
+        if self.velocity_mean_pixel_y is not None and not isinstance(self.velocity_mean_pixel_y, float):
+            self.velocity_mean_pixel_y = float(self.velocity_mean_pixel_y)
+
+        if self.velocity_median_pixel_y is not None and not isinstance(self.velocity_median_pixel_y, float):
+            self.velocity_median_pixel_y = float(self.velocity_median_pixel_y)
+
+        if self.velocity_std_pixel_y is not None and not isinstance(self.velocity_std_pixel_y, float):
+            self.velocity_std_pixel_y = float(self.velocity_std_pixel_y)
+
+        if self.velocity_mean_pixel_z is not None and not isinstance(self.velocity_mean_pixel_z, float):
+            self.velocity_mean_pixel_z = float(self.velocity_mean_pixel_z)
+
+        if self.velocity_median_pixel_z is not None and not isinstance(self.velocity_median_pixel_z, float):
+            self.velocity_median_pixel_z = float(self.velocity_median_pixel_z)
+
+        if self.velocity_mean_micron_x is not None and not isinstance(self.velocity_mean_micron_x, float):
+            self.velocity_mean_micron_x = float(self.velocity_mean_micron_x)
+
+        if self.velocity_median_micron_x is not None and not isinstance(self.velocity_median_micron_x, float):
+            self.velocity_median_micron_x = float(self.velocity_median_micron_x)
+
+        if self.velocity_std_micron_x is not None and not isinstance(self.velocity_std_micron_x, float):
+            self.velocity_std_micron_x = float(self.velocity_std_micron_x)
+
+        if self.velocity_mean_micron_y is not None and not isinstance(self.velocity_mean_micron_y, float):
+            self.velocity_mean_micron_y = float(self.velocity_mean_micron_y)
+
+        if self.velocity_median_micron_y is not None and not isinstance(self.velocity_median_micron_y, float):
+            self.velocity_median_micron_y = float(self.velocity_median_micron_y)
+
+        if self.velocity_std_micron_y is not None and not isinstance(self.velocity_std_micron_y, float):
+            self.velocity_std_micron_y = float(self.velocity_std_micron_y)
+
+        if self.velocity_mean_micron_z is not None and not isinstance(self.velocity_mean_micron_z, float):
+            self.velocity_mean_micron_z = float(self.velocity_mean_micron_z)
+
+        if self.velocity_median_micron_z is not None and not isinstance(self.velocity_median_micron_z, float):
+            self.velocity_median_micron_z = float(self.velocity_median_micron_z)
+
+        if self.velocity_std_micron_z is not None and not isinstance(self.velocity_std_micron_z, float):
+            self.velocity_std_micron_z = float(self.velocity_std_micron_z)
+
+        if self.velocity_mean_micron_3d is not None and not isinstance(self.velocity_mean_micron_3d, float):
+            self.velocity_mean_micron_3d = float(self.velocity_mean_micron_3d)
+
+        if self.velocity_median_micron_3d is not None and not isinstance(self.velocity_median_micron_3d, float):
+            self.velocity_median_micron_3d = float(self.velocity_median_micron_3d)
+
+        if self.velocity_std_micron_3d is not None and not isinstance(self.velocity_std_micron_3d, float):
+            self.velocity_std_micron_3d = float(self.velocity_std_micron_3d)
+
+        if self.msd_slope_pixel_x is not None and not isinstance(self.msd_slope_pixel_x, float):
+            self.msd_slope_pixel_x = float(self.msd_slope_pixel_x)
+
+        if self.msd_slope_pixel_y is not None and not isinstance(self.msd_slope_pixel_y, float):
+            self.msd_slope_pixel_y = float(self.msd_slope_pixel_y)
+
+        if self.msd_slope_pixel_z is not None and not isinstance(self.msd_slope_pixel_z, float):
+            self.msd_slope_pixel_z = float(self.msd_slope_pixel_z)
+
+        if self.msd_slope_micron_x is not None and not isinstance(self.msd_slope_micron_x, float):
+            self.msd_slope_micron_x = float(self.msd_slope_micron_x)
+
+        if self.msd_slope_micron_y is not None and not isinstance(self.msd_slope_micron_y, float):
+            self.msd_slope_micron_y = float(self.msd_slope_micron_y)
+
+        if self.msd_slope_micron_z is not None and not isinstance(self.msd_slope_micron_z, float):
+            self.msd_slope_micron_z = float(self.msd_slope_micron_z)
+
+        if self.msd_slope_micron_3d is not None and not isinstance(self.msd_slope_micron_3d, float):
+            self.msd_slope_micron_3d = float(self.msd_slope_micron_3d)
+
+        if self.msd_intercept_pixel_x is not None and not isinstance(self.msd_intercept_pixel_x, float):
+            self.msd_intercept_pixel_x = float(self.msd_intercept_pixel_x)
+
+        if self.msd_intercept_pixel_y is not None and not isinstance(self.msd_intercept_pixel_y, float):
+            self.msd_intercept_pixel_y = float(self.msd_intercept_pixel_y)
+
+        if self.msd_intercept_pixel_z is not None and not isinstance(self.msd_intercept_pixel_z, float):
+            self.msd_intercept_pixel_z = float(self.msd_intercept_pixel_z)
+
+        if self.msd_intercept_micron_x is not None and not isinstance(self.msd_intercept_micron_x, float):
+            self.msd_intercept_micron_x = float(self.msd_intercept_micron_x)
+
+        if self.msd_intercept_micron_y is not None and not isinstance(self.msd_intercept_micron_y, float):
+            self.msd_intercept_micron_y = float(self.msd_intercept_micron_y)
+
+        if self.msd_intercept_micron_z is not None and not isinstance(self.msd_intercept_micron_z, float):
+            self.msd_intercept_micron_z = float(self.msd_intercept_micron_z)
+
+        if self.msd_intercept_micron_3d is not None and not isinstance(self.msd_intercept_micron_3d, float):
+            self.msd_intercept_micron_3d = float(self.msd_intercept_micron_3d)
+
+        if self.msd_r2_x is not None and not isinstance(self.msd_r2_x, float):
+            self.msd_r2_x = float(self.msd_r2_x)
+
+        if self.msd_r2_y is not None and not isinstance(self.msd_r2_y, float):
+            self.msd_r2_y = float(self.msd_r2_y)
+
+        if self.msd_r2_z is not None and not isinstance(self.msd_r2_z, float):
+            self.msd_r2_z = float(self.msd_r2_z)
+
+        if self.msd_r2_3d is not None and not isinstance(self.msd_r2_3d, float):
+            self.msd_r2_3d = float(self.msd_r2_3d)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class UserExperimentDataset(MetricsDataset):
     """
     A dataset of non-standardized microscope samples produced during regular operation of a research project.
@@ -4201,6 +4663,255 @@ slots.long_term_power_stability_end_datetime = Slot(uri=MICROSCOPEMETRICS_SCHEMA
 slots.long_term_power_stability = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/long_term_power_stability'], name="long_term_power_stability", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/long_term_power_stability'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.long_term_power_stability, domain=None, range=Optional[float])
 
+slots.beads_image = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/beads_image'], name="beads_image", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/beads_image'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.beads_image, domain=None, range=Union[dict, Image])
+
+slots.analysis_roi = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/analysis_roi'], name="analysis_roi", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/analysis_roi'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.analysis_roi, domain=None, range=Optional[Union[dict, Roi]])
+
+slots.reference_frame_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/reference_frame_nr'], name="reference_frame_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/reference_frame_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_frame_nr, domain=None, range=int)
+
+slots.stabilization_timepoint_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/stabilization_timepoint_x'], name="stabilization_timepoint_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/stabilization_timepoint_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.stabilization_timepoint_x, domain=None, range=Optional[int])
+
+slots.stabilization_timepoint_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/stabilization_timepoint_y'], name="stabilization_timepoint_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/stabilization_timepoint_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.stabilization_timepoint_y, domain=None, range=Optional[int])
+
+slots.stabilization_timepoint_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/stabilization_timepoint_z'], name="stabilization_timepoint_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/stabilization_timepoint_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.stabilization_timepoint_z, domain=None, range=Optional[int])
+
+slots.stabilization_timepoint_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/stabilization_timepoint_3d'], name="stabilization_timepoint_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/stabilization_timepoint_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.stabilization_timepoint_3d, domain=None, range=Optional[int])
+
+slots.relative_position_mean_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_pixel_x'], name="relative_position_mean_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_pixel_x, domain=None, range=Optional[float])
+
+slots.relative_position_median_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_pixel_x'], name="relative_position_median_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_pixel_x, domain=None, range=Optional[float])
+
+slots.relative_position_std_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_pixel_x'], name="relative_position_std_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_pixel_x, domain=None, range=Optional[float])
+
+slots.relative_position_mean_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_pixel_y'], name="relative_position_mean_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_pixel_y, domain=None, range=Optional[float])
+
+slots.relative_position_median_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_pixel_y'], name="relative_position_median_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_pixel_y, domain=None, range=Optional[float])
+
+slots.relative_position_std_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_pixel_y'], name="relative_position_std_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_pixel_y, domain=None, range=Optional[float])
+
+slots.relative_position_mean_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_pixel_z'], name="relative_position_mean_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_pixel_z, domain=None, range=Optional[float])
+
+slots.relative_position_median_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_pixel_z'], name="relative_position_median_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_pixel_z, domain=None, range=Optional[float])
+
+slots.relative_position_std_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_pixel_z'], name="relative_position_std_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_pixel_z, domain=None, range=Optional[float])
+
+slots.relative_position_mean_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_micron_x'], name="relative_position_mean_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_micron_x, domain=None, range=Optional[float])
+
+slots.relative_position_median_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_micron_x'], name="relative_position_median_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_micron_x, domain=None, range=Optional[float])
+
+slots.relative_position_std_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_micron_x'], name="relative_position_std_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_micron_x, domain=None, range=Optional[float])
+
+slots.relative_position_mean_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_micron_y'], name="relative_position_mean_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_micron_y, domain=None, range=Optional[float])
+
+slots.relative_position_median_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_micron_y'], name="relative_position_median_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_micron_y, domain=None, range=Optional[float])
+
+slots.relative_position_std_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_micron_y'], name="relative_position_std_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_micron_y, domain=None, range=Optional[float])
+
+slots.relative_position_mean_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_mean_micron_z'], name="relative_position_mean_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_mean_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_mean_micron_z, domain=None, range=Optional[float])
+
+slots.relative_position_median_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_median_micron_z'], name="relative_position_median_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_median_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_median_micron_z, domain=None, range=Optional[float])
+
+slots.relative_position_std_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/relative_position_std_micron_z'], name="relative_position_std_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/relative_position_std_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.relative_position_std_micron_z, domain=None, range=Optional[float])
+
+slots.displacement_mean_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_pixel_x'], name="displacement_mean_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_pixel_x, domain=None, range=Optional[float])
+
+slots.displacement_median_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_pixel_x'], name="displacement_median_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_pixel_x, domain=None, range=Optional[float])
+
+slots.displacement_std_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_pixel_x'], name="displacement_std_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_pixel_x, domain=None, range=Optional[float])
+
+slots.displacement_mean_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_pixel_y'], name="displacement_mean_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_pixel_y, domain=None, range=Optional[float])
+
+slots.displacement_median_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_pixel_y'], name="displacement_median_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_pixel_y, domain=None, range=Optional[float])
+
+slots.displacement_std_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_pixel_y'], name="displacement_std_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_pixel_y, domain=None, range=Optional[float])
+
+slots.displacement_mean_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_pixel_z'], name="displacement_mean_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_pixel_z, domain=None, range=Optional[float])
+
+slots.displacement_median_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_pixel_z'], name="displacement_median_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_pixel_z, domain=None, range=Optional[float])
+
+slots.displacement_mean_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_micron_x'], name="displacement_mean_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_micron_x, domain=None, range=Optional[float])
+
+slots.displacement_median_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_micron_x'], name="displacement_median_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_micron_x, domain=None, range=Optional[float])
+
+slots.displacement_std_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_micron_x'], name="displacement_std_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_micron_x, domain=None, range=Optional[float])
+
+slots.displacement_mean_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_micron_y'], name="displacement_mean_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_micron_y, domain=None, range=Optional[float])
+
+slots.displacement_median_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_micron_y'], name="displacement_median_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_micron_y, domain=None, range=Optional[float])
+
+slots.displacement_std_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_micron_y'], name="displacement_std_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_micron_y, domain=None, range=Optional[float])
+
+slots.displacement_mean_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_micron_z'], name="displacement_mean_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_micron_z, domain=None, range=Optional[float])
+
+slots.displacement_median_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_micron_z'], name="displacement_median_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_micron_z, domain=None, range=Optional[float])
+
+slots.displacement_std_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_micron_z'], name="displacement_std_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_micron_z, domain=None, range=Optional[float])
+
+slots.displacement_mean_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_mean_micron_3d'], name="displacement_mean_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_mean_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_mean_micron_3d, domain=None, range=Optional[float])
+
+slots.displacement_median_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_median_micron_3d'], name="displacement_median_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_median_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_median_micron_3d, domain=None, range=Optional[float])
+
+slots.displacement_std_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_std_micron_3d'], name="displacement_std_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_std_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_std_micron_3d, domain=None, range=Optional[float])
+
+slots.velocity_mean_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_pixel_x'], name="velocity_mean_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_pixel_x, domain=None, range=Optional[float])
+
+slots.velocity_median_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_pixel_x'], name="velocity_median_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_pixel_x, domain=None, range=Optional[float])
+
+slots.velocity_std_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_pixel_x'], name="velocity_std_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_pixel_x, domain=None, range=Optional[float])
+
+slots.velocity_mean_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_pixel_y'], name="velocity_mean_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_pixel_y, domain=None, range=Optional[float])
+
+slots.velocity_median_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_pixel_y'], name="velocity_median_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_pixel_y, domain=None, range=Optional[float])
+
+slots.velocity_std_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_pixel_y'], name="velocity_std_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_pixel_y, domain=None, range=Optional[float])
+
+slots.velocity_mean_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_pixel_z'], name="velocity_mean_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_pixel_z, domain=None, range=Optional[float])
+
+slots.velocity_median_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_pixel_z'], name="velocity_median_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_pixel_z, domain=None, range=Optional[float])
+
+slots.velocity_mean_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_micron_x'], name="velocity_mean_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_micron_x, domain=None, range=Optional[float])
+
+slots.velocity_median_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_micron_x'], name="velocity_median_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_micron_x, domain=None, range=Optional[float])
+
+slots.velocity_std_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_micron_x'], name="velocity_std_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_micron_x, domain=None, range=Optional[float])
+
+slots.velocity_mean_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_micron_y'], name="velocity_mean_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_micron_y, domain=None, range=Optional[float])
+
+slots.velocity_median_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_micron_y'], name="velocity_median_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_micron_y, domain=None, range=Optional[float])
+
+slots.velocity_std_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_micron_y'], name="velocity_std_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_micron_y, domain=None, range=Optional[float])
+
+slots.velocity_mean_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_micron_z'], name="velocity_mean_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_micron_z, domain=None, range=Optional[float])
+
+slots.velocity_median_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_micron_z'], name="velocity_median_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_micron_z, domain=None, range=Optional[float])
+
+slots.velocity_std_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_micron_z'], name="velocity_std_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_micron_z, domain=None, range=Optional[float])
+
+slots.velocity_mean_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_mean_micron_3d'], name="velocity_mean_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_mean_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_mean_micron_3d, domain=None, range=Optional[float])
+
+slots.velocity_median_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_median_micron_3d'], name="velocity_median_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_median_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_median_micron_3d, domain=None, range=Optional[float])
+
+slots.velocity_std_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_std_micron_3d'], name="velocity_std_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_std_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_std_micron_3d, domain=None, range=Optional[float])
+
+slots.msd_slope_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_pixel_x'], name="msd_slope_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_pixel_x, domain=None, range=Optional[float])
+
+slots.msd_slope_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_pixel_y'], name="msd_slope_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_pixel_y, domain=None, range=Optional[float])
+
+slots.msd_slope_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_pixel_z'], name="msd_slope_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_pixel_z, domain=None, range=Optional[float])
+
+slots.msd_slope_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_micron_x'], name="msd_slope_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_micron_x, domain=None, range=Optional[float])
+
+slots.msd_slope_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_micron_y'], name="msd_slope_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_micron_y, domain=None, range=Optional[float])
+
+slots.msd_slope_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_micron_z'], name="msd_slope_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_micron_z, domain=None, range=Optional[float])
+
+slots.msd_slope_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_micron_3d'], name="msd_slope_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_micron_3d, domain=None, range=Optional[float])
+
+slots.msd_intercept_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_pixel_x'], name="msd_intercept_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_pixel_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_pixel_x, domain=None, range=Optional[float])
+
+slots.msd_intercept_pixel_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_pixel_y'], name="msd_intercept_pixel_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_pixel_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_pixel_y, domain=None, range=Optional[float])
+
+slots.msd_intercept_pixel_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_pixel_z'], name="msd_intercept_pixel_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_pixel_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_pixel_z, domain=None, range=Optional[float])
+
+slots.msd_intercept_micron_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_micron_x'], name="msd_intercept_micron_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_micron_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_micron_x, domain=None, range=Optional[float])
+
+slots.msd_intercept_micron_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_micron_y'], name="msd_intercept_micron_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_micron_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_micron_y, domain=None, range=Optional[float])
+
+slots.msd_intercept_micron_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_micron_z'], name="msd_intercept_micron_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_micron_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_micron_z, domain=None, range=Optional[float])
+
+slots.msd_intercept_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_intercept_micron_3d'], name="msd_intercept_micron_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_intercept_micron_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_intercept_micron_3d, domain=None, range=Optional[float])
+
+slots.msd_r2_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_r2_x'], name="msd_r2_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_r2_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_r2_x, domain=None, range=Optional[float])
+
+slots.msd_r2_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_r2_y'], name="msd_r2_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_r2_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_r2_y, domain=None, range=Optional[float])
+
+slots.msd_r2_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_r2_z'], name="msd_r2_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_r2_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_r2_z, domain=None, range=Optional[float])
+
+slots.msd_r2_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_r2_3d'], name="msd_r2_3d", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_r2_3d'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.msd_r2_3d, domain=None, range=Optional[float])
+
 slots.user_experiment_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/user_experiment/user_experiment_images'], name="user_experiment_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/user_experiment/user_experiment_images'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.user_experiment_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
 
@@ -4521,6 +5232,24 @@ slots.LightSource_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA.name, name="LightSour
 
 slots.PowerMeter_name = Slot(uri=MICROSCOPEMETRICS_SCHEMA.name, name="PowerMeter_name", curie=MICROSCOPEMETRICS_SCHEMA.curie('name'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.PowerMeter_name, domain=PowerMeter, range=str)
+
+slots.StageDriftDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="StageDriftDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftDataset_input_data, domain=StageDriftDataset, range=Union[dict, "StageDriftInputData"])
+
+slots.StageDriftDataset_input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_parameters'], name="StageDriftDataset_input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftDataset_input_parameters, domain=StageDriftDataset, range=Optional[Union[dict, "StageDriftInputParameters"]])
+
+slots.StageDriftDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'], name="StageDriftDataset_output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftDataset_output, domain=StageDriftDataset, range=Optional[Union[dict, "StageDriftOutput"]])
+
+slots.StageDriftDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sample'], name="StageDriftDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftDataset_sample, domain=StageDriftDataset, range=Optional[Union[dict, "NonPSFBeads"]])
+
+slots.StageDriftInputParameters_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/channel_nr'], name="StageDriftInputParameters_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/channel_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftInputParameters_channel_nr, domain=StageDriftInputParameters, range=Optional[int])
+
+slots.StageDriftOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="StageDriftOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.StageDriftOutput_key_measurements, domain=StageDriftOutput, range=Union[Union[dict, "StageDriftKeyMeasurement"], list[Union[dict, "StageDriftKeyMeasurement"]]])
 
 slots.UserExperimentDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="UserExperimentDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.UserExperimentDataset_input_data, domain=UserExperimentDataset, range=Union[dict, "UserExperimentInputData"])
