@@ -90,6 +90,7 @@ classes:
       - displacement_pixel_y_std
       - displacement_pixel_z_mean
       - displacement_pixel_z_median
+      - displacement_pixel_z_std
       - displacement_micron_x_mean
       - displacement_micron_x_median
       - displacement_micron_x_std
@@ -311,6 +312,11 @@ slots:
     range: float
     description: >-
       The median absolute displacement of the stage in z in pixels.
+    multivalued: false
+  displacement_pixel_z_std:
+    range: float
+    description: >-
+      The standard deviation of the absolute displacement of the stage in z in pixels.
     multivalued: false
   displacement_micron_x_mean:
     range: float

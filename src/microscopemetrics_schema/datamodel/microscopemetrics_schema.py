@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-31T17:48:51
+# Generation date: 2026-08-31T18:06:33
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -3095,6 +3095,7 @@ class StageDriftKeyMeasurement(KeyMeasurement):
     displacement_pixel_y_std: Optional[float] = None
     displacement_pixel_z_mean: Optional[float] = None
     displacement_pixel_z_median: Optional[float] = None
+    displacement_pixel_z_std: Optional[float] = None
     displacement_micron_x_mean: Optional[float] = None
     displacement_micron_x_median: Optional[float] = None
     displacement_micron_x_std: Optional[float] = None
@@ -3228,6 +3229,9 @@ class StageDriftKeyMeasurement(KeyMeasurement):
 
         if self.displacement_pixel_z_median is not None and not isinstance(self.displacement_pixel_z_median, float):
             self.displacement_pixel_z_median = float(self.displacement_pixel_z_median)
+
+        if self.displacement_pixel_z_std is not None and not isinstance(self.displacement_pixel_z_std, float):
+            self.displacement_pixel_z_std = float(self.displacement_pixel_z_std)
 
         if self.displacement_micron_x_mean is not None and not isinstance(self.displacement_micron_x_mean, float):
             self.displacement_micron_x_mean = float(self.displacement_micron_x_mean)
@@ -4736,6 +4740,9 @@ slots.displacement_pixel_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/st
 
 slots.displacement_pixel_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_pixel_z_median'], name="displacement_pixel_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_pixel_z_median'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_pixel_z_median, domain=None, range=Optional[float])
+
+slots.displacement_pixel_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_pixel_z_std'], name="displacement_pixel_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_pixel_z_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_pixel_z_std, domain=None, range=Optional[float])
 
 slots.displacement_micron_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_micron_x_mean'], name="displacement_micron_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_micron_x_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_micron_x_mean, domain=None, range=Optional[float])
