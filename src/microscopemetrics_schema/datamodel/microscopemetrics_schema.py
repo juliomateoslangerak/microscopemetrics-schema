@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-31T16:11:23
+# Generation date: 2026-08-31T17:48:51
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -3107,26 +3107,18 @@ class StageDriftKeyMeasurement(KeyMeasurement):
     displacement_micron_3d_mean: Optional[float] = None
     displacement_micron_3d_median: Optional[float] = None
     displacement_micron_3d_std: Optional[float] = None
-    velocity_pixel_x_mean: Optional[float] = None
-    velocity_pixel_x_median: Optional[float] = None
-    velocity_pixel_x_std: Optional[float] = None
-    velocity_pixel_y_mean: Optional[float] = None
-    velocity_pixel_y_median: Optional[float] = None
-    velocity_pixel_y_std: Optional[float] = None
-    velocity_pixel_z_mean: Optional[float] = None
-    velocity_pixel_z_median: Optional[float] = None
-    velocity_micron_x_mean: Optional[float] = None
-    velocity_micron_x_median: Optional[float] = None
-    velocity_micron_x_std: Optional[float] = None
-    velocity_micron_y_mean: Optional[float] = None
-    velocity_micron_y_median: Optional[float] = None
-    velocity_micron_y_std: Optional[float] = None
-    velocity_micron_z_mean: Optional[float] = None
-    velocity_micron_z_median: Optional[float] = None
-    velocity_micron_z_std: Optional[float] = None
-    velocity_micron_3d_mean: Optional[float] = None
-    velocity_micron_3d_median: Optional[float] = None
-    velocity_micron_3d_std: Optional[float] = None
+    velocity_micron_per_sec_x_mean: Optional[float] = None
+    velocity_micron_per_sec_x_median: Optional[float] = None
+    velocity_micron_per_sec_x_std: Optional[float] = None
+    velocity_micron_per_sec_y_mean: Optional[float] = None
+    velocity_micron_per_sec_y_median: Optional[float] = None
+    velocity_micron_per_sec_y_std: Optional[float] = None
+    velocity_micron_per_sec_z_mean: Optional[float] = None
+    velocity_micron_per_sec_z_median: Optional[float] = None
+    velocity_micron_per_sec_z_std: Optional[float] = None
+    velocity_micron_per_sec_3d_mean: Optional[float] = None
+    velocity_micron_per_sec_3d_median: Optional[float] = None
+    velocity_micron_per_sec_3d_std: Optional[float] = None
     msd_slope_pixel_x: Optional[float] = None
     msd_slope_pixel_y: Optional[float] = None
     msd_slope_pixel_z: Optional[float] = None
@@ -3273,65 +3265,41 @@ class StageDriftKeyMeasurement(KeyMeasurement):
         if self.displacement_micron_3d_std is not None and not isinstance(self.displacement_micron_3d_std, float):
             self.displacement_micron_3d_std = float(self.displacement_micron_3d_std)
 
-        if self.velocity_pixel_x_mean is not None and not isinstance(self.velocity_pixel_x_mean, float):
-            self.velocity_pixel_x_mean = float(self.velocity_pixel_x_mean)
+        if self.velocity_micron_per_sec_x_mean is not None and not isinstance(self.velocity_micron_per_sec_x_mean, float):
+            self.velocity_micron_per_sec_x_mean = float(self.velocity_micron_per_sec_x_mean)
 
-        if self.velocity_pixel_x_median is not None and not isinstance(self.velocity_pixel_x_median, float):
-            self.velocity_pixel_x_median = float(self.velocity_pixel_x_median)
+        if self.velocity_micron_per_sec_x_median is not None and not isinstance(self.velocity_micron_per_sec_x_median, float):
+            self.velocity_micron_per_sec_x_median = float(self.velocity_micron_per_sec_x_median)
 
-        if self.velocity_pixel_x_std is not None and not isinstance(self.velocity_pixel_x_std, float):
-            self.velocity_pixel_x_std = float(self.velocity_pixel_x_std)
+        if self.velocity_micron_per_sec_x_std is not None and not isinstance(self.velocity_micron_per_sec_x_std, float):
+            self.velocity_micron_per_sec_x_std = float(self.velocity_micron_per_sec_x_std)
 
-        if self.velocity_pixel_y_mean is not None and not isinstance(self.velocity_pixel_y_mean, float):
-            self.velocity_pixel_y_mean = float(self.velocity_pixel_y_mean)
+        if self.velocity_micron_per_sec_y_mean is not None and not isinstance(self.velocity_micron_per_sec_y_mean, float):
+            self.velocity_micron_per_sec_y_mean = float(self.velocity_micron_per_sec_y_mean)
 
-        if self.velocity_pixel_y_median is not None and not isinstance(self.velocity_pixel_y_median, float):
-            self.velocity_pixel_y_median = float(self.velocity_pixel_y_median)
+        if self.velocity_micron_per_sec_y_median is not None and not isinstance(self.velocity_micron_per_sec_y_median, float):
+            self.velocity_micron_per_sec_y_median = float(self.velocity_micron_per_sec_y_median)
 
-        if self.velocity_pixel_y_std is not None and not isinstance(self.velocity_pixel_y_std, float):
-            self.velocity_pixel_y_std = float(self.velocity_pixel_y_std)
+        if self.velocity_micron_per_sec_y_std is not None and not isinstance(self.velocity_micron_per_sec_y_std, float):
+            self.velocity_micron_per_sec_y_std = float(self.velocity_micron_per_sec_y_std)
 
-        if self.velocity_pixel_z_mean is not None and not isinstance(self.velocity_pixel_z_mean, float):
-            self.velocity_pixel_z_mean = float(self.velocity_pixel_z_mean)
+        if self.velocity_micron_per_sec_z_mean is not None and not isinstance(self.velocity_micron_per_sec_z_mean, float):
+            self.velocity_micron_per_sec_z_mean = float(self.velocity_micron_per_sec_z_mean)
 
-        if self.velocity_pixel_z_median is not None and not isinstance(self.velocity_pixel_z_median, float):
-            self.velocity_pixel_z_median = float(self.velocity_pixel_z_median)
+        if self.velocity_micron_per_sec_z_median is not None and not isinstance(self.velocity_micron_per_sec_z_median, float):
+            self.velocity_micron_per_sec_z_median = float(self.velocity_micron_per_sec_z_median)
 
-        if self.velocity_micron_x_mean is not None and not isinstance(self.velocity_micron_x_mean, float):
-            self.velocity_micron_x_mean = float(self.velocity_micron_x_mean)
+        if self.velocity_micron_per_sec_z_std is not None and not isinstance(self.velocity_micron_per_sec_z_std, float):
+            self.velocity_micron_per_sec_z_std = float(self.velocity_micron_per_sec_z_std)
 
-        if self.velocity_micron_x_median is not None and not isinstance(self.velocity_micron_x_median, float):
-            self.velocity_micron_x_median = float(self.velocity_micron_x_median)
+        if self.velocity_micron_per_sec_3d_mean is not None and not isinstance(self.velocity_micron_per_sec_3d_mean, float):
+            self.velocity_micron_per_sec_3d_mean = float(self.velocity_micron_per_sec_3d_mean)
 
-        if self.velocity_micron_x_std is not None and not isinstance(self.velocity_micron_x_std, float):
-            self.velocity_micron_x_std = float(self.velocity_micron_x_std)
+        if self.velocity_micron_per_sec_3d_median is not None and not isinstance(self.velocity_micron_per_sec_3d_median, float):
+            self.velocity_micron_per_sec_3d_median = float(self.velocity_micron_per_sec_3d_median)
 
-        if self.velocity_micron_y_mean is not None and not isinstance(self.velocity_micron_y_mean, float):
-            self.velocity_micron_y_mean = float(self.velocity_micron_y_mean)
-
-        if self.velocity_micron_y_median is not None and not isinstance(self.velocity_micron_y_median, float):
-            self.velocity_micron_y_median = float(self.velocity_micron_y_median)
-
-        if self.velocity_micron_y_std is not None and not isinstance(self.velocity_micron_y_std, float):
-            self.velocity_micron_y_std = float(self.velocity_micron_y_std)
-
-        if self.velocity_micron_z_mean is not None and not isinstance(self.velocity_micron_z_mean, float):
-            self.velocity_micron_z_mean = float(self.velocity_micron_z_mean)
-
-        if self.velocity_micron_z_median is not None and not isinstance(self.velocity_micron_z_median, float):
-            self.velocity_micron_z_median = float(self.velocity_micron_z_median)
-
-        if self.velocity_micron_z_std is not None and not isinstance(self.velocity_micron_z_std, float):
-            self.velocity_micron_z_std = float(self.velocity_micron_z_std)
-
-        if self.velocity_micron_3d_mean is not None and not isinstance(self.velocity_micron_3d_mean, float):
-            self.velocity_micron_3d_mean = float(self.velocity_micron_3d_mean)
-
-        if self.velocity_micron_3d_median is not None and not isinstance(self.velocity_micron_3d_median, float):
-            self.velocity_micron_3d_median = float(self.velocity_micron_3d_median)
-
-        if self.velocity_micron_3d_std is not None and not isinstance(self.velocity_micron_3d_std, float):
-            self.velocity_micron_3d_std = float(self.velocity_micron_3d_std)
+        if self.velocity_micron_per_sec_3d_std is not None and not isinstance(self.velocity_micron_per_sec_3d_std, float):
+            self.velocity_micron_per_sec_3d_std = float(self.velocity_micron_per_sec_3d_std)
 
         if self.msd_slope_pixel_x is not None and not isinstance(self.msd_slope_pixel_x, float):
             self.msd_slope_pixel_x = float(self.msd_slope_pixel_x)
@@ -4805,65 +4773,41 @@ slots.displacement_micron_3d_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyse
 slots.displacement_micron_3d_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/displacement_micron_3d_std'], name="displacement_micron_3d_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/displacement_micron_3d_std'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.displacement_micron_3d_std, domain=None, range=Optional[float])
 
-slots.velocity_pixel_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_x_mean'], name="velocity_pixel_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_x_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_x_mean, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_x_mean'], name="velocity_micron_per_sec_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_x_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_x_mean, domain=None, range=Optional[float])
 
-slots.velocity_pixel_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_x_median'], name="velocity_pixel_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_x_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_x_median, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_x_median'], name="velocity_micron_per_sec_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_x_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_x_median, domain=None, range=Optional[float])
 
-slots.velocity_pixel_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_x_std'], name="velocity_pixel_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_x_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_x_std, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_x_std'], name="velocity_micron_per_sec_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_x_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_x_std, domain=None, range=Optional[float])
 
-slots.velocity_pixel_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_y_mean'], name="velocity_pixel_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_y_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_y_mean, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_y_mean'], name="velocity_micron_per_sec_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_y_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_y_mean, domain=None, range=Optional[float])
 
-slots.velocity_pixel_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_y_median'], name="velocity_pixel_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_y_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_y_median, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_y_median'], name="velocity_micron_per_sec_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_y_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_y_median, domain=None, range=Optional[float])
 
-slots.velocity_pixel_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_y_std'], name="velocity_pixel_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_y_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_y_std, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_y_std'], name="velocity_micron_per_sec_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_y_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_y_std, domain=None, range=Optional[float])
 
-slots.velocity_pixel_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_z_mean'], name="velocity_pixel_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_z_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_z_mean, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_z_mean'], name="velocity_micron_per_sec_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_z_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_z_mean, domain=None, range=Optional[float])
 
-slots.velocity_pixel_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_pixel_z_median'], name="velocity_pixel_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_pixel_z_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_pixel_z_median, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_z_median'], name="velocity_micron_per_sec_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_z_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_z_median, domain=None, range=Optional[float])
 
-slots.velocity_micron_x_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_x_mean'], name="velocity_micron_x_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_x_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_x_mean, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_z_std'], name="velocity_micron_per_sec_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_z_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_z_std, domain=None, range=Optional[float])
 
-slots.velocity_micron_x_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_x_median'], name="velocity_micron_x_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_x_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_x_median, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_3d_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_3d_mean'], name="velocity_micron_per_sec_3d_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_3d_mean'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_3d_mean, domain=None, range=Optional[float])
 
-slots.velocity_micron_x_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_x_std'], name="velocity_micron_x_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_x_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_x_std, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_3d_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_3d_median'], name="velocity_micron_per_sec_3d_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_3d_median'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_3d_median, domain=None, range=Optional[float])
 
-slots.velocity_micron_y_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_y_mean'], name="velocity_micron_y_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_y_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_y_mean, domain=None, range=Optional[float])
-
-slots.velocity_micron_y_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_y_median'], name="velocity_micron_y_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_y_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_y_median, domain=None, range=Optional[float])
-
-slots.velocity_micron_y_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_y_std'], name="velocity_micron_y_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_y_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_y_std, domain=None, range=Optional[float])
-
-slots.velocity_micron_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_z_mean'], name="velocity_micron_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_z_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_z_mean, domain=None, range=Optional[float])
-
-slots.velocity_micron_z_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_z_median'], name="velocity_micron_z_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_z_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_z_median, domain=None, range=Optional[float])
-
-slots.velocity_micron_z_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_z_std'], name="velocity_micron_z_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_z_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_z_std, domain=None, range=Optional[float])
-
-slots.velocity_micron_3d_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_3d_mean'], name="velocity_micron_3d_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_3d_mean'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_3d_mean, domain=None, range=Optional[float])
-
-slots.velocity_micron_3d_median = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_3d_median'], name="velocity_micron_3d_median", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_3d_median'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_3d_median, domain=None, range=Optional[float])
-
-slots.velocity_micron_3d_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_3d_std'], name="velocity_micron_3d_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_3d_std'),
-                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_3d_std, domain=None, range=Optional[float])
+slots.velocity_micron_per_sec_3d_std = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/velocity_micron_per_sec_3d_std'], name="velocity_micron_per_sec_3d_std", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/velocity_micron_per_sec_3d_std'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.velocity_micron_per_sec_3d_std, domain=None, range=Optional[float])
 
 slots.msd_slope_pixel_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/msd_slope_pixel_x'], name="msd_slope_pixel_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/msd_slope_pixel_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.msd_slope_pixel_x, domain=None, range=Optional[float])
