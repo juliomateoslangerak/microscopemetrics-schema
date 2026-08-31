@@ -52,6 +52,7 @@ classes:
     attributes:
     slots:
       - image_properties
+      - mean_square_displacements
     slot_usage:
       key_measurements:
         range: StageDriftKeyMeasurement
@@ -164,6 +165,11 @@ slots:
     ifabsent: integer(0)
 
   # Outputs
+  mean_square_displacements:
+    range: Table
+    description: >-
+      Table containing mean square displacement measurements across the multiple images.
+    multivalued: false
   stabilization_timepoint_x:
     range: integer
     description: >-

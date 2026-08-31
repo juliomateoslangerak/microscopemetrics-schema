@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-28T08:52:05
+# Generation date: 2026-08-31T16:11:23
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -3038,6 +3038,7 @@ class StageDriftOutput(MetricsOutput):
     key_measurements: Union[Union[dict, "StageDriftKeyMeasurement"], list[Union[dict, "StageDriftKeyMeasurement"]]] = None
     validated: Union[bool, Bool] = False
     image_properties: Optional[Union[dict, Table]] = None
+    mean_square_displacements: Optional[Union[dict, Table]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
         if self._is_empty(self.key_measurements):
@@ -3048,6 +3049,9 @@ class StageDriftOutput(MetricsOutput):
 
         if self.image_properties is not None and not isinstance(self.image_properties, Table):
             self.image_properties = Table(**as_dict(self.image_properties))
+
+        if self.mean_square_displacements is not None and not isinstance(self.mean_square_displacements, Table):
+            self.mean_square_displacements = Table(**as_dict(self.mean_square_displacements))
 
         super().__post_init__(**kwargs)
 
@@ -4671,6 +4675,9 @@ slots.analysis_rois = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/an
 
 slots.reference_frame_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/reference_frame_nr'], name="reference_frame_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/reference_frame_nr'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.reference_frame_nr, domain=None, range=int)
+
+slots.mean_square_displacements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/mean_square_displacements'], name="mean_square_displacements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/mean_square_displacements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.mean_square_displacements, domain=None, range=Optional[Union[dict, Table]])
 
 slots.stabilization_timepoint_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/stage_drift/stabilization_timepoint_x'], name="stabilization_timepoint_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/stage_drift/stabilization_timepoint_x'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.stabilization_timepoint_x, domain=None, range=Optional[int])
