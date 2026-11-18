@@ -1,0 +1,26 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/chromatic_shift
+name: chromatic_shift_sample
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - ../core
+
+default_range: string
+
+
+classes:
+  ChromaticShiftSample:
+    is_a: Sample
+    description: >-
+      A multi-colour reference sample used to measure the chromatic shift between
+      channels. Typically multi-spectral sub-resolution beads (e.g. TetraSpeck) or a
+      reference slide, but as Chromagnon is fiducial-marker-free any suitably
+      multi-colour specimen may be used.
+    attributes:
+      bead_diameter_micron:
+        description: >-
+          If the reference is a bead sample, the nominal diameter of the beads in
+          microns. Leave empty for marker-free / non-bead references.
+        required: false
+        range: float

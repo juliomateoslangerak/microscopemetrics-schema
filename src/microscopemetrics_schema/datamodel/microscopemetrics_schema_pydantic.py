@@ -76,13 +76,15 @@ linkml_meta = LinkMLMeta({'default_prefix': 'microscopemetrics_schema',
                  'analyses/field_illumination',
                  'analyses/psf_beads',
                  'analyses/coregistration',
+                 'analyses/chromatic_shift',
                  'analyses/light_source_power',
                  'analyses/stage_drift',
                  'analyses/user_experiment',
                  'samples/homogeneous_field',
                  'samples/beads',
                  'samples/light_source_power',
-                 'samples/user_sample'],
+                 'samples/user_sample',
+                 'samples/chromatic_shift'],
      'license': 'GNU GPL v3.0',
      'name': 'microscopemetrics-schema',
      'prefixes': {'example': {'prefix_prefix': 'example',
@@ -1026,10 +1028,12 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
@@ -1095,7 +1099,7 @@ class FLuorescentBeads(Sample):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'abstract': True,
          'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
 
-    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads', 'ChromaticShiftSample']} })
     excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
@@ -1111,7 +1115,7 @@ class MultiWavelengthBeads(FLuorescentBeads):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
 
-    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads', 'ChromaticShiftSample']} })
     excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
@@ -1127,7 +1131,7 @@ class PSFBeads(FLuorescentBeads):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
 
-    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads', 'ChromaticShiftSample']} })
     excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
@@ -1143,7 +1147,7 @@ class NonPSFBeads(FLuorescentBeads):
     """
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/beads'})
 
-    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
+    bead_diameter_micron: float = Field(default=..., description="""The diameter of the beads in the sample measured in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads', 'ChromaticShiftSample']} })
     excitation_wavelengths_nm: list[float] = Field(default=..., description="""The excitation wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     emission_wavelengths_nm: list[float] = Field(default=..., description="""The emission wavelength of the beads.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads']} })
     preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
@@ -1259,10 +1263,12 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
@@ -1398,7 +1404,9 @@ class CoRegistrationInputData(MetricsInputData):
 class CoRegistrationInputParameters(MetricsInputParameters):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
-    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters', 'CoRegistrationKeyMeasurement'],
+    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement'],
          'ifabsent': 'integer(0)'} })
     bit_depth: Optional[int] = Field(default=None, description="""Detector bit depth""", ge=1, le=64, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationInputParameters',
                        'PSFBeadsInputParameters',
@@ -1457,15 +1465,19 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
     reference_channel_name: Optional[str] = Field(default=None, description="""The name of the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
-    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters', 'CoRegistrationKeyMeasurement'],
+    reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement'],
          'ifabsent': 'integer(0)'} })
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
@@ -1506,6 +1518,132 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
     distance_median_micron_3d: Optional[float] = Field(default=None, description="""The median euclidean distance between the reference and moving channels in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     distance_std_micron_3d: Optional[float] = Field(default=None, description="""The standard deviation of the mean euclidean distance between the reference and moving channels in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
     rotation_z_mean: Optional[float] = Field(default=None, description="""The mean rotation around the z axis in degrees.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+
+
+class ChromaticShiftSample(Sample):
+    """
+    A multi-colour reference sample used to measure the chromatic shift between channels. Typically multi-spectral sub-resolution beads (e.g. TetraSpeck) or a reference slide, but as Chromagnon is fiducial-marker-free any suitably multi-colour specimen may be used.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/samples/chromatic_shift'})
+
+    bead_diameter_micron: Optional[float] = Field(default=None, description="""If the reference is a bead sample, the nominal diameter of the beads in microns. Leave empty for marker-free / non-bead references.""", json_schema_extra = { "linkml_meta": {'domain_of': ['FLuorescentBeads', 'ChromaticShiftSample']} })
+    preparation_protocol: Protocol = Field(default=..., description="""The protocol used to prepare a sample""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    preparation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime when the sample was prepared""", json_schema_extra = { "linkml_meta": {'domain_of': ['Sample']} })
+    manufacturer: Optional[str] = Field(default=None, description="""A manufacturer""", json_schema_extra = { "linkml_meta": {'domain_of': ['Microscope', 'Sample', 'PowerMeter']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class ChromaticShiftDataset(HasInputParametersMixin, HasSampleMixin, MetricsDataset):
+    """
+    A chromatic shift dataset. Measures and corrects the 3D chromatic shift (translation, rotation and magnification, plus an optional local distortion field) between the channels of a multi-channel image. Backed by the Chromagnon algorithm (fiducial-marker-free registration).
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift',
+         'mixins': ['HasSampleMixin', 'HasInputParametersMixin'],
+         'slot_usage': {'input_data': {'name': 'input_data',
+                                       'range': 'ChromaticShiftInputData'},
+                        'input_parameters': {'name': 'input_parameters',
+                                             'range': 'ChromaticShiftInputParameters'},
+                        'output': {'name': 'output', 'range': 'ChromaticShiftOutput'},
+                        'sample': {'name': 'sample', 'range': 'ChromaticShiftSample'}}})
+
+    sample: Optional[ChromaticShiftSample] = Field(default=None, description="""The physical sample that was imaged""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasSampleMixin']} })
+    input_parameters: Optional[ChromaticShiftInputParameters] = Field(default=None, description="""The input parameters for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['HasInputParametersMixin']} })
+    acquisition_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the acquisition""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset', 'Image', 'PowerMeasurement']} })
+    input_data: ChromaticShiftInputData = Field(default=..., description="""The input data for the analysis""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    output: Optional[ChromaticShiftOutput] = Field(default=None, description="""The output of the analysis""", json_schema_extra = { "linkml_meta": {'abstract': True, 'domain_of': ['MetricsDataset']} })
+    microscope: Microscope = Field(default=..., description="""The microscope that was used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    experimenter: Optional[Experimenter] = Field(default=None, description="""The experimenter that performed the imaging experiment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    acquisition_protocol: Optional[Protocol] = Field(default=None, description="""The protocol used to acquire the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset']} })
+    processed: bool = Field(default=False, description="""Has the dataset been processed by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsDataset'], 'ifabsent': 'False'} })
+    data_reference: Optional[DataReference] = Field(default=None, description="""A reference to the data""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    linked_references: Optional[list[DataReference]] = Field(default=None, description="""A list of linked references""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
+    name: Optional[str] = Field(default=None, description="""The human readable name of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+    description: Optional[str] = Field(default=None, description="""A human readable description of an entity""", json_schema_extra = { "linkml_meta": {'domain_of': ['NamedObject']} })
+
+
+class ChromaticShiftInputData(MetricsInputData):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift'})
+
+    chromatic_shift_images: list[Image] = Field(default=..., description="""The multi-channel image(s) provided in the order TZYXC. More than one image can be provided if the acquisition conditions are the same.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputData']} })
+
+
+class ChromaticShiftInputParameters(MetricsInputParameters):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift'})
+
+    reference_channel_index: int = Field(default=-1, description="""Index (0-based) of the channel used as the fixed reference; all other channels are aligned onto it (Chromagnon's `refwave`). Use -1 to auto-select the reference channel from wavelength and intensity.""", ge=-1, json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'int(-1)'} })
+    do_local_alignment: bool = Field(default=True, description="""Whether to compute a local (non-linear) distortion field on top of the global affine alignment. Corresponds to producing Chromagnon's `mapyx` map.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'True'} })
+    phase_contrast: bool = Field(default=True, description="""Whether to use phase-contrast (phase-only) cross-correlation for the alignment. True is recommended for most real images; setting it to False uses amplitude cross-correlation, which can give a sharper correlation peak for very sparse, high-contrast point sources (e.g. some bead samples).""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'True'} })
+    max_shift_micron: Optional[float] = Field(default=10.0, description="""Upper bound of the expected chromatic shift in microns. Used to constrain the search and reject spurious alignments.""", ge=0.0, json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'float(10.0)'} })
+    distortion_vector_sampling: Optional[int] = Field(default=32, description="""Target number of local-distortion arrows per image axis in the `local_distortion_vectors` quiver output. The grid step is derived from this and the image size. Higher values give denser (smaller) arrows.""", ge=2, json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'int(32)'} })
+    average_references: Optional[bool] = Field(default=True, description="""When the dataset contains several images, combine them into a single high-SNR image (per-pixel maximum across images) and compute one shared correction from it (equivalent to Chromagnon's \"average references\" option). When false, each image is measured independently.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftInputParameters'], 'ifabsent': 'True'} })
+
+
+class ChromaticShiftOutput(MetricsOutput):
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift',
+         'slot_usage': {'key_measurements': {'name': 'key_measurements',
+                                             'range': 'ChromaticShiftKeyMeasurement'}}})
+
+    corrected_images: Optional[list[Image]] = Field(default=None, description="""The channel-registered (chromatic-shift corrected) images. One corrected image is produced per input image, containing all channels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    local_distortion_maps: Optional[list[Image]] = Field(default=None, description="""Optional per-channel heatmap of the local (non-linear) distortion magnitude, i.e. the per-pixel Euclidean length sqrt(dy^2 + dx^2) of Chromagnon's `mapyx` displacement field that remains on top of the global affine alignment. One image per non-reference channel and per input image. For 3D inputs the field is averaged over Z. Only produced when `do_local_alignment` is true.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    local_distortion_vectors: Optional[list[Roi]] = Field(default=None, description="""Optional quiver (arrow) representation of the local distortion field: on a down-sampled grid, each Line goes from a grid point to that point plus its local displacement, scaled for visibility. Encodes both the direction and the magnitude of the residual local mis-registration. One ROI per non-reference channel and per input image. The applied display scale is noted in the ROI description; true displacements are available in `local_distortion_maps`.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    channel_shift_properties: Optional[Table] = Field(default=None, description="""Per image and per channel table with the full set of alignment parameters (tz, ty, tx, rotation, mz, my, mx) and the fitting residual.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    correction_file: Optional[Any] = Field(default=None, description="""Non-serialisable holder for the raw bytes of the Chromagnon correction file (.chromagnon.csv when there is no local map, .chromagnon.tif when there is). OMERO-metrics attaches these bytes as a file annotation on the dataset so the correction can be downloaded and re-applied later.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    correction_filename: Optional[str] = Field(default=None, description="""Suggested filename for the Chromagnon correction file.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftOutput']} })
+    key_measurements: list[ChromaticShiftKeyMeasurement] = Field(default=..., description="""A list of KeyMeasurement subclasses summarizing the most important measurements as a function of, for example, channels""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    comment: Optional[Comment] = Field(default=None, description="""A human readable comment""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_application: list[str] = Field(default=..., description="""The application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_version: list[str] = Field(default=..., description="""The version of the application used to process the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_entity: Optional[list[str]] = Field(default=None, description="""The entity that processed the dataset""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_datetime: datetime  = Field(default=..., description="""The datetime of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    processing_log: Optional[str] = Field(default=None, description="""The log of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    warnings: Optional[list[str]] = Field(default=None, description="""The warnings of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    errors: Optional[list[str]] = Field(default=None, description="""The errors of the processing by microscope-metrics""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+    validated: bool = Field(default=False, description="""Has the dataset been validated by a human""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput'], 'ifabsent': 'False'} })
+    validation_datetime: Optional[datetime ] = Field(default=None, description="""The datetime of the validation""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsOutput']} })
+
+
+class ChromaticShiftKeyMeasurement(KeyMeasurement):
+    """
+    Summary chromatic-shift measurements for a single channel, measured against the reference channel. One instance per channel.
+    """
+    linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift',
+         'slot_usage': {'reference_channel_nr': {'description': 'The channel number '
+                                                                'that was used as the '
+                                                                'alignment reference '
+                                                                '(the one chosen '
+                                                                'automatically when '
+                                                                'reference_channel_index '
+                                                                'is -1).',
+                                                 'name': 'reference_channel_nr'}}})
+
+    channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
+                       'UserExperimentKeyMeasurement']} })
+    channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
+                       'StageDriftInputParameters',
+                       'UserExperimentKeyMeasurement']} })
+    reference_channel_nr: int = Field(default=0, description="""The channel number that was used as the alignment reference (the one chosen automatically when reference_channel_index is -1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement'],
+         'ifabsent': 'integer(0)'} })
+    shift_z_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Z axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    shift_y_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Y axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    shift_x_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the X axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    shift_z_micron: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Z axis, in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    shift_y_micron: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Y axis, in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    shift_x_micron: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the X axis, in microns.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    total_deviation_micron: Optional[float] = Field(default=None, description="""Largest displacement of the channel relative to the reference over the imaged volume, in microns, from the global (affine) alignment: translation, rotation and magnification together, evaluated at the corners of the image, where it is largest. Local (non-linear) distortion is not included, so the value means the same with or without local alignment.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    rotation_degrees: Optional[float] = Field(default=None, description="""In-plane (XY) rotation of the channel relative to the reference, in degrees.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    magnification_z: Optional[float] = Field(default=None, description="""Magnification factor of the channel relative to the reference along the Z axis. A value of 1.0 means no scaling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    magnification_y: Optional[float] = Field(default=None, description="""Magnification factor of the channel relative to the reference along the Y axis. A value of 1.0 means no scaling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    magnification_x: Optional[float] = Field(default=None, description="""Magnification factor of the channel relative to the reference along the X axis. A value of 1.0 means no scaling.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
+    registration_rmse: Optional[float] = Field(default=None, description="""Root mean squared error between the reference channel and the aligned (chromatic-shift corrected) channel, computed on the intensity images after per-channel min-max normalisation to [0, 1]. Dimensionless, 0 means a perfect match. It quantifies the residual mis-registration after correction. The reference channel has a value of 0 by definition.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
 
 
 class LightSourcePowerDataset(MetricsDataset):
@@ -1675,6 +1813,7 @@ class StageDriftInputParameters(MetricsInputParameters):
     channel_nr: Optional[int] = Field(default=0, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement'],
          'ifabsent': 'integer(0)'} })
@@ -1890,10 +2029,12 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
     channel_name: Optional[str] = Field(default=None, description="""The channel name to which the measurements apply""", json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     channel_nr: Optional[int] = Field(default=None, description="""The channel number to which the measurements apply""", ge=0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
     excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
@@ -1989,6 +2130,12 @@ CoRegistrationInputData.model_rebuild()
 CoRegistrationInputParameters.model_rebuild()
 CoRegistrationOutput.model_rebuild()
 CoRegistrationKeyMeasurement.model_rebuild()
+ChromaticShiftSample.model_rebuild()
+ChromaticShiftDataset.model_rebuild()
+ChromaticShiftInputData.model_rebuild()
+ChromaticShiftInputParameters.model_rebuild()
+ChromaticShiftOutput.model_rebuild()
+ChromaticShiftKeyMeasurement.model_rebuild()
 LightSourcePowerDataset.model_rebuild()
 LightSourcePowerInputData.model_rebuild()
 LightSourcePowerInputParameters.model_rebuild()
