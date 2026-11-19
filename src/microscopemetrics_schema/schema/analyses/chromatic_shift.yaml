@@ -120,7 +120,10 @@ classes:
     slots:
       - channel_name
       - channel_nr
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
       - reference_channel_nr
+      - reference_channel_name
       - shift_z_pixel
       - shift_y_pixel
       - shift_x_pixel

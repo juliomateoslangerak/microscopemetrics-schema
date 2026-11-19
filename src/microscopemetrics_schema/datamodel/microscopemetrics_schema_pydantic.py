@@ -602,11 +602,13 @@ class Channel(MetricsObject):
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     data_reference: Optional[DataReference] = Field(default=None, description="""A reference to the data""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
     linked_references: Optional[list[DataReference]] = Field(default=None, description="""A list of linked references""", json_schema_extra = { "linkml_meta": {'domain_of': ['MetricsObject']} })
@@ -1040,11 +1042,13 @@ class FieldIlluminationKeyMeasurement(KeyMeasurement):
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     center_region_intensity_fraction: Optional[float] = Field(default=None, description="""The fraction of the upper intensity range occupied by the center of illumination region. That is, a value of 0.1 means that the center of illumination occupies the top 10% of the intensity range. microscope-metrics tries to adapt the threshold of this intensity so that the area occupied is not too large. One value per channel.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
     center_region_area_fraction: Optional[float] = Field(default=None, description="""The fraction of the area occupied by the center of illumination region. If the centre upper intensity fraction is 0.1, that means that the center of illumination occupies 10% of the area of the image. One value per channel.""", ge=0.0, le=1.0, json_schema_extra = { "linkml_meta": {'domain_of': ['FieldIlluminationKeyMeasurement']} })
@@ -1275,11 +1279,13 @@ class PSFBeadsKeyMeasurement(KeyMeasurement):
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
     considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
@@ -1464,7 +1470,7 @@ class CoRegistrationOutput(MetricsOutput):
 class CoRegistrationKeyMeasurement(KeyMeasurement):
     linkml_meta: ClassVar[LinkMLMeta] = LinkMLMeta({'from_schema': 'https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/coregistration'})
 
-    reference_channel_name: Optional[str] = Field(default=None, description="""The name of the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement']} })
+    reference_channel_name: Optional[str] = Field(default=None, description="""The name of the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement', 'ChromaticShiftKeyMeasurement']} })
     reference_channel_nr: int = Field(default=0, description="""The channel number of the reference channel. This channel will be used to detect the beads and to align the images to.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters',
                        'CoRegistrationKeyMeasurement',
                        'ChromaticShiftKeyMeasurement'],
@@ -1484,11 +1490,13 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     total_bead_count: Optional[int] = Field(default=None, description="""Total number of beads detected in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
     considered_valid_count: Optional[int] = Field(default=None, description="""Number of beads analyzed. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['PSFBeadsKeyMeasurement', 'CoRegistrationKeyMeasurement']} })
@@ -1628,10 +1636,23 @@ class ChromaticShiftKeyMeasurement(KeyMeasurement):
                        'ChromaticShiftKeyMeasurement',
                        'StageDriftInputParameters',
                        'UserExperimentKeyMeasurement']} })
+    excitation_wavelength_nm: Optional[float] = Field(default=None, description="""The excitation wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
+                       'FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
+                       'UserExperimentKeyMeasurement']} })
+    emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
+                       'FieldIlluminationKeyMeasurement',
+                       'PSFBeadsKeyMeasurement',
+                       'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
+                       'UserExperimentKeyMeasurement']} })
     reference_channel_nr: int = Field(default=0, description="""The channel number that was used as the alignment reference (the one chosen automatically when reference_channel_index is -1).""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationInputParameters',
                        'CoRegistrationKeyMeasurement',
                        'ChromaticShiftKeyMeasurement'],
          'ifabsent': 'integer(0)'} })
+    reference_channel_name: Optional[str] = Field(default=None, description="""The name of the reference channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['CoRegistrationKeyMeasurement', 'ChromaticShiftKeyMeasurement']} })
     shift_z_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Z axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
     shift_y_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the Y axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
     shift_x_pixel: Optional[float] = Field(default=None, description="""Translation of the channel relative to the reference along the X axis, in pixels.""", json_schema_extra = { "linkml_meta": {'domain_of': ['ChromaticShiftKeyMeasurement']} })
@@ -2041,11 +2062,13 @@ class UserExperimentKeyMeasurement(KeyMeasurement):
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     emission_wavelength_nm: Optional[float] = Field(default=None, description="""The emission wavelength in nm""", json_schema_extra = { "linkml_meta": {'domain_of': ['Channel',
                        'FieldIlluminationKeyMeasurement',
                        'PSFBeadsKeyMeasurement',
                        'CoRegistrationKeyMeasurement',
+                       'ChromaticShiftKeyMeasurement',
                        'UserExperimentKeyMeasurement']} })
     variation_coefficient: Optional[float] = Field(default=None, description="""The variation coefficient of the signal of the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })
     saturated_channels: Optional[int] = Field(default=None, description="""The channels that are saturated in the image. One value per channel.""", json_schema_extra = { "linkml_meta": {'domain_of': ['UserExperimentKeyMeasurement']} })

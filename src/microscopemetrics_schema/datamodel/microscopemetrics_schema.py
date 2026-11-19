@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-11-18T17:21:35
+# Generation date: 2026-11-19T12:57:47
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2762,6 +2762,9 @@ class ChromaticShiftKeyMeasurement(KeyMeasurement):
     reference_channel_nr: int = 0
     channel_name: Optional[str] = None
     channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
+    reference_channel_name: Optional[str] = None
     shift_z_pixel: Optional[float] = None
     shift_y_pixel: Optional[float] = None
     shift_x_pixel: Optional[float] = None
@@ -2786,6 +2789,15 @@ class ChromaticShiftKeyMeasurement(KeyMeasurement):
 
         if self.channel_nr is not None and not isinstance(self.channel_nr, int):
             self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
+
+        if self.reference_channel_name is not None and not isinstance(self.reference_channel_name, str):
+            self.reference_channel_name = str(self.reference_channel_name)
 
         if self.shift_z_pixel is not None and not isinstance(self.shift_z_pixel, float):
             self.shift_z_pixel = float(self.shift_z_pixel)
