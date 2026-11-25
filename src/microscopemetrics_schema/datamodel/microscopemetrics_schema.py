@@ -1,5 +1,5 @@
 # Auto generated from microscopemetrics_schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-08-31T18:06:33
+# Generation date: 2026-11-19T12:57:47
 # Schema: microscopemetrics-schema
 #
 # id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema
@@ -2602,6 +2602,243 @@ class CoRegistrationKeyMeasurement(KeyMeasurement):
 
 
 @dataclass(repr=False)
+class ChromaticShiftDataset(MetricsDataset):
+    """
+    A chromatic shift dataset. Measures and corrects the 3D chromatic shift (translation, rotation and magnification,
+    plus an optional local distortion field) between the channels of a multi-channel image. Backed by the Chromagnon
+    algorithm (fiducial-marker-free registration).
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/chromatic_shift/ChromaticShiftDataset"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/chromatic_shift/ChromaticShiftDataset"
+    class_name: ClassVar[str] = "ChromaticShiftDataset"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftDataset
+
+    microscope: Union[dict, Microscope] = None
+    input_data: Union[dict, "ChromaticShiftInputData"] = None
+    processed: Union[bool, Bool] = False
+    input_parameters: Optional[Union[dict, "ChromaticShiftInputParameters"]] = None
+    output: Optional[Union[dict, "ChromaticShiftOutput"]] = None
+    sample: Optional[Union[dict, "ChromaticShiftSample"]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.input_data):
+            self.MissingRequiredField("input_data")
+        if not isinstance(self.input_data, ChromaticShiftInputData):
+            self.input_data = ChromaticShiftInputData(**as_dict(self.input_data))
+
+        if self.input_parameters is not None and not isinstance(self.input_parameters, ChromaticShiftInputParameters):
+            self.input_parameters = ChromaticShiftInputParameters(**as_dict(self.input_parameters))
+
+        if self.output is not None and not isinstance(self.output, ChromaticShiftOutput):
+            self.output = ChromaticShiftOutput(**as_dict(self.output))
+
+        if self.sample is not None and not isinstance(self.sample, ChromaticShiftSample):
+            self.sample = ChromaticShiftSample(**as_dict(self.sample))
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ChromaticShiftInputData(MetricsInputData):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/chromatic_shift/ChromaticShiftInputData"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/chromatic_shift/ChromaticShiftInputData"
+    class_name: ClassVar[str] = "ChromaticShiftInputData"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftInputData
+
+    chromatic_shift_images: Union[Union[dict, Image], list[Union[dict, Image]]] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.chromatic_shift_images):
+            self.MissingRequiredField("chromatic_shift_images")
+        self._normalize_inlined_as_list(slot_name="chromatic_shift_images", slot_type=Image, key_name="shape_x", keyed=False)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ChromaticShiftInputParameters(MetricsInputParameters):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/chromatic_shift/ChromaticShiftInputParameters"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/chromatic_shift/ChromaticShiftInputParameters"
+    class_name: ClassVar[str] = "ChromaticShiftInputParameters"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftInputParameters
+
+    reference_channel_index: int = -1
+    do_local_alignment: Union[bool, Bool] = True
+    phase_contrast: Union[bool, Bool] = True
+    max_shift_micron: Optional[float] = 10.0
+    distortion_vector_sampling: Optional[int] = 32
+    average_references: Optional[Union[bool, Bool]] = True
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.reference_channel_index):
+            self.MissingRequiredField("reference_channel_index")
+        if not isinstance(self.reference_channel_index, int):
+            self.reference_channel_index = int(self.reference_channel_index)
+
+        if self._is_empty(self.do_local_alignment):
+            self.MissingRequiredField("do_local_alignment")
+        if not isinstance(self.do_local_alignment, Bool):
+            self.do_local_alignment = Bool(self.do_local_alignment)
+
+        if self._is_empty(self.phase_contrast):
+            self.MissingRequiredField("phase_contrast")
+        if not isinstance(self.phase_contrast, Bool):
+            self.phase_contrast = Bool(self.phase_contrast)
+
+        if self.max_shift_micron is not None and not isinstance(self.max_shift_micron, float):
+            self.max_shift_micron = float(self.max_shift_micron)
+
+        if self.distortion_vector_sampling is not None and not isinstance(self.distortion_vector_sampling, int):
+            self.distortion_vector_sampling = int(self.distortion_vector_sampling)
+
+        if self.average_references is not None and not isinstance(self.average_references, Bool):
+            self.average_references = Bool(self.average_references)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ChromaticShiftOutput(MetricsOutput):
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/chromatic_shift/ChromaticShiftOutput"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/chromatic_shift/ChromaticShiftOutput"
+    class_name: ClassVar[str] = "ChromaticShiftOutput"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftOutput
+
+    processing_application: Union[str, list[str]] = None
+    processing_version: Union[str, list[str]] = None
+    processing_datetime: Union[str, XSDDateTime] = None
+    key_measurements: Union[Union[dict, "ChromaticShiftKeyMeasurement"], list[Union[dict, "ChromaticShiftKeyMeasurement"]]] = None
+    validated: Union[bool, Bool] = False
+    corrected_images: Optional[Union[Union[dict, Image], list[Union[dict, Image]]]] = empty_list()
+    local_distortion_maps: Optional[Union[Union[dict, Image], list[Union[dict, Image]]]] = empty_list()
+    local_distortion_vectors: Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]] = empty_list()
+    channel_shift_properties: Optional[Union[dict, Table]] = None
+    correction_file: Optional[Union[dict, MetaObject]] = None
+    correction_filename: Optional[str] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.key_measurements):
+            self.MissingRequiredField("key_measurements")
+        self._normalize_inlined_as_list(slot_name="key_measurements", slot_type=ChromaticShiftKeyMeasurement, key_name="reference_channel_nr", keyed=False)
+
+        self._normalize_inlined_as_list(slot_name="corrected_images", slot_type=Image, key_name="shape_x", keyed=False)
+
+        self._normalize_inlined_as_list(slot_name="local_distortion_maps", slot_type=Image, key_name="shape_x", keyed=False)
+
+        if not isinstance(self.local_distortion_vectors, list):
+            self.local_distortion_vectors = [self.local_distortion_vectors] if self.local_distortion_vectors is not None else []
+        self.local_distortion_vectors = [v if isinstance(v, Roi) else Roi(**as_dict(v)) for v in self.local_distortion_vectors]
+
+        if self.channel_shift_properties is not None and not isinstance(self.channel_shift_properties, Table):
+            self.channel_shift_properties = Table(**as_dict(self.channel_shift_properties))
+
+        if self.correction_filename is not None and not isinstance(self.correction_filename, str):
+            self.correction_filename = str(self.correction_filename)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
+class ChromaticShiftKeyMeasurement(KeyMeasurement):
+    """
+    Summary chromatic-shift measurements for a single channel, measured against the reference channel. One instance
+    per channel.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["analyses/chromatic_shift/ChromaticShiftKeyMeasurement"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:analyses/chromatic_shift/ChromaticShiftKeyMeasurement"
+    class_name: ClassVar[str] = "ChromaticShiftKeyMeasurement"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftKeyMeasurement
+
+    reference_channel_nr: int = 0
+    channel_name: Optional[str] = None
+    channel_nr: Optional[int] = None
+    excitation_wavelength_nm: Optional[float] = None
+    emission_wavelength_nm: Optional[float] = None
+    reference_channel_name: Optional[str] = None
+    shift_z_pixel: Optional[float] = None
+    shift_y_pixel: Optional[float] = None
+    shift_x_pixel: Optional[float] = None
+    shift_z_micron: Optional[float] = None
+    shift_y_micron: Optional[float] = None
+    shift_x_micron: Optional[float] = None
+    total_deviation_micron: Optional[float] = None
+    rotation_degrees: Optional[float] = None
+    magnification_z: Optional[float] = None
+    magnification_y: Optional[float] = None
+    magnification_x: Optional[float] = None
+    registration_rmse: Optional[float] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self._is_empty(self.reference_channel_nr):
+            self.MissingRequiredField("reference_channel_nr")
+        if not isinstance(self.reference_channel_nr, int):
+            self.reference_channel_nr = int(self.reference_channel_nr)
+
+        if self.channel_name is not None and not isinstance(self.channel_name, str):
+            self.channel_name = str(self.channel_name)
+
+        if self.channel_nr is not None and not isinstance(self.channel_nr, int):
+            self.channel_nr = int(self.channel_nr)
+
+        if self.excitation_wavelength_nm is not None and not isinstance(self.excitation_wavelength_nm, float):
+            self.excitation_wavelength_nm = float(self.excitation_wavelength_nm)
+
+        if self.emission_wavelength_nm is not None and not isinstance(self.emission_wavelength_nm, float):
+            self.emission_wavelength_nm = float(self.emission_wavelength_nm)
+
+        if self.reference_channel_name is not None and not isinstance(self.reference_channel_name, str):
+            self.reference_channel_name = str(self.reference_channel_name)
+
+        if self.shift_z_pixel is not None and not isinstance(self.shift_z_pixel, float):
+            self.shift_z_pixel = float(self.shift_z_pixel)
+
+        if self.shift_y_pixel is not None and not isinstance(self.shift_y_pixel, float):
+            self.shift_y_pixel = float(self.shift_y_pixel)
+
+        if self.shift_x_pixel is not None and not isinstance(self.shift_x_pixel, float):
+            self.shift_x_pixel = float(self.shift_x_pixel)
+
+        if self.shift_z_micron is not None and not isinstance(self.shift_z_micron, float):
+            self.shift_z_micron = float(self.shift_z_micron)
+
+        if self.shift_y_micron is not None and not isinstance(self.shift_y_micron, float):
+            self.shift_y_micron = float(self.shift_y_micron)
+
+        if self.shift_x_micron is not None and not isinstance(self.shift_x_micron, float):
+            self.shift_x_micron = float(self.shift_x_micron)
+
+        if self.total_deviation_micron is not None and not isinstance(self.total_deviation_micron, float):
+            self.total_deviation_micron = float(self.total_deviation_micron)
+
+        if self.rotation_degrees is not None and not isinstance(self.rotation_degrees, float):
+            self.rotation_degrees = float(self.rotation_degrees)
+
+        if self.magnification_z is not None and not isinstance(self.magnification_z, float):
+            self.magnification_z = float(self.magnification_z)
+
+        if self.magnification_y is not None and not isinstance(self.magnification_y, float):
+            self.magnification_y = float(self.magnification_y)
+
+        if self.magnification_x is not None and not isinstance(self.magnification_x, float):
+            self.magnification_x = float(self.magnification_x)
+
+        if self.registration_rmse is not None and not isinstance(self.registration_rmse, float):
+            self.registration_rmse = float(self.registration_rmse)
+
+        super().__post_init__(**kwargs)
+
+
+@dataclass(repr=False)
 class LightSourcePowerDataset(MetricsDataset):
     """
     Power measurements dataset. A collection of power measurements.
@@ -3683,6 +3920,30 @@ class UserExperiment(Sample):
 
     preparation_protocol: Union[dict, Protocol] = None
 
+@dataclass(repr=False)
+class ChromaticShiftSample(Sample):
+    """
+    A multi-colour reference sample used to measure the chromatic shift between channels. Typically multi-spectral
+    sub-resolution beads (e.g. TetraSpeck) or a reference slide, but as Chromagnon is fiducial-marker-free any
+    suitably multi-colour specimen may be used.
+    """
+    _inherited_slots: ClassVar[list[str]] = []
+
+    class_class_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA["samples/chromatic_shift/ChromaticShiftSample"]
+    class_class_curie: ClassVar[str] = "microscopemetrics_schema:samples/chromatic_shift/ChromaticShiftSample"
+    class_name: ClassVar[str] = "ChromaticShiftSample"
+    class_model_uri: ClassVar[URIRef] = MICROSCOPEMETRICS_SCHEMA.ChromaticShiftSample
+
+    preparation_protocol: Union[dict, Protocol] = None
+    bead_diameter_micron: Optional[float] = None
+
+    def __post_init__(self, *_: str, **kwargs: Any):
+        if self.bead_diameter_micron is not None and not isinstance(self.bead_diameter_micron, float):
+            self.bead_diameter_micron = float(self.bead_diameter_micron)
+
+        super().__post_init__(**kwargs)
+
+
 # Enumerations
 class PlaneAxisEnum(EnumDefinitionImpl):
     """
@@ -4537,6 +4798,63 @@ slots.distance_std_micron_3d = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coreg
 slots.rotation_z_mean = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/rotation_z_mean'], name="rotation_z_mean", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/rotation_z_mean'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.rotation_z_mean, domain=None, range=Optional[float])
 
+slots.chromatic_shift_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/chromatic_shift_images'], name="chromatic_shift_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/chromatic_shift_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromatic_shift_images, domain=None, range=Union[Union[dict, Image], list[Union[dict, Image]]])
+
+slots.reference_channel_index = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/reference_channel_index'], name="reference_channel_index", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/reference_channel_index'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.reference_channel_index, domain=None, range=int)
+
+slots.do_local_alignment = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/do_local_alignment'], name="do_local_alignment", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/do_local_alignment'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.do_local_alignment, domain=None, range=Union[bool, Bool])
+
+slots.phase_contrast = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/phase_contrast'], name="phase_contrast", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/phase_contrast'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.phase_contrast, domain=None, range=Union[bool, Bool])
+
+slots.max_shift_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/max_shift_micron'], name="max_shift_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/max_shift_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.max_shift_micron, domain=None, range=Optional[float])
+
+slots.distortion_vector_sampling = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/distortion_vector_sampling'], name="distortion_vector_sampling", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/distortion_vector_sampling'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.distortion_vector_sampling, domain=None, range=Optional[int])
+
+slots.average_references = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/average_references'], name="average_references", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/average_references'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.average_references, domain=None, range=Optional[Union[bool, Bool]])
+
+slots.shift_z_pixel = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_z_pixel'], name="shift_z_pixel", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_z_pixel'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_z_pixel, domain=None, range=Optional[float])
+
+slots.shift_y_pixel = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_y_pixel'], name="shift_y_pixel", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_y_pixel'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_y_pixel, domain=None, range=Optional[float])
+
+slots.shift_x_pixel = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_x_pixel'], name="shift_x_pixel", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_x_pixel'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_x_pixel, domain=None, range=Optional[float])
+
+slots.shift_z_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_z_micron'], name="shift_z_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_z_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_z_micron, domain=None, range=Optional[float])
+
+slots.shift_y_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_y_micron'], name="shift_y_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_y_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_y_micron, domain=None, range=Optional[float])
+
+slots.shift_x_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/shift_x_micron'], name="shift_x_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/shift_x_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.shift_x_micron, domain=None, range=Optional[float])
+
+slots.total_deviation_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/total_deviation_micron'], name="total_deviation_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/total_deviation_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.total_deviation_micron, domain=None, range=Optional[float])
+
+slots.rotation_degrees = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/rotation_degrees'], name="rotation_degrees", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/rotation_degrees'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.rotation_degrees, domain=None, range=Optional[float])
+
+slots.magnification_z = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/magnification_z'], name="magnification_z", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/magnification_z'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.magnification_z, domain=None, range=Optional[float])
+
+slots.magnification_y = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/magnification_y'], name="magnification_y", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/magnification_y'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.magnification_y, domain=None, range=Optional[float])
+
+slots.magnification_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/magnification_x'], name="magnification_x", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/magnification_x'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.magnification_x, domain=None, range=Optional[float])
+
+slots.registration_rmse = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/registration_rmse'], name="registration_rmse", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/registration_rmse'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.registration_rmse, domain=None, range=Optional[float])
+
 slots.power_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/power_measurements'], name="power_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/power_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.power_measurements, domain=None, range=Union[Union[dict, PowerMeasurement], list[Union[dict, PowerMeasurement]]])
 
@@ -5101,6 +5419,24 @@ slots.pSFBeadsOutput__bead_profiles_x = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analy
 slots.pSFBeadsOutput__average_bead = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/psf_beads/average_bead'], name="pSFBeadsOutput__average_bead", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/psf_beads/average_bead'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.pSFBeadsOutput__average_bead, domain=None, range=Optional[Union[dict, Image]])
 
+slots.chromaticShiftOutput__corrected_images = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/corrected_images'], name="chromaticShiftOutput__corrected_images", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/corrected_images'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__corrected_images, domain=None, range=Optional[Union[Union[dict, Image], list[Union[dict, Image]]]])
+
+slots.chromaticShiftOutput__local_distortion_maps = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/local_distortion_maps'], name="chromaticShiftOutput__local_distortion_maps", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/local_distortion_maps'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__local_distortion_maps, domain=None, range=Optional[Union[Union[dict, Image], list[Union[dict, Image]]]])
+
+slots.chromaticShiftOutput__local_distortion_vectors = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/local_distortion_vectors'], name="chromaticShiftOutput__local_distortion_vectors", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/local_distortion_vectors'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__local_distortion_vectors, domain=None, range=Optional[Union[Union[dict, Roi], list[Union[dict, Roi]]]])
+
+slots.chromaticShiftOutput__channel_shift_properties = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/channel_shift_properties'], name="chromaticShiftOutput__channel_shift_properties", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/channel_shift_properties'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__channel_shift_properties, domain=None, range=Optional[Union[dict, Table]])
+
+slots.chromaticShiftOutput__correction_file = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/correction_file'], name="chromaticShiftOutput__correction_file", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/correction_file'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__correction_file, domain=None, range=Optional[Union[dict, MetaObject]])
+
+slots.chromaticShiftOutput__correction_filename = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/chromatic_shift/correction_filename'], name="chromaticShiftOutput__correction_filename", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/chromatic_shift/correction_filename'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftOutput__correction_filename, domain=None, range=Optional[str])
+
 slots.powerMeter__manufacturer = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/light_source_power/manufacturer'], name="powerMeter__manufacturer", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/light_source_power/manufacturer'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.powerMeter__manufacturer, domain=None, range=Optional[str])
 
@@ -5121,6 +5457,9 @@ slots.fLuorescentBeads__excitation_wavelengths_nm = Slot(uri=MICROSCOPEMETRICS_S
 
 slots.fLuorescentBeads__emission_wavelengths_nm = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/beads/emission_wavelengths_nm'], name="fLuorescentBeads__emission_wavelengths_nm", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/beads/emission_wavelengths_nm'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.fLuorescentBeads__emission_wavelengths_nm, domain=None, range=Union[float, list[float]])
+
+slots.chromaticShiftSample__bead_diameter_micron = Slot(uri=MICROSCOPEMETRICS_SCHEMA['samples/chromatic_shift/bead_diameter_micron'], name="chromaticShiftSample__bead_diameter_micron", curie=MICROSCOPEMETRICS_SCHEMA.curie('samples/chromatic_shift/bead_diameter_micron'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.chromaticShiftSample__bead_diameter_micron, domain=None, range=Optional[float])
 
 slots.FieldIlluminationDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="FieldIlluminationDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.FieldIlluminationDataset_input_data, domain=FieldIlluminationDataset, range=Union[dict, "FieldIlluminationInputData"])
@@ -5172,6 +5511,24 @@ slots.CoRegistrationDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sam
 
 slots.CoRegistrationOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="CoRegistrationOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.CoRegistrationOutput_key_measurements, domain=CoRegistrationOutput, range=Union[Union[dict, "CoRegistrationKeyMeasurement"], list[Union[dict, "CoRegistrationKeyMeasurement"]]])
+
+slots.ChromaticShiftDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="ChromaticShiftDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftDataset_input_data, domain=ChromaticShiftDataset, range=Union[dict, "ChromaticShiftInputData"])
+
+slots.ChromaticShiftDataset_input_parameters = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_parameters'], name="ChromaticShiftDataset_input_parameters", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_parameters'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftDataset_input_parameters, domain=ChromaticShiftDataset, range=Optional[Union[dict, "ChromaticShiftInputParameters"]])
+
+slots.ChromaticShiftDataset_output = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/output'], name="ChromaticShiftDataset_output", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/output'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftDataset_output, domain=ChromaticShiftDataset, range=Optional[Union[dict, "ChromaticShiftOutput"]])
+
+slots.ChromaticShiftDataset_sample = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/sample'], name="ChromaticShiftDataset_sample", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/sample'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftDataset_sample, domain=ChromaticShiftDataset, range=Optional[Union[dict, "ChromaticShiftSample"]])
+
+slots.ChromaticShiftOutput_key_measurements = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/key_measurements'], name="ChromaticShiftOutput_key_measurements", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/key_measurements'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftOutput_key_measurements, domain=ChromaticShiftOutput, range=Union[Union[dict, "ChromaticShiftKeyMeasurement"], list[Union[dict, "ChromaticShiftKeyMeasurement"]]])
+
+slots.ChromaticShiftKeyMeasurement_reference_channel_nr = Slot(uri=MICROSCOPEMETRICS_SCHEMA['analyses/coregistration/reference_channel_nr'], name="ChromaticShiftKeyMeasurement_reference_channel_nr", curie=MICROSCOPEMETRICS_SCHEMA.curie('analyses/coregistration/reference_channel_nr'),
+                   model_uri=MICROSCOPEMETRICS_SCHEMA.ChromaticShiftKeyMeasurement_reference_channel_nr, domain=ChromaticShiftKeyMeasurement, range=int)
 
 slots.LightSourcePowerDataset_input_data = Slot(uri=MICROSCOPEMETRICS_SCHEMA['core/input_data'], name="LightSourcePowerDataset_input_data", curie=MICROSCOPEMETRICS_SCHEMA.curie('core/input_data'),
                    model_uri=MICROSCOPEMETRICS_SCHEMA.LightSourcePowerDataset_input_data, domain=LightSourcePowerDataset, range=Union[dict, "LightSourcePowerInputData"])

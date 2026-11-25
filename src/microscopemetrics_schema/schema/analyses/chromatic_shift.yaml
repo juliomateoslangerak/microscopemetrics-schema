@@ -1,0 +1,282 @@
+id: https://MontpellierRessourcesImagerie.github.io/microscopemetrics-schema/analyses/chromatic_shift
+name: chromatic_shift
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+  - ../core
+  - ../samples/chromatic_shift
+  - ./coregistration  # for the shared reference_channel_nr slot
+
+default_range: string
+
+
+classes:
+  ChromaticShiftDataset:
+    is_a: MetricsDataset
+    description: >-
+      A chromatic shift dataset. Measures and corrects the 3D chromatic shift
+      (translation, rotation and magnification, plus an optional local
+      distortion field) between the channels of a multi-channel image.
+      Backed by the Chromagnon algorithm (fiducial-marker-free registration).
+    mixins:
+      - HasSampleMixin
+      - HasInputParametersMixin
+    slot_usage:
+      input_data:
+        range: ChromaticShiftInputData
+      input_parameters:
+        range: ChromaticShiftInputParameters
+      output:
+        range: ChromaticShiftOutput
+      sample:
+        range: ChromaticShiftSample
+
+  ChromaticShiftInputData:
+    is_a: MetricsInputData
+    slots:
+      - chromatic_shift_images
+
+  ChromaticShiftInputParameters:
+    is_a: MetricsInputParameters
+    slots:
+      - reference_channel_index
+      - do_local_alignment
+      - phase_contrast
+      - max_shift_micron
+      - distortion_vector_sampling
+      - average_references
+
+  ChromaticShiftOutput:
+    is_a: MetricsOutput
+    attributes:
+      corrected_images:
+        range: Image
+        description: >-
+          The channel-registered (chromatic-shift corrected) images.
+          One corrected image is produced per input image, containing all channels.
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      local_distortion_maps:
+        range: Image
+        description: >-
+          Optional per-channel heatmap of the local (non-linear) distortion magnitude,
+          i.e. the per-pixel Euclidean length sqrt(dy^2 + dx^2) of Chromagnon's `mapyx`
+          displacement field that remains on top of the global affine alignment.
+          One image per non-reference channel and per input image. For 3D inputs the
+          field is averaged over Z. Only produced when `do_local_alignment` is true.
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      local_distortion_vectors:
+        range: Roi
+        description: >-
+          Optional quiver (arrow) representation of the local distortion field: on a
+          down-sampled grid, each Line goes from a grid point to that point plus its
+          local displacement, scaled for visibility. Encodes both the direction and the
+          magnitude of the residual local mis-registration. One ROI per non-reference
+          channel and per input image. The applied display scale is noted in the ROI
+          description; true displacements are available in `local_distortion_maps`.
+        required: false
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      channel_shift_properties:
+        range: Table
+        description: >-
+          Per image and per channel table with the full set of alignment parameters
+          (tz, ty, tx, rotation, mz, my, mx) and the fitting residual.
+        required: false
+        multivalued: false
+        inlined: true
+        inlined_as_list: true
+      correction_file:
+        range: MetaObject
+        description: >-
+          Non-serialisable holder for the raw bytes of the Chromagnon correction
+          file (.chromagnon.csv when there is no local map, .chromagnon.tif when
+          there is). OMERO-metrics attaches these bytes as a file annotation on the
+          dataset so the correction can be downloaded and re-applied later.
+        required: false
+        multivalued: false
+      correction_filename:
+        range: string
+        description: >-
+          Suggested filename for the Chromagnon correction file.
+        required: false
+        multivalued: false
+    slot_usage:
+      key_measurements:
+        range: ChromaticShiftKeyMeasurement
+
+  ChromaticShiftKeyMeasurement:
+    is_a: KeyMeasurement
+    description: >-
+      Summary chromatic-shift measurements for a single channel, measured against
+      the reference channel. One instance per channel.
+    slots:
+      - channel_name
+      - channel_nr
+      - excitation_wavelength_nm
+      - emission_wavelength_nm
+      - reference_channel_nr
+      - reference_channel_name
+      - shift_z_pixel
+      - shift_y_pixel
+      - shift_x_pixel
+      - shift_z_micron
+      - shift_y_micron
+      - shift_x_micron
+      - total_deviation_micron
+      - rotation_degrees
+      - magnification_z
+      - magnification_y
+      - magnification_x
+      - registration_rmse
+    slot_usage:
+      # reference_channel_nr is shared with the co-registration analysis.
+      reference_channel_nr:
+        description: >-
+          The channel number that was used as the alignment reference (the one
+          chosen automatically when reference_channel_index is -1).
+
+
+slots:
+  # ---- Inputs ----
+  chromatic_shift_images:
+    range: Image
+    description: >-
+      The multi-channel image(s) provided in the order TZYXC. More than one image
+      can be provided if the acquisition conditions are the same.
+    required: true
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  reference_channel_index:
+    range: integer
+    description: >-
+      Index (0-based) of the channel used as the fixed reference; all other channels
+      are aligned onto it (Chromagnon's `refwave`). Use -1 to auto-select the
+      reference channel from wavelength and intensity.
+    required: true
+    minimum_value: -1
+    ifabsent: int(-1)
+  do_local_alignment:
+    range: boolean
+    description: >-
+      Whether to compute a local (non-linear) distortion field on top of the global
+      affine alignment. Corresponds to producing Chromagnon's `mapyx` map.
+    required: true
+    ifabsent: true
+  phase_contrast:
+    range: boolean
+    description: >-
+      Whether to use phase-contrast (phase-only) cross-correlation for the
+      alignment. True is recommended for most real images; setting it to False uses
+      amplitude cross-correlation, which can give a sharper correlation peak for very
+      sparse, high-contrast point sources (e.g. some bead samples).
+    required: true
+    ifabsent: true
+  max_shift_micron:
+    range: float
+    description: >-
+      Upper bound of the expected chromatic shift in microns. Used to constrain the
+      search and reject spurious alignments.
+    required: false
+    ifabsent: float(10.0)
+    minimum_value: 0.0
+  distortion_vector_sampling:
+    range: integer
+    description: >-
+      Target number of local-distortion arrows per image axis in the
+      `local_distortion_vectors` quiver output. The grid step is derived from this
+      and the image size. Higher values give denser (smaller) arrows.
+    required: false
+    ifabsent: int(32)
+    minimum_value: 2
+  average_references:
+    range: boolean
+    description: >-
+      When the dataset contains several images, combine them into a single
+      high-SNR image (per-pixel maximum across images) and compute one shared
+      correction from it (equivalent to Chromagnon's "average references" option).
+      When false, each image is measured independently.
+    required: false
+    ifabsent: true
+
+  # ---- Outputs ----
+  shift_z_pixel:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the Z axis, in pixels.
+    multivalued: false
+  shift_y_pixel:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the Y axis, in pixels.
+    multivalued: false
+  shift_x_pixel:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the X axis, in pixels.
+    multivalued: false
+  shift_z_micron:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the Z axis, in microns.
+    multivalued: false
+  shift_y_micron:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the Y axis, in microns.
+    multivalued: false
+  shift_x_micron:
+    range: float
+    description: >-
+      Translation of the channel relative to the reference along the X axis, in microns.
+    multivalued: false
+  total_deviation_micron:
+    range: float
+    description: >-
+      Largest displacement of the channel relative to the reference over the
+      imaged volume, in microns, from the global (affine) alignment: translation,
+      rotation and magnification together, evaluated at the corners of the image,
+      where it is largest. Local (non-linear) distortion is not included, so the
+      value means the same with or without local alignment.
+    multivalued: false
+  rotation_degrees:
+    range: float
+    description: >-
+      In-plane (XY) rotation of the channel relative to the reference, in degrees.
+    multivalued: false
+  magnification_z:
+    range: float
+    description: >-
+      Magnification factor of the channel relative to the reference along the Z axis.
+      A value of 1.0 means no scaling.
+    multivalued: false
+  magnification_y:
+    range: float
+    description: >-
+      Magnification factor of the channel relative to the reference along the Y axis.
+      A value of 1.0 means no scaling.
+    multivalued: false
+  magnification_x:
+    range: float
+    description: >-
+      Magnification factor of the channel relative to the reference along the X axis.
+      A value of 1.0 means no scaling.
+    multivalued: false
+  registration_rmse:
+    range: float
+    description: >-
+      Root mean squared error between the reference channel and the aligned
+      (chromatic-shift corrected) channel, computed on the intensity images after
+      per-channel min-max normalisation to [0, 1]. Dimensionless, 0 means a perfect
+      match. It quantifies the residual mis-registration after correction. The
+      reference channel has a value of 0 by definition.
+    required: false
+    multivalued: false
